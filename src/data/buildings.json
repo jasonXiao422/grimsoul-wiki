@@ -1,0 +1,58 @@
+[
+  {
+    "id": "campfire",
+    "name": "篝火",
+    "function": "烹饪食物、提供光源与保暖",
+    "levels": [
+      {
+        "level": 1,
+        "cost": [
+          { "material": "wood", "qty": 10 },
+          { "material": "stone", "qty": 5 }
+        ],
+        "unlock": "初始解锁"
+      }
+    ],
+    "produces": [],
+    "note": "开局第一个必建，夜晚没有光源非常危险"
+  },
+  {
+    "id": "workbench",
+    "name": "工作台",
+    "function": "制作基础工具、武器与材料",
+    "levels": [
+      {
+        "level": 1,
+        "cost": [{ "material": "wood", "qty": 20 }],
+        "unlock": "初始解锁"
+      },
+      {
+        "level": 2,
+        "cost": [
+          { "material": "wood", "qty": 50 },
+          { "material": "forged-iron", "qty": 5 }
+        ],
+        "unlock": "角色等级 8"
+      }
+    ],
+    "produces": ["broken-sword", "iron-sword", "hunting-bow", "rope"],
+    "note": "升级后解锁的配方是主线推进的关键"
+  },
+  {
+    "id": "forge",
+    "name": "熔炉",
+    "function": "冶炼矿石、锻造高级装备",
+    "levels": [
+      {
+        "level": 1,
+        "cost": [
+          { "material": "stone", "qty": 30 },
+          { "material": "wood", "qty": 15 }
+        ],
+        "unlock": "角色等级 6"
+      }
+    ],
+    "produces": ["forged-iron", "iron-chestplate", "templar-sword", "templar-helm"],
+    "note": "锻铁的唯一来源，尽早建"
+  }
+]

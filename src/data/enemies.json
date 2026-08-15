@@ -1,0 +1,46 @@
+[
+  {
+    "id": "mad-peasant",
+    "name": "疯狂农夫",
+    "tier": "普通",
+    "hp": 60,
+    "damage": 8,
+    "locations": ["灰蚀森林", "废弃农场"],
+    "weakness": "无特殊弱点，攻击前摇明显",
+    "behavior": "直线冲锋，攻击后有约 1 秒硬直",
+    "drops": [
+      { "item": "leather", "type": "material", "chance": "60%" },
+      { "item": "wood", "type": "material", "chance": "40%" }
+    ],
+    "note": "开局练手目标，可以卡树木绕圈风筝"
+  },
+  {
+    "id": "plague-archer",
+    "name": "瘟疫弓箭手",
+    "tier": "普通",
+    "hp": 90,
+    "damage": 16,
+    "locations": ["被遗弃的哨站"],
+    "weakness": "近身后输出大幅下降",
+    "behavior": "保持距离射击，被贴脸会后撤",
+    "drops": [
+      { "item": "rope", "type": "material", "chance": "35%" }
+    ],
+    "note": "优先秒掉，远程伤害在多怪场合很致命"
+  },
+  {
+    "id": "zombie-knight",
+    "name": "僵尸骑士",
+    "tier": "精英",
+    "hp": 420,
+    "damage": 45,
+    "locations": ["沉睡的隐修院", "隐修士的领地"],
+    "weakness": "重甲，钝器伤害更高；转身速度慢",
+    "behavior": "三连击后有较长收招，是主要输出窗口",
+    "drops": [
+      { "item": "soul-shard", "type": "material", "chance": "25%" },
+      { "item": "forged-iron", "type": "material", "chance": "50%" }
+    ],
+    "note": "中期主要灵魂碎片来源，务必带够绷带"
+  }
+]

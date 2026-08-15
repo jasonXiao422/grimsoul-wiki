@@ -1,0 +1,47 @@
+[
+  {
+    "id": "wood",
+    "name": "木材",
+    "category": "基础资源",
+    "source": "砍伐树木、拆解木制家具",
+    "note": "前期最常用的基础材料"
+  },
+  {
+    "id": "stone",
+    "name": "石头",
+    "category": "基础资源",
+    "source": "开采石矿、地面拾取"
+  },
+  {
+    "id": "iron-ore",
+    "name": "铁矿石",
+    "category": "基础资源",
+    "source": "开采铁矿脉"
+  },
+  {
+    "id": "forged-iron",
+    "name": "锻铁",
+    "category": "加工材料",
+    "source": "铁矿石 x2 于熔炉冶炼",
+    "note": "中期几乎所有装备的核心材料，建议常备"
+  },
+  {
+    "id": "leather",
+    "name": "皮革",
+    "category": "加工材料",
+    "source": "剥取野猪、鹿等动物的兽皮后鞣制"
+  },
+  {
+    "id": "rope",
+    "name": "绳索",
+    "category": "加工材料",
+    "source": "亚麻 x3 于工作台制作"
+  },
+  {
+    "id": "soul-shard",
+    "name": "灵魂碎片",
+    "category": "稀有材料",
+    "source": "击杀高级敌人、开启灵魂宝箱",
+    "note": "高阶装备与传送卷轴的关键材料"
+  }
+]

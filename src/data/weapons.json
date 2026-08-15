@@ -1,0 +1,83 @@
+[
+  {
+    "id": "broken-sword",
+    "name": "断剑",
+    "type": "单手剑",
+    "rarity": "common",
+    "damage": 12,
+    "attackSpeed": 1.1,
+    "durability": 80,
+    "reqLevel": 1,
+    "craft": {
+      "station": "workbench",
+      "time": "10s",
+      "cost": [
+        { "material": "wood", "qty": 2 },
+        { "material": "iron-ore", "qty": 1 }
+      ]
+    },
+    "obtain": ["制作", "灰蚀森林 木箱"],
+    "note": "开局过渡武器，耐久很低，建议尽快替换"
+  },
+  {
+    "id": "iron-sword",
+    "name": "铁剑",
+    "type": "单手剑",
+    "rarity": "uncommon",
+    "damage": 24,
+    "attackSpeed": 1.2,
+    "durability": 300,
+    "reqLevel": 5,
+    "craft": {
+      "station": "workbench",
+      "time": "30s",
+      "cost": [
+        { "material": "forged-iron", "qty": 3 },
+        { "material": "leather", "qty": 1 }
+      ]
+    },
+    "obtain": ["制作", "被遗弃的哨站 宝箱"],
+    "note": "前期性价比最高的过渡武器，材料好凑"
+  },
+  {
+    "id": "hunting-bow",
+    "name": "猎弓",
+    "type": "弓",
+    "rarity": "uncommon",
+    "damage": 18,
+    "attackSpeed": 0.9,
+    "durability": 200,
+    "reqLevel": 4,
+    "craft": {
+      "station": "workbench",
+      "time": "25s",
+      "cost": [
+        { "material": "wood", "qty": 5 },
+        { "material": "rope", "qty": 2 }
+      ]
+    },
+    "obtain": ["制作"],
+    "note": "远程消耗，打精英怪时配合走位很实用"
+  },
+  {
+    "id": "templar-sword",
+    "name": "圣殿骑士剑",
+    "type": "单手剑",
+    "rarity": "epic",
+    "damage": 62,
+    "attackSpeed": 1.15,
+    "durability": 900,
+    "reqLevel": 20,
+    "craft": {
+      "station": "forge",
+      "time": "5m",
+      "cost": [
+        { "material": "forged-iron", "qty": 12 },
+        { "material": "soul-shard", "qty": 3 },
+        { "material": "leather", "qty": 4 }
+      ]
+    },
+    "obtain": ["制作（需图纸）", "沉睡的隐修院 精英掉落"],
+    "note": "中后期主力，需要先在隐修院拿到图纸"
+  }
+]

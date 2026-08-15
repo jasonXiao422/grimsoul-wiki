@@ -1,0 +1,59 @@
+[
+  {
+    "id": "leather-cap",
+    "name": "皮帽",
+    "slot": "头部",
+    "rarity": "common",
+    "armor": 6,
+    "durability": 120,
+    "reqLevel": 2,
+    "set": null,
+    "craft": {
+      "station": "workbench",
+      "time": "15s",
+      "cost": [{ "material": "leather", "qty": 3 }]
+    },
+    "obtain": ["制作"],
+    "note": "开荒第一件头盔"
+  },
+  {
+    "id": "iron-chestplate",
+    "name": "铁胸甲",
+    "slot": "胸部",
+    "rarity": "uncommon",
+    "armor": 22,
+    "durability": 400,
+    "reqLevel": 8,
+    "set": "iron-set",
+    "craft": {
+      "station": "forge",
+      "time": "1m",
+      "cost": [
+        { "material": "forged-iron", "qty": 6 },
+        { "material": "leather", "qty": 2 }
+      ]
+    },
+    "obtain": ["制作"],
+    "note": "铁套核心件，性价比高"
+  },
+  {
+    "id": "templar-helm",
+    "name": "圣殿骑士头盔",
+    "slot": "头部",
+    "rarity": "epic",
+    "armor": 45,
+    "durability": 800,
+    "reqLevel": 20,
+    "set": "templar-set",
+    "craft": {
+      "station": "forge",
+      "time": "4m",
+      "cost": [
+        { "material": "forged-iron", "qty": 10 },
+        { "material": "soul-shard", "qty": 2 }
+      ]
+    },
+    "obtain": ["制作（需图纸）"],
+    "note": "圣殿套四件齐全后有额外减伤"
+  }
+]
