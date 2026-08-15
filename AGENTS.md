@@ -32,34 +32,59 @@
 
 ## 数据层
 
-`src/data/` 下 6 个 JSON：
-`materials` `weapons` `armors` `enemies` `scrolls` `buildings`
+`src/data/` 下的 JSON **全部由脚本从 Excel 生成，不要手工编辑**：
 
-- 所有 schema 定义在 `src/lib/schema.ts`（zod），build 时校验
-- 校验必须检查：字段缺失、id 重复、craft.cost 里引用了不存在的 material id
-- 任一校验失败要让 build 退出码非 0
+| 文件 | 内容 |
+|---|---|
+| `weapons.json` | 124 件武器 |
+| `armor.json` | 33 套护甲套装，每套内嵌 5 件 `pieces` |
+| `armor-pieces.json` | 13 件不属于套装的散件 |
+| `shields.json` | 14 面盾牌 |
+| `backpacks.json` | 29 个驮篮 |
+| `enemies.json` | 124 只敌人，`group` 字段是地点大类 |
+| `materials.json` | 49 种材料，从所有配方反推生成 |
 
-**材料引用规则**：weapons / armors / buildings 的 `craft.cost` 里只写 material 的 id，
-渲染时从 `materials.json` 查表带出名称和图标。绝不在配方里硬编码材料名。
+数据源是 `data-source/` 下的 Excel，转换脚本是 `scripts/import_excel.py`。
+要改数据请改 Excel 后重跑脚本，不要直接改 JSON——手改会在下次导入时被覆盖。
 
-**稀有度**：只存英文 key，中文名和颜色映射在 `src/lib/rarity.ts`：
-`common` 普通(灰) / `uncommon` 优秀(绿) / `rare` 稀有(蓝) / `epic` 史诗(紫) / `legendary` 传说(橙)
+**材料引用规则**：所有 `cost` 数组里只存 material 的 id，渲染时从 `materials.json`
+查表带出中文名和图标。绝不在配方里硬编码材料名。
+
+**特殊字段的渲染方式**由 `src/lib/categories.ts` 里每列的 `render` 决定：
+
+- `element` — `{type: "冰", value: 11}` → 显示为「冰 11」并带元素配色
+- `durability` — `{value: 400, unit: "秒"}` → 显示为「400秒」
+- `cost` — 材料图标 + 数量，可点击跳转材料页
+- `tier` — 品阶徽章，颜色查 `src/lib/tiers.ts`
+- `list` — 字符串数组，显示为若干标签
+
+**已知的数据缺口**（不要试图补全，也不要因此让 build 失败）：
+
+- 9 只元素副本 boss 的护甲与物理伤害为 `null`，`dataIncomplete: true`，
+  详情页需显示「数据待补充」而不是「0」
+- 风暴使者、纯净守护者两套的 `totalArmor` 为 `null`，原表里是 Excel 公式
+- 部分条目的 `cost` 为空数组，表示该装备无法制作（只能掉落或购买）
 
 ## 图片规则
 
-- 路径按 `/images/<类别>/<id>.webp` **自动拼接**，JSON 里不写 icon 字段
+- 路径按 `/images/<文件名>/<id>.webp` **自动拼接**，JSON 里不写 icon 字段
+- 套装部件的图标放在 `public/images/armor-pieces/`
 - 缺图时显示占位符，不要报错崩页面
-- `scripts/check-icons.mjs` 检查缺图，已挂在 `prebuild`
+- `scripts/check-icons.mjs` 检查缺图，已挂在 `prebuild`，只警告不中断
 
 ## 页面清单
 
 | 路径 | 说明 |
 |---|---|
-| `/` | Hero + 六宫格入口（显示各类别条目数）+ 最近更新 |
+| `/` | Hero + 六宫格入口（显示各类别条目数）+ 站点简介 |
 | `/lore` | 背景故事，读取 `src/content/lore/*.md` |
-| `/weapons` 等五个 | 列表页，复用 DataTable |
-| `/weapons/[id]` 等 | 详情页，getStaticPaths 从 JSON 生成 |
-| `/materials/[id]` | 材料页，反向列出"哪些配方用到它" |
+| `/weapons` `/armor` `/shields` `/backpacks` `/enemies` `/materials` | 列表页，复用 DataTable |
+| `/<类别>/[id]` | 详情页，getStaticPaths 从 JSON 生成 |
+| `/armor/[id]` | 套装详情，展示 5 件部件的属性与配方 |
+| `/materials/[id]` | 材料页，反向列出所有用到它的配方 |
+
+敌人列表按 `group` 字段分组展示（家里 / 1-5级图 / 被弃地下城 / 酷吏地下城 /
+空降事件 / 节日活动 / 衰败摇篮 / 元素副本 / 大车炮台），但搜索要能跨组。
 
 ## 组件清单
 
@@ -131,3 +156,9 @@ list.sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
   但在表格中数字单独成列时不适用此规则
 - `line-height` 中文正文用 1.75，比英文站更宽松
 - 标题不要用 `letter-spacing` 的负值，中文字符会挤在一起
+
+## tools/ 目录
+
+tools/icon-namer.html 是图标批量导入工具，由人工在浏览器中使用，
+不属于站点构建的一部分。不要修改它，不要把它移进 public/，
+也不要在 astro.config 里引用它。

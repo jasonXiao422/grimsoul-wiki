@@ -1,7 +1,8 @@
 ---
 import type { CategoryDef } from '../lib/categories';
-import { RARITY_META, type Rarity } from '../lib/rarity';
-import { FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
+import { TIER_COLOR } from '../lib/tiers';
+import { getByPath } from '../lib/data';
+import { ELEMENT_COLORS, FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
 
 interface Props {
   category: CategoryDef;
@@ -16,7 +17,7 @@ const fallback =
 const getFilterOptions = (key: string) => {
   const values = new Map<string, string>();
   for (const item of items) {
-    const raw = item[key];
+    const raw = getByPath(item, key);
     const rawValues = Array.isArray(raw) ? raw : [raw ?? ''];
     for (const rawValue of rawValues) {
       const value = rawValue === null || rawValue === undefined || rawValue === '' ? '__none' : String(rawValue);
@@ -30,6 +31,30 @@ const getRowFilterValue = (value: unknown) => {
   if (Array.isArray(value)) return value.map(getRowFilterValue).join('|');
   return value === null || value === undefined || value === '' ? '__none' : String(value);
 };
+
+const getDisplayValue = (item: Record<string, any>, key: string, value: unknown) => {
+  if ((value === null || value === undefined || value === '') && item.dataIncomplete) return '数据待补充';
+  return formatValue(key, value);
+};
+
+const getElementColor = (value: unknown) => {
+  if (!value || typeof value !== 'object') return undefined;
+  const type = (value as Record<string, unknown>).type;
+  return typeof type === 'string' ? ELEMENT_COLORS[type] : undefined;
+};
+
+const tableRows: Array<{ type: 'group'; label: string } | { type: 'item'; item: Record<string, any> }> = [];
+let currentGroup = '';
+for (const item of items) {
+  if (category.groupBy) {
+    const groupLabel = formatValue(category.groupBy, getByPath(item, category.groupBy));
+    if (groupLabel !== currentGroup) {
+      currentGroup = groupLabel;
+      tableRows.push({ type: 'group', label: groupLabel });
+    }
+  }
+  tableRows.push({ type: 'item', item });
+}
 ---
 
 <section class="data-table-block" data-table-root>
@@ -71,41 +96,55 @@ const getRowFilterValue = (value: unknown) => {
         </tr>
       </thead>
       <tbody>
-        {items.map((item) => (
-          <tr
-            data-row
-            data-search={category.columns.map((column) => formatValue(column.key, item[column.key])).join(' ')}
-            {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(item[filter])]))}
-          >
-            {category.columns.map((column, index) => {
-              const rawValue = item[column.key];
-              const value = formatValue(column.key, rawValue);
-              const sortValue = getSortValue(column.key, rawValue);
-              const rarity = column.key === 'rarity' ? RARITY_META[rawValue as Rarity] : undefined;
-              return (
-                <td class:list={[column.numeric && 'numeric']} data-sort-value={sortValue}>
-                  {index === 0 ? (
-                    <a class="item-cell" href={`/${category.slug}/${item.id}`}>
-                      <img
-                        class="item-icon"
-                        src={`/images/${category.slug}/${item.id}.webp`}
-                        alt={item.name}
-                        loading="lazy"
-                        data-fallback={fallback}
-                        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                      />
-                      <strong>{value}</strong>
-                    </a>
-                  ) : rarity ? (
-                    <span class="rarity-badge" style={`color:${rarity.color}`}>{rarity.label}</span>
-                  ) : (
-                    value
-                  )}
-                </td>
-              );
-            })}
-          </tr>
-        ))}
+        {tableRows.map((row) => {
+          if (row.type === 'group') {
+            return (
+              <tr class="group-row" data-group-row>
+                <th colspan={category.columns.length}>{row.label}</th>
+              </tr>
+            );
+          }
+
+          const item = row.item;
+          return (
+            <tr
+              data-row
+              data-search={category.columns.map((column) => getDisplayValue(item, column.key, getByPath(item, column.key))).join(' ')}
+              {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(getByPath(item, filter))]))}
+            >
+              {category.columns.map((column, index) => {
+                const rawValue = getByPath(item, column.key);
+                const value = getDisplayValue(item, column.key, rawValue);
+                const sortValue = getSortValue(column.key, rawValue);
+                return (
+                  <td class:list={[column.numeric && 'numeric']} data-sort-value={sortValue}>
+                    {index === 0 ? (
+                      <a class="item-cell" href={`/${category.slug}/${item.id}`}>
+                        <img
+                          class="item-icon"
+                          src={`/images/${category.slug}/${item.id}.webp`}
+                          alt={item.name}
+                          loading="lazy"
+                          data-fallback={fallback}
+                          onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                        />
+                        <strong>{value}</strong>
+                      </a>
+                    ) : column.render === 'tier' && rawValue ? (
+                      <span class="tier-badge" style={`color:${TIER_COLOR[String(rawValue)] ?? 'var(--accent)'}`}>{value}</span>
+                    ) : column.render === 'element' && value !== '无' && value !== '数据待补充' ? (
+                      <span class="element-value" style={`color:${getElementColor(rawValue) ?? 'var(--text)'}`}>{value}</span>
+                    ) : column.render === 'list' && Array.isArray(rawValue) ? (
+                      <span class="tag-list">{rawValue.map((entry) => <span class="tag">{formatValue(column.key, entry)}</span>)}</span>
+                    ) : (
+                      value
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   </div>
@@ -142,6 +181,19 @@ const getRowFilterValue = (value: unknown) => {
       });
 
       if (empty) empty.hidden = visibleCount !== 0;
+
+      [...root.querySelectorAll<HTMLTableRowElement>('[data-group-row]')].forEach((groupRow) => {
+        let next = groupRow.nextElementSibling as HTMLTableRowElement | null;
+        let hasVisibleRow = false;
+        while (next && !next.hasAttribute('data-group-row')) {
+          if (next.hasAttribute('data-row') && !next.hidden) {
+            hasVisibleRow = true;
+            break;
+          }
+          next = next.nextElementSibling as HTMLTableRowElement | null;
+        }
+        groupRow.hidden = !hasVisibleRow;
+      });
     };
 
     const sortRows = (key: string) => {

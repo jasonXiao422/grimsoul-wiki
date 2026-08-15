@@ -1,52 +1,88 @@
-import { CATEGORIES } from './categories';
+import { CATEGORIES, CATEGORY_BY_SLUG } from './categories';
+import { getSortValue } from './display';
 import materials from '../data/materials.json';
 import weapons from '../data/weapons.json';
-import armors from '../data/armors.json';
+import armor from '../data/armor.json';
+import shields from '../data/shields.json';
+import backpacks from '../data/backpacks.json';
 import enemies from '../data/enemies.json';
-import scrolls from '../data/scrolls.json';
-import buildings from '../data/buildings.json';
+import armorPieces from '../data/armor-pieces.json';
 
-export const MATERIAL_CATEGORY = {
-  slug: 'materials',
-  label: '材料',
-  blurb: '基础资源、加工材料与稀有材料的来源',
-  columns: [
-    { key: 'name', label: '名称', sortable: true },
-    { key: 'category', label: '类别', sortable: true },
-    { key: 'source', label: '来源' },
-  ],
-  filters: ['category'],
-};
-
-export const ALL_CATEGORIES = [MATERIAL_CATEGORY, ...CATEGORIES];
+export const ALL_CATEGORIES = CATEGORIES;
 
 export const DATA_BY_CATEGORY = {
-  materials,
   weapons,
-  armors,
+  armor,
+  shields,
+  backpacks,
   enemies,
-  scrolls,
-  buildings,
+  materials,
+} as const;
+
+export const EXTRA_DATA = {
+  'armor-pieces': armorPieces,
 } as const;
 
 export type CategorySlug = keyof typeof DATA_BY_CATEGORY;
-export type DataItem = (typeof DATA_BY_CATEGORY)[CategorySlug][number] & { maxLevel?: number };
+export type DataItem = (typeof DATA_BY_CATEGORY)[CategorySlug][number];
+export type CostItem = { material: string; qty: number };
 
 export const MATERIALS_BY_ID = new Map(materials.map((item) => [item.id, item]));
-export const BUILDINGS_BY_ID = new Map(buildings.map((item) => [item.id, item]));
+
+const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
+  CATEGORIES.map((category) => [category.slug, category.label])
+);
+
+const GROUP_ORDER = [
+  '家里',
+  '1-5级图',
+  '被弃地下城',
+  '酷吏地下城',
+  '空降事件',
+  '节日活动',
+  '衰败摇篮',
+  '元素副本',
+  '大车炮台',
+];
+
+function compareSortValues(a: string | number, b: string | number) {
+  if (typeof a === 'number' && typeof b === 'number') return a - b;
+  return String(a).localeCompare(String(b), 'zh-Hans-CN');
+}
+
+export function getByPath(item: Record<string, unknown>, path: string): unknown {
+  return path.split('.').reduce<unknown>((value, key) => {
+    if (value && typeof value === 'object') return (value as Record<string, unknown>)[key];
+    return undefined;
+  }, item);
+}
 
 export function getListItems(slug: CategorySlug): DataItem[] {
-  if (slug === 'buildings') {
-    return buildings.map((item) => ({
-      ...item,
-      maxLevel: item.levels.length,
-    }));
-  }
-  return [...DATA_BY_CATEGORY[slug]] as DataItem[];
+  const category = CATEGORY_BY_SLUG[slug];
+  const items = [...DATA_BY_CATEGORY[slug]] as DataItem[];
+  const sortKey = category?.defaultSort ?? 'name';
+
+  return items.sort((a, b) => {
+    if (category?.groupBy) {
+      const aGroup = String(getByPath(a as Record<string, unknown>, category.groupBy) ?? '');
+      const bGroup = String(getByPath(b as Record<string, unknown>, category.groupBy) ?? '');
+      const aRank = GROUP_ORDER.indexOf(aGroup);
+      const bRank = GROUP_ORDER.indexOf(bGroup);
+      const groupResult = (aRank === -1 ? GROUP_ORDER.length : aRank) - (bRank === -1 ? GROUP_ORDER.length : bRank)
+        || aGroup.localeCompare(bGroup, 'zh-Hans-CN');
+      if (groupResult) return groupResult;
+    }
+
+    const result = compareSortValues(
+      getSortValue(sortKey, getByPath(a as Record<string, unknown>, sortKey)),
+      getSortValue(sortKey, getByPath(b as Record<string, unknown>, sortKey))
+    );
+    return result || a.name.localeCompare(b.name, 'zh-Hans-CN');
+  });
 }
 
 export function getCategoryBySlug(slug: string) {
-  return ALL_CATEGORIES.find((category) => category.slug === slug);
+  return CATEGORIES.find((category) => category.slug === slug);
 }
 
 export function getItemName(category: CategorySlug, id: string): string {
@@ -59,16 +95,44 @@ export function getAnyItemName(id: string): string {
     const found = (DATA_BY_CATEGORY[slug] as readonly DataItem[]).find((item) => item.id === id);
     if (found) return found.name;
   }
-  return '未知条目';
+
+  const piece = armorPieces.find((item) => item.id === id);
+  return piece?.name ?? '未知条目';
 }
 
 export function getItemHref(category: CategorySlug, id: string): string {
   return `/${category}/${id}`;
 }
 
+function pushCostUsages(
+  usages: Array<{
+    category: string;
+    categoryLabel: string;
+    name: string;
+    href: string;
+    qty: number;
+    source: string;
+  }>,
+  cost: CostItem[] | undefined,
+  materialId: string,
+  meta: { category: string; name: string; href: string; source: string }
+) {
+  for (const item of cost ?? []) {
+    if (item.material !== materialId) continue;
+    usages.push({
+      category: meta.category,
+      categoryLabel: CATEGORY_LABELS[meta.category] ?? meta.category,
+      name: meta.name,
+      href: meta.href,
+      qty: item.qty,
+      source: meta.source,
+    });
+  }
+}
+
 export function getRecipeUsages(materialId: string) {
   const usages: Array<{
-    category: CategorySlug;
+    category: string;
     categoryLabel: string;
     name: string;
     href: string;
@@ -76,40 +140,33 @@ export function getRecipeUsages(materialId: string) {
     source: string;
   }> = [];
 
-  const craftCategories: CategorySlug[] = ['weapons', 'armors', 'scrolls'];
-  for (const slug of craftCategories) {
-    const category = getCategoryBySlug(slug);
+  for (const slug of ['weapons', 'armor', 'shields', 'backpacks'] as const) {
     for (const item of DATA_BY_CATEGORY[slug] as readonly any[]) {
-      for (const cost of item.craft?.cost ?? []) {
-        if (cost.material === materialId) {
-          usages.push({
-            category: slug,
-            categoryLabel: category?.label ?? '条目',
-            name: item.name,
-            href: getItemHref(slug, item.id),
-            qty: cost.qty,
-            source: '合成配方',
-          });
-        }
+      pushCostUsages(usages, item.cost, materialId, {
+        category: slug,
+        name: item.name,
+        href: getItemHref(slug, item.id),
+        source: '合成配方',
+      });
+
+      for (const piece of item.pieces ?? []) {
+        pushCostUsages(usages, piece.cost, materialId, {
+          category: slug,
+          name: `${item.name}：${piece.name}`,
+          href: `${getItemHref(slug, item.id)}#${piece.id}`,
+          source: '套装部件',
+        });
       }
     }
   }
 
-  for (const item of buildings) {
-    for (const level of item.levels) {
-      for (const cost of level.cost) {
-        if (cost.material === materialId) {
-          usages.push({
-            category: 'buildings',
-            categoryLabel: '建筑',
-            name: item.name,
-            href: getItemHref('buildings', item.id),
-            qty: cost.qty,
-            source: `${level.level}级升级`,
-          });
-        }
-      }
-    }
+  for (const item of armorPieces) {
+    pushCostUsages(usages, item.cost, materialId, {
+      category: 'armor',
+      name: item.name,
+      href: '/armor',
+      source: '护甲散件',
+    });
   }
 
   return usages.sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));

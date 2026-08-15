@@ -1,43 +1,42 @@
-import { RARITY_META, RARITY_ORDER, type Rarity } from './rarity';
-import { BUILDINGS_BY_ID, getItemName, type CategorySlug } from './data';
+import { tierRank } from './tiers';
 
 export const FIELD_LABELS: Record<string, string> = {
   name: '名称',
-  category: '类别',
-  source: '来源',
-  type: '类型',
-  rarity: '稀有度',
-  damage: '伤害',
+  group: '地点大类',
+  damage: '物理伤害',
+  skillBonus: '满级技能',
+  damageNote: '伤害备注',
+  element: '元素伤害',
   attackSpeed: '攻速',
+  range: '攻距',
   durability: '耐久',
-  reqLevel: '需求等级',
-  slot: '部位',
+  cost: '合成配方',
+  effect: '特殊效果',
+  upgradeOf: '高级图纸来源',
+  tier: '品阶',
+  totalArmor: '总护甲',
   armor: '护甲',
-  set: '套装',
-  tier: '等级',
-  hp: '血量',
-  locations: '出没地点',
-  weakness: '弱点',
-  behavior: '行为',
-  effect: '效果',
-  duration: '持续',
-  usableIn: '可用地点',
-  function: '功能',
-  maxLevel: '最高等级',
-  obtain: '获取方式',
+  protection: '元素防护',
+  setEffect: '套装效果',
+  block: '格挡效果',
+  blockCost: '格挡消耗',
+  blockDurability: '格挡耐久',
+  slots: '槽位',
+  hp: '生命',
+  damageReduction: '减伤',
+  physicalDamage: '物理伤害',
+  elementDamage: '元素伤害',
   note: '备注',
-  produces: '产出',
+  locations: '出没地点',
+  usedIn: '配方数',
 };
 
-const TIER_LABELS: Record<string, string> = {
-  普通: '普通',
-  精英: '精英',
-  BOSS: '首领',
-};
-
-const SET_LABELS: Record<string, string> = {
-  'iron-set': '铁套装',
-  'templar-set': '圣殿骑士套装',
+export const ELEMENT_COLORS: Record<string, string> = {
+  冰: '#86c5ff',
+  火: '#d9773f',
+  毒: '#83ad55',
+  暗: '#9a7bd1',
+  神圣: '#d8c46a',
 };
 
 export function normalizeTime(value: string): string {
@@ -47,35 +46,44 @@ export function normalizeTime(value: string): string {
     .replace(/^(\d+)h$/, '$1小时');
 }
 
+function formatElement(value: Record<string, unknown>): string {
+  const type = typeof value.type === 'string' ? value.type : '';
+  const amount = value.value ?? value.amount;
+  if (!type && (amount === null || amount === undefined || amount === '')) return '无';
+  if (amount === null || amount === undefined || amount === '') return type || '无';
+  return type ? `${type} ${amount}` : String(amount);
+}
+
 export function formatValue(key: string, value: unknown): string {
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');
-  if (key === 'rarity' && typeof value === 'string') {
-    return RARITY_META[value as Rarity]?.label ?? '未知';
+
+  if (typeof value === 'object') {
+    const objectValue = value as Record<string, unknown>;
+    if ('type' in objectValue || 'value' in objectValue && key !== 'durability') return formatElement(objectValue);
+    if (key === 'durability' && 'value' in objectValue) {
+      return `${objectValue.value ?? ''}${objectValue.unit ?? ''}`;
+    }
+    return Object.values(objectValue).map(String).join(' ');
   }
-  if (key === 'tier' && typeof value === 'string') return TIER_LABELS[value] ?? value;
-  if (key === 'set' && typeof value === 'string') return SET_LABELS[value] ?? '套装';
+
   if ((key === 'duration' || key === 'time') && typeof value === 'string') return normalizeTime(value);
+  if (key === 'damageReduction' && typeof value === 'string' && !value.includes('%')) return `${value}%`;
   return String(value);
 }
 
 export function getSortValue(key: string, value: unknown): string | number {
-  if (key === 'rarity' && typeof value === 'string') return RARITY_ORDER[value as Rarity] ?? 0;
+  if (key === 'tier' && typeof value === 'string') return tierRank(value);
   if (typeof value === 'number') return value;
+  if (value === null || value === undefined || value === '') return Number.NEGATIVE_INFINITY;
+  if (typeof value === 'object' && !Array.isArray(value)) {
+    const objectValue = value as Record<string, unknown>;
+    if (typeof objectValue.value === 'number') return objectValue.value;
+  }
   return formatValue(key, value);
 }
 
-export function getStationName(stationId: string): string {
-  return BUILDINGS_BY_ID.get(stationId)?.name ?? '制作设施';
-}
-
-export function getDropItemName(type: string, id: string): string {
-  const categoryByType: Record<string, CategorySlug> = {
-    material: 'materials',
-    weapon: 'weapons',
-    armor: 'armors',
-    scroll: 'scrolls',
-  };
-  const category = categoryByType[type];
-  return category ? getItemName(category, id) : '未知条目';
+export function formatMaybeIncomplete(value: unknown, dataIncomplete?: boolean): string {
+  if ((value === null || value === undefined || value === '') && dataIncomplete) return '数据待补充';
+  return formatValue('', value);
 }

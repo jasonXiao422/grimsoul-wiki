@@ -1,0 +1,431 @@
+#!/usr/bin/env python3
+"""
+把 data-source/ 下的 Excel 转成 src/data/ 下的 JSON。
+
+以后拿到新版本数据时：
+  1. 用新 Excel 覆盖 data-source/ 里的同名文件（或改下面的 FILES 常量）
+  2. 运行  python3 scripts/import_excel.py
+  3. 运行  npm run build  确认通过
+
+脚本会在结尾打印一份报告，列出解析失败或数据可疑的条目。
+"""
+import json
+import re
+import sys
+from datetime import datetime
+from pathlib import Path
+
+from openpyxl import load_workbook
+from pypinyin import lazy_pinyin
+
+ROOT = Path(__file__).resolve().parent.parent
+SRC = ROOT / "data-source"
+OUT = ROOT / "src" / "data"
+
+FILES = {
+    "weapons": ("武器数据7_4_0.xlsx", "Sheet1"),
+    "armor": ("护甲数据7_4.xlsx", "护甲"),
+    "shields": ("盾牌数据7_3_1.xlsx", "护甲"),
+    "backpacks": ("驮篮7_3_1.xlsx", "驮篮"),
+    "enemies": ("敌人数据6_6_0__1_.xlsx", "敌人生命护甲和伤害"),
+}
+
+warnings = []
+used_ids = {}
+
+
+# ---------------------------------------------------------------- 工具函数
+
+def clean(v):
+    """去掉首尾空白和全角空格；空值/占位符统一成 None。"""
+    if v is None:
+        return None
+    if isinstance(v, datetime):
+        return None  # Excel 把数值误存成日期，原值已丢失
+    if isinstance(v, (int, float)):
+        return v
+    s = str(v).replace("\u3000", " ").strip()
+    s = re.sub(r"\s+\n", "\n", s)
+    if s in ("", "/", "-", "—"):
+        return None
+    return s
+
+
+def text(v):
+    c = clean(v)
+    return None if c is None else str(c)
+
+
+def make_id(name, prefix=""):
+    """中文名 → 拼音 id。重名自动加数字后缀。"""
+    base = "-".join(lazy_pinyin(re.sub(r"[（）()【】《》\s]+", "", name)))
+    base = re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
+    if not base:
+        base = "item"
+    if prefix:
+        base = f"{prefix}-{base}"
+    key = base
+    n = used_ids.get(base, 0)
+    if n:
+        key = f"{base}-{n + 1}"
+    used_ids[base] = n + 1
+    return key
+
+
+def parse_cost(raw):
+    """
+    解析两种材料写法：
+      武器： 原松木*1 绳子*1 亚麻纤维*1
+      其他： 布料：7；亚麻纤维：13；绳索：2
+    返回 [{"material": "布料", "qty": 7}, ...]
+    """
+    s = text(raw)
+    if not s:
+        return []
+    s = s.replace("\n", " ").replace("：", ":").replace("；", ";")
+    items = []
+
+    if ":" in s:  # 冒号写法
+        for part in re.split(r"[;,，]", s):
+            part = part.strip()
+            if not part:
+                continue
+            m = re.match(r"^(.+?)\s*:\s*([\d.]+)$", part)
+            if m:
+                items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
+            else:
+                warnings.append(f"材料段落无法解析: {part!r}")
+    else:  # 星号写法
+        for m in re.finditer(r"([^\s*]+)\s*\*\s*([\d.]+)", s):
+            items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
+        if not items:
+            warnings.append(f"材料字符串无法解析: {s!r}")
+
+    for it in items:
+        it["qty"] = int(it["qty"]) if it["qty"] == int(it["qty"]) else it["qty"]
+    return items
+
+
+def num(v):
+    """浮点整数转 int，避免 JSON 里出现 5.0 这种。"""
+    if isinstance(v, float) and v == int(v):
+        return int(v)
+    return v
+
+
+def parse_damage(raw):
+    """'19+5' → (19, 5)；'40真伤' → (40, None) 且标记真伤；纯数字 → (n, None)"""
+    c = clean(raw)
+    if c is None:
+        return None, None, None
+    if isinstance(c, (int, float)):
+        return c, None, None
+    s = str(c)
+    note = None
+    if "真伤" in s:
+        note = "无视护甲（真实伤害）"
+        s = s.replace("真伤", "").strip()
+    m = re.match(r"^([\d.]+)\s*\+\s*([\d.]+)$", s)
+    if m:
+        return num(float(m.group(1))), num(float(m.group(2))), note
+    m = re.match(r"^([\d.]+)$", s)
+    if m:
+        return num(float(m.group(1))), None, note
+    return None, None, s  # 多段数值等复杂情况，原样保留
+
+
+def parse_element(raw):
+    """'11 冰伤' / '6火伤' / '13 衰败伤' → {'type': '冰', 'value': 11}"""
+    s = text(raw)
+    if not s:
+        return None
+    m = re.match(r"^([\d.]+)\s*(.*?)\s*(?:伤|霜|焰)?$", s.replace(" ", " "))
+    if not m:
+        return {"raw": s}
+    val = float(m.group(1))
+    kind = m.group(2).strip() or None
+    if kind:
+        kind = kind.rstrip("伤霜焰")
+        kind = {"冰": "冰", "火": "火", "衰败": "衰败", "毒": "毒"}.get(kind, kind)
+    return {"type": kind, "value": int(val) if val == int(val) else val}
+
+
+def parse_durability(raw):
+    """50 → {'value': 50}；'400秒' → {'value': 400, 'unit': '秒'}"""
+    c = clean(raw)
+    if c is None:
+        return None
+    if isinstance(c, (int, float)):
+        return {"value": int(c) if c == int(c) else c, "unit": "点"}
+    m = re.match(r"^([\d.]+)\s*(.*)$", str(c))
+    if m:
+        v = float(m.group(1))
+        return {"value": int(v) if v == int(v) else v, "unit": m.group(2).strip() or "点"}
+    return {"raw": str(c)}
+
+
+def parse_formula(raw, label):
+    """Excel 公式泄漏成字符串时，尝试算出数值。"""
+    c = clean(raw)
+    if isinstance(c, (int, float)):
+        return c
+    s = str(c) if c else ""
+    if s.startswith("="):
+        m = re.match(r"^=([\d+\-*/. ]+)$", s)
+        if m:
+            try:
+                val = eval(m.group(1))  # 仅含数字和运算符
+                warnings.append(f"{label} 的数值是 Excel 公式 {s}，已计算为 {val}，请核对")
+                return val
+            except Exception:
+                pass
+        warnings.append(f"{label} 的数值是 Excel 公式 {s}，无法自动计算，已留空")
+        return None
+    return None
+
+
+# ---------------------------------------------------------------- 各表解析
+
+def rows_of(key):
+    fn, sheet = FILES[key]
+    wb = load_workbook(SRC / fn, read_only=True, data_only=False)
+    return list(wb[sheet].iter_rows(values_only=True))
+
+
+def build_weapons():
+    out = []
+    for row in rows_of("weapons")[2:]:
+        name = text(row[0])
+        if not name:
+            continue
+        base, skill, dmg_note = parse_damage(row[1])
+        effect = text(row[7])
+        blueprint = None
+        if effect and "图纸" in effect:
+            m = re.match(r"^(.+?)的?高级图纸$", effect.strip())
+            if m:
+                blueprint = m.group(1).strip()
+                effect = None
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "damage": base,
+            "skillBonus": skill,
+            "damageNote": dmg_note,
+            "element": parse_element(row[2]),
+            "attackSpeed": clean(row[3]),
+            "range": clean(row[4]),
+            "durability": parse_durability(row[5]),
+            "cost": parse_cost(row[6]),
+            "effect": effect,
+            "upgradeOf": blueprint,
+        })
+    # 把"XX的高级图纸"换成对应武器 id
+    by_name = {w["name"]: w["id"] for w in out}
+    for w in out:
+        if w["upgradeOf"]:
+            target = by_name.get(w["upgradeOf"])
+            if target:
+                w["upgradeOf"] = target
+            else:
+                warnings.append(f"武器 {w['name']} 的高级图纸来源 {w['upgradeOf']!r} 找不到对应武器")
+                w["upgradeOf"] = None
+    return out
+
+
+def build_armor():
+    """套装行后面紧跟 5 件部件，靠名字里的『套装（T…级）』识别。"""
+    sets, standalone = [], []
+    cur = None
+    for row in rows_of("armor")[1:]:
+        name = text(row[1])
+        if not name:
+            continue
+        is_set = "套装" in name and "级）" in name
+        entry_armor = parse_formula(row[2], f"护甲 {name}") if not isinstance(clean(row[2]), (int, float)) else clean(row[2])
+        common = {
+            "name": re.sub(r"\s+", "", name),
+            "armor": entry_armor,
+            "protection": parse_element(row[3]),
+            "cost": parse_cost(row[5]),
+            "effect": text(row[6]),
+        }
+        if is_set:
+            m = re.match(r"^(.+?)套装（(T[\d+]+)级）$", common["name"])
+            cur = {
+                "id": make_id(common["name"]),
+                "name": common["name"],
+                "tier": m.group(2) if m else None,
+                "totalArmor": common["armor"],
+                "protection": common["protection"],
+                "durability": parse_durability(row[4]),
+                "cost": common["cost"],
+                "setEffect": common["effect"],
+                "pieces": [],
+            }
+            sets.append(cur)
+        elif cur is not None and len(cur["pieces"]) < 5:
+            cur["pieces"].append({
+                "id": make_id(common["name"]),
+                "name": common["name"],
+                "armor": common["armor"],
+                "protection": common["protection"],
+                "cost": common["cost"],
+                "effect": common["effect"],
+            })
+        else:
+            cur = None
+            standalone.append({
+                "id": make_id(common["name"]),
+                "name": common["name"],
+                "tier": None,
+                "armor": common["armor"],
+                "protection": common["protection"],
+                "durability": parse_durability(row[4]),
+                "cost": common["cost"],
+                "effect": common["effect"],
+            })
+    for s in sets:
+        if len(s["pieces"]) != 5:
+            warnings.append(f"套装 {s['name']} 只解析到 {len(s['pieces'])} 件部件（预期 5 件）")
+    return sets, standalone
+
+
+def build_shields():
+    out = []
+    for row in rows_of("shields")[1:]:
+        name = text(row[1])
+        if not name:
+            continue
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "armor": clean(row[2]),
+            "block": text(row[3]),
+            "durability": parse_durability(row[4]),
+            "blockCost": clean(row[5]),
+            "blockDurability": clean(row[6]),
+            "cost": parse_cost(row[7]),
+            "effect": text(row[8]),
+        })
+    return out
+
+
+def build_backpacks():
+    out = []
+    for row in rows_of("backpacks")[1:]:
+        name = text(row[1])
+        if not name:
+            continue
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "protection": parse_element(row[2]),
+            "slots": clean(row[3]),
+            "cost": parse_cost(row[4]),
+            "effect": text(row[5]),
+        })
+    return out
+
+
+def build_enemies():
+    """表头行（第二列是『生命』）同时充当地点分组标题。"""
+    out, group = [], None
+    for row in rows_of("enemies")[1:]:
+        first = text(row[0])
+        if not first:
+            continue
+        if text(row[1]) == "生命":
+            group = first
+            continue
+        hp = clean(row[1])
+        armor = clean(row[2])
+        phys = clean(row[4])
+        broken = isinstance(row[2], datetime) or isinstance(row[4], datetime)
+        if broken:
+            warnings.append(f"敌人 {first}：护甲/物理伤害被 Excel 转成了日期，原值已丢失，需手动补")
+        out.append({
+            "id": make_id(first),
+            "name": first,
+            "group": group,
+            "hp": hp,
+            "armor": armor,
+            "damageReduction": text(row[3]),
+            "physicalDamage": phys,
+            "elementDamage": text(row[5]),
+            "note": text(row[6]),
+            "locations": [p.strip() for p in re.split(r"[;；\n]", text(row[7]) or "") if p.strip()],
+            "dataIncomplete": broken or None,
+        })
+    return out
+
+
+def build_materials(*datasets):
+    """从所有配方里反推材料总表。"""
+    counts = {}
+    for data in datasets:
+        for item in data:
+            for c in item.get("cost", []) or []:
+                counts[c["material"]] = counts.get(c["material"], 0) + 1
+            for p in item.get("pieces", []) or []:
+                for c in p.get("cost", []) or []:
+                    counts[c["material"]] = counts.get(c["material"], 0) + 1
+    return [
+        {"id": make_id(name, "mat"), "name": name, "usedIn": n}
+        for name, n in sorted(counts.items(), key=lambda kv: -kv[1])
+    ]
+
+
+def link_materials(materials, *datasets):
+    """把配方里的材料中文名替换成 material id。"""
+    by_name = {m["name"]: m["id"] for m in materials}
+    def fix(cost):
+        for c in cost or []:
+            c["material"] = by_name.get(c["material"], c["material"])
+    for data in datasets:
+        for item in data:
+            fix(item.get("cost"))
+            for p in item.get("pieces", []) or []:
+                fix(p.get("cost"))
+
+
+def write(name, data):
+    path = OUT / f"{name}.json"
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"  {path.relative_to(ROOT)}  —  {len(data)} 条")
+
+
+def main():
+    OUT.mkdir(parents=True, exist_ok=True)
+    print("正在转换…\n")
+
+    weapons = build_weapons()
+    armor_sets, armor_pieces = build_armor()
+    shields = build_shields()
+    backpacks = build_backpacks()
+    enemies = build_enemies()
+
+    materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks)
+    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks)
+
+    write("weapons", weapons)
+    write("armor", armor_sets)
+    write("armor-pieces", armor_pieces)
+    write("shields", shields)
+    write("backpacks", backpacks)
+    write("enemies", enemies)
+    write("materials", materials)
+
+    total_pieces = sum(len(s["pieces"]) for s in armor_sets)
+    print(f"\n护甲套装 {len(armor_sets)} 套，含部件 {total_pieces} 件；散件 {len(armor_pieces)} 件")
+
+    if warnings:
+        print(f"\n⚠ {len(warnings)} 条需要留意：\n")
+        for w in warnings:
+            print("  ·", w)
+    else:
+        print("\n无警告。")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,370 @@
+[
+  {
+    "id": "po-jiu-xing-nang",
+    "name": "破旧行囊",
+    "protection": null,
+    "slots": 5,
+    "cost": [
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 4
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 2
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "pi-zhi-bei-bao",
+    "name": "皮质背包",
+    "protection": null,
+    "slots": 10,
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 2
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 4
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 14
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 10
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "pi-zhi-tuo-lan",
+    "name": "皮质驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "hei-se-tuo-lan",
+    "name": "黑色驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "mi-fa-shi-tuo-lan",
+    "name": "秘法师驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "gui-zi-shou-tuo-lan",
+    "name": "刽子手驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "sheng-dan-tuo-lan",
+    "name": "圣诞驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "bei-di-lang-tuo-lan",
+    "name": "北地狼驮篮",
+    "protection": {
+      "type": "冰",
+      "value": 15
+    },
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "ji-han-tuo-lan",
+    "name": "极寒驮篮",
+    "protection": {
+      "type": "冰",
+      "value": 40
+    },
+    "slots": 15,
+    "cost": [
+      {
+        "material": "mat-pi-ge-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-ha-er-te-zhi-shou",
+        "qty": 1
+      },
+      {
+        "material": "mat-bing-dong-yao-shui",
+        "qty": 1
+      },
+      {
+        "material": "mat-beng-dai",
+        "qty": 40
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 25
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "tie-chu-nv",
+    "name": "铁处女",
+    "protection": null,
+    "slots": 15,
+    "cost": [
+      {
+        "material": "mat-pi-ge-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-tie-sui-pian",
+        "qty": 5
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 15
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 15
+      }
+    ],
+    "effect": "额外快捷栏"
+  },
+  {
+    "id": "you-shang-tuo-lan",
+    "name": "游商驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": "额外快捷栏"
+  },
+  {
+    "id": "wen-yi-yi-sheng-tuo-lan",
+    "name": "瘟疫医生驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "huo-huo-tuo-lan",
+    "name": "活火驮篮",
+    "protection": {
+      "type": "火",
+      "value": 40
+    },
+    "slots": 15,
+    "cost": [
+      {
+        "material": "mat-pi-ge-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-ha-li-de-tou-kui",
+        "qty": 1
+      },
+      {
+        "material": "mat-fang-yu-yao-gao",
+        "qty": 2
+      },
+      {
+        "material": "mat-zhuan-zhu-yao-shui",
+        "qty": 2
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 25
+      }
+    ],
+    "effect": "惊吓夜访者"
+  },
+  {
+    "id": "mu-guang-tuo-lan",
+    "name": "暮光驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "ju-xiong-tuo-lan",
+    "name": "巨熊驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "cang-shu-jia-tuo-lan",
+    "name": "藏书家驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "fei-yi-tuo-lan",
+    "name": "飞翼驮篮",
+    "protection": null,
+    "slots": 17,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "zhong-cheng-meng-you-tuo-lan",
+    "name": "忠诚盟友驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "lu-te-qin-tuo-lan",
+    "name": "鲁特琴驮篮",
+    "protection": null,
+    "slots": 17,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "she-hua-tuo-lan",
+    "name": "奢华驮篮",
+    "protection": null,
+    "slots": 17,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "lv-zhe-xing-nang",
+    "name": "旅者行囊",
+    "protection": null,
+    "slots": 10,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "you-yu-tuo-lan",
+    "name": "幽语驮篮",
+    "protection": null,
+    "slots": 17,
+    "cost": [
+      {
+        "material": "mat-pi-ge-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-luo-ge-wo-de-zhi-shou",
+        "qty": 1
+      },
+      {
+        "material": "mat-qian-xing-yao-shui",
+        "qty": 10
+      },
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 20
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 30
+      }
+    ],
+    "effect": "~25.3%概率免疫恐惧"
+  },
+  {
+    "id": "zhu-xing-tuo-lan",
+    "name": "蛛形驮篮",
+    "protection": null,
+    "slots": 17,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "chao-sheng-zhe-tuo-lan",
+    "name": "朝圣者驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [
+      {
+        "material": "mat-pi-ge-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-huo-li-yao-shui",
+        "qty": 20
+      },
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 20
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 30
+      }
+    ],
+    "effect": "装备时暂时降低能量消耗（0.9倍）"
+  },
+  {
+    "id": "xue-lie-tuo-lan",
+    "name": "雪猎驮篮",
+    "protection": null,
+    "slots": 20,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "lie-ren-da-shi-tuo-lan",
+    "name": "猎人大师驮篮",
+    "protection": null,
+    "slots": 20,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "grimsoul-tuo-lan",
+    "name": "《Grim Soul》驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "grimsoul-lv-xing-tuo-lan",
+    "name": "《Grim Soul》旅行驮篮",
+    "protection": null,
+    "slots": 15,
+    "cost": [],
+    "effect": "额外快捷栏"
+  },
+  {
+    "id": "grimsoul-zhou-nian-ji-nian-tuo-lan",
+    "name": "《Grim Soul》周年纪念驮篮",
+    "protection": null,
+    "slots": 20,
+    "cost": [],
+    "effect": "额外快捷栏"
+  }
+]

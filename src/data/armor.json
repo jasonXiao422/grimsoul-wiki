@@ -1,0 +1,4295 @@
+[
+  {
+    "id": "cu-bu-tao-zhuang-t1-ji",
+    "name": "粗布套装（T1级）",
+    "tier": "T1",
+    "totalArmor": 70,
+    "protection": null,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 13
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 2
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "po-jiu-ruan-mao",
+        "name": "破旧软帽",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 1
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "cu-bu-chen-shan",
+        "name": "粗布衬衫",
+        "armor": 25,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 2
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 3
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 1
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "po-lan-shou-tao",
+        "name": "破烂手套",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 1
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "po-lan-chang-ku",
+        "name": "破烂长裤",
+        "armor": 25,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 2
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 3
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 1
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "po-lan-duan-xue",
+        "name": "破烂短靴",
+        "armor": 0,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 1
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 3
+          }
+        ],
+        "effect": "移动速度：4"
+      }
+    ]
+  },
+  {
+    "id": "huang-jia-xin-shi-tao-zhuang-t1-ji",
+    "name": "皇家信使套装（T1级）",
+    "tier": "T1",
+    "totalArmor": 70,
+    "protection": null,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 13
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 2
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "huang-jia-xin-shi-mao",
+        "name": "皇家信使帽",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 1
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "huang-jia-xin-shi-chen-shan",
+        "name": "皇家信使衬衫",
+        "armor": 25,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 2
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 3
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 1
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "huang-jia-xin-shi-hu-shou",
+        "name": "皇家信使护手",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 1
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "huang-jia-xin-shi-chang-ku",
+        "name": "皇家信使长裤",
+        "armor": 25,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 2
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 3
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 1
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "huang-jia-xin-shi-ma-xue",
+        "name": "皇家信使马靴",
+        "armor": 0,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-bu-liao",
+            "qty": 1
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 3
+          }
+        ],
+        "effect": "移动速度：4"
+      }
+    ]
+  },
+  {
+    "id": "pi-ge-tao-zhuang-t2-ji",
+    "name": "皮革套装（T2级）",
+    "tier": "T2",
+    "totalArmor": 150,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 13
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 24
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 18
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "pi-zhi-dou-mao",
+        "name": "皮质兜帽",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 7
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "jia-mian-zhan-pao",
+        "name": "夹棉战袍",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "pi-shou-tao",
+        "name": "皮手套",
+        "armor": 20,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "hang-feng-chang-ku",
+        "name": "绗缝长裤",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "pi-zhi-duan-xue",
+        "name": "皮质短靴",
+        "armor": 0,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": "移动速度：6"
+      }
+    ]
+  },
+  {
+    "id": "chao-sheng-zhe-tao-zhuang-t2-ji",
+    "name": "朝圣者套装（T2级）",
+    "tier": "T2",
+    "totalArmor": 150,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 13
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 24
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 18
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "chao-sheng-zhe-kuan-yan-mao",
+        "name": "朝圣者宽檐帽",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 7
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "chao-sheng-zhe-zhao-shan",
+        "name": "朝圣者罩衫",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "chao-sheng-zhe-shou-tao",
+        "name": "朝圣者手套",
+        "armor": 20,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "chao-sheng-zhe-ma-ku",
+        "name": "朝圣者马裤",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "chao-sheng-zhe-pi-xue",
+        "name": "朝圣者皮靴",
+        "armor": 0,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": "移动速度：6"
+      }
+    ]
+  },
+  {
+    "id": "yin-you-shi-ren-tao-zhuang-t2-ji",
+    "name": "吟游诗人套装（T2级）",
+    "tier": "T2",
+    "totalArmor": 150,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 13
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 24
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 18
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "yin-you-shi-ren-tou-jin",
+        "name": "吟游诗人头巾",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 7
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "yin-you-shi-ren-shu-yao-yi",
+        "name": "吟游诗人束腰衣",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "yin-you-shi-ren-shou-long",
+        "name": "吟游诗人手笼",
+        "armor": 20,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "yin-you-shi-ren-bang-tui",
+        "name": "吟游诗人绑腿",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "yin-you-shi-ren-duan-xue",
+        "name": "吟游诗人短靴",
+        "armor": 0,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": "移动速度：6"
+      }
+    ]
+  },
+  {
+    "id": "xing-xing-zhe-tao-zhuang-t2-ji",
+    "name": "行刑者套装（T2+级）",
+    "tier": "T2+",
+    "totalArmor": 200,
+    "protection": null,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-lian-tiao",
+        "qty": 20
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 40
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 80
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 60
+      }
+    ],
+    "setEffect": "最高~50.0%概率造成5倍物理近战伤害∝目标损失生命值\n（包含强化前攻击并会追溯修正伤害值）",
+    "pieces": [
+      {
+        "id": "xing-xing-zhe-meng-mian-jin",
+        "name": "行刑者蒙面巾",
+        "armor": 40,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-sheng-suo",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 5
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xing-xing-zhe-zhao-pao",
+        "name": "行刑者罩袍",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-lian-tiao",
+            "qty": 15
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 20
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 20
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 20
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xing-xing-zhe-tie-shou-tao",
+        "name": "行刑者铁手套",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-sheng-suo",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 5
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xing-xing-zhe-ma-ku",
+        "name": "行刑者马裤",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-pi-ge",
+            "qty": 20
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 20
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xing-xing-zhe-jing-jia",
+        "name": "行刑者胫甲",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-lian-tiao",
+            "qty": 5
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 10
+          }
+        ],
+        "effect": "移动速度：10"
+      }
+    ]
+  },
+  {
+    "id": "ye-lie-zhe-tao-zhuang-t2-ji",
+    "name": "夜猎者套装（T2+级）",
+    "tier": "T2+",
+    "totalArmor": 150,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 13
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 24
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 18
+      }
+    ],
+    "setEffect": "增加潜行时的移动速度；10%的几率躲避敌人的攻击",
+    "pieces": [
+      {
+        "id": "ye-lie-zhe-dou-mao",
+        "name": "夜猎者兜帽",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 7
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": "2%的几率躲避敌人的攻击"
+      },
+      {
+        "id": "ye-lie-zhe-wai-tao",
+        "name": "夜猎者外套",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": "2%的几率躲避敌人的攻击"
+      },
+      {
+        "id": "ye-lie-zhe-shou-tao",
+        "name": "夜猎者手套",
+        "armor": 20,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 2
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 2
+          }
+        ],
+        "effect": "2%的几率躲避敌人的攻击"
+      },
+      {
+        "id": "ye-lie-zhe-chang-ku",
+        "name": "夜猎者长裤",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": "2%的几率躲避敌人的攻击"
+      },
+      {
+        "id": "ye-lie-zhe-pi-xue",
+        "name": "夜猎者皮靴",
+        "armor": 0,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 4
+          }
+        ],
+        "effect": "移动速度：6；2%的几率躲避敌人的攻击"
+      }
+    ]
+  },
+  {
+    "id": "huang-tong-tao-zhuang-t3-ji",
+    "name": "黄铜套装（T3级）",
+    "tier": "T3",
+    "totalArmor": 260,
+    "protection": null,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 13
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 34
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 28
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 6
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "hu-xing-kui",
+        "name": "壶形盔",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "huang-tong-suo-zi-jia",
+        "name": "黄铜锁子甲",
+        "armor": 90,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "lian-jia-hu-shou",
+        "name": "链甲护手",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 1
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 3
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "huang-tong-tui-kai",
+        "name": "黄铜腿铠",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 7
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "gao-tong-zhan-xue",
+        "name": "高筒战靴",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": "移动速度：8"
+      }
+    ]
+  },
+  {
+    "id": "di-guo-shi-bing-tao-zhuang-t3-ji",
+    "name": "帝国士兵套装（T3级）",
+    "tier": "T3",
+    "totalArmor": 260,
+    "protection": null,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 13
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 34
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 28
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 6
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "di-guo-shi-bing-kui",
+        "name": "帝国士兵盔",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "di-guo-shi-bing-suo-jia",
+        "name": "帝国士兵锁甲",
+        "armor": 90,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "di-guo-shi-bing-bi-kai",
+        "name": "帝国士兵臂铠",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 1
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 3
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "di-guo-shi-bing-jing-jia",
+        "name": "帝国士兵胫甲",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 7
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "di-guo-shi-bing-jun-xue",
+        "name": "帝国士兵军靴",
+        "armor": 10,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": "移动速度：8"
+      }
+    ]
+  },
+  {
+    "id": "sheng-dan-tao-zhuang-t3-ji",
+    "name": "圣诞套装（T3级）",
+    "tier": "T3",
+    "totalArmor": 260,
+    "protection": {
+      "type": "冰",
+      "value": 60
+    },
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": "解锁舞蹈表情",
+    "pieces": [
+      {
+        "id": "sheng-dan-rong-mao",
+        "name": "圣诞绒帽",
+        "armor": 50,
+        "protection": {
+          "type": "冰",
+          "value": 10
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dan-hou-wai-tao",
+        "name": "圣诞厚外套",
+        "armor": 90,
+        "protection": {
+          "type": "冰",
+          "value": 15
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dan-lian-zhi-shou-tao",
+        "name": "圣诞连指手套",
+        "armor": 30,
+        "protection": {
+          "type": "冰",
+          "value": 10
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dan-deng-long-ku",
+        "name": "圣诞灯笼裤",
+        "armor": 80,
+        "protection": {
+          "type": "冰",
+          "value": 15
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dan-xue-di-xue",
+        "name": "圣诞雪地靴",
+        "armor": 10,
+        "protection": {
+          "type": "冰",
+          "value": 10
+        },
+        "cost": [],
+        "effect": "移动速度：8"
+      }
+    ]
+  },
+  {
+    "id": "wen-yi-yi-sheng-tao-zhuang-t3-ji",
+    "name": "瘟疫医生套装（T3+级）",
+    "tier": "T3+",
+    "totalArmor": 312,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 28
+      },
+      {
+        "material": "mat-tong-sui-pian",
+        "qty": 76
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 34
+      }
+    ],
+    "setEffect": "免疫中毒",
+    "pieces": [
+      {
+        "id": "wen-yi-niao-zui-mian-ju",
+        "name": "瘟疫鸟嘴面具",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 12
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          }
+        ],
+        "effect": "减少中毒伤害（0.7倍）"
+      },
+      {
+        "id": "wen-yi-yi-shi-dou-peng",
+        "name": "瘟疫医师斗篷",
+        "armor": 110,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "wen-yi-yi-shi-shou-tao",
+        "name": "瘟疫医师手套",
+        "armor": 35,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 3
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "wen-yi-yi-shi-ma-ku",
+        "name": "瘟疫医师马裤",
+        "armor": 95,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 7
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 16
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "wen-yi-yi-shi-jing-jia",
+        "name": "瘟疫医师胫甲",
+        "armor": 12,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 24
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "shu-shi-tao-zhuang-t3-ji",
+    "name": "术士套装（T3+级）",
+    "tier": "T3+",
+    "totalArmor": 322,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-xiao-bo-er-gu-hui",
+        "qty": 17
+      },
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 28
+      },
+      {
+        "material": "mat-tong-sui-pian",
+        "qty": 4
+      },
+      {
+        "material": "mat-tou-gu",
+        "qty": 1
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 34
+      }
+    ],
+    "setEffect": "~30.8%概率免疫迟缓、致盲、窒息及艾莎的吟唱",
+    "pieces": [
+      {
+        "id": "shu-shi-mian-ju",
+        "name": "术士面具",
+        "armor": 70,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-gu-hui",
+            "qty": 3
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-tou-gu",
+            "qty": 1
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          }
+        ],
+        "effect": "~3.5%概率使攻击者恐惧，持续3秒"
+      },
+      {
+        "id": "shu-shi-fa-pao",
+        "name": "术士法袍",
+        "armor": 110,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-gu-hui",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "shu-shi-hu-shou",
+        "name": "术士护手",
+        "armor": 35,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-gu-hui",
+            "qty": 2
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 3
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "shu-shi-bang-tui",
+        "name": "术士绑腿",
+        "armor": 95,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-gu-hui",
+            "qty": 4
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 7
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "shu-shi-zhang-xue",
+        "name": "术士长靴",
+        "armor": 12,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-gu-hui",
+            "qty": 3
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "kuang-zhan-shi-tao-zhuang-t3-ji",
+    "name": "狂战士套装（T3+级）",
+    "tier": "T3+",
+    "totalArmor": 322,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-ying-hua-mao-ding",
+        "qty": 17
+      },
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 28
+      },
+      {
+        "material": "mat-tong-sui-pian",
+        "qty": 4
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 34
+      }
+    ],
+    "setEffect": "50%概率避免眩晕",
+    "pieces": [
+      {
+        "id": "kuang-zhan-shi-jiao-kui",
+        "name": "狂战士角盔",
+        "armor": 70,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          }
+        ],
+        "effect": "减少投掷武器与吹箭伤害（0.85倍），如果附件有多个敌人护甲增加30"
+      },
+      {
+        "id": "kuang-zhan-shi-zhan-pao",
+        "name": "狂战士战袍",
+        "armor": 110,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": "额外快捷栏，如果附件有多个敌人护甲增加30"
+      },
+      {
+        "id": "kuang-zhan-shi-bi-kai",
+        "name": "狂战士臂铠",
+        "armor": 35,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 3
+          },
+          {
+            "material": "mat-tong-sui-pian",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          }
+        ],
+        "effect": "如果附件有多个敌人护甲增加30"
+      },
+      {
+        "id": "kuang-zhan-shi-tui-jia",
+        "name": "狂战士腿甲",
+        "armor": 95,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 7
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": "如果附件有多个敌人护甲增加30"
+      },
+      {
+        "id": "kuang-zhan-shi-jing-jia",
+        "name": "狂战士胫甲",
+        "armor": 12,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          }
+        ],
+        "effect": "移动速度：12，如果附件有多个敌人护甲增加30"
+      }
+    ]
+  },
+  {
+    "id": "fa-er-wei-si-tao-zhuang-t3-ji",
+    "name": "法尔维斯套装（T3+级）",
+    "tier": "T3+",
+    "totalArmor": 310,
+    "protection": null,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 13
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 34
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 28
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 6
+      }
+    ],
+    "setEffect": "临时提升攻速∝使用者损失生命值（计算公式y≈(0.3/0.7)*x+1，特定基础攻速存在阈值偏移，在40-70%生命值时达到1.25-1.3倍峰值）",
+    "pieces": [
+      {
+        "id": "fa-er-wei-si-zhan-kui",
+        "name": "法尔维斯战盔",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "fa-er-wei-si-ban-jia",
+        "name": "法尔维斯板甲",
+        "armor": 100,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "fa-er-wei-si-tie-shou-tao",
+        "name": "法尔维斯铁手套",
+        "armor": 40,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 1
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 3
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "fa-er-wei-si-tui-kai",
+        "name": "法尔维斯腿铠",
+        "armor": 90,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 7
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "fa-er-wei-si-ma-xue",
+        "name": "法尔维斯马靴",
+        "armor": 20,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-sheng-suo",
+            "qty": 6
+          }
+        ],
+        "effect": "移动速度：8"
+      }
+    ]
+  },
+  {
+    "id": "qing-tong-tao-zhuang-t4-ji",
+    "name": "青铜套装（T4级）",
+    "tier": "T4",
+    "totalArmor": 400,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 14
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 23
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 48
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 44
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 11
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "shi-zi-jun-kui",
+        "name": "十字军盔",
+        "armor": 70,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 12
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "qing-tong-suo-zi-jia",
+        "name": "青铜锁子甲",
+        "armor": 130,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "xiang-ban-lian-jia-shou-tao",
+        "name": "镶板链甲手套",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "qing-tong-jing-jia",
+        "name": "青铜胫甲",
+        "armor": 120,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "mao-jie-zhan-xue",
+        "name": "铆接战靴",
+        "armor": 30,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 6
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          }
+        ],
+        "effect": "移动速度：10"
+      }
+    ]
+  },
+  {
+    "id": "bei-di-lang-tao-zhuang-t4-ji",
+    "name": "北地狼套装（T4+级）",
+    "tier": "T4+",
+    "totalArmor": 440,
+    "protection": {
+      "type": "冰",
+      "value": 410
+    },
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": "寒冷抗性：200",
+    "pieces": [
+      {
+        "id": "bei-di-lang-tou-kui",
+        "name": "北地狼头盔",
+        "armor": 80,
+        "protection": {
+          "type": "冰",
+          "value": 40
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "bei-di-lang-kai-jia",
+        "name": "北地狼铠甲",
+        "armor": 140,
+        "protection": {
+          "type": "冰",
+          "value": 45
+        },
+        "cost": [],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "bei-di-lang-bi-kai",
+        "name": "北地狼臂铠",
+        "armor": 55,
+        "protection": {
+          "type": "冰",
+          "value": 40
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "bei-di-lang-tui-jia",
+        "name": "北地狼腿甲",
+        "armor": 130,
+        "protection": {
+          "type": "冰",
+          "value": 45
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "bei-di-lang-zhan-xue",
+        "name": "北地狼战靴",
+        "armor": 35,
+        "protection": {
+          "type": "冰",
+          "value": 40
+        },
+        "cost": [],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "tai-yang-long-tao-zhuang-t4-ji",
+    "name": "太阳龙套装（T4+级）",
+    "tier": "T4+",
+    "totalArmor": 440,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-gu-dai-ban-jia",
+        "qty": 28
+      },
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 27
+      },
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 14
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 48
+      }
+    ],
+    "setEffect": "免疫陷阱",
+    "pieces": [
+      {
+        "id": "tai-yang-long-mian-ju",
+        "name": "太阳龙面具",
+        "armor": 75,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": "惊吓夜访者"
+      },
+      {
+        "id": "tai-yang-long-lin-jia-xiong-kai",
+        "name": "太阳龙鳞甲胸铠",
+        "armor": 140,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 7
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "tai-yang-long-hu-bi",
+        "name": "太阳龙护臂",
+        "armor": 55,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 4
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 3
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "tai-yang-long-tui-kai",
+        "name": "太阳龙腿铠",
+        "armor": 130,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 7
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 6
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "tai-yang-long-jing-jia",
+        "name": "太阳龙胫甲",
+        "armor": 40,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 6
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 6
+          }
+        ],
+        "effect": "移动速度：5"
+      }
+    ]
+  },
+  {
+    "id": "sha-mo-lie-shou-tao-zhuang-t4-ji",
+    "name": "沙漠猎手套装（T4+级）",
+    "tier": "T4+",
+    "totalArmor": 450,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 14
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 23
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 48
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 44
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 11
+      }
+    ],
+    "setEffect": "移动速度：6",
+    "pieces": [
+      {
+        "id": "sha-mo-lie-ren-tou-kui",
+        "name": "沙漠猎人头盔",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 12
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "sha-mo-lie-ren-kai-jia",
+        "name": "沙漠猎人铠甲",
+        "armor": 140,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "sha-mo-lie-ren-shou-tao",
+        "name": "沙漠猎人手套",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 6
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "sha-mo-lie-ren-jing-jia",
+        "name": "沙漠猎人胫甲",
+        "armor": 130,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "sha-mo-lie-ren-ma-xue",
+        "name": "沙漠猎人马靴",
+        "armor": 40,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 6
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 5
+          }
+        ],
+        "effect": "移动速度：10"
+      }
+    ]
+  },
+  {
+    "id": "xue-yuan-lie-shou-tao-zhuang-t4-ji",
+    "name": "雪原猎手套装（T4+级）",
+    "tier": "T4+",
+    "totalArmor": 630,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-zhen-yin",
+        "qty": 28
+      },
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 27
+      },
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 14
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 48
+      }
+    ],
+    "setEffect": "25%概率范围冻结攻击者，最多5个（1主目标+4副目标；近战范围）",
+    "pieces": [
+      {
+        "id": "xue-yuan-lie-ren-dou-mao",
+        "name": "雪原猎人兜帽",
+        "armor": 110,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-zhen-yin",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xue-yuan-lie-ren-kai-jia",
+        "name": "雪原猎人铠甲",
+        "armor": 190,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-zhen-yin",
+            "qty": 7
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "xue-yuan-lie-ren-bi-kai",
+        "name": "雪原猎人臂铠",
+        "armor": 90,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-zhen-yin",
+            "qty": 4
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 3
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xue-yuan-lie-ren-tui-kai",
+        "name": "雪原猎人腿铠",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-zhen-yin",
+            "qty": 7
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 6
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "xue-yuan-lie-ren-jing-jia",
+        "name": "雪原猎人胫甲",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-zhen-yin",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 6
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 6
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "ai-dao-shou-ge-zhe-tao-zhuang-t4-ji",
+    "name": "哀悼收割者套装（T4+级）",
+    "tier": "T4+",
+    "totalArmor": 650,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-xiao-bo-er-zhi-jin",
+        "qty": 28
+      },
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 11
+      },
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 14
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 23
+      },
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 84
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 48
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 44
+      }
+    ],
+    "setEffect": "夜间提升攻速（20%）；\n免疫诅咒之地与艾莎的踪迹",
+    "pieces": [
+      {
+        "id": "ai-dao-shou-ge-zhe-mian-ju",
+        "name": "哀悼收割者面具",
+        "armor": 110,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-zhi-jin",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 16
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 12
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "ai-dao-shou-ge-zhe-fa-pao",
+        "name": "哀悼收割者法袍",
+        "armor": 200,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-zhi-jin",
+            "qty": 7
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "ai-dao-shou-ge-zhe-shou-tao",
+        "name": "哀悼收割者手套",
+        "armor": 90,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-zhi-jin",
+            "qty": 4
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 6
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 12
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 4
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "ai-dao-shou-ge-zhe-ma-ku",
+        "name": "哀悼收割者马裤",
+        "armor": 190,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-zhi-jin",
+            "qty": 7
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 3
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "ai-dao-shou-ge-zhe-jing-jia",
+        "name": "哀悼收割者胫甲",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-xiao-bo-er-zhi-jin",
+            "qty": 5
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 2
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 16
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 6
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "feng-bao-shi-zhe-tao-zhuang-t4-ji",
+    "name": "风暴使者套装（T4+级）",
+    "tier": "T4+",
+    "totalArmor": null,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 42
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 40
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 13
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 10
+      },
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 40
+      },
+      {
+        "material": "mat-gu-dai-ban-jia",
+        "qty": 5
+      },
+      {
+        "material": "mat-shen-sheng-bao-ying-juan-zhou",
+        "qty": 1
+      }
+    ],
+    "setEffect": "25%概率用闪电击中攻击你的敌人，并击晕附近的敌人",
+    "pieces": [
+      {
+        "id": "feng-bao-shi-zhe-tou-kui",
+        "name": "风暴使者头盔",
+        "armor": 110,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          },
+          {
+            "material": "mat-shen-sheng-bao-ying-juan-zhou",
+            "qty": 1
+          }
+        ],
+        "effect": "移动速度：6"
+      },
+      {
+        "id": "feng-bao-shi-zhe-kai-jia",
+        "name": "风暴使者铠甲",
+        "armor": 190,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 6
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 12
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 75
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 20
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "feng-bao-shi-zhe-bi-kai",
+        "name": "风暴使者臂铠",
+        "armor": 90,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 9
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          },
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 2
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "feng-bao-shi-zhe-tui-kai",
+        "name": "风暴使者腿铠",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 12
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 5
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 20
+          },
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 20
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "feng-bao-shi-zhe-jing-jia",
+        "name": "风暴使者胫甲",
+        "armor": 60,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ding",
+            "qty": 9
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 5
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 1
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          },
+          {
+            "material": "mat-gu-dai-ban-jia",
+            "qty": 3
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "hei-tie-tao-zhuang-t5-ji",
+    "name": "黑铁套装（T5级）",
+    "tier": "T5",
+    "totalArmor": 580,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 40
+      },
+      {
+        "material": "mat-tie-ban",
+        "qty": 30
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 20
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 95
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 68
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "zhuo-yue-tou-kui",
+        "name": "卓越头盔",
+        "armor": 100,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "lin-jia",
+        "name": "鳞甲",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 26
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 18
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "lin-jia-hu-shou",
+        "name": "鳞甲护手",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 3
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 13
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "lin-jia-tui-kai",
+        "name": "鳞甲腿铠",
+        "armor": 170,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 6
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 13
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 24
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 17
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "zhan-xue",
+        "name": "战靴",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "wu-ya-mi-tan-tao-zhuang-t5-ji",
+    "name": "乌鸦密探套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": 580,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 40
+      },
+      {
+        "material": "mat-tie-ban",
+        "qty": 30
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 20
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 95
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 68
+      }
+    ],
+    "setEffect": "减少敌人的视野范围",
+    "pieces": [
+      {
+        "id": "wu-ya-mi-tan-tou-kui",
+        "name": "乌鸦密探头盔",
+        "armor": 100,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          }
+        ],
+        "effect": "潜行状态下增加移动速度"
+      },
+      {
+        "id": "wu-ya-mi-tan-kai-jia",
+        "name": "乌鸦密探铠甲",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 26
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 18
+          }
+        ],
+        "effect": "额外快捷栏；潜行状态下增加移动速度"
+      },
+      {
+        "id": "wu-ya-mi-tan-shou-tao",
+        "name": "乌鸦密探手套",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 3
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 13
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          }
+        ],
+        "effect": "潜行状态下增加移动速度"
+      },
+      {
+        "id": "wu-ya-mi-tan-jing-jia",
+        "name": "乌鸦密探胫甲",
+        "armor": 170,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 6
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 13
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 24
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 17
+          }
+        ],
+        "effect": "潜行状态下增加移动速度"
+      },
+      {
+        "id": "wu-ya-mi-tan-ma-xue",
+        "name": "乌鸦密探马靴",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          }
+        ],
+        "effect": "移动速度：12；潜行状态下增加移动速度"
+      }
+    ]
+  },
+  {
+    "id": "bing-shuang-tao-zhuang-t5-ji",
+    "name": "冰霜套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": 615,
+    "protection": {
+      "type": "火",
+      "value": 410
+    },
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": "火焰抗性：200",
+    "pieces": [
+      {
+        "id": "han-bing-tou-kui",
+        "name": "寒冰头盔",
+        "armor": 105,
+        "protection": {
+          "type": "火",
+          "value": 40
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "shuang-shi-huan-jia",
+        "name": "霜蚀环甲",
+        "armor": 190,
+        "protection": {
+          "type": "火",
+          "value": 45
+        },
+        "cost": [],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "bing-feng-bi-kai",
+        "name": "冰封臂铠",
+        "armor": 85,
+        "protection": {
+          "type": "火",
+          "value": 40
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "shuang-shi-tui-kai",
+        "name": "霜蚀腿铠",
+        "armor": 180,
+        "protection": {
+          "type": "火",
+          "value": 45
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "ji-di-zhan-xue",
+        "name": "极地战靴",
+        "armor": 55,
+        "protection": {
+          "type": "火",
+          "value": 40
+        },
+        "cost": [],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "jue-dou-jia-tao-zhuang-t5-ji",
+    "name": "决斗家套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": 580,
+    "protection": null,
+    "durability": {
+      "value": 167,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 40
+      },
+      {
+        "material": "mat-tie-ban",
+        "qty": 30
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 20
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 95
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 68
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "jue-dou-jia-zhan-kui",
+        "name": "决斗家战盔",
+        "armor": 100,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "jue-dou-jia-kai-jia",
+        "name": "决斗家铠甲",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 26
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "jue-dou-jia-shou-tao",
+        "name": "决斗家手套",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 3
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 13
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "jue-dou-jia-jing-jia",
+        "name": "决斗家胫甲",
+        "armor": 170,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 6
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 13
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 24
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 17
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "jue-dou-jia-ma-xue",
+        "name": "决斗家马靴",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "zui-e-qi-shi-tao-zhuang-t5-ji",
+    "name": "罪恶骑士套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": 580,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-fu-mo-pi-ge",
+        "qty": 34
+      },
+      {
+        "material": "mat-tie-sui-pian",
+        "qty": 68
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 40
+      },
+      {
+        "material": "mat-tie-ban",
+        "qty": 30
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 95
+      }
+    ],
+    "setEffect": "~15.2%概率使攻击者恐惧，持续3秒；\n~13.9%概率对攻击者造成伤害（50点纯粹）",
+    "pieces": [
+      {
+        "id": "zui-e-qi-shi-tou-kui",
+        "name": "罪恶骑士头盔",
+        "armor": 100,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 10
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 14
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "zui-e-qi-shi-kai",
+        "name": "罪恶骑士铠",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 10
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 18
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 14
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 26
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "zui-e-qi-shi-shou-tao",
+        "name": "罪恶骑士手套",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 4
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 8
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 3
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 13
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "zui-e-qi-shi-ma-ku",
+        "name": "罪恶骑士马裤",
+        "armor": 170,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 10
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 17
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 6
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 13
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 24
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "zui-e-qi-shi-jing-jia",
+        "name": "罪恶骑士胫甲",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-fu-mo-pi-ge",
+            "qty": 5
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 15
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          }
+        ],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "xuan-lin-tao-zhuang-t5-ji",
+    "name": "玄鳞套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": 580,
+    "protection": null,
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "xuan-lin-ju-kui",
+        "name": "玄鳞巨盔",
+        "armor": 100,
+        "protection": null,
+        "cost": [],
+        "effect": "提升耐久度"
+      },
+      {
+        "id": "xuan-lin-kai-jia",
+        "name": "玄鳞铠甲",
+        "armor": 180,
+        "protection": null,
+        "cost": [],
+        "effect": "额外快捷栏；提升耐久度"
+      },
+      {
+        "id": "xuan-lin-bi-kai",
+        "name": "玄鳞臂铠",
+        "armor": 80,
+        "protection": null,
+        "cost": [],
+        "effect": "提升耐久度"
+      },
+      {
+        "id": "xuan-lin-tui-jia",
+        "name": "玄鳞腿甲",
+        "armor": 170,
+        "protection": null,
+        "cost": [],
+        "effect": "提升耐久度"
+      },
+      {
+        "id": "xuan-lin-jun-xue",
+        "name": "玄鳞军靴",
+        "armor": 50,
+        "protection": null,
+        "cost": [],
+        "effect": "提升耐久度；移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "di-guo-ji-jia-tao-zhuang-t5-ji",
+    "name": "帝国机甲套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": 580,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 40
+      },
+      {
+        "material": "mat-tie-ban",
+        "qty": 30
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 6
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 68
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 95
+      }
+    ],
+    "setEffect": "使用弓或者弩射击时，有30%的几率发射第二支箭",
+    "pieces": [
+      {
+        "id": "di-guo-ji-jia-tou-kui",
+        "name": "帝国机甲头盔",
+        "armor": 100,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          }
+        ],
+        "effect": "攻击时有1%的几率造成双倍伤害"
+      },
+      {
+        "id": "di-guo-ji-jia-bao-xiang-hu-jia",
+        "name": "帝国机甲宝箱护甲",
+        "armor": 180,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 14
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 6
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 18
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 26
+          }
+        ],
+        "effect": "额外快捷栏；攻击时有1%的几率造成双倍伤害"
+      },
+      {
+        "id": "di-guo-lie-ren-shou-tao",
+        "name": "帝国猎人手套",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 4
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 3
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 2
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 8
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 13
+          }
+        ],
+        "effect": "攻击时有1%的几率造成双倍伤害"
+      },
+      {
+        "id": "di-guo-lie-ren-ma-ku",
+        "name": "帝国猎人马裤",
+        "armor": 170,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 6
+          },
+          {
+            "material": "mat-tie-ban",
+            "qty": 13
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 17
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 24
+          }
+        ],
+        "effect": "攻击时有1%的几率造成双倍伤害"
+      },
+      {
+        "id": "di-guo-ji-jia-jing-jia",
+        "name": "帝国机甲胫甲",
+        "armor": 50,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-tie-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-jin-shu-xian",
+            "qty": 3
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 16
+          }
+        ],
+        "effect": "移动速度：12；攻击时有1%的几率造成双倍伤害"
+      }
+    ]
+  },
+  {
+    "id": "chun-jing-shou-hu-zhe-tao-zhuang-t5-ji",
+    "name": "纯净守护者套装（T5+级）",
+    "tier": "T5+",
+    "totalArmor": null,
+    "protection": {
+      "type": "衰败",
+      "value": 410
+    },
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": "衰败抗性：200",
+    "pieces": [
+      {
+        "id": "chun-jing-shou-hu-zhe-mian-ju",
+        "name": "纯净守护者面具",
+        "armor": 105,
+        "protection": {
+          "type": "衰败",
+          "value": 40
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "chun-jing-shou-hu-zhe-hu-jia",
+        "name": "纯净守护者护甲",
+        "armor": 190,
+        "protection": {
+          "type": "衰败",
+          "value": 45
+        },
+        "cost": [],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "chun-jing-shou-hu-zhe-shou-tao",
+        "name": "纯净守护者手套",
+        "armor": 85,
+        "protection": {
+          "type": "衰败",
+          "value": 40
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "chun-jing-shou-hu-zhe-tui-jia",
+        "name": "纯净守护者腿甲",
+        "armor": 180,
+        "protection": {
+          "type": "衰败",
+          "value": 45
+        },
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "chun-jing-shou-hu-zhe-xue-zi",
+        "name": "纯净守护者靴子",
+        "armor": 55,
+        "protection": {
+          "type": "衰败",
+          "value": 40
+        },
+        "cost": [],
+        "effect": "移动速度：12"
+      }
+    ]
+  },
+  {
+    "id": "jing-gang-tao-zhuang-t6-ji",
+    "name": "精钢套装（T6级）",
+    "tier": "T6",
+    "totalArmor": 810,
+    "protection": null,
+    "durability": {
+      "value": 167,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-gang-ding",
+        "qty": 68
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 64
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 64
+      }
+    ],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "jin-biao-tou-kui",
+        "name": "锦标头盔",
+        "armor": 140,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gang-ding",
+            "qty": 15
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "suo-zi-kai",
+        "name": "锁子铠",
+        "armor": 240,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gang-ding",
+            "qty": 18
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 15
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          }
+        ],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "suo-zi-kai-hu-shou",
+        "name": "锁子铠护手",
+        "armor": 120,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gang-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 12
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 12
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "suo-zi-kai-tui-jia",
+        "name": "锁子铠腿甲",
+        "armor": 230,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gang-ding",
+            "qty": 15
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 15
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 15
+          }
+        ],
+        "effect": null
+      },
+      {
+        "id": "suo-zi-kai-jing-jia",
+        "name": "锁子铠胫甲",
+        "armor": 80,
+        "protection": null,
+        "cost": [
+          {
+            "material": "mat-gang-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 12
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 12
+          }
+        ],
+        "effect": "移动速度：14"
+      }
+    ]
+  },
+  {
+    "id": "sheng-dian-qi-shi-tao-zhuang-t6-ji",
+    "name": "圣殿骑士套装（T6+级）",
+    "tier": "T6+",
+    "totalArmor": 925,
+    "protection": null,
+    "durability": {
+      "value": 167,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": null,
+    "pieces": [
+      {
+        "id": "sheng-dian-qi-shi-kui",
+        "name": "圣殿骑士盔",
+        "armor": 160,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dian-qi-shi-jia",
+        "name": "圣殿骑士甲",
+        "armor": 270,
+        "protection": null,
+        "cost": [],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "sheng-dian-qi-shi-shou-tao",
+        "name": "圣殿骑士手套",
+        "armor": 140,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dian-qi-shi-jing-jia",
+        "name": "圣殿骑士胫甲",
+        "armor": 260,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "sheng-dian-qi-shi-zhan-xue",
+        "name": "圣殿骑士战靴",
+        "armor": 95,
+        "protection": null,
+        "cost": [],
+        "effect": "移动速度：14"
+      }
+    ]
+  },
+  {
+    "id": "jue-dou-shi-tao-zhuang-t6-ji",
+    "name": "角斗士套装（T6+级）",
+    "tier": "T6+",
+    "totalArmor": 810,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": "~25.2%概率使攻击者流血（10点流血伤害×5次）",
+    "pieces": [
+      {
+        "id": "jue-dou-shi-zhan-kui",
+        "name": "角斗士战盔",
+        "armor": 140,
+        "protection": null,
+        "cost": [],
+        "effect": "眩晕时提升护甲（100点）"
+      },
+      {
+        "id": "jue-dou-shi-ban-jia",
+        "name": "角斗士板甲",
+        "armor": 240,
+        "protection": null,
+        "cost": [],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "jue-dou-shi-bi-kai",
+        "name": "角斗士臂铠",
+        "armor": 120,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "jue-dou-shi-jing-jia",
+        "name": "角斗士胫甲",
+        "armor": 230,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "jue-dou-shi-zhan-xue",
+        "name": "角斗士战靴",
+        "armor": 80,
+        "protection": null,
+        "cost": [],
+        "effect": "移动速度：14"
+      }
+    ]
+  },
+  {
+    "id": "hei-se-sheng-dian-qi-shi-tao-zhuang-t6-ji",
+    "name": "黑色圣殿骑士套装（T6+级）",
+    "tier": "T6+",
+    "totalArmor": 1425,
+    "protection": null,
+    "durability": {
+      "value": 233,
+      "unit": "点"
+    },
+    "cost": [],
+    "setEffect": "额外500护甲",
+    "pieces": [
+      {
+        "id": "hei-se-sheng-dian-qi-shi-kui",
+        "name": "黑色圣殿骑士盔",
+        "armor": 160,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "hei-se-sheng-dian-qi-shi-jia",
+        "name": "黑色圣殿骑士甲",
+        "armor": 270,
+        "protection": null,
+        "cost": [],
+        "effect": "额外快捷栏"
+      },
+      {
+        "id": "hei-se-sheng-dian-qi-shi-shou-tao",
+        "name": "黑色圣殿骑士手套",
+        "armor": 140,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "hei-se-sheng-dian-qi-shi-jing-jia",
+        "name": "黑色圣殿骑士胫甲",
+        "armor": 260,
+        "protection": null,
+        "cost": [],
+        "effect": null
+      },
+      {
+        "id": "hei-se-sheng-dian-qi-shi-zhan-xue",
+        "name": "黑色圣殿骑士战靴",
+        "armor": 95,
+        "protection": null,
+        "cost": [],
+        "effect": "移动速度：14"
+      }
+    ]
+  }
+]

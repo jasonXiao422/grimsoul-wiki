@@ -1,0 +1,312 @@
+[
+  {
+    "id": "liu-bian-yuan-dun",
+    "name": "柳编圆盾",
+    "armor": 6,
+    "block": "抵挡3点伤害，1次",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "blockCost": 2,
+    "blockDurability": 75,
+    "cost": [
+      {
+        "material": "mat-song-mu",
+        "qty": 3
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 2
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 1
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "pi-dun",
+    "name": "皮盾",
+    "armor": 17,
+    "block": "抵挡6点伤害，1次",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "blockCost": 2,
+    "blockDurability": 150,
+    "cost": [
+      {
+        "material": "mat-tong-sui-pian",
+        "qty": 1
+      },
+      {
+        "material": "mat-song-mu",
+        "qty": 5
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 2
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 3
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "fu-he-dun",
+    "name": "复合盾",
+    "armor": 22,
+    "block": "抵挡11点伤害，1次",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "blockCost": 3,
+    "blockDurability": 200,
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 2
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 6
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 3
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 3
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "qing-dun",
+    "name": "轻盾",
+    "armor": 27,
+    "block": "抵挡15点伤害，1次",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "blockCost": 3,
+    "blockDurability": 250,
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 2
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 2
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 7
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 5
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "tie-bao-bian-dun",
+    "name": "铁包边盾",
+    "armor": 50,
+    "block": "抵挡25点伤害，2次",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 5,
+    "blockDurability": 400,
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 8
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 5
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 6
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 8
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 12
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "hei-tie-bao-bian-dun",
+    "name": "黑铁包边盾",
+    "armor": 50,
+    "block": "抵挡25点伤害，2次",
+    "durability": {
+      "value": 334,
+      "unit": "点"
+    },
+    "blockCost": 5,
+    "blockDurability": 400,
+    "cost": [],
+    "effect": "提升耐久度"
+  },
+  {
+    "id": "xiao-yuan-dun",
+    "name": "小圆盾",
+    "armor": 70,
+    "block": "接下来受到的所有攻击伤害减少30点，持续1秒",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 5,
+    "blockDurability": 400,
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 8
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 6
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 8
+      },
+      {
+        "material": "mat-cu-sheng",
+        "qty": 12
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "xuan-yun-dun",
+    "name": "眩晕盾",
+    "armor": 100,
+    "block": "接下来受到的所有攻击伤害减少40点，持续1秒",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 7.5,
+    "blockDurability": 500,
+    "cost": [],
+    "effect": "格挡时眩晕攻击者，持续2秒"
+  },
+  {
+    "id": "sheng-dian-qi-shi-dun",
+    "name": "圣殿骑士盾",
+    "armor": 115,
+    "block": "接下来受到的所有攻击伤害减少40点，持续2秒",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 7.5,
+    "blockDurability": 500,
+    "cost": [],
+    "effect": "格挡时眩晕攻击者，持续2秒"
+  },
+  {
+    "id": "zu-zhou-guan-jun-zhi-dun",
+    "name": "诅咒冠军之盾",
+    "armor": 150,
+    "block": "接下来受到的所有攻击伤害减少40点，持续3秒",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 7.5,
+    "blockDurability": 500,
+    "cost": [],
+    "effect": "格挡时使攻击者中毒（6点毒素×6次）"
+  },
+  {
+    "id": "jue-dou-shi-dun",
+    "name": "角斗士盾",
+    "armor": 150,
+    "block": "接下来受到的所有攻击伤害减少50点，持续1秒",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 5,
+    "blockDurability": 400,
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "bing-shuang-dun",
+    "name": "冰霜盾",
+    "armor": 150,
+    "block": "接下来受到的所有攻击伤害减少50点，持续2秒",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "blockCost": 5,
+    "blockDurability": 500,
+    "cost": [],
+    "effect": "格挡时冻结攻击者，持续3秒"
+  },
+  {
+    "id": "di-wang-zhi-dun",
+    "name": "帝王之盾",
+    "armor": 200,
+    "block": "生成一个魔法护盾吸收200点伤害，持续1.5秒",
+    "durability": {
+      "value": 325,
+      "unit": "点"
+    },
+    "blockCost": 0,
+    "blockDurability": 500,
+    "cost": [],
+    "effect": "格挡时降低攻击者攻速（~0.8倍）与移速，持续2秒"
+  },
+  {
+    "id": "chi-yan-cheng-jie-dun",
+    "name": "炽焰惩戒盾",
+    "armor": 150,
+    "block": "抵挡50点伤害，1次",
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "blockCost": 15,
+    "blockDurability": 800,
+    "cost": [],
+    "effect": "格挡时造成范围攻击（100点火焰；近战范围）；惊吓夜访者"
+  }
+]

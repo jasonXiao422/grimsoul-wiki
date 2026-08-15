@@ -1,61 +1,64 @@
 /**
- * build 前校验所有数据文件。
- * 检查三件事：schema 合法、id 不重复、配方引用的材料真实存在。
- * 任一失败则退出码非 0，让构建中断。
+ * build 前校验数据文件。
+ * 检查：文件存在、id 全局唯一、配方引用的材料真实存在。
+ * 任一失败则退出码非 0，中断构建。
  */
 import fs from 'node:fs';
 import path from 'node:path';
 
-const DATA_DIR = 'src/data';
-const CATS = ['materials', 'weapons', 'armors', 'enemies', 'scrolls', 'buildings'];
+const DIR = 'src/data';
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'materials'];
 
 const errors = [];
 const all = {};
 
-// 1. 读取 + id 唯一性
-for (const cat of CATS) {
-  const file = path.join(DATA_DIR, `${cat}.json`);
-  if (!fs.existsSync(file)) { errors.push(`缺少数据文件: ${file}`); continue; }
-  let data;
-  try { data = JSON.parse(fs.readFileSync(file, 'utf8')); }
-  catch (e) { errors.push(`${cat}.json JSON 语法错误: ${e.message}`); continue; }
-
-  const seen = new Set();
-  for (const item of data) {
-    if (seen.has(item.id)) errors.push(`${cat}.json 中 id 重复: ${item.id}`);
-    seen.add(item.id);
-  }
-  all[cat] = data;
+for (const f of FILES) {
+  const p = path.join(DIR, `${f}.json`);
+  if (!fs.existsSync(p)) { errors.push(`缺少数据文件: ${p}`); continue; }
+  try { all[f] = JSON.parse(fs.readFileSync(p, 'utf8')); }
+  catch (e) { errors.push(`${f}.json 语法错误: ${e.message}`); }
 }
 
-// 2. 配方引用的材料必须存在
-const materialIds = new Set((all.materials ?? []).map((m) => m.id));
+// id 全局唯一（含套装部件）
+const seen = new Map();
+const claim = (id, where) => {
+  if (!id) { errors.push(`${where} 缺少 id`); return; }
+  if (seen.has(id)) errors.push(`id 重复: ${id}（${seen.get(id)} 与 ${where}）`);
+  else seen.set(id, where);
+};
+for (const f of FILES) {
+  for (const item of all[f] ?? []) {
+    claim(item.id, f);
+    for (const p of item.pieces ?? []) claim(p.id, `${f}/${item.id} 的部件`);
+  }
+}
 
-const checkCost = (cat, itemId, cost) => {
+// 配方引用的材料必须存在
+const matIds = new Set((all.materials ?? []).map((m) => m.id));
+const checkCost = (cost, where) => {
   for (const c of cost ?? []) {
-    if (!materialIds.has(c.material))
-      errors.push(`${cat}/${itemId} 的配方引用了不存在的材料: ${c.material}`);
+    if (!matIds.has(c.material)) errors.push(`${where} 引用了不存在的材料: ${c.material}`);
   }
 };
-
-for (const cat of ['weapons', 'armors', 'scrolls']) {
-  for (const item of all[cat] ?? []) checkCost(cat, item.id, item.craft?.cost);
-}
-for (const b of all.buildings ?? []) {
-  for (const lv of b.levels ?? []) checkCost('buildings', `${b.id} Lv${lv.level}`, lv.cost);
-}
-
-// 3. 敌人掉落引用的物品必须存在
-const allIds = new Set(CATS.flatMap((c) => (all[c] ?? []).map((i) => i.id)));
-for (const e of all.enemies ?? []) {
-  for (const d of e.drops ?? []) {
-    if (!allIds.has(d.item))
-      errors.push(`enemies/${e.id} 的掉落引用了不存在的物品: ${d.item}`);
+for (const f of FILES) {
+  for (const item of all[f] ?? []) {
+    checkCost(item.cost, `${f}/${item.id}`);
+    for (const p of item.pieces ?? []) checkCost(p.cost, `${f}/${item.id}/${p.id}`);
   }
+}
+
+// 武器的高级图纸必须指向真实武器
+const weaponIds = new Set((all.weapons ?? []).map((w) => w.id));
+for (const w of all.weapons ?? []) {
+  if (w.upgradeOf && !weaponIds.has(w.upgradeOf))
+    errors.push(`weapons/${w.id} 的高级图纸来源不存在: ${w.upgradeOf}`);
 }
 
 if (errors.length) {
   console.error('\n数据校验失败：\n' + errors.map((e) => '  ✗ ' + e).join('\n') + '\n');
   process.exit(1);
 }
-console.log(`数据校验通过（共 ${Object.values(all).flat().length} 条）`);
+
+const total = FILES.reduce((n, f) => n + (all[f]?.length ?? 0), 0);
+const pieces = (all.armor ?? []).reduce((n, s) => n + (s.pieces?.length ?? 0), 0);
+console.log(`数据校验通过（${total} 条主记录 + ${pieces} 件套装部件）`);

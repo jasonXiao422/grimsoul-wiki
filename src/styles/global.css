@@ -331,6 +331,16 @@ p {
   border-bottom: 0;
 }
 
+.data-table .group-row th {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: #101113;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+}
+
 .numeric {
   text-align: right;
   font-variant-numeric: tabular-nums;
@@ -357,13 +367,35 @@ p {
   padding: 5px;
 }
 
-.rarity-badge {
+.tier-badge {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
   padding: 1px 9px;
   border: 1px solid currentColor;
   border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.element-value {
+  font-weight: 600;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 1px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #101113;
+  color: var(--text-dim);
   font-size: 0.9rem;
 }
 
@@ -439,6 +471,39 @@ p {
 
 .plain-list li {
   padding: 10px 12px;
+}
+
+.piece-list {
+  display: grid;
+  gap: 14px;
+}
+
+.piece-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #101113;
+}
+
+.piece-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.piece-head h3,
+.piece-head p {
+  margin: 0;
+}
+
+.recipe-list.compact {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.recipe-list.compact a {
+  min-height: 54px;
 }
 
 .image-dialog {

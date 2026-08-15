@@ -9,7 +9,7 @@ export function getStaticPaths() {
     params: { category: category.slug },
     props: {
       category,
-      items: getListItems(category.slug as CategorySlug).sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN')),
+      items: getListItems(category.slug as CategorySlug),
     },
   }));
 }

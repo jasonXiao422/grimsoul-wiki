@@ -1,0 +1,279 @@
+[
+  {
+    "id": "pi-ge-jian-tou-xie",
+    "name": "皮革尖头鞋",
+    "tier": null,
+    "armor": 5,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 1
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 4
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 4
+      }
+    ],
+    "effect": "移动速度：6"
+  },
+  {
+    "id": "cao-mao",
+    "name": "草帽",
+    "tier": null,
+    "armor": 12,
+    "protection": null,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-bu-liao",
+        "qty": 1
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 2
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "dong-yong-mian-mao",
+    "name": "冬用棉帽",
+    "tier": null,
+    "armor": 30,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "da-dou-mao",
+    "name": "大兜帽",
+    "tier": null,
+    "armor": 35,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 2
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 7
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 4
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "ji-jian-shuang-pai-kou-shang-yi",
+    "name": "击剑双排扣上衣",
+    "tier": null,
+    "armor": 58,
+    "protection": null,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hou-bu",
+        "qty": 4
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      },
+      {
+        "material": "mat-sheng-suo",
+        "qty": 6
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "zhong-bu-bing-xue",
+    "name": "重步兵靴",
+    "tier": null,
+    "armor": 60,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "移动速度：12；减少陷阱伤害（0.5倍）"
+  },
+  {
+    "id": "yi-shi-mian-ju",
+    "name": "仪式面具",
+    "tier": null,
+    "armor": 70,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "nan-gua-tou-kui",
+    "name": "南瓜头盔",
+    "tier": null,
+    "armor": 70,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null
+  },
+  {
+    "id": "dai-yi-suo-zi-jia",
+    "name": "带翼锁子甲",
+    "tier": null,
+    "armor": 100,
+    "protection": null,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 5
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "jiao-kui",
+    "name": "角盔",
+    "tier": null,
+    "armor": 115,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 14
+      },
+      {
+        "material": "mat-jin-shu-xian",
+        "qty": 3
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 16
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 10
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "hu-xin-jing-suo-zi-jia",
+    "name": "护心镜锁子甲",
+    "tier": null,
+    "armor": 150,
+    "protection": null,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 4
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 7
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 14
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 16
+      }
+    ],
+    "effect": "额外快捷栏"
+  },
+  {
+    "id": "ba-bu-ta-tou-kui",
+    "name": "巴布塔头盔",
+    "tier": null,
+    "armor": 160,
+    "protection": null,
+    "durability": {
+      "value": 167,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 20
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 10
+      }
+    ],
+    "effect": null
+  },
+  {
+    "id": "zhen-cha-bing-qing-jia",
+    "name": "侦察兵轻甲",
+    "tier": null,
+    "armor": 200,
+    "protection": null,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "额外快捷栏；~11.7%概率闪避"
+  }
+]

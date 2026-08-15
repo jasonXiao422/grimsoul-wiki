@@ -1,83 +1,2753 @@
 [
   {
-    "id": "broken-sword",
-    "name": "断剑",
-    "type": "单手剑",
-    "rarity": "common",
-    "damage": 12,
+    "id": "quan-tou",
+    "name": "拳头",
+    "damage": 5,
+    "skillBonus": 2,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1,
+    "durability": null,
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "huo-ba",
+    "name": "火把",
+    "damage": 7,
+    "skillBonus": 3,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 6
+    },
     "attackSpeed": 1.1,
-    "durability": 80,
-    "reqLevel": 1,
-    "craft": {
-      "station": "workbench",
-      "time": "10s",
-      "cost": [
-        { "material": "wood", "qty": 2 },
-        { "material": "iron-ore", "qty": 1 }
-      ]
+    "range": 1.2,
+    "durability": {
+      "value": 400,
+      "unit": "秒"
     },
-    "obtain": ["制作", "灰蚀森林 木箱"],
-    "note": "开局过渡武器，耐久很低，建议尽快替换"
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 1
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 1
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 1
+      }
+    ],
+    "effect": "每次攻击耗费5秒；可吓退夜游神",
+    "upgradeOf": null
   },
   {
-    "id": "iron-sword",
-    "name": "铁剑",
-    "type": "单手剑",
-    "rarity": "uncommon",
-    "damage": 24,
-    "attackSpeed": 1.2,
-    "durability": 300,
-    "reqLevel": 5,
-    "craft": {
-      "station": "workbench",
-      "time": "30s",
-      "cost": [
-        { "material": "forged-iron", "qty": 3 },
-        { "material": "leather", "qty": 1 }
-      ]
+    "id": "shi-gao",
+    "name": "石镐",
+    "damage": 8,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.2,
+    "durability": {
+      "value": 50,
+      "unit": "点"
     },
-    "obtain": ["制作", "被遗弃的哨站 宝箱"],
-    "note": "前期性价比最高的过渡武器，材料好凑"
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 2
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 2
+      }
+    ],
+    "effect": "可破碎石头和铜矿",
+    "upgradeOf": null
   },
   {
-    "id": "hunting-bow",
-    "name": "猎弓",
-    "type": "弓",
-    "rarity": "uncommon",
-    "damage": 18,
+    "id": "gong-jiang-de-shi-gao",
+    "name": "工匠的石镐",
+    "damage": 8,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.2,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 2
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 2
+      }
+    ],
+    "effect": "可破碎石头和铜矿；消耗减半（3下一个铜矿）",
+    "upgradeOf": null
+  },
+  {
+    "id": "shi-fu",
+    "name": "石斧",
+    "damage": 9,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.1,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 2
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 2
+      }
+    ],
+    "effect": "可砍倒松树",
+    "upgradeOf": null
+  },
+  {
+    "id": "gong-jiang-de-shi-fu",
+    "name": "工匠的石斧",
+    "damage": 9,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.1,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 2
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 2
+      }
+    ],
+    "effect": "可砍倒松树；消耗减少（有树叶的3下/没树叶的2下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "qing-tong-ding-zi-gao",
+    "name": "青铜丁字镐",
+    "damage": 12,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.3,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 2
+      },
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 2
+      }
+    ],
+    "effect": "可砍倒松树和桦树",
+    "upgradeOf": null
+  },
+  {
+    "id": "chu-tou",
+    "name": "锄头",
+    "damage": 12,
+    "skillBonus": 3,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.5,
+    "range": 1.3,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "qing-tong-fu",
+    "name": "青铜斧",
+    "damage": 13,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.2,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 2
+      },
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 2
+      }
+    ],
+    "effect": "可破碎石头，铜矿和铁矿",
+    "upgradeOf": null
+  },
+  {
+    "id": "gun-zi",
+    "name": "棍子",
+    "damage": 14,
+    "skillBonus": 3,
+    "damageNote": null,
+    "element": null,
     "attackSpeed": 0.9,
-    "durability": 200,
-    "reqLevel": 4,
-    "craft": {
-      "station": "workbench",
-      "time": "25s",
-      "cost": [
-        { "material": "wood", "qty": 5 },
-        { "material": "rope", "qty": 2 }
-      ]
+    "range": 1.4,
+    "durability": {
+      "value": 56,
+      "unit": "点"
     },
-    "obtain": ["制作"],
-    "note": "远程消耗，打精英怪时配合走位很实用"
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 5
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
   },
   {
-    "id": "templar-sword",
-    "name": "圣殿骑士剑",
-    "type": "单手剑",
-    "rarity": "epic",
-    "damage": 62,
-    "attackSpeed": 1.15,
-    "durability": 900,
-    "reqLevel": 20,
-    "craft": {
-      "station": "forge",
-      "time": "5m",
-      "cost": [
-        { "material": "forged-iron", "qty": 12 },
-        { "material": "soul-shard", "qty": 3 },
-        { "material": "leather", "qty": 4 }
-      ]
+    "id": "jian-gu-de-gun-zi",
+    "name": "坚固的棍子",
+    "damage": 15,
+    "skillBonus": 3,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.4,
+    "durability": {
+      "value": 56,
+      "unit": "点"
     },
-    "obtain": ["制作（需图纸）", "沉睡的隐修院 精英掉落"],
-    "note": "中后期主力，需要先在隐修院拿到图纸"
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 5
+      }
+    ],
+    "effect": "潜行时的第一击攻击必定击晕敌人1秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "lian-dao",
+    "name": "镰刀",
+    "damage": 15,
+    "skillBonus": 4,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.7,
+    "range": 1.1,
+    "durability": {
+      "value": 125,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "tie-jiang-chui",
+    "name": "铁匠锤",
+    "damage": 18,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.1,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "nai-yong-chui-zi",
+    "name": "耐用锤子",
+    "damage": 18,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.1,
+    "durability": {
+      "value": 340,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-shuang-bi-shou",
+    "name": "冰霜匕首",
+    "damage": 19,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 11
+    },
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "23.2%概率减慢敌人的攻击与奔跑速度",
+    "upgradeOf": null
+  },
+  {
+    "id": "shen-dian-huo-ba",
+    "name": "神殿火把",
+    "damage": 19,
+    "skillBonus": 3,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 13
+    },
+    "attackSpeed": 0.8,
+    "range": 1.4,
+    "durability": {
+      "value": 400,
+      "unit": "秒"
+    },
+    "cost": [],
+    "effect": "17.4%概率点燃敌人（2火伤*4下）；每次攻击耗费5秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "yi-shi-bi-shou",
+    "name": "仪式匕首",
+    "damage": 19,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 13
+    },
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "有概率在攻击时获得逐渐治疗的效果",
+    "upgradeOf": null
+  },
+  {
+    "id": "qiao",
+    "name": "锹",
+    "damage": 19,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.7,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 1
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 1
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 1
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "bi-shou",
+    "name": "匕首",
+    "damage": 19,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 4
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 5
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "nai-yong-bi-shou",
+    "name": "耐用匕首",
+    "damage": 19,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 500,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "zhan-dou-chan",
+    "name": "战斗铲",
+    "damage": 20,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.7,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 1
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 1
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 1
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "qiao"
+  },
+  {
+    "id": "du-bi-shou",
+    "name": "毒匕首",
+    "damage": 20,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 112,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "41.1%的概率中毒（10毒伤*6下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "ye-men-shuang-ren-wan-dao",
+    "name": "也门双刃弯刀",
+    "damage": 21,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 4
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 5
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "bi-shou"
+  },
+  {
+    "id": "po-ren-jian",
+    "name": "破刃剑",
+    "damage": 21,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 4
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 5
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "bi-shou"
+  },
+  {
+    "id": "che-ba",
+    "name": "车把",
+    "damage": 24,
+    "skillBonus": 4,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.7,
+    "range": 2,
+    "durability": {
+      "value": 42,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 10
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "ye-you-shen-de-lian-dao",
+    "name": "夜游神的镰刀",
+    "damage": 24,
+    "skillBonus": 4,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.7,
+    "range": 1.1,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "12.1%概率瞬间秒杀敌人",
+    "upgradeOf": null
+  },
+  {
+    "id": "zhang-bing-cha",
+    "name": "长柄叉",
+    "damage": 25,
+    "skillBonus": 6,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.9,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "nai-yong-zhang-bing-cha",
+    "name": "耐用长柄叉",
+    "damage": 25,
+    "skillBonus": 6,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.9,
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "lie-gong",
+    "name": "猎弓",
+    "damage": 26,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 5,
+    "durability": {
+      "value": 63,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 10
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 3
+      },
+      {
+        "material": "mat-xian",
+        "qty": 2
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "jian-ci-chui",
+    "name": "尖刺锤",
+    "damage": 26,
+    "skillBonus": 7,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.4,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 6
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 2
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "nai-yong-lang-ya-bang",
+    "name": "耐用狼牙棒",
+    "damage": 26,
+    "skillBonus": 7,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.4,
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "mu-jian",
+    "name": "木剑",
+    "damage": 27,
+    "skillBonus": 4,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.7,
+    "range": 2,
+    "durability": {
+      "value": 42,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 10
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "che-ba"
+  },
+  {
+    "id": "sao-zhou",
+    "name": "扫帚",
+    "damage": 27,
+    "skillBonus": 4,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.7,
+    "range": 2,
+    "durability": {
+      "value": 42,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 10
+      },
+      {
+        "material": "mat-bu-liao",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "che-ba"
+  },
+  {
+    "id": "jiang",
+    "name": "桨",
+    "damage": 27,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 1.9,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "ren-bang",
+    "name": "刃棒",
+    "damage": 28,
+    "skillBonus": 7,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.4,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 6
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 2
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "jian-ci-chui"
+  },
+  {
+    "id": "pei-zhong-chui",
+    "name": "配重锤",
+    "damage": 28,
+    "skillBonus": 7,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.4,
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 14
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 16
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 5
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "jian-ci-chui"
+  },
+  {
+    "id": "zhuo-re-huo-yan-zhi-gong",
+    "name": "灼热火焰之弓",
+    "damage": 30,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 20
+    },
+    "attackSpeed": 0.8,
+    "range": 7,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "几率点燃敌人（5火伤*5下）；吓退夜游神",
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-gong",
+    "name": "冰弓",
+    "damage": 30,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 30
+    },
+    "attackSpeed": 0.8,
+    "range": 7,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "减慢对手的攻击与奔跑速度",
+    "upgradeOf": null
+  },
+  {
+    "id": "dan-shou-jian",
+    "name": "单手剑",
+    "damage": 30,
+    "skillBonus": 6,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.5,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "lian-zhuang-jian",
+    "name": "镰状剑",
+    "damage": 33,
+    "skillBonus": 6,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.5,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "dan-shou-jian"
+  },
+  {
+    "id": "liu-xing-chui",
+    "name": "流星锤",
+    "damage": 34,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.4,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 3
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 3
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 7
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "gu-zhi-gong",
+    "name": "骨制弓",
+    "damage": 35,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 5,
+    "durability": {
+      "value": 59,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "fa-lan-chui",
+    "name": "法兰锤",
+    "damage": 35,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.4,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 13
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 7
+      },
+      {
+        "material": "mat-xian",
+        "qty": 10
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "wan-dao",
+    "name": "弯刀",
+    "damage": 36,
+    "skillBonus": 9,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.2,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 8
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 8
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "liu-wang-zhe-liu-xing-chui",
+    "name": "流亡者流星锤",
+    "damage": 37,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.4,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 3
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 3
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 7
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "liu-xing-chui"
+  },
+  {
+    "id": "huang-jia-chui",
+    "name": "皇家锤",
+    "damage": 37,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.4,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 3
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 3
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-qing-tong-ding-2",
+        "qty": 7
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "liu-xing-chui"
+  },
+  {
+    "id": "jian-xi-xiu-shi-chui",
+    "name": "见习修士锤",
+    "damage": 38,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.4,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 13
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 7
+      },
+      {
+        "material": "mat-xian",
+        "qty": 10
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "fa-lan-chui"
+  },
+  {
+    "id": "sha-shou-wan-dao",
+    "name": "杀手弯刀",
+    "damage": 40,
+    "skillBonus": 9,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.2,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 8
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 8
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "wan-dao"
+  },
+  {
+    "id": "ya-ta-gan-dao",
+    "name": "亚塔甘刀",
+    "damage": 40,
+    "skillBonus": 9,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.2,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 8
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 5
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 8
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "wan-dao"
+  },
+  {
+    "id": "zhan-chui",
+    "name": "战锤",
+    "damage": 40,
+    "skillBonus": null,
+    "damageNote": "无视护甲（真实伤害）",
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.3,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "无视敌人护甲",
+    "upgradeOf": null
+  },
+  {
+    "id": "gu-zhi-bang-zi",
+    "name": "骨制棒子",
+    "damage": 42,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.6,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "tong-zhan-fu",
+    "name": "铜战斧",
+    "damage": 43,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 20
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 15
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-tong-zhan-fu",
+    "name": "黑铜战斧",
+    "damage": 43,
+    "skillBonus": 8,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "lie-nu",
+    "name": "猎弩",
+    "damage": 45,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.4,
+    "range": 6.5,
+    "durability": {
+      "value": 35,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 10
+      },
+      {
+        "material": "mat-gong-xian",
+        "qty": 2
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 10
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "she-xing-wan-jian",
+    "name": "蛇形弯剑",
+    "damage": 45,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.5,
+    "range": 1.3,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "潜行时可造成三倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "shi-hun-shi",
+    "name": "噬魂师",
+    "damage": 50,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.2,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "此武器以最后一击了结敌人来永久提升伤害（0/2/4）",
+    "upgradeOf": null
+  },
+  {
+    "id": "gu-lie-zhe",
+    "name": "骨裂者",
+    "damage": 50,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 15
+    },
+    "attackSpeed": 1,
+    "range": 1.6,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "有机会在攻击时造成双倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "kuang-zhan-shi-fu-tou",
+    "name": "狂战士斧头",
+    "damage": 52,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.4,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "失去生命值越多，造成伤害越大；\n当生命值失去70%时达到双倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "qing-nu",
+    "name": "轻弩",
+    "damage": 55,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.4,
+    "range": 7,
+    "durability": {
+      "value": 35,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 20
+      },
+      {
+        "material": "mat-gong-xian",
+        "qty": 4
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 20
+      },
+      {
+        "material": "mat-ji-xie-zhuang-zhi",
+        "qty": 1
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "tu-fu-de-qie-rou-dao",
+    "name": "屠夫的切肉刀",
+    "damage": 55,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.4,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "攻击时，有30%概率恢复你的宠物狼饱食度（2口）",
+    "upgradeOf": null
+  },
+  {
+    "id": "zhao-ming-qi",
+    "name": "照明器",
+    "damage": 55,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 20
+    },
+    "attackSpeed": 1,
+    "range": 1.6,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "52.2%概率点燃敌人（5火伤*4下）；吓退夜游神",
+    "upgradeOf": null
+  },
+  {
+    "id": "xiong-zhang",
+    "name": "熊掌",
+    "damage": 56,
+    "skillBonus": 2,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.5,
+    "range": 1.3,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "49.2%概率使敌人流血（8*5下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-se-xiong-zhang",
+    "name": "黑色熊掌",
+    "damage": 56,
+    "skillBonus": 2,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.5,
+    "range": 1.3,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "50.0%概率使敌人流血（8*5下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "bian-zhong-jian",
+    "name": "变种剑",
+    "damage": 58,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.7,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 15
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 7
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "duan-wan-dao",
+    "name": "短弯刀",
+    "damage": 59,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.5,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-duan-wan-dao",
+    "name": "黑短弯刀",
+    "damage": 59,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.5,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "yi-shi-da-lian-dao",
+    "name": "仪式大镰刀",
+    "damage": 60,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.5,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约25.0%几率发动范围攻击（60点物理伤害；近距离）\n每多一个附近敌人，伤害暂时提升（1.5倍、2倍，……最高至4倍）",
+    "upgradeOf": null
+  },
+  {
+    "id": "lu-bo-te-dao-jian",
+    "name": "鲁伯特刀剑",
+    "damage": 60,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.6,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "lei-shen-yuan-yang-yue",
+    "name": "雷神鸳鸯钺",
+    "damage": 60,
+    "skillBonus": 2,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.4,
+    "range": 1.1,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "每次击杀后，在接下来的10秒内可对最多3个远处敌人\n造成溅射伤害（穿刺伤害：0/15/30/45）\n主目标不受影响，仅对3个附加目标生效",
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-fu",
+    "name": "冰斧",
+    "damage": 60,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 20
+    },
+    "attackSpeed": 1,
+    "range": 1.6,
+    "durability": {
+      "value": 63,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "减慢对手的攻击与奔跑速度",
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-chui",
+    "name": "冰锤",
+    "damage": 60,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 20
+    },
+    "attackSpeed": 0.9,
+    "range": 1.8,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "连续攻击的第四下100%冻结敌人",
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-jian",
+    "name": "冰剑",
+    "damage": 60,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 20
+    },
+    "attackSpeed": 1.1,
+    "range": 1.6,
+    "durability": {
+      "value": 53,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "26.9%概率冻结敌人",
+    "upgradeOf": null
+  },
+  {
+    "id": "huo-yan-jian",
+    "name": "火焰剑",
+    "damage": 60,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 25
+    },
+    "attackSpeed": 1.1,
+    "range": 1.7,
+    "durability": {
+      "value": 59,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "吓退夜游神",
+    "upgradeOf": null
+  },
+  {
+    "id": "zhan-zheng-dao",
+    "name": "战争刀",
+    "damage": 61,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.7,
+    "durability": {
+      "value": 59,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 12
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 20
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 4
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 8
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "lve-duo-zhe",
+    "name": "掠夺者",
+    "damage": 62,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.2,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "每有一个额外的敌人靠近，伤害会暂时提升\n（提升倍率为1.2、1.4，直到最高2倍）",
+    "upgradeOf": null
+  },
+  {
+    "id": "qi-shi-jian",
+    "name": "骑士剑",
+    "damage": 64,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.7,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 15
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 7
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "bian-zhong-jian"
+  },
+  {
+    "id": "qing-jian",
+    "name": "轻剑",
+    "damage": 64,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.7,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 15
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 7
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "bian-zhong-jian"
+  },
+  {
+    "id": "qing-tong-mao",
+    "name": "青铜矛",
+    "damage": 65,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 2,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-qing-tong-ding",
+        "qty": 15
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 15
+      },
+      {
+        "material": "mat-xian",
+        "qty": 20
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 20
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "sha-shou-bi-shou",
+    "name": "杀手匕首",
+    "damage": 65,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.2,
+    "range": 1.2,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "连续命中时，伤害会暂时提升\n提升倍率为1.1、1.2…...直到最高2倍",
+    "upgradeOf": null
+  },
+  {
+    "id": "fu-he-gong",
+    "name": "复合弓",
+    "damage": 65,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 7,
+    "durability": {
+      "value": 59,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-fu-he-gong",
+    "name": "黑复合弓",
+    "damage": 65,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 7,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "wu-shi-dao",
+    "name": "武士刀",
+    "damage": 67,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.7,
+    "durability": {
+      "value": 59,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 12
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 20
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 4
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 8
+      }
+    ],
+    "effect": null,
+    "upgradeOf": "zhan-zheng-dao"
+  },
+  {
+    "id": "hei-wu-shi-dao",
+    "name": "黑武士刀",
+    "damage": 67,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.7,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "shuang-ren-da-kan-dao",
+    "name": "双刃大砍刀",
+    "damage": 70,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.8,
+    "durability": {
+      "value": 63,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-se-shuang-ren-da-kan-dao",
+    "name": "黑色双刃大砍刀",
+    "damage": 70,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.8,
+    "durability": {
+      "value": 91,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "huo-yan-kuo-tou-qiang",
+    "name": "火焰阔头枪",
+    "damage": 70,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 35
+    },
+    "attackSpeed": 0.9,
+    "range": 2.3,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约25.0%几率点燃（5火伤*6下）；吓退夜游神",
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-lian",
+    "name": "冰镰",
+    "damage": 70,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 43
+    },
+    "attackSpeed": 0.8,
+    "range": 1.5,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约26.4%几率冻结敌人同时造成额外冻伤（10冰伤*6下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "kong-bu-da-lian-dao",
+    "name": "恐怖大镰刀",
+    "damage": 77,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.4,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "52.8%概率威吓敌人",
+    "upgradeOf": null
+  },
+  {
+    "id": "shou-ge-zhe-yi-shi-zhi-jian",
+    "name": "收割者仪式之剑",
+    "damage": 80,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.3,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "每一击造成目标最大生命值15%的额外伤害\n（对魔王无效）",
+    "upgradeOf": null
+  },
+  {
+    "id": "ji",
+    "name": "戟",
+    "damage": 81,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 2.3,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-ji",
+    "name": "黑戟",
+    "damage": 81,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 2.3,
+    "durability": {
+      "value": 63,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-ji",
+    "name": "冰戟",
+    "damage": 81,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 40
+    },
+    "attackSpeed": 0.9,
+    "range": 2.3,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "减慢敌人的奔跑与攻击速度",
+    "upgradeOf": null
+  },
+  {
+    "id": "huo-yan-ji",
+    "name": "火焰戟",
+    "damage": 81,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 45
+    },
+    "attackSpeed": 0.9,
+    "range": 2.3,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "fen-sui-zhe",
+    "name": "粉碎者",
+    "damage": 83,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.6,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "36.6%概率攻击时击晕对手",
+    "upgradeOf": null
+  },
+  {
+    "id": "you-ling-jian",
+    "name": "幽灵剑",
+    "damage": 87,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.7,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "减慢敌人速度",
+    "upgradeOf": null
+  },
+  {
+    "id": "chang-jian",
+    "name": "长剑",
+    "damage": 90,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "zhong-nu",
+    "name": "重弩",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.2,
+    "range": 7.5,
+    "durability": {
+      "value": 29,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 20
+      },
+      {
+        "material": "mat-ji-xie-zhuang-zhi",
+        "qty": 15
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-you-zhi-gong-xian",
+        "qty": 6
+      }
+    ],
+    "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "sui-lu-zhe",
+    "name": "碎颅者",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 1.9,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "26.0%将敌人击晕，并造成双倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "du-ya-nu",
+    "name": "渡鸦弩",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.4,
+    "range": 8,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "潜行时可造成三倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "tie-zhi-bian-zhong-jian",
+    "name": "铁制变种剑",
+    "damage": 95,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.8,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "对人的伤害增加至1.5倍",
+    "upgradeOf": null
+  },
+  {
+    "id": "zhan-quan-zhi-fu",
+    "name": "战犬之斧",
+    "damage": 95,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "value": 40,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约62.5%几率在连续命中时永久降低敌人伤害\n依次降低为0.75、0.5、0.25倍",
+    "upgradeOf": null
+  },
+  {
+    "id": "sa-mu-feng-ren",
+    "name": "萨姆风刃",
+    "damage": 98,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.5,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "每次击杀后，暂时获得攻击速度增益\n提升倍率为1.15、1.3、1.45……，持续7秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "zui-e-ning-shi-zhi-ren",
+    "name": "罪恶凝视之刃",
+    "damage": 100,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约20.0%几率造成恐惧；\n对陷阱、恐惧、眩晕或冰冻状态下的敌人造成2倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "chang-jue-shuai-bai-zhi-ren",
+    "name": "猖獗衰败之刃",
+    "damage": 100,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 45
+    },
+    "attackSpeed": 0.8,
+    "range": 2,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "造成伤害可加速主动技能充能",
+    "upgradeOf": null
+  },
+  {
+    "id": "yin-yue-lian-dao",
+    "name": "银月镰刀",
+    "damage": 100,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.8,
+    "durability": {
+      "value": 59,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "在夜间造成的伤害增加50%（全月12分钟内）",
+    "upgradeOf": null
+  },
+  {
+    "id": "tian-xuan-shou-hu-zhi-mao",
+    "name": "天选守护之矛",
+    "damage": 100,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.6,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约22.2%几率穿透并造成2倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "yin-zhi-shuang-ren-da-kan-dao",
+    "name": "银制双刃大砍刀",
+    "damage": 100,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.8,
+    "durability": {
+      "value": 77,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "对怪物的伤害增加至1.5倍",
+    "upgradeOf": null
+  },
+  {
+    "id": "zhu-shen-zhi-nu",
+    "name": "诸神之怒",
+    "damage": 100,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.6,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "潜行时的第一次攻击必定击晕敌人3秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "dong-jie-zhi-yi",
+    "name": "冻结之翼",
+    "damage": 105,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 35
+    },
+    "attackSpeed": 0.8,
+    "range": 2.3,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约15.9%几率造成冻结效果，最多影响2个近距离目标",
+    "upgradeOf": null
+  },
+  {
+    "id": "diao-cha-guan-zhi-wen",
+    "name": "调查官之吻",
+    "damage": 105,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 45
+    },
+    "attackSpeed": 0.7,
+    "range": 1.9,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约24.0%几率造成范围点燃（7火伤*4下，持续5秒）；\n吓退夜游神",
+    "upgradeOf": null
+  },
+  {
+    "id": "bei-zhou-bang-zi",
+    "name": "被咒棒子",
+    "damage": 107,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.9,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "将对目标造成的伤害的10%反弹给自身",
+    "upgradeOf": null
+  },
+  {
+    "id": "di-guo-zhi-ren",
+    "name": "帝国之刃",
+    "damage": 110,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 2,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "暂时降低目标的命中率至0.5倍，持续约3秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "da-shi-fu-tou",
+    "name": "大师斧头",
+    "damage": 110,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2.3,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约23.9%几率发动范围攻击",
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-da-shi-fu-tou",
+    "name": "黑大师斧头",
+    "damage": 110,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2.3,
+    "durability": {
+      "value": 98,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约23.9%几率发动范围攻击",
+    "upgradeOf": null
+  },
+  {
+    "id": "sheng-dian-qi-shi-jian",
+    "name": "圣殿骑士剑",
+    "damage": 112,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.5,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "2.0%概率流放敌人",
+    "upgradeOf": null
+  },
+  {
+    "id": "kuang-zhan-shi-zhan-fu",
+    "name": "狂战士战斧",
+    "damage": 125,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-gang-ding",
+        "qty": 20
+      },
+      {
+        "material": "mat-mo-fa-pi-ge",
+        "qty": 15
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 20
+      },
+      {
+        "material": "mat-tu-sha-juan-zhou",
+        "qty": 1
+      }
+    ],
+    "effect": "伤害根据失去生命值的数量增加，失去生命值越多，造成伤害越大；\n潜行时不造成额外伤害；有机会在攻击时造成双倍伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "shi-xue",
+    "name": "嗜血",
+    "damage": 128,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "造成流血（9*5下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "jin-se-hu-wei-fu-lan-bei-er-ge",
+    "name": "金色护卫\n弗兰贝尔格",
+    "damage": 130,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 45
+    },
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "value": 53,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "使目标治疗封禁10秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "you-ling-wang-zhi-ren",
+    "name": "幽灵王之刃",
+    "damage": 130,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "击中时偷取敌人的生命值",
+    "upgradeOf": null
+  },
+  {
+    "id": "jian-jiao-fu-tou",
+    "name": "尖叫斧头",
+    "damage": 130,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2.3,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约42.0%几率造成范围性攻速与移速降低",
+    "upgradeOf": null
+  },
+  {
+    "id": "xing-xing-zhe-zhi-gou",
+    "name": "行刑者之钩",
+    "damage": 132,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.3,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约56.0%几率在连续命中时永久降低敌方护甲\n（依次降低为0.75、0.5、0.25倍）",
+    "upgradeOf": null
+  },
+  {
+    "id": "zhang-bing-dao",
+    "name": "长柄刀",
+    "damage": 132,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.3,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约43.5%几率造成穿刺伤害（0.25–0.5倍）\n最多影响2个近距离目标",
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-zhang-bing-dao",
+    "name": "黑长柄刀",
+    "damage": 132,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.3,
+    "durability": {
+      "value": 63,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约43.5%几率造成穿刺伤害（0.25–0.5倍）\n最多影响2个近距离目标",
+    "upgradeOf": null
+  },
+  {
+    "id": "jian-ci-san-cha-ji",
+    "name": "尖刺三叉戟",
+    "damage": 132,
+    "skillBonus": 6,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.3,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "约36.7%几率造成中毒（12*5下）",
+    "upgradeOf": null
   }
 ]

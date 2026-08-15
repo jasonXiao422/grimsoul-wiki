@@ -1,47 +1,247 @@
 [
   {
-    "id": "wood",
-    "name": "木材",
-    "category": "基础资源",
-    "source": "砍伐树木、拆解木制家具",
-    "note": "前期最常用的基础材料"
+    "id": "mat-hou-bu",
+    "name": "厚布",
+    "usedIn": 140
   },
   {
-    "id": "stone",
-    "name": "石头",
-    "category": "基础资源",
-    "source": "开采石矿、地面拾取"
-  },
-  {
-    "id": "iron-ore",
-    "name": "铁矿石",
-    "category": "基础资源",
-    "source": "开采铁矿脉"
-  },
-  {
-    "id": "forged-iron",
-    "name": "锻铁",
-    "category": "加工材料",
-    "source": "铁矿石 x2 于熔炉冶炼",
-    "note": "中期几乎所有装备的核心材料，建议常备"
-  },
-  {
-    "id": "leather",
+    "id": "mat-pi-ge",
     "name": "皮革",
-    "category": "加工材料",
-    "source": "剥取野猪、鹿等动物的兽皮后鞣制"
+    "usedIn": 116
   },
   {
-    "id": "rope",
+    "id": "mat-sheng-suo",
     "name": "绳索",
-    "category": "加工材料",
-    "source": "亚麻 x3 于工作台制作"
+    "usedIn": 54
   },
   {
-    "id": "soul-shard",
+    "id": "mat-qing-tong-ding",
+    "name": "青铜锭",
+    "usedIn": 49
+  },
+  {
+    "id": "mat-tong-ding",
+    "name": "铜锭",
+    "usedIn": 47
+  },
+  {
+    "id": "mat-fu-mo-pi-ge",
+    "name": "附魔皮革",
+    "usedIn": 42
+  },
+  {
+    "id": "mat-bu-liao",
+    "name": "布料",
+    "usedIn": 38
+  },
+  {
+    "id": "mat-tie-ding",
+    "name": "铁锭",
+    "usedIn": 38
+  },
+  {
+    "id": "mat-jin-shu-xian",
+    "name": "金属线",
+    "usedIn": 33
+  },
+  {
+    "id": "mat-song-mu-ban",
+    "name": "松木板",
+    "usedIn": 25
+  },
+  {
+    "id": "mat-tie-ban",
+    "name": "铁板",
+    "usedIn": 20
+  },
+  {
+    "id": "mat-ya-ma-xian-wei",
+    "name": "亚麻纤维",
+    "usedIn": 16
+  },
+  {
+    "id": "mat-yuan-song-mu",
+    "name": "原松木",
+    "usedIn": 12
+  },
+  {
+    "id": "mat-qing-tong-ding-2",
+    "name": "青铜钉",
+    "usedIn": 12
+  },
+  {
+    "id": "mat-xian",
+    "name": "线",
+    "usedIn": 12
+  },
+  {
+    "id": "mat-tong-sui-pian",
+    "name": "铜碎片",
+    "usedIn": 11
+  },
+  {
+    "id": "mat-gu-dai-ban-jia",
+    "name": "古代板甲",
+    "usedIn": 9
+  },
+  {
+    "id": "mat-cu-sheng",
+    "name": "粗绳",
+    "usedIn": 9
+  },
+  {
+    "id": "mat-ling-hun-sui-pian",
     "name": "灵魂碎片",
-    "category": "稀有材料",
-    "source": "击杀高级敌人、开启灵魂宝箱",
-    "note": "高阶装备与传送卷轴的关键材料"
+    "usedIn": 8
+  },
+  {
+    "id": "mat-hua-mu-ban",
+    "name": "桦木板",
+    "usedIn": 7
+  },
+  {
+    "id": "mat-gang-ding",
+    "name": "钢锭",
+    "usedIn": 7
+  },
+  {
+    "id": "mat-tie-sui-pian",
+    "name": "铁碎片",
+    "usedIn": 7
+  },
+  {
+    "id": "mat-xiao-bo-er-gu-hui",
+    "name": "肖博尔骨灰",
+    "usedIn": 6
+  },
+  {
+    "id": "mat-ying-hua-mao-ding",
+    "name": "硬化铆钉",
+    "usedIn": 6
+  },
+  {
+    "id": "mat-zhen-yin",
+    "name": "真银",
+    "usedIn": 6
+  },
+  {
+    "id": "mat-xiao-bo-er-zhi-jin",
+    "name": "肖博尔之烬",
+    "usedIn": 6
+  },
+  {
+    "id": "mat-pi-tiao",
+    "name": "皮条",
+    "usedIn": 5
+  },
+  {
+    "id": "mat-sui-tong-pian",
+    "name": "碎铜片",
+    "usedIn": 5
+  },
+  {
+    "id": "mat-pi-ge-tuo-lan",
+    "name": "皮革驮篮",
+    "usedIn": 5
+  },
+  {
+    "id": "mat-shi-hui-yan",
+    "name": "石灰岩",
+    "usedIn": 4
+  },
+  {
+    "id": "mat-lian-tiao",
+    "name": "链条",
+    "usedIn": 3
+  },
+  {
+    "id": "mat-sheng-zi",
+    "name": "绳子",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-gong-xian",
+    "name": "弓弦",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-ji-xie-zhuang-zhi",
+    "name": "机械装置",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-tou-gu",
+    "name": "头骨",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-shen-sheng-bao-ying-juan-zhou",
+    "name": "神圣报应卷轴",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-song-mu",
+    "name": "松木",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-you-zhi-gong-xian",
+    "name": "优质弓弦",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-mo-fa-pi-ge",
+    "name": "魔法皮革",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-tu-sha-juan-zhou",
+    "name": "屠杀卷轴",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-ha-er-te-zhi-shou",
+    "name": "哈尔特之首",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-bing-dong-yao-shui",
+    "name": "冰冻药水",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-beng-dai",
+    "name": "绷带",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-ha-li-de-tou-kui",
+    "name": "哈里德头盔",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-fang-yu-yao-gao",
+    "name": "防御药膏",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-zhuan-zhu-yao-shui",
+    "name": "专注药水",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-luo-ge-wo-de-zhi-shou",
+    "name": "罗格沃德之首",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-qian-xing-yao-shui",
+    "name": "潜行药水",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-huo-li-yao-shui",
+    "name": "活力药水",
+    "usedIn": 1
   }
 ]

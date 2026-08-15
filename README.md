@@ -52,3 +52,19 @@ git push
 
 本站为玩家自制非官方攻略站，与 Brickworks Games Ltd. 无隶属关系。
 游戏素材版权归原作者所有。
+
+## 更新游戏数据
+
+数据来源是 `data-source/` 下的 Excel，不要直接改 `src/data/*.json`（会被覆盖）。
+
+```bash
+# 1. 用新版 Excel 覆盖 data-source/ 里的同名文件
+# 2. 重新导入
+pip install openpyxl pypinyin
+npm run import
+
+# 3. 确认构建通过
+npm run build
+```
+
+导入脚本结尾会打印警告列表，提示哪些条目解析异常或数据缺失。
