@@ -1,0 +1,114 @@
+---
+import ImageZoom from './ImageZoom.astro';
+import { formatValue, FIELD_LABELS, getDropItemName, getStationName, normalizeTime } from '../lib/display';
+import { getAnyItemName, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
+
+interface Props {
+  categorySlug: CategorySlug;
+  item: Record<string, any>;
+}
+
+const { categorySlug, item } = Astro.props;
+const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
+const hiddenKeys = new Set(['id', 'name', 'craft', 'levels', 'drops', 'produces']);
+const attrRows = Object.entries(item)
+  .filter(([key, value]) => !hiddenKeys.has(key) && value !== undefined)
+  .map(([key, value]) => [FIELD_LABELS[key] ?? key, formatValue(key, value)]);
+---
+
+<article class="detail-grid">
+  <aside>
+    <ImageZoom src={iconSrc} alt={item.name} class="detail-image" />
+  </aside>
+
+  <div>
+    <div class="page-heading">
+      <p class="eyebrow">{formatValue('rarity', item.rarity) !== '无' ? formatValue('rarity', item.rarity) : '资料详情'}</p>
+      <h1>{item.name}</h1>
+    </div>
+
+    {attrRows.length > 0 && (
+      <section class="panel">
+        <h2>属性</h2>
+        <table class="attr-table">
+          <tbody>
+            {attrRows.map(([label, value]) => (
+              <tr>
+                <th>{label}</th>
+                <td>{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    )}
+
+    {item.craft && (
+      <section class="section panel">
+        <h2>合成配方</h2>
+        <p class="muted">制作设施：{getStationName(item.craft.station)}，耗时{normalizeTime(item.craft.time)}</p>
+        <ul class="recipe-list">
+          {item.craft.cost.map((cost: { material: string; qty: number }) => {
+            const material = MATERIALS_BY_ID.get(cost.material);
+            return material && (
+              <li>
+                <a href={`/materials/${material.id}`}>
+                  <img
+                    class="item-icon"
+                    src={`/images/materials/${material.id}.webp`}
+                    alt={material.name}
+                    loading="lazy"
+                    data-fallback="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2096%2096'%3E%3Crect%20width='96'%20height='96'%20fill='%231b1d21'/%3E%3Cpath%20d='M21%2069h54L61%2048%2049%2061%2039%2041z'%20fill='%232c2f35'/%3E%3C/svg%3E"
+                    onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                  />
+                  <span>{material.name}</span>
+                  <span class="qty">×{cost.qty}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+
+    {item.levels && (
+      <section class="section panel">
+        <h2>升级材料</h2>
+        <ul class="plain-list">
+          {item.levels.map((level: any) => (
+            <li>
+              <strong>{level.level}级</strong>
+              <span class="muted">，{level.unlock}：</span>
+              {level.cost.map((cost: { material: string; qty: number }) => {
+                const material = MATERIALS_BY_ID.get(cost.material);
+                return material ? `${material.name}×${cost.qty}` : '未知材料';
+              }).join('、')}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {item.drops && item.drops.length > 0 && (
+      <section class="section panel">
+        <h2>掉落</h2>
+        <ul class="plain-list">
+          {item.drops.map((drop: { item: string; type: string; chance: string }) => (
+            <li>{getDropItemName(drop.type, drop.item)}：{drop.chance}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {item.produces && item.produces.length > 0 && (
+      <section class="section panel">
+        <h2>产出</h2>
+        <ul class="plain-list">
+          {item.produces.map((id: string) => (
+            <li>{getAnyItemName(id)}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</article>

@@ -1,0 +1,63 @@
+---
+import { pinyin } from 'pinyin-pro';
+import { ALL_CATEGORIES, DATA_BY_CATEGORY, getItemHref, type CategorySlug } from '../lib/data';
+
+const makePinyin = (name: string) => pinyin(name, { toneType: 'none', type: 'array' }) as string[];
+const searchIndex = ALL_CATEGORIES.flatMap((category) => {
+  const slug = category.slug as CategorySlug;
+  return [...DATA_BY_CATEGORY[slug]].map((item) => {
+    const syllables = makePinyin(item.name);
+    return {
+      name: item.name,
+      category: category.label,
+      href: getItemHref(slug, item.id),
+      pinyin: syllables.join('').toLowerCase(),
+      initials: syllables.map((part) => part[0] ?? '').join('').toLowerCase(),
+    };
+  });
+});
+---
+
+<div class="site-search" data-site-search>
+  <label>
+    <span class="sr-only">全站搜索</span>
+    <input class="search-input" type="search" placeholder="搜索全站资料" data-global-search />
+  </label>
+  <div class="search-results" data-global-results></div>
+</div>
+
+<script define:vars={{ searchIndex }}>
+  const root = document.querySelector('[data-site-search]');
+  const input = root?.querySelector('[data-global-search]');
+  const results = root?.querySelector('[data-global-results]');
+
+  const closeResults = () => {
+    results?.classList.remove('is-open');
+    if (results) results.innerHTML = '';
+  };
+
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    if (!query || !results) {
+      closeResults();
+      return;
+    }
+
+    const matches = searchIndex
+      .filter((item) => item.name.includes(query) || item.pinyin.includes(query) || item.initials.includes(query))
+      .slice(0, 8);
+
+    if (matches.length === 0) {
+      results.innerHTML = '<p class="muted" style="padding:10px 12px;margin:0">没有找到相关资料。</p>';
+    } else {
+      results.innerHTML = matches
+        .map((item) => `<a href="${item.href}"><strong>${item.name}</strong><span>${item.category}</span></a>`)
+        .join('');
+    }
+    results.classList.add('is-open');
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!root?.contains(event.target)) closeResults();
+  });
+</script>

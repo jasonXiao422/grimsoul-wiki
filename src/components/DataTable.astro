@@ -1,0 +1,176 @@
+---
+import type { CategoryDef } from '../lib/categories';
+import { RARITY_META, type Rarity } from '../lib/rarity';
+import { FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
+
+interface Props {
+  category: CategoryDef;
+  items: Array<Record<string, any>>;
+}
+
+const { category, items } = Astro.props;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
+
+const getFilterOptions = (key: string) => {
+  const values = new Map<string, string>();
+  for (const item of items) {
+    const raw = item[key];
+    const rawValues = Array.isArray(raw) ? raw : [raw ?? ''];
+    for (const rawValue of rawValues) {
+      const value = rawValue === null || rawValue === undefined || rawValue === '' ? '__none' : String(rawValue);
+      values.set(value, formatValue(key, rawValue));
+    }
+  }
+  return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN'));
+};
+
+const getRowFilterValue = (value: unknown) => {
+  if (Array.isArray(value)) return value.map(getRowFilterValue).join('|');
+  return value === null || value === undefined || value === '' ? '__none' : String(value);
+};
+---
+
+<section class="data-table-block" data-table-root>
+  <div class="table-tools">
+    <label>
+      <span class="sr-only">搜索当前列表</span>
+      <input class="search-input" type="search" data-table-search placeholder={`搜索${category.label}`} />
+    </label>
+    {category.filters.length > 0 && (
+      <div class="filter-bar">
+        {category.filters.map((filterKey) => (
+          <label>
+            <span class="sr-only">{FIELD_LABELS[filterKey] ?? '筛选项'}</span>
+            <select class="filter-select" data-filter={filterKey}>
+              <option value="">全部{FIELD_LABELS[filterKey] ?? '筛选项'}</option>
+              {getFilterOptions(filterKey).map(([value, label]) => (
+                <option value={value}>{label}</option>
+              ))}
+            </select>
+          </label>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <div class="table-scroll">
+    <table class="data-table">
+      <thead>
+        <tr>
+          {category.columns.map((column) => (
+            <th class:list={[column.numeric && 'numeric']}>
+              {column.sortable ? (
+                <button type="button" data-sort-key={column.key}>{column.label}</button>
+              ) : (
+                column.label
+              )}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {items.map((item) => (
+          <tr
+            data-row
+            data-search={category.columns.map((column) => formatValue(column.key, item[column.key])).join(' ')}
+            {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(item[filter])]))}
+          >
+            {category.columns.map((column, index) => {
+              const rawValue = item[column.key];
+              const value = formatValue(column.key, rawValue);
+              const sortValue = getSortValue(column.key, rawValue);
+              const rarity = column.key === 'rarity' ? RARITY_META[rawValue as Rarity] : undefined;
+              return (
+                <td class:list={[column.numeric && 'numeric']} data-sort-value={sortValue}>
+                  {index === 0 ? (
+                    <a class="item-cell" href={`/${category.slug}/${item.id}`}>
+                      <img
+                        class="item-icon"
+                        src={`/images/${category.slug}/${item.id}.webp`}
+                        alt={item.name}
+                        loading="lazy"
+                        data-fallback={fallback}
+                        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                      />
+                      <strong>{value}</strong>
+                    </a>
+                  ) : rarity ? (
+                    <span class="rarity-badge" style={`color:${rarity.color}`}>{rarity.label}</span>
+                  ) : (
+                    value
+                  )}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="muted" data-empty hidden>没有找到符合条件的条目。</p>
+</section>
+
+<script>
+  const roots = document.querySelectorAll<HTMLElement>('[data-table-root]');
+
+  roots.forEach((root) => {
+    const search = root.querySelector<HTMLInputElement>('[data-table-search]');
+    const filters = [...root.querySelectorAll<HTMLSelectElement>('[data-filter]')];
+    const tbody = root.querySelector<HTMLTableSectionElement>('tbody');
+    const empty = root.querySelector<HTMLElement>('[data-empty]');
+    let sortState = { key: '', direction: 1 };
+
+    const rows = () => [...root.querySelectorAll<HTMLTableRowElement>('[data-row]')];
+
+    const applyFilters = () => {
+      const query = (search?.value ?? '').trim().toLocaleLowerCase('zh-Hans-CN');
+      let visibleCount = 0;
+
+      rows().forEach((row) => {
+        const matchesSearch = !query || (row.dataset.search ?? '').toLocaleLowerCase('zh-Hans-CN').includes(query);
+        const matchesFilters = filters.every((filter) => {
+          if (!filter.value) return true;
+          const key = filter.dataset.filter ?? '';
+          const rowValue = row.getAttribute(`data-filter-${key}`) ?? '';
+          return rowValue.split('|').includes(filter.value);
+        });
+        const visible = matchesSearch && matchesFilters;
+        row.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      if (empty) empty.hidden = visibleCount !== 0;
+    };
+
+    const sortRows = (key: string) => {
+      if (!tbody) return;
+      sortState = sortState.key === key
+        ? { key, direction: sortState.direction * -1 }
+        : { key, direction: 1 };
+      const headerButtons = [...root.querySelectorAll<HTMLButtonElement>('[data-sort-key]')];
+      const columnIndex = headerButtons.findIndex((button) => button.dataset.sortKey === key);
+      if (columnIndex < 0) return;
+
+      rows()
+        .sort((a, b) => {
+          const aValue = a.children[columnIndex]?.getAttribute('data-sort-value') ?? '';
+          const bValue = b.children[columnIndex]?.getAttribute('data-sort-value') ?? '';
+          const aNumber = Number(aValue);
+          const bNumber = Number(bValue);
+          const result = Number.isFinite(aNumber) && Number.isFinite(bNumber)
+            ? aNumber - bNumber
+            : aValue.localeCompare(bValue, 'zh-Hans-CN');
+          return result * sortState.direction;
+        })
+        .forEach((row) => tbody.append(row));
+    };
+
+    search?.addEventListener('input', applyFilters);
+    filters.forEach((filter) => filter.addEventListener('change', applyFilters));
+    root.querySelectorAll<HTMLButtonElement>('[data-sort-key]').forEach((button) => {
+      button.addEventListener('click', () => sortRows(button.dataset.sortKey ?? ''));
+    });
+  });
+</script>

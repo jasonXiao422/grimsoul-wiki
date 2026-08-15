@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ALL_CATEGORIES, getListItems, type CategorySlug } from '../lib/data';
+
+const categoryCards = ALL_CATEGORIES.map((category) => ({
+  ...category,
+  count: getListItems(category.slug as CategorySlug).length,
+}));
+
+const recentItems = ALL_CATEGORIES.flatMap((category) =>
+  getListItems(category.slug as CategorySlug).map((item) => ({
+    name: item.name,
+    href: `/${category.slug}/${item.id}`,
+    category: category.label,
+  }))
+).slice(0, 6);
+---
+
+<BaseLayout title="首页" description="Grim Soul 中文攻略资料站">
+  <section class="hero">
+    <p class="eyebrow">暗黑幻想生存资料库</p>
+    <h1>在灰蚀之地活得更久</h1>
+    <p>汇总武器、护甲、敌人、卷轴、建筑与材料资料，方便中文玩家快速查找合成配方、掉落来源和推进路线。</p>
+  </section>
+
+  <section>
+    <h2>资料入口</h2>
+    <div class="grid">
+      {categoryCards.map((category) => (
+        <a class="entry-card" href={`/${category.slug}`}>
+          <span>
+            <strong>{category.label}</strong>
+            {category.blurb}
+          </span>
+          <span class="count">{category.count}条资料</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>最近更新</h2>
+    <div class="grid">
+      {recentItems.map((item) => (
+        <a class="entry-card" href={item.href}>
+          <span>
+            <strong>{item.name}</strong>
+            {item.category}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

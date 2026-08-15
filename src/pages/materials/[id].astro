@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DetailPanel from '../../components/DetailPanel.astro';
+import materials from '../../data/materials.json';
+import { getRecipeUsages } from '../../lib/data';
+
+export function getStaticPaths() {
+  return materials.map((item) => ({
+    params: { id: item.id },
+    props: { item, usages: getRecipeUsages(item.id) },
+  }));
+}
+
+const { item, usages } = Astro.props;
+---
+
+<BaseLayout title={item.name} description={`${item.name}来源与用途`}>
+  <DetailPanel categorySlug="materials" item={item} />
+
+  <section class="section panel">
+    <h2>哪些配方用到这个材料</h2>
+    {usages.length > 0 ? (
+      <ul class="usage-list recipe-list">
+        {usages.map((usage) => (
+          <li>
+            <a href={usage.href}>
+              <span>
+                <strong>{usage.name}</strong>
+                <span class="muted">（{usage.categoryLabel}，{usage.source}）</span>
+              </span>
+              <span class="qty">×{usage.qty}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="muted">当前没有配方使用这个材料。</p>
+    )}
+  </section>
+</BaseLayout>

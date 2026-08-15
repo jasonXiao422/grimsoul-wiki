@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DataTable from '../../components/DataTable.astro';
+import { MATERIAL_CATEGORY, getListItems } from '../../lib/data';
+
+const items = getListItems('materials').sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
+---
+
+<BaseLayout title="材料" description="材料资料列表">
+  <section class="page-heading">
+    <p class="eyebrow">资料列表</p>
+    <h1>材料</h1>
+    <p class="muted">基础资源、加工材料与稀有材料的来源。</p>
+  </section>
+
+  <DataTable category={MATERIAL_CATEGORY} items={items} />
+</BaseLayout>

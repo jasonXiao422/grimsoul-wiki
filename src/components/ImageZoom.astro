@@ -1,0 +1,46 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = '' } = Astro.props;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><rect width="160" height="160" fill="#1b1d21"/><path d="M38 116h84L99 83 82 102 67 72z" fill="#2c2f35"/><circle cx="58" cy="52" r="13" fill="#8a6f1a"/></svg>`);
+---
+
+<img
+  class:list={['js-zoom-image', className]}
+  src={src}
+  alt={alt}
+  loading="lazy"
+  data-fallback={fallback}
+  onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+/>
+
+<dialog class="image-dialog" data-image-dialog>
+  <button type="button" aria-label="关闭">×</button>
+  <img src="" alt="" />
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-image-dialog]');
+  const dialogImage = dialog?.querySelector('img');
+  const closeButton = dialog?.querySelector('button');
+
+  document.querySelectorAll<HTMLImageElement>('.js-zoom-image').forEach((image) => {
+    image.addEventListener('click', () => {
+      if (!dialog || !dialogImage) return;
+      dialogImage.src = image.currentSrc || image.src;
+      dialogImage.alt = image.alt;
+      dialog.showModal();
+    });
+  });
+
+  closeButton?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>

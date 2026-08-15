@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DataTable from '../../components/DataTable.astro';
+import { CATEGORIES } from '../../lib/categories';
+import { getListItems, type CategorySlug } from '../../lib/data';
+
+export function getStaticPaths() {
+  return CATEGORIES.map((category) => ({
+    params: { category: category.slug },
+    props: {
+      category,
+      items: getListItems(category.slug as CategorySlug).sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN')),
+    },
+  }));
+}
+
+const { category, items } = Astro.props;
+---
+
+<BaseLayout title={category.label} description={`${category.label}资料列表`}>
+  <section class="page-heading">
+    <p class="eyebrow">资料列表</p>
+    <h1>{category.label}</h1>
+    <p class="muted">{category.blurb}</p>
+  </section>
+
+  <DataTable category={category} items={items} />
+</BaseLayout>
