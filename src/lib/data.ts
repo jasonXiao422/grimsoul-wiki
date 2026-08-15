@@ -6,6 +6,7 @@ import armor from '../data/armor.json';
 import shields from '../data/shields.json';
 import backpacks from '../data/backpacks.json';
 import enemies from '../data/enemies.json';
+import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 
 export const ALL_CATEGORIES = CATEGORIES;
@@ -17,6 +18,7 @@ export const DATA_BY_CATEGORY = {
   backpacks,
   enemies,
   materials,
+  orders: knightOrders,
 } as const;
 
 export const EXTRA_DATA = {

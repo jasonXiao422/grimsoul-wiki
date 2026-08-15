@@ -10,6 +10,19 @@ interface Props {
 
 const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
 const currentPath = Astro.url.pathname;
+const navCategories = ALL_CATEGORIES.filter((category) => category.slug !== 'orders');
+const contributors = [
+  {
+    name: 'JokerAF-安枫',
+    id: 'jokeraf-anfeng',
+    url: 'https://search.bilibili.com/upuser?keyword=JokerAF-%E5%AE%89%E6%9E%AB',
+  },
+  {
+    name: '浪里白花小飞龙',
+    id: 'langlibaihua-xiaofeilong',
+    url: 'https://search.bilibili.com/upuser?keyword=%E6%B5%AA%E9%87%8C%E7%99%BD%E8%8A%B1%E5%B0%8F%E9%A3%9E%E9%BE%99',
+  },
+];
 ---
 
 <!doctype html>
@@ -26,7 +39,7 @@ const currentPath = Astro.url.pathname;
         <div class="header-inner">
           <a class="brand" href="/">Grim Soul 中文攻略站</a>
           <nav class="main-nav" aria-label="主导航">
-            {ALL_CATEGORIES.map((category) => (
+            {navCategories.map((category) => (
               <a
                 href={`/${category.slug}`}
                 aria-current={currentPath.startsWith(`/${category.slug}`) ? 'page' : undefined}
@@ -46,6 +59,19 @@ const currentPath = Astro.url.pathname;
 
       <footer class="site-footer">
         <div class="footer-inner">
+          <div class="footer-contributors" aria-labelledby="footer-contributors-title">
+            <h2 id="footer-contributors-title">贡献者</h2>
+            <p class="footer-contributor-links">
+              {contributors.map((contributor, index) => (
+                <>
+                  <a href={contributor.url} target="_blank" rel="noopener noreferrer">{contributor.name}</a>
+                  {index < contributors.length - 1 && (
+                    <span class="footer-contributor-separator" aria-hidden="true">/</span>
+                  )}
+                </>
+              ))}
+            </p>
+          </div>
           <p>本站为玩家自制非官方攻略站，与 Brickworks Games Ltd. 无隶属关系。</p>
           <p>游戏素材版权归原作者所有。</p>
         </div>

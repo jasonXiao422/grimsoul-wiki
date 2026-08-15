@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
 import { CATEGORIES } from '../../lib/categories';
 import { getListItems, type CategorySlug } from '../../lib/data';
 
 export function getStaticPaths() {
-  return CATEGORIES.map((category) => ({
+  return CATEGORIES.filter((category) => category.slug !== 'orders').map((category) => ({
     params: { category: category.slug },
     props: {
       category,
@@ -18,6 +19,11 @@ const { category, items } = Astro.props;
 ---
 
 <BaseLayout title={category.label} description={`${category.label}资料列表`}>
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: category.label },
+  ]} />
+
   <section class="page-heading">
     <p class="eyebrow">资料列表</p>
     <h1>{category.label}</h1>

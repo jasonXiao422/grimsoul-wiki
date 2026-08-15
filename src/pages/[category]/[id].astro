@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import DetailPanel from '../../components/DetailPanel.astro';
 import { CATEGORIES } from '../../lib/categories';
 import { DATA_BY_CATEGORY, getListItems, type CategorySlug } from '../../lib/data';
 
 export function getStaticPaths() {
-  return CATEGORIES.flatMap((category) => (
+  return CATEGORIES.filter((category) => category.slug !== 'orders').flatMap((category) => (
     getListItems(category.slug as CategorySlug).map((item) => ({
       params: { category: category.slug, id: item.id },
       props: { category, item },
@@ -17,5 +18,11 @@ const { category, item } = Astro.props;
 ---
 
 <BaseLayout title={item.name} description={`${item.name}详细资料`}>
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: category.label, href: `/${category.slug}` },
+    { label: item.name },
+  ]} />
+
   <DetailPanel categorySlug={category.slug as keyof typeof DATA_BY_CATEGORY} item={item} />
 </BaseLayout>

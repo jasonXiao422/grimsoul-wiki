@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Grim Soul 背景图压缩工具</title>
+<style>
+:root{--bg:#131416;--panel:#1b1d21;--border:#2c2f35;--text:#d8d4cc;--dim:#8a8579;--accent:#c9a227;--ok:#5aa15a;--warn:#c47a5f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 "Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+header{border-bottom:1px solid var(--border);padding:18px 24px}
+h1{margin:0 0 4px;font-size:20px;font-weight:600}
+.sub{color:var(--dim);font-size:13px}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
+button{background:var(--accent);color:#131416;border:0;padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;font-size:14px;font-family:inherit}
+button.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+button:disabled{opacity:.4;cursor:not-allowed}
+select,input[type=text]{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:14px;font-family:inherit}
+label.sl{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim)}
+input[type=range]{width:130px}
+main{padding:22px 24px}
+#drop{border:2px dashed var(--border);border-radius:12px;padding:44px;text-align:center;color:var(--dim);transition:.15s;cursor:pointer}
+#drop.over{border-color:var(--accent);background:var(--panel);color:var(--text)}
+#drop b{color:var(--accent)}
+#list{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.card.done{border-color:var(--ok)}
+.thumb{aspect-ratio:16/9;background:#0f1012;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(19,20,22,.55),rgba(19,20,22,.85));display:flex;align-items:center;justify-content:center;color:#d8d4cc;font-size:19px;font-weight:600;letter-spacing:.05em}
+.meta{padding:11px 13px}
+.fn{font-family:ui-monospace,monospace;font-size:12px;color:var(--accent);word-break:break-all}
+.st{font-size:12px;color:var(--dim);margin-top:5px;display:flex;gap:10px;flex-wrap:wrap}
+.st .big{color:var(--warn)}
+.st .ok{color:var(--ok)}
+.row{display:flex;gap:7px;padding:0 13px 12px}
+.row select{flex:1;font-size:12px;padding:5px 7px}
+.row button{padding:5px 11px;font-size:12px}
+.empty{grid-column:1/-1;text-align:center;color:var(--dim);padding:36px}
+.tip{margin-top:22px;font-size:13px;color:var(--dim);border-top:1px solid var(--border);padding-top:16px;line-height:1.8}
+.tip b{color:var(--text);font-weight:600}
+code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <h1>背景图压缩工具</h1>
+  <div class="sub">拖入任意尺寸的图片，自动缩放、压到目标体积、转 webp，并写入 public/images/ 下的对应文件夹</div>
+  <div class="bar">
+    <button id="pick">① 选择 public/images 文件夹</button>
+    <select id="dest">
+      <option value="hero">首页 hero 背景</option>
+      <option value="pages">板块页背景</option>
+      <option value="lore">背景故事配图</option>
+    </select>
+    <label class="sl">宽度 <input type="range" id="w" min="1280" max="2560" step="160" value="1920"><span id="wv">1920</span></label>
+    <label class="sl">目标体积 <input type="range" id="kb" min="80" max="400" step="20" value="200"><span id="kbv">200</span>KB</label>
+    <label class="sl"><input type="checkbox" id="prev" checked style="width:auto"> 预览遮罩</label>
+  </div>
+</header>
+
+<main>
+  <div id="drop"><b>把图片拖到这里</b>　支持一次拖多张，任意尺寸<br><span style="font-size:12px">jpg / png / webp 都可以，会自动等比缩放并裁成 16:9 之外的部分保留</span></div>
+  <div id="list"></div>
+
+  <div class="tip">
+    <b>命名规则</b>　首页 hero 存为 <code>hero/bg-1.webp</code> 起，按拖入顺序编号；其余分类会让你手动选目标名。<br>
+    <b>为什么压到 200KB</b>　背景上面盖着暗色遮罩，细节看不清，压狠一点画质损失几乎无感，但手机端加载快得多。<br>
+    <b>构图建议</b>　主体避开正中央，因为标题文字会压在上面。<br>
+    <b>浏览器要求</b>　必须用 Chrome 或 Edge，Firefox / Safari 不支持直接写入文件夹。
+  </div>
+</main>
+
+<script>
+let dir=null, seq={hero:0,pages:0,lore:0};
+const $=s=>document.querySelector(s);
+const drop=$('#drop'), list=$('#list');
+
+$('#w').oninput=e=>$('#wv').textContent=e.target.value;
+$('#kb').oninput=e=>$('#kbv').textContent=e.target.value;
+
+$('#pick').onclick=async()=>{
+  if(!window.showDirectoryPicker){alert('这个浏览器不支持直接写入文件夹。\n请用 Chrome 或 Edge 打开本页。');return;}
+  try{
+    const h=await window.showDirectoryPicker({mode:'readwrite'});
+    const CATS=['weapons','armor','armor-pieces','shields','backpacks','enemies','materials','knight-orders','hero','pages','lore'];
+    if(CATS.includes(h.name)){
+      alert('选错了一层。\n\n你选的是「'+h.name+'」，这是子文件夹。\n请选它的上一层，也就是 public/images。');
+      return;
+    }
+    if(h.name!=='images' && !confirm('你选的文件夹叫「'+h.name+'」，通常应该是 images。\n确定继续吗？')) return;
+    dir=h; $('#pick').textContent='✓ 已连接 '+h.name; $('#pick').classList.add('ghost');
+  }catch(e){}
+};
+
+// 逐步降质量逼近目标体积
+async function encode(bmp, maxW, targetKB){
+  const scale=Math.min(1, maxW/bmp.width);
+  const w=Math.round(bmp.width*scale), h=Math.round(bmp.height*scale);
+  const c=document.createElement('canvas'); c.width=w; c.height=h;
+  c.getContext('2d').drawImage(bmp,0,0,w,h);
+  let q=0.85, blob=null;
+  for(let i=0;i<7;i++){
+    blob=await new Promise(r=>c.toBlob(r,'image/webp',q));
+    if(blob.size/1024<=targetKB) break;
+    q-=0.1;
+    if(q<0.35){q=0.35; blob=await new Promise(r=>c.toBlob(r,'image/webp',q)); break;}
+  }
+  return {blob,w,h,q,url:c.toDataURL('image/webp',q)};
+}
+
+async function write(name, blob, sub){
+  const d=await dir.getDirectoryHandle(sub,{create:true});
+  const fh=await d.getFileHandle(name,{create:true});
+  const ws=await fh.createWritable(); await ws.write(blob); await ws.close();
+}
+
+async function handle(file){
+  if(!dir){alert('请先点上方按钮选择 public/images 文件夹');return;}
+  const sub=$('#dest').value;
+  const maxW=+$('#w').value, target=+$('#kb').value;
+
+  const card=document.createElement('div'); card.className='card';
+  card.innerHTML='<div class="thumb"><span style="color:var(--dim);font-size:13px">处理中…</span></div><div class="meta"><div class="fn">'+file.name+'</div><div class="st">读取中</div></div>';
+  list.prepend(card);
+
+  const bmp=await createImageBitmap(file);
+  const r=await encode(bmp, maxW, target);
+  const kb=Math.round(r.blob.size/1024);
+  const name = sub==='hero' ? 'bg-'+(++seq.hero)+'.webp' : file.name.replace(/\.[^.]+$/,'').replace(/[^a-zA-Z0-9-]/g,'-').toLowerCase()+'.webp';
+
+  await write(name, r.blob, sub);
+
+  const over=$('#prev').checked ? '<div class="ov">在瘟疫之地活得更久</div>' : '';
+  card.classList.add('done');
+  card.querySelector('.thumb').innerHTML='<img src="'+r.url+'">'+over;
+  card.querySelector('.fn').textContent=sub+'/'+name;
+  card.querySelector('.st').innerHTML=
+    '<span>'+bmp.width+'×'+bmp.height+' → '+r.w+'×'+r.h+'</span>'+
+    '<span class="'+(kb<=target?'ok':'big')+'">'+kb+'KB</span>'+
+    '<span>质量 '+r.q.toFixed(2)+'</span>';
+
+  if(sub!=='hero'){
+    const row=document.createElement('div'); row.className='row';
+    row.innerHTML='<input type="text" value="'+name.replace('.webp','')+'" style="flex:1;font-size:12px;padding:5px 7px"><button>改名</button>';
+    row.querySelector('button').onclick=async()=>{
+      const nn=row.querySelector('input').value.trim().replace(/[^a-zA-Z0-9-]/g,'-').toLowerCase();
+      if(!nn) return;
+      await write(nn+'.webp', r.blob, sub);
+      card.querySelector('.fn').textContent=sub+'/'+nn+'.webp （旧文件 '+name+' 需手动删除）';
+    };
+    card.append(row);
+  }
+}
+
+drop.ondragover=e=>{e.preventDefault();drop.classList.add('over')};
+drop.ondragleave=()=>drop.classList.remove('over');
+drop.ondrop=async e=>{
+  e.preventDefault(); drop.classList.remove('over');
+  const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/'));
+  for(const f of files) await handle(f);
+};
+drop.onclick=()=>{
+  const i=document.createElement('input'); i.type='file'; i.accept='image/*'; i.multiple=true;
+  i.onchange=async()=>{for(const f of i.files) await handle(f);};
+  i.click();
+};
+</script>
+</body>
+</html>

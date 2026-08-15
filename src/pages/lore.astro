@@ -1,30 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import LoreTimeline from '../components/LoreTimeline.astro';
 import { getCollection } from 'astro:content';
 
-const entries = (await getCollection('lore'))
-  .sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'zh-Hans-CN'));
-
 const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
+
+const entries = (await getCollection('lore'))
+  .filter((entry) => getLoreSlug(entry.id) !== '07-knight-orders')
+  .map((entry) => ({
+    order: entry.data.order,
+    title: entry.data.title,
+    summary: entry.data.summary,
+    href: `/lore/${getLoreSlug(entry.id)}`,
+  }));
+
+const loreCards = [
+  ...entries,
+  {
+    order: 7,
+    title: '骑士团概览',
+    summary: '十四支骑士团，按建立顺序排开就是一部帝国衰亡史。',
+    href: '/orders',
+  },
+].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, 'zh-Hans-CN'));
 ---
 
-<BaseLayout title="背景故事" description="灰蚀之地背景故事目录">
+<BaseLayout title="背景故事" description="瘟疫之地背景故事目录">
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '背景故事' },
+  ]} />
+
   <section class="page-heading">
     <p class="eyebrow">世界观</p>
     <h1>背景故事</h1>
-    <p class="muted">整理灰蚀之地的传说、瘟疫、帝国记录与未解谜团。</p>
+    <p class="muted">整理瘟疫之地的传说、瘟疫、帝国记录与未解谜团。</p>
   </section>
 
   <LoreTimeline />
 
   <section class="lore-index" aria-label="背景故事目录">
-    {entries.map((entry) => (
-      <a class="lore-card" href={`/lore/${getLoreSlug(entry.id)}`}>
-        <span class="lore-order">{String(entry.data.order).padStart(2, '0')}</span>
+    {loreCards.map((entry) => (
+      <a class="lore-card" href={entry.href}>
+        <span class="lore-order">{String(entry.order).padStart(2, '0')}</span>
         <span>
-          <strong>{entry.data.title}</strong>
-          <span>{entry.data.summary}</span>
+          <strong>{entry.title}</strong>
+          <span>{entry.summary}</span>
         </span>
       </a>
     ))}

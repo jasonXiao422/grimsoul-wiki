@@ -1,0 +1,43 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props as Props;
+const lastIndex = items.length - 1;
+---
+
+{items.length > 0 && (
+  <nav class="breadcrumb" aria-label="面包屑">
+    <ol>
+      {items.map((item, index) => {
+        const isCurrent = index === lastIndex || !item.href;
+        const isMiddle = index > 0 && index < lastIndex;
+
+        return (
+          <>
+            <li class:list={['breadcrumb-item', index === 0 && 'is-first', isMiddle && 'is-middle', isCurrent && 'is-current']}>
+              {index > 0 && <span class="breadcrumb-separator" aria-hidden="true">/</span>}
+              {isCurrent ? (
+                <span class="breadcrumb-current" aria-current="page">{item.label}</span>
+              ) : (
+                <a class="breadcrumb-link" href={item.href}>{item.label}</a>
+              )}
+            </li>
+            {index === 0 && items.length > 2 && (
+              <li class="breadcrumb-ellipsis" aria-hidden="true">
+                <span class="breadcrumb-separator">/</span>
+                <span>…</span>
+              </li>
+            )}
+          </>
+        );
+      })}
+    </ol>
+  </nav>
+)}

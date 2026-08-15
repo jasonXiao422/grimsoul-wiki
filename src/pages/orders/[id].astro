@@ -1,0 +1,153 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import knightOrders from '../../data/knight-orders.json';
+import enemies from '../../data/enemies.json';
+import { getOrderStatusLabel, getOrderEraRank } from '../../lib/knight-orders';
+
+type KnightOrder = (typeof knightOrders)[number];
+
+export function getStaticPaths() {
+  return [...knightOrders]
+    .sort((a, b) => (
+      getOrderEraRank(a.era) - getOrderEraRank(b.era)
+      || a.ordinal.localeCompare(b.ordinal, 'zh-Hans-CN')
+      || a.name.localeCompare(b.name, 'zh-Hans-CN')
+    ))
+    .map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props as { item: KnightOrder };
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M48 13 75 27v19c0 18-11 31-27 38-16-7-27-20-27-38V27z" fill="#2c2f35"/><path d="M48 21 66 31v15c0 12-7 22-18 28-11-6-18-16-18-28V31z" fill="#8a6f1a"/></svg>`);
+
+const bannerPath = path.join(process.cwd(), 'public', 'images', 'knight-orders', `${item.id}-banner.webp`);
+const hasBanner = fs.existsSync(bannerPath);
+
+const enemyById = new Map(enemies.map((enemy) => [enemy.id, enemy.name]));
+const orderById = new Map(knightOrders.map((order) => [order.id, order.name]));
+const loreEntries = await getCollection('lore');
+const loreBySlug = new Map(loreEntries.map((entry) => [entry.id.replace(/\.md$/, ''), entry.data.title]));
+
+const relatedEnemies = item.relatedEnemies.map((id) => ({
+  id,
+  name: enemyById.get(id) ?? id,
+  href: `/enemies/${id}`,
+}));
+const relatedOrders = item.relatedOrders.map((id) => ({
+  id,
+  name: orderById.get(id) ?? id,
+  href: `/orders/${id}`,
+}));
+const relatedLore = item.relatedLore.map((id) => ({
+  id,
+  name: loreBySlug.get(id) ?? id,
+  href: `/lore/${id}`,
+}));
+---
+
+<BaseLayout title={item.name} description={item.summary}>
+  <Breadcrumb items={[
+    { label: '背景故事', href: '/lore' },
+    { label: '骑士团', href: '/orders' },
+    { label: item.name },
+  ]} />
+
+  {hasBanner && (
+    <img class="order-banner" src={`/images/knight-orders/${item.id}-banner.webp`} alt={`${item.name}头图`} />
+  )}
+
+  <article class="order-detail">
+    <header class="order-hero panel" data-status={item.status}>
+      <img
+        class="order-emblem"
+        src={`/images/knight-orders/${item.id}.webp`}
+        alt={`${item.name}徽记`}
+        data-fallback={fallback}
+        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+      />
+      <div>
+        <p class="eyebrow">{item.ordinal}</p>
+        <h1>{item.name}</h1>
+        <p class="muted">{item.summary}</p>
+        <div class="order-meta-list">
+          <span class="knight-status-badge" data-status={item.status}>{getOrderStatusLabel(item.status)}</span>
+          <span>领主：{item.leader}</span>
+          <span>建立者：{item.founder}</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="order-body panel">
+      <section>
+        <h2>起源</h2>
+        <p>{item.origin}</p>
+      </section>
+
+      <section>
+        <h2>职责与战法</h2>
+        <p>{item.role}</p>
+      </section>
+
+      <section>
+        <h2>结局</h2>
+        <p>{item.fate}</p>
+      </section>
+
+      {item.quotes.length > 0 && (
+        <section class="order-quotes" aria-label="引用">
+          <h2>引用</h2>
+          {item.quotes.map((quote) => (
+            <blockquote>
+              <p>{quote.text}</p>
+              <footer>{quote.source}</footer>
+            </blockquote>
+          ))}
+        </section>
+      )}
+
+      {item.note && (
+        <aside class="order-note">
+          <h2>考据</h2>
+          <p>{item.note}</p>
+        </aside>
+      )}
+    </div>
+
+    {(relatedEnemies.length > 0 || relatedOrders.length > 0 || relatedLore.length > 0) && (
+      <footer class="order-related panel" aria-label="关联资料">
+        {relatedEnemies.length > 0 && (
+          <section>
+            <h2>相关敌人</h2>
+            <div class="tag-list">
+              {relatedEnemies.map((entry) => <a class="tag" href={entry.href}>{entry.name}</a>)}
+            </div>
+          </section>
+        )}
+        {relatedOrders.length > 0 && (
+          <section>
+            <h2>相关骑士团</h2>
+            <div class="tag-list">
+              {relatedOrders.map((entry) => <a class="tag" href={entry.href}>{entry.name}</a>)}
+            </div>
+          </section>
+        )}
+        {relatedLore.length > 0 && (
+          <section>
+            <h2>相关背景</h2>
+            <div class="tag-list">
+              {relatedLore.map((entry) => <a class="tag" href={entry.href}>{entry.name}</a>)}
+            </div>
+          </section>
+        )}
+      </footer>
+    )}
+  </article>
+</BaseLayout>

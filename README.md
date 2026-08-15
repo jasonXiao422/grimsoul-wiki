@@ -1,4 +1,4 @@
-# 灰蚀之地 · Grim Soul 中文攻略站
+# 瘟疫之地 · Grim Soul 中文攻略站
 
 玩家自制的《Grim Soul: Dark Fantasy Survival》中文攻略站。
 纯静态站点，Astro + TypeScript，部署在 Cloudflare Pages。

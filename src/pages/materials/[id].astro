@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import DetailPanel from '../../components/DetailPanel.astro';
 import materials from '../../data/materials.json';
 import { getRecipeUsages } from '../../lib/data';
@@ -15,6 +16,12 @@ const { item, usages } = Astro.props;
 ---
 
 <BaseLayout title={item.name} description={`${item.name}来源与用途`}>
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '材料', href: '/materials' },
+    { label: item.name },
+  ]} />
+
   <DetailPanel categorySlug="materials" item={item} />
 
   <section class="section panel">

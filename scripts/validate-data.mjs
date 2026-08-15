@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const DIR = 'src/data';
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'materials'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'materials', 'knight-orders'];
 
 const errors = [];
 const all = {};
@@ -52,6 +52,24 @@ const weaponIds = new Set((all.weapons ?? []).map((w) => w.id));
 for (const w of all.weapons ?? []) {
   if (w.upgradeOf && !weaponIds.has(w.upgradeOf))
     errors.push(`weapons/${w.id} 的高级图纸来源不存在: ${w.upgradeOf}`);
+}
+
+// 骑士团关联必须指向真实存在的敌人和骑士团
+const orderIds = new Set((all['knight-orders'] ?? []).map((order) => order.id));
+const enemyIds = new Set((all.enemies ?? []).map((enemy) => enemy.id));
+const validOrderStatuses = new Set(['loyal', 'fallen', 'turned', 'outside']);
+for (const order of all['knight-orders'] ?? []) {
+  if (!validOrderStatuses.has(order.status)) {
+    errors.push(`knight-orders/${order.id} 的状态不存在: ${order.status}`);
+  }
+
+  for (const enemyId of order.relatedEnemies ?? []) {
+    if (!enemyIds.has(enemyId)) errors.push(`knight-orders/${order.id} 引用了不存在的敌人: ${enemyId}`);
+  }
+
+  for (const orderId of order.relatedOrders ?? []) {
+    if (!orderIds.has(orderId)) errors.push(`knight-orders/${order.id} 引用了不存在的骑士团: ${orderId}`);
+  }
 }
 
 if (errors.length) {

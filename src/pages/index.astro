@@ -14,13 +14,43 @@ const recentItems = ALL_CATEGORIES.flatMap((category) =>
     category: category.label,
   }))
 ).slice(0, 6);
+
+const heroImageCount = 4;
+const heroHoldMs = 6000;
+const heroFadeMs = 1500;
+const heroImages = Array.from({ length: heroImageCount }, (_, index) => ({
+  src: `/images/hero/bg-${index + 1}.webp`,
+  isFirst: index === 0,
+}));
 ---
 
 <BaseLayout title="首页" description="Grim Soul 中文攻略资料站">
-  <section class="hero">
-    <p class="eyebrow">暗黑幻想生存资料库</p>
-    <h1>在灰蚀之地活得更久</h1>
-    <p>汇总材料、武器、护甲、盾牌、驮篮与敌人资料，方便中文玩家快速查找属性、合成配方和出没地点。</p>
+  <section
+    class="hero"
+    data-hero-slideshow
+    data-hero-hold={heroHoldMs}
+    data-hero-fade={heroFadeMs}
+    style={`--hero-fade-duration: ${heroFadeMs}ms`}
+  >
+    <div class="hero-media" aria-hidden="true">
+      {heroImages.map((image) => (
+        <img
+          class:list={['hero-image', { 'is-active': image.isFirst }]}
+          src={image.isFirst ? image.src : undefined}
+          data-src={image.isFirst ? undefined : image.src}
+          data-hero-image
+          loading={image.isFirst ? 'eager' : 'lazy'}
+          fetchpriority={image.isFirst ? 'high' : undefined}
+          decoding="async"
+          alt=""
+        />
+      ))}
+    </div>
+    <div class="hero-content">
+      <p class="eyebrow">冷酷灵魂：黑暗幻想生存</p>
+      <h1>在瘟疫之地活得更久</h1>
+      <p>汇总材料、武器、护甲、盾牌、驮篮、敌人与骑士团资料，方便中文玩家快速查找属性、合成配方、出没地点和背景线索。</p>
+    </div>
   </section>
 
   <section>
@@ -51,4 +81,106 @@ const recentItems = ALL_CATEGORIES.flatMap((category) =>
       ))}
     </div>
   </section>
+
+  <script>
+    const hero = document.querySelector('[data-hero-slideshow]');
+
+    if (hero) {
+      const images = Array.from(hero.querySelectorAll<HTMLImageElement>('[data-hero-image]'));
+      const hold = Number(hero.getAttribute('data-hero-hold') || '6000');
+      const fade = Number(hero.getAttribute('data-hero-fade') || '1500');
+      const desktopQuery = window.matchMedia('(min-width: 640px)');
+      const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let activeIndex = 0;
+      let timer = 0;
+
+      const activate = (index) => {
+        activeIndex = index;
+        images.forEach((image, imageIndex) => {
+          image.classList.toggle('is-active', imageIndex === index);
+        });
+      };
+
+      const loadedIndexes = () =>
+        images
+          .map((image, index) => ({ image, index }))
+          .filter(({ image }) => image.dataset.failed !== 'true' && image.dataset.loaded === 'true')
+          .map(({ index }) => index);
+
+      const stop = () => {
+        if (timer) {
+          window.clearTimeout(timer);
+          timer = 0;
+        }
+        activate(0);
+      };
+
+      const showNext = () => {
+        const availableIndexes = loadedIndexes();
+
+        if (availableIndexes.length < 2) {
+          return;
+        }
+
+        const currentPosition = availableIndexes.indexOf(activeIndex);
+        const nextPosition = currentPosition === -1 ? 0 : (currentPosition + 1) % availableIndexes.length;
+        activate(availableIndexes[nextPosition]);
+      };
+
+      const scheduleNext = (delay) => {
+        timer = window.setTimeout(() => {
+          showNext();
+          scheduleNext(hold + fade);
+        }, delay);
+      };
+
+      const loadDesktopImages = () => {
+        images.forEach((image) => {
+          const source = image.dataset.src;
+
+          if (source && !image.getAttribute('src')) {
+            image.setAttribute('src', source);
+          }
+        });
+      };
+
+      const start = () => {
+        stop();
+
+        if (!desktopQuery.matches || reduceMotionQuery.matches) {
+          return;
+        }
+
+        loadDesktopImages();
+        scheduleNext(hold);
+      };
+
+      images.forEach((image, index) => {
+        const markLoaded = () => {
+          if (image.naturalWidth > 0) {
+            image.dataset.loaded = 'true';
+          }
+        };
+
+        if (image.complete) {
+          markLoaded();
+        }
+
+        image.addEventListener('load', markLoaded);
+        image.addEventListener('error', () => {
+          image.dataset.failed = 'true';
+          image.hidden = true;
+
+          if (index === activeIndex) {
+            const [nextIndex = 0] = loadedIndexes();
+            activate(nextIndex);
+          }
+        });
+      });
+
+      start();
+      desktopQuery.addEventListener('change', start);
+      reduceMotionQuery.addEventListener('change', start);
+    }
+  </script>
 </BaseLayout>

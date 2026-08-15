@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import KnightOrderMap from '../../components/KnightOrderMap.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 type LoreEntry = CollectionEntry<'lore'>;
@@ -27,7 +27,6 @@ const { entry, previous, next } = Astro.props as {
   next: LoreEntry | null;
 };
 const { Content, headings } = await render(entry);
-const loreSlug = getLoreSlug(entry.id);
 const toc = headings.filter((heading) => heading.depth === 2);
 ---
 
@@ -35,7 +34,11 @@ const toc = headings.filter((heading) => heading.depth === 2);
   <div class="lore-detail-layout">
     <article class="lore-article">
       <header class="page-heading">
-        <p class="eyebrow">背景故事 · 第{entry.data.order}篇</p>
+        <Breadcrumb items={[
+          { label: '背景故事', href: '/lore' },
+          { label: entry.data.title },
+        ]} />
+        <p class="eyebrow">第{entry.data.order}篇</p>
         <h1>{entry.data.title}</h1>
         <p class="muted">{entry.data.summary}</p>
       </header>
@@ -50,8 +53,6 @@ const toc = headings.filter((heading) => heading.depth === 2);
           </nav>
         </details>
       )}
-
-      {loreSlug === '07-knight-orders' && <KnightOrderMap />}
 
       <div class="lore-content panel">
         <Content />

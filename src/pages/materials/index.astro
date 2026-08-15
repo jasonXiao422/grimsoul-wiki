@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
 import { CATEGORY_BY_SLUG } from '../../lib/categories';
 import { getListItems } from '../../lib/data';
@@ -9,6 +10,11 @@ const items = getListItems('materials');
 ---
 
 <BaseLayout title="材料" description="材料资料列表">
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '材料' },
+  ]} />
+
   <section class="page-heading">
     <p class="eyebrow">资料列表</p>
     <h1>材料</h1>

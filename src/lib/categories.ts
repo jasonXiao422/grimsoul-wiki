@@ -119,6 +119,23 @@ export const CATEGORIES: CategoryDef[] = [
     filters: [],
     defaultSort: 'usedIn',
   },
+  {
+    slug: 'orders',
+    label: '骑士团',
+    blurb: '14 支帝国骑士团的时代、领主、职责与最终命运',
+    file: 'knight-orders',
+    columns: [
+      { key: 'name', label: '名称', sortable: true },
+      { key: 'ordinal', label: '序号', sortable: true },
+      { key: 'eraLabel', label: '时代' },
+      { key: 'status', label: '状态', sortable: true },
+      { key: 'leader', label: '领主' },
+      { key: 'summary', label: '概述' },
+    ],
+    filters: ['era', 'status'],
+    groupBy: 'era',
+    defaultSort: 'ordinal',
+  },
 ];
 
 export const CATEGORY_BY_SLUG = Object.fromEntries(

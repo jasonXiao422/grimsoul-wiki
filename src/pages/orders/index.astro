@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import knightOrders from '../../data/knight-orders.json';
+import { ORDER_ERA_SEQUENCE, getOrderStatusLabel } from '../../lib/knight-orders';
+
+type KnightOrder = (typeof knightOrders)[number];
+
+const groups = ORDER_ERA_SEQUENCE.map((era) => {
+  const items = (knightOrders as KnightOrder[]).filter((item) => item.era === era);
+  return {
+    era,
+    label: items[0]?.eraLabel ?? era,
+    items,
+  };
+}).filter((group) => group.items.length > 0);
+---
+
+<BaseLayout title="骑士团" description="十四支帝国骑士团资料">
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '骑士团' },
+  ]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">帝国军团</p>
+    <h1>骑士团</h1>
+    <p class="muted">整理十四支帝国骑士团的创建时代、领主、职责与最终命运。</p>
+  </section>
+
+  <section class="orders-intro lore-content panel" aria-labelledby="orders-intro-title">
+    <p>
+      帝国前后组建过十四支骑士团。它们的建立顺序本身就是一条线索：
+      <strong>谁建的、为谁服务，决定了它最后倒向哪边。</strong>
+    </p>
+
+    <p>每支骑士团的完整档案——起源、战法、结局、原文引用——在下方列表。这一篇讲的是它们之间的模式。</p>
+
+    <h2 id="orders-intro-title">三个时代，三种建立动机</h2>
+
+    <h3>凯拉时代 · 罗伯特三世</h3>
+
+    <p>
+      前三支是女巫凯拉要求组建的，用来摧毁其余异教国家：<strong>战犬</strong>（被征服民族中
+      最强壮的战士）、<strong>黄昏骑士</strong>（自愿效忠的西部游牧民）、<strong>黄昏利刃</strong>（死囚与罪犯）。
+    </p>
+
+    <p>
+      第四支是帝国给凯拉的回礼——罗伯特三世把<strong>杀死她的那个圣殿杀手</strong>
+      提拔为新骑士团之主，这就是<strong>黑乌鸦</strong>。
+    </p>
+
+    <p>这四支，如今一支不剩。</p>
+
+    <h3>教会时代 · 赫拉特委员会</h3>
+
+    <p>
+      <strong>帝国之影</strong>（落光四十二年）名义上保护君主，实际效忠教会。
+      其后宗教大法官玛恩建立三支反异端骑士团：<strong>哀悼死神</strong>、<strong>钢狼</strong>、<strong>第八个骑士团</strong>。
+    </p>
+
+    <p>
+      这四支的共同点是：他们的忠诚顺序都是光明神 → 教会 → 皇帝。
+      所以威廉一世上台后第一件事就是解散帝国之影。
+    </p>
+
+    <h3>皇权时代 · 威廉一世</h3>
+
+    <p>
+      为架空祭司，威廉一世另建四支<strong>只服从自己</strong>的骑士团，
+      分别象征他的仁慈、慷慨、意志与耐心：
+      <strong>红天使</strong>、<strong>白盾</strong>、<strong>帝国雄狮</strong>、<strong>破碎机</strong>。
+    </p>
+
+    <p>最后两支在第三、第二次进军中被自己人打碎。</p>
+
+    <h3>末期</h3>
+
+    <p>
+      <strong>帝国信使</strong>（英格玛）与<strong>帝国子弟兵</strong>（卢瑟王子）。
+      后者建团仅一年就完成了帝国历史上最后一次背刺。
+    </p>
+
+    <h2>四种结局</h2>
+
+    <p>现在的分布是：五支仍效忠，两支遭背叛而覆灭，五支倒向异神，两支立场特殊。</p>
+
+    <p>值得注意的是，「倒向异神」这五支并不同属一个阵营：</p>
+
+    <ul>
+      <li><strong>战犬、黄昏利刃、破碎机、帝国子弟兵</strong> 投的是瘟疫之神</li>
+      <li><strong>哀悼死神</strong> 投的是无名之神</li>
+    </ul>
+
+    <p>这两位神明是天敌。罗格沃尔的影子与酷吏、被弃者，如果碰面会是敌人。</p>
+
+    <h2>一个容易被误读的位置</h2>
+
+    <p>黑乌鸦常被算作叛徒，但这个标签是错的。</p>
+
+    <p>
+      福金领主从未想过推翻帝国，也从未争夺王座。他做的每一件事——包括
+      亲手摧毁自己国家的三支精锐骑士团——目标都是同一个：<strong>让帝国活到死亡之夜。</strong>
+    </p>
+
+    <p>他是这个故事里最可怕的人，但不是敌人。</p>
+
+    <h2>一个反讽</h2>
+
+    <p>
+      帝国雄狮被称为最强，是因为队内军官是帝国军事素养最高超的骑士，
+      所以多次在危局中反败为胜。
+    </p>
+
+    <p>
+      而摧毁他们的不是任何敌人，是友军背后的一刀——
+      在他们为友军的到来大声叫好的那一刻。
+    </p>
+
+    <h2>谁全身而退了</h2>
+
+    <p>十四支里，只有一支在崩坏中带着完整建制离场。</p>
+
+    <p>
+      第三次进军中，帝国子弟兵背刺破碎机时，<strong>帝国信使军容整齐地撤出了战斗</strong>。
+      原文给的理由只有一句：领主英格玛无法自己攻击王子。
+    </p>
+
+    <p>他既不能对王子拔剑，也不愿参与背叛。于是他走了。</p>
+  </section>
+
+  <div class="orders-index" aria-label="骑士团列表">
+    {groups.map((group) => (
+      <section class="orders-era" aria-labelledby={`orders-era-${group.era}`}>
+        <h2 id={`orders-era-${group.era}`}>{group.label}</h2>
+        <div class="orders-grid">
+          {group.items.map((order) => (
+            <a class="order-card" href={`/orders/${order.id}`} data-status={order.status}>
+              <span class="order-card-meta">{order.ordinal}</span>
+              <strong>{order.name}</strong>
+              <span class="order-status-label">{getOrderStatusLabel(order.status)}</span>
+              <span>{order.summary}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
