@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LoreTimeline from '../components/LoreTimeline.astro';
 import { getCollection } from 'astro:content';
 
 const entries = (await getCollection('lore'))
@@ -14,6 +15,8 @@ const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
     <h1>背景故事</h1>
     <p class="muted">整理灰蚀之地的传说、瘟疫、帝国记录与未解谜团。</p>
   </section>
+
+  <LoreTimeline />
 
   <section class="lore-index" aria-label="背景故事目录">
     {entries.map((entry) => (

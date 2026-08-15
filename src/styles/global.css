@@ -18,6 +18,18 @@
   --text-dim: #8a8579;
   --accent: #c9a227;
   --accent-dim: #8a6f1a;
+  --ko-loyal-bg: rgba(90, 161, 90, 0.14);
+  --ko-loyal-border: #4a8a4a;
+  --ko-loyal-text: #7dc47d;
+  --ko-fallen-bg: rgba(120, 130, 145, 0.14);
+  --ko-fallen-border: #6a7280;
+  --ko-fallen-text: #9aa4b3;
+  --ko-turned-bg: rgba(180, 70, 60, 0.14);
+  --ko-turned-border: #9a4a3f;
+  --ko-turned-text: #c4766a;
+  --ko-outside-bg: rgba(201, 162, 39, 0.14);
+  --ko-outside-border: var(--accent-dim);
+  --ko-outside-text: var(--accent);
   --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
   --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   color-scheme: dark;
@@ -613,6 +625,278 @@ p {
   font-size: 1.4rem;
 }
 
+.lore-timeline,
+.knight-order-map {
+  margin: 0 0 28px;
+}
+
+.lore-section-heading {
+  margin-bottom: 16px;
+}
+
+.lore-section-heading h2 {
+  margin-bottom: 0;
+}
+
+.lore-timeline-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 16px 0 8px;
+}
+
+.lore-timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 0.5px;
+  background: var(--border);
+}
+
+.lore-timeline-node {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  min-height: 96px;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 5px;
+  border: 0;
+  padding: 0 6px;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.lore-timeline-node:hover,
+.lore-timeline-node:focus-visible,
+.lore-timeline-node.is-active {
+  color: var(--accent);
+}
+
+.lore-timeline-dot {
+  width: 13px;
+  height: 13px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--accent-dim);
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.lore-timeline-node.is-active .lore-timeline-dot {
+  background: currentColor;
+  color: var(--accent);
+  transform: scale(1.3);
+}
+
+.lore-timeline-era,
+.lore-timeline-label {
+  display: block;
+}
+
+.lore-timeline-era {
+  margin-top: 4px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1.03rem;
+}
+
+.lore-timeline-label {
+  font-size: 0.92rem;
+}
+
+.lore-switch-panels {
+  margin-top: 14px;
+}
+
+.lore-switch-panel {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-panel);
+}
+
+.lore-switch-panel h3 {
+  color: var(--text);
+}
+
+.lore-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 14px 0;
+}
+
+.lore-chip-list span,
+.knight-legend span,
+.knight-status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 27px;
+  padding: 1px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: #101113;
+  font-size: 0.9rem;
+}
+
+.lore-chip-list span {
+  color: var(--accent);
+}
+
+.lore-panel-note {
+  margin-bottom: 12px;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.lore-read-link {
+  color: var(--accent);
+  font-family: var(--font-serif);
+}
+
+.knight-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.knight-legend [data-status='loyal'],
+.knight-status-badge[data-status='loyal'],
+.knight-order-button[data-status='loyal'] {
+  --ko-bg: var(--ko-loyal-bg);
+  --ko-border: var(--ko-loyal-border);
+  --ko-text: var(--ko-loyal-text);
+}
+
+.knight-legend [data-status='fallen'],
+.knight-status-badge[data-status='fallen'],
+.knight-order-button[data-status='fallen'] {
+  --ko-bg: var(--ko-fallen-bg);
+  --ko-border: var(--ko-fallen-border);
+  --ko-text: var(--ko-fallen-text);
+}
+
+.knight-legend [data-status='turned'],
+.knight-status-badge[data-status='turned'],
+.knight-order-button[data-status='turned'] {
+  --ko-bg: var(--ko-turned-bg);
+  --ko-border: var(--ko-turned-border);
+  --ko-text: var(--ko-turned-text);
+}
+
+.knight-legend [data-status='outside'],
+.knight-status-badge[data-status='outside'],
+.knight-order-button[data-status='outside'] {
+  --ko-bg: var(--ko-outside-bg);
+  --ko-border: var(--ko-outside-border);
+  --ko-text: var(--ko-outside-text);
+}
+
+.knight-legend span,
+.knight-status-badge {
+  border-color: var(--ko-border);
+  background: var(--ko-bg);
+  color: var(--ko-text);
+}
+
+.knight-group-list {
+  display: grid;
+  gap: 18px;
+}
+
+.knight-group {
+  display: grid;
+  gap: 10px;
+}
+
+.knight-group h3 {
+  margin-bottom: 0;
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+
+.knight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.knight-order-button {
+  min-width: 0;
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  border: 1px solid var(--ko-border);
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: var(--ko-bg);
+  color: var(--ko-text);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.knight-order-button:hover,
+.knight-order-button:focus-visible,
+.knight-order-button.is-active {
+  border-color: var(--ko-text);
+  color: var(--ko-text);
+  transform: scale(1.04);
+}
+
+.knight-order-button.is-active {
+  border-width: 2px;
+}
+
+.knight-order-button span,
+.knight-order-button small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.knight-order-button span {
+  font-family: var(--font-serif);
+  color: var(--text);
+}
+
+.knight-order-button small {
+  color: inherit;
+}
+
+.knight-detail-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 18px;
+  align-items: start;
+}
+
+.knight-detail-panel .muted {
+  margin-bottom: 2px;
+}
+
+.knight-detail-panel h3,
+.knight-detail-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.knight-detail-panel p:last-child {
+  grid-column: 1 / -1;
+}
+
+.lore-switch-panel[hidden] {
+  display: none !important;
+}
+
 .lore-detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 820px) 240px;
@@ -812,5 +1096,46 @@ p {
 
   .lore-pager a:last-child {
     text-align: left;
+  }
+}
+
+@media (max-width: 639px) {
+  .lore-timeline-track {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 6px 0 6px 28px;
+  }
+
+  .lore-timeline-track::before {
+    top: 16px;
+    bottom: 16px;
+    left: 6px;
+    right: auto;
+    width: 0.5px;
+    height: auto;
+  }
+
+  .lore-timeline-node {
+    min-height: 72px;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    justify-items: start;
+    align-content: center;
+    padding: 0;
+    text-align: left;
+  }
+
+  .lore-timeline-dot {
+    grid-row: 1 / 3;
+    margin-top: 7px;
+  }
+
+  .lore-timeline-era {
+    margin-top: 0;
+  }
+
+  .knight-detail-panel {
+    grid-template-columns: 1fr;
   }
 }
