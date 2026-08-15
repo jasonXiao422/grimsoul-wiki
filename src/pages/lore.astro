@@ -1,34 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-const entries = await getCollection('lore');
-const loreEntries = await Promise.all(
-  entries
-    .sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'zh-Hans-CN'))
-    .map(async (entry) => ({
-      ...entry,
-      ...(await render(entry)),
-    }))
-);
+const entries = (await getCollection('lore'))
+  .sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'zh-Hans-CN'));
+
+const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
 ---
 
-<BaseLayout title="背景故事" description="灰蚀之地背景故事">
+<BaseLayout title="背景故事" description="灰蚀之地背景故事目录">
   <section class="page-heading">
     <p class="eyebrow">世界观</p>
     <h1>背景故事</h1>
-    <p class="muted">整理灰蚀之地的传说、瘟疫与幸存者记录。</p>
+    <p class="muted">整理灰蚀之地的传说、瘟疫、帝国记录与未解谜团。</p>
   </section>
 
-  <div class="lore-content panel">
-    {loreEntries.map((entry) => {
-      const Content = entry.Content;
-      return (
-        <article>
-          <h2>{entry.data.title}</h2>
-          <Content />
-        </article>
-      );
-    })}
-  </div>
+  <section class="lore-index" aria-label="背景故事目录">
+    {entries.map((entry) => (
+      <a class="lore-card" href={`/lore/${getLoreSlug(entry.id)}`}>
+        <span class="lore-order">{String(entry.data.order).padStart(2, '0')}</span>
+        <span>
+          <strong>{entry.data.title}</strong>
+          <span>{entry.data.summary}</span>
+        </span>
+      </a>
+    ))}
+  </section>
 </BaseLayout>
