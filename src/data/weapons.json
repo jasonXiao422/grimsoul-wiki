@@ -1229,9 +1229,9 @@
   {
     "id": "zhan-chui",
     "name": "战锤",
-    "damage": 40,
+    "damage": 80,
     "skillBonus": null,
-    "damageNote": "无视护甲（真实伤害）",
+    "damageNote": null,
     "element": null,
     "attackSpeed": 1.3,
     "range": 1.3,
@@ -1240,7 +1240,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "无视敌人护甲",
+    "effect": "无视敌人200护甲",
     "upgradeOf": null
   },
   {

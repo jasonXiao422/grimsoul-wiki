@@ -8,3 +8,6 @@ dist/
 
 # 裁图脚本的中间产物
 cropped/
+
+# Excel 临时锁文件
+~$*
