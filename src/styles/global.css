@@ -1822,6 +1822,22 @@ p {
     grid-column: 1 / -1;
   }
 
+  .footer-contributor-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 10px;
+  }
+
+  .footer-contributor-links a {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+  }
+
+  .footer-contributor-separator {
+    display: none;
+  }
+
   .data-table thead {
     position: static;
     top: auto;
