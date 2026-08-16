@@ -15,6 +15,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 from openpyxl import load_workbook
 from pypinyin import lazy_pinyin
 
@@ -184,12 +188,82 @@ def parse_formula(raw, label):
     return None
 
 
+
+# ---------------------------------------------------------------- 护甲减伤
+
+ARMOR_K = 165  # 减伤 = 护甲 / (护甲 + K)
+
+
+def undate(cell):
+    """
+    还原被 Excel 误存为日期的多段数值。
+
+    起因：像「10, 30, 40」这种用逗号分隔的多段数值，Excel 会把它识别成日期，
+    存为 1940-10-30，同时把单元格格式设为 m, d, yy。
+    显示出来仍然是「10, 30, 40」，肉眼看不出问题，但读取时拿到的是 datetime。
+
+    只要格式里同时含有 m、d、y，就能按 月, 日, 两位年 反推回原始文本。
+    """
+    if cell is None or not isinstance(cell.value, datetime):
+        return None
+    fmt = (cell.number_format or "").lower()
+    if not ("m" in fmt and "d" in fmt and "y" in fmt):
+        return None
+    d = cell.value
+    return f"{d.month}, {d.day}, {d.year % 100}"
+
+
+def dr_from_armor(armor):
+    """
+    由护甲值算减伤百分比，向上取整。
+    减伤 = 护甲 / (护甲 + 165)
+
+    支持三种输入：
+      120                → 43
+      "35, 50, 250"      → "18, 24, 61"     多段（普通/英雄/传奇）
+      "不定; <400"        → "不定; <71"       带前缀的上限值
+      None               → None
+    """
+    import math
+
+    def one(v):
+        v = float(v)
+        return math.ceil(v / (v + ARMOR_K) * 100)
+
+    if armor is None:
+        return None
+    if isinstance(armor, (int, float)):
+        return one(armor)
+
+    s = str(armor).strip()
+    if not s:
+        return None
+
+    # 提取所有数字，保留原有的分隔与前缀结构
+    import re
+    nums = re.findall(r"\d+(?:\.\d+)?", s)
+    if not nums:
+        return s  # 纯文字说明，原样保留
+
+    out = s
+    for n in sorted(set(nums), key=len, reverse=True):
+        out = out.replace(n, str(one(n)))
+    return out
+
+
 # ---------------------------------------------------------------- 各表解析
 
 def rows_of(key):
     fn, sheet = FILES[key]
     wb = load_workbook(SRC / fn, read_only=True, data_only=False)
     return list(wb[sheet].iter_rows(values_only=True))
+
+
+def cells_of(key):
+    """返回单元格对象而非纯值，用于读取 number_format。"""
+    fn, sheet = FILES[key]
+    wb = load_workbook(SRC / fn, read_only=True, data_only=False)
+    return list(wb[sheet].iter_rows())
 
 
 def build_weapons():
@@ -331,7 +405,8 @@ def build_backpacks():
 def build_enemies():
     """表头行（第二列是『生命』）同时充当地点分组标题。"""
     out, group = [], None
-    for row in rows_of("enemies")[1:]:
+    for cells in cells_of("enemies")[1:]:
+        row = [c.value for c in cells]
         first = text(row[0])
         if not first:
             continue
@@ -339,23 +414,26 @@ def build_enemies():
             group = first
             continue
         hp = clean(row[1])
-        armor = clean(row[2])
-        phys = clean(row[4])
-        broken = isinstance(row[2], datetime) or isinstance(row[4], datetime)
-        if broken:
-            warnings.append(f"敌人 {first}：护甲/物理伤害被 Excel 转成了日期，原值已丢失，需手动补")
+        armor = undate(cells[2]) or clean(row[2])
+        phys = undate(cells[4]) or clean(row[4])
+        dr_src = text(row[3])
+        recovered = bool(undate(cells[2]) or undate(cells[4]))
+        if recovered:
+            warnings.append(f"敌人 {first}：护甲/物理伤害在 Excel 中被存为日期，已按单元格显示格式还原")
         out.append({
             "id": make_id(first),
             "name": first,
             "group": group,
             "hp": hp,
             "armor": armor,
-            "damageReduction": text(row[3]),
+            "damageReduction": dr_from_armor(armor),
+            "damageReductionSource": dr_src,
+            "restoredFromDate": True if recovered else None,
             "physicalDamage": phys,
             "elementDamage": text(row[5]),
             "note": text(row[6]),
             "locations": [p.strip() for p in re.split(r"[;；\n]", text(row[7]) or "") if p.strip()],
-            "dataIncomplete": broken or None,
+            "dataIncomplete": True if (armor is None and phys is None) else None,
         })
     return out
 

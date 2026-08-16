@@ -69,7 +69,7 @@ export function formatValue(key: string, value: unknown): string {
   }
 
   if ((key === 'duration' || key === 'time') && typeof value === 'string') return normalizeTime(value);
-  if (key === 'damageReduction' && typeof value === 'string' && !value.includes('%')) return `${value}%`;
+  if (key === 'damageReduction' && typeof value === 'string') return value.replace(/%/g, '');
   return String(value);
 }
 

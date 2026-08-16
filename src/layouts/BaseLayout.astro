@@ -58,7 +58,7 @@ const contributors = [
   </head>
   <body>
     <div class="site-shell">
-      <header class="site-header">
+      <header class="site-header" data-site-header>
         <div class="header-inner">
           <a class="brand" href="/">Grim Soul 中文攻略站</a>
           <button class="nav-menu-toggle" type="button" data-nav-menu-toggle aria-expanded="false" aria-controls="main-navigation">
@@ -123,6 +123,7 @@ const contributors = [
     </div>
     <script>
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
+      const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
       const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
       const dropdown = document.querySelector<HTMLElement>('[data-nav-dropdown]');
       const dropdownToggle = dropdown?.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]');
@@ -144,6 +145,17 @@ const contributors = [
         if (links.length === 0) return;
         links[(index + links.length) % links.length]?.focus();
       };
+
+      const updateHeaderHeight = () => {
+        if (!siteHeader) return;
+        document.documentElement.style.setProperty('--header-height', `${siteHeader.offsetHeight}px`);
+      };
+
+      updateHeaderHeight();
+      window.addEventListener('resize', updateHeaderHeight);
+      if ('ResizeObserver' in window && siteHeader) {
+        new ResizeObserver(updateHeaderHeight).observe(siteHeader);
+      }
 
       menuToggle?.addEventListener('click', () => {
         setMenuOpen(!mainNav?.classList.contains('is-open'));
