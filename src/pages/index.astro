@@ -51,8 +51,7 @@ const heroImages = Object.keys(heroImageModules)
       {heroImages.map((image) => (
         <img
           class:list={['hero-image', { 'is-active': image.isFirst }]}
-          src={image.isFirst ? image.src : undefined}
-          data-src={image.isFirst ? undefined : image.src}
+          src={image.src}
           data-hero-image
           loading={image.isFirst ? 'eager' : 'lazy'}
           fetchpriority={image.isFirst ? 'high' : undefined}
@@ -90,7 +89,6 @@ const heroImages = Object.keys(heroImageModules)
       const images = Array.from(hero.querySelectorAll<HTMLImageElement>('[data-hero-image]'));
       const hold = Number(hero.getAttribute('data-hero-hold') || '6000');
       const fade = Number(hero.getAttribute('data-hero-fade') || '1500');
-      const desktopQuery = window.matchMedia('(min-width: 640px)');
       const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       let activeIndex = 0;
       let timer = 0;
@@ -135,24 +133,13 @@ const heroImages = Object.keys(heroImageModules)
         }, delay);
       };
 
-      const loadDesktopImages = () => {
-        images.forEach((image) => {
-          const source = image.dataset.src;
-
-          if (source && !image.getAttribute('src')) {
-            image.setAttribute('src', source);
-          }
-        });
-      };
-
       const start = () => {
         stop();
 
-        if (!desktopQuery.matches || reduceMotionQuery.matches) {
+        if (reduceMotionQuery.matches) {
           return;
         }
 
-        loadDesktopImages();
         scheduleNext(hold);
       };
 
@@ -180,7 +167,6 @@ const heroImages = Object.keys(heroImageModules)
       });
 
       start();
-      desktopQuery.addEventListener('change', start);
       reduceMotionQuery.addEventListener('change', start);
     }
   </script>

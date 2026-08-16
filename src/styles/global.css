@@ -1732,14 +1732,6 @@ p {
     min-height: 420px;
   }
 
-  .hero-image {
-    transition: none;
-  }
-
-  .hero-image:not(:first-child) {
-    display: none;
-  }
-
   .lore-detail-layout {
     grid-template-columns: 1fr;
   }
@@ -1885,6 +1877,72 @@ p {
 
   .knight-detail-panel {
     grid-template-columns: 1fr;
+  }
+
+  .orders-index {
+    gap: 18px;
+  }
+
+  .orders-era {
+    gap: 8px;
+  }
+
+  .orders-era h2 {
+    font-size: 1.18rem;
+  }
+
+  .orders-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .order-card {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    align-content: center;
+    gap: 2px 12px;
+    border-left: 4px solid var(--ko-border);
+    padding: 10px 12px;
+  }
+
+  .order-card:hover,
+  .order-card:focus-visible {
+    transform: none;
+  }
+
+  .order-card-meta {
+    grid-column: 1;
+    grid-row: 1;
+    line-height: 1.35;
+  }
+
+  .order-card strong {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 1rem;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .order-status-label {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    justify-self: end;
+    padding: 2px 8px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: var(--ko-bg);
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  .order-card > span:last-child {
+    display: none;
   }
 
   .horse-calculator-controls,
