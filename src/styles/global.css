@@ -230,18 +230,35 @@ img {
   font-size: 0.92rem;
 }
 
-.footer-contributors {
+.footer-contributors,
+.footer-contact {
   margin-bottom: 10px;
   color: var(--text-dim);
 }
 
-.footer-contributors h2 {
+.footer-contributors h2,
+.footer-contact h2 {
   margin: 0 0 2px;
   color: var(--text-dim);
   font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 600;
   line-height: 1.75;
+}
+
+.footer-contact p {
+  margin: 0;
+}
+
+.footer-contact a {
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+  color: var(--accent);
 }
 
 .footer-contributor-links {
