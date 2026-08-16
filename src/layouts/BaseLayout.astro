@@ -10,7 +10,25 @@ interface Props {
 
 const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
 const currentPath = Astro.url.pathname;
-const navCategories = ALL_CATEGORIES.filter((category) => category.slug !== 'orders');
+const navCategories = ALL_CATEGORIES.filter((category) => !['orders', 'materials'].includes(category.slug));
+const otherNavItems = [
+  {
+    label: '材料',
+    href: '/materials',
+    active: currentPath.startsWith('/materials'),
+  },
+  {
+    label: '马匹机制',
+    href: '/guides/horse',
+    active: currentPath.startsWith('/guides/horse'),
+  },
+  {
+    label: '护甲与减伤',
+    href: '/guides/armor',
+    active: currentPath.startsWith('/guides/armor'),
+  },
+];
+const isOtherNavActive = otherNavItems.some((item) => item.active);
 const contributors = [
   {
     name: 'JokerAF-安枫',
@@ -43,7 +61,11 @@ const contributors = [
       <header class="site-header">
         <div class="header-inner">
           <a class="brand" href="/">Grim Soul 中文攻略站</a>
-          <nav class="main-nav" aria-label="主导航">
+          <button class="nav-menu-toggle" type="button" data-nav-menu-toggle aria-expanded="false" aria-controls="main-navigation">
+            <span aria-hidden="true"></span>
+            <span class="sr-only">打开主导航</span>
+          </button>
+          <nav class="main-nav" id="main-navigation" data-main-nav aria-label="主导航">
             {navCategories.map((category) => (
               <a
                 href={`/${category.slug}`}
@@ -53,6 +75,23 @@ const contributors = [
               </a>
             ))}
             <a href="/lore" aria-current={currentPath.startsWith('/lore') ? 'page' : undefined}>背景故事</a>
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                class="nav-dropdown-toggle"
+                type="button"
+                data-nav-dropdown-toggle
+                aria-expanded="false"
+                aria-controls="other-nav-menu"
+                aria-current={isOtherNavActive ? 'page' : undefined}
+              >
+                其他
+              </button>
+              <div class="nav-dropdown-menu" id="other-nav-menu" data-nav-dropdown-menu>
+                {otherNavItems.map((item) => (
+                  <a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a>
+                ))}
+              </div>
+            </div>
           </nav>
           <SearchBox />
         </div>
@@ -82,5 +121,72 @@ const contributors = [
         </div>
       </footer>
     </div>
+    <script>
+      const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
+      const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
+      const dropdown = document.querySelector<HTMLElement>('[data-nav-dropdown]');
+      const dropdownToggle = dropdown?.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]');
+      const dropdownMenu = dropdown?.querySelector<HTMLElement>('[data-nav-dropdown-menu]');
+      const dropdownLinks = () => [...(dropdownMenu?.querySelectorAll<HTMLAnchorElement>('a') ?? [])];
+
+      const setMenuOpen = (open: boolean) => {
+        mainNav?.classList.toggle('is-open', open);
+        menuToggle?.setAttribute('aria-expanded', String(open));
+      };
+
+      const setDropdownOpen = (open: boolean) => {
+        dropdown?.classList.toggle('is-open', open);
+        dropdownToggle?.setAttribute('aria-expanded', String(open));
+      };
+
+      const focusDropdownItem = (index: number) => {
+        const links = dropdownLinks();
+        if (links.length === 0) return;
+        links[(index + links.length) % links.length]?.focus();
+      };
+
+      menuToggle?.addEventListener('click', () => {
+        setMenuOpen(!mainNav?.classList.contains('is-open'));
+      });
+
+      dropdownToggle?.addEventListener('click', () => {
+        setDropdownOpen(!dropdown?.classList.contains('is-open'));
+      });
+
+      dropdownToggle?.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+        event.preventDefault();
+        setDropdownOpen(true);
+        focusDropdownItem(event.key === 'ArrowDown' ? 0 : dropdownLinks().length - 1);
+      });
+
+      dropdownMenu?.addEventListener('keydown', (event) => {
+        if (!(event.target instanceof HTMLAnchorElement)) return;
+        const links = dropdownLinks();
+        const currentIndex = links.indexOf(event.target);
+
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          focusDropdownItem(currentIndex + 1);
+        }
+
+        if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          focusDropdownItem(currentIndex - 1);
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof Node && !dropdown?.contains(target)) setDropdownOpen(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        setDropdownOpen(false);
+        setMenuOpen(false);
+        dropdownToggle?.focus();
+      });
+    </script>
   </body>
 </html>

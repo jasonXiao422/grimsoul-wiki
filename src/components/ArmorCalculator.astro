@@ -1,0 +1,243 @@
+<section class="armor-calculator panel" data-armor-calculator aria-labelledby="armor-calculator-title">
+  <div class="armor-calculator-head">
+    <h2 id="armor-calculator-title">护甲减伤计算器</h2>
+    <p class="muted">输入护甲值或减伤百分比，实时换算另一侧数值。</p>
+  </div>
+
+  <div class="armor-calculator-controls">
+    <label>
+      <span>护甲值</span>
+      <input type="number" min="0" max="5000" value="165" inputmode="numeric" data-armor-value />
+    </label>
+    <label>
+      <span>减伤百分比</span>
+      <input type="number" min="0" max="99" value="50" inputmode="decimal" step="0.01" data-armor-reduction />
+    </label>
+  </div>
+
+  <p class="armor-calculator-message muted" data-armor-message hidden></p>
+  <p class="armor-calculator-result" data-armor-result></p>
+
+  <div class="armor-chart-wrap">
+    <svg
+      class="armor-chart"
+      viewBox="0 0 680 340"
+      role="img"
+      aria-label="护甲 0-1600 与减伤 0-100% 的关系曲线"
+      data-armor-chart
+    >
+      <line class="armor-chart-axis" x1="56" y1="24" x2="56" y2="286"></line>
+      <line class="armor-chart-axis" x1="56" y1="286" x2="640" y2="286"></line>
+      <path class="armor-chart-curve" data-armor-curve></path>
+      <line class="armor-chart-cross" data-armor-cross-x x1="56" y1="24" x2="56" y2="286"></line>
+      <line class="armor-chart-cross" data-armor-cross-y x1="56" y1="286" x2="640" y2="286"></line>
+      <circle class="armor-chart-point" data-armor-point cx="56" cy="286" r="5"></circle>
+      <text class="armor-chart-label" x="56" y="316">0</text>
+      <text class="armor-chart-label" x="626" y="316">1600</text>
+      <text class="armor-chart-label" x="12" y="290">0%</text>
+      <text class="armor-chart-label" x="8" y="30">100%</text>
+    </svg>
+  </div>
+  <p class="armor-chart-help muted">点击曲线图可直接取对应护甲值</p>
+</section>
+
+<script>
+  const armorCalculator = document.querySelector<HTMLElement>('[data-armor-calculator]');
+
+  if (armorCalculator) {
+    const content = armorCalculator.closest('.lore-content');
+    const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '公式与反推');
+    if (formulaHeading) formulaHeading.insertAdjacentElement('afterend', armorCalculator);
+
+    const armorInput = armorCalculator.querySelector<HTMLInputElement>('[data-armor-value]');
+    const reductionInput = armorCalculator.querySelector<HTMLInputElement>('[data-armor-reduction]');
+    const message = armorCalculator.querySelector<HTMLElement>('[data-armor-message]');
+    const result = armorCalculator.querySelector<HTMLElement>('[data-armor-result]');
+    const chart = armorCalculator.querySelector<SVGSVGElement>('[data-armor-chart]');
+    const curve = armorCalculator.querySelector<SVGPathElement>('[data-armor-curve]');
+    const crossX = armorCalculator.querySelector<SVGLineElement>('[data-armor-cross-x]');
+    const crossY = armorCalculator.querySelector<SVGLineElement>('[data-armor-cross-y]');
+    const point = armorCalculator.querySelector<SVGCircleElement>('[data-armor-point]');
+
+    const halfPoint = 165;
+    const maxArmor = 5000;
+    const chartMaxArmor = 1600;
+    const chartBounds = {
+      left: 56,
+      top: 24,
+      right: 640,
+      bottom: 286,
+    };
+    const chartWidth = chartBounds.right - chartBounds.left;
+    const chartHeight = chartBounds.bottom - chartBounds.top;
+    let activeInput: 'armor' | 'reduction' = 'armor';
+
+    const parseNumber = (value: string) => {
+      if (value.trim() === '') return null;
+      const parsed = Number.parseFloat(value);
+      return Number.isFinite(parsed) ? parsed : null;
+    };
+
+    const clampNumber = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+    const armorToReduction = (armor: number) => armor / (armor + halfPoint);
+    const reductionToArmor = (reductionPercent: number) => {
+      const reduction = reductionPercent / 100;
+      return halfPoint * reduction / (1 - reduction);
+    };
+    const armorToX = (armor: number) => chartBounds.left + (clampNumber(armor, 0, chartMaxArmor) / chartMaxArmor) * chartWidth;
+    const reductionToY = (reduction: number) => chartBounds.bottom - clampNumber(reduction, 0, 1) * chartHeight;
+    const formatNumber = (value: number, digits = 2) => {
+      return value.toLocaleString('zh-CN', {
+        maximumFractionDigits: digits,
+        minimumFractionDigits: 0,
+      });
+    };
+    const formatPercent = (value: number) => `${(value * 100).toFixed(2)}%`;
+
+    const drawCurve = () => {
+      if (!curve) return;
+      const points = Array.from({ length: 81 }, (_, index) => {
+        const armor = (chartMaxArmor / 80) * index;
+        return `${armorToX(armor).toFixed(2)},${reductionToY(armorToReduction(armor)).toFixed(2)}`;
+      });
+      curve.setAttribute('d', `M ${points.join(' L ')}`);
+    };
+
+    const setMessage = (text: string) => {
+      if (message) {
+        message.hidden = false;
+        message.textContent = text;
+      }
+      if (result) result.hidden = true;
+    };
+
+    const clearMessage = () => {
+      if (message) message.hidden = true;
+      if (result) result.hidden = false;
+    };
+
+    const updateChartMarker = (armor: number, reduction: number) => {
+      const x = armorToX(armor);
+      const y = reductionToY(reduction);
+      crossX?.setAttribute('x1', String(x));
+      crossX?.setAttribute('x2', String(x));
+      crossY?.setAttribute('y1', String(y));
+      crossY?.setAttribute('y2', String(y));
+      point?.setAttribute('cx', String(x));
+      point?.setAttribute('cy', String(y));
+    };
+
+    const updateResult = (armor: number, reduction: number) => {
+      const nextArmor = Math.min(maxArmor, armor + 1);
+      const nextReduction = armorToReduction(nextArmor);
+      const targetReduction = Math.min(0.99, reduction + 0.1);
+      const targetArmor = reductionToArmor(targetReduction * 100);
+      const extraArmor = Math.max(0, Math.ceil(targetArmor - armor));
+
+      if (result) {
+        result.textContent =
+          `当前 ${formatNumber(armor)} 护甲 → 减伤 ${formatPercent(reduction)}` +
+          `　再加 ${formatNumber(nextArmor - armor)} 护甲可到 ${formatPercent(nextReduction)}` +
+          `，再加 ${formatNumber(extraArmor)} 护甲可提升 10 个百分点`;
+      }
+    };
+
+    const syncFromArmor = ({ normalize = false } = {}) => {
+      if (!armorInput || !reductionInput) return;
+      const armorValue = parseNumber(armorInput.value);
+
+      if (normalize && armorValue !== null) armorInput.value = String(Math.round(clampNumber(armorValue, 0, maxArmor)));
+      const normalizedArmor = parseNumber(armorInput.value);
+
+      if (normalizedArmor === null) {
+        setMessage('请输入护甲值。');
+        return;
+      }
+
+      if (normalizedArmor < 0 || normalizedArmor > maxArmor) {
+        setMessage('护甲值需要在 0-5000 之间。');
+        updateChartMarker(clampNumber(normalizedArmor, 0, chartMaxArmor), armorToReduction(clampNumber(normalizedArmor, 0, maxArmor)));
+        return;
+      }
+
+      const reduction = armorToReduction(normalizedArmor);
+      reductionInput.value = (reduction * 100).toFixed(2);
+      clearMessage();
+      updateResult(normalizedArmor, reduction);
+      updateChartMarker(normalizedArmor, reduction);
+    };
+
+    const syncFromReduction = ({ normalize = false } = {}) => {
+      if (!armorInput || !reductionInput) return;
+      const reductionValue = parseNumber(reductionInput.value);
+
+      if (normalize && reductionValue !== null) reductionInput.value = String(clampNumber(reductionValue, 0, 99));
+      const normalizedReduction = parseNumber(reductionInput.value);
+
+      if (normalizedReduction === null) {
+        setMessage('请输入减伤百分比。');
+        return;
+      }
+
+      if (normalizedReduction < 0 || normalizedReduction > 99) {
+        setMessage('减伤百分比需要在 0-99 之间。');
+        const clampedReduction = clampNumber(normalizedReduction, 0, 99) / 100;
+        updateChartMarker(reductionToArmor(clampedReduction * 100), clampedReduction);
+        return;
+      }
+
+      const armor = reductionToArmor(normalizedReduction);
+      armorInput.value = String(Math.round(armor));
+      const reduction = normalizedReduction / 100;
+      clearMessage();
+      updateResult(armor, reduction);
+      updateChartMarker(armor, reduction);
+    };
+
+    const sync = (options: { normalize?: boolean } = {}) => {
+      if (activeInput === 'reduction') {
+        syncFromReduction(options);
+      } else {
+        syncFromArmor(options);
+      }
+    };
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      sync({ normalize: true });
+    };
+
+    armorInput?.addEventListener('input', () => {
+      activeInput = 'armor';
+      syncFromArmor();
+    });
+    reductionInput?.addEventListener('input', () => {
+      activeInput = 'reduction';
+      syncFromReduction();
+    });
+    armorInput?.addEventListener('blur', () => {
+      activeInput = 'armor';
+      syncFromArmor({ normalize: true });
+    });
+    reductionInput?.addEventListener('blur', () => {
+      activeInput = 'reduction';
+      syncFromReduction({ normalize: true });
+    });
+    armorInput?.addEventListener('keydown', handleKeydown);
+    reductionInput?.addEventListener('keydown', handleKeydown);
+    chart?.addEventListener('click', (event) => {
+      if (!chart || !armorInput) return;
+      const rect = chart.getBoundingClientRect();
+      const viewX = ((event.clientX - rect.left) / rect.width) * 680;
+      const x = clampNumber(viewX, chartBounds.left, chartBounds.right);
+      const armor = Math.round(((x - chartBounds.left) / chartWidth) * chartMaxArmor);
+      activeInput = 'armor';
+      armorInput.value = String(armor);
+      syncFromArmor();
+    });
+
+    drawCurve();
+    syncFromArmor();
+  }
+</script>

@@ -1,0 +1,208 @@
+<section class="horse-calculator panel" data-horse-calculator aria-labelledby="horse-calculator-title">
+  <div class="horse-calculator-head">
+    <h2 id="horse-calculator-title">升级计算器</h2>
+    <p class="muted">输入当前等级和目标等级，实时换算饱食度与燕麦消耗。</p>
+  </div>
+
+  <div class="horse-calculator-controls">
+    <label>
+      <span>当前等级</span>
+      <input type="number" min="1" max="18" value="1" inputmode="numeric" data-horse-current />
+    </label>
+    <label>
+      <span>目标等级</span>
+      <input type="number" min="2" max="19" value="15" inputmode="numeric" data-horse-target />
+    </label>
+  </div>
+
+  <p class="horse-calculator-message muted" data-horse-message hidden></p>
+
+  <div class="horse-calculator-results" data-horse-results>
+    <div>
+      <span>需要饱食度</span>
+      <strong data-horse-fullness>0</strong>
+    </div>
+    <div>
+      <span>燕麦个数</span>
+      <strong data-horse-oats>0</strong>
+    </div>
+    <div>
+      <span>燕麦组数</span>
+      <strong data-horse-stacks>0.00</strong>
+    </div>
+  </div>
+
+  <p class="horse-calculator-note muted" data-horse-initial-note hidden>已扣除系统默认的初始饱食度 80</p>
+
+  <div class="horse-chart" data-horse-chart aria-label="1-18 级每级所需饱食度柱状图"></div>
+  <p class="horse-chart-help muted">点击柱子设置目标等级，Shift+点击设置当前等级</p>
+</section>
+
+<script>
+  const calculator = document.querySelector<HTMLElement>('[data-horse-calculator]');
+
+  if (calculator) {
+    const content = calculator.closest('.lore-content');
+    const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '升级公式');
+    if (formulaHeading) formulaHeading.insertAdjacentElement('afterend', calculator);
+
+    const currentInput = calculator.querySelector<HTMLInputElement>('[data-horse-current]');
+    const targetInput = calculator.querySelector<HTMLInputElement>('[data-horse-target]');
+    const message = calculator.querySelector<HTMLElement>('[data-horse-message]');
+    const results = calculator.querySelector<HTMLElement>('[data-horse-results]');
+    const fullnessOutput = calculator.querySelector<HTMLElement>('[data-horse-fullness]');
+    const oatsOutput = calculator.querySelector<HTMLElement>('[data-horse-oats]');
+    const stacksOutput = calculator.querySelector<HTMLElement>('[data-horse-stacks]');
+    const initialNote = calculator.querySelector<HTMLElement>('[data-horse-initial-note]');
+    const chart = calculator.querySelector<HTMLElement>('[data-horse-chart]');
+
+    const levels = Array.from({ length: 18 }, (_, index) => index + 1);
+    const maxCost = 25 * 18;
+
+    const parseInteger = (value: string) => {
+      if (value.trim() === '') return null;
+      const parsed = Number.parseInt(value, 10);
+      return Number.isFinite(parsed) ? parsed : null;
+    };
+
+    const clampInteger = (value: number, min: number, max: number) => {
+      return Math.min(max, Math.max(min, value));
+    };
+
+    const getLevel = (input: HTMLInputElement, min: number, max: number) => {
+      const value = parseInteger(input.value);
+      if (value === null) return { value, message: '请输入等级。' };
+      if (value < min || value > max) return { value, message: `等级需要在 ${min}-${max} 之间。` };
+      return { value, message: '' };
+    };
+
+    const renderChart = (currentLevel: number, targetLevel: number) => {
+      if (!chart) return;
+      chart.innerHTML = levels
+        .map((level) => {
+          const cost = 25 * level;
+          const active = targetLevel > currentLevel && level >= currentLevel && level < targetLevel;
+          const tooltip = `${level} 级 → ${level + 1} 级：25×${level} = ${cost} 饱食度`;
+          return `
+            <button
+              class="horse-chart-bar"
+              type="button"
+              data-horse-chart-level="${level}"
+              title="${tooltip}"
+              aria-label="${tooltip}"
+            >
+              <span class="${active ? 'is-active' : ''}" style="height:${Math.round((cost / maxCost) * 100)}%"></span>
+              <small>${level}</small>
+            </button>
+          `;
+        })
+        .join('');
+    };
+
+    const showMessage = (text: string) => {
+      if (message) {
+        message.hidden = false;
+        message.textContent = text;
+      }
+      if (results) results.hidden = true;
+      if (initialNote) initialNote.hidden = true;
+    };
+
+    const calculate = ({ normalize = false } = {}) => {
+      if (!currentInput || !targetInput) return;
+
+      if (normalize) {
+        const parsedCurrent = parseInteger(currentInput.value);
+        const parsedTarget = parseInteger(targetInput.value);
+        if (parsedCurrent !== null) currentInput.value = String(clampInteger(parsedCurrent, 1, 18));
+        if (parsedTarget !== null) targetInput.value = String(clampInteger(parsedTarget, 2, 19));
+      }
+
+      const current = getLevel(currentInput, 1, 18);
+      const target = getLevel(targetInput, 2, 19);
+
+      if (current.value === null || target.value === null) {
+        renderChart(current.value ?? 1, target.value ?? 1);
+        showMessage('请输入当前等级和目标等级。');
+        return;
+      }
+
+      renderChart(current.value, target.value);
+
+      if (current.message || target.message) {
+        showMessage(current.message || target.message);
+        return;
+      }
+
+      const currentLevel = current.value;
+      const targetLevel = target.value;
+
+      if (targetLevel <= currentLevel) {
+        showMessage('目标等级需要大于当前等级。');
+        return;
+      }
+
+      let fullness = 0;
+      for (let level = currentLevel; level < targetLevel; level += 1) {
+        fullness += 25 * level;
+      }
+      if (currentLevel === 1) fullness = Math.max(0, fullness - 80);
+
+      const oats = Math.ceil(fullness / 5);
+      const stacks = oats / 20;
+
+      if (message) message.hidden = true;
+      if (results) results.hidden = false;
+      if (fullnessOutput) fullnessOutput.textContent = String(fullness);
+      if (oatsOutput) oatsOutput.textContent = String(oats);
+      if (stacksOutput) stacksOutput.textContent = stacks.toFixed(2);
+      if (initialNote) initialNote.hidden = currentLevel !== 1;
+    };
+
+    const normalizeInput = (event: Event) => {
+      if (event.currentTarget instanceof HTMLInputElement) calculate({ normalize: true });
+    };
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+      calculate({ normalize: true });
+    };
+
+    currentInput?.addEventListener('input', () => calculate());
+    targetInput?.addEventListener('input', () => calculate());
+    currentInput?.addEventListener('blur', normalizeInput);
+    targetInput?.addEventListener('blur', normalizeInput);
+    currentInput?.addEventListener('keydown', handleKeydown);
+    targetInput?.addEventListener('keydown', handleKeydown);
+    chart?.addEventListener('click', (event) => {
+      const bar = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-horse-chart-level]');
+      if (!bar || !currentInput || !targetInput) return;
+      const level = Number.parseInt(bar.dataset.horseChartLevel ?? '', 10);
+      if (!Number.isFinite(level)) return;
+
+      if (event instanceof MouseEvent && event.shiftKey) {
+        currentInput.value = String(level);
+      } else {
+        targetInput.value = String(level + 1);
+      }
+      calculate();
+    });
+    chart?.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      const bar = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-horse-chart-level]');
+      if (!bar || !currentInput || !targetInput) return;
+      event.preventDefault();
+      const level = Number.parseInt(bar.dataset.horseChartLevel ?? '', 10);
+      if (!Number.isFinite(level)) return;
+
+      if (event.shiftKey) {
+        currentInput.value = String(level);
+      } else {
+        targetInput.value = String(level + 1);
+      }
+      calculate();
+    });
+    calculate();
+  }
+</script>

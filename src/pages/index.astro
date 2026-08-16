@@ -4,8 +4,28 @@ import { ALL_CATEGORIES, getListItems, type CategorySlug } from '../lib/data';
 
 const categoryCards = ALL_CATEGORIES.map((category) => ({
   ...category,
+  href: `/${category.slug}`,
   count: getListItems(category.slug as CategorySlug).length,
+  countLabel: `${getListItems(category.slug as CategorySlug).length}条资料`,
 }));
+
+const entryCards = [
+  ...categoryCards,
+  {
+    slug: 'horse-guide',
+    label: '马匹机制',
+    blurb: '马匹饱食度、升级消耗、燕麦换算与商人交易价格',
+    href: '/guides/horse',
+    countLabel: '机制攻略',
+  },
+  {
+    slug: 'armor-guide',
+    label: '护甲与减伤',
+    blurb: '护甲值、减伤百分比与边际收益的换算关系',
+    href: '/guides/armor',
+    countLabel: '机制攻略',
+  },
+];
 
 const heroHoldMs = 6000;
 const heroFadeMs = 1500;
@@ -51,13 +71,13 @@ const heroImages = Object.keys(heroImageModules)
   <section>
     <h2>资料入口</h2>
     <div class="grid">
-      {categoryCards.map((category) => (
-        <a class="entry-card" href={`/${category.slug}`}>
+      {entryCards.map((category) => (
+        <a class="entry-card" href={category.href}>
           <span>
             <strong>{category.label}</strong>
             {category.blurb}
           </span>
-          <span class="count">{category.count}条资料</span>
+          <span class="count">{category.countLabel}</span>
         </a>
       ))}
     </div>

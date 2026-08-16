@@ -9,4 +9,13 @@ const lore = defineCollection({
   }),
 });
 
-export const collections = { lore };
+const guides = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    order: z.number(),
+    summary: z.string(),
+  }),
+});
+
+export const collections = { lore, guides };
