@@ -1808,9 +1808,9 @@ p {
   }
 
   .data-table thead {
-    position: sticky;
-    top: var(--header-height);
-    z-index: 2;
+    position: static;
+    top: auto;
+    z-index: auto;
     background: var(--bg-panel);
     box-shadow: inset 0 -1px 0 var(--border);
   }
@@ -1824,7 +1824,7 @@ p {
     position: static;
     top: auto;
     z-index: auto;
-    box-shadow: none;
+    box-shadow: inset 0 -1px 0 var(--border);
   }
 
   .table-scroll {
