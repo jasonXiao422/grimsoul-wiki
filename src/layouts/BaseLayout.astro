@@ -29,31 +29,22 @@ const otherNavItems = [
   },
 ];
 const isOtherNavActive = otherNavItems.some((item) => item.active);
-const contributors = [
+const CONTRIBUTORS = [
   {
-    name: 'JokerAF-安枫',
-    id: 'jokeraf-anfeng',
-    url: 'https://search.bilibili.com/upuser?keyword=JokerAF-%E5%AE%89%E6%9E%AB',
+    group: '网站贡献',
+    people: [
+      { name: 'JokerAF-安枫', url: 'https://space.bilibili.com/402585650' },
+      { name: '浪里白花小飞龙', url: 'https://space.bilibili.com/310337826' },
+      { name: '情义常少', url: 'https://space.bilibili.com/505467311' },
+    ],
   },
   {
-    name: '浪里白花小飞龙',
-    id: 'langlibaihua-xiaofeilong',
-    url: 'https://search.bilibili.com/upuser?keyword=%E6%B5%AA%E9%87%8C%E7%99%BD%E8%8A%B1%E5%B0%8F%E9%A3%9E%E9%BE%99',
-  },
-  {
-    name: '情义常少',
-    id: 'qingyi-changshao',
-    url: 'https://space.bilibili.com/505467311',
-  },
-  {
-    name: '林林子呀',
-    id: 'linlinzi-ya',
-    url: 'https://space.bilibili.com/3494358919678209',
-  },
-  {
-    name: '芙桃不傲娇',
-    id: 'futao-buaojiao',
-    url: 'https://space.bilibili.com/483430426',
+    group: '数据贡献',
+    people: [
+      { name: '林林子呀', url: 'https://space.bilibili.com/3494358919678209' },
+      { name: '芙桃不傲娇', url: 'https://space.bilibili.com/483430426' },
+      { name: '旋转青桃', url: 'https://space.bilibili.com/416097645' },
+    ],
   },
 ];
 ---
@@ -115,16 +106,18 @@ const contributors = [
         <div class="footer-inner">
           <div class="footer-contributors" aria-labelledby="footer-contributors-title">
             <h2 id="footer-contributors-title">贡献者</h2>
-            <p class="footer-contributor-links">
-              {contributors.map((contributor, index) => (
-                <>
-                  <a href={contributor.url} target="_blank" rel="noopener noreferrer">{contributor.name}</a>
-                  {index < contributors.length - 1 && (
-                    <span class="footer-contributor-separator" aria-hidden="true">/</span>
-                  )}
-                </>
+            <div class="footer-contributor-groups">
+              {CONTRIBUTORS.map((group) => (
+                <section class="footer-contributor-group" aria-labelledby={`footer-contributor-${group.group}`}>
+                  <h3 id={`footer-contributor-${group.group}`}>{group.group}</h3>
+                  <p class="footer-contributor-links">
+                    {group.people.map((contributor) => (
+                      <a href={contributor.url} target="_blank" rel="noopener noreferrer">{contributor.name}</a>
+                    ))}
+                  </p>
+                </section>
               ))}
-            </p>
+            </div>
           </div>
           <div class="footer-contact" aria-labelledby="footer-contact-title">
             <h2 id="footer-contact-title">联系方式</h2>

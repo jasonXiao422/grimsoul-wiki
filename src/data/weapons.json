@@ -2766,7 +2766,8 @@
     "attackSpeed": 0.3,
     "range": 7,
     "durability": {
-      "raw": "待测"
+      "value": 100,
+      "unit": "点"
     },
     "cost": [],
     "effect": "无视护甲目标对远程武器所具有的额外防御",
