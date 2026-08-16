@@ -5,6 +5,7 @@ import knightOrders from '../../data/knight-orders.json';
 import { ORDER_ERA_SEQUENCE, getOrderStatusLabel } from '../../lib/knight-orders';
 
 type KnightOrder = (typeof knightOrders)[number];
+const orderCount = knightOrders.length;
 
 const groups = ORDER_ERA_SEQUENCE.map((era) => {
   const items = (knightOrders as KnightOrder[]).filter((item) => item.era === era);
@@ -16,7 +17,7 @@ const groups = ORDER_ERA_SEQUENCE.map((era) => {
 }).filter((group) => group.items.length > 0);
 ---
 
-<BaseLayout title="骑士团" description="十四支帝国骑士团资料">
+<BaseLayout title="骑士团" description={`${orderCount}支帝国骑士团资料`}>
   <Breadcrumb items={[
     { label: '首页', href: '/' },
     { label: '骑士团' },
@@ -25,7 +26,7 @@ const groups = ORDER_ERA_SEQUENCE.map((era) => {
   <section class="page-heading">
     <p class="eyebrow">帝国军团</p>
     <h1>骑士团</h1>
-    <p class="muted">整理十四支帝国骑士团的创建时代、领主、职责与最终命运。</p>
+    <p class="muted">整理{orderCount}支帝国骑士团的创建时代、领主、职责与最终命运。</p>
   </section>
 
   <section class="orders-intro lore-content panel" aria-labelledby="orders-intro-title">

@@ -31,6 +31,22 @@ export type CostItem = { material: string; qty: number };
 
 export const MATERIALS_BY_ID = new Map(materials.map((item) => [item.id, item]));
 
+export function getCategoryCount(slug: CategorySlug): number {
+  // 护甲统计 armor.json 里的套装数，不包含套装内嵌的 165 件部件。
+  // 骑士团统计 knight-orders.json 里的骑士团条目数。
+  return DATA_BY_CATEGORY[slug].length;
+}
+
+export function getCategoryCountLabel(slug: CategorySlug): string {
+  const category = CATEGORY_BY_SLUG[slug];
+  return `${getCategoryCount(slug)}${category.countUnit}`;
+}
+
+export function getCategoryBlurb(slug: CategorySlug): string {
+  const category = CATEGORY_BY_SLUG[slug];
+  return `${getCategoryCountLabel(slug)}${category.blurbSuffix}`;
+}
+
 const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
   CATEGORIES.map((category) => [category.slug, category.label])
 );

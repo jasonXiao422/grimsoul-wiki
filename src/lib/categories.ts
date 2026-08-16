@@ -16,7 +16,10 @@ export interface ColumnDef {
 export interface CategoryDef {
   slug: string;
   label: string;
-  blurb: string;
+  /** 首页与列表页展示的计数单位，例如“件武器”“套套装”。 */
+  countUnit: string;
+  /** 数量之后的说明文案，由运行时计数拼接成完整 blurb。 */
+  blurbSuffix: string;
   /** 对应 src/data/<file>.json */
   file: string;
   columns: ColumnDef[];
@@ -31,7 +34,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'weapons',
     label: '武器',
-    blurb: '124 件武器的伤害、攻速、攻距与合成配方',
+    countUnit: '件武器',
+    blurbSuffix: '的伤害、攻速、攻距与合成配方',
     file: 'weapons',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -48,7 +52,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'armor',
     label: '护甲',
-    blurb: '33 套套装的护甲值、套装效果与部件构成',
+    countUnit: '套套装',
+    blurbSuffix: '的护甲值、套装效果与部件构成',
     file: 'armor',
     columns: [
       { key: 'name', label: '套装', sortable: true },
@@ -62,7 +67,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'shields',
     label: '盾牌',
-    blurb: '14 面盾牌的格挡机制与护甲值',
+    countUnit: '面盾牌',
+    blurbSuffix: '的格挡机制与护甲值',
     file: 'shields',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -77,7 +83,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'backpacks',
     label: '驮篮',
-    blurb: '29 个驮篮的槽位、元素防护与特殊效果',
+    countUnit: '个驮篮',
+    blurbSuffix: '的槽位、元素防护与特殊效果',
     file: 'backpacks',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -91,7 +98,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'enemies',
     label: '敌人',
-    blurb: '124 只敌人的生命、护甲、伤害与出没地点',
+    countUnit: '只敌人',
+    blurbSuffix: '的生命、护甲、伤害与出没地点',
     file: 'enemies',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -108,7 +116,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'materials',
     label: '材料',
-    blurb: '49 种材料，可反查哪些配方用到它',
+    countUnit: '种材料',
+    blurbSuffix: '，可反查哪些配方用到它',
     file: 'materials',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -120,7 +129,8 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'orders',
     label: '骑士团',
-    blurb: '14 支帝国骑士团的时代、领主、职责与最终命运',
+    countUnit: '支帝国骑士团',
+    blurbSuffix: '的时代、领主、职责与最终命运',
     file: 'knight-orders',
     columns: [
       { key: 'name', label: '名称', sortable: true },

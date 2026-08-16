@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
 import { CATEGORY_BY_SLUG } from '../../lib/categories';
-import { getListItems } from '../../lib/data';
+import { getCategoryBlurb, getListItems } from '../../lib/data';
 
 const category = CATEGORY_BY_SLUG.materials;
 const items = getListItems('materials');
@@ -18,7 +18,7 @@ const items = getListItems('materials');
   <section class="page-heading">
     <p class="eyebrow">资料列表</p>
     <h1>材料</h1>
-    <p class="muted">{category.blurb}</p>
+    <p class="muted">{getCategoryBlurb('materials')}</p>
   </section>
 
   <DataTable category={category} items={items} />

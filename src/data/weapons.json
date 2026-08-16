@@ -281,6 +281,23 @@
     "upgradeOf": null
   },
   {
+    "id": "tie-ding-zi-gao",
+    "name": "铁丁字镐",
+    "damage": 18,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.1,
+    "range": 1.3,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "可开采腐化银矿",
+    "upgradeOf": null
+  },
+  {
     "id": "tie-jiang-chui",
     "name": "铁匠锤",
     "damage": 18,
@@ -449,6 +466,23 @@
     },
     "cost": [],
     "effect": null,
+    "upgradeOf": null
+  },
+  {
+    "id": "tie-fu",
+    "name": "铁斧",
+    "damage": 20,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 1.2,
+    "durability": {
+      "value": 84,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "可开采橡木",
     "upgradeOf": null
   },
   {
@@ -866,6 +900,26 @@
     "upgradeOf": null
   },
   {
+    "id": "shuai-bai-zhi-gong",
+    "name": "衰败之弓",
+    "damage": 30,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 20
+    },
+    "attackSpeed": 0.8,
+    "range": 7,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "狼和恐狼对受影响的目标造成更多伤害",
+    "upgradeOf": null
+  },
+  {
     "id": "bing-gong",
     "name": "冰弓",
     "damage": 30,
@@ -1227,23 +1281,6 @@
     "upgradeOf": "wan-dao"
   },
   {
-    "id": "zhan-chui",
-    "name": "战锤",
-    "damage": 80,
-    "skillBonus": null,
-    "damageNote": null,
-    "element": null,
-    "attackSpeed": 1.3,
-    "range": 1.3,
-    "durability": {
-      "value": 100,
-      "unit": "点"
-    },
-    "cost": [],
-    "effect": "无视敌人200护甲",
-    "upgradeOf": null
-  },
-  {
     "id": "gu-zhi-bang-zi",
     "name": "骨制棒子",
     "damage": 42,
@@ -1373,6 +1410,26 @@
     },
     "cost": [],
     "effect": "此武器以最后一击了结敌人来永久提升伤害（0/2/4）",
+    "upgradeOf": null
+  },
+  {
+    "id": "shuai-bai-zhi-nv-li-zhua",
+    "name": "衰败之女利爪",
+    "damage": 50,
+    "skillBonus": 2,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 40
+    },
+    "attackSpeed": 1.5,
+    "range": 1.3,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "对同一对手连续打击时增加衰败伤害",
     "upgradeOf": null
   },
   {
@@ -2087,6 +2144,23 @@
     "upgradeOf": null
   },
   {
+    "id": "zhan-chui",
+    "name": "战锤",
+    "damage": 80,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.3,
+    "range": 1.3,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "无视敌人200护甲",
+    "upgradeOf": null
+  },
+  {
     "id": "shou-ge-zhe-yi-shi-zhi-jian",
     "name": "收割者仪式之剑",
     "damage": 80,
@@ -2280,6 +2354,40 @@
     "upgradeOf": null
   },
   {
+    "id": "xue-lie-quan",
+    "name": "血猎犬",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.6,
+    "range": 6,
+    "durability": {
+      "value": 67,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "26.6%击晕敌人；潜行不造成伤害",
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-xue-lie-quan",
+    "name": "黑血猎犬",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1.6,
+    "range": 6,
+    "durability": {
+      "value": 90,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "26.6%击晕敌人；潜行不造成伤害",
+    "upgradeOf": null
+  },
+  {
     "id": "du-ya-nu",
     "name": "渡鸦弩",
     "damage": 90,
@@ -2314,6 +2422,26 @@
     "upgradeOf": null
   },
   {
+    "id": "tan-de-wu-yan-de-lang-ya-bang",
+    "name": "贪得无厌的狼牙棒",
+    "damage": 95,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 20
+    },
+    "attackSpeed": 1,
+    "range": 1.9,
+    "durability": {
+      "value": 46,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "攻击时，造成额外的衰败伤害并消耗饱食度，当前的饱食度越高，伤害就越大",
+    "upgradeOf": null
+  },
+  {
     "id": "zhan-quan-zhi-fu",
     "name": "战犬之斧",
     "damage": 95,
@@ -2345,6 +2473,57 @@
     },
     "cost": [],
     "effect": "每次击杀后，暂时获得攻击速度增益\n提升倍率为1.15、1.3、1.45……，持续7秒",
+    "upgradeOf": null
+  },
+  {
+    "id": "tu-zai-zhe-zhan-fu",
+    "name": "屠宰者战斧",
+    "damage": 100,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.1,
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "每次攻击提升武器攻击速度和伤害，攻速提升至（0.9/1/1.1/1.2/1.3）；伤害提升至（120/140/160/180/200）",
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-tu-zai-zhe-zhan-fu",
+    "name": "黑屠宰者战斧",
+    "damage": 100,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.8,
+    "range": 2.1,
+    "durability": {
+      "value": 72,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "每次攻击提升武器攻击速度和伤害，攻速提升至（0.9/1/1.1/1.2/1.3）；伤害提升至（120/140/160/180/200）",
+    "upgradeOf": null
+  },
+  {
+    "id": "du-ya-zhi-hui",
+    "name": "渡鸦之喙",
+    "damage": 100,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.9,
+    "range": 1.8,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "无视敌人400护甲",
     "upgradeOf": null
   },
   {
@@ -2578,6 +2757,22 @@
     "upgradeOf": null
   },
   {
+    "id": "shuang-fa-nu",
+    "name": "双发弩",
+    "damage": 120,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.3,
+    "range": 7,
+    "durability": {
+      "raw": "待测"
+    },
+    "cost": [],
+    "effect": "无视护甲目标对远程武器所具有的额外防御",
+    "upgradeOf": null
+  },
+  {
     "id": "kuang-zhan-shi-zhan-fu",
     "name": "狂战士战斧",
     "damage": 125,
@@ -2748,6 +2943,22 @@
     },
     "cost": [],
     "effect": "约36.7%几率造成中毒（12*5下）",
+    "upgradeOf": null
+  },
+  {
+    "id": "hei-se-fu-lan-bei-er-ge",
+    "name": "黑色弗兰贝尔格",
+    "damage": 162,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "raw": "待测"
+    },
+    "cost": [],
+    "effect": "使用这种武器攻击会使目标的治疗降为0.持续10秒",
     "upgradeOf": null
   }
 ]
