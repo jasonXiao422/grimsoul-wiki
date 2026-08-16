@@ -1209,10 +1209,7 @@
     "name": "圣诞套装（T3级）",
     "tier": "T3",
     "totalArmor": 260,
-    "protection": {
-      "type": "冰",
-      "value": 60
-    },
+    "protection": null,
     "durability": {
       "value": 112,
       "unit": "点"
@@ -1224,10 +1221,7 @@
         "id": "sheng-dan-rong-mao",
         "name": "圣诞绒帽",
         "armor": 50,
-        "protection": {
-          "type": "冰",
-          "value": 10
-        },
+        "protection": null,
         "cost": [],
         "effect": null
       },
@@ -1235,10 +1229,7 @@
         "id": "sheng-dan-hou-wai-tao",
         "name": "圣诞厚外套",
         "armor": 90,
-        "protection": {
-          "type": "冰",
-          "value": 15
-        },
+        "protection": null,
         "cost": [],
         "effect": null
       },
@@ -1246,10 +1237,7 @@
         "id": "sheng-dan-lian-zhi-shou-tao",
         "name": "圣诞连指手套",
         "armor": 30,
-        "protection": {
-          "type": "冰",
-          "value": 10
-        },
+        "protection": null,
         "cost": [],
         "effect": null
       },
@@ -1257,10 +1245,7 @@
         "id": "sheng-dan-deng-long-ku",
         "name": "圣诞灯笼裤",
         "armor": 80,
-        "protection": {
-          "type": "冰",
-          "value": 15
-        },
+        "protection": null,
         "cost": [],
         "effect": null
       },
@@ -1268,10 +1253,7 @@
         "id": "sheng-dan-xue-di-xue",
         "name": "圣诞雪地靴",
         "armor": 10,
-        "protection": {
-          "type": "冰",
-          "value": 10
-        },
+        "protection": null,
         "cost": [],
         "effect": "移动速度：8"
       }
@@ -1587,7 +1569,7 @@
         "qty": 34
       }
     ],
-    "setEffect": "50%概率避免眩晕",
+    "setEffect": "~9.4%概率免疫眩晕",
     "pieces": [
       {
         "id": "kuang-zhan-shi-jiao-kui",
@@ -1608,7 +1590,7 @@
             "qty": 5
           }
         ],
-        "effect": "减少投掷武器与吹箭伤害（0.85倍），如果附件有多个敌人护甲增加30"
+        "effect": "减少投掷武器与吹箭伤害（0.85倍）"
       },
       {
         "id": "kuang-zhan-shi-zhan-pao",
@@ -1629,7 +1611,7 @@
             "qty": 10
           }
         ],
-        "effect": "额外快捷栏，如果附件有多个敌人护甲增加30"
+        "effect": "额外快捷栏"
       },
       {
         "id": "kuang-zhan-shi-bi-kai",
@@ -1654,7 +1636,7 @@
             "qty": 4
           }
         ],
-        "effect": "如果附件有多个敌人护甲增加30"
+        "effect": null
       },
       {
         "id": "kuang-zhan-shi-tui-jia",
@@ -1675,7 +1657,7 @@
             "qty": 10
           }
         ],
-        "effect": "如果附件有多个敌人护甲增加30"
+        "effect": null
       },
       {
         "id": "kuang-zhan-shi-jing-jia",
@@ -1696,7 +1678,7 @@
             "qty": 5
           }
         ],
-        "effect": "移动速度：12，如果附件有多个敌人护甲增加30"
+        "effect": "移动速度：12"
       }
     ]
   },
@@ -2001,7 +1983,7 @@
     "totalArmor": 440,
     "protection": {
       "type": "冰",
-      "value": 410
+      "value": 210
     },
     "durability": {
       "value": 125,
@@ -3285,7 +3267,7 @@
     "totalArmor": 615,
     "protection": {
       "type": "火",
-      "value": 410
+      "value": 210
     },
     "durability": {
       "value": 143,
@@ -3918,79 +3900,6 @@
           }
         ],
         "effect": "移动速度：12；攻击时有1%的几率造成双倍伤害"
-      }
-    ]
-  },
-  {
-    "id": "chun-jing-shou-hu-zhe-tao-zhuang-t5-ji",
-    "name": "纯净守护者套装（T5+级）",
-    "tier": "T5+",
-    "totalArmor": null,
-    "protection": {
-      "type": "衰败",
-      "value": 410
-    },
-    "durability": {
-      "value": 125,
-      "unit": "点"
-    },
-    "cost": [],
-    "setEffect": "衰败抗性：200",
-    "pieces": [
-      {
-        "id": "chun-jing-shou-hu-zhe-mian-ju",
-        "name": "纯净守护者面具",
-        "armor": 105,
-        "protection": {
-          "type": "衰败",
-          "value": 40
-        },
-        "cost": [],
-        "effect": null
-      },
-      {
-        "id": "chun-jing-shou-hu-zhe-hu-jia",
-        "name": "纯净守护者护甲",
-        "armor": 190,
-        "protection": {
-          "type": "衰败",
-          "value": 45
-        },
-        "cost": [],
-        "effect": "额外快捷栏"
-      },
-      {
-        "id": "chun-jing-shou-hu-zhe-shou-tao",
-        "name": "纯净守护者手套",
-        "armor": 85,
-        "protection": {
-          "type": "衰败",
-          "value": 40
-        },
-        "cost": [],
-        "effect": null
-      },
-      {
-        "id": "chun-jing-shou-hu-zhe-tui-jia",
-        "name": "纯净守护者腿甲",
-        "armor": 180,
-        "protection": {
-          "type": "衰败",
-          "value": 45
-        },
-        "cost": [],
-        "effect": null
-      },
-      {
-        "id": "chun-jing-shou-hu-zhe-xue-zi",
-        "name": "纯净守护者靴子",
-        "armor": 55,
-        "protection": {
-          "type": "衰败",
-          "value": 40
-        },
-        "cost": [],
-        "effect": "移动速度：12"
       }
     ]
   },

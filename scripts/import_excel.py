@@ -23,11 +23,11 @@ SRC = ROOT / "data-source"
 OUT = ROOT / "src" / "data"
 
 FILES = {
-    "weapons": ("武器数据7_4_0.xlsx", "Sheet1"),
-    "armor": ("护甲数据7_4.xlsx", "护甲"),
-    "shields": ("盾牌数据7_3_1.xlsx", "护甲"),
-    "backpacks": ("驮篮7_3_1.xlsx", "驮篮"),
-    "enemies": ("敌人数据6_6_0__1_.xlsx", "敌人生命护甲和伤害"),
+    "weapons": ("武器数据.xlsx", "Sheet1"),
+    "armor": ("护甲数据.xlsx", "护甲"),
+    "shields": ("盾牌数据.xlsx", "护甲"),
+    "backpacks": ("驮篮数据.xlsx", "驮篮"),
+    "enemies": ("敌人数据.xlsx", "敌人生命护甲和伤害"),
 }
 
 warnings = []
@@ -309,18 +309,36 @@ def build_armor():
     """套装行后面紧跟 5 件部件，靠名字里的『套装（T…级）』识别。"""
     sets, standalone = [], []
     cur = None
-    for row in rows_of("armor")[1:]:
-        name = text(row[1])
+    rows = rows_of("armor")
+    header = [text(cell) for cell in rows[0]]
+    columns = {label: index for index, label in enumerate(header) if label}
+
+    def col(label, fallback):
+        return columns.get(label, fallback)
+
+    name_col = col("护甲", 1)
+    armor_col = col("护甲值", 2)
+    protection_col = col("防护", 3)
+    durability_col = col("耐久度", 4)
+    cost_col = col("制作", 5)
+    effect_col = col("特殊效果", 6)
+
+    def value(row, index):
+        return row[index] if index < len(row) else None
+
+    for row in rows[1:]:
+        name = text(value(row, name_col))
         if not name:
             continue
         is_set = "套装" in name and "级）" in name
-        entry_armor = parse_formula(row[2], f"护甲 {name}") if not isinstance(clean(row[2]), (int, float)) else clean(row[2])
+        armor_raw = value(row, armor_col)
+        entry_armor = parse_formula(armor_raw, f"护甲 {name}") if not isinstance(clean(armor_raw), (int, float)) else clean(armor_raw)
         common = {
             "name": re.sub(r"\s+", "", name),
             "armor": entry_armor,
-            "protection": parse_element(row[3]),
-            "cost": parse_cost(row[5]),
-            "effect": text(row[6]),
+            "protection": parse_element(value(row, protection_col)),
+            "cost": parse_cost(value(row, cost_col)),
+            "effect": text(value(row, effect_col)),
         }
         if is_set:
             m = re.match(r"^(.+?)套装（(T[\d+]+)级）$", common["name"])
@@ -330,7 +348,7 @@ def build_armor():
                 "tier": m.group(2) if m else None,
                 "totalArmor": common["armor"],
                 "protection": common["protection"],
-                "durability": parse_durability(row[4]),
+                "durability": parse_durability(value(row, durability_col)),
                 "cost": common["cost"],
                 "setEffect": common["effect"],
                 "pieces": [],
@@ -353,7 +371,7 @@ def build_armor():
                 "tier": None,
                 "armor": common["armor"],
                 "protection": common["protection"],
-                "durability": parse_durability(row[4]),
+                "durability": parse_durability(value(row, durability_col)),
                 "cost": common["cost"],
                 "effect": common["effect"],
             })
@@ -496,7 +514,7 @@ def main():
     print(f"\n护甲套装 {len(armor_sets)} 套，含部件 {total_pieces} 件；散件 {len(armor_pieces)} 件")
 
     if warnings:
-        print(f"\n⚠ {len(warnings)} 条需要留意：\n")
+        print(f"\n警告：{len(warnings)} 条需要留意：\n")
         for w in warnings:
             print("  ·", w)
     else:
