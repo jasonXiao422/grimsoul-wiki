@@ -15,10 +15,6 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-
 from openpyxl import load_workbook
 from pypinyin import lazy_pinyin
 
@@ -272,6 +268,8 @@ def build_weapons():
         name = text(row[0])
         if not name:
             continue
+        # Excel 里手动 Alt+Enter 的换行会带进名称，统一压成空格
+        name = re.sub(r"\s*\n\s*", "", name)
         base, skill, dmg_note = parse_damage(row[1])
         effect = text(row[7])
         blueprint = None
