@@ -59,6 +59,7 @@ code{background:var(--panel);padding:2px 6px;border-radius:4px;font-size:12px;co
 </header>
 
 <main>
+  <div id="existing" style="display:none;background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;margin-bottom:16px;font-size:13px;color:var(--dim)"></div>
   <div id="drop"><b>把图片拖到这里</b>　支持一次拖多张，任意尺寸<br><span style="font-size:12px">jpg / png / webp 都可以，会自动等比缩放并裁成 16:9 之外的部分保留</span></div>
   <div id="list"></div>
 
@@ -89,6 +90,20 @@ $('#pick').onclick=async()=>{
     }
     if(h.name!=='images' && !confirm('你选的文件夹叫「'+h.name+'」，通常应该是 images。\n确定继续吗？')) return;
     dir=h; $('#pick').textContent='✓ 已连接 '+h.name; $('#pick').classList.add('ghost');
+    // 扫描已有的 bg-N.webp，避免覆盖
+    try{
+      const hero=await dir.getDirectoryHandle('hero',{create:false});
+      let max=0, found=[];
+      for await (const [name,handle] of hero.entries()){
+        const m=name.match(/^bg-(\d+)\.webp$/i);
+        if(m){ max=Math.max(max,+m[1]); found.push(name); }
+      }
+      seq.hero=max;
+      if(max>0){
+        $('#existing').innerHTML='hero 文件夹里已有 <b>'+max+'</b> 张（'+found.sort().join('、')+'），新图将从 <b>bg-'+(max+1)+'</b> 开始编号，不会覆盖。';
+        $('#existing').style.display='block';
+      }
+    }catch(e){ seq.hero=0; }
   }catch(e){}
 };
 

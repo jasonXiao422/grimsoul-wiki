@@ -6,7 +6,7 @@ export const FIELD_LABELS: Record<string, string> = {
   damage: '物理伤害',
   skillBonus: '满级技能',
   damageNote: '伤害备注',
-  element: '元素伤害',
+  element: '固定元素伤害',
   attackSpeed: '攻速',
   range: '攻距',
   durability: '耐久',
@@ -34,6 +34,7 @@ export const FIELD_LABELS: Record<string, string> = {
 export const ELEMENT_COLORS: Record<string, string> = {
   冰: '#86c5ff',
   火: '#d9773f',
+  衰败: '#5a9e4a',
   毒: '#83ad55',
   暗: '#9a7bd1',
   神圣: '#d8c46a',

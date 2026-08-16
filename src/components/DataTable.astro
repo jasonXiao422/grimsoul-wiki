@@ -37,6 +37,12 @@ const getDisplayValue = (item: Record<string, any>, key: string, value: unknown)
   return formatValue(key, value);
 };
 
+const getListDisplayValue = (item: Record<string, any>, key: string, value: unknown) => {
+  const displayValue = getDisplayValue(item, key, value);
+  if (category.slug === 'armor' && key === 'name') return displayValue.replace(/（T\d+\+?级）$/, '');
+  return displayValue;
+};
+
 const getElementColor = (value: unknown) => {
   if (!value || typeof value !== 'object') return undefined;
   const type = (value as Record<string, unknown>).type;
@@ -114,7 +120,7 @@ for (const item of items) {
             >
               {category.columns.map((column, index) => {
                 const rawValue = getByPath(item, column.key);
-                const value = getDisplayValue(item, column.key, rawValue);
+                const value = getListDisplayValue(item, column.key, rawValue);
                 const sortValue = getSortValue(column.key, rawValue);
                 return (
                   <td class:list={[column.numeric && 'numeric']} data-sort-value={sortValue}>

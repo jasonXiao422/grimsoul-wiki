@@ -510,8 +510,9 @@ p {
 }
 
 .numeric {
-  text-align: right;
+  text-align: center;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .item-cell {

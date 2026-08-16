@@ -7,21 +7,16 @@ const categoryCards = ALL_CATEGORIES.map((category) => ({
   count: getListItems(category.slug as CategorySlug).length,
 }));
 
-const recentItems = ALL_CATEGORIES.flatMap((category) =>
-  getListItems(category.slug as CategorySlug).map((item) => ({
-    name: item.name,
-    href: `/${category.slug}/${item.id}`,
-    category: category.label,
-  }))
-).slice(0, 6);
-
-const heroImageCount = 4;
 const heroHoldMs = 6000;
 const heroFadeMs = 1500;
-const heroImages = Array.from({ length: heroImageCount }, (_, index) => ({
-  src: `/images/hero/bg-${index + 1}.webp`,
-  isFirst: index === 0,
-}));
+const heroImageModules = import.meta.glob('/public/images/hero/bg-*.webp', { eager: true });
+const getHeroImageNumber = (path: string) => Number(path.match(/bg-(\d+)\.webp$/)?.[1] ?? 0);
+const heroImages = Object.keys(heroImageModules)
+  .sort((a, b) => getHeroImageNumber(a) - getHeroImageNumber(b) || a.localeCompare(b))
+  .map((path, index) => ({
+    src: path.replace(/^\/public/, ''),
+    isFirst: index === 0,
+  }));
 ---
 
 <BaseLayout title="首页" description="Grim Soul 中文攻略资料站">
@@ -63,20 +58,6 @@ const heroImages = Array.from({ length: heroImageCount }, (_, index) => ({
             {category.blurb}
           </span>
           <span class="count">{category.count}条资料</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>最近更新</h2>
-    <div class="grid">
-      {recentItems.map((item) => (
-        <a class="entry-card" href={item.href}>
-          <span>
-            <strong>{item.name}</strong>
-            {item.category}
-          </span>
         </a>
       ))}
     </div>
