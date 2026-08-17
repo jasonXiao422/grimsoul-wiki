@@ -10,7 +10,7 @@
     "usedIn": 131
   },
   {
-    "id": "mat-qing-tong-ding",
+    "id": "mat-qing-tong-ingot",
     "name": "青铜锭",
     "usedIn": 55
   },
@@ -65,12 +65,17 @@
     "usedIn": 16
   },
   {
-    "id": "mat-yuan-song-mu",
-    "name": "原松木",
-    "usedIn": 12
+    "id": "mat-sui-tong-pian",
+    "name": "碎铜片",
+    "usedIn": 16
   },
   {
-    "id": "mat-qing-tong-ding-2",
+    "id": "mat-yuan-song-mu",
+    "name": "原松木",
+    "usedIn": 14
+  },
+  {
+    "id": "mat-qing-tong-nail",
     "name": "青铜钉",
     "usedIn": 12
   },
@@ -78,11 +83,6 @@
     "id": "mat-xiu-bo-er-de-hui-jin",
     "name": "修博尔的灰烬",
     "usedIn": 12
-  },
-  {
-    "id": "mat-tong-sui-pian",
-    "name": "铜碎片",
-    "usedIn": 11
   },
   {
     "id": "mat-gu-lao-bao-ban",
@@ -122,11 +122,6 @@
   {
     "id": "mat-pi-tiao",
     "name": "皮条",
-    "usedIn": 5
-  },
-  {
-    "id": "mat-sui-tong-pian",
-    "name": "碎铜片",
     "usedIn": 5
   },
   {
@@ -192,11 +187,6 @@
   {
     "id": "mat-1-ji-zhi-liao-juan-zhou",
     "name": "1级治疗卷轴",
-    "usedIn": 2
-  },
-  {
-    "id": "mat-song-mu",
-    "name": "松木",
     "usedIn": 2
   },
   {

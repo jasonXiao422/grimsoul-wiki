@@ -169,7 +169,7 @@
         "qty": 2
       },
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 2
       }
     ],
@@ -212,7 +212,7 @@
         "qty": 2
       },
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 2
       }
     ],
@@ -414,7 +414,7 @@
         "qty": 1
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 1
       }
     ],
@@ -508,7 +508,7 @@
         "qty": 1
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 1
       }
     ],
@@ -722,7 +722,7 @@
         "qty": 5
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 6
       },
       {
@@ -838,7 +838,7 @@
         "qty": 5
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 6
       },
       {
@@ -868,7 +868,7 @@
         "qty": 14
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 16
       },
       {
@@ -1026,7 +1026,7 @@
         "qty": 8
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 7
       }
     ],
@@ -1095,7 +1095,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 8
       },
       {
@@ -1141,7 +1141,7 @@
         "qty": 8
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 7
       }
     ],
@@ -1175,7 +1175,7 @@
         "qty": 8
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 7
       }
     ],
@@ -1227,7 +1227,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 8
       },
       {
@@ -1261,7 +1261,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 8
       },
       {
@@ -1484,7 +1484,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 10
       },
       {
@@ -1593,7 +1593,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 15
       },
       {
@@ -1742,26 +1742,6 @@
     "upgradeOf": null
   },
   {
-    "id": "bai-bing-zhi-fu",
-    "name": "百病之斧",
-    "damage": 60,
-    "skillBonus": 15,
-    "damageNote": null,
-    "element": {
-      "type": "衰败",
-      "value": 20
-    },
-    "attackSpeed": 0.9,
-    "range": 1.6,
-    "durability": {
-      "value": 56,
-      "unit": "点"
-    },
-    "cost": [],
-    "effect": "下雨时造成双倍伤害",
-    "upgradeOf": null
-  },
-  {
     "id": "bing-jian",
     "name": "冰剑",
     "damage": 60,
@@ -1871,7 +1851,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 15
       },
       {
@@ -1909,7 +1889,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 15
       },
       {
@@ -1947,7 +1927,7 @@
     },
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 15
       },
       {
@@ -2786,8 +2766,7 @@
     "attackSpeed": 0.3,
     "range": 7,
     "durability": {
-      "value": 100,
-      "unit": "点"
+      "raw": "待测"
     },
     "cost": [],
     "effect": "无视护甲目标对远程武器所具有的额外防御",

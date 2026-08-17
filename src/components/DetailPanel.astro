@@ -22,15 +22,21 @@ const getDetailValue = (key: string, value: unknown) => {
   return formatValue(key, value);
 };
 
+const getDetailLabel = (key: string) => {
+  if (categorySlug === 'shields' && key === 'armor') return '防御值';
+  if (categorySlug === 'shields' && key === 'effect') return '效果';
+  return FIELD_LABELS[key] ?? key;
+};
+
 const attrRows = Object.entries(item)
   .filter(([key, value]) => !hiddenKeys.has(key) && value !== undefined)
-  .filter(([key, value]) => key !== 'obtain' || (value !== null && value !== ''))
-  .map(([key, value]) => [FIELD_LABELS[key] ?? key, getDetailValue(key, value)]);
+  .map(([key, value]) => [getDetailLabel(key), getDetailValue(key, value)]);
 
 const hasCostField = Array.isArray(item.cost);
 const pieces = Array.isArray(item.pieces) ? item.pieces : [];
 const eyebrow = item.tier ? `品阶 ${item.tier}` : '资料详情';
 const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefined;
+const recipeTitle = categorySlug === 'shields' ? '制作配方' : '合成配方';
 ---
 
 <article class="detail-grid">
@@ -62,7 +68,7 @@ const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefi
 
     {hasCostField && (
       <section class="section panel">
-        <h2>合成配方</h2>
+        <h2>{recipeTitle}</h2>
         {item.cost.length > 0 ? (
           <ul class="recipe-list">
             {item.cost.map((cost) => {

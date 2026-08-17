@@ -56,7 +56,19 @@ def text(v):
     return None if c is None else str(c)
 
 
+# 拼音相同但实为不同物品时，在此固定 id，避免顺序变化导致 id 漂移。
+# 例：青铜锭 dìng 与 青铜钉 dīng 去声调后拼音一致。
+ID_OVERRIDE = {
+    "青铜锭": "qing-tong-ingot",
+    "青铜钉": "qing-tong-nail",
+}
+
+
 def make_id(name, prefix=""):
+    fixed = ID_OVERRIDE.get(re.sub(r"[（）()【】《》\s]+", "", name))
+    if fixed:
+        return f"{prefix}-{fixed}" if prefix else fixed
+
     """中文名 → 拼音 id。重名自动加数字后缀。"""
     base = "-".join(lazy_pinyin(re.sub(r"[（）()【】《》\s]+", "", name)))
     base = re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
@@ -82,12 +94,8 @@ MATERIAL_ALIAS = {
     "肖博尔之烬": "修博尔的灰烬",
     "肖博尔骨灰": "修博尔的灰烬",
     "古代板甲": "古老薄板",
+    "铜碎片": "碎铜片",
 }
-
-
-def material_name(name):
-    name = name.strip()
-    return MATERIAL_ALIAS.get(name, name)
 
 
 def parse_cost(raw):
@@ -110,12 +118,12 @@ def parse_cost(raw):
                 continue
             m = re.match(r"^(.+?)\s*:\s*([\d.]+)$", part)
             if m:
-                items.append({"material": material_name(m.group(1)), "qty": float(m.group(2))})
+                items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
             else:
                 warnings.append(f"材料段落无法解析: {part!r}")
     else:  # 星号写法
         for m in re.finditer(r"([^\s*]+)\s*\*\s*([\d.]+)", s):
-            items.append({"material": material_name(m.group(1)), "qty": float(m.group(2))})
+            items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
         if not items:
             warnings.append(f"材料字符串无法解析: {s!r}")
 
@@ -387,21 +395,23 @@ def build_armor():
 
 
 def build_shields():
+    """
+    盾牌表列序：
+      0 名称 / 1 耐久 / 2 防御值 / 3 制作 / 4 效果 / 5 获取途径
+    """
     out = []
     for row in rows_of("shields")[1:]:
-        name = text(row[1])
+        name = text(row[0])
         if not name:
             continue
         out.append({
             "id": make_id(name),
-            "name": name,
+            "name": re.sub(r"\s+", "", name),
             "armor": clean(row[2]),
-            "block": text(row[3]),
-            "durability": parse_durability(row[4]),
-            "blockCost": clean(row[5]),
-            "blockDurability": clean(row[6]),
-            "cost": parse_cost(row[7]),
-            "effect": text(row[8]),
+            "durability": parse_durability(row[1]),
+            "cost": parse_cost(row[3]),
+            "effect": text(row[4]),
+            "obtain": text(row[5]),
         })
     return out
 

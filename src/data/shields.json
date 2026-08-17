@@ -1,18 +1,15 @@
 [
   {
-    "id": "liu-bian-yuan-dun",
-    "name": "柳编圆盾",
+    "id": "teng-bian-hu-dun",
+    "name": "藤编护盾",
     "armor": 6,
-    "block": "抵挡3点伤害，1次",
     "durability": {
       "value": 200,
       "unit": "点"
     },
-    "blockCost": 2,
-    "blockDurability": 75,
     "cost": [
       {
-        "material": "mat-song-mu",
+        "material": "mat-yuan-song-mu",
         "qty": 3
       },
       {
@@ -24,26 +21,24 @@
         "qty": 1
       }
     ],
-    "effect": null
+    "effect": "格挡减少3伤害",
+    "obtain": "N/A"
   },
   {
-    "id": "pi-dun",
-    "name": "皮盾",
+    "id": "pi-ge-hu-dun",
+    "name": "皮革护盾",
     "armor": 17,
-    "block": "抵挡6点伤害，1次",
     "durability": {
       "value": 200,
       "unit": "点"
     },
-    "blockCost": 2,
-    "blockDurability": 150,
     "cost": [
       {
-        "material": "mat-tong-sui-pian",
+        "material": "mat-sui-tong-pian",
         "qty": 1
       },
       {
-        "material": "mat-song-mu",
+        "material": "mat-yuan-song-mu",
         "qty": 5
       },
       {
@@ -55,19 +50,17 @@
         "qty": 3
       }
     ],
-    "effect": null
+    "effect": "格挡减少6伤害",
+    "obtain": "N/A"
   },
   {
-    "id": "fu-he-dun",
-    "name": "复合盾",
+    "id": "fu-he-hu-dun",
+    "name": "复合护盾",
     "armor": 22,
-    "block": "抵挡11点伤害，1次",
     "durability": {
       "value": 200,
       "unit": "点"
     },
-    "blockCost": 3,
-    "blockDurability": 200,
     "cost": [
       {
         "material": "mat-tong-ding",
@@ -90,26 +83,24 @@
         "qty": 3
       }
     ],
-    "effect": null
+    "effect": "格挡减少11伤害",
+    "obtain": "N/A"
   },
   {
     "id": "qing-dun",
     "name": "轻盾",
     "armor": 27,
-    "block": "抵挡15点伤害，1次",
     "durability": {
       "value": 200,
       "unit": "点"
     },
-    "blockCost": 3,
-    "blockDurability": 250,
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 2
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 2
       },
       {
@@ -125,26 +116,24 @@
         "qty": 6
       }
     ],
-    "effect": null
+    "effect": "格挡减少15伤害",
+    "obtain": "N/A"
   },
   {
-    "id": "tie-bao-bian-dun",
-    "name": "铁包边盾",
+    "id": "tie-ding-dun",
+    "name": "铁钉盾",
     "armor": 50,
-    "block": "抵挡25点伤害，2次",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 5,
-    "blockDurability": 400,
     "cost": [
       {
         "material": "mat-tie-ding",
         "qty": 8
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 5
       },
       {
@@ -160,40 +149,36 @@
         "qty": 12
       }
     ],
-    "effect": null
+    "effect": "格挡减少2次25伤害",
+    "obtain": "图纸地下城/调查官"
   },
   {
-    "id": "hei-tie-bao-bian-dun",
-    "name": "黑铁包边盾",
+    "id": "hei-se-tie-ding-dun",
+    "name": "黑色铁钉盾",
     "armor": 50,
-    "block": "抵挡25点伤害，2次",
     "durability": {
       "value": 334,
       "unit": "点"
     },
-    "blockCost": 5,
-    "blockDurability": 400,
     "cost": [],
-    "effect": "提升耐久度"
+    "effect": "格挡减少2次25伤害，增加耐久度",
+    "obtain": "商店活动购买"
   },
   {
     "id": "xiao-yuan-dun",
     "name": "小圆盾",
     "armor": 70,
-    "block": "接下来受到的所有攻击伤害减少30点，持续1秒",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 5,
-    "blockDurability": 400,
     "cost": [
       {
         "material": "mat-tie-ding",
         "qty": 10
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 8
       },
       {
@@ -209,104 +194,126 @@
         "qty": 12
       }
     ],
-    "effect": null
+    "effect": "格挡所有攻击减少30伤害持续1秒",
+    "obtain": "图纸地下城二层/三层"
+  },
+  {
+    "id": "fa-er-wei-si-hu-dun",
+    "name": "法尔维斯护盾",
+    "armor": 20,
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "格挡3次攻击，单次格挡消耗3耐久，充能所需伤害220\n抵挡伤害减少20-40点，自身生命值越低，可抵挡的伤害越高",
+    "obtain": "英雄大车炮台"
   },
   {
     "id": "xuan-yun-dun",
     "name": "眩晕盾",
     "armor": 100,
-    "block": "接下来受到的所有攻击伤害减少40点，持续1秒",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 7.5,
-    "blockDurability": 500,
     "cost": [],
-    "effect": "格挡时眩晕攻击者，持续2秒"
+    "effect": "格挡所有攻击减少40伤害持续2秒",
+    "obtain": "英雄地下城"
   },
   {
-    "id": "sheng-dian-qi-shi-dun",
-    "name": "圣殿骑士盾",
+    "id": "sheng-dian-qi-shi-hu-dun",
+    "name": "圣殿骑士护盾",
     "armor": 115,
-    "block": "接下来受到的所有攻击伤害减少40点，持续2秒",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 7.5,
-    "blockDurability": 500,
     "cost": [],
-    "effect": "格挡时眩晕攻击者，持续2秒"
+    "effect": "格挡所有攻击减少40伤害持续2秒",
+    "obtain": "红猎奖励"
   },
   {
-    "id": "zu-zhou-guan-jun-zhi-dun",
-    "name": "诅咒冠军之盾",
+    "id": "bei-zhou-zhe-guan-jun-hu-dun",
+    "name": "被咒者冠军护盾",
     "armor": 150,
-    "block": "接下来受到的所有攻击伤害减少40点，持续3秒",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 7.5,
-    "blockDurability": 500,
     "cost": [],
-    "effect": "格挡时使攻击者中毒（6点毒素×6次）"
+    "effect": "格挡所有攻击减少40伤害持续3秒，激活盾牌会让攻击者中毒",
+    "obtain": "叛徒地下墓穴"
   },
   {
-    "id": "jue-dou-shi-dun",
-    "name": "角斗士盾",
+    "id": "jue-dou-shi-hu-dun",
+    "name": "角斗士护盾",
     "armor": 150,
-    "block": "接下来受到的所有攻击伤害减少50点，持续1秒",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 5,
-    "blockDurability": 400,
     "cost": [],
-    "effect": null
+    "effect": "格挡所有攻击减少50伤害持续1秒",
+    "obtain": "酷吏地下城二层"
   },
   {
-    "id": "bing-shuang-dun",
-    "name": "冰霜盾",
+    "id": "bing-hu-dun",
+    "name": "冰护盾",
     "armor": 150,
-    "block": "接下来受到的所有攻击伤害减少50点，持续2秒",
     "durability": {
       "value": 250,
       "unit": "点"
     },
-    "blockCost": 5,
-    "blockDurability": 500,
     "cost": [],
-    "effect": "格挡时冻结攻击者，持续3秒"
+    "effect": "格挡所有攻击减少伤害并冻结敌人",
+    "obtain": "红猎奖励"
   },
   {
-    "id": "di-wang-zhi-dun",
-    "name": "帝王之盾",
+    "id": "huang-di-zhi-dun",
+    "name": "皇帝之盾",
     "armor": 200,
-    "block": "生成一个魔法护盾吸收200点伤害，持续1.5秒",
     "durability": {
       "value": 325,
       "unit": "点"
     },
-    "blockCost": 0,
-    "blockDurability": 500,
     "cost": [],
-    "effect": "格挡时降低攻击者攻速（~0.8倍）与移速，持续2秒"
+    "effect": "生成一个魔法护盾吸收200点伤害持续1.5秒。护盾可减慢对手攻击和奔跑速度持续2秒，激活盾牌减少下次敌人物理伤害50",
+    "obtain": "红猎奖励"
   },
   {
-    "id": "chi-yan-cheng-jie-dun",
-    "name": "炽焰惩戒盾",
+    "id": "yu-yan-e-meng-hu-dun",
+    "name": "预言恶梦护盾",
     "armor": 150,
-    "block": "抵挡50点伤害，1次",
     "durability": {
       "value": 143,
       "unit": "点"
     },
-    "blockCost": 15,
-    "blockDurability": 800,
     "cost": [],
-    "effect": "格挡时造成范围攻击（100点火焰；近战范围）；惊吓夜访者"
+    "effect": "格挡时对附近所有敌人恐惧10秒，激活盾牌减少敌人下次攻击物理伤害50",
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "chi-re-cheng-fa-hu-dun",
+    "name": "炽热惩罚护盾",
+    "armor": 150,
+    "durability": {
+      "value": 143,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "吓跑夜游神，格挡时对附近所有敌人造成100点火焰伤害，激活盾牌减少敌人下次攻击物理伤害50",
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "hei-se-chi-re-cheng-fa-hu-dun",
+    "name": "黑色炽热惩罚护盾",
+    "armor": 150,
+    "durability": {
+      "raw": "待测"
+    },
+    "cost": [],
+    "effect": "吓跑夜游神，格挡时对附近所有敌人造成100点火焰伤害，激活盾牌减少敌人下次攻击物理伤害50，更耐用",
+    "obtain": "HUB商店"
   }
 ]

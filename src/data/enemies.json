@@ -1047,74 +1047,6 @@
     "dataIncomplete": null
   },
   {
-    "id": "xiu-bo-er-chu-peng-de-kuang-gong",
-    "name": "修博尔触碰的矿工",
-    "group": "银矿",
-    "hp": 330,
-    "armor": 150,
-    "damageReduction": 48,
-    "damageReductionSource": "48",
-    "restoredFromDate": null,
-    "physicalDamage": 100,
-    "elementDamage": null,
-    "note": "受到1.5倍衰败伤害减免50%受到的寒冷伤害；1.嗜血。攻击时能恢复等同于其所造成的伤害的生命值。2.破甲。攻击时无视玩家部分护甲。",
-    "locations": [
-      "西方银矿"
-    ],
-    "dataIncomplete": null
-  },
-  {
-    "id": "xiu-bo-er-chu-peng-de-gong-bing",
-    "name": "修博尔触碰的工兵",
-    "group": "银矿",
-    "hp": 450,
-    "armor": 0,
-    "damageReduction": 0,
-    "damageReductionSource": "0",
-    "restoredFromDate": null,
-    "physicalDamage": 500,
-    "elementDamage": null,
-    "note": "受到1.5倍衰败伤害减免50%受到的寒冷伤害；1.投掷炸弹。对玩家所在区域投掷炸弹，投掷时有前摇和预警，若被命中则受到500点物理伤害并被眩晕。2.自爆。死亡时自爆，对附近造成750点伤害。3.走位。会主动远离玩家，跟玩家拉开距离",
-    "locations": [
-      "西方银矿"
-    ],
-    "dataIncomplete": null
-  },
-  {
-    "id": "xiu-bo-er-chu-peng-de-jian-gong",
-    "name": "修博尔触碰的监工",
-    "group": "银矿",
-    "hp": 500,
-    "armor": 150,
-    "damageReduction": 48,
-    "damageReductionSource": "48",
-    "restoredFromDate": null,
-    "physicalDamage": 180,
-    "elementDamage": null,
-    "note": "受到1.5倍衰败伤害减免50%受到的寒冷伤害；1.普通攻击。距离它较近时，它将使用近战攻击；距离较远时使用远程攻击，远程攻击有概率对玩家造成恐惧效果。2.流血。造成持续1分钟的流血效果，共20段流血伤害（8）。3.呼唤。呼叫附近的矿工和工兵。4.召唤。召唤一个骷髅战士攻击玩家。",
-    "locations": [
-      "西方银矿"
-    ],
-    "dataIncomplete": null
-  },
-  {
-    "id": "bu-wen-ding-de-gu-kui-lei",
-    "name": "不稳定的骨傀儡",
-    "group": "银矿",
-    "hp": 1000,
-    "armor": 150,
-    "damageReduction": 48,
-    "damageReductionSource": "48",
-    "restoredFromDate": null,
-    "physicalDamage": 200,
-    "elementDamage": null,
-    "note": "受到1.5倍衰败伤害减免50%受到的寒冷伤害；1.不稳。骨傀儡约每2秒受到50点真实伤害，约每10秒恢复250点生命值。若骨傀儡被冻结，则它将无法恢复生命值。2.加速。骨傀儡造成的伤害降低100点，但是攻击速度大大提高。3.重组。骨傀儡死后，将在一段时间内复活，无法彻底杀死。",
-    "locations": [
-      "西方银矿"
-    ],
-    "dataIncomplete": null
-  },
-  {
     "id": "ye-ma",
     "name": "野马",
     "group": "空降事件/剧情/固定地点副本",
@@ -1577,23 +1509,6 @@
     "dataIncomplete": null
   },
   {
-    "id": "ke-lao-si-si-ling-you-jun",
-    "name": "克劳斯司令（友军）",
-    "group": "节日活动",
-    "hp": 5000,
-    "armor": 180,
-    "damageReduction": 53,
-    "damageReductionSource": "52",
-    "restoredFromDate": null,
-    "physicalDamage": null,
-    "elementDamage": null,
-    "note": "在激活圣诞树buff后，可免疫冻伤和75%寒冷伤害；攻击力视其武器而定。\n克劳斯司令的武器也有耐久度。武器可在营地处升级。友方单位，帮助对抗瘟疫圣诞老人",
-    "locations": [
-      "(克劳斯指挥官 vs 瘟疫圣诞老人)"
-    ],
-    "dataIncomplete": null
-  },
-  {
     "id": "huo-ji-mo-wang-2",
     "name": "火鸡魔王",
     "group": "节日活动",
@@ -1614,15 +1529,16 @@
     "id": "wen-yi-sheng-dan-lao-ren",
     "name": "瘟疫圣诞老人",
     "group": "节日活动",
-    "hp": 4000,
+    "hp": 2000,
     "armor": 150,
     "damageReduction": 48,
-    "damageReductionSource": "48",
+    "damageReductionSource": "47.7±0.6",
     "restoredFromDate": null,
-    "physicalDamage": 100,
-    "elementDamage": "100 冰",
+    "physicalDamage": 50,
+    "elementDamage": "35 冰",
     "note": "概率冰冻",
     "locations": [
+      "红猎第十一季",
       "(克劳斯指挥官 vs 瘟疫圣诞老人)"
     ],
     "dataIncomplete": null

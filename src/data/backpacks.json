@@ -23,7 +23,7 @@
     "slots": 10,
     "cost": [
       {
-        "material": "mat-qing-tong-ding",
+        "material": "mat-qing-tong-ingot",
         "qty": 2
       },
       {
@@ -143,7 +143,7 @@
         "qty": 10
       },
       {
-        "material": "mat-qing-tong-ding-2",
+        "material": "mat-qing-tong-nail",
         "qty": 15
       },
       {

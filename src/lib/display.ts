@@ -19,9 +19,6 @@ export const FIELD_LABELS: Record<string, string> = {
   armor: '护甲',
   protection: '元素防护',
   setEffect: '套装效果',
-  block: '格挡效果',
-  blockCost: '格挡消耗',
-  blockDurability: '格挡耐久',
   slots: '槽位',
   hp: '生命',
   damageReduction: '减伤',
@@ -57,7 +54,7 @@ function formatElement(value: Record<string, unknown>): string {
 }
 
 export function formatValue(key: string, value: unknown): string {
-  if (key === 'obtain' && (value === null || value === undefined || value === '')) return '—';
+  if (key === 'obtain' && (value === null || value === undefined || value === '' || value === 'N/A')) return '无需图纸制作';
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');
 
