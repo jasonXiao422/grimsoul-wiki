@@ -32,7 +32,7 @@ export type CostItem = { material: string; qty: number };
 export const MATERIALS_BY_ID = new Map(materials.map((item) => [item.id, item]));
 
 export function getCategoryCount(slug: CategorySlug): number {
-  // 护甲统计 armor.json 里的套装数，不包含套装内嵌的 165 件部件。
+  // 护甲统计 armor.json 里的套装数，不包含套装内嵌部件。
   // 骑士团统计 knight-orders.json 里的骑士团条目数。
   return DATA_BY_CATEGORY[slug].length;
 }

@@ -20,7 +20,7 @@
         "qty": 2
       },
       {
-        "material": "mat-sheng-suo",
+        "material": "mat-sheng-zi",
         "qty": 1
       }
     ],
@@ -51,7 +51,7 @@
         "qty": 2
       },
       {
-        "material": "mat-sheng-suo",
+        "material": "mat-sheng-zi",
         "qty": 3
       }
     ],
@@ -86,7 +86,7 @@
         "qty": 3
       },
       {
-        "material": "mat-sheng-suo",
+        "material": "mat-sheng-zi",
         "qty": 3
       }
     ],
@@ -201,7 +201,7 @@
         "qty": 6
       },
       {
-        "material": "mat-jin-shu-xian",
+        "material": "mat-xian",
         "qty": 8
       },
       {

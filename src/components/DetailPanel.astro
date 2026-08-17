@@ -24,6 +24,7 @@ const getDetailValue = (key: string, value: unknown) => {
 
 const attrRows = Object.entries(item)
   .filter(([key, value]) => !hiddenKeys.has(key) && value !== undefined)
+  .filter(([key, value]) => key !== 'obtain' || (value !== null && value !== ''))
   .map(([key, value]) => [FIELD_LABELS[key] ?? key, getDetailValue(key, value)]);
 
 const hasCostField = Array.isArray(item.cost);

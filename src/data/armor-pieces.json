@@ -3,6 +3,7 @@
     "id": "pi-ge-jian-tou-xie",
     "name": "皮革尖头鞋",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 5,
     "protection": null,
     "durability": {
@@ -19,7 +20,7 @@
         "qty": 4
       },
       {
-        "material": "mat-sheng-suo",
+        "material": "mat-sheng-zi",
         "qty": 4
       }
     ],
@@ -29,6 +30,7 @@
     "id": "cao-mao",
     "name": "草帽",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 12,
     "protection": null,
     "durability": {
@@ -48,9 +50,10 @@
     "effect": null
   },
   {
-    "id": "dong-yong-mian-mao",
-    "name": "冬用棉帽",
+    "id": "dong-mao",
+    "name": "冬帽",
     "tier": null,
+    "obtain": "圣诞节掉落",
     "armor": 30,
     "protection": null,
     "durability": {
@@ -64,6 +67,7 @@
     "id": "da-dou-mao",
     "name": "大兜帽",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 35,
     "protection": null,
     "durability": {
@@ -80,16 +84,17 @@
         "qty": 7
       },
       {
-        "material": "mat-sheng-suo",
+        "material": "mat-sheng-zi",
         "qty": 4
       }
     ],
     "effect": null
   },
   {
-    "id": "ji-jian-shuang-pai-kou-shang-yi",
-    "name": "击剑双排扣上衣",
+    "id": "ji-jian-fu",
+    "name": "击剑服",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 58,
     "protection": null,
     "durability": {
@@ -106,16 +111,17 @@
         "qty": 8
       },
       {
-        "material": "mat-sheng-suo",
+        "material": "mat-sheng-zi",
         "qty": 6
       }
     ],
     "effect": null
   },
   {
-    "id": "zhong-bu-bing-xue",
-    "name": "重步兵靴",
+    "id": "zhong-xing-bu-bing-xue",
+    "name": "重型步兵靴",
     "tier": null,
+    "obtain": "英雄地下城",
     "armor": 60,
     "protection": null,
     "durability": {
@@ -129,6 +135,7 @@
     "id": "yi-shi-mian-ju",
     "name": "仪式面具",
     "tier": null,
+    "obtain": "万圣节看守者棚屋",
     "armor": 70,
     "protection": null,
     "durability": {
@@ -142,6 +149,7 @@
     "id": "nan-gua-tou-kui",
     "name": "南瓜头盔",
     "tier": null,
+    "obtain": "万圣节活动",
     "armor": 70,
     "protection": null,
     "durability": {
@@ -152,9 +160,10 @@
     "effect": null
   },
   {
-    "id": "dai-yi-suo-zi-jia",
-    "name": "带翼锁子甲",
+    "id": "hu-jian-suo-zi-jia",
+    "name": "护肩锁子甲",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 100,
     "protection": null,
     "durability": {
@@ -181,6 +190,7 @@
     "id": "jiao-kui",
     "name": "角盔",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 115,
     "protection": null,
     "durability": {
@@ -193,7 +203,7 @@
         "qty": 14
       },
       {
-        "material": "mat-jin-shu-xian",
+        "material": "mat-xian",
         "qty": 3
       },
       {
@@ -211,6 +221,7 @@
     "id": "hu-xin-jing-suo-zi-jia",
     "name": "护心镜锁子甲",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 150,
     "protection": null,
     "durability": {
@@ -241,6 +252,7 @@
     "id": "ba-bu-ta-tou-kui",
     "name": "巴布塔头盔",
     "tier": null,
+    "obtain": "红猎图纸",
     "armor": 160,
     "protection": null,
     "durability": {
@@ -264,9 +276,10 @@
     "effect": null
   },
   {
-    "id": "zhen-cha-bing-qing-jia",
-    "name": "侦察兵轻甲",
+    "id": "tan-ma-de-kai-jia",
+    "name": "探马的铠甲",
     "tier": null,
+    "obtain": "英雄地下城",
     "armor": 200,
     "protection": null,
     "durability": {

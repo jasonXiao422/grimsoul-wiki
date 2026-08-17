@@ -72,6 +72,24 @@ def make_id(name, prefix=""):
     return key
 
 
+# 各表之间材料译名不一致时，统一到右侧的名称。
+# 例如盾牌表写「绳索」、武器表写「绳子」，实为同一材料。
+MATERIAL_ALIAS = {
+    "绳索": "绳子",
+    "金属线": "线",
+    "附魔皮革": "魔法皮革",
+    "真银": "纯银",
+    "肖博尔之烬": "修博尔的灰烬",
+    "肖博尔骨灰": "修博尔的灰烬",
+    "古代板甲": "古老薄板",
+}
+
+
+def material_name(name):
+    name = name.strip()
+    return MATERIAL_ALIAS.get(name, name)
+
+
 def parse_cost(raw):
     """
     解析两种材料写法：
@@ -92,18 +110,21 @@ def parse_cost(raw):
                 continue
             m = re.match(r"^(.+?)\s*:\s*([\d.]+)$", part)
             if m:
-                items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
+                items.append({"material": material_name(m.group(1)), "qty": float(m.group(2))})
             else:
                 warnings.append(f"材料段落无法解析: {part!r}")
     else:  # 星号写法
         for m in re.finditer(r"([^\s*]+)\s*\*\s*([\d.]+)", s):
-            items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
+            items.append({"material": material_name(m.group(1)), "qty": float(m.group(2))})
         if not items:
             warnings.append(f"材料字符串无法解析: {s!r}")
 
+    merged = {}
     for it in items:
-        it["qty"] = int(it["qty"]) if it["qty"] == int(it["qty"]) else it["qty"]
-    return items
+        name = MATERIAL_ALIAS.get(it["material"], it["material"])
+        qty = it["qty"]
+        merged[name] = merged.get(name, 0) + qty
+    return [{"material": k, "qty": int(v) if v == int(v) else v} for k, v in merged.items()]
 
 
 def num(v):
@@ -309,36 +330,18 @@ def build_armor():
     """套装行后面紧跟 5 件部件，靠名字里的『套装（T…级）』识别。"""
     sets, standalone = [], []
     cur = None
-    rows = rows_of("armor")
-    header = [text(cell) for cell in rows[0]]
-    columns = {label: index for index, label in enumerate(header) if label}
-
-    def col(label, fallback):
-        return columns.get(label, fallback)
-
-    name_col = col("护甲", 1)
-    armor_col = col("护甲值", 2)
-    protection_col = col("防护", 3)
-    durability_col = col("耐久度", 4)
-    cost_col = col("制作", 5)
-    effect_col = col("特殊效果", 6)
-
-    def value(row, index):
-        return row[index] if index < len(row) else None
-
-    for row in rows[1:]:
-        name = text(value(row, name_col))
+    for row in rows_of("armor")[1:]:
+        name = text(row[1])
         if not name:
             continue
         is_set = "套装" in name and "级）" in name
-        armor_raw = value(row, armor_col)
-        entry_armor = parse_formula(armor_raw, f"护甲 {name}") if not isinstance(clean(armor_raw), (int, float)) else clean(armor_raw)
+        entry_armor = parse_formula(row[2], f"护甲 {name}") if not isinstance(clean(row[2]), (int, float)) else clean(row[2])
         common = {
             "name": re.sub(r"\s+", "", name),
             "armor": entry_armor,
-            "protection": parse_element(value(row, protection_col)),
-            "cost": parse_cost(value(row, cost_col)),
-            "effect": text(value(row, effect_col)),
+            "protection": parse_element(row[3]),
+            "cost": parse_cost(row[5]),
+            "effect": text(row[6]),
         }
         if is_set:
             m = re.match(r"^(.+?)套装（(T[\d+]+)级）$", common["name"])
@@ -346,9 +349,10 @@ def build_armor():
                 "id": make_id(common["name"]),
                 "name": common["name"],
                 "tier": m.group(2) if m else None,
+                "obtain": text(row[7]) if len(row) > 7 else None,
                 "totalArmor": common["armor"],
                 "protection": common["protection"],
-                "durability": parse_durability(value(row, durability_col)),
+                "durability": parse_durability(row[4]),
                 "cost": common["cost"],
                 "setEffect": common["effect"],
                 "pieces": [],
@@ -369,9 +373,10 @@ def build_armor():
                 "id": make_id(common["name"]),
                 "name": common["name"],
                 "tier": None,
+                "obtain": text(row[7]) if len(row) > 7 else None,
                 "armor": common["armor"],
                 "protection": common["protection"],
-                "durability": parse_durability(value(row, durability_col)),
+                "durability": parse_durability(row[4]),
                 "cost": common["cost"],
                 "effect": common["effect"],
             })
@@ -514,7 +519,7 @@ def main():
     print(f"\n护甲套装 {len(armor_sets)} 套，含部件 {total_pieces} 件；散件 {len(armor_pieces)} 件")
 
     if warnings:
-        print(f"\n警告：{len(warnings)} 条需要留意：\n")
+        print(f"\n注意：{len(warnings)} 条需要留意：\n")
         for w in warnings:
             print("  ·", w)
     else:

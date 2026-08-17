@@ -14,6 +14,7 @@ export const FIELD_LABELS: Record<string, string> = {
   effect: '特殊效果',
   upgradeOf: '高级图纸来源',
   tier: '品阶',
+  obtain: '获取途径',
   totalArmor: '总护甲',
   armor: '护甲',
   protection: '元素防护',
@@ -56,6 +57,7 @@ function formatElement(value: Record<string, unknown>): string {
 }
 
 export function formatValue(key: string, value: unknown): string {
+  if (key === 'obtain' && (value === null || value === undefined || value === '')) return '—';
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');
 

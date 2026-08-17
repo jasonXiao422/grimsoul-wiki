@@ -58,10 +58,11 @@ export const CATEGORIES: CategoryDef[] = [
     columns: [
       { key: 'name', label: '套装', sortable: true },
       { key: 'tier', label: '品阶', sortable: true, render: 'tier' },
+      { key: 'obtain', label: '获取途径', sortable: true },
       { key: 'totalArmor', label: '总护甲', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
     ],
-    filters: ['tier'],
+    filters: ['tier', 'obtain'],
     defaultSort: 'tier',
   },
   {
