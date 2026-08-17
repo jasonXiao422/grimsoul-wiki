@@ -2934,7 +2934,7 @@
     "name": "风暴使者套装（T4+级）",
     "tier": "T4+",
     "obtain": "红猎图纸",
-    "totalArmor": null,
+    "totalArmor": 630,
     "protection": null,
     "durability": {
       "value": 143,
@@ -3617,8 +3617,8 @@
   },
   {
     "id": "jue-dou-zhe-tao-zhuang-t5-ji",
-    "name": "决斗者套装（T5+级）",
-    "tier": "T5+",
+    "name": "决斗者套装（T5级）",
+    "tier": "T5",
     "obtain": "红猎图纸",
     "totalArmor": 580,
     "protection": null,
@@ -3961,8 +3961,8 @@
   },
   {
     "id": "xuan-lin-tao-zhuang-t5-ji",
-    "name": "玄鳞套装（T5+级）",
-    "tier": "T5+",
+    "name": "玄鳞套装（T5级）",
+    "tier": "T5",
     "obtain": "黑色星期五商店",
     "totalArmor": 580,
     "protection": null,
