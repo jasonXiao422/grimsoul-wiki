@@ -1,10 +1,15 @@
-<script>
+<script is:inline>
   (() => {
-    const normalizePath = (path: string) => {
+    const normalizePath = (path) => {
       if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
       return path;
     };
 
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    const root = document.documentElement;
     const storageKey = `scroll:${normalizePath(window.location.pathname)}`;
 
     const readSavedScroll = () => {
@@ -26,12 +31,44 @@
       }
     };
 
+    const targetY = readSavedScroll();
+    let restoreFinished = false;
+
+    const finishRestore = () => {
+      if (restoreFinished) return;
+      restoreFinished = true;
+      root.removeAttribute('data-scroll-restore-pending');
+      root.style.removeProperty('--scroll-restore-min-height');
+    };
+
+    if (targetY !== null) {
+      root.setAttribute('data-scroll-restore-pending', '');
+      root.style.setProperty('--scroll-restore-min-height', `${targetY + window.innerHeight}px`);
+
+      const style = document.createElement('style');
+      style.textContent = `
+        html[data-scroll-restore-pending],
+        html[data-scroll-restore-pending] body {
+          min-height: var(--scroll-restore-min-height);
+          scroll-behavior: auto !important;
+        }
+
+        html[data-scroll-restore-pending] body {
+          opacity: 0;
+        }
+
+        body {
+          transition: opacity 0.15s ease;
+        }
+      `;
+      document.head.append(style);
+    }
+
     const restoreScroll = () => {
-      const targetY = readSavedScroll();
-      if (targetY === null) return;
+      if (targetY === null || restoreFinished) return;
 
       let attempts = 0;
-      const maxAttempts = 40;
+      const maxAttempts = 24;
 
       const tryScroll = () => {
         attempts += 1;
@@ -39,17 +76,18 @@
 
         if (maxScrollY >= targetY || attempts >= maxAttempts) {
           window.scrollTo({ top: Math.min(targetY, maxScrollY), left: 0, behavior: 'auto' });
+          requestAnimationFrame(finishRestore);
           return;
         }
 
         requestAnimationFrame(tryScroll);
       };
 
-      requestAnimationFrame(() => requestAnimationFrame(tryScroll));
+      requestAnimationFrame(tryScroll);
     };
 
     document.addEventListener('click', (event) => {
-      const link = (event.target as Element | null)?.closest('a[href]');
+      const link = event.target?.closest?.('a[href]');
       if (!link) return;
 
       const href = link.getAttribute('href');
@@ -60,14 +98,22 @@
 
     window.addEventListener('beforeunload', saveScroll);
     window.addEventListener('pagehide', saveScroll);
+    window.addEventListener('DOMContentLoaded', restoreScroll, { once: true });
     window.addEventListener('load', restoreScroll, { once: true });
     window.addEventListener('pageshow', (event) => {
-      if (event.persisted) return;
+      if (event.persisted) {
+        finishRestore();
+        return;
+      }
+
       restoreScroll();
     });
 
-    if (document.readyState === 'complete') {
-      restoreScroll();
+    if (targetY !== null) {
+      window.setTimeout(() => {
+        restoreScroll();
+        finishRestore();
+      }, 300);
     }
   })();
 </script>

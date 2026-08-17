@@ -19,6 +19,8 @@ const groups = ORDER_ERA_SEQUENCE.map((era) => {
 ---
 
 <BaseLayout title="骑士团" description={`${orderCount}支帝国骑士团资料`}>
+  <ListScrollRestoration slot="head" />
+
   <Breadcrumb items={[
     { label: '首页', href: '/' },
     { label: '骑士团' },
@@ -148,5 +150,4 @@ const groups = ORDER_ERA_SEQUENCE.map((era) => {
       </section>
     ))}
   </div>
-  <ListScrollRestoration />
 </BaseLayout>

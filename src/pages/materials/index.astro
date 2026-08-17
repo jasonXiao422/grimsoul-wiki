@@ -11,6 +11,8 @@ const items = getListItems('materials');
 ---
 
 <BaseLayout title="材料" description="材料资料列表">
+  <ListScrollRestoration slot="head" />
+
   <Breadcrumb items={[
     { label: '首页', href: '/' },
     { label: '材料' },
@@ -23,5 +25,4 @@ const items = getListItems('materials');
   </section>
 
   <DataTable category={category} items={items} />
-  <ListScrollRestoration />
 </BaseLayout>

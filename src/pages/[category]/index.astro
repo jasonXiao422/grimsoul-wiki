@@ -20,6 +20,8 @@ const { category, items } = Astro.props;
 ---
 
 <BaseLayout title={category.label} description={`${category.label}资料列表`}>
+  <ListScrollRestoration slot="head" />
+
   <Breadcrumb items={[
     { label: '首页', href: '/' },
     { label: category.label },
@@ -32,5 +34,4 @@ const { category, items } = Astro.props;
   </section>
 
   <DataTable category={category} items={items} />
-  <ListScrollRestoration />
 </BaseLayout>
