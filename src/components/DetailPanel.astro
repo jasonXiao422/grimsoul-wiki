@@ -2,7 +2,7 @@
 import ImageZoom from './ImageZoom.astro';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
-import { getAnyItemName, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
+import { getAnyItemName, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
 
 interface Props {
   categorySlug: CategorySlug;
@@ -11,7 +11,7 @@ interface Props {
 
 const { categorySlug, item } = Astro.props;
 const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
-const hiddenKeys = new Set(['id', 'name', 'cost', 'pieces', 'dataIncomplete']);
+const hiddenKeys = new Set(['id', 'name', 'cost', 'pieces', 'dataIncomplete', 'entity']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -25,6 +25,8 @@ const getDetailValue = (key: string, value: unknown) => {
 const getDetailLabel = (key: string) => {
   if (categorySlug === 'shields' && key === 'armor') return '防御值';
   if (categorySlug === 'shields' && key === 'effect') return '效果';
+  if (categorySlug === 'backpacks' && key === 'slots') return '储存栏';
+  if (categorySlug === 'backpacks' && key === 'effect') return '效果';
   return FIELD_LABELS[key] ?? key;
 };
 
@@ -75,7 +77,7 @@ const recipeTitle = categorySlug === 'shields' ? '制作配方' : '合成配方'
               const material = MATERIALS_BY_ID.get(cost.material);
               return material && (
                 <li>
-                  <a href={`/materials/${material.id}`}>
+                  <a href={getMaterialHref(material)}>
                     <img
                       class="item-icon"
                       src={`/images/materials/${material.id}.webp`}
@@ -128,7 +130,7 @@ const recipeTitle = categorySlug === 'shields' ? '制作配方' : '合成配方'
                     const material = MATERIALS_BY_ID.get(cost.material);
                     return material && (
                       <li>
-                        <a href={`/materials/${material.id}`}>
+                        <a href={getMaterialHref(material)}>
                           <img
                             class="item-icon"
                             src={`/images/materials/${material.id}.webp`}

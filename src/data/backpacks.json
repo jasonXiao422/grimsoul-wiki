@@ -1,35 +1,28 @@
 [
   {
-    "id": "po-jiu-xing-nang",
-    "name": "破旧行囊",
-    "protection": null,
+    "id": "po-ma-dai",
+    "name": "破麻袋",
     "slots": 5,
+    "protection": null,
     "cost": [
-      {
-        "material": "mat-ya-ma-xian-wei",
-        "qty": 4
-      },
       {
         "material": "mat-sheng-zi",
         "qty": 2
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 4
       }
     ],
-    "effect": null
+    "effect": null,
+    "obtain": "无需图纸"
   },
   {
-    "id": "pi-zhi-bei-bao",
-    "name": "皮质背包",
-    "protection": null,
+    "id": "pi-bao",
+    "name": "皮包",
     "slots": 10,
+    "protection": null,
     "cost": [
-      {
-        "material": "mat-qing-tong-ingot",
-        "qty": 2
-      },
-      {
-        "material": "mat-cu-sheng",
-        "qty": 4
-      },
       {
         "material": "mat-hou-bu",
         "qty": 14
@@ -37,154 +30,289 @@
       {
         "material": "mat-pi-ge",
         "qty": 10
+      },
+      {
+        "material": "mat-qing-tong-ingot",
+        "qty": 2
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 4
       }
     ],
-    "effect": null
+    "effect": null,
+    "obtain": "无需图纸"
   },
   {
-    "id": "pi-zhi-tuo-lan",
-    "name": "皮质驮篮",
+    "id": "pi-tuo-lan",
+    "name": "皮驮篮",
+    "slots": 15,
     "protection": null,
-    "slots": 15,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "叛徒地下墓穴；被弃者地下城；北方之地"
   },
   {
-    "id": "hei-se-tuo-lan",
-    "name": "黑色驮篮",
+    "id": "lv-xing-dai",
+    "name": "旅行袋",
+    "slots": 10,
     "protection": null,
-    "slots": 15,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "冒险装备礼包；维比约恩的巢穴"
   },
   {
-    "id": "mi-fa-shi-tuo-lan",
-    "name": "秘法师驮篮",
+    "id": "hei-tuo-lan",
+    "name": "黑驮篮",
+    "slots": 15,
     "protection": null,
-    "slots": 15,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "叛徒地下墓穴"
   },
   {
-    "id": "gui-zi-shou-tuo-lan",
-    "name": "刽子手驮篮",
+    "id": "xuan-mi-tuo-lan",
+    "name": "玄秘驮篮",
+    "slots": 15,
     "protection": null,
-    "slots": 15,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "叛徒地下墓穴"
   },
   {
-    "id": "sheng-dan-tuo-lan",
-    "name": "圣诞驮篮",
+    "id": "xing-xing-zhe-tuo-lan",
+    "name": "行刑者驮篮",
+    "slots": 15,
     "protection": null,
-    "slots": 15,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "叛徒地下墓穴"
   },
   {
-    "id": "bei-di-lang-tuo-lan",
-    "name": "北地狼驮篮",
-    "protection": {
-      "type": "冰",
-      "value": 15
-    },
+    "id": "grimsoul-tuo-lan",
+    "name": "《GrimSoul》驮篮",
     "slots": 15,
+    "protection": null,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "红猎奖励"
   },
   {
-    "id": "ji-han-tuo-lan",
-    "name": "极寒驮篮",
-    "protection": {
-      "type": "冰",
-      "value": 40
-    },
+    "id": "you-shang-tuo-lan",
+    "name": "游商驮篮",
     "slots": 15,
-    "cost": [
-      {
-        "material": "mat-pi-ge-tuo-lan",
-        "qty": 1
-      },
-      {
-        "material": "mat-ha-er-te-zhi-shou",
-        "qty": 1
-      },
-      {
-        "material": "mat-bing-dong-yao-shui",
-        "qty": 1
-      },
-      {
-        "material": "mat-beng-dai",
-        "qty": 40
-      },
-      {
-        "material": "mat-cu-sheng",
-        "qty": 25
-      }
-    ],
-    "effect": null
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "商店购买/大型被弃者地窖"
   },
   {
     "id": "tie-chu-nv",
     "name": "铁处女",
-    "protection": null,
     "slots": 15,
+    "protection": null,
     "cost": [
       {
-        "material": "mat-pi-ge-tuo-lan",
+        "material": "mat-pi-tuo-lan",
         "qty": 1
-      },
-      {
-        "material": "mat-tie-sui-pian",
-        "qty": 5
       },
       {
         "material": "mat-tie-ding",
         "qty": 10
       },
       {
-        "material": "mat-qing-tong-nail",
-        "qty": 15
+        "material": "mat-tie-sui-pian",
+        "qty": 5
       },
       {
         "material": "mat-xian",
         "qty": 15
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 15
       }
     ],
-    "effect": "额外快捷栏"
+    "effect": "+1快捷插槽",
+    "obtain": "酷吏地下城二层"
   },
   {
-    "id": "you-shang-tuo-lan",
-    "name": "游商驮篮",
-    "protection": null,
+    "id": "mu-guang-tuo-lan",
+    "name": "暮光驮篮",
     "slots": 15,
+    "protection": null,
     "cost": [],
-    "effect": "额外快捷栏"
+    "effect": null,
+    "obtain": "红猎奖励"
   },
   {
     "id": "wen-yi-yi-sheng-tuo-lan",
     "name": "瘟疫医生驮篮",
-    "protection": null,
     "slots": 15,
+    "protection": null,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "cang-shu-jia-tuo-lan",
+    "name": "藏书家驮篮",
+    "slots": 15,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "红猎奖励；被诅咒的天文台"
+  },
+  {
+    "id": "xiong-tuo-lan",
+    "name": "熊驮篮",
+    "slots": 15,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "红猎奖励；维比约恩的巢穴"
+  },
+  {
+    "id": "meng-jun-tuo-lan",
+    "name": "盟军驮篮",
+    "slots": 15,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "红猎奖励；大炮台"
+  },
+  {
+    "id": "sheng-dan-tuo-lan",
+    "name": "圣诞驮篮",
+    "slots": 15,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "圣诞活动商店购买"
+  },
+  {
+    "id": "bei-fang-lang-tuo-lan",
+    "name": "北方狼驮篮",
+    "slots": 15,
+    "protection": {
+      "type": "寒冷",
+      "value": 15
+    },
+    "cost": [],
+    "effect": null,
+    "obtain": "圣诞节活动艾莎获取"
+  },
+  {
+    "id": "grimsoul-lv-xing-tuo-lan",
+    "name": "《GrimSoul》旅行驮篮",
+    "slots": 15,
+    "protection": null,
+    "cost": [],
+    "effect": "+1快捷插槽",
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "pi-pa-tuo-lan",
+    "name": "琵琶驮篮",
+    "slots": 17,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "hao-hua-tuo-lan",
+    "name": "豪华驮篮",
+    "slots": 17,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "zhi-zhu-tuo-lan",
+    "name": "蜘蛛驮篮",
+    "slots": 17,
+    "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "chao-sheng-zhe-zhi-fu-tuo-lan",
+    "name": "朝圣者之父驮篮",
+    "slots": 15,
+    "protection": null,
+    "cost": [
+      {
+        "material": "mat-pi-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-mo-fa-pi-ge",
+        "qty": 30
+      },
+      {
+        "material": "mat-huo-li-yao-shui",
+        "qty": 5
+      },
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 20
+      }
+    ],
+    "effect": "移动时能量消耗减少10%",
+    "obtain": "叛徒/地下城/炮台获取图纸"
+  },
+  {
+    "id": "yan-han-tuo-lan",
+    "name": "严寒驮篮",
+    "slots": 15,
+    "protection": {
+      "type": "寒冷",
+      "value": 40
+    },
+    "cost": [
+      {
+        "material": "mat-pi-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-mo-fa-pi-ge",
+        "qty": 25
+      },
+      {
+        "material": "mat-leng-dong-yao-shui",
+        "qty": 2
+      },
+      {
+        "material": "mat-beng-dai",
+        "qty": 10
+      },
+      {
+        "material": "mat-ha-te-zhi-tou",
+        "qty": 1
+      }
+    ],
+    "effect": null,
+    "obtain": "冰封森林"
   },
   {
     "id": "huo-huo-tuo-lan",
     "name": "活火驮篮",
+    "slots": 15,
     "protection": {
-      "type": "火",
+      "type": "火焰",
       "value": 40
     },
-    "slots": 15,
     "cost": [
       {
-        "material": "mat-pi-ge-tuo-lan",
+        "material": "mat-pi-tuo-lan",
         "qty": 1
       },
       {
-        "material": "mat-ha-li-de-tou-kui",
-        "qty": 1
+        "material": "mat-mo-fa-pi-ge",
+        "qty": 25
       },
       {
         "material": "mat-fang-yu-yao-gao",
@@ -195,89 +323,59 @@
         "qty": 2
       },
       {
-        "material": "mat-cu-sheng",
-        "qty": 25
+        "material": "mat-ha-li-de-de-tou-kui",
+        "qty": 1
       }
     ],
-    "effect": "惊吓夜访者"
+    "effect": "吓跑夜游神",
+    "obtain": "被遗忘的神殿"
   },
   {
-    "id": "mu-guang-tuo-lan",
-    "name": "暮光驮篮",
-    "protection": null,
+    "id": "yong-heng-shuai-bai-tuo-lan",
+    "name": "永恒衰败驮篮",
     "slots": 15,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "ju-xiong-tuo-lan",
-    "name": "巨熊驮篮",
-    "protection": null,
-    "slots": 15,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "cang-shu-jia-tuo-lan",
-    "name": "藏书家驮篮",
-    "protection": null,
-    "slots": 15,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "fei-yi-tuo-lan",
-    "name": "飞翼驮篮",
-    "protection": null,
-    "slots": 17,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "zhong-cheng-meng-you-tuo-lan",
-    "name": "忠诚盟友驮篮",
-    "protection": null,
-    "slots": 15,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "lu-te-qin-tuo-lan",
-    "name": "鲁特琴驮篮",
-    "protection": null,
-    "slots": 17,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "she-hua-tuo-lan",
-    "name": "奢华驮篮",
-    "protection": null,
-    "slots": 17,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "lv-zhe-xing-nang",
-    "name": "旅者行囊",
-    "protection": null,
-    "slots": 10,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "you-yu-tuo-lan",
-    "name": "幽语驮篮",
-    "protection": null,
-    "slots": 17,
+    "protection": {
+      "type": "衰败",
+      "value": 40
+    },
     "cost": [
       {
-        "material": "mat-pi-ge-tuo-lan",
+        "material": "mat-pi-tuo-lan",
         "qty": 1
       },
       {
-        "material": "mat-luo-ge-wo-de-zhi-shou",
+        "material": "mat-mo-fa-pi-ge",
+        "qty": 35
+      },
+      {
+        "material": "mat-tian-wei-mo-gu-yao-jiu",
+        "qty": 5
+      },
+      {
+        "material": "mat-xiang",
+        "qty": 10
+      },
+      {
+        "material": "mat-fu-la-ge-na-de-tou-bu",
         "qty": 1
+      }
+    ],
+    "effect": "给予对口渴和饥饿造成伤害免疫",
+    "obtain": "泥沼中心"
+  },
+  {
+    "id": "you-ling-di-yu-tuo-lan",
+    "name": "幽灵低语驮篮",
+    "slots": 17,
+    "protection": null,
+    "cost": [
+      {
+        "material": "mat-pi-tuo-lan",
+        "qty": 1
+      },
+      {
+        "material": "mat-mo-fa-pi-ge",
+        "qty": 30
       },
       {
         "material": "mat-qian-xing-yao-shui",
@@ -288,83 +386,83 @@
         "qty": 20
       },
       {
-        "material": "mat-cu-sheng",
-        "qty": 30
-      }
-    ],
-    "effect": "~25.3%概率免疫恐惧"
-  },
-  {
-    "id": "zhu-xing-tuo-lan",
-    "name": "蛛形驮篮",
-    "protection": null,
-    "slots": 17,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "chao-sheng-zhe-tuo-lan",
-    "name": "朝圣者驮篮",
-    "protection": null,
-    "slots": 15,
-    "cost": [
-      {
-        "material": "mat-pi-ge-tuo-lan",
+        "material": "mat-luo-ge-wo-er-de-tou",
         "qty": 1
-      },
-      {
-        "material": "mat-huo-li-yao-shui",
-        "qty": 20
-      },
-      {
-        "material": "mat-ling-hun-sui-pian",
-        "qty": 20
-      },
-      {
-        "material": "mat-cu-sheng",
-        "qty": 30
       }
     ],
-    "effect": "装备时暂时降低能量消耗（0.9倍）"
+    "effect": "有几率避免恐惧",
+    "obtain": "险恶城堡"
   },
   {
-    "id": "xue-lie-tuo-lan",
-    "name": "雪猎驮篮",
+    "id": "you-yi-tuo-lan",
+    "name": "有翼驮篮",
+    "slots": 17,
     "protection": null,
+    "cost": [],
+    "effect": null,
+    "obtain": "所有元素BOSS副本"
+  },
+  {
+    "id": "hao-hua-grimsoul-tuo-lan",
+    "name": "豪华《GrimSoul》驮篮",
     "slots": 20,
+    "protection": null,
     "cost": [],
-    "effect": null
+    "effect": "+1快捷插槽",
+    "obtain": "红猎奖励"
   },
   {
-    "id": "lie-ren-da-shi-tuo-lan",
-    "name": "猎人大师驮篮",
-    "protection": null,
+    "id": "da-shi-lie-ren-de-tuo-lan",
+    "name": "大师猎人的驮篮",
     "slots": 20,
+    "protection": null,
     "cost": [],
-    "effect": null
+    "effect": null,
+    "obtain": "红猎奖励"
   },
   {
-    "id": "grimsoul-tuo-lan",
-    "name": "《Grim Soul》驮篮",
-    "protection": null,
-    "slots": 15,
-    "cost": [],
-    "effect": null
-  },
-  {
-    "id": "grimsoul-lv-xing-tuo-lan",
-    "name": "《Grim Soul》旅行驮篮",
-    "protection": null,
-    "slots": 15,
-    "cost": [],
-    "effect": "额外快捷栏"
-  },
-  {
-    "id": "grimsoul-zhou-nian-ji-nian-tuo-lan",
-    "name": "《Grim Soul》周年纪念驮篮",
-    "protection": null,
+    "id": "xue-di-lie-ren-tuo-lan",
+    "name": "雪地猎人驮篮",
     "slots": 20,
+    "protection": null,
     "cost": [],
-    "effect": "额外快捷栏"
+    "effect": null,
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "yin-ying-tuo-lan",
+    "name": "阴影驮蓝",
+    "slots": 20,
+    "protection": null,
+    "cost": [],
+    "effect": "有几率让敌人产生恐惧；+1快捷插槽",
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "wei-zao-kong-bu",
+    "name": "伪造恐怖",
+    "slots": 20,
+    "protection": null,
+    "cost": [],
+    "effect": "提供护甲50；+1快捷插槽",
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "ci-gu-zhi-han-tuo-lan",
+    "name": "刺骨之寒驮篮",
+    "slots": 20,
+    "protection": null,
+    "cost": [],
+    "effect": "食物及饮品中毒免疫；+1快捷插槽",
+    "obtain": "红猎奖励"
+  },
+  {
+    "id": "feng-bao-shi-zhe-tuo-lan",
+    "name": "风暴使者驮篮",
+    "slots": 20,
+    "protection": null,
+    "cost": [],
+    "effect": "10%的几率用闪电击中你的敌人，并击晕附近的敌人；+1快捷插槽",
+    "obtain": "红猎奖励"
   }
 ]

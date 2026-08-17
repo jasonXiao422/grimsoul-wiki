@@ -714,6 +714,19 @@ p {
   text-align: right;
 }
 
+.material-entity-link {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+}
+
+.material-entity-link a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .recipe-list,
 .plain-list {
   display: grid;

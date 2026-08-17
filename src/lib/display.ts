@@ -31,7 +31,9 @@ export const FIELD_LABELS: Record<string, string> = {
 
 export const ELEMENT_COLORS: Record<string, string> = {
   冰: '#86c5ff',
+  寒冷: '#86c5ff',
   火: '#d9773f',
+  火焰: '#d9773f',
   衰败: '#5a9e4a',
   毒: '#83ad55',
   暗: '#9a7bd1',

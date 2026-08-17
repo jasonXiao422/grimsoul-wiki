@@ -26,7 +26,7 @@ FILES = {
     "weapons": ("武器数据.xlsx", "Sheet1"),
     "armor": ("护甲数据.xlsx", "护甲"),
     "shields": ("盾牌数据.xlsx", "护甲"),
-    "backpacks": ("驮篮数据.xlsx", "驮篮"),
+    "backpacks": ("驮篮数据.xlsx", "Sheet1"),
     "enemies": ("敌人数据.xlsx", "敌人生命护甲和伤害"),
 }
 
@@ -416,19 +416,39 @@ def build_shields():
     return out
 
 
+def parse_protection(raw):
+    """
+    驮篮的元素防护写法：「防御寒冷15」「防御火焰40」「防御衰败40」
+    → {"type": "寒冷", "value": 15}
+    """
+    t = text(raw)
+    if not t:
+        return None
+    m = re.match(r"^防御(.+?)\s*([\d.]+)$", t)
+    if m:
+        v = float(m.group(2))
+        return {"type": m.group(1).strip(), "value": int(v) if v == int(v) else v}
+    return parse_element(raw)
+
+
 def build_backpacks():
+    """
+    驮篮表列序：
+      0 名称 / 1 储存栏 / 2 元素伤害保护 / 3 制作配方 / 4 效果 / 5 获取途径
+    """
     out = []
     for row in rows_of("backpacks")[1:]:
-        name = text(row[1])
+        name = text(row[0])
         if not name:
             continue
         out.append({
             "id": make_id(name),
-            "name": name,
-            "protection": parse_element(row[2]),
-            "slots": clean(row[3]),
-            "cost": parse_cost(row[4]),
-            "effect": text(row[5]),
+            "name": re.sub(r"\s+", "", name),
+            "slots": clean(row[1]),
+            "protection": parse_protection(row[2]),
+            "cost": parse_cost(row[3]),
+            "effect": text(row[4]),
+            "obtain": text(row[5]),
         })
     return out
 
@@ -467,6 +487,17 @@ def build_enemies():
             "dataIncomplete": True if (armor is None and phys is None) else None,
         })
     return out
+
+
+def link_material_entities(materials, catalog):
+    """
+    有些「材料」本身就是站内的条目，例如皮驮篮既是驮篮也是升级材料。
+    给这类材料标记它对应的板块与 id，页面上可以直接跳转过去。
+    """
+    for m in materials:
+        hit = catalog.get(m["name"])
+        if hit:
+            m["entity"] = {"cat": hit[0], "id": hit[1]}
 
 
 def build_materials(*datasets):
@@ -515,6 +546,18 @@ def main():
     enemies = build_enemies()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks)
+
+    # 材料名若与某个真实条目同名，记录跳转目标
+    catalog = {}
+    for cat, data in [("weapons", weapons), ("armor", armor_sets),
+                      ("armor-pieces", armor_pieces), ("shields", shields),
+                      ("backpacks", backpacks)]:
+        for it in data:
+            catalog.setdefault(it["name"], (cat, it["id"]))
+            for pc in it.get("pieces", []) or []:
+                catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
+    link_material_entities(materials, catalog)
+
     link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks)
 
     write("weapons", weapons)
@@ -529,7 +572,7 @@ def main():
     print(f"\n护甲套装 {len(armor_sets)} 套，含部件 {total_pieces} 件；散件 {len(armor_pieces)} 件")
 
     if warnings:
-        print(f"\n注意：{len(warnings)} 条需要留意：\n")
+        print(f"\n⚠ {len(warnings)} 条需要留意：\n")
         for w in warnings:
             print("  ·", w)
     else:

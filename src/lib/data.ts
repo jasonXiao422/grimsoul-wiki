@@ -28,8 +28,40 @@ export const EXTRA_DATA = {
 export type CategorySlug = keyof typeof DATA_BY_CATEGORY;
 export type DataItem = (typeof DATA_BY_CATEGORY)[CategorySlug][number];
 export type CostItem = { material: string; qty: number };
+export type MaterialEntity = { cat: string; id: string };
 
 export const MATERIALS_BY_ID = new Map(materials.map((item) => [item.id, item]));
+
+const ENTITY_PATH_BY_CAT: Record<string, string> = {
+  weapons: 'weapons',
+  armor: 'armor',
+  'armor-pieces': 'armor',
+  shields: 'shields',
+  backpacks: 'backpacks',
+};
+
+const ENTITY_LABEL_BY_CAT: Record<string, string> = {
+  weapons: '武器',
+  armor: '护甲',
+  'armor-pieces': '护甲散件',
+  shields: '盾牌',
+  backpacks: '驮篮',
+};
+
+export function getEntityHref(entity: MaterialEntity | undefined): string | undefined {
+  if (!entity?.cat || !entity.id) return undefined;
+  const path = ENTITY_PATH_BY_CAT[entity.cat];
+  if (!path) return undefined;
+  return entity.cat === 'armor-pieces' ? `/${path}#${entity.id}` : `/${path}/${entity.id}`;
+}
+
+export function getEntityCategoryLabel(entity: MaterialEntity | undefined): string {
+  return entity ? ENTITY_LABEL_BY_CAT[entity.cat] ?? entity.cat : '条目';
+}
+
+export function getMaterialHref(material: { id: string; entity?: MaterialEntity }): string {
+  return getEntityHref(material.entity) ?? `/materials/${material.id}`;
+}
 
 export function getCategoryCount(slug: CategorySlug): number {
   // 护甲统计 armor.json 里的套装数，不包含套装内嵌部件。

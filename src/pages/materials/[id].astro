@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DetailPanel from '../../components/DetailPanel.astro';
 import materials from '../../data/materials.json';
-import { getRecipeUsages } from '../../lib/data';
+import { getEntityCategoryLabel, getEntityHref, getRecipeUsages } from '../../lib/data';
 
 export function getStaticPaths() {
   return materials.map((item) => ({
@@ -13,6 +13,8 @@ export function getStaticPaths() {
 }
 
 const { item, usages } = Astro.props;
+const entityHref = getEntityHref(item.entity);
+const entityLabel = getEntityCategoryLabel(item.entity);
 ---
 
 <BaseLayout title={item.name} description={`${item.name}来源与用途`}>
@@ -21,6 +23,12 @@ const { item, usages } = Astro.props;
     { label: '材料', href: '/materials' },
     { label: item.name },
   ]} />
+
+  {entityHref && (
+    <section class="material-entity-link panel" aria-label="关联条目">
+      <a href={entityHref}>这也是一件{entityLabel} →</a>
+    </section>
+  )}
 
   <DetailPanel categorySlug="materials" item={item} />
 
