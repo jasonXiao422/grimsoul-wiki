@@ -1,0 +1,73 @@
+<script>
+  (() => {
+    const normalizePath = (path: string) => {
+      if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
+      return path;
+    };
+
+    const storageKey = `scroll:${normalizePath(window.location.pathname)}`;
+
+    const readSavedScroll = () => {
+      try {
+        const value = sessionStorage.getItem(storageKey);
+        if (!value) return null;
+        const scrollY = Number.parseInt(value, 10);
+        return Number.isFinite(scrollY) && scrollY > 0 ? scrollY : null;
+      } catch {
+        return null;
+      }
+    };
+
+    const saveScroll = () => {
+      try {
+        sessionStorage.setItem(storageKey, String(Math.max(0, Math.round(window.scrollY))));
+      } catch {
+        // sessionStorage may be unavailable in restricted browser modes.
+      }
+    };
+
+    const restoreScroll = () => {
+      const targetY = readSavedScroll();
+      if (targetY === null) return;
+
+      let attempts = 0;
+      const maxAttempts = 40;
+
+      const tryScroll = () => {
+        attempts += 1;
+        const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+        if (maxScrollY >= targetY || attempts >= maxAttempts) {
+          window.scrollTo({ top: Math.min(targetY, maxScrollY), left: 0, behavior: 'auto' });
+          return;
+        }
+
+        requestAnimationFrame(tryScroll);
+      };
+
+      requestAnimationFrame(() => requestAnimationFrame(tryScroll));
+    };
+
+    document.addEventListener('click', (event) => {
+      const link = (event.target as Element | null)?.closest('a[href]');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+
+      saveScroll();
+    });
+
+    window.addEventListener('beforeunload', saveScroll);
+    window.addEventListener('pagehide', saveScroll);
+    window.addEventListener('load', restoreScroll, { once: true });
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) return;
+      restoreScroll();
+    });
+
+    if (document.readyState === 'complete') {
+      restoreScroll();
+    }
+  })();
+</script>

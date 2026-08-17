@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
+import ListScrollRestoration from '../../components/ListScrollRestoration.astro';
 import { CATEGORIES } from '../../lib/categories';
 import { getCategoryBlurb, getListItems, type CategorySlug } from '../../lib/data';
 
@@ -31,4 +32,5 @@ const { category, items } = Astro.props;
   </section>
 
   <DataTable category={category} items={items} />
+  <ListScrollRestoration />
 </BaseLayout>

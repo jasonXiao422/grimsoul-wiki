@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import ListScrollRestoration from '../../components/ListScrollRestoration.astro';
 import knightOrders from '../../data/knight-orders.json';
 import { ORDER_ERA_SEQUENCE, getOrderStatusLabel } from '../../lib/knight-orders';
 
@@ -147,4 +148,5 @@ const groups = ORDER_ERA_SEQUENCE.map((era) => {
       </section>
     ))}
   </div>
+  <ListScrollRestoration />
 </BaseLayout>
