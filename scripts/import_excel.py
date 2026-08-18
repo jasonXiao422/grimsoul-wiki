@@ -341,14 +341,17 @@ def build_armor():
     """套装行后面紧跟 5 件部件，靠名字里的『套装（T…级）』识别。"""
     sets, standalone = [], []
     cur = None
-    for row in rows_of("armor")[1:]:
+    for cells in cells_of("armor")[1:]:
+        row = [c.value for c in cells]
         name = text(row[1])
         if not name:
             continue
         is_set = "套装" in name and "级）" in name
         entry_armor = parse_formula(row[2], f"护甲 {name}") if not isinstance(clean(row[2]), (int, float)) else clean(row[2])
+        quality = quality_from_fill(cells[1])
         common = {
             "name": re.sub(r"\s+", "", name),
+            "quality": quality,
             "armor": entry_armor,
             "protection": parse_element(row[3]),
             "cost": parse_cost(row[5]),
@@ -360,6 +363,7 @@ def build_armor():
                 "id": make_id(common["name"]),
                 "name": common["name"],
                 "tier": m.group(2) if m else None,
+                "quality": quality,
                 "obtain": text(row[7]) if len(row) > 7 else None,
                 "totalArmor": common["armor"],
                 "protection": common["protection"],
@@ -373,6 +377,7 @@ def build_armor():
             cur["pieces"].append({
                 "id": make_id(common["name"]),
                 "name": common["name"],
+                "quality": quality,
                 "armor": common["armor"],
                 "protection": common["protection"],
                 "cost": common["cost"],
@@ -384,6 +389,7 @@ def build_armor():
                 "id": make_id(common["name"]),
                 "name": common["name"],
                 "tier": None,
+                "quality": quality,
                 "obtain": text(row[7]) if len(row) > 7 else None,
                 "armor": common["armor"],
                 "protection": common["protection"],
@@ -458,24 +464,32 @@ def build_backpacks():
 
 QUALITY_KEY = {"普通": "common", "稀有": "rare", "独特": "unique", "传说": "legendary"}
 
-# 武器表用单元格底色标记品质，颜色取自 Excel 的填充值
-WEAPON_QUALITY_BY_FILL = {
+# 武器与护甲表用单元格底色标记品质。
+# 同一档位可能存在几个相近色值（手填时选了不同色板），一并归入同一档。
+QUALITY_BY_FILL = {
     None:       "common",     # 无填充
     "00000000": "common",
+    "FFFFFFFF": "common",
     "FF4A86E8": "rare",       # 蓝
+    "FF4285F4": "rare",       # 蓝（另一种色板）
     "FFFBBC04": "unique",     # 黄橙
+    "FFF1C232": "unique",
     "FF351C75": "legendary",  # 紫
+    "FF674EA7": "legendary",
 }
 
 
 def quality_from_fill(cell):
-    """读取单元格填充色，映射为品质 key。"""
+    """读取单元格填充色，映射为品质 key。未登记的颜色回退为普通并告警。"""
     try:
         fg = cell.fill.fgColor
         rgb = fg.rgb if fg and fg.type == "rgb" else None
     except Exception:
         rgb = None
-    return WEAPON_QUALITY_BY_FILL.get(rgb, "common")
+    if rgb not in QUALITY_BY_FILL:
+        warnings.append(f"未登记的品质底色 {rgb}（{cell.value}），已按普通处理")
+        return "common"
+    return QUALITY_BY_FILL[rgb]
 
 
 def build_amulets():

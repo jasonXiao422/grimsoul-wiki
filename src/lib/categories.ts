@@ -1,5 +1,5 @@
 /**
- * 数据类别的统一配置。
+ * 六个数据类别的统一配置。
  * 列表页、详情页、搜索索引全部由这个对象驱动。
  * 新增类别只需在这里加一项，不要复制页面代码。
  */
@@ -16,10 +16,7 @@ export interface ColumnDef {
 export interface CategoryDef {
   slug: string;
   label: string;
-  /** 首页与列表页展示的计数单位，例如“件武器”“套套装”。 */
-  countUnit: string;
-  /** 数量之后的说明文案，由运行时计数拼接成完整 blurb。 */
-  blurbSuffix: string;
+  blurb: string;
   /** 对应 src/data/<file>.json */
   file: string;
   columns: ColumnDef[];
@@ -34,8 +31,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'weapons',
     label: '武器',
-    countUnit: '件武器',
-    blurbSuffix: '的伤害、攻速、攻距与合成配方',
+    blurb: '124 件武器的伤害、攻速、攻距与合成配方',
     file: 'weapons',
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },
@@ -52,30 +48,30 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'armor',
     label: '护甲',
-    countUnit: '套套装',
-    blurbSuffix: '的护甲值、套装效果与部件构成',
+    blurb: '33 套套装的护甲值、套装效果与部件构成',
     file: 'armor',
     columns: [
-      { key: 'name', label: '套装', sortable: true },
+      { key: 'name', label: '套装', sortable: true, render: 'quality' },
       { key: 'tier', label: '品阶', sortable: true, render: 'tier' },
       { key: 'totalArmor', label: '总护甲', sortable: true, numeric: true },
       { key: 'protection', label: '元素防护', render: 'element' },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+      { key: 'setEffect', label: '套装效果' },
       { key: 'obtain', label: '获取途径', sortable: true },
     ],
-    filters: ['tier', 'obtain'],
+    filters: ['tier', 'quality', 'obtain'],
     defaultSort: 'tier',
   },
   {
     slug: 'shields',
     label: '盾牌',
-    countUnit: '面盾牌',
-    blurbSuffix: '的防御值、效果与获取途径',
+    blurb: '盾牌的防御值、格挡效果与获取途径',
     file: 'shields',
     columns: [
       { key: 'name', label: '名称', sortable: true },
       { key: 'armor', label: '防御值', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+      { key: 'effect', label: '效果' },
       { key: 'obtain', label: '获取途径', sortable: true },
     ],
     filters: ['obtain'],
@@ -84,8 +80,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'backpacks',
     label: '驮篮',
-    countUnit: '个驮篮',
-    blurbSuffix: '的储存栏、元素防护与获取途径',
+    blurb: '驮篮的储存栏位、元素防护与获取途径',
     file: 'backpacks',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -97,24 +92,9 @@ export const CATEGORIES: CategoryDef[] = [
     defaultSort: 'slots',
   },
   {
-    slug: 'amulets',
-    label: '护符',
-    countUnit: '件护符',
-    blurbSuffix: '的耐久、元素防护、效果与制作配方',
-    file: 'amulets',
-    columns: [
-      { key: 'name', label: '名称', sortable: true, render: 'quality' },
-      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-      { key: 'protection', label: '元素防护', render: 'element' },
-    ],
-    filters: ['quality'],
-    defaultSort: 'quality',
-  },
-  {
     slug: 'enemies',
     label: '敌人',
-    countUnit: '只敌人',
-    blurbSuffix: '的生命、护甲、伤害与出没地点',
+    blurb: '124 只敌人的生命、护甲、伤害与出没地点',
     file: 'enemies',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -129,10 +109,23 @@ export const CATEGORIES: CategoryDef[] = [
     groupBy: 'group',
   },
   {
+    slug: 'amulets',
+    label: '护符',
+    blurb: '护符的品质、耐久、元素防护与效果',
+    file: 'amulets',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+      { key: 'protection', label: '元素防护', render: 'element' },
+      { key: 'effect', label: '效果' },
+    ],
+    filters: ['quality'],
+    defaultSort: 'quality',
+  },
+  {
     slug: 'materials',
     label: '材料',
-    countUnit: '种材料',
-    blurbSuffix: '，可反查哪些配方用到它',
+    blurb: '49 种材料，可反查哪些配方用到它',
     file: 'materials',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -140,24 +133,6 @@ export const CATEGORIES: CategoryDef[] = [
     ],
     filters: [],
     defaultSort: 'usedIn',
-  },
-  {
-    slug: 'orders',
-    label: '骑士团',
-    countUnit: '支帝国骑士团',
-    blurbSuffix: '的时代、领主、职责与最终命运',
-    file: 'knight-orders',
-    columns: [
-      { key: 'name', label: '名称', sortable: true },
-      { key: 'ordinal', label: '序号', sortable: true },
-      { key: 'eraLabel', label: '时代' },
-      { key: 'status', label: '状态', sortable: true },
-      { key: 'leader', label: '领主' },
-      { key: 'summary', label: '概述' },
-    ],
-    filters: ['era', 'status'],
-    groupBy: 'era',
-    defaultSort: 'ordinal',
   },
 ];
 

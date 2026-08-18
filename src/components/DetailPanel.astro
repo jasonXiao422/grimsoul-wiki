@@ -38,6 +38,11 @@ const getElementStyle = (key: string, rawValue: unknown) => {
   return typeof type === 'string' ? `color:${elementColor(type)}` : undefined;
 };
 
+const getQualityMeta = (value: unknown) => {
+  const quality = typeof value === 'string' ? value as Quality : undefined;
+  return quality ? QUALITY_META[quality] : undefined;
+};
+
 const attrRows = Object.entries(item)
   .filter(([key, value]) => !hiddenKeys.has(key) && value !== undefined)
   .map(([key, value]) => ({
@@ -52,8 +57,7 @@ const hasCostField = Array.isArray(item.cost);
 const pieces = Array.isArray(item.pieces) ? item.pieces : [];
 const eyebrow = item.tier ? `品阶 ${item.tier}` : '资料详情';
 const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefined;
-const quality = typeof item.quality === 'string' ? item.quality as Quality : undefined;
-const qualityMeta = quality ? QUALITY_META[quality] : undefined;
+const qualityMeta = getQualityMeta(item.quality);
 const qualityStyle = qualityMeta
   ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
   : undefined;
@@ -134,54 +138,61 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
       <section class="section panel">
         <h2>套装部件</h2>
         <div class="piece-list">
-          {pieces.map((piece) => (
-            <article class="piece-card" id={piece.id}>
-              <div class="piece-head">
-                <img
-                  class="item-icon"
-                  src={`/images/armor-pieces/${piece.id}.webp`}
-                  alt={piece.name}
-                  loading="lazy"
-                  data-fallback={materialFallback}
-                  onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                />
-                <div>
-                  <h3>{piece.name}</h3>
-                  <p class="muted">
-                    护甲{formatValue('armor', piece.armor)}
-                    {piece.protection ? `，元素防护${formatValue('protection', piece.protection)}` : ''}
-                    {piece.effect ? `，${piece.effect}` : ''}
-                  </p>
+          {pieces.map((piece) => {
+            const pieceQualityMeta = getQualityMeta(piece.quality);
+            const pieceQualityStyle = pieceQualityMeta
+              ? `--quality-border:${pieceQualityMeta.border};--quality-glow:${pieceQualityMeta.glow}`
+              : undefined;
+            return (
+              <article class="piece-card" id={piece.id}>
+                <div class="piece-head">
+                  <img
+                    class:list={['item-icon', pieceQualityMeta && 'quality-icon']}
+                    src={`/images/armor-pieces/${piece.id}.webp`}
+                    alt={piece.name}
+                    loading="lazy"
+                    style={pieceQualityStyle}
+                    data-fallback={materialFallback}
+                    onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                  />
+                  <div>
+                    <h3 style={pieceQualityMeta ? `color:${pieceQualityMeta.text}` : undefined}>{piece.name}</h3>
+                    <p class="muted">
+                      护甲{formatValue('armor', piece.armor)}
+                      {piece.protection ? `，元素防护${formatValue('protection', piece.protection)}` : ''}
+                      {piece.effect ? `，${piece.effect}` : ''}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {piece.cost?.length > 0 ? (
-                <ul class="recipe-list compact">
-                  {piece.cost.map((cost) => {
-                    const material = MATERIALS_BY_ID.get(cost.material);
-                    return material && (
-                      <li>
-                        <a href={getMaterialHref(material)}>
-                          <img
-                            class="item-icon"
-                            src={`/images/materials/${material.id}.webp`}
-                            alt={material.name}
-                            loading="lazy"
-                            data-fallback={materialFallback}
-                            onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                          />
-                          <span>{material.name}</span>
-                          <span class="qty">×{cost.qty}</span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <p class="muted">该部件无合成配方。</p>
-              )}
-            </article>
-          ))}
+                {piece.cost?.length > 0 ? (
+                  <ul class="recipe-list compact">
+                    {piece.cost.map((cost) => {
+                      const material = MATERIALS_BY_ID.get(cost.material);
+                      return material && (
+                        <li>
+                          <a href={getMaterialHref(material)}>
+                            <img
+                              class="item-icon"
+                              src={`/images/materials/${material.id}.webp`}
+                              alt={material.name}
+                              loading="lazy"
+                              data-fallback={materialFallback}
+                              onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                            />
+                            <span>{material.name}</span>
+                            <span class="qty">×{cost.qty}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <p class="muted">该部件无合成配方。</p>
+                )}
+              </article>
+            );
+          })}
         </div>
       </section>
     )}
