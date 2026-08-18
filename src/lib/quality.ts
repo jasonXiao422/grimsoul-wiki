@@ -2,7 +2,7 @@
  * 护符品质。数据里只存英文 key，中文名与配色在这里统一映射。
  * 颜色对应游戏内的边框与名称配色：普通白 / 稀有蓝 / 独特橙。
  */
-export const QUALITIES = ['common', 'rare', 'unique'] as const;
+export const QUALITIES = ['common', 'rare', 'unique', 'legendary'] as const;
 export type Quality = (typeof QUALITIES)[number];
 
 export const QUALITY_META: Record<Quality, {
@@ -32,9 +32,15 @@ export const QUALITY_META: Record<Quality, {
     border: '#c8781a',
     glow: 'rgba(200,120,26,.35)',
   },
+  legendary: {
+    label: '传说',
+    text: '#a878e0',
+    border: '#8455c8',
+    glow: 'rgba(132,85,200,.4)',
+  },
 };
 
-/** 列表排序用：普通 → 稀有 → 独特 */
+/** 列表排序用：普通 → 稀有 → 独特 → 传说 */
 export const QUALITY_ORDER: Record<Quality, number> =
   Object.fromEntries(QUALITIES.map((q, i) => [q, i])) as Record<Quality, number>;
 

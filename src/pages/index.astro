@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { ALL_CATEGORIES, getCategoryBlurb, getCategoryCount, getCategoryCountLabel, type CategorySlug } from '../lib/data';
+import { CATEGORIES } from '../lib/categories';
+import { getCategoryBlurb, getCategoryCountLabel, type CategorySlug } from '../lib/data';
 
-const categoryCards = ALL_CATEGORIES.map((category) => ({
+const categoryCards = CATEGORIES.map((category) => ({
   ...category,
   href: `/${category.slug}`,
   blurb: getCategoryBlurb(category.slug as CategorySlug),
-  count: getCategoryCount(category.slug as CategorySlug),
   countLabel: getCategoryCountLabel(category.slug as CategorySlug),
 }));
 

@@ -53,7 +53,7 @@ const pieces = Array.isArray(item.pieces) ? item.pieces : [];
 const eyebrow = item.tier ? `品阶 ${item.tier}` : '资料详情';
 const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefined;
 const quality = typeof item.quality === 'string' ? item.quality as Quality : undefined;
-const qualityMeta = categorySlug === 'amulets' && quality ? QUALITY_META[quality] : undefined;
+const qualityMeta = quality ? QUALITY_META[quality] : undefined;
 const qualityStyle = qualityMeta
   ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
   : undefined;

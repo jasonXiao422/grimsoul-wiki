@@ -1,5 +1,5 @@
 /**
- * 六个数据类别的统一配置。
+ * 数据类别的统一配置。
  * 列表页、详情页、搜索索引全部由这个对象驱动。
  * 新增类别只需在这里加一项，不要复制页面代码。
  */
@@ -38,7 +38,7 @@ export const CATEGORIES: CategoryDef[] = [
     blurbSuffix: '的伤害、攻速、攻距与合成配方',
     file: 'weapons',
     columns: [
-      { key: 'name', label: '名称', sortable: true },
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'damage', label: '物理伤害', sortable: true, numeric: true },
       { key: 'skillBonus', label: '满级技能', sortable: true, numeric: true },
       { key: 'element', label: '元素伤害', render: 'element' },
@@ -46,7 +46,7 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'range', label: '攻距', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
     ],
-    filters: ['element.type'],
+    filters: ['element.type', 'quality'],
     defaultSort: 'damage',
   },
   {
@@ -97,6 +97,20 @@ export const CATEGORIES: CategoryDef[] = [
     defaultSort: 'slots',
   },
   {
+    slug: 'amulets',
+    label: '护符',
+    countUnit: '件护符',
+    blurbSuffix: '的耐久、元素防护、效果与制作配方',
+    file: 'amulets',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+      { key: 'protection', label: '元素防护', render: 'element' },
+    ],
+    filters: ['quality'],
+    defaultSort: 'quality',
+  },
+  {
     slug: 'enemies',
     label: '敌人',
     countUnit: '只敌人',
@@ -113,20 +127,6 @@ export const CATEGORIES: CategoryDef[] = [
     ],
     filters: ['group'],
     groupBy: 'group',
-  },
-  {
-    slug: 'amulets',
-    label: '护符',
-    countUnit: '件护符',
-    blurbSuffix: '的耐久、元素防护、效果与制作配方',
-    file: 'amulets',
-    columns: [
-      { key: 'name', label: '名称', sortable: true, render: 'quality' },
-      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-      { key: 'protection', label: '元素防护', render: 'element' },
-    ],
-    filters: ['quality'],
-    defaultSort: 'quality',
   },
   {
     slug: 'materials',

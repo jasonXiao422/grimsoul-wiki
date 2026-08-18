@@ -294,7 +294,8 @@ def cells_of(key):
 
 def build_weapons():
     out = []
-    for row in rows_of("weapons")[2:]:
+    for cells in cells_of("weapons")[2:]:
+        row = [c.value for c in cells]
         name = text(row[0])
         if not name:
             continue
@@ -311,6 +312,7 @@ def build_weapons():
         out.append({
             "id": make_id(name),
             "name": name,
+            "quality": quality_from_fill(cells[0]),
             "damage": base,
             "skillBonus": skill,
             "damageNote": dmg_note,
@@ -454,7 +456,26 @@ def build_backpacks():
     return out
 
 
-QUALITY_KEY = {"普通": "common", "稀有": "rare", "独特": "unique"}
+QUALITY_KEY = {"普通": "common", "稀有": "rare", "独特": "unique", "传说": "legendary"}
+
+# 武器表用单元格底色标记品质，颜色取自 Excel 的填充值
+WEAPON_QUALITY_BY_FILL = {
+    None:       "common",     # 无填充
+    "00000000": "common",
+    "FF4A86E8": "rare",       # 蓝
+    "FFFBBC04": "unique",     # 黄橙
+    "FF351C75": "legendary",  # 紫
+}
+
+
+def quality_from_fill(cell):
+    """读取单元格填充色，映射为品质 key。"""
+    try:
+        fg = cell.fill.fgColor
+        rgb = fg.rgb if fg and fg.type == "rgb" else None
+    except Exception:
+        rgb = None
+    return WEAPON_QUALITY_BY_FILL.get(rgb, "common")
 
 
 def build_amulets():
@@ -580,7 +601,7 @@ def main():
     catalog = {}
     for cat, data in [("weapons", weapons), ("armor", armor_sets),
                       ("armor-pieces", armor_pieces), ("shields", shields),
-                      ("backpacks", backpacks), ("amulets", amulets)]:
+                      ("backpacks", backpacks)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
             for pc in it.get("pieces", []) or []:

@@ -2,6 +2,7 @@
   {
     "id": "quan-tou",
     "name": "拳头",
+    "quality": "common",
     "damage": 5,
     "skillBonus": 2,
     "damageNote": null,
@@ -16,6 +17,7 @@
   {
     "id": "huo-ba",
     "name": "火把",
+    "quality": "common",
     "damage": 7,
     "skillBonus": 3,
     "damageNote": null,
@@ -49,6 +51,7 @@
   {
     "id": "shi-gao",
     "name": "石镐",
+    "quality": "common",
     "damage": 8,
     "skillBonus": null,
     "damageNote": null,
@@ -75,6 +78,7 @@
   {
     "id": "gong-jiang-de-shi-gao",
     "name": "工匠的石镐",
+    "quality": "rare",
     "damage": 8,
     "skillBonus": null,
     "damageNote": null,
@@ -101,6 +105,7 @@
   {
     "id": "shi-fu",
     "name": "石斧",
+    "quality": "common",
     "damage": 9,
     "skillBonus": null,
     "damageNote": null,
@@ -127,6 +132,7 @@
   {
     "id": "gong-jiang-de-shi-fu",
     "name": "工匠的石斧",
+    "quality": "rare",
     "damage": 9,
     "skillBonus": null,
     "damageNote": null,
@@ -153,6 +159,7 @@
   {
     "id": "qing-tong-ding-zi-gao",
     "name": "青铜丁字镐",
+    "quality": "common",
     "damage": 12,
     "skillBonus": null,
     "damageNote": null,
@@ -179,6 +186,7 @@
   {
     "id": "chu-tou",
     "name": "锄头",
+    "quality": "common",
     "damage": 12,
     "skillBonus": 3,
     "damageNote": null,
@@ -196,6 +204,7 @@
   {
     "id": "qing-tong-fu",
     "name": "青铜斧",
+    "quality": "common",
     "damage": 13,
     "skillBonus": null,
     "damageNote": null,
@@ -222,6 +231,7 @@
   {
     "id": "gun-zi",
     "name": "棍子",
+    "quality": "common",
     "damage": 14,
     "skillBonus": 3,
     "damageNote": null,
@@ -244,6 +254,7 @@
   {
     "id": "jian-gu-de-gun-zi",
     "name": "坚固的棍子",
+    "quality": "rare",
     "damage": 15,
     "skillBonus": 3,
     "damageNote": null,
@@ -266,6 +277,7 @@
   {
     "id": "lian-dao",
     "name": "镰刀",
+    "quality": "common",
     "damage": 15,
     "skillBonus": 4,
     "damageNote": null,
@@ -283,6 +295,7 @@
   {
     "id": "tie-ding-zi-gao",
     "name": "铁丁字镐",
+    "quality": "rare",
     "damage": 18,
     "skillBonus": null,
     "damageNote": null,
@@ -300,6 +313,7 @@
   {
     "id": "tie-jiang-chui",
     "name": "铁匠锤",
+    "quality": "common",
     "damage": 18,
     "skillBonus": 5,
     "damageNote": null,
@@ -317,6 +331,7 @@
   {
     "id": "nai-yong-chui-zi",
     "name": "耐用锤子",
+    "quality": "rare",
     "damage": 18,
     "skillBonus": 5,
     "damageNote": null,
@@ -334,6 +349,7 @@
   {
     "id": "bing-shuang-bi-shou",
     "name": "冰霜匕首",
+    "quality": "rare",
     "damage": 19,
     "skillBonus": 5,
     "damageNote": null,
@@ -354,6 +370,7 @@
   {
     "id": "shen-dian-huo-ba",
     "name": "神殿火把",
+    "quality": "rare",
     "damage": 19,
     "skillBonus": 3,
     "damageNote": null,
@@ -374,6 +391,7 @@
   {
     "id": "yi-shi-bi-shou",
     "name": "仪式匕首",
+    "quality": "rare",
     "damage": 19,
     "skillBonus": 5,
     "damageNote": null,
@@ -394,6 +412,7 @@
   {
     "id": "qiao",
     "name": "锹",
+    "quality": "common",
     "damage": 19,
     "skillBonus": 5,
     "damageNote": null,
@@ -424,6 +443,7 @@
   {
     "id": "bi-shou",
     "name": "匕首",
+    "quality": "common",
     "damage": 19,
     "skillBonus": 5,
     "damageNote": null,
@@ -454,6 +474,7 @@
   {
     "id": "nai-yong-bi-shou",
     "name": "耐用匕首",
+    "quality": "rare",
     "damage": 19,
     "skillBonus": 5,
     "damageNote": null,
@@ -471,6 +492,7 @@
   {
     "id": "tie-fu",
     "name": "铁斧",
+    "quality": "rare",
     "damage": 20,
     "skillBonus": null,
     "damageNote": null,
@@ -488,6 +510,7 @@
   {
     "id": "zhan-dou-chan",
     "name": "战斗铲",
+    "quality": "common",
     "damage": 20,
     "skillBonus": 5,
     "damageNote": null,
@@ -518,6 +541,7 @@
   {
     "id": "du-bi-shou",
     "name": "毒匕首",
+    "quality": "unique",
     "damage": 20,
     "skillBonus": 5,
     "damageNote": null,
@@ -535,6 +559,7 @@
   {
     "id": "ye-men-shuang-ren-wan-dao",
     "name": "也门双刃弯刀",
+    "quality": "common",
     "damage": 21,
     "skillBonus": 5,
     "damageNote": null,
@@ -565,6 +590,7 @@
   {
     "id": "po-ren-jian",
     "name": "破刃剑",
+    "quality": "common",
     "damage": 21,
     "skillBonus": 5,
     "damageNote": null,
@@ -595,6 +621,7 @@
   {
     "id": "che-ba",
     "name": "车把",
+    "quality": "common",
     "damage": 24,
     "skillBonus": 4,
     "damageNote": null,
@@ -621,6 +648,7 @@
   {
     "id": "ye-you-shen-de-lian-dao",
     "name": "夜游神的镰刀",
+    "quality": "legendary",
     "damage": 24,
     "skillBonus": 4,
     "damageNote": null,
@@ -638,6 +666,7 @@
   {
     "id": "zhang-bing-cha",
     "name": "长柄叉",
+    "quality": "common",
     "damage": 25,
     "skillBonus": 6,
     "damageNote": null,
@@ -655,6 +684,7 @@
   {
     "id": "nai-yong-zhang-bing-cha",
     "name": "耐用长柄叉",
+    "quality": "rare",
     "damage": 25,
     "skillBonus": 6,
     "damageNote": null,
@@ -672,6 +702,7 @@
   {
     "id": "lie-gong",
     "name": "猎弓",
+    "quality": "common",
     "damage": 26,
     "skillBonus": null,
     "damageNote": null,
@@ -706,6 +737,7 @@
   {
     "id": "jian-ci-chui",
     "name": "尖刺锤",
+    "quality": "common",
     "damage": 26,
     "skillBonus": 7,
     "damageNote": null,
@@ -736,6 +768,7 @@
   {
     "id": "nai-yong-lang-ya-bang",
     "name": "耐用狼牙棒",
+    "quality": "rare",
     "damage": 26,
     "skillBonus": 7,
     "damageNote": null,
@@ -753,6 +786,7 @@
   {
     "id": "mu-jian",
     "name": "木剑",
+    "quality": "common",
     "damage": 27,
     "skillBonus": 4,
     "damageNote": null,
@@ -779,6 +813,7 @@
   {
     "id": "sao-zhou",
     "name": "扫帚",
+    "quality": "common",
     "damage": 27,
     "skillBonus": 4,
     "damageNote": null,
@@ -805,6 +840,7 @@
   {
     "id": "jiang",
     "name": "桨",
+    "quality": "common",
     "damage": 27,
     "skillBonus": null,
     "damageNote": null,
@@ -822,6 +858,7 @@
   {
     "id": "ren-bang",
     "name": "刃棒",
+    "quality": "common",
     "damage": 28,
     "skillBonus": 7,
     "damageNote": null,
@@ -852,6 +889,7 @@
   {
     "id": "pei-zhong-chui",
     "name": "配重锤",
+    "quality": "rare",
     "damage": 28,
     "skillBonus": 7,
     "damageNote": null,
@@ -882,6 +920,7 @@
   {
     "id": "zhuo-re-huo-yan-zhi-gong",
     "name": "灼热火焰之弓",
+    "quality": "unique",
     "damage": 30,
     "skillBonus": null,
     "damageNote": null,
@@ -902,6 +941,7 @@
   {
     "id": "shuai-bai-zhi-gong",
     "name": "衰败之弓",
+    "quality": "legendary",
     "damage": 30,
     "skillBonus": null,
     "damageNote": null,
@@ -922,6 +962,7 @@
   {
     "id": "bing-gong",
     "name": "冰弓",
+    "quality": "unique",
     "damage": 30,
     "skillBonus": null,
     "damageNote": null,
@@ -942,6 +983,7 @@
   {
     "id": "dan-shou-jian",
     "name": "单手剑",
+    "quality": "common",
     "damage": 30,
     "skillBonus": 6,
     "damageNote": null,
@@ -972,6 +1014,7 @@
   {
     "id": "lian-zhuang-jian",
     "name": "镰状剑",
+    "quality": "common",
     "damage": 33,
     "skillBonus": 6,
     "damageNote": null,
@@ -1002,6 +1045,7 @@
   {
     "id": "liu-xing-chui",
     "name": "流星锤",
+    "quality": "common",
     "damage": 34,
     "skillBonus": 8,
     "damageNote": null,
@@ -1036,6 +1080,7 @@
   {
     "id": "gu-zhi-gong",
     "name": "骨制弓",
+    "quality": "rare",
     "damage": 35,
     "skillBonus": null,
     "damageNote": null,
@@ -1053,6 +1098,7 @@
   {
     "id": "fa-lan-chui",
     "name": "法兰锤",
+    "quality": "common",
     "damage": 35,
     "skillBonus": 8,
     "damageNote": null,
@@ -1083,6 +1129,7 @@
   {
     "id": "wan-dao",
     "name": "弯刀",
+    "quality": "common",
     "damage": 36,
     "skillBonus": 9,
     "damageNote": null,
@@ -1117,6 +1164,7 @@
   {
     "id": "liu-wang-zhe-liu-xing-chui",
     "name": "流亡者流星锤",
+    "quality": "common",
     "damage": 37,
     "skillBonus": 8,
     "damageNote": null,
@@ -1151,6 +1199,7 @@
   {
     "id": "huang-jia-chui",
     "name": "皇家锤",
+    "quality": "common",
     "damage": 37,
     "skillBonus": 8,
     "damageNote": null,
@@ -1185,6 +1234,7 @@
   {
     "id": "jian-xi-xiu-shi-chui",
     "name": "见习修士锤",
+    "quality": "common",
     "damage": 38,
     "skillBonus": 8,
     "damageNote": null,
@@ -1215,6 +1265,7 @@
   {
     "id": "sha-shou-wan-dao",
     "name": "杀手弯刀",
+    "quality": "common",
     "damage": 40,
     "skillBonus": 9,
     "damageNote": null,
@@ -1249,6 +1300,7 @@
   {
     "id": "ya-ta-gan-dao",
     "name": "亚塔甘刀",
+    "quality": "common",
     "damage": 40,
     "skillBonus": 9,
     "damageNote": null,
@@ -1283,6 +1335,7 @@
   {
     "id": "gu-zhi-bang-zi",
     "name": "骨制棒子",
+    "quality": "rare",
     "damage": 42,
     "skillBonus": null,
     "damageNote": null,
@@ -1300,6 +1353,7 @@
   {
     "id": "tong-zhan-fu",
     "name": "铜战斧",
+    "quality": "common",
     "damage": 43,
     "skillBonus": 8,
     "damageNote": null,
@@ -1330,6 +1384,7 @@
   {
     "id": "hei-tong-zhan-fu",
     "name": "黑铜战斧",
+    "quality": "rare",
     "damage": 43,
     "skillBonus": 8,
     "damageNote": null,
@@ -1347,6 +1402,7 @@
   {
     "id": "lie-nu",
     "name": "猎弩",
+    "quality": "common",
     "damage": 45,
     "skillBonus": null,
     "damageNote": null,
@@ -1381,6 +1437,7 @@
   {
     "id": "she-xing-wan-jian",
     "name": "蛇形弯剑",
+    "quality": "unique",
     "damage": 45,
     "skillBonus": 5,
     "damageNote": null,
@@ -1398,6 +1455,7 @@
   {
     "id": "shi-hun-shi",
     "name": "噬魂师",
+    "quality": "legendary",
     "damage": 50,
     "skillBonus": 5,
     "damageNote": null,
@@ -1415,6 +1473,7 @@
   {
     "id": "shuai-bai-zhi-nv-li-zhua",
     "name": "衰败之女利爪",
+    "quality": "legendary",
     "damage": 50,
     "skillBonus": 2,
     "damageNote": null,
@@ -1435,6 +1494,7 @@
   {
     "id": "gu-lie-zhe",
     "name": "骨裂者",
+    "quality": "unique",
     "damage": 50,
     "skillBonus": null,
     "damageNote": null,
@@ -1455,6 +1515,7 @@
   {
     "id": "kuang-zhan-shi-fu-tou",
     "name": "狂战士斧头",
+    "quality": "unique",
     "damage": 52,
     "skillBonus": null,
     "damageNote": null,
@@ -1472,6 +1533,7 @@
   {
     "id": "qing-nu",
     "name": "轻弩",
+    "quality": "common",
     "damage": 55,
     "skillBonus": null,
     "damageNote": null,
@@ -1510,6 +1572,7 @@
   {
     "id": "tu-fu-de-qie-rou-dao",
     "name": "屠夫的切肉刀",
+    "quality": "unique",
     "damage": 55,
     "skillBonus": null,
     "damageNote": null,
@@ -1527,6 +1590,7 @@
   {
     "id": "zhao-ming-qi",
     "name": "照明器",
+    "quality": "unique",
     "damage": 55,
     "skillBonus": null,
     "damageNote": null,
@@ -1547,6 +1611,7 @@
   {
     "id": "xiong-zhang",
     "name": "熊掌",
+    "quality": "unique",
     "damage": 56,
     "skillBonus": 2,
     "damageNote": null,
@@ -1564,6 +1629,7 @@
   {
     "id": "hei-se-xiong-zhang",
     "name": "黑色熊掌",
+    "quality": "unique",
     "damage": 56,
     "skillBonus": 2,
     "damageNote": null,
@@ -1581,6 +1647,7 @@
   {
     "id": "bian-zhong-jian",
     "name": "变种剑",
+    "quality": "common",
     "damage": 58,
     "skillBonus": 15,
     "damageNote": null,
@@ -1619,6 +1686,7 @@
   {
     "id": "duan-wan-dao",
     "name": "短弯刀",
+    "quality": "common",
     "damage": 59,
     "skillBonus": 15,
     "damageNote": null,
@@ -1636,6 +1704,7 @@
   {
     "id": "hei-duan-wan-dao",
     "name": "黑短弯刀",
+    "quality": "rare",
     "damage": 59,
     "skillBonus": 15,
     "damageNote": null,
@@ -1653,6 +1722,7 @@
   {
     "id": "yi-shi-da-lian-dao",
     "name": "仪式大镰刀",
+    "quality": "legendary",
     "damage": 60,
     "skillBonus": null,
     "damageNote": null,
@@ -1670,6 +1740,7 @@
   {
     "id": "lu-bo-te-dao-jian",
     "name": "鲁伯特刀剑",
+    "quality": "unique",
     "damage": 60,
     "skillBonus": 15,
     "damageNote": null,
@@ -1687,6 +1758,7 @@
   {
     "id": "lei-shen-yuan-yang-yue",
     "name": "雷神鸳鸯钺",
+    "quality": "legendary",
     "damage": 60,
     "skillBonus": 2,
     "damageNote": null,
@@ -1704,6 +1776,7 @@
   {
     "id": "bing-fu",
     "name": "冰斧",
+    "quality": "unique",
     "damage": 60,
     "skillBonus": null,
     "damageNote": null,
@@ -1724,6 +1797,7 @@
   {
     "id": "bing-chui",
     "name": "冰锤",
+    "quality": "unique",
     "damage": 60,
     "skillBonus": null,
     "damageNote": null,
@@ -1742,8 +1816,30 @@
     "upgradeOf": null
   },
   {
+    "id": "bai-bing-zhi-fu",
+    "name": "百病之斧",
+    "quality": "unique",
+    "damage": 60,
+    "skillBonus": 15,
+    "damageNote": null,
+    "element": {
+      "type": "衰败",
+      "value": 20
+    },
+    "attackSpeed": 0.9,
+    "range": 1.6,
+    "durability": {
+      "value": 56,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "下雨时造成双倍伤害",
+    "upgradeOf": null
+  },
+  {
     "id": "bing-jian",
     "name": "冰剑",
+    "quality": "unique",
     "damage": 60,
     "skillBonus": 15,
     "damageNote": null,
@@ -1764,6 +1860,7 @@
   {
     "id": "huo-yan-jian",
     "name": "火焰剑",
+    "quality": "unique",
     "damage": 60,
     "skillBonus": 15,
     "damageNote": null,
@@ -1784,6 +1881,7 @@
   {
     "id": "zhan-zheng-dao",
     "name": "战争刀",
+    "quality": "common",
     "damage": 61,
     "skillBonus": 15,
     "damageNote": null,
@@ -1822,6 +1920,7 @@
   {
     "id": "lve-duo-zhe",
     "name": "掠夺者",
+    "quality": "unique",
     "damage": 62,
     "skillBonus": null,
     "damageNote": null,
@@ -1839,6 +1938,7 @@
   {
     "id": "qi-shi-jian",
     "name": "骑士剑",
+    "quality": "common",
     "damage": 64,
     "skillBonus": 15,
     "damageNote": null,
@@ -1877,6 +1977,7 @@
   {
     "id": "qing-jian",
     "name": "轻剑",
+    "quality": "common",
     "damage": 64,
     "skillBonus": 15,
     "damageNote": null,
@@ -1915,6 +2016,7 @@
   {
     "id": "qing-tong-mao",
     "name": "青铜矛",
+    "quality": "common",
     "damage": 65,
     "skillBonus": 15,
     "damageNote": null,
@@ -1949,6 +2051,7 @@
   {
     "id": "sha-shou-bi-shou",
     "name": "杀手匕首",
+    "quality": "legendary",
     "damage": 65,
     "skillBonus": 5,
     "damageNote": null,
@@ -1966,6 +2069,7 @@
   {
     "id": "fu-he-gong",
     "name": "复合弓",
+    "quality": "rare",
     "damage": 65,
     "skillBonus": null,
     "damageNote": null,
@@ -1983,6 +2087,7 @@
   {
     "id": "hei-fu-he-gong",
     "name": "黑复合弓",
+    "quality": "rare",
     "damage": 65,
     "skillBonus": null,
     "damageNote": null,
@@ -2000,6 +2105,7 @@
   {
     "id": "wu-shi-dao",
     "name": "武士刀",
+    "quality": "common",
     "damage": 67,
     "skillBonus": 15,
     "damageNote": null,
@@ -2038,6 +2144,7 @@
   {
     "id": "hei-wu-shi-dao",
     "name": "黑武士刀",
+    "quality": "rare",
     "damage": 67,
     "skillBonus": 15,
     "damageNote": null,
@@ -2055,6 +2162,7 @@
   {
     "id": "shuang-ren-da-kan-dao",
     "name": "双刃大砍刀",
+    "quality": "common",
     "damage": 70,
     "skillBonus": 15,
     "damageNote": null,
@@ -2072,6 +2180,7 @@
   {
     "id": "hei-se-shuang-ren-da-kan-dao",
     "name": "黑色双刃大砍刀",
+    "quality": "rare",
     "damage": 70,
     "skillBonus": 15,
     "damageNote": null,
@@ -2089,6 +2198,7 @@
   {
     "id": "huo-yan-kuo-tou-qiang",
     "name": "火焰阔头枪",
+    "quality": "legendary",
     "damage": 70,
     "skillBonus": 15,
     "damageNote": null,
@@ -2109,6 +2219,7 @@
   {
     "id": "bing-lian",
     "name": "冰镰",
+    "quality": "legendary",
     "damage": 70,
     "skillBonus": null,
     "damageNote": null,
@@ -2129,6 +2240,7 @@
   {
     "id": "kong-bu-da-lian-dao",
     "name": "恐怖大镰刀",
+    "quality": "legendary",
     "damage": 77,
     "skillBonus": null,
     "damageNote": null,
@@ -2146,6 +2258,7 @@
   {
     "id": "zhan-chui",
     "name": "战锤",
+    "quality": "unique",
     "damage": 80,
     "skillBonus": null,
     "damageNote": null,
@@ -2163,6 +2276,7 @@
   {
     "id": "shou-ge-zhe-yi-shi-zhi-jian",
     "name": "收割者仪式之剑",
+    "quality": "legendary",
     "damage": 80,
     "skillBonus": null,
     "damageNote": null,
@@ -2180,6 +2294,7 @@
   {
     "id": "ji",
     "name": "戟",
+    "quality": "common",
     "damage": 81,
     "skillBonus": 15,
     "damageNote": null,
@@ -2197,6 +2312,7 @@
   {
     "id": "hei-ji",
     "name": "黑戟",
+    "quality": "rare",
     "damage": 81,
     "skillBonus": 15,
     "damageNote": null,
@@ -2214,6 +2330,7 @@
   {
     "id": "bing-ji",
     "name": "冰戟",
+    "quality": "legendary",
     "damage": 81,
     "skillBonus": 15,
     "damageNote": null,
@@ -2234,6 +2351,7 @@
   {
     "id": "huo-yan-ji",
     "name": "火焰戟",
+    "quality": "legendary",
     "damage": 81,
     "skillBonus": 15,
     "damageNote": null,
@@ -2254,6 +2372,7 @@
   {
     "id": "fen-sui-zhe",
     "name": "粉碎者",
+    "quality": "legendary",
     "damage": 83,
     "skillBonus": null,
     "damageNote": null,
@@ -2271,6 +2390,7 @@
   {
     "id": "you-ling-jian",
     "name": "幽灵剑",
+    "quality": "unique",
     "damage": 87,
     "skillBonus": 15,
     "damageNote": null,
@@ -2288,6 +2408,7 @@
   {
     "id": "chang-jian",
     "name": "长剑",
+    "quality": "common",
     "damage": 90,
     "skillBonus": 15,
     "damageNote": null,
@@ -2305,6 +2426,7 @@
   {
     "id": "zhong-nu",
     "name": "重弩",
+    "quality": "rare",
     "damage": 90,
     "skillBonus": null,
     "damageNote": null,
@@ -2339,6 +2461,7 @@
   {
     "id": "sui-lu-zhe",
     "name": "碎颅者",
+    "quality": "unique",
     "damage": 90,
     "skillBonus": null,
     "damageNote": null,
@@ -2356,6 +2479,7 @@
   {
     "id": "xue-lie-quan",
     "name": "血猎犬",
+    "quality": "legendary",
     "damage": 90,
     "skillBonus": null,
     "damageNote": null,
@@ -2373,6 +2497,7 @@
   {
     "id": "hei-xue-lie-quan",
     "name": "黑血猎犬",
+    "quality": "legendary",
     "damage": 90,
     "skillBonus": null,
     "damageNote": null,
@@ -2390,6 +2515,7 @@
   {
     "id": "du-ya-nu",
     "name": "渡鸦弩",
+    "quality": "legendary",
     "damage": 90,
     "skillBonus": null,
     "damageNote": null,
@@ -2407,6 +2533,7 @@
   {
     "id": "tie-zhi-bian-zhong-jian",
     "name": "铁制变种剑",
+    "quality": "legendary",
     "damage": 95,
     "skillBonus": 15,
     "damageNote": null,
@@ -2424,6 +2551,7 @@
   {
     "id": "tan-de-wu-yan-de-lang-ya-bang",
     "name": "贪得无厌的狼牙棒",
+    "quality": "legendary",
     "damage": 95,
     "skillBonus": null,
     "damageNote": null,
@@ -2444,6 +2572,7 @@
   {
     "id": "zhan-quan-zhi-fu",
     "name": "战犬之斧",
+    "quality": "legendary",
     "damage": 95,
     "skillBonus": null,
     "damageNote": null,
@@ -2461,6 +2590,7 @@
   {
     "id": "sa-mu-feng-ren",
     "name": "萨姆风刃",
+    "quality": "legendary",
     "damage": 98,
     "skillBonus": null,
     "damageNote": null,
@@ -2478,6 +2608,7 @@
   {
     "id": "tu-zai-zhe-zhan-fu",
     "name": "屠宰者战斧",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": null,
     "damageNote": null,
@@ -2495,6 +2626,7 @@
   {
     "id": "hei-tu-zai-zhe-zhan-fu",
     "name": "黑屠宰者战斧",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": null,
     "damageNote": null,
@@ -2512,6 +2644,7 @@
   {
     "id": "du-ya-zhi-hui",
     "name": "渡鸦之喙",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": null,
     "damageNote": null,
@@ -2529,6 +2662,7 @@
   {
     "id": "zui-e-ning-shi-zhi-ren",
     "name": "罪恶凝视之刃",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": null,
     "damageNote": null,
@@ -2546,6 +2680,7 @@
   {
     "id": "chang-jue-shuai-bai-zhi-ren",
     "name": "猖獗衰败之刃",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": 15,
     "damageNote": null,
@@ -2566,6 +2701,7 @@
   {
     "id": "yin-yue-lian-dao",
     "name": "银月镰刀",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": null,
     "damageNote": null,
@@ -2583,6 +2719,7 @@
   {
     "id": "tian-xuan-shou-hu-zhi-mao",
     "name": "天选守护之矛",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": 15,
     "damageNote": null,
@@ -2600,6 +2737,7 @@
   {
     "id": "yin-zhi-shuang-ren-da-kan-dao",
     "name": "银制双刃大砍刀",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": 15,
     "damageNote": null,
@@ -2617,6 +2755,7 @@
   {
     "id": "zhu-shen-zhi-nu",
     "name": "诸神之怒",
+    "quality": "legendary",
     "damage": 100,
     "skillBonus": null,
     "damageNote": null,
@@ -2634,6 +2773,7 @@
   {
     "id": "dong-jie-zhi-yi",
     "name": "冻结之翼",
+    "quality": "legendary",
     "damage": 105,
     "skillBonus": null,
     "damageNote": null,
@@ -2654,6 +2794,7 @@
   {
     "id": "diao-cha-guan-zhi-wen",
     "name": "调查官之吻",
+    "quality": "legendary",
     "damage": 105,
     "skillBonus": null,
     "damageNote": null,
@@ -2674,6 +2815,7 @@
   {
     "id": "bei-zhou-bang-zi",
     "name": "被咒棒子",
+    "quality": "unique",
     "damage": 107,
     "skillBonus": null,
     "damageNote": null,
@@ -2691,6 +2833,7 @@
   {
     "id": "di-guo-zhi-ren",
     "name": "帝国之刃",
+    "quality": "legendary",
     "damage": 110,
     "skillBonus": null,
     "damageNote": null,
@@ -2708,6 +2851,7 @@
   {
     "id": "da-shi-fu-tou",
     "name": "大师斧头",
+    "quality": "legendary",
     "damage": 110,
     "skillBonus": null,
     "damageNote": null,
@@ -2725,6 +2869,7 @@
   {
     "id": "hei-da-shi-fu-tou",
     "name": "黑大师斧头",
+    "quality": "legendary",
     "damage": 110,
     "skillBonus": null,
     "damageNote": null,
@@ -2742,6 +2887,7 @@
   {
     "id": "sheng-dian-qi-shi-jian",
     "name": "圣殿骑士剑",
+    "quality": "legendary",
     "damage": 112,
     "skillBonus": null,
     "damageNote": null,
@@ -2759,6 +2905,7 @@
   {
     "id": "shuang-fa-nu",
     "name": "双发弩",
+    "quality": "legendary",
     "damage": 120,
     "skillBonus": null,
     "damageNote": null,
@@ -2766,7 +2913,8 @@
     "attackSpeed": 0.3,
     "range": 7,
     "durability": {
-      "raw": "待测"
+      "value": 100,
+      "unit": "点"
     },
     "cost": [],
     "effect": "无视护甲目标对远程武器所具有的额外防御",
@@ -2775,6 +2923,7 @@
   {
     "id": "kuang-zhan-shi-zhan-fu",
     "name": "狂战士战斧",
+    "quality": "unique",
     "damage": 125,
     "skillBonus": 15,
     "damageNote": null,
@@ -2809,6 +2958,7 @@
   {
     "id": "shi-xue",
     "name": "嗜血",
+    "quality": "legendary",
     "damage": 128,
     "skillBonus": null,
     "damageNote": null,
@@ -2826,6 +2976,7 @@
   {
     "id": "jin-se-hu-wei-fu-lan-bei-er-ge",
     "name": "金色护卫弗兰贝尔格",
+    "quality": "legendary",
     "damage": 130,
     "skillBonus": 15,
     "damageNote": null,
@@ -2846,6 +2997,7 @@
   {
     "id": "you-ling-wang-zhi-ren",
     "name": "幽灵王之刃",
+    "quality": "legendary",
     "damage": 130,
     "skillBonus": 15,
     "damageNote": null,
@@ -2863,6 +3015,7 @@
   {
     "id": "jian-jiao-fu-tou",
     "name": "尖叫斧头",
+    "quality": "legendary",
     "damage": 130,
     "skillBonus": null,
     "damageNote": null,
@@ -2880,6 +3033,7 @@
   {
     "id": "xing-xing-zhe-zhi-gou",
     "name": "行刑者之钩",
+    "quality": "legendary",
     "damage": 132,
     "skillBonus": null,
     "damageNote": null,
@@ -2897,6 +3051,7 @@
   {
     "id": "zhang-bing-dao",
     "name": "长柄刀",
+    "quality": "legendary",
     "damage": 132,
     "skillBonus": null,
     "damageNote": null,
@@ -2914,6 +3069,7 @@
   {
     "id": "hei-zhang-bing-dao",
     "name": "黑长柄刀",
+    "quality": "legendary",
     "damage": 132,
     "skillBonus": null,
     "damageNote": null,
@@ -2931,6 +3087,7 @@
   {
     "id": "jian-ci-san-cha-ji",
     "name": "尖刺三叉戟",
+    "quality": "legendary",
     "damage": 132,
     "skillBonus": 6,
     "damageNote": null,
@@ -2948,6 +3105,7 @@
   {
     "id": "hei-se-fu-lan-bei-er-ge",
     "name": "黑色弗兰贝尔格",
+    "quality": "legendary",
     "damage": 162,
     "skillBonus": 15,
     "damageNote": null,

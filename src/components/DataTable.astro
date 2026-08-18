@@ -118,7 +118,7 @@ for (const item of items) {
           }
 
           const item = row.item;
-          const qualityMeta = category.slug === 'amulets' ? getQualityMeta(item) : undefined;
+          const qualityMeta = getQualityMeta(item);
           const qualityStyle = qualityMeta
             ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
             : undefined;
