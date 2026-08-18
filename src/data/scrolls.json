@@ -1,0 +1,158 @@
+[
+  {
+    "id": "1-ji-kong-zhi-juan-zhou",
+    "name": "1级控制卷轴",
+    "quality": "common",
+    "effect": "控制敌人并跟随战斗一分钟"
+  },
+  {
+    "id": "2-ji-kong-zhi-juan-zhou",
+    "name": "2级控制卷轴",
+    "quality": "rare",
+    "effect": "控制敌人并跟随战斗40秒"
+  },
+  {
+    "id": "3-ji-kong-zhi-juan-zhou",
+    "name": "3级控制卷轴",
+    "quality": "unique",
+    "effect": "控制敌人并跟随战斗30秒"
+  },
+  {
+    "id": "liu-wang-zhe-gong-gao",
+    "name": "流亡者公告",
+    "quality": "unique",
+    "effect": "流放附近的敌人（BOSS级别无效）"
+  },
+  {
+    "id": "kong-bu-juan-zhou",
+    "name": "恐怖卷轴",
+    "quality": "rare",
+    "effect": "恐惧附近的敌人10秒"
+  },
+  {
+    "id": "bing-dong-juan-zhou",
+    "name": "冰冻卷轴",
+    "quality": "unique",
+    "effect": "冻结附近的敌人5秒"
+  },
+  {
+    "id": "zhao-huan-bu-si-zhe-juan-zhou",
+    "name": "召唤不死者卷轴",
+    "quality": "common",
+    "effect": "召唤一对骷髅农民作战，持续30秒"
+  },
+  {
+    "id": "2-ji-zhao-huan-bu-si-juan-zhou",
+    "name": "2级召唤不死卷轴",
+    "quality": "rare",
+    "effect": "召唤一队骷髅新兵作战，持续30秒"
+  },
+  {
+    "id": "3-ji-zhao-huan-bu-si-juan-zhou",
+    "name": "3级召唤不死卷轴",
+    "quality": "unique",
+    "effect": "召唤一队骷髅战士作战，持续30秒"
+  },
+  {
+    "id": "4-ji-zhao-huan-bu-si-juan-zhou",
+    "name": "4级召唤不死卷轴",
+    "quality": "legendary",
+    "effect": "召唤一对骷髅英雄作战，持续30秒"
+  },
+  {
+    "id": "tu-sha-juan-zhou",
+    "name": "屠杀卷轴",
+    "quality": "unique",
+    "effect": "对被吸引的敌人造成额外的伤害，持续10秒"
+  },
+  {
+    "id": "qi-shi-tuan-fa-ling",
+    "name": "骑士团法令",
+    "quality": "unique",
+    "effect": "允许免费创建骑士团"
+  },
+  {
+    "id": "shen-sheng-bao-ying-juan-zhou",
+    "name": "神圣报应卷轴",
+    "quality": "unique",
+    "effect": "召唤闪电100伤害，AOE范围几率眩晕3秒"
+  },
+  {
+    "id": "da-liang-la-xia-de-juan-zhou",
+    "name": "大量落下的卷轴",
+    "quality": "rare",
+    "effect": "允许下雨或者停雨"
+  },
+  {
+    "id": "1-ji-du-ya-zhi-yan-juan-zhou",
+    "name": "1级渡鸦之眼卷轴",
+    "quality": "common",
+    "effect": "提高400%的视野"
+  },
+  {
+    "id": "2-ji-du-ya-zhi-yan-juan-zhou",
+    "name": "2级渡鸦之眼卷轴",
+    "quality": "rare",
+    "effect": "提高700%的视野"
+  },
+  {
+    "id": "3-ji-du-ya-zhi-yan-juan-zhou",
+    "name": "3级渡鸦之眼卷轴",
+    "quality": "unique",
+    "effect": "提高1000%的视野"
+  },
+  {
+    "id": "1-ji-zhi-liao-juan-zhou",
+    "name": "1级治疗卷轴",
+    "quality": "common",
+    "effect": "恢复50点生命值给你和附近的盟军"
+  },
+  {
+    "id": "2-ji-zhi-liao-juan-zhou",
+    "name": "2级治疗卷轴",
+    "quality": "rare",
+    "effect": "恢复100点生命值给你和附近的盟军"
+  },
+  {
+    "id": "3-ji-zhi-liao-juan-zhou",
+    "name": "3级治疗卷轴",
+    "quality": "unique",
+    "effect": "恢复250点生命值给你和附近的盟军"
+  },
+  {
+    "id": "4-ji-zhi-liao-juan-zhou",
+    "name": "4级治疗卷轴",
+    "quality": "legendary",
+    "effect": "恢复500点生命值给你和附近的盟军"
+  },
+  {
+    "id": "zhao-huan-huo-ji-mo-wang-you-ling-de-juan-zhou",
+    "name": "召唤火鸡魔王幽灵的卷轴",
+    "quality": "legendary",
+    "effect": "召唤一只火鸡魔王幽灵作战持续30秒，190物理伤害"
+  },
+  {
+    "id": "1-ji-wen-yi-juan-zhou",
+    "name": "1级瘟疫卷轴",
+    "quality": "common",
+    "effect": "诅咒附近的敌人，使其受到的治疗效果降低25%，持续15秒"
+  },
+  {
+    "id": "2-ji-wen-yi-juan-zhou",
+    "name": "2级瘟疫卷轴",
+    "quality": "rare",
+    "effect": "诅咒附近的敌人，使其受到的治疗效果降低50%，持续20秒"
+  },
+  {
+    "id": "3-ji-wen-yi-juan-zhou",
+    "name": "3级瘟疫卷轴",
+    "quality": "unique",
+    "effect": "诅咒附近的敌人，使其受到的治疗效果降低75%，持续25秒"
+  },
+  {
+    "id": "4-ji-wen-yi-juan-zhou",
+    "name": "4级瘟疫卷轴",
+    "quality": "legendary",
+    "effect": "诅咒附近的敌人，使其受到的治疗效果降低100%，持续30秒"
+  }
+]

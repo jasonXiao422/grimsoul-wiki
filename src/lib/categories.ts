@@ -103,6 +103,18 @@ export const CATEGORIES: CategoryDef[] = [
     defaultSort: 'quality',
   },
   {
+    slug: 'scrolls',
+    label: '卷轴',
+    blurb: '效果、持续时间与品质',
+    file: 'scrolls',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'effect', label: '特殊效果' },
+    ],
+    filters: ['quality'],
+    defaultSort: 'quality',
+  },
+  {
     slug: 'enemies',
     label: '敌人',
     blurb: '生命、减伤与出没地点',

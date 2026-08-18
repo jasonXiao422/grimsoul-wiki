@@ -29,6 +29,7 @@ FILES = {
     "backpacks": ("驮篮数据.xlsx", "Sheet1"),
     "enemies": ("敌人数据.xlsx", "敌人生命护甲和伤害"),
     "amulets": ("护符数据.xlsx", "Sheet1"),
+    "scrolls": ("卷轴数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -497,6 +498,7 @@ QUALITY_BY_FILL = {
     "FF4A86E8": "rare",
     "FF4285F4": "rare",
     "FF02A5E3": "rare",
+    "FF3399FF": "rare",      # 卷轴表用的第二种蓝
     # 黄橙 —— 独特
     "FFFBBC04": "unique",
     "FFF1C232": "unique",
@@ -520,6 +522,35 @@ def quality_from_fill(cell):
         warnings.append(f"未登记的品质底色 {rgb}（{cell.value}），已按普通处理")
         return "common"
     return QUALITY_BY_FILL[rgb]
+
+
+def build_scrolls():
+    """
+    卷轴表列序：
+      0 名称 / 1 特殊效果
+
+    品质同样由名称单元格底色决定。卷轴表用的是自己的一套色板
+    （蓝 FF02A5E3 / FF3399FF，黄橙 FFC000，紫 9933FF），
+    其中 FF3399FF 是这张表独有的，已登记进 QUALITY_BY_FILL。
+
+    第一行是表头（『卷轴』『特殊效果』），跳过。
+    """
+    out = []
+    for cells in cells_of("scrolls")[1:]:
+        row = [c.value for c in cells]
+        name = text(row[0])
+        if not name:
+            continue
+        effect = text(row[1])
+        if not effect:
+            warnings.append(f"卷轴 {name}：没有特殊效果说明")
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "quality": quality_from_fill(cells[0]),
+            "effect": effect,
+        })
+    return out
 
 
 def build_amulets():
@@ -722,6 +753,7 @@ def main():
     backpacks = build_backpacks()
     enemies = build_enemies()
     amulets = build_amulets()
+    scrolls = build_scrolls()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
 
@@ -745,6 +777,7 @@ def main():
     write("backpacks", backpacks)
     write("enemies", enemies)
     write("amulets", amulets)
+    write("scrolls", scrolls)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)
