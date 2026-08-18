@@ -1895,6 +1895,28 @@ p {
     -webkit-overflow-scrolling: touch;
   }
 
+  .table-amulets .data-table {
+    table-layout: auto;
+    min-width: 0;
+  }
+
+  .table-amulets .data-table th,
+  .table-amulets .data-table td {
+    padding-inline: 8px;
+  }
+
+  .table-amulets .data-table th:nth-child(1),
+  .table-amulets .data-table td:nth-child(1) {
+    width: 50%;
+  }
+
+  .table-amulets .data-table th:nth-child(2),
+  .table-amulets .data-table td:nth-child(2),
+  .table-amulets .data-table th:nth-child(3),
+  .table-amulets .data-table td:nth-child(3) {
+    width: 25%;
+  }
+
   .breadcrumb-list-desktop {
     display: none;
   }

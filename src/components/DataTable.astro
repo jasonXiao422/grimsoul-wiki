@@ -69,7 +69,7 @@ for (const item of items) {
 }
 ---
 
-<section class="data-table-block" data-table-root>
+<section class:list={['data-table-block', `table-${category.slug}`]} data-table-root>
   <div class="table-tools">
     <label>
       <span class="sr-only">搜索当前列表</span>
