@@ -1,5 +1,5 @@
 /**
- * 六个数据类别的统一配置。
+ * 数据类别的统一配置。
  * 列表页、详情页、搜索索引全部由这个对象驱动。
  * 新增类别只需在这里加一项，不要复制页面代码。
  */
@@ -31,7 +31,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'weapons',
     label: '武器',
-    blurb: '124 件武器的伤害、攻速、攻距与合成配方',
+    blurb: '伤害、攻速与合成配方',
     file: 'weapons',
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },
@@ -48,7 +48,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'armor',
     label: '护甲',
-    blurb: '33 套套装的护甲值、套装效果与部件构成',
+    blurb: '护甲值、套装效果与部件',
     file: 'armor',
     columns: [
       { key: 'name', label: '套装', sortable: true, render: 'quality' },
@@ -56,7 +56,6 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'totalArmor', label: '总护甲', sortable: true, numeric: true },
       { key: 'protection', label: '元素防护', render: 'element' },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-      { key: 'setEffect', label: '套装效果' },
       { key: 'obtain', label: '获取途径', sortable: true },
     ],
     filters: ['tier', 'quality', 'obtain'],
@@ -65,13 +64,12 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'shields',
     label: '盾牌',
-    blurb: '盾牌的防御值、格挡效果与获取途径',
+    blurb: '防御值、格挡效果与获取',
     file: 'shields',
     columns: [
       { key: 'name', label: '名称', sortable: true },
       { key: 'armor', label: '防御值', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-      { key: 'effect', label: '效果' },
       { key: 'obtain', label: '获取途径', sortable: true },
     ],
     filters: ['obtain'],
@@ -80,7 +78,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'backpacks',
     label: '驮篮',
-    blurb: '驮篮的储存栏位、元素防护与获取途径',
+    blurb: '储存栏位与元素防护',
     file: 'backpacks',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -92,9 +90,22 @@ export const CATEGORIES: CategoryDef[] = [
     defaultSort: 'slots',
   },
   {
+    slug: 'amulets',
+    label: '护符',
+    blurb: '品质、耐久与元素防护',
+    file: 'amulets',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+      { key: 'protection', label: '元素防护', render: 'element' },
+    ],
+    filters: ['quality'],
+    defaultSort: 'quality',
+  },
+  {
     slug: 'enemies',
     label: '敌人',
-    blurb: '124 只敌人的生命、护甲、伤害与出没地点',
+    blurb: '生命、护甲与出没地点',
     file: 'enemies',
     columns: [
       { key: 'name', label: '名称', sortable: true },
@@ -109,23 +120,9 @@ export const CATEGORIES: CategoryDef[] = [
     groupBy: 'group',
   },
   {
-    slug: 'amulets',
-    label: '护符',
-    blurb: '护符的品质、耐久、元素防护与效果',
-    file: 'amulets',
-    columns: [
-      { key: 'name', label: '名称', sortable: true, render: 'quality' },
-      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-      { key: 'protection', label: '元素防护', render: 'element' },
-      { key: 'effect', label: '效果' },
-    ],
-    filters: ['quality'],
-    defaultSort: 'quality',
-  },
-  {
     slug: 'materials',
     label: '材料',
-    blurb: '49 种材料，可反查哪些配方用到它',
+    blurb: '反查哪些配方用到它',
     file: 'materials',
     columns: [
       { key: 'name', label: '名称', sortable: true },

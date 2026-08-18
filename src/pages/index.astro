@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CATEGORIES } from '../lib/categories';
-import { getCategoryBlurb, getCategoryCountLabel, type CategorySlug } from '../lib/data';
+import { getCategoryBlurb, getCategoryCount, type CategorySlug } from '../lib/data';
 
 const categoryCards = CATEGORIES.map((category) => ({
   ...category,
   href: `/${category.slug}`,
   blurb: getCategoryBlurb(category.slug as CategorySlug),
-  countLabel: getCategoryCountLabel(category.slug as CategorySlug),
+  badge: `${getCategoryCount(category.slug as CategorySlug)} 条`,
 }));
 
 const entryCards = [
@@ -15,18 +15,21 @@ const entryCards = [
   {
     slug: 'horse-guide',
     label: '马匹机制',
-    blurb: '马匹饱食度、升级消耗、燕麦换算与商人交易价格',
+    blurb: '饱食度、升级消耗与交易价格',
     href: '/guides/horse',
-    countLabel: '机制攻略',
+    badge: '机制攻略',
   },
   {
     slug: 'armor-guide',
     label: '护甲与减伤',
-    blurb: '护甲值、减伤百分比与边际收益的换算关系',
+    blurb: '护甲值与减伤的换算关系',
     href: '/guides/armor',
-    countLabel: '机制攻略',
+    badge: '机制攻略',
   },
-];
+].map((card) => ({
+  ...card,
+  metaParts: [card.badge, card.blurb].filter((part): part is string => typeof part === 'string' && part.length > 0),
+}));
 
 const heroHoldMs = 6000;
 const heroFadeMs = 1500;
@@ -73,11 +76,15 @@ const heroImages = Object.keys(heroImageModules)
     <div class="grid">
       {entryCards.map((category) => (
         <a class="entry-card" href={category.href}>
-          <span>
-            <strong>{category.label}</strong>
-            {category.blurb}
+          <strong>{category.label}</strong>
+          <span class="entry-meta">
+            {category.metaParts.map((part, index) => (
+              <>
+                {index > 0 && <span class="entry-separator"> · </span>}
+                <span class:list={[index === 0 && 'count']}>{part}</span>
+              </>
+            ))}
           </span>
-          <span class="count">{category.countLabel}</span>
         </a>
       ))}
     </div>

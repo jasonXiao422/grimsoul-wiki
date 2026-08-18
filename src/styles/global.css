@@ -491,9 +491,9 @@ p {
 .entry-card {
   min-height: 150px;
   padding: 18px;
-  display: grid;
-  align-content: space-between;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .entry-card strong {
@@ -507,9 +507,17 @@ p {
   color: var(--text-dim);
 }
 
+.entry-meta {
+  display: block;
+}
+
 .count {
   color: var(--accent);
   font-variant-numeric: tabular-nums;
+}
+
+.entry-card .count {
+  color: var(--accent);
 }
 
 .panel {

@@ -74,13 +74,12 @@ export function getCategoryCount(slug: CategorySlug): number {
 }
 
 export function getCategoryCountLabel(slug: CategorySlug): string {
-  const category = CATEGORY_BY_SLUG[slug];
-  return `${getCategoryCount(slug)}${category.countUnit}`;
+  return `${getCategoryCount(slug)} 条`;
 }
 
 export function getCategoryBlurb(slug: CategorySlug): string {
   const category = CATEGORY_BY_SLUG[slug];
-  return `${getCategoryCountLabel(slug)}${category.blurbSuffix}`;
+  return typeof category?.blurb === 'string' ? category.blurb : '';
 }
 
 const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
