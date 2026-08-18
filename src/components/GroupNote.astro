@@ -1,0 +1,131 @@
+---
+/**
+ * 分组共用的场地机制说明，只在详情页出现。
+ *
+ * 数据来自 enemies.json 的 groupNote 字段，由 import_excel.py 从
+ * Excel「出现地点」列的跨行合并单元格读出。目前只有大车炮台的 16 只敌人非空。
+ *
+ * 列表页绝不能引用本组件——长文本只在详情页显示。
+ *
+ * 用法：
+ *   <GroupNote note={enemy.groupNote} group={enemy.group} />
+ * note 为空时不渲染任何东西，调用方不必先判空。
+ */
+interface Props {
+  note?: string | null;
+  /** 分组名，用于标题，如「大车炮台」。 */
+  group?: string | null;
+  /** 默认折叠；传 true 则默认展开。 */
+  open?: boolean;
+}
+
+const { note, group, open = false } = Astro.props;
+
+/** 按换行拆段，顺手把「【标题】正文」拆成两半以便分别着色。 */
+const paragraphs = (note ?? '')
+  .split(/\r?\n/)
+  .map((line) => line.trim())
+  .filter(Boolean)
+  .map((line) => {
+    const matched = line.match(/^【(.+?)】\s*(.*)$/);
+    return matched ? { label: matched[1], body: matched[2] } : { label: null, body: line };
+  });
+---
+
+{paragraphs.length > 0 && (
+  <details class="group-note" open={open}>
+    <summary>{group ? `${group}｜场地机制` : '场地机制'}</summary>
+    <div class="group-note__body">
+      {paragraphs.map((p) => (
+        <p>
+          {p.label && <span class="group-note__label">{p.label}</span>}
+          {p.body}
+        </p>
+      ))}
+    </div>
+  </details>
+)}
+
+<style>
+  .group-note {
+    margin-block-start: 24px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-panel);
+  }
+
+  .group-note summary {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--accent);
+    /* 列表标记自己画，默认的三角在中文标题旁边偏上 */
+    list-style: none;
+  }
+
+  .group-note summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .group-note summary::before {
+    content: '▸';
+    display: inline-block;
+    inline-size: 1em;
+    color: var(--accent-dim);
+    transition: transform 0.15s ease;
+  }
+
+  .group-note[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .group-note summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .group-note__body {
+    padding: 0 16px 16px;
+    border-block-start: 1px solid var(--border);
+    padding-block-start: 12px;
+    margin-block-start: 4px;
+  }
+
+  .group-note__body p {
+    margin: 0 0 10px;
+    line-height: 1.75;
+    color: var(--text);
+    font-size: 0.9375rem;
+  }
+
+  .group-note__body p:last-child {
+    margin-block-end: 0;
+  }
+
+  .group-note__label {
+    display: inline-block;
+    margin-inline-end: 6px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .group-note__label::before {
+    content: '【';
+  }
+
+  .group-note__label::after {
+    content: '】';
+  }
+
+  @media (max-width: 640px) {
+    .group-note summary {
+      padding: 10px 12px;
+    }
+
+    .group-note__body {
+      padding-inline: 12px;
+      padding-block-end: 12px;
+    }
+  }
+</style>

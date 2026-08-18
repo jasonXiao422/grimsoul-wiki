@@ -1,5 +1,6 @@
 ---
 import ImageZoom from './ImageZoom.astro';
+import GroupNote from './GroupNote.astro';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
 import { getAnyItemName, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
@@ -12,7 +13,7 @@ interface Props {
 
 const { categorySlug, item } = Astro.props;
 const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
-const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'dataIncomplete', 'entity']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'dataIncomplete', 'entity', 'groupNote']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -102,6 +103,8 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
         </table>
       </section>
     )}
+
+    {categorySlug === 'enemies' && <GroupNote note={item.groupNote} group={item.group} />}
 
     {hasCostField && (
       <section class="section panel">

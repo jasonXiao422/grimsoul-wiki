@@ -105,18 +105,17 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'enemies',
     label: '敌人',
-    blurb: '生命、护甲与出没地点',
+    blurb: '生命、减伤与出没地点',
     file: 'enemies',
     columns: [
-      { key: 'name', label: '名称', sortable: true },
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'hp', label: '生命', sortable: true, numeric: true },
-      { key: 'armor', label: '护甲', sortable: true, numeric: true },
       { key: 'damageReduction', label: '减伤%', sortable: true, numeric: true },
       { key: 'physicalDamage', label: '物理伤害', sortable: true, numeric: true },
       { key: 'elementDamage', label: '元素伤害' },
       { key: 'locations', label: '出没地点', render: 'list' },
     ],
-    filters: ['group'],
+    filters: ['group', 'quality'],
     groupBy: 'group',
   },
   {

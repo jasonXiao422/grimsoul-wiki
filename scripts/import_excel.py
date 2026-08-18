@@ -292,6 +292,25 @@ def cells_of(key):
     return list(wb[sheet].iter_rows())
 
 
+def merged_ranges_of(key, column):
+    """
+    取指定列上的合并单元格区间，返回 [(起始行, 结束行, 左上角的值), ...]。
+
+    cells_of() 用的是 read_only 模式，那种模式下 worksheet 没有 merged_cells，
+    所以这里单独再开一次工作簿。一次导入只调用一次，开销可以接受。
+    """
+    fn, sheet = FILES[key]
+    wb = load_workbook(SRC / fn, read_only=False, data_only=False)
+    ws = wb[sheet]
+    out = []
+    for rng in ws.merged_cells.ranges:
+        if rng.min_col != column or rng.min_row == 1:
+            continue
+        out.append((rng.min_row, rng.max_row, ws.cell(row=rng.min_row, column=rng.min_col).value))
+    wb.close()
+    return out
+
+
 def build_weapons():
     out = []
     for cells in cells_of("weapons")[2:]:
@@ -528,7 +547,36 @@ def build_amulets():
 
 
 def build_enemies():
-    """表头行（第二列是『生命』）同时充当地点分组标题。"""
+    """
+    敌人表列序：
+      0 名称 / 1 生命 / 2 减伤% / 3 物理伤害 / 4 元素伤害 / 5 敌人介绍 / 6 出现地点
+
+    两点与其他表不同：
+
+    1. 品质同样由名称单元格底色决定，走 quality_from_fill()。
+       敌人表用的色值（蓝 FF4A86E8 / 黄橙 FFBC04 / 紫 FF351C75）
+       已经在 QUALITY_BY_FILL 里登记过，不必新增。
+
+    2. 出现地点列可能是跨多行的合并单元格，里面装的是整个分组共用的
+       场地机制说明（目前只有大车炮台）。这种情况写进 groupNote，
+       该组各行的 locations 回退成分组名，否则那段长文本会被
+       当成地点塞进 locations 数组。
+
+    表头行（第二列是『生命』）同时充当地点分组标题。
+    """
+    # 出现地点列（G）上跨 3 行及以上的合并区间视为分组说明
+    group_notes = [
+        (a, b, text(v))
+        for a, b, v in merged_ranges_of("enemies", 7)
+        if b - a + 1 >= 3
+    ]
+
+    def note_at(row_index):
+        for a, b, v in group_notes:
+            if a <= row_index <= b:
+                return v
+        return None
+
     out, group = [], None
     for cells in cells_of("enemies")[1:]:
         row = [c.value for c in cells]
@@ -538,27 +586,52 @@ def build_enemies():
         if text(row[1]) == "生命":
             group = first
             continue
-        hp = clean(row[1])
-        armor = undate(cells[2]) or clean(row[2])
-        phys = undate(cells[4]) or clean(row[4])
-        dr_src = text(row[3])
-        recovered = bool(undate(cells[2]) or undate(cells[4]))
-        if recovered:
-            warnings.append(f"敌人 {first}：护甲/物理伤害在 Excel 中被存为日期，已按单元格显示格式还原")
+
+        name = re.sub(r"\s+", "", first)
+        recovered_fields = []
+        data_incomplete = False
+
+        def enemy_value(index, label):
+            nonlocal data_incomplete
+            restored = undate(cells[index])
+            if restored is not None:
+                recovered_fields.append(label)
+                return restored
+            value = clean(row[index])
+            if isinstance(value, str) and value.strip() in ("待测", "待补充", "数据待补充", "未知", "N/A", "n/a"):
+                data_incomplete = True
+                return None
+            return value
+
+        hp = enemy_value(1, "生命")
+        dr = enemy_value(2, "减伤")
+        phys = enemy_value(3, "物理伤害")
+        element = enemy_value(4, "元素伤害")
+        if recovered_fields:
+            warnings.append(f"敌人 {name}：{'/'.join(recovered_fields)}在 Excel 中被存为日期，已按单元格显示格式还原")
+
+        note = note_at(cells[0].row)
+        if note is not None:
+            locations = [group] if group else []
+        else:
+            locations = [p.strip() for p in re.split(r"[;；\n]", text(row[6]) or "") if p.strip()]
+        if not locations:
+            warnings.append(f"敌人 {name}：没有出现地点")
+
         out.append({
-            "id": make_id(first),
-            "name": first,
+            "id": make_id(name),
+            "name": name,
             "group": group,
+            "groupNote": note,
+            "quality": quality_from_fill(cells[0]),
             "hp": hp,
-            "armor": armor,
-            "damageReduction": dr_from_armor(armor),
-            "damageReductionSource": dr_src,
-            "restoredFromDate": True if recovered else None,
+            "damageReduction": dr,
+            "restoredFromDate": True if recovered_fields else None,
             "physicalDamage": phys,
-            "elementDamage": text(row[5]),
-            "note": text(row[6]),
-            "locations": [p.strip() for p in re.split(r"[;；\n]", text(row[7]) or "") if p.strip()],
-            "dataIncomplete": True if (armor is None and phys is None) else None,
+            "elementDamage": element,
+            "note": text(row[5]),
+            "locations": locations,
+            "dataIncomplete": True if data_incomplete else None,
         })
     return out
 
