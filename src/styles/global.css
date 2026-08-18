@@ -728,7 +728,11 @@ p {
 }
 
 .attr-table td {
-  text-align: right;
+  text-align: left;
+}
+
+.attr-table td.attr-value-incomplete {
+  color: var(--text-dim);
 }
 
 .material-entity-link {

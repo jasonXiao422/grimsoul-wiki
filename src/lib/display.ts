@@ -26,7 +26,7 @@ export const FIELD_LABELS: Record<string, string> = {
   damageReduction: '减伤',
   physicalDamage: '物理伤害',
   elementDamage: '元素伤害',
-  note: '备注',
+  note: '敌人介绍',
   locations: '出没地点',
   usedIn: '配方数',
 };

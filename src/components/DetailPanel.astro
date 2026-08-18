@@ -13,13 +13,17 @@ interface Props {
 
 const { categorySlug, item } = Astro.props;
 const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
-const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'dataIncomplete', 'entity', 'groupNote']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'dataIncomplete', 'entity', 'groupNote', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
 
+const isEmptyValue = (value: unknown) =>
+  value === null || value === undefined || value === '' || (Array.isArray(value) && value.length === 0);
+const isDataIncomplete = item.dataIncomplete === true;
+
 const getDetailValue = (key: string, value: unknown) => {
-  if ((value === null || value === undefined || value === '') && item.dataIncomplete) return '数据待补充';
+  if (isEmptyValue(value) && isDataIncomplete) return '数据待补充';
   if (key === 'upgradeOf' && typeof value === 'string') return getAnyItemName(value);
   return formatValue(key, value);
 };
@@ -44,14 +48,24 @@ const getQualityMeta = (value: unknown) => {
   return quality ? QUALITY_META[quality] : undefined;
 };
 
+const unknownKeys = Object.keys(item).filter((key) => !hiddenKeys.has(key) && !Object.hasOwn(FIELD_LABELS, key));
+if (import.meta.env.DEV && unknownKeys.length > 0) {
+  console.warn(`详情页存在未配置中文标签的字段：${unknownKeys.join('、')}`);
+}
+
 const attrRows = Object.entries(item)
-  .filter(([key, value]) => !hiddenKeys.has(key) && value !== undefined)
+  .filter(([key, value]) =>
+    !hiddenKeys.has(key) &&
+    Object.hasOwn(FIELD_LABELS, key) &&
+    (!isEmptyValue(value) || isDataIncomplete),
+  )
   .map(([key, value]) => ({
     key,
     rawValue: value,
     label: getDetailLabel(key),
     value: getDetailValue(key, value),
     elementStyle: getElementStyle(key, value),
+    isIncomplete: isDataIncomplete && isEmptyValue(value),
   }));
 
 const hasCostField = Array.isArray(item.cost);
@@ -90,7 +104,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
             {attrRows.map((row) => (
               <tr>
                 <th>{row.label}</th>
-                <td>
+                  <td class:list={[row.isIncomplete && 'attr-value-incomplete']}>
                   {row.elementStyle ? (
                     <span class="element-value" style={row.elementStyle}>{row.value}</span>
                   ) : (
