@@ -1,4 +1,5 @@
 import { tierRank } from './tiers';
+import { ELEMENT_META, QUALITY_META, QUALITY_ORDER } from './quality';
 
 export const FIELD_LABELS: Record<string, string> = {
   name: '名称',
@@ -15,6 +16,7 @@ export const FIELD_LABELS: Record<string, string> = {
   upgradeOf: '高级图纸来源',
   tier: '品阶',
   obtain: '获取途径',
+  quality: '品质',
   totalArmor: '总护甲',
   armor: '护甲',
   protection: '元素防护',
@@ -30,11 +32,11 @@ export const FIELD_LABELS: Record<string, string> = {
 };
 
 export const ELEMENT_COLORS: Record<string, string> = {
-  冰: '#86c5ff',
-  寒冷: '#86c5ff',
-  火: '#d9773f',
-  火焰: '#d9773f',
-  衰败: '#5a9e4a',
+  冰: ELEMENT_META['冰'].color,
+  寒冷: ELEMENT_META['寒冷'].color,
+  火: ELEMENT_META['火'].color,
+  火焰: ELEMENT_META['火焰'].color,
+  衰败: ELEMENT_META['衰败'].color,
   毒: '#83ad55',
   暗: '#9a7bd1',
   神圣: '#d8c46a',
@@ -51,14 +53,19 @@ function formatElement(value: Record<string, unknown>): string {
   const type = typeof value.type === 'string' ? value.type : '';
   const amount = value.value ?? value.amount;
   if (!type && (amount === null || amount === undefined || amount === '')) return '无';
-  if (amount === null || amount === undefined || amount === '') return type || '无';
-  return type ? `${type} ${amount}` : String(amount);
+  const label = type ? ELEMENT_META[type]?.label ?? type : '';
+  if (amount === null || amount === undefined || amount === '') return label || '无';
+  return label ? `${label} ${amount}` : String(amount);
 }
 
 export function formatValue(key: string, value: unknown): string {
   if (key === 'obtain' && (value === null || value === undefined || value === '' || value === 'N/A')) return '无需图纸制作';
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');
+
+  if (key === 'quality' && typeof value === 'string') {
+    return QUALITY_META[value as keyof typeof QUALITY_META]?.label ?? value;
+  }
 
   if (typeof value === 'object') {
     const objectValue = value as Record<string, unknown>;
@@ -76,6 +83,9 @@ export function formatValue(key: string, value: unknown): string {
 
 export function getSortValue(key: string, value: unknown): string | number {
   if (key === 'tier' && typeof value === 'string') return tierRank(value);
+  if (key === 'quality' && typeof value === 'string') {
+    return QUALITY_ORDER[value as keyof typeof QUALITY_ORDER] ?? Number.POSITIVE_INFINITY;
+  }
   if (typeof value === 'number') return value;
   if (value === null || value === undefined || value === '') return Number.NEGATIVE_INFINITY;
   if (typeof value === 'object' && !Array.isArray(value)) {

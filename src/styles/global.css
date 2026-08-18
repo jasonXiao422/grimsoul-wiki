@@ -638,6 +638,11 @@ p {
   background: #101113;
 }
 
+.quality-icon {
+  border: 2px solid var(--quality-border);
+  box-shadow: 0 0 0 1px #101113, 0 0 14px var(--quality-glow);
+}
+
 .item-icon.is-missing {
   object-fit: contain;
   padding: 5px;
@@ -690,6 +695,10 @@ p {
   object-fit: cover;
   background: #101113;
   cursor: zoom-in;
+}
+
+.detail-image.quality-icon {
+  border: 2px solid var(--quality-border);
 }
 
 .attr-table {

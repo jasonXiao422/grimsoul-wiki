@@ -4,7 +4,7 @@
  */
 import fs from 'node:fs';
 
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'materials', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'amulets', 'materials', 'knight-orders'];
 const missing = [];
 
 for (const f of FILES) {

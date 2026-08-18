@@ -10,7 +10,10 @@ interface Props {
 
 const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
 const currentPath = Astro.url.pathname;
-const navCategories = ALL_CATEGORIES.filter((category) => !['orders', 'materials'].includes(category.slug));
+const topNavOrder = ['weapons', 'armor', 'shields', 'backpacks', 'amulets', 'enemies'];
+const navCategories = ALL_CATEGORIES
+  .filter((category) => topNavOrder.includes(category.slug))
+  .sort((a, b) => topNavOrder.indexOf(a.slug) - topNavOrder.indexOf(b.slug));
 const otherNavItems = [
   {
     label: '材料',

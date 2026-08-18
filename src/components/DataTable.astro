@@ -2,7 +2,8 @@
 import type { CategoryDef } from '../lib/categories';
 import { TIER_COLOR } from '../lib/tiers';
 import { getByPath } from '../lib/data';
-import { ELEMENT_COLORS, FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
+import { FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
+import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
 interface Props {
   category: CategoryDef;
@@ -46,7 +47,12 @@ const getListDisplayValue = (item: Record<string, any>, key: string, value: unkn
 const getElementColor = (value: unknown) => {
   if (!value || typeof value !== 'object') return undefined;
   const type = (value as Record<string, unknown>).type;
-  return typeof type === 'string' ? ELEMENT_COLORS[type] : undefined;
+  return typeof type === 'string' ? elementColor(type) : undefined;
+};
+
+const getQualityMeta = (item: Record<string, any>) => {
+  const quality = typeof item.quality === 'string' ? item.quality as Quality : undefined;
+  return quality ? QUALITY_META[quality] : undefined;
 };
 
 const tableRows: Array<{ type: 'group'; label: string } | { type: 'item'; item: Record<string, any> }> = [];
@@ -112,6 +118,10 @@ for (const item of items) {
           }
 
           const item = row.item;
+          const qualityMeta = category.slug === 'amulets' ? getQualityMeta(item) : undefined;
+          const qualityStyle = qualityMeta
+            ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
+            : undefined;
           return (
             <tr
               data-row
@@ -127,18 +137,19 @@ for (const item of items) {
                     {index === 0 ? (
                       <a class="item-cell" href={`/${category.slug}/${item.id}`}>
                         <img
-                          class="item-icon"
+                          class:list={['item-icon', qualityMeta && 'quality-icon']}
                           src={`/images/${category.slug}/${item.id}.webp`}
                           alt={item.name}
                           loading="lazy"
+                          style={qualityStyle}
                           data-fallback={fallback}
                           onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
                         />
-                        <strong>{value}</strong>
+                        <strong style={qualityMeta ? `color:${qualityMeta.text}` : undefined}>{value}</strong>
                       </a>
                     ) : column.render === 'tier' && rawValue ? (
                       <span class="tier-badge" style={`color:${TIER_COLOR[String(rawValue)] ?? 'var(--accent)'}`}>{value}</span>
-                    ) : column.render === 'element' && value !== '无' && value !== '数据待补充' ? (
+                    ) : column.render === 'element' && rawValue !== null && rawValue !== undefined && rawValue !== '' && value !== '数据待补充' ? (
                       <span class="element-value" style={`color:${getElementColor(rawValue) ?? 'var(--text)'}`}>{value}</span>
                     ) : column.render === 'list' && Array.isArray(rawValue) ? (
                       <span class="tag-list">{rawValue.map((entry) => <span class="tag">{formatValue(column.key, entry)}</span>)}</span>

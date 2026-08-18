@@ -10,7 +10,7 @@ export interface ColumnDef {
   /** 数值列右对齐 */
   numeric?: boolean;
   /** 特殊渲染方式，组件里按这个分支处理 */
-  render?: 'element' | 'durability' | 'cost' | 'tier' | 'list';
+  render?: 'element' | 'durability' | 'cost' | 'tier' | 'list' | 'quality';
 }
 
 export interface CategoryDef {
@@ -113,6 +113,20 @@ export const CATEGORIES: CategoryDef[] = [
     ],
     filters: ['group'],
     groupBy: 'group',
+  },
+  {
+    slug: 'amulets',
+    label: '护符',
+    countUnit: '件护符',
+    blurbSuffix: '的耐久、元素防护、效果与制作配方',
+    file: 'amulets',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+      { key: 'protection', label: '元素防护', render: 'element' },
+    ],
+    filters: ['quality'],
+    defaultSort: 'quality',
   },
   {
     slug: 'materials',

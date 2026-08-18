@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const DIR = 'src/data';
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'materials', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'amulets', 'materials', 'knight-orders'];
 
 const errors = [];
 const all = {};

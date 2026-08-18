@@ -28,6 +28,7 @@ FILES = {
     "shields": ("盾牌数据.xlsx", "护甲"),
     "backpacks": ("驮篮数据.xlsx", "Sheet1"),
     "enemies": ("敌人数据.xlsx", "敌人生命护甲和伤害"),
+    "amulets": ("护符数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -453,6 +454,33 @@ def build_backpacks():
     return out
 
 
+QUALITY_KEY = {"普通": "common", "稀有": "rare", "独特": "unique"}
+
+
+def build_amulets():
+    """
+    护符表列序：
+      0 名称 / 1 品质 / 2 耐久 / 3 元素伤害保护 / 4 制作配方 / 5 效果
+    品质存英文 key，中文名与配色在 src/lib/quality.ts 里映射。
+    """
+    out = []
+    for row in rows_of("amulets")[1:]:
+        name = text(row[0])
+        if not name:
+            continue
+        q = text(row[1])
+        out.append({
+            "id": make_id(name),
+            "name": re.sub(r"\s+", "", name),
+            "quality": QUALITY_KEY.get(q, "common"),
+            "durability": parse_durability(row[2]),
+            "protection": parse_protection(row[3]),
+            "cost": parse_cost(row[4]),
+            "effect": text(row[5]),
+        })
+    return out
+
+
 def build_enemies():
     """表头行（第二列是『生命』）同时充当地点分组标题。"""
     out, group = [], None
@@ -544,21 +572,22 @@ def main():
     shields = build_shields()
     backpacks = build_backpacks()
     enemies = build_enemies()
+    amulets = build_amulets()
 
-    materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks)
+    materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
 
     # 材料名若与某个真实条目同名，记录跳转目标
     catalog = {}
     for cat, data in [("weapons", weapons), ("armor", armor_sets),
                       ("armor-pieces", armor_pieces), ("shields", shields),
-                      ("backpacks", backpacks)]:
+                      ("backpacks", backpacks), ("amulets", amulets)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
             for pc in it.get("pieces", []) or []:
                 catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
     link_material_entities(materials, catalog)
 
-    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks)
+    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
 
     write("weapons", weapons)
     write("armor", armor_sets)
@@ -566,6 +595,7 @@ def main():
     write("shields", shields)
     write("backpacks", backpacks)
     write("enemies", enemies)
+    write("amulets", amulets)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)

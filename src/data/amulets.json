@@ -1,0 +1,617 @@
+[
+  {
+    "id": "xiao-shou-ji-zhe-hu-fu",
+    "name": "小收集者护符",
+    "quality": "common",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "采集浆果和蘑菇时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "shou-ji-zhe-hu-fu",
+    "name": "收集者护符",
+    "quality": "rare",
+    "durability": {
+      "value": 300,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "采集浆果和蘑菇时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-shou-ge-zhe-hu-fu",
+    "name": "小收割者护符",
+    "quality": "common",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "采集亚麻纤维时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "shou-ge-zhe-hu-fu",
+    "name": "收割者护符",
+    "quality": "rare",
+    "durability": {
+      "value": 300,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "采集亚麻纤维时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-fa-mu-gong-hu-fu",
+    "name": "小伐木工护符",
+    "quality": "common",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "采集木材时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "fa-mu-gong-hu-fu",
+    "name": "伐木工护符",
+    "quality": "rare",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "采集木材时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-kuang-gong-hu-fu",
+    "name": "小矿工护符",
+    "quality": "common",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "开采矿石时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "kuang-gong-hu-fu",
+    "name": "矿工护符",
+    "quality": "rare",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "开采矿石时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-kuang-gong-hu-fu",
+    "name": "大型矿工护符",
+    "quality": "unique",
+    "durability": {
+      "value": 200,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "开采矿石时额外获得 1 份资源，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-li-liang-hu-fu",
+    "name": "小力量护符",
+    "quality": "common",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 10 点物理伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "li-liang-hu-fu",
+    "name": "力量护符",
+    "quality": "rare",
+    "durability": {
+      "value": 75,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 20 点物理伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-li-liang-hu-fu",
+    "name": "大型力量护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 40 点物理伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-hei-se-li-liang-hu-fu",
+    "name": "大型黑色力量护符",
+    "quality": "unique",
+    "durability": {
+      "value": 150,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 40 点物理伤害，效果触发时消耗 1 点耐久，拥有更高的耐久度"
+  },
+  {
+    "id": "xiao-shuai-bai-li-liang-hu-fu",
+    "name": "小衰败力量护符",
+    "quality": "common",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 5 点衰败伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "shuai-bai-li-liang-hu-fu",
+    "name": "衰败力量护符",
+    "quality": "rare",
+    "durability": {
+      "value": 75,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 10 点衰败伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-shuai-bai-li-liang-hu-fu",
+    "name": "大型衰败力量护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 20 点衰败伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-huo-zhi-li-liang-hu-fu",
+    "name": "小火之力量护符",
+    "quality": "common",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 5 点火焰伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "huo-zhi-li-liang-hu-fu",
+    "name": "火之力量护符",
+    "quality": "rare",
+    "durability": {
+      "value": 75,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 10 点火焰伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-huo-zhi-li-liang-hu-fu",
+    "name": "大型火之力量护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 20 点火焰伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-bing-zhi-li-liang-hu-fu",
+    "name": "小冰之力量护符",
+    "quality": "common",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 5 点寒冷伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "bing-zhi-li-liang-hu-fu",
+    "name": "冰之力量护符",
+    "quality": "rare",
+    "durability": {
+      "value": 75,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 10 点寒冷伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-bing-zhi-li-liang-hu-fu",
+    "name": "大型冰之力量护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "攻击时额外造成 20 点寒冷伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xiao-fang-yu-hu-fu",
+    "name": "小防御护符",
+    "quality": "common",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "减少最多 5 点物理伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "fang-yu-hu-fu",
+    "name": "防御护符",
+    "quality": "rare",
+    "durability": {
+      "value": 500,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "减少最多 10 点物理伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "da-xing-fang-yu-hu-fu",
+    "name": "大型防御护符",
+    "quality": "unique",
+    "durability": {
+      "value": 750,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "减少最多 20 点物理伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "da-xing-hei-se-fang-yu-hu-fu",
+    "name": "大型黑色防御护符",
+    "quality": "unique",
+    "durability": {
+      "value": 1500,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "减少最多 20 点物理伤害，按吸收的伤害量消耗耐久度，拥有更高的耐久度"
+  },
+  {
+    "id": "xiao-shuai-bai-fang-yu-hu-fu",
+    "name": "小衰败防御护符",
+    "quality": "common",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "衰败",
+      "value": 5
+    },
+    "cost": [],
+    "effect": "减少最多 5 点衰败伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "shuai-bai-fang-yu-hu-fu",
+    "name": "衰败防御护符",
+    "quality": "rare",
+    "durability": {
+      "value": 500,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "衰败",
+      "value": 10
+    },
+    "cost": [],
+    "effect": "减少最多 10 点衰败伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "da-xing-shuai-bai-fang-yu-hu-fu",
+    "name": "大型衰败防御护符",
+    "quality": "unique",
+    "durability": {
+      "value": 750,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "衰败",
+      "value": 20
+    },
+    "cost": [],
+    "effect": "减少最多 20 点衰败伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "xiao-huo-yan-fang-yu-hu-fu",
+    "name": "小火焰防御护符",
+    "quality": "common",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "火焰",
+      "value": 5
+    },
+    "cost": [],
+    "effect": "减少最多 5 点火焰伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "huo-yan-fang-yu-hu-fu",
+    "name": "火焰防御护符",
+    "quality": "rare",
+    "durability": {
+      "value": 500,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "火焰",
+      "value": 10
+    },
+    "cost": [],
+    "effect": "减少最多 10 点火焰伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "da-xing-huo-yan-fang-yu-hu-fu",
+    "name": "大型火焰防御护符",
+    "quality": "unique",
+    "durability": {
+      "value": 750,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "火焰",
+      "value": 20
+    },
+    "cost": [],
+    "effect": "减少最多 20 点火焰伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "xiao-bing-shuang-fang-yu-hu-fu",
+    "name": "小冰霜防御护符",
+    "quality": "common",
+    "durability": {
+      "value": 250,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "寒冷",
+      "value": 5
+    },
+    "cost": [],
+    "effect": "减少最多 5 点寒冷伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "bing-shuang-fang-yu-hu-fu",
+    "name": "冰霜防御护符",
+    "quality": "rare",
+    "durability": {
+      "value": 500,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "寒冷",
+      "value": 10
+    },
+    "cost": [],
+    "effect": "减少最多 10 点寒冷伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "da-xing-bing-shuang-fang-yu-hu-fu",
+    "name": "大型冰霜防御护符",
+    "quality": "unique",
+    "durability": {
+      "value": 750,
+      "unit": "点"
+    },
+    "protection": {
+      "type": "寒冷",
+      "value": 20
+    },
+    "cost": [],
+    "effect": "减少最多 20 点寒冷伤害，按吸收的伤害量消耗耐久度"
+  },
+  {
+    "id": "shan-bi-hu-fu",
+    "name": "闪避护符",
+    "quality": "rare",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "有 5% 几率躲开敌人的攻击，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-shan-bi-hu-fu",
+    "name": "大型闪避护符",
+    "quality": "unique",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "有 10% 几率躲开敌人的攻击，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-hei-se-shan-bi-hu-fu",
+    "name": "大型黑色闪避护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "有 10% 几率躲开敌人的攻击，效果触发时消耗 1 点耐久，拥有更高的耐久度"
+  },
+  {
+    "id": "zhi-ming-yi-ji-hu-fu",
+    "name": "致命一击护符",
+    "quality": "rare",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "有 5% 几率造成双倍伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-zhi-ming-yi-ji-hu-fu",
+    "name": "大型致命一击护符",
+    "quality": "unique",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "有 10% 几率造成双倍伤害，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-hei-se-zhi-ming-yi-ji-hu-fu",
+    "name": "大型黑色致命一击护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "有 10% 几率造成双倍伤害，效果触发时消耗 1 点耐久，拥有更高的耐久度"
+  },
+  {
+    "id": "zhi-liao-hu-fu",
+    "name": "治疗护符",
+    "quality": "rare",
+    "durability": {
+      "value": 75,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "受到的治疗效果提高 15%，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "da-xing-zhi-liao-hu-fu",
+    "name": "大型治疗护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "受到的治疗效果提高 30%，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "xi-xue-hu-fu",
+    "name": "吸血护符",
+    "quality": "unique",
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "造成物理伤害时回复相当于伤害 30% 的生命值，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "guang-shan-hu-fu",
+    "name": "光闪护符",
+    "quality": "rare",
+    "durability": {
+      "value": 50,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "吓跑夜游神，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "wu-ming-zhi-min",
+    "name": "无名之悯",
+    "quality": "unique",
+    "durability": {
+      "value": 1,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "死亡时保留物品栏内的物品，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "he-la-te-de-yi-zhi",
+    "name": "赫拉特的意志",
+    "quality": "unique",
+    "durability": {
+      "value": 1,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "受到致命伤害时完全恢复生命值，效果触发时消耗 1 点耐久"
+  },
+  {
+    "id": "hei-se-he-la-te-de-yi-zhi-hu-fu",
+    "name": "黑色赫拉特的意志护符",
+    "quality": "unique",
+    "durability": {
+      "value": 5,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "受到致命伤害时完全恢复生命值，效果触发时消耗 1 点耐久，拥有更高的耐久度"
+  },
+  {
+    "id": "you-xiu-de-hei-se-he-la-te-de-yi-zhi-hu-fu",
+    "name": "优秀的黑色赫拉特的意志护符",
+    "quality": "unique",
+    "durability": {
+      "value": 10,
+      "unit": "点"
+    },
+    "protection": null,
+    "cost": [],
+    "effect": "受到致命伤害时完全恢复生命值，效果触发时消耗 1 点耐久，拥有非常高的耐久度"
+  }
+]

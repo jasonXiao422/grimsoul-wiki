@@ -3,6 +3,7 @@ import ImageZoom from './ImageZoom.astro';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
 import { getAnyItemName, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
+import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
 interface Props {
   categorySlug: CategorySlug;
@@ -11,7 +12,7 @@ interface Props {
 
 const { categorySlug, item } = Astro.props;
 const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
-const hiddenKeys = new Set(['id', 'name', 'cost', 'pieces', 'dataIncomplete', 'entity']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'dataIncomplete', 'entity']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -30,26 +31,50 @@ const getDetailLabel = (key: string) => {
   return FIELD_LABELS[key] ?? key;
 };
 
+const getElementStyle = (key: string, rawValue: unknown) => {
+  if (!['element', 'protection', 'elementDamage'].includes(key)) return undefined;
+  if (!rawValue || typeof rawValue !== 'object') return undefined;
+  const type = (rawValue as Record<string, unknown>).type;
+  return typeof type === 'string' ? `color:${elementColor(type)}` : undefined;
+};
+
 const attrRows = Object.entries(item)
   .filter(([key, value]) => !hiddenKeys.has(key) && value !== undefined)
-  .map(([key, value]) => [getDetailLabel(key), getDetailValue(key, value)]);
+  .map(([key, value]) => ({
+    key,
+    rawValue: value,
+    label: getDetailLabel(key),
+    value: getDetailValue(key, value),
+    elementStyle: getElementStyle(key, value),
+  }));
 
 const hasCostField = Array.isArray(item.cost);
 const pieces = Array.isArray(item.pieces) ? item.pieces : [];
 const eyebrow = item.tier ? `品阶 ${item.tier}` : '资料详情';
 const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefined;
-const recipeTitle = categorySlug === 'shields' ? '制作配方' : '合成配方';
+const quality = typeof item.quality === 'string' ? item.quality as Quality : undefined;
+const qualityMeta = categorySlug === 'amulets' && quality ? QUALITY_META[quality] : undefined;
+const qualityStyle = qualityMeta
+  ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
+  : undefined;
+const titleColor = qualityMeta?.text ?? tierColor;
+const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配方' : '合成配方';
 ---
 
 <article class="detail-grid">
   <aside>
-    <ImageZoom src={iconSrc} alt={item.name} class="detail-image" />
+    <ImageZoom
+      src={iconSrc}
+      alt={item.name}
+      class={`detail-image${qualityMeta ? ' quality-icon' : ''}`}
+      style={qualityStyle}
+    />
   </aside>
 
   <div>
     <div class="page-heading">
       <p class="eyebrow" style={tierColor ? `color:${tierColor}` : undefined}>{eyebrow}</p>
-      <h1>{item.name}</h1>
+      <h1 style={titleColor ? `color:${titleColor}` : undefined}>{item.name}</h1>
     </div>
 
     {attrRows.length > 0 && (
@@ -57,10 +82,16 @@ const recipeTitle = categorySlug === 'shields' ? '制作配方' : '合成配方'
         <h2>属性</h2>
         <table class="attr-table">
           <tbody>
-            {attrRows.map(([label, value]) => (
+            {attrRows.map((row) => (
               <tr>
-                <th>{label}</th>
-                <td>{value}</td>
+                <th>{row.label}</th>
+                <td>
+                  {row.elementStyle ? (
+                    <span class="element-value" style={row.elementStyle}>{row.value}</span>
+                  ) : (
+                    row.value
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
