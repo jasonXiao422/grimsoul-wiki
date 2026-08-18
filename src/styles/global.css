@@ -1863,6 +1863,23 @@ p {
     grid-column: 1 / -1;
   }
 
+  .entry-card {
+    min-height: 0;
+    padding: 14px 16px;
+    gap: 6px;
+  }
+
+  .entry-card strong {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .entry-meta {
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
   .footer-contributor-groups {
     grid-template-columns: 1fr;
   }
