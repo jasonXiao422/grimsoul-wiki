@@ -1210,7 +1210,10 @@
     "damageReduction": 23,
     "restoredFromDate": null,
     "physicalDamage": 30,
-    "elementDamage": "20 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "20"
+    },
     "note": "友方单位，使用火弓，盟友为你而战",
     "locations": [
       "古人墓穴"
@@ -1227,7 +1230,10 @@
     "damageReduction": 23,
     "restoredFromDate": null,
     "physicalDamage": "60 / 98",
-    "elementDamage": "20 冰",
+    "elementDamage": {
+      "type": "冰",
+      "value": "20"
+    },
     "note": "友方单位，使用冰剑(60+20冻伤)或风刃(98)，盟友为你而战",
     "locations": [
       "古人墓穴"
@@ -2065,7 +2071,10 @@
     "damageReduction": 48,
     "restoredFromDate": null,
     "physicalDamage": 100,
-    "elementDamage": "100 冰",
+    "elementDamage": {
+      "type": "冰",
+      "value": "100"
+    },
     "note": "概率冰冻",
     "locations": [
       "(克劳斯指挥官 vs 瘟疫圣诞老人)"
@@ -2309,7 +2318,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "4，8，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；攻击时，虹吸15%/25%/30%的伤害",
     "locations": [
       "第6季红猎",
@@ -2327,7 +2339,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；生命值>20%时，boss伤害提高20%/35%/40%",
     "locations": [
       "第6季红猎",
@@ -2345,7 +2360,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；火焰护盾提高15%/25%/30%",
     "locations": [
       "第6季红猎",
@@ -2363,7 +2381,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；减角色移动速度；攻击时自身奔跑速度提高20%",
     "locations": [
       "被遗忘的神殿"
@@ -2380,7 +2401,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；火柱伤害(物理+火)：20+25/30+60/50+175，共3次",
     "locations": [
       "被遗忘的神殿"
@@ -2397,7 +2421,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；降低玩家30%的攻击速度",
     "locations": [
       "被遗忘的神殿"
@@ -2414,7 +2441,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；恐惧3秒",
     "locations": [
       "被遗忘的神殿"
@@ -2431,7 +2461,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；创建一个窒息陷阱，持续2秒呕吐；\n伤害(物理+火)：20+10/40+50/60+100",
     "locations": [
       "被遗忘的神殿"
@@ -2448,7 +2481,10 @@
     "damageReduction": "5, 15, 20",
     "restoredFromDate": null,
     "physicalDamage": "5，14，20",
-    "elementDamage": "2, 4, 10 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "2, 4, 10"
+    },
     "note": "2次无敌；有几率着火(2/4/6，共5次)；创建一个致盲陷阱，持续4秒；\n伤害(物理+火)：10+15/30+30/45+150",
     "locations": [
       "被遗忘的神殿"
@@ -2465,7 +2501,10 @@
     "damageReduction": "42, 52, 58",
     "restoredFromDate": null,
     "physicalDamage": "15，21，20",
-    "elementDamage": "10, 21, 65 冰",
+    "elementDamage": {
+      "type": "冰",
+      "value": "10, 21, 65"
+    },
     "note": "横扫：物理+冰：(30+20/43+43/70+125)；冻伤几率：(5/7/10)*5次；\n祈祷(冰刺)：椭圆形范围内造成 30+20/43+43/70+125，次数 5/7/9；\n祈祷期间无敌并移除自身所有负面效果；\n当生命<85%、60%、25%时发起；一次召唤2/3/5个哈特碎片；\n对冰伤免疫；受火属性伤害×2",
     "locations": [
       "冰封森林"
@@ -2482,7 +2521,10 @@
     "damageReduction": "32, 38, 71",
     "restoredFromDate": null,
     "physicalDamage": "15，20，35",
-    "elementDamage": "5, 15, 35 火",
+    "elementDamage": {
+      "type": "火",
+      "value": "5, 15, 35"
+    },
     "note": "瞬移火焰伤害(附加伤害和致盲0.5秒)；可以继承(复制)死去仆人的技能；\n火焰伤害+15/+25/+35；有机会点燃：(3/5/7)*5次；\n生命值75%和50%时有无敌护盾，需先击倒祭司后护盾消失；\n对火伤免疫；受冰伤×2",
     "locations": [
       "被遗忘的神殿"
@@ -2499,7 +2541,10 @@
     "damageReduction": null,
     "restoredFromDate": null,
     "physicalDamage": null,
-    "elementDamage": null,
+    "elementDamage": {
+      "type": "衰败",
+      "value": "待测"
+    },
     "note": "数据待补充",
     "locations": [
       "沼泽中心"
@@ -2516,7 +2561,10 @@
     "damageReduction": 57,
     "restoredFromDate": null,
     "physicalDamage": 30,
-    "elementDamage": "30 冰",
+    "elementDamage": {
+      "type": "冰",
+      "value": "30"
+    },
     "note": "武器：冰弓（冻伤20）；减速；保持距离；概率回血40；治疗绷带*4；元素伤害减半",
     "locations": [
       "大车炮台"
@@ -2720,7 +2768,10 @@
     "damageReduction": 82,
     "restoredFromDate": null,
     "physicalDamage": 60,
-    "elementDamage": "20 冰",
+    "elementDamage": {
+      "type": "冰",
+      "value": "20"
+    },
     "note": "装备：冰斧，冰盾，雪地猎人套装；\n概率冻结；概率格挡伤害2秒；减慢攻速和移动速度；\n复活药1瓶（复活一次）；治疗2*苦药酒；概率回血100；元素伤害减半",
     "locations": [
       "大车炮台"
@@ -2737,7 +2788,10 @@
     "damageReduction": 83,
     "restoredFromDate": null,
     "physicalDamage": 60,
-    "elementDamage": "40 雷",
+    "elementDamage": {
+      "type": "雷",
+      "value": "40"
+    },
     "note": "装备：鸳鸯钺，雷霆套装（造成40点伤害）；\n复活药1瓶；治疗2*苦药酒；无名教派异界之力可以免疫闪电并回血；元素伤害减半",
     "locations": [
       "大车炮台"

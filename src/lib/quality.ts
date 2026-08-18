@@ -44,20 +44,29 @@ export const QUALITY_META: Record<Quality, {
 export const QUALITY_ORDER: Record<Quality, number> =
   Object.fromEntries(QUALITIES.map((q, i) => [q, i])) as Record<Quality, number>;
 
-/**
- * 元素类型配色。火红、冰蓝、衰败绿。
- * 数据里元素名可能写作「火焰/寒冷/衰败」，也可能是「火/冰」，都在这里归一。
- */
+/** 页面显示统一使用短名，数据中的旧名称通过这里归一。 */
+export const ELEMENT_ALIASES: Record<string, string> = {
+  火焰: '火',
+  寒冷: '冰',
+  雷电: '雷',
+  闪电: '雷',
+};
+
+export function normalizeElementName(type?: string | null): string | undefined {
+  if (!type) return undefined;
+  return ELEMENT_ALIASES[type] ?? type;
+}
+
+/** 元素类型配色。 */
 export const ELEMENT_META: Record<string, { label: string; color: string }> = {
-  火焰: { label: '火焰', color: '#e05a3a' },
-  火:   { label: '火焰', color: '#e05a3a' },
-  寒冷: { label: '寒冷', color: '#4aa8e0' },
-  冰:   { label: '寒冷', color: '#4aa8e0' },
+  火:   { label: '火',   color: '#e05a3a' },
+  冰:   { label: '冰',   color: '#4aa8e0' },
   衰败: { label: '衰败', color: '#5aa84a' },
   毒:   { label: '毒',   color: '#7ab648' },
+  雷:   { label: '雷',   color: '#35d6e8' },
 };
 
 export function elementColor(type?: string | null): string {
   if (!type) return 'var(--text-dim)';
-  return ELEMENT_META[type]?.color ?? 'var(--text)';
+  return ELEMENT_META[normalizeElementName(type) ?? '']?.color ?? 'var(--text)';
 }

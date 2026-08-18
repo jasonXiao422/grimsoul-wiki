@@ -1,5 +1,5 @@
 import { tierRank } from './tiers';
-import { ELEMENT_META, QUALITY_META, QUALITY_ORDER } from './quality';
+import { ELEMENT_ALIASES, ELEMENT_META, normalizeElementName, QUALITY_META, QUALITY_ORDER } from './quality';
 
 export const FIELD_LABELS: Record<string, string> = {
   name: '名称',
@@ -32,12 +32,12 @@ export const FIELD_LABELS: Record<string, string> = {
 };
 
 export const ELEMENT_COLORS: Record<string, string> = {
-  冰: ELEMENT_META['冰'].color,
-  寒冷: ELEMENT_META['寒冷'].color,
-  火: ELEMENT_META['火'].color,
-  火焰: ELEMENT_META['火焰'].color,
-  衰败: ELEMENT_META['衰败'].color,
-  毒: '#83ad55',
+  ...Object.fromEntries(
+    [...Object.keys(ELEMENT_META), ...Object.keys(ELEMENT_ALIASES)].map((name) => [
+      name,
+      ELEMENT_META[normalizeElementName(name) ?? '']?.color ?? 'var(--text)',
+    ]),
+  ),
   暗: '#9a7bd1',
   神圣: '#d8c46a',
 };
@@ -53,7 +53,7 @@ function formatElement(value: Record<string, unknown>): string {
   const type = typeof value.type === 'string' ? value.type : '';
   const amount = value.value ?? value.amount;
   if (!type && (amount === null || amount === undefined || amount === '')) return '无';
-  const label = type ? ELEMENT_META[type]?.label ?? type : '';
+  const label = type ? ELEMENT_META[normalizeElementName(type) ?? '']?.label ?? normalizeElementName(type) ?? type : '';
   if (amount === null || amount === undefined || amount === '') return label || '无';
   return label ? `${label} ${amount}` : String(amount);
 }
@@ -62,6 +62,8 @@ export function formatValue(key: string, value: unknown): string {
   if (key === 'obtain' && (value === null || value === undefined || value === '' || value === 'N/A')) return '无需图纸制作';
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');
+
+  if (key.endsWith('.type') && typeof value === 'string') return normalizeElementName(value) ?? value;
 
   if (key === 'quality' && typeof value === 'string') {
     return QUALITY_META[value as keyof typeof QUALITY_META]?.label ?? value;

@@ -546,6 +546,36 @@ def build_amulets():
     return out
 
 
+# 敌人元素伤害的写法是「数值 类型」，如「30 冰」「2, 4, 10 火」「待测 衰败」。
+# 拆成 {type, value} 后就能复用武器那套 element 渲染与 elementColor()。
+# 左边是表里可能出现的写法，右边是站内统一使用的短名。
+# 长的写法要排在短的前面，否则「火焰」会先被「火」匹配掉。
+ENEMY_ELEMENT_WORDS = (
+    ("火焰", "火"),
+    ("火", "火"),
+    ("寒冷", "冰"),
+    ("冰", "冰"),
+    ("衰败", "衰败"),
+    ("雷电", "雷"),
+    ("闪电", "雷"),
+    ("雷", "雷"),
+)
+
+
+def parse_enemy_element(raw):
+    if raw is None:
+        return None
+    s = str(raw).strip()
+    if not s:
+        return None
+    for word, canonical in ENEMY_ELEMENT_WORDS:
+        if s.endswith(word):
+            value = s[: -len(word)].strip().rstrip(",，").strip()
+            return {"type": canonical, "value": value or None}
+    # 没写类型的原样保留，渲染时按无色处理
+    return {"type": None, "value": s}
+
+
 def build_enemies():
     """
     敌人表列序：
@@ -606,7 +636,7 @@ def build_enemies():
         hp = enemy_value(1, "生命")
         dr = enemy_value(2, "减伤")
         phys = enemy_value(3, "物理伤害")
-        element = enemy_value(4, "元素伤害")
+        element = parse_enemy_element(enemy_value(4, "元素伤害"))
         if recovered_fields:
             warnings.append(f"敌人 {name}：{'/'.join(recovered_fields)}在 Excel 中被存为日期，已按单元格显示格式还原")
 
