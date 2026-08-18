@@ -8,7 +8,7 @@
     "hp": 1,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "靠近会逃走；会偷走家里的食物，种子，除了曼德拉种子",
     "locations": [
@@ -524,8 +524,8 @@
     "group": "1-5级图",
     "groupNote": null,
     "quality": "legendary",
-    "hp": null,
-    "damageReduction": null,
+    "hp": "无限",
+    "damageReduction": "无",
     "restoredFromDate": null,
     "physicalDamage": 24,
     "elementDamage": null,
@@ -631,7 +631,7 @@
     "hp": 10,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "取决于爆炸距离",
     "elementDamage": null,
     "note": "零距离爆炸的物理伤害在200以上",
     "locations": [
@@ -1075,7 +1075,7 @@
     "restoredFromDate": null,
     "physicalDamage": 100,
     "elementDamage": null,
-    "note": "受到1.5倍衰败伤害，减免50%受到的寒冷伤害；1.嗜血。攻击时能恢复等同于其所造成的伤害的生命值。2.破甲。攻击时无视玩家部分护甲。",
+    "note": "受到1.5倍衰败伤害，1倍火焰伤害，0.5倍寒冷伤害；1.嗜血。攻击时能恢复等同于其所造成的伤害的生命值。2.破甲。攻击时无视玩家部分护甲。",
     "locations": [
       "西方银矿"
     ],
@@ -1092,7 +1092,7 @@
     "restoredFromDate": null,
     "physicalDamage": 500,
     "elementDamage": null,
-    "note": "受到1.5倍衰败伤害，减免50%受到的寒冷伤害；1.投掷炸弹。对玩家所在区域投掷炸弹，投掷时有前摇和预警，若被命中则受到500点物理伤害并被眩晕。2.自爆。死亡时自爆，对附近造成750点伤害。3.走位。会主动远离玩家，跟玩家拉开距离",
+    "note": "受到1.5倍衰败伤害，1倍火焰伤害，0.5倍寒冷伤害；1.投掷炸弹。对玩家所在区域投掷炸弹，投掷时有前摇和预警，若被命中则受到500点物理伤害并被眩晕。2.自爆。死亡时自爆，对附近造成750点伤害。3.走位。会主动远离玩家，跟玩家拉开距离",
     "locations": [
       "西方银矿"
     ],
@@ -1109,7 +1109,7 @@
     "restoredFromDate": null,
     "physicalDamage": 180,
     "elementDamage": null,
-    "note": "受到1.5倍衰败伤害，减免50%受到的寒冷伤害；1.普通攻击。距离它较近时使用近战攻击；距离较远时使用远程攻击，远程攻击有概率对玩家造成恐惧效果。2.流血。造成持续55秒的流血效果（可叠加），共20段流血伤害（8）。3.呼唤。呼叫附近的矿工和工兵。4.召唤。随机召唤一个骷髅战士(200HP)攻击玩家。",
+    "note": "受到1.5倍衰败伤害，1倍火焰伤害，0.5倍寒冷伤害；1.普通攻击。距离它较近时使用近战攻击；距离较远时使用远程攻击，远程攻击有概率对玩家造成恐惧效果。2.流血。造成持续55秒的流血效果（可叠加），共20段流血伤害（8）。3.呼唤。呼叫附近的矿工和工兵。4.召唤。随机召唤一个骷髅战士(200HP)攻击玩家。",
     "locations": [
       "西方银矿"
     ],
@@ -1126,7 +1126,7 @@
     "restoredFromDate": null,
     "physicalDamage": 200,
     "elementDamage": null,
-    "note": "受到1.5倍衰败伤害，减免50%受到的寒冷伤害；1.不稳。骨傀儡约每2秒受到50点真实伤害，约每10秒恢复250点生命值。若骨傀儡被冻结，则它将无法恢复生命值。2.加速。骨傀儡造成的伤害降低100点（快速攻击100），但是攻击速度大大提高。3.重组。骨傀儡死后将在一段时间内复活，无法彻底杀死；可闪避，降低玩家攻速；击败后会清除仇恨值并回归原位置。",
+    "note": "受到1.5倍衰败伤害，1倍火焰伤害，0.5倍寒冷伤害；1.不稳。骨傀儡约每2秒受到50点真实伤害，约每10秒恢复250点生命值。若骨傀儡被冻结，则它将无法恢复生命值。2.加速。骨傀儡造成的伤害降低100点（快速攻击100），但是攻击速度大大提高。3.重组。骨傀儡死后将在一段时间内复活，无法彻底杀死；可闪避，降低玩家攻速；击败后会清除仇恨值并回归原位置。",
     "locations": [
       "西方银矿"
     ],
@@ -1385,7 +1385,7 @@
     "hp": 250,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "2024年万圣节彩蛋",
     "locations": [
@@ -1402,7 +1402,7 @@
     "hp": 25,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "站着靠近会逃走",
     "locations": [
@@ -1660,7 +1660,7 @@
     "hp": 300,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "召唤被咒者，麻风病人，和瘟疫之卵（共三次）",
     "locations": [
@@ -1813,7 +1813,7 @@
     "hp": 450,
     "damageReduction": 69,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "本身不具攻击性，但受到伤害会瞬移，定期召唤2-4个骷髅",
     "locations": [
@@ -1898,7 +1898,7 @@
     "hp": 50,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "站着靠近会逃跑，需要蹲着走；每个地点最多四只",
     "locations": [
@@ -2025,7 +2025,7 @@
     "locations": [
       "圣诞节活动"
     ],
-    "dataIncomplete": null
+    "dataIncomplete": true
   },
   {
     "id": "han-leng-cheng-zai-zhe",
@@ -2042,7 +2042,7 @@
     "locations": [
       "圣诞节活动"
     ],
-    "dataIncomplete": null
+    "dataIncomplete": true
   },
   {
     "id": "ke-lao-si-si-ling-you-jun",
@@ -2059,7 +2059,7 @@
     "locations": [
       "(克劳斯指挥官 vs 瘟疫圣诞老人)"
     ],
-    "dataIncomplete": null
+    "dataIncomplete": true
   },
   {
     "id": "wen-yi-sheng-dan-lao-ren",
@@ -2194,7 +2194,7 @@
     "hp": 80,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "从内部召唤最多10只衰败鼠，15分钟后毒云5*3次",
     "locations": [
@@ -2266,7 +2266,7 @@
     "hp": 100,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "无敌直到茧被摧毁，15分钟后毒云伤害5*3次",
     "locations": [
@@ -2716,7 +2716,7 @@
     "hp": 120,
     "damageReduction": 55,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "会投掷三种类型炸弹：冰冻20、南瓜炸弹35、毒药120；免疫毒素；元素伤害减半",
     "locations": [
@@ -2807,7 +2807,7 @@
     "hp": 500,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": null,
+    "physicalDamage": "无",
     "elementDamage": null,
     "note": "站着靠近会逃走，蹲着不会；不会进攻，很少出现，出现位置不超过一个（普通模式）",
     "locations": [
