@@ -409,13 +409,15 @@ def build_shields():
       0 名称 / 1 耐久 / 2 防御值 / 3 制作 / 4 效果 / 5 获取途径
     """
     out = []
-    for row in rows_of("shields")[1:]:
+    for cells in cells_of("shields")[1:]:
+        row = [c.value for c in cells]
         name = text(row[0])
         if not name:
             continue
         out.append({
             "id": make_id(name),
             "name": re.sub(r"\s+", "", name),
+            "quality": quality_from_fill(cells[0]),
             "armor": clean(row[2]),
             "durability": parse_durability(row[1]),
             "cost": parse_cost(row[3]),
@@ -446,13 +448,15 @@ def build_backpacks():
       0 名称 / 1 储存栏 / 2 元素伤害保护 / 3 制作配方 / 4 效果 / 5 获取途径
     """
     out = []
-    for row in rows_of("backpacks")[1:]:
+    for cells in cells_of("backpacks")[1:]:
+        row = [c.value for c in cells]
         name = text(row[0])
         if not name:
             continue
         out.append({
             "id": make_id(name),
             "name": re.sub(r"\s+", "", name),
+            "quality": quality_from_fill(cells[0]),
             "slots": clean(row[1]),
             "protection": parse_protection(row[2]),
             "cost": parse_cost(row[3]),
@@ -470,12 +474,19 @@ QUALITY_BY_FILL = {
     None:       "common",     # 无填充
     "00000000": "common",
     "FFFFFFFF": "common",
-    "FF4A86E8": "rare",       # 蓝
-    "FF4285F4": "rare",       # 蓝（另一种色板）
-    "FFFBBC04": "unique",     # 黄橙
+    # 蓝 —— 稀有
+    "FF4A86E8": "rare",
+    "FF4285F4": "rare",
+    "FF02A5E3": "rare",
+    # 黄橙 —— 独特
+    "FFFBBC04": "unique",
     "FFF1C232": "unique",
-    "FF351C75": "legendary",  # 紫
+    "FFFFC000": "unique",
+    # 紫 —— 传说
+    "FF351C75": "legendary",
     "FF674EA7": "legendary",
+    "FF9933FF": "legendary",
+    "FF808080": "legendary",  # 盾牌表里黑色炽热惩罚护盾用了灰底
 }
 
 

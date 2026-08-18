@@ -2,6 +2,7 @@
   {
     "id": "teng-bian-hu-dun",
     "name": "藤编护盾",
+    "quality": "common",
     "armor": 6,
     "durability": {
       "value": 200,
@@ -27,6 +28,7 @@
   {
     "id": "pi-ge-hu-dun",
     "name": "皮革护盾",
+    "quality": "common",
     "armor": 17,
     "durability": {
       "value": 200,
@@ -56,6 +58,7 @@
   {
     "id": "fu-he-hu-dun",
     "name": "复合护盾",
+    "quality": "common",
     "armor": 22,
     "durability": {
       "value": 200,
@@ -89,6 +92,7 @@
   {
     "id": "qing-dun",
     "name": "轻盾",
+    "quality": "common",
     "armor": 27,
     "durability": {
       "value": 200,
@@ -122,6 +126,7 @@
   {
     "id": "tie-ding-dun",
     "name": "铁钉盾",
+    "quality": "common",
     "armor": 50,
     "durability": {
       "value": 250,
@@ -155,6 +160,7 @@
   {
     "id": "hei-se-tie-ding-dun",
     "name": "黑色铁钉盾",
+    "quality": "rare",
     "armor": 50,
     "durability": {
       "value": 334,
@@ -167,6 +173,7 @@
   {
     "id": "xiao-yuan-dun",
     "name": "小圆盾",
+    "quality": "rare",
     "armor": 70,
     "durability": {
       "value": 250,
@@ -200,6 +207,7 @@
   {
     "id": "fa-er-wei-si-hu-dun",
     "name": "法尔维斯护盾",
+    "quality": "unique",
     "armor": 20,
     "durability": {
       "value": 200,
@@ -212,6 +220,7 @@
   {
     "id": "xuan-yun-dun",
     "name": "眩晕盾",
+    "quality": "unique",
     "armor": 100,
     "durability": {
       "value": 250,
@@ -224,6 +233,7 @@
   {
     "id": "sheng-dian-qi-shi-hu-dun",
     "name": "圣殿骑士护盾",
+    "quality": "unique",
     "armor": 115,
     "durability": {
       "value": 250,
@@ -236,6 +246,7 @@
   {
     "id": "bei-zhou-zhe-guan-jun-hu-dun",
     "name": "被咒者冠军护盾",
+    "quality": "unique",
     "armor": 150,
     "durability": {
       "value": 250,
@@ -248,6 +259,7 @@
   {
     "id": "jue-dou-shi-hu-dun",
     "name": "角斗士护盾",
+    "quality": "unique",
     "armor": 150,
     "durability": {
       "value": 250,
@@ -260,6 +272,7 @@
   {
     "id": "bing-hu-dun",
     "name": "冰护盾",
+    "quality": "unique",
     "armor": 150,
     "durability": {
       "value": 250,
@@ -272,6 +285,7 @@
   {
     "id": "huang-di-zhi-dun",
     "name": "皇帝之盾",
+    "quality": "legendary",
     "armor": 200,
     "durability": {
       "value": 325,
@@ -284,6 +298,7 @@
   {
     "id": "yu-yan-e-meng-hu-dun",
     "name": "预言恶梦护盾",
+    "quality": "legendary",
     "armor": 150,
     "durability": {
       "value": 143,
@@ -296,6 +311,7 @@
   {
     "id": "chi-re-cheng-fa-hu-dun",
     "name": "炽热惩罚护盾",
+    "quality": "legendary",
     "armor": 150,
     "durability": {
       "value": 143,
@@ -308,6 +324,7 @@
   {
     "id": "hei-se-chi-re-cheng-fa-hu-dun",
     "name": "黑色炽热惩罚护盾",
+    "quality": "legendary",
     "armor": 150,
     "durability": {
       "raw": "待测"

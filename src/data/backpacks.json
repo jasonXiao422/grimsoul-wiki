@@ -2,6 +2,7 @@
   {
     "id": "po-ma-dai",
     "name": "破麻袋",
+    "quality": "common",
     "slots": 5,
     "protection": null,
     "cost": [
@@ -20,6 +21,7 @@
   {
     "id": "pi-bao",
     "name": "皮包",
+    "quality": "common",
     "slots": 10,
     "protection": null,
     "cost": [
@@ -46,6 +48,7 @@
   {
     "id": "pi-tuo-lan",
     "name": "皮驮篮",
+    "quality": "rare",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -55,6 +58,7 @@
   {
     "id": "lv-xing-dai",
     "name": "旅行袋",
+    "quality": "rare",
     "slots": 10,
     "protection": null,
     "cost": [],
@@ -64,6 +68,7 @@
   {
     "id": "hei-tuo-lan",
     "name": "黑驮篮",
+    "quality": "rare",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -73,6 +78,7 @@
   {
     "id": "xuan-mi-tuo-lan",
     "name": "玄秘驮篮",
+    "quality": "rare",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -82,6 +88,7 @@
   {
     "id": "xing-xing-zhe-tuo-lan",
     "name": "行刑者驮篮",
+    "quality": "rare",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -91,6 +98,7 @@
   {
     "id": "grimsoul-tuo-lan",
     "name": "《GrimSoul》驮篮",
+    "quality": "rare",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -100,6 +108,7 @@
   {
     "id": "you-shang-tuo-lan",
     "name": "游商驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -109,6 +118,7 @@
   {
     "id": "tie-chu-nv",
     "name": "铁处女",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [
@@ -139,6 +149,7 @@
   {
     "id": "mu-guang-tuo-lan",
     "name": "暮光驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -148,6 +159,7 @@
   {
     "id": "wen-yi-yi-sheng-tuo-lan",
     "name": "瘟疫医生驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -157,6 +169,7 @@
   {
     "id": "cang-shu-jia-tuo-lan",
     "name": "藏书家驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -166,6 +179,7 @@
   {
     "id": "xiong-tuo-lan",
     "name": "熊驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -175,6 +189,7 @@
   {
     "id": "meng-jun-tuo-lan",
     "name": "盟军驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -184,6 +199,7 @@
   {
     "id": "sheng-dan-tuo-lan",
     "name": "圣诞驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -193,6 +209,7 @@
   {
     "id": "bei-fang-lang-tuo-lan",
     "name": "北方狼驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": {
       "type": "寒冷",
@@ -205,6 +222,7 @@
   {
     "id": "grimsoul-lv-xing-tuo-lan",
     "name": "《GrimSoul》旅行驮篮",
+    "quality": "unique",
     "slots": 15,
     "protection": null,
     "cost": [],
@@ -214,6 +232,7 @@
   {
     "id": "pi-pa-tuo-lan",
     "name": "琵琶驮篮",
+    "quality": "unique",
     "slots": 17,
     "protection": null,
     "cost": [],
@@ -223,6 +242,7 @@
   {
     "id": "hao-hua-tuo-lan",
     "name": "豪华驮篮",
+    "quality": "unique",
     "slots": 17,
     "protection": null,
     "cost": [],
@@ -232,6 +252,7 @@
   {
     "id": "zhi-zhu-tuo-lan",
     "name": "蜘蛛驮篮",
+    "quality": "unique",
     "slots": 17,
     "protection": null,
     "cost": [],
@@ -241,6 +262,7 @@
   {
     "id": "chao-sheng-zhe-zhi-fu-tuo-lan",
     "name": "朝圣者之父驮篮",
+    "quality": "legendary",
     "slots": 15,
     "protection": null,
     "cost": [
@@ -267,6 +289,7 @@
   {
     "id": "yan-han-tuo-lan",
     "name": "严寒驮篮",
+    "quality": "legendary",
     "slots": 15,
     "protection": {
       "type": "寒冷",
@@ -300,6 +323,7 @@
   {
     "id": "huo-huo-tuo-lan",
     "name": "活火驮篮",
+    "quality": "legendary",
     "slots": 15,
     "protection": {
       "type": "火焰",
@@ -333,6 +357,7 @@
   {
     "id": "yong-heng-shuai-bai-tuo-lan",
     "name": "永恒衰败驮篮",
+    "quality": "legendary",
     "slots": 15,
     "protection": {
       "type": "衰败",
@@ -366,6 +391,7 @@
   {
     "id": "you-ling-di-yu-tuo-lan",
     "name": "幽灵低语驮篮",
+    "quality": "legendary",
     "slots": 17,
     "protection": null,
     "cost": [
@@ -396,6 +422,7 @@
   {
     "id": "you-yi-tuo-lan",
     "name": "有翼驮篮",
+    "quality": "legendary",
     "slots": 17,
     "protection": null,
     "cost": [],
@@ -405,6 +432,7 @@
   {
     "id": "hao-hua-grimsoul-tuo-lan",
     "name": "豪华《GrimSoul》驮篮",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],
@@ -414,6 +442,7 @@
   {
     "id": "da-shi-lie-ren-de-tuo-lan",
     "name": "大师猎人的驮篮",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],
@@ -423,6 +452,7 @@
   {
     "id": "xue-di-lie-ren-tuo-lan",
     "name": "雪地猎人驮篮",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],
@@ -432,6 +462,7 @@
   {
     "id": "yin-ying-tuo-lan",
     "name": "阴影驮蓝",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],
@@ -441,6 +472,7 @@
   {
     "id": "wei-zao-kong-bu",
     "name": "伪造恐怖",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],
@@ -450,6 +482,7 @@
   {
     "id": "ci-gu-zhi-han-tuo-lan",
     "name": "刺骨之寒驮篮",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],
@@ -459,6 +492,7 @@
   {
     "id": "feng-bao-shi-zhe-tuo-lan",
     "name": "风暴使者驮篮",
+    "quality": "legendary",
     "slots": 20,
     "protection": null,
     "cost": [],

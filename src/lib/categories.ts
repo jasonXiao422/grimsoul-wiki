@@ -67,12 +67,12 @@ export const CATEGORIES: CategoryDef[] = [
     blurb: '防御值、格挡效果与获取',
     file: 'shields',
     columns: [
-      { key: 'name', label: '名称', sortable: true },
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'armor', label: '防御值', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
       { key: 'obtain', label: '获取途径', sortable: true },
     ],
-    filters: ['obtain'],
+    filters: ['quality', 'obtain'],
     defaultSort: 'armor',
   },
   {
@@ -81,12 +81,12 @@ export const CATEGORIES: CategoryDef[] = [
     blurb: '储存栏位与元素防护',
     file: 'backpacks',
     columns: [
-      { key: 'name', label: '名称', sortable: true },
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'slots', label: '储存栏', sortable: true, numeric: true },
       { key: 'protection', label: '元素防护', render: 'element' },
       { key: 'obtain', label: '获取途径', sortable: true },
     ],
-    filters: ['slots', 'obtain'],
+    filters: ['slots', 'quality', 'obtain'],
     defaultSort: 'slots',
   },
   {
