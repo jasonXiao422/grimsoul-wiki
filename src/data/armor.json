@@ -2998,8 +2998,8 @@
         "effect": null
       },
       {
-        "id": "ai-dao-shou-ge-zhe-ma-ku",
-        "name": "哀悼收割者马裤",
+        "id": "ai-dao-shou-ge-zhe-ku-zi",
+        "name": "哀悼收割者裤子",
         "quality": "unique",
         "armor": 190,
         "protection": null,
@@ -3032,8 +3032,8 @@
         "effect": null
       },
       {
-        "id": "ai-dao-shou-ge-zhe-tui-jia",
-        "name": "哀悼收割者腿甲",
+        "id": "ai-dao-shou-ge-zhe-xue-zi",
+        "name": "哀悼收割者靴子",
         "quality": "unique",
         "armor": 60,
         "protection": null,
