@@ -1,7 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../lib/categories';
 import { getCategoryBlurb, getCategoryCount, type CategorySlug } from '../lib/data';
+import knightOrders from '../data/knight-orders.json';
+
+const loreCount = (await getCollection('lore')).length;
+const orderCount = knightOrders.length;
 
 const categoryCards = CATEGORIES.map((category) => ({
   ...category,
@@ -25,6 +30,20 @@ const entryCards = [
     blurb: '护甲值与减伤的换算关系',
     href: '/guides/armor',
     badge: '机制攻略',
+  },
+  {
+    slug: 'lore',
+    label: '背景故事',
+    blurb: '世界背景、历史与未解之谜',
+    href: '/lore',
+    badge: `${loreCount} 篇`,
+  },
+  {
+    slug: 'orders',
+    label: '骑士团',
+    blurb: '骑士团的起源、职责与最终命运',
+    href: '/orders',
+    badge: `${orderCount} 支`,
   },
 ].map((card) => ({
   ...card,
