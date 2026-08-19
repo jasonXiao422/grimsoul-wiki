@@ -46,6 +46,7 @@ const SOURCES = [
   { file: 'amulets', cat: 'amulets', label: '护符', parent: quality },
   { file: 'scrolls', cat: 'scrolls', label: '卷轴', parent: quality },
   { file: 'runes', cat: 'runes', label: '符文', parent: quality },
+  { file: 'consumables', cat: 'consumables', label: '食物药剂', parent: quality },
   { file: 'enemies', cat: 'enemies', label: '敌人', parent: quality },
   { file: 'materials', cat: 'materials', label: '材料', parent: () => undefined },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },

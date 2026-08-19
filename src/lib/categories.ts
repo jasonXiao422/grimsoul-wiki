@@ -11,6 +11,9 @@ export interface ColumnDef {
   numeric?: boolean;
   /** 特殊渲染方式，组件里按这个分支处理 */
   render?: 'element' | 'durability' | 'cost' | 'tier' | 'list' | 'quality';
+  /** 排序时改用另一个字段。显示的值是混合写法、无法直接比较时用，
+   *  例如食物的「持续治愈」显示「瞬间120，240」，排序用 healingSort 的 360 */
+  sortKey?: string;
 }
 
 export interface CategoryDef {
@@ -25,6 +28,8 @@ export interface CategoryDef {
   groupBy?: string | null;
   /** 列表默认排序字段 */
   defaultSort?: string;
+  /** 默认排序方向，缺省为 asc */
+  defaultSortDir?: 'asc' | 'desc';
 }
 
 export const CATEGORIES: CategoryDef[] = [
@@ -125,6 +130,22 @@ export const CATEGORIES: CategoryDef[] = [
     ],
     filters: ['quality'],
     defaultSort: 'quality',
+  },
+  {
+    slug: 'consumables',
+    label: '食物&药剂',
+    blurb: '治愈量、饱食度与制作地点',
+    file: 'consumables',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'healing', label: '持续治愈', sortable: true, numeric: true, sortKey: 'healingSort' },
+      { key: 'satiety', label: '饱食度', sortable: true, numeric: true },
+      { key: 'thirst', label: '口渴值', sortable: true, numeric: true },
+      { key: 'craftedAt', label: '制作地点', sortable: true },
+    ],
+    filters: ['quality', 'craftedAt'],
+    defaultSort: 'healing',
+    defaultSortDir: 'desc',
   },
   {
     slug: 'enemies',

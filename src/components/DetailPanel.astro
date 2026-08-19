@@ -13,7 +13,7 @@ interface Props {
 
 const { categorySlug, item } = Astro.props;
 const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
-const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'dataIncomplete', 'entity', 'groupNote', 'restoredFromDate']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'dataIncomplete', 'entity', 'groupNote', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -69,6 +69,7 @@ const attrRows = Object.entries(item)
   }));
 
 const hasCostField = Array.isArray(item.cost);
+const recipes = categorySlug === 'consumables' && Array.isArray(item.recipes) ? item.recipes : [];
 const pieces = Array.isArray(item.pieces) ? item.pieces : [];
 const eyebrow = item.tier ? `品阶 ${item.tier}` : '资料详情';
 const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefined;
@@ -119,6 +120,60 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
     )}
 
     {categorySlug === 'enemies' && <GroupNote note={item.groupNote} group={item.group} />}
+
+    {recipes.length > 0 && (
+      <section class="section panel">
+        <h2>制作配方</h2>
+        <div class="piece-list">
+          {recipes.map((recipe) => (
+            <article class="piece-card consumable-recipe">
+              {recipe.label && <h3>{recipe.label}</h3>}
+              {recipe.items?.length > 0 && (
+                <ul class="recipe-list compact consumable-recipe-list">
+                  {recipe.items.map((recipeItem) => {
+                    const ref = recipeItem.ref;
+                    const refHref = ref?.cat && ref?.id ? `/${ref.cat}/${ref.id}` : undefined;
+                    const refQualityMeta = getQualityMeta(ref?.quality ?? 'common');
+                    const refQualityStyle = refQualityMeta
+                      ? `--quality-border:${refQualityMeta.border};--quality-glow:${refQualityMeta.glow}`
+                      : undefined;
+                    const recipeItemContent = (
+                      <>
+                        {refHref && (
+                          <img
+                            class:list={['item-icon', refQualityMeta && 'quality-icon']}
+                            src={`/images/${ref.cat}/${ref.id}.webp`}
+                            alt={recipeItem.name}
+                            loading="lazy"
+                            style={refQualityStyle}
+                            data-fallback={materialFallback}
+                            onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                          />
+                        )}
+                        <span>
+                          {recipeItem.name} ×{recipeItem.qty}
+                          {recipeItem.note && `（${recipeItem.note}）`}
+                        </span>
+                      </>
+                    );
+                    return (
+                      <li>
+                        {refHref ? (
+                          <a class="recipe-item-link" href={refHref}>{recipeItemContent}</a>
+                        ) : (
+                          <span class="recipe-item-unlinked">{recipeItemContent}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+              {recipe.yield && <p class="muted recipe-yield">得到{recipe.yield}</p>}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
 
     {hasCostField && (
       <section class="section panel">

@@ -18,6 +18,12 @@ from pathlib import Path
 from openpyxl import load_workbook
 from pypinyin import lazy_pinyin
 
+# Windows 控制台默认 GBK 编码，打印中文警告会抛 UnicodeEncodeError，
+# 导致数据其实已经写完、进程却以失败退出。强制标准输出用 UTF-8。
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data-source"
 OUT = ROOT / "src" / "data"
@@ -31,6 +37,7 @@ FILES = {
     "amulets": ("护符数据.xlsx", "Sheet1"),
     "scrolls": ("卷轴数据.xlsx", "Sheet1"),
     "runes": ("符文数据.xlsx", "Sheet1"),
+    "consumables": ("食物_药数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -525,6 +532,151 @@ def quality_from_fill(cell):
     return QUALITY_BY_FILL[rgb]
 
 
+# 食物药剂表里表示「没有」的几种写法
+CONSUMABLE_EMPTY = {"-", "无", "—", "/"}
+
+# 「材料名：数量」，数量后面可能跟一个括号注释，如「南瓜子：1（需种植）」
+RECIPE_ITEM_RE = re.compile(r"^(?P<name>.+?)[：:]\s*(?P<qty>\d+)\s*(?:[（(](?P<note>.*?)[）)])?$")
+# 行尾的产出说明，如「，得到浆果饮料*1」
+RECIPE_YIELD_RE = re.compile(r"[，,]\s*(?P<yield>得到.+)$")
+
+
+def _consumable_value(raw):
+    value = text(raw)
+    if value is None or value.strip() in CONSUMABLE_EMPTY:
+        return None
+    return value
+
+
+def healing_sort_key(raw):
+    """
+    从持续治愈列抽出一个数值，供列表页排序用。
+
+    这一列写法不统一：「200」「瞬间100」「瞬间120，240」。
+    取所有数字之和当作总治愈量 —— 目前只有僧侣药酒是两段
+    （瞬间120 + 持续240 = 360），其余都是单个数字。
+
+    药水类没有治愈量，返回 None，排序时排在最后。
+    """
+    value = _consumable_value(raw)
+    if value is None:
+        return None
+    numbers = [int(n) for n in re.findall(r"\d+", str(value))]
+    return sum(numbers) if numbers else None
+
+
+def parse_recipe_text(raw, owner=""):
+    """
+    把配方原文拆成结构化的配方组，供详情页像护甲部件那样分组展示。
+
+    一格里可能有多套配方，用换行分隔。每行的形态：
+
+        曼德拉药酒：1；苦药酒：1                      → 无标签，两种材料
+        厨师营地配方：烈酒：1；冬青果：5               → 有标签
+        厨师营地配方1：山楂：3，得到浆果饮料*1          → 有标签，带产出说明
+        南瓜子：1（需种植）                          → 材料带括号注释
+        错误的厨师营地配方                           → 只有标签，没有材料
+
+    返回 [{"label": str|None, "items": [{"name","qty","note"}], "yield": str|None}]
+
+    材料名保持原文，不转成 material id：一格内含多套配方，且原料里有
+    「曼德拉药酒」「苦药酒」这类本身就是食物的条目，不在 materials.json 里，
+    硬映射会污染材料反推表。
+    """
+    value = _consumable_value(raw)
+    if value is None:
+        return None
+
+    recipes = []
+    for line in str(value).split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+
+        yield_note = None
+        matched = RECIPE_YIELD_RE.search(line)
+        if matched:
+            yield_note = matched.group("yield").strip()
+            line = line[: matched.start()].strip()
+
+        chunks = [c.strip() for c in re.split(r"[；;]", line) if c.strip()]
+        if not chunks:
+            continue
+
+        label = None
+        first = chunks[0]
+        colons = len(re.findall(r"[：:]", first))
+        if colons == 0:
+            # 整行没有「材料：数量」，只是一句说明
+            recipes.append({"label": first, "items": [], "yield": yield_note})
+            continue
+        if colons >= 2:
+            label, _, first = first.partition("：") if "：" in first else first.partition(":")
+            label = label.strip()
+            chunks[0] = first.strip()
+
+        items = []
+        for chunk in chunks:
+            item = RECIPE_ITEM_RE.match(chunk)
+            if not item:
+                warnings.append(f"配方 {owner}：无法解析「{chunk}」，已按原文保留")
+                items.append({"name": chunk, "qty": None, "note": None})
+                continue
+            items.append({
+                "name": item.group("name").strip(),
+                "qty": int(item.group("qty")),
+                "note": (item.group("note") or "").strip() or None,
+            })
+
+        recipes.append({"label": label, "items": items, "yield": yield_note})
+
+    return recipes or None
+
+
+def build_consumables():
+    """
+    食物药剂表列序：
+      0 名称 / 1 特殊效果 / 2 持续治愈 / 3 饱食度 / 4 口渴值 / 5 配方 / 6 制作地点
+
+    第 1 行是标题（A1:G1 合并），第 2 行是表头，从第 3 行开始是数据。
+
+    配方列保持原文不解析。一格里可能有多套配方（厨师营地配方 / 默认配方 /
+    配方1 / 配方2），而且原料里有「曼德拉药酒」「苦药酒」这类本身就是食物
+    的条目，不在 materials.json 里。硬拆成材料 id 会污染材料反推表，
+    所以按整段文本存进 recipeText，详情页按换行分行渲染。
+
+    持续治愈的写法不统一（「200」「瞬间100」「瞬间120，240」），
+    保持字符串原样，不要强转数字。
+    """
+    out = []
+    started = False
+    for cells in cells_of("consumables"):
+        row = [c.value for c in cells]
+        first = text(row[0])
+
+        if not started:                      # 跳过标题行与表头行
+            if first == "名称":
+                started = True
+            continue
+        if not first:
+            continue
+
+        name = first
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "quality": quality_from_fill(cells[0]),
+            "healing": _consumable_value(row[2]),
+            "healingSort": healing_sort_key(row[2]),
+            "satiety": _consumable_value(row[3]),
+            "thirst": _consumable_value(row[4]),
+            "craftedAt": _consumable_value(row[6]),
+            "effect": _consumable_value(row[1]),
+            "recipes": parse_recipe_text(row[5], name),
+        })
+    return out
+
+
 def build_runes():
     """
     符文表列序：
@@ -737,9 +889,54 @@ def link_material_entities(materials, catalog):
             m["entity"] = {"cat": hit[0], "id": hit[1]}
 
 
-def build_materials(*datasets):
-    """从所有配方里反推材料总表。"""
+def link_recipe_entities(consumables, materials, catalog):
+    """
+    把食物药剂配方里的原料名解析成站内条目引用，供详情页渲染图标框和跳转链接。
+
+    原料横跨多个板块：「生肉」「蘑菇汤」是食物本身，「烈酒」「布料」是材料，
+    理论上还可能出现武器护甲。按 食物药剂 → 材料 → 其他板块 的顺序查名字，
+    命中就在该原料上写 ref = {"cat", "id", "quality"}。
+
+    quality 带出来是为了让前端画品质色外框；材料没有品质，该字段为 None。
+    查不到的原料保持纯文本，前端渲染成不可点击的普通标签。
+    """
+    index = {}
+    for item in consumables:                       # 食物药剂优先，它们有自己的详情页
+        index.setdefault(item["name"], ("consumables", item["id"], item.get("quality")))
+    for item in materials:
+        index.setdefault(item["name"], ("materials", item["id"], None))
+    for name, hit in catalog.items():
+        index.setdefault(name, (hit[0], hit[1], None))
+
+    unresolved = set()
+    for item in consumables:
+        for recipe in item.get("recipes") or []:
+            for ingredient in recipe["items"]:
+                name = MATERIAL_ALIAS.get(ingredient["name"], ingredient["name"])
+                hit = index.get(name)
+                if not hit:
+                    unresolved.add(ingredient["name"])
+                    continue
+                ingredient["ref"] = {"cat": hit[0], "id": hit[1], "quality": hit[2]}
+
+    if unresolved:
+        warnings.append(
+            "食物药剂配方里有 %d 种原料在站内找不到对应条目，将显示为纯文本：%s"
+            % (len(unresolved), "、".join(sorted(unresolved)))
+        )
+
+
+def build_materials(*datasets, skip_names=()):
+    """
+    从所有配方里反推材料总表。
+
+    skip_names 里的名字不计入。食物药剂的配方原料大半本身就是食物
+    （生肉、韭葱、苦药酒…），它们已经有自己的详情页，再塞进材料表
+    会让材料列表变得混杂。只有那些在站内没有任何条目的原料
+    （烈酒、小空瓶、各类种子）才需要补进来。
+    """
     counts = {}
+    skip = set(skip_names)
     for data in datasets:
         for item in data:
             for c in item.get("cost", []) or []:
@@ -747,6 +944,13 @@ def build_materials(*datasets):
             for p in item.get("pieces", []) or []:
                 for c in p.get("cost", []) or []:
                     counts[c["material"]] = counts.get(c["material"], 0) + 1
+            # 食物药剂的配方结构不同：recipes[].items[]，字段是 name 不是 material
+            for r in item.get("recipes", []) or []:
+                for ing in r.get("items", []) or []:
+                    name = MATERIAL_ALIAS.get(ing["name"], ing["name"])
+                    if name in skip:
+                        continue
+                    counts[name] = counts.get(name, 0) + 1
     return [
         {"id": make_id(name, "mat"), "name": name, "usedIn": n}
         for name, n in sorted(counts.items(), key=lambda kv: -kv[1])
@@ -784,14 +988,17 @@ def main():
     amulets = build_amulets()
     scrolls = build_scrolls()
     runes = build_runes()
+    consumables = build_consumables()
 
-    materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
+    materials = build_materials(weapons, armor_sets, armor_pieces, shields,
+                                backpacks, amulets, consumables,
+                                skip_names={c["name"] for c in consumables})
 
     # 材料名若与某个真实条目同名，记录跳转目标
     catalog = {}
     for cat, data in [("weapons", weapons), ("armor", armor_sets),
                       ("armor-pieces", armor_pieces), ("shields", shields),
-                      ("backpacks", backpacks)]:
+                      ("backpacks", backpacks), ("consumables", consumables)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
             for pc in it.get("pieces", []) or []:
@@ -799,6 +1006,9 @@ def main():
     link_material_entities(materials, catalog)
 
     link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
+
+    # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
+    link_recipe_entities(consumables, materials, catalog)
 
     write("weapons", weapons)
     write("armor", armor_sets)
@@ -809,6 +1019,7 @@ def main():
     write("amulets", amulets)
     write("scrolls", scrolls)
     write("runes", runes)
+    write("consumables", consumables)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)

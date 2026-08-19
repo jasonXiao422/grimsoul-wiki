@@ -53,6 +53,7 @@
 | `amulets.json` | 护符 |
 | `scrolls.json` | 卷轴 |
 | `runes.json` | 符文 |
+| `consumables.json` | 食物与药剂 |
 | `enemies.json` | 敌人，`group` 字段是地点大类 |
 | `materials.json` | **从所有配方自动反推**，不来自任何 Excel |
 | `knight-orders.json` | 骑士团，**唯一手工维护的 JSON** |
@@ -70,6 +71,9 @@
 ```
 
 转换脚本是 `scripts/import_excel.py`，**单一入口，不要拆分成多个脚本**。
+
+列表列配置还支持 `sortKey`：显示字段与排序字段不一致时，用它指定实际比较的字段；显示仍使用 `key`。
+`CategoryDef.defaultSortDir` 可设为 `asc` 或 `desc`，缺省为升序；排序空值始终置于末尾。
 
 ## 品质与品阶是两回事
 
@@ -149,6 +153,7 @@
 | `/guides/[slug]` | 机制攻略（马匹机制、护甲与减伤），含交互计算器 |
 | `/scrolls` `/scrolls/[id]` | 卷轴列表与详情 |
 | `/runes` `/runes/[id]` | 符文列表与详情 |
+| `/consumables` `/consumables/[id]` | 食物与药剂列表与详情 |
 | 各板块 `/[category]` `/[category]/[id]` | 列表页与详情页 |
 
 顶部导航一级项：武器、护甲、盾牌、驮篮、护符、卷轴、符文、敌人、其他。
@@ -180,6 +185,11 @@
   且不能出现先闪顶部再跳回的抖动
 - 卡片用 flex 纵向布局，**标题固定顶部，高度差异吸收在底部**，
   否则同行卡片的标题不对齐
+
+食物与药剂数据源为 `data-source/食物_药数据.xlsx`。
+
+`consumables` 的 `recipes` 是结构化配方组，原料通过 `ref` 关联到 `consumables` 或 `materials`；
+材料表会因食物配方新增原料条目。
 
 ## tools/ 目录
 

@@ -1,0 +1,1757 @@
+[
+  {
+    "id": "seng-lv-yao-jiu",
+    "name": "僧侣药酒",
+    "quality": "rare",
+    "healing": "瞬间120，持续240",
+    "healingSort": 360,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": "厨师营地",
+    "effect": "攻击速度提高25%，持续20秒",
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "曼德拉药酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "man-de-la-yao-jiu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "苦药酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "ku-yao-jiu",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "ku-yao-jiu",
+    "name": "苦药酒",
+    "quality": "common",
+    "healing": "瞬间100",
+    "healingSort": 100,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": "厨师营地；默认配方",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "厨师营地配方",
+        "items": [
+          {
+            "name": "烈酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-lie-jiu",
+              "quality": null
+            }
+          },
+          {
+            "name": "冬青果",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "dong-qing-guo",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "默认配方",
+        "items": [
+          {
+            "name": "烈酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-lie-jiu",
+              "quality": null
+            }
+          },
+          {
+            "name": "布料",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-bu-liao",
+              "quality": null
+            }
+          },
+          {
+            "name": "冬青果",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "dong-qing-guo",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "beng-dai",
+    "name": "绷带",
+    "quality": "common",
+    "healing": "瞬间40",
+    "healingSort": 40,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": "默认配方",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "亚麻纤维",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ya-ma-xian-wei",
+              "quality": null
+            }
+          },
+          {
+            "name": "布料",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-bu-liao",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "man-de-la-yao-jiu",
+    "name": "曼德拉药酒",
+    "quality": "common",
+    "healing": "200",
+    "healingSort": 200,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": "厨师营地；默认配方",
+    "effect": "攻击速度提高25%，持续20秒",
+    "recipes": [
+      {
+        "label": "厨师营地配方",
+        "items": [
+          {
+            "name": "烈酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-lie-jiu",
+              "quality": null
+            }
+          },
+          {
+            "name": "曼德拉草根",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "man-de-la-cao-gen",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "默认配方",
+        "items": [
+          {
+            "name": "烈酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-lie-jiu",
+              "quality": null
+            }
+          },
+          {
+            "name": "布料",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-bu-liao",
+              "quality": null
+            }
+          },
+          {
+            "name": "曼德拉草根",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "man-de-la-cao-gen",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "tian-wei-mo-gu-yao-jiu",
+    "name": "甜味蘑菇药酒",
+    "quality": "rare",
+    "healing": "160",
+    "healingSort": 160,
+    "satiety": null,
+    "thirst": "40",
+    "craftedAt": "厨师营地",
+    "effect": "消除毒效果",
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "蘑菇浸剂",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "mo-gu-jin-ji",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "浆果饮料",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiang-guo-yin-liao",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "lu-bi-ni-ya-dun-rou",
+    "name": "卢比尼亚炖肉",
+    "quality": "rare",
+    "healing": "150",
+    "healingSort": 150,
+    "satiety": "100",
+    "thirst": "10",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "配方1",
+        "items": [
+          {
+            "name": "生肉",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "sheng-rou",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "韭葱",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "配方2",
+        "items": [
+          {
+            "name": "生肉",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "sheng-rou",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "南瓜",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "nan-gua",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "feng-mi-jiu",
+    "name": "蜂蜜酒",
+    "quality": "rare",
+    "healing": "150",
+    "healingSort": 150,
+    "satiety": null,
+    "thirst": "40",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "麦芽酒",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "mai-ya-jiu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "蜂蜜桶",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "feng-mi-tong",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "huo-ji-pei-shu-cai",
+    "name": "火鸡配蔬菜",
+    "quality": "rare",
+    "healing": "130",
+    "healingSort": 130,
+    "satiety": "100",
+    "thirst": null,
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "配方1",
+        "items": [
+          {
+            "name": "火鸡",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "huo-ji-2",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "韭葱",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "配方2",
+        "items": [
+          {
+            "name": "火鸡",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "huo-ji-2",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "南瓜",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "nan-gua",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "bei-fang-tang",
+    "name": "北方汤",
+    "quality": "rare",
+    "healing": "100",
+    "healingSort": 100,
+    "satiety": "80",
+    "thirst": "25",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "蘑菇汤",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "mo-gu-tang",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "烤肉",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "kao-rou",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "yang-cong-quan",
+    "name": "洋葱圈",
+    "quality": "rare",
+    "healing": "100",
+    "healingSort": 100,
+    "satiety": "75",
+    "thirst": "5",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "韭葱",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "燕麦",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-yan-mai",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "mo-gu-jin-ji",
+    "name": "蘑菇浸剂",
+    "quality": "common",
+    "healing": "100",
+    "healingSort": 100,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": "厨师营地；草药桌",
+    "effect": "消除毒效果",
+    "recipes": [
+      {
+        "label": "厨师营地配方",
+        "items": [
+          {
+            "name": "墓地蘑菇",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "mu-di-mo-gu",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "默认配方",
+        "items": [
+          {
+            "name": "墓地蘑菇",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "mu-di-mo-gu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "小空瓶",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-kong-ping",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "xiang-liao-jiu",
+    "name": "香料酒",
+    "quality": "rare",
+    "healing": "90",
+    "healingSort": 90,
+    "satiety": null,
+    "thirst": "20",
+    "craftedAt": "厨师营地",
+    "effect": "减少冻结和减速效果一段时间，10次后中毒呕吐",
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "山楂",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "shan-zha",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "香",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiang",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "yang-cong-qing-tang",
+    "name": "洋葱清汤",
+    "quality": "rare",
+    "healing": "80",
+    "healingSort": 80,
+    "satiety": "70",
+    "thirst": "20",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "韭葱汤",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong-tang",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "烤肉",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "kao-rou",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "mei-zi-bu-ding",
+    "name": "梅子布丁",
+    "quality": "common",
+    "healing": "80",
+    "healingSort": 80,
+    "satiety": "40",
+    "thirst": null,
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "水稻种",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-shui-dao-zhong",
+              "quality": null
+            }
+          },
+          {
+            "name": "山楂",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "shan-zha",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "jie-ri-dan-gao",
+    "name": "节日蛋糕",
+    "quality": "common",
+    "healing": "80",
+    "healingSort": 80,
+    "satiety": "30",
+    "thirst": null,
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "jiang-guo-cha",
+    "name": "浆果茶",
+    "quality": "rare",
+    "healing": "80",
+    "healingSort": 80,
+    "satiety": "10",
+    "thirst": "80",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "山楂",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "shan-zha",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "冬青果",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "dong-qing-guo",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "kao-gua-zi",
+    "name": "烤瓜子",
+    "quality": "rare",
+    "healing": "75",
+    "healingSort": 75,
+    "satiety": "30",
+    "thirst": "-3",
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "配方1",
+        "items": [
+          {
+            "name": "韭葱种",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-jiu-cong-zhong",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "配方2",
+        "items": [
+          {
+            "name": "南瓜子",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-nan-gua-zi",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "配方3",
+        "items": [
+          {
+            "name": "燕麦种",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-yan-mai-zhong",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "配方4",
+        "items": [
+          {
+            "name": "曼德拉草种",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-man-de-la-cao-zhong",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "feng-mi-tong",
+    "name": "蜂蜜桶",
+    "quality": "common",
+    "healing": "70",
+    "healingSort": 70,
+    "satiety": "30",
+    "thirst": "-5",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "tian-bing",
+    "name": "甜饼",
+    "quality": "common",
+    "healing": "70",
+    "healingSort": 70,
+    "satiety": "30",
+    "thirst": null,
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "kao-huo-ji",
+    "name": "烤火鸡",
+    "quality": "common",
+    "healing": "50",
+    "healingSort": 50,
+    "satiety": "60",
+    "thirst": null,
+    "craftedAt": "厨师营地；火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "火鸡",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "huo-ji-2",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "mo-gu-tang",
+    "name": "蘑菇汤",
+    "quality": "common",
+    "healing": "50",
+    "healingSort": 50,
+    "satiety": "45",
+    "thirst": "25",
+    "craftedAt": "厨师营地；篝火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "厨师营地配方",
+        "items": [
+          {
+            "name": "瓶装水",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "ping-zhuang-shui",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "篝火配方",
+        "items": [
+          {
+            "name": "吉普赛蘑菇",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "ji-pu-sai-mo-gu",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "kao-nan-gua",
+    "name": "烤南瓜",
+    "quality": "common",
+    "healing": "50",
+    "healingSort": 50,
+    "satiety": "45",
+    "thirst": "10",
+    "craftedAt": "厨师营地；篝火；火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "南瓜",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "nan-gua",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "mai-ya-jiu",
+    "name": "麦芽酒",
+    "quality": "common",
+    "healing": "50",
+    "healingSort": 50,
+    "satiety": null,
+    "thirst": "30",
+    "craftedAt": null,
+    "effect": "10次中毒呕吐",
+    "recipes": null
+  },
+  {
+    "id": "da-mi-ma-fen",
+    "name": "大米玛芬",
+    "quality": "common",
+    "healing": "50",
+    "healingSort": 50,
+    "satiety": "40",
+    "thirst": "-3",
+    "craftedAt": "厨师营地",
+    "effect": "幻觉效应",
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "大米",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "da-mi",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "ping-guo-bao-jia-xin-tang",
+    "name": "苹果包夹心糖",
+    "quality": "common",
+    "healing": "45",
+    "healingSort": 45,
+    "satiety": "10",
+    "thirst": "-5",
+    "craftedAt": null,
+    "effect": "攻击速度提高15%，持续15秒，20次中毒呕吐",
+    "recipes": null
+  },
+  {
+    "id": "man-de-la-cao-gen",
+    "name": "曼德拉草根",
+    "quality": "common",
+    "healing": "40",
+    "healingSort": 40,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "jiang-guo-zhou",
+    "name": "浆果粥",
+    "quality": "common",
+    "healing": "50",
+    "healingSort": 50,
+    "satiety": "37",
+    "thirst": "23",
+    "craftedAt": "篝火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "大米",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "da-mi",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "冬青果",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "dong-qing-guo",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "hu-luo-bo",
+    "name": "胡萝卜",
+    "quality": "rare",
+    "healing": "40",
+    "healingSort": 40,
+    "satiety": "15",
+    "thirst": "10",
+    "craftedAt": null,
+    "effect": "给马匹恢复10点饱食度100经验值。玩家可以直接吃",
+    "recipes": null
+  },
+  {
+    "id": "jiang-bing",
+    "name": "姜饼",
+    "quality": "common",
+    "healing": "40",
+    "healingSort": 40,
+    "satiety": "20",
+    "thirst": null,
+    "craftedAt": "厨师营地",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "韭葱种",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-jiu-cong-zhong",
+              "quality": null
+            }
+          },
+          {
+            "name": "蜂蜜桶",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "feng-mi-tong",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "rou-gan",
+    "name": "肉干",
+    "quality": "common",
+    "healing": "40",
+    "healingSort": 40,
+    "satiety": "40",
+    "thirst": "-3",
+    "craftedAt": "肉类烘干机",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "生肉",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "sheng-rou",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "jiu-cong-tang",
+    "name": "韭葱汤",
+    "quality": "common",
+    "healing": "35",
+    "healingSort": 35,
+    "satiety": "40",
+    "thirst": "20",
+    "craftedAt": "厨师营地；篝火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "厨师营地配方",
+        "items": [
+          {
+            "name": "韭葱",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "瓶装水",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "ping-zhuang-shui",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "篝火配方",
+        "items": [
+          {
+            "name": "韭葱",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "kao-jiu-cong",
+    "name": "烤韭葱",
+    "quality": "common",
+    "healing": "30",
+    "healingSort": 30,
+    "satiety": "30",
+    "thirst": "3",
+    "craftedAt": "厨师营地；火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "韭葱",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiu-cong",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "kao-rou",
+    "name": "烤肉",
+    "quality": "common",
+    "healing": "30",
+    "healingSort": 30,
+    "satiety": "25",
+    "thirst": "2",
+    "craftedAt": "厨师营地；火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "生肉",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "sheng-rou",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "jiang-guo-yin-liao",
+    "name": "浆果饮料",
+    "quality": "common",
+    "healing": "30",
+    "healingSort": 30,
+    "satiety": "10",
+    "thirst": "30",
+    "craftedAt": "厨师营地；篝火",
+    "effect": null,
+    "recipes": [
+      {
+        "label": "厨师营地配方1",
+        "items": [
+          {
+            "name": "山楂",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "shan-zha",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": "得到浆果饮料*1"
+      },
+      {
+        "label": "厨师营地配方2",
+        "items": [
+          {
+            "name": "浆果饮料",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jiang-guo-yin-liao",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "瓶装水",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "ping-zhuang-shui",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": "得到浆果饮料*2"
+      },
+      {
+        "label": "篝火配方",
+        "items": [
+          {
+            "name": "山楂",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "shan-zha",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": "得到浆果饮料*1"
+      }
+    ]
+  },
+  {
+    "id": "jiao-tang-bang",
+    "name": "焦糖棒",
+    "quality": "common",
+    "healing": "25",
+    "healingSort": 25,
+    "satiety": "10",
+    "thirst": "-5",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "nan-gua",
+    "name": "南瓜",
+    "quality": "common",
+    "healing": "20",
+    "healingSort": 20,
+    "satiety": "20",
+    "thirst": "20",
+    "craftedAt": "花园苗床",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "南瓜子",
+            "qty": 1,
+            "note": "需种植",
+            "ref": {
+              "cat": "materials",
+              "id": "mat-nan-gua-zi",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "jiu-cong",
+    "name": "韭葱",
+    "quality": "common",
+    "healing": "15",
+    "healingSort": 15,
+    "satiety": "15",
+    "thirst": "5",
+    "craftedAt": "花园苗床",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "韭葱种",
+            "qty": 1,
+            "note": "需种植",
+            "ref": {
+              "cat": "materials",
+              "id": "mat-jiu-cong-zhong",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "da-mi",
+    "name": "大米",
+    "quality": "common",
+    "healing": "15",
+    "healingSort": 15,
+    "satiety": "15",
+    "thirst": null,
+    "craftedAt": "花园苗床",
+    "effect": null,
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "水稻种",
+            "qty": 1,
+            "note": "需种植",
+            "ref": {
+              "cat": "materials",
+              "id": "mat-shui-dao-zhong",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "niu-nai",
+    "name": "牛奶",
+    "quality": "rare",
+    "healing": "10",
+    "healingSort": 10,
+    "satiety": "15",
+    "thirst": "45",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "huo-ji-2",
+    "name": "火鸡",
+    "quality": "common",
+    "healing": "10",
+    "healingSort": 10,
+    "satiety": "10",
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "10次中毒呕吐",
+    "recipes": null
+  },
+  {
+    "id": "suan-niu-nai",
+    "name": "酸牛奶",
+    "quality": "common",
+    "healing": "10",
+    "healingSort": 10,
+    "satiety": null,
+    "thirst": "30",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "tang-ku-lou-tou",
+    "name": "糖骷髅头",
+    "quality": "common",
+    "healing": "10",
+    "healingSort": 10,
+    "satiety": "15",
+    "thirst": "-10",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "ji-pu-sai-mo-gu",
+    "name": "吉普赛蘑菇",
+    "quality": "common",
+    "healing": "9",
+    "healingSort": 9,
+    "satiety": "4",
+    "thirst": "2",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "mu-di-mo-gu",
+    "name": "墓地蘑菇",
+    "quality": "common",
+    "healing": "9",
+    "healingSort": 9,
+    "satiety": "4",
+    "thirst": "2",
+    "craftedAt": null,
+    "effect": "25次中毒呕吐",
+    "recipes": null
+  },
+  {
+    "id": "e-gao-jun",
+    "name": "鹅膏菌",
+    "quality": "common",
+    "healing": "9",
+    "healingSort": 9,
+    "satiety": "4",
+    "thirst": "2",
+    "craftedAt": null,
+    "effect": "40次中毒呕吐，幻觉效应",
+    "recipes": null
+  },
+  {
+    "id": "shan-zha",
+    "name": "山楂",
+    "quality": "common",
+    "healing": "7",
+    "healingSort": 7,
+    "satiety": "2",
+    "thirst": "3",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "dong-qing-guo",
+    "name": "冬青果",
+    "quality": "common",
+    "healing": "7",
+    "healingSort": 7,
+    "satiety": "2",
+    "thirst": "3",
+    "craftedAt": null,
+    "effect": "10次中毒呕吐",
+    "recipes": null
+  },
+  {
+    "id": "ye-shou-de-xin",
+    "name": "野兽的心",
+    "quality": "rare",
+    "healing": "5",
+    "healingSort": 5,
+    "satiety": "7",
+    "thirst": null,
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "kong-lang-za-shi",
+    "name": "恐狼杂食",
+    "quality": "common",
+    "healing": "5",
+    "healingSort": 5,
+    "satiety": "2",
+    "thirst": "3",
+    "craftedAt": null,
+    "effect": "呕吐",
+    "recipes": null
+  },
+  {
+    "id": "mao-mi-ling-shi",
+    "name": "猫咪零食",
+    "quality": "common",
+    "healing": "5",
+    "healingSort": 5,
+    "satiety": "5",
+    "thirst": "3",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "sheng-rou",
+    "name": "生肉",
+    "quality": "common",
+    "healing": "4",
+    "healingSort": 4,
+    "satiety": "3",
+    "thirst": "3",
+    "craftedAt": null,
+    "effect": "20次呕吐",
+    "recipes": null
+  },
+  {
+    "id": "nan-chi-de-dong-xi",
+    "name": "难吃的东西",
+    "quality": "common",
+    "healing": "1",
+    "healingSort": 1,
+    "satiety": "5",
+    "thirst": "-10",
+    "craftedAt": "厨师营地",
+    "effect": "呕吐",
+    "recipes": [
+      {
+        "label": "错误的厨师营地配方",
+        "items": [],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "ping-zhuang-shui",
+    "name": "瓶装水",
+    "quality": "common",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": "40",
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
+    "id": "zhuan-zhu-yao-shui",
+    "name": "专注药水",
+    "quality": "common",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "30分钟效果加快主动技能冷却时间",
+    "recipes": null
+  },
+  {
+    "id": "ye-shi-yao-shui",
+    "name": "夜视药水",
+    "quality": "common",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "在黑暗中增加视野持续120秒",
+    "recipes": null
+  },
+  {
+    "id": "da-xing-ye-shi-yao-shui",
+    "name": "大型夜视药水",
+    "quality": "rare",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "在黑暗中增加视野可以看到陷阱效果30分钟",
+    "recipes": null
+  },
+  {
+    "id": "huo-li-yao-shui",
+    "name": "活力药水",
+    "quality": "unique",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "完全恢复能量",
+    "recipes": null
+  },
+  {
+    "id": "yin-xing-yao-shui",
+    "name": "隐形药水",
+    "quality": "common",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "敌方视野背面20秒隐形",
+    "recipes": null
+  },
+  {
+    "id": "xing-yun-yao-shui",
+    "name": "幸运药水",
+    "quality": "unique",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "+10%几率双倍伤害，几率躲攻击击，几率获得一个稀有物品，50%几率获得额外资源，持续1小时",
+    "recipes": null
+  },
+  {
+    "id": "fang-yu-yao-gao",
+    "name": "防御药膏",
+    "quality": "rare",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "增加对元素伤害的防御10%，持续30秒",
+    "recipes": null
+  },
+  {
+    "id": "sheng-bi-de-yao-jiu",
+    "name": "圣彼得药酒",
+    "quality": "unique",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "死亡后可复活，四小时内有效",
+    "recipes": null
+  },
+  {
+    "id": "yong-qi-yao-jiu",
+    "name": "勇气药酒",
+    "quality": "rare",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "提供对恐惧效果的临时保护，有效3分钟",
+    "recipes": null
+  },
+  {
+    "id": "shi-hua-yao-ji",
+    "name": "石化药剂",
+    "quality": "rare",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "允许石化三秒钟变得无敌，并且每秒都恢复生命值",
+    "recipes": null
+  },
+  {
+    "id": "jian-chi-yao-gao",
+    "name": "坚持药膏",
+    "quality": "unique",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": "草药桌",
+    "effect": "减少20%的元素伤害，持续3分钟",
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "防御药膏",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "fang-yu-yao-gao",
+              "quality": "rare"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "qing-xi-si-wei-yao-shui",
+    "name": "清晰思维药水",
+    "quality": "unique",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": "提供暂时的击晕免疫，持续3分钟",
+    "recipes": null
+  }
+]

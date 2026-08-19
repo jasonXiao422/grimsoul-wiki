@@ -23,6 +23,7 @@ const withActiveState = (items: Array<{ label: string; href: string }>) =>
   items.map((item) => ({ ...item, active: currentPath.startsWith(item.href) }));
 const equipmentItems = withActiveState(equipmentNavItems);
 const scrollItems = withActiveState(scrollNavItems);
+const consumablesNavItem = { label: '食物&药剂', href: '/consumables', active: currentPath.startsWith('/consumables') };
 const otherNavItems = [
   {
     label: '材料',
@@ -118,6 +119,7 @@ const CONTRIBUTORS = [
                 ))}
               </div>
             </div>
+            <a href={consumablesNavItem.href} aria-current={consumablesNavItem.active ? 'page' : undefined}>{consumablesNavItem.label}</a>
             <a href="/amulets" aria-current={currentPath.startsWith('/amulets') ? 'page' : undefined}>护符</a>
             <a href="/enemies" aria-current={currentPath.startsWith('/enemies') ? 'page' : undefined}>敌人</a>
             <a href="/lore" aria-current={currentPath.startsWith('/lore') ? 'page' : undefined}>背景故事</a>

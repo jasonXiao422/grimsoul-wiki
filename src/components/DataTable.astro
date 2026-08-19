@@ -138,9 +138,12 @@ for (const item of items) {
               {category.columns.map((column, index) => {
                 const rawValue = getByPath(item, column.key);
                 const value = getListDisplayValue(item, column.key, rawValue);
-                const sortValue = getSortValue(column.key, rawValue);
+                const compareKey = column.sortKey ?? column.key;
+                const sortRawValue = getByPath(item, compareKey);
+                const sortValue = getSortValue(compareKey, sortRawValue);
+                const sortEmpty = sortRawValue === null || sortRawValue === undefined || sortRawValue === '';
                 return (
-                  <td class:list={[column.numeric && 'numeric']} data-sort-value={sortValue}>
+                  <td class:list={[column.numeric && 'numeric']} data-sort-value={sortEmpty ? '' : sortValue} data-sort-empty={sortEmpty ? 'true' : undefined}>
                     {index === 0 ? (
                       <a class="item-cell" href={`/${category.slug}/${item.id}`}>
                         <img
@@ -231,8 +234,13 @@ for (const item of items) {
 
       rows()
         .sort((a, b) => {
-          const aValue = a.children[columnIndex]?.getAttribute('data-sort-value') ?? '';
-          const bValue = b.children[columnIndex]?.getAttribute('data-sort-value') ?? '';
+          const aCell = a.children[columnIndex];
+          const bCell = b.children[columnIndex];
+          const aEmpty = aCell?.getAttribute('data-sort-empty') === 'true';
+          const bEmpty = bCell?.getAttribute('data-sort-empty') === 'true';
+          if (aEmpty !== bEmpty) return aEmpty ? 1 : -1;
+          const aValue = aCell?.getAttribute('data-sort-value') ?? '';
+          const bValue = bCell?.getAttribute('data-sort-value') ?? '';
           const aNumber = Number(aValue);
           const bNumber = Number(bValue);
           const result = Number.isFinite(aNumber) && Number.isFinite(bNumber)

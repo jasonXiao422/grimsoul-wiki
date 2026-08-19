@@ -9,6 +9,7 @@ import enemies from '../data/enemies.json';
 import amulets from '../data/amulets.json';
 import scrolls from '../data/scrolls.json';
 import runes from '../data/runes.json';
+import consumables from '../data/consumables.json';
 import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 
@@ -23,6 +24,7 @@ export const DATA_BY_CATEGORY = {
   amulets,
   scrolls,
   runes,
+  consumables,
   materials,
   orders: knightOrders,
 } as const;
@@ -118,6 +120,10 @@ export function getListItems(slug: CategorySlug): DataItem[] {
   const category = CATEGORY_BY_SLUG[slug];
   const items = [...DATA_BY_CATEGORY[slug]] as DataItem[];
   const sortKey = category?.defaultSort ?? 'name';
+  const sortColumn = category?.columns.find((column) => column.key === sortKey);
+  const compareKey = sortColumn?.sortKey ?? sortKey;
+  const direction = category?.defaultSortDir === 'desc' ? -1 : 1;
+  const isEmptySortValue = (value: unknown) => value === null || value === undefined || value === '';
 
   return items.sort((a, b) => {
     if (category?.groupBy) {
@@ -130,11 +136,17 @@ export function getListItems(slug: CategorySlug): DataItem[] {
       if (groupResult) return groupResult;
     }
 
+    const aRaw = getByPath(a as Record<string, unknown>, compareKey);
+    const bRaw = getByPath(b as Record<string, unknown>, compareKey);
+    const aEmpty = isEmptySortValue(aRaw);
+    const bEmpty = isEmptySortValue(bRaw);
+    if (aEmpty !== bEmpty) return aEmpty ? 1 : -1;
+
     const result = compareSortValues(
-      getSortValue(sortKey, getByPath(a as Record<string, unknown>, sortKey)),
-      getSortValue(sortKey, getByPath(b as Record<string, unknown>, sortKey))
+      getSortValue(compareKey, aRaw),
+      getSortValue(compareKey, bRaw)
     );
-    return result || a.name.localeCompare(b.name, 'zh-Hans-CN');
+    return result * direction || a.name.localeCompare(b.name, 'zh-Hans-CN');
   });
 }
 

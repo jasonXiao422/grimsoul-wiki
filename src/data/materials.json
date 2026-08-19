@@ -42,7 +42,7 @@
   {
     "id": "mat-bu-liao",
     "name": "布料",
-    "usedIn": 41
+    "usedIn": 44
   },
   {
     "id": "mat-tie-ban",
@@ -62,7 +62,7 @@
   {
     "id": "mat-ya-ma-xian-wei",
     "name": "亚麻纤维",
-    "usedIn": 16
+    "usedIn": 17
   },
   {
     "id": "mat-sui-tong-pian",
@@ -139,8 +139,18 @@
     "usedIn": 4
   },
   {
+    "id": "mat-lie-jiu",
+    "name": "烈酒",
+    "usedIn": 4
+  },
+  {
     "id": "mat-lian-tiao",
     "name": "链条",
+    "usedIn": 3
+  },
+  {
+    "id": "mat-jiu-cong-zhong",
+    "name": "韭葱种",
     "usedIn": 3
   },
   {
@@ -176,7 +186,11 @@
   {
     "id": "mat-ye-shou-de-xin",
     "name": "野兽的心",
-    "usedIn": 2
+    "usedIn": 2,
+    "entity": {
+      "cat": "consumables",
+      "id": "ye-shou-de-xin"
+    }
   },
   {
     "id": "mat-gu-tou",
@@ -194,6 +208,21 @@
     "usedIn": 2
   },
   {
+    "id": "mat-xiang",
+    "name": "香",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-shui-dao-zhong",
+    "name": "水稻种",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-nan-gua-zi",
+    "name": "南瓜子",
+    "usedIn": 2
+  },
+  {
     "id": "mat-you-zhi-gong-xian",
     "name": "优质弓弦",
     "usedIn": 1
@@ -206,7 +235,11 @@
   {
     "id": "mat-huo-li-yao-shui",
     "name": "活力药水",
-    "usedIn": 1
+    "usedIn": 1,
+    "entity": {
+      "cat": "consumables",
+      "id": "huo-li-yao-shui"
+    }
   },
   {
     "id": "mat-leng-dong-yao-shui",
@@ -216,7 +249,11 @@
   {
     "id": "mat-beng-dai",
     "name": "绷带",
-    "usedIn": 1
+    "usedIn": 1,
+    "entity": {
+      "cat": "consumables",
+      "id": "beng-dai"
+    }
   },
   {
     "id": "mat-ha-te-zhi-tou",
@@ -226,12 +263,20 @@
   {
     "id": "mat-fang-yu-yao-gao",
     "name": "防御药膏",
-    "usedIn": 1
+    "usedIn": 1,
+    "entity": {
+      "cat": "consumables",
+      "id": "fang-yu-yao-gao"
+    }
   },
   {
     "id": "mat-zhuan-zhu-yao-shui",
     "name": "专注药水",
-    "usedIn": 1
+    "usedIn": 1,
+    "entity": {
+      "cat": "consumables",
+      "id": "zhuan-zhu-yao-shui"
+    }
   },
   {
     "id": "mat-ha-li-de-de-tou-kui",
@@ -241,12 +286,11 @@
   {
     "id": "mat-tian-wei-mo-gu-yao-jiu",
     "name": "甜味蘑菇药酒",
-    "usedIn": 1
-  },
-  {
-    "id": "mat-xiang",
-    "name": "香",
-    "usedIn": 1
+    "usedIn": 1,
+    "entity": {
+      "cat": "consumables",
+      "id": "tian-wei-mo-gu-yao-jiu"
+    }
   },
   {
     "id": "mat-fu-la-ge-na-de-tou-bu",
@@ -261,6 +305,26 @@
   {
     "id": "mat-luo-ge-wo-er-de-tou",
     "name": "罗格沃尔的头",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-yan-mai",
+    "name": "燕麦",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-xiao-kong-ping",
+    "name": "小空瓶",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-yan-mai-zhong",
+    "name": "燕麦种",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-man-de-la-cao-zhong",
+    "name": "曼德拉草种",
     "usedIn": 1
   }
 ]
