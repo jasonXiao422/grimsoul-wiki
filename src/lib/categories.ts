@@ -56,7 +56,7 @@ export const CATEGORIES: CategoryDef[] = [
     blurb: '护甲值、套装效果与部件',
     file: 'armor',
     columns: [
-      { key: 'name', label: '套装', sortable: true, render: 'quality' },
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'tier', label: '品阶', sortable: true, render: 'tier' },
       { key: 'totalArmor', label: '总护甲', sortable: true, numeric: true },
       { key: 'protection', label: '元素防护', render: 'element' },
@@ -179,6 +179,21 @@ export const CATEGORIES: CategoryDef[] = [
 export const CATEGORY_BY_SLUG = Object.fromEntries(
   CATEGORIES.map((c) => [c.slug, c])
 );
+
+export const ARMOR_PIECES_TABLE: CategoryDef = {
+  slug: 'armor-pieces',
+  label: '散件',
+  blurb: '不属于套装的单件护甲',
+  file: 'armor-pieces',
+  columns: [
+    { key: 'name', label: '名称', sortable: true, render: 'quality' },
+    { key: 'armor', label: '护甲', sortable: true, numeric: true },
+    { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
+    { key: 'obtain', label: '获取方式', sortable: true },
+  ],
+  filters: ['quality'],
+  defaultSort: 'armor',
+};
 
 /** 护甲散件单独存在 armor-pieces.json，不作为独立板块，只在搜索和材料反查里出现。 */
 export const EXTRA_FILES = ['armor-pieces'] as const;

@@ -6,8 +6,10 @@ import { FIELD_LABELS, formatValue } from '../lib/display';
 import { getAnyItemName, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
+type DetailCategorySlug = CategorySlug | 'armor-pieces';
+
 interface Props {
-  categorySlug: CategorySlug;
+  categorySlug: DetailCategorySlug;
   item: Record<string, any>;
 }
 

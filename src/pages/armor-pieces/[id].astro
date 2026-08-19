@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import DetailPanel from '../../components/DetailPanel.astro';
+import ListScrollRestoration from '../../components/ListScrollRestoration.astro';
+import armorPieces from '../../data/armor-pieces.json';
+
+export function getStaticPaths() {
+  return armorPieces.map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+---
+
+<BaseLayout title={item.name} description={`${item.name}详情资料`}>
+  <ListScrollRestoration slot="head" />
+
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '护甲', href: '/armor' },
+    { label: item.name },
+  ]} />
+
+  <DetailPanel categorySlug="armor-pieces" item={item} />
+</BaseLayout>

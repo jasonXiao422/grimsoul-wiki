@@ -9,9 +9,10 @@ import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 interface Props {
   category: CategoryDef;
   items: Array<Record<string, any>>;
+  externalSearchSelector?: string;
 }
 
-const { category, items } = Astro.props;
+const { category, items, externalSearchSelector } = Astro.props;
 const fallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
@@ -78,10 +79,14 @@ for (const item of items) {
 
 <section class:list={['data-table-block', `table-${category.slug}`]} data-table-root>
   <div class="table-tools">
-    <label>
-      <span class="sr-only">搜索当前列表</span>
-      <input class="search-input" type="search" data-table-search placeholder={`搜索${category.label}`} />
-    </label>
+    {externalSearchSelector ? (
+      <div aria-hidden="true"></div>
+    ) : (
+      <label>
+        <span class="sr-only">搜索当前列表</span>
+        <input class="search-input" type="search" data-table-search placeholder={`搜索${category.label}`} />
+      </label>
+    )}
     {category.filters.length > 0 && (
       <div class="filter-bar">
         {category.filters.map((filterKey) => (
@@ -182,7 +187,8 @@ for (const item of items) {
   const roots = document.querySelectorAll<HTMLElement>('[data-table-root]');
 
   roots.forEach((root) => {
-    const search = root.querySelector<HTMLInputElement>('[data-table-search]');
+    const search = root.querySelector<HTMLInputElement>('[data-table-search]')
+      ?? document.querySelector<HTMLInputElement>('[data-armor-search]');
     const filters = [...root.querySelectorAll<HTMLSelectElement>('[data-filter]')];
     const tbody = root.querySelector<HTMLTableSectionElement>('tbody');
     const empty = root.querySelector<HTMLElement>('[data-empty]');

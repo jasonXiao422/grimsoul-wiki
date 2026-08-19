@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../lib/categories';
 import { getCategoryBlurb, getCategoryCount, type CategorySlug } from '../lib/data';
 import knightOrders from '../data/knight-orders.json';
+import armor from '../data/armor.json';
+import armorPieces from '../data/armor-pieces.json';
 
 const loreCount = (await getCollection('lore')).length;
 const orderCount = knightOrders.length;
@@ -12,7 +14,9 @@ const categoryCards = CATEGORIES.map((category) => ({
   ...category,
   href: `/${category.slug}`,
   blurb: getCategoryBlurb(category.slug as CategorySlug),
-  badge: `${getCategoryCount(category.slug as CategorySlug)} 条`,
+  badge: category.slug === 'armor'
+    ? `${armor.length} 套 + ${armorPieces.length} 件`
+    : `${getCategoryCount(category.slug as CategorySlug)} 条`,
 }));
 
 const entryCards = [

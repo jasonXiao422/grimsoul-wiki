@@ -3,8 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
 import ListScrollRestoration from '../../components/ListScrollRestoration.astro';
-import { CATEGORIES } from '../../lib/categories';
-import { getCategoryBlurb, getListItems, type CategorySlug } from '../../lib/data';
+import { ARMOR_PIECES_TABLE, CATEGORIES } from '../../lib/categories';
+import { EXTRA_DATA, getCategoryBlurb, getListItems, type CategorySlug } from '../../lib/data';
 
 export function getStaticPaths() {
   return CATEGORIES.filter((category) => category.slug !== 'orders').map((category) => ({
@@ -17,6 +17,10 @@ export function getStaticPaths() {
 }
 
 const { category, items } = Astro.props;
+const armorPieces = category.slug === 'armor'
+  ? [...EXTRA_DATA['armor-pieces']].sort((a, b) => a.armor - b.armor || a.name.localeCompare(b.name, 'zh-Hans-CN'))
+  : [];
+const isArmor = category.slug === 'armor';
 ---
 
 <BaseLayout title={category.label} description={`${category.label}资料列表`}>
@@ -33,5 +37,60 @@ const { category, items } = Astro.props;
     <p class="muted">{getCategoryBlurb(category.slug as CategorySlug)}</p>
   </section>
 
-  <DataTable category={category} items={items} />
+  {isArmor ? (
+    <>
+      <div class="armor-page-tools">
+        <label>
+          <span class="sr-only">搜索护甲</span>
+          <input class="search-input" type="search" data-armor-search placeholder="搜索护甲" />
+        </label>
+        <label>
+          <span class="sr-only">护甲类型</span>
+          <select class="filter-select" data-armor-type>
+            <option value="all">全部</option>
+            <option value="sets">套装</option>
+            <option value="pieces">散件</option>
+          </select>
+        </label>
+      </div>
+
+      <section class="armor-section" data-armor-section="sets" aria-labelledby="armor-sets-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">成套护甲</p>
+            <h2 id="armor-sets-title">套装</h2>
+          </div>
+          <span class="muted">{items.length} 套</span>
+        </div>
+        <DataTable category={category} items={items} externalSearchSelector="[data-armor-search]" />
+      </section>
+
+      <section class="armor-section armor-pieces-section" data-armor-section="pieces" aria-labelledby="armor-pieces-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">单件护甲</p>
+            <h2 id="armor-pieces-title">散件</h2>
+          </div>
+          <span class="muted">{armorPieces.length} 件</span>
+        </div>
+        <DataTable category={ARMOR_PIECES_TABLE} items={armorPieces} externalSearchSelector="[data-armor-search]" />
+      </section>
+    </>
+  ) : (
+    <DataTable category={category} items={items} />
+  )}
 </BaseLayout>
+
+{isArmor && (
+  <script>
+    const typeFilter = document.querySelector<HTMLSelectElement>('[data-armor-type]');
+    const sections = [...document.querySelectorAll<HTMLElement>('[data-armor-section]')];
+
+    typeFilter?.addEventListener('change', () => {
+      const value = typeFilter.value;
+      sections.forEach((section) => {
+        section.hidden = value !== 'all' && section.dataset.armorSection !== value;
+      });
+    });
+  </script>
+)}

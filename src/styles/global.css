@@ -528,6 +528,51 @@ p {
   margin-top: 36px;
 }
 
+.armor-pieces-section {
+  border-top: 0;
+}
+
+.armor-page-tools {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.armor-page-tools label:last-child {
+  min-width: 120px;
+}
+
+.armor-section {
+  margin-top: 36px;
+}
+
+.armor-section:first-of-type {
+  margin-top: 0;
+}
+
+.armor-pieces-section {
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin: 0;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 6px;
+}
+
 .table-tools {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) auto;
@@ -1810,8 +1855,13 @@ p {
   }
 
   .table-tools,
+  .armor-page-tools,
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .armor-page-tools label:last-child {
+    min-width: 0;
   }
 
   .filter-bar {
