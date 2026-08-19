@@ -1275,8 +1275,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "ku-lou-she-shou",
-    "name": "骷髅射手",
+    "id": "ku-lou-she-shou-gu-mu",
+    "name": "骷髅射手-古墓",
     "group": "古墓",
     "groupNote": null,
     "quality": "common",
@@ -1292,8 +1292,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "ku-lou-xin-bing",
-    "name": "骷髅新兵",
+    "id": "ku-lou-xin-bing-gu-mu",
+    "name": "骷髅新兵-古墓",
     "group": "古墓",
     "groupNote": null,
     "quality": "common",
@@ -1890,6 +1890,193 @@
     "dataIncomplete": null
   },
   {
+    "id": "xiao-ku-lou-wan-sheng-jie",
+    "name": "小骷髅-万圣节",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 75,
+    "damageReduction": 0,
+    "restoredFromDate": null,
+    "physicalDamage": "不定",
+    "elementDamage": null,
+    "note": "随机持有石斧石镐，或者木棒作为武器",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "ku-lou-she-shou-wan-sheng-jie",
+    "name": "骷髅射手-万圣节",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 45,
+    "damageReduction": 0,
+    "restoredFromDate": null,
+    "physicalDamage": 5,
+    "elementDamage": null,
+    "note": "远程攻击",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "ku-lou-xin-bing-wan-sheng-jie",
+    "name": "骷髅新兵-万圣节",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 100,
+    "damageReduction": 0,
+    "restoredFromDate": null,
+    "physicalDamage": "不定",
+    "elementDamage": null,
+    "note": "随机持有一种中级武器",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "bei-yi-wang-de-ling-hun",
+    "name": "被遗忘的灵魂",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 150,
+    "damageReduction": 24,
+    "restoredFromDate": null,
+    "physicalDamage": 25,
+    "elementDamage": null,
+    "note": "免疫冰伤，受到双倍火伤",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "fu-chou-de-ling-hun",
+    "name": "复仇的灵魂",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 300,
+    "damageReduction": 48,
+    "restoredFromDate": null,
+    "physicalDamage": 130,
+    "elementDamage": null,
+    "note": "免疫冰伤，受到双倍火伤",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "ku-lou-zhan-shi-she-shou-wan-sheng-jie",
+    "name": "骷髅战士射手-万圣节",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 150,
+    "damageReduction": 0,
+    "restoredFromDate": null,
+    "physicalDamage": "不定",
+    "elementDamage": null,
+    "note": "武器为复合弓",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "ku-lou-zhan-shi-jin-zhan-wan-sheng-jie",
+    "name": "骷髅战士近战-万圣节",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "common",
+    "hp": 200,
+    "damageReduction": 0,
+    "restoredFromDate": null,
+    "physicalDamage": "不定",
+    "elementDamage": null,
+    "note": "武器为一把高级武器",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "fen-mu-shou-wei",
+    "name": "坟墓守卫",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "rare",
+    "hp": 215,
+    "damageReduction": 9,
+    "restoredFromDate": null,
+    "physicalDamage": 10,
+    "elementDamage": null,
+    "note": "不是魔王",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "ku-lou-lian-jin-shi",
+    "name": "骷髅炼金师",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "rare",
+    "hp": 200,
+    "damageReduction": 24,
+    "restoredFromDate": null,
+    "physicalDamage": 35,
+    "elementDamage": null,
+    "note": "投掷南瓜炸弹，造成35点范围真实伤害，并造成恐惧效果；当你靠近它时，它会逃跑",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "bei-zhou-zhe-ao-ta",
+    "name": "被咒者奥塔",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "unique",
+    "hp": 600,
+    "damageReduction": 66,
+    "restoredFromDate": null,
+    "physicalDamage": "无",
+    "elementDamage": null,
+    "note": "高抵抗衰败伤害；高抵抗寒冷伤害\t每隔一段时间，召唤两个骷髅新兵，或一个骷髅炼金师；不是魔王",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "di-yu-e-meng",
+    "name": "低语噩梦",
+    "group": "韦格劳废墟",
+    "groupNote": null,
+    "quality": "unique",
+    "hp": 2000,
+    "damageReduction": 58,
+    "restoredFromDate": null,
+    "physicalDamage": 120,
+    "elementDamage": null,
+    "note": "免疫冰伤，受到双倍火伤；\n1.灵魂复苏：释放超大范围圆形斩击，若命中则造成140点物理伤害，并召唤3个被遗忘的灵魂；\n2.噩梦之斩：释放超大半径范围扇形斩击，造成170点物理伤害，并对你造成3秒恐惧或2秒眩晕；\n3.低语触碰：低语噩梦在进行普通攻击时，有概率降低你3秒攻击和奔跑速度（可叠加，每层独立计时）；\n不是魔王",
+    "locations": [
+      "万圣节韦格劳废墟"
+    ],
+    "dataIncomplete": null
+  },
+  {
     "id": "huo-ji",
     "name": "火鸡",
     "group": "节日活动",
@@ -1921,58 +2108,6 @@
     "note": null,
     "locations": [
       "2-5级图【仅限感恩节期间】"
-    ],
-    "dataIncomplete": null
-  },
-  {
-    "id": "ju-xing-ku-lou",
-    "name": "巨型骷髅",
-    "group": "节日活动",
-    "groupNote": null,
-    "quality": "rare",
-    "hp": 400,
-    "damageReduction": 24,
-    "restoredFromDate": null,
-    "physicalDamage": 65,
-    "elementDamage": null,
-    "note": "减速",
-    "locations": [
-      "万圣节活动地图"
-    ],
-    "dataIncomplete": null
-  },
-  {
-    "id": "bei-yi-wang-de-ling-hun",
-    "name": "被遗忘的灵魂",
-    "group": "节日活动",
-    "groupNote": null,
-    "quality": "common",
-    "hp": 75,
-    "damageReduction": 0,
-    "restoredFromDate": null,
-    "physicalDamage": 9,
-    "elementDamage": null,
-    "note": null,
-    "locations": [
-      "第四，第十季红猎",
-      "万圣节维尔格莱夫废墟"
-    ],
-    "dataIncomplete": null
-  },
-  {
-    "id": "fu-chou-de-ling-hun",
-    "name": "复仇的灵魂",
-    "group": "节日活动",
-    "groupNote": null,
-    "quality": "common",
-    "hp": 150,
-    "damageReduction": 30,
-    "restoredFromDate": null,
-    "physicalDamage": 49,
-    "elementDamage": null,
-    "note": null,
-    "locations": [
-      "万圣节维尔格莱夫废墟"
     ],
     "dataIncomplete": null
   },
@@ -2033,7 +2168,7 @@
     "group": "节日活动",
     "groupNote": null,
     "quality": "common",
-    "hp": 550,
+    "hp": 600,
     "damageReduction": 0,
     "restoredFromDate": null,
     "physicalDamage": null,
