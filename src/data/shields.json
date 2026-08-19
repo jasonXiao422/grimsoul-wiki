@@ -74,7 +74,7 @@
         "qty": 5
       },
       {
-        "material": "mat-cu-sheng",
+        "material": "mat-pi-tiao",
         "qty": 6
       },
       {
@@ -112,7 +112,7 @@
         "qty": 7
       },
       {
-        "material": "mat-cu-sheng",
+        "material": "mat-pi-tiao",
         "qty": 5
       },
       {
@@ -146,7 +146,7 @@
         "qty": 6
       },
       {
-        "material": "mat-cu-sheng",
+        "material": "mat-pi-tiao",
         "qty": 8
       },
       {
@@ -197,7 +197,7 @@
         "qty": 8
       },
       {
-        "material": "mat-cu-sheng",
+        "material": "mat-pi-tiao",
         "qty": 12
       }
     ],

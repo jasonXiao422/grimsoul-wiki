@@ -85,6 +85,11 @@
     "usedIn": 12
   },
   {
+    "id": "mat-pi-tiao",
+    "name": "皮条",
+    "usedIn": 10
+  },
+  {
     "id": "mat-gu-lao-bao-ban",
     "name": "古老薄板",
     "usedIn": 9
@@ -103,11 +108,6 @@
     "id": "mat-tie-sui-pian",
     "name": "铁碎片",
     "usedIn": 7
-  },
-  {
-    "id": "mat-pi-tiao",
-    "name": "皮条",
-    "usedIn": 6
   },
   {
     "id": "mat-ying-hua-mao-ding",
@@ -131,11 +131,6 @@
   {
     "id": "mat-shi-hui-yan",
     "name": "石灰岩",
-    "usedIn": 4
-  },
-  {
-    "id": "mat-cu-sheng",
-    "name": "粗绳",
     "usedIn": 4
   },
   {
