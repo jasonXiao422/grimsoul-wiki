@@ -115,6 +115,18 @@ export const CATEGORIES: CategoryDef[] = [
     defaultSort: 'quality',
   },
   {
+    slug: 'runes',
+    label: '符文',
+    blurb: '放置类道具的效果与品质',
+    file: 'runes',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'effect', label: '特殊效果' },
+    ],
+    filters: ['quality'],
+    defaultSort: 'quality',
+  },
+  {
     slug: 'enemies',
     label: '敌人',
     blurb: '生命、减伤与出没地点',

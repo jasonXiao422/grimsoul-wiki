@@ -30,6 +30,7 @@ FILES = {
     "enemies": ("敌人数据.xlsx", "敌人生命护甲和伤害"),
     "amulets": ("护符数据.xlsx", "Sheet1"),
     "scrolls": ("卷轴数据.xlsx", "Sheet1"),
+    "runes": ("符文数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -524,6 +525,34 @@ def quality_from_fill(cell):
     return QUALITY_BY_FILL[rgb]
 
 
+def build_runes():
+    """
+    符文表列序：
+      0 名称 / 1 特殊效果
+
+    结构与卷轴表相同：两列，品质由名称单元格底色决定。
+    目前三条全是独特（黄橙 FFC000），该色值已在 QUALITY_BY_FILL 里登记。
+
+    第一行是表头（『符文』『特殊效果』），跳过。
+    """
+    out = []
+    for cells in cells_of("runes")[1:]:
+        row = [c.value for c in cells]
+        name = text(row[0])
+        if not name:
+            continue
+        effect = text(row[1])
+        if not effect:
+            warnings.append(f"符文 {name}：没有特殊效果说明")
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "quality": quality_from_fill(cells[0]),
+            "effect": effect,
+        })
+    return out
+
+
 def build_scrolls():
     """
     卷轴表列序：
@@ -754,6 +783,7 @@ def main():
     enemies = build_enemies()
     amulets = build_amulets()
     scrolls = build_scrolls()
+    runes = build_runes()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
 
@@ -778,6 +808,7 @@ def main():
     write("enemies", enemies)
     write("amulets", amulets)
     write("scrolls", scrolls)
+    write("runes", runes)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)

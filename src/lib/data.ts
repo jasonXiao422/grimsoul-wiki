@@ -8,6 +8,7 @@ import backpacks from '../data/backpacks.json';
 import enemies from '../data/enemies.json';
 import amulets from '../data/amulets.json';
 import scrolls from '../data/scrolls.json';
+import runes from '../data/runes.json';
 import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 
@@ -21,6 +22,7 @@ export const DATA_BY_CATEGORY = {
   enemies,
   amulets,
   scrolls,
+  runes,
   materials,
   orders: knightOrders,
 } as const;

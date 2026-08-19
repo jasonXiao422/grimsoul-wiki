@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import SearchBox from '../components/SearchBox.astro';
-import { ALL_CATEGORIES } from '../lib/data';
 
 interface Props {
   title: string;
@@ -10,10 +9,20 @@ interface Props {
 
 const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
 const currentPath = Astro.url.pathname;
-const topNavOrder = ['weapons', 'armor', 'shields', 'backpacks', 'amulets', 'scrolls', 'enemies'];
-const navCategories = ALL_CATEGORIES
-  .filter((category) => topNavOrder.includes(category.slug))
-  .sort((a, b) => topNavOrder.indexOf(a.slug) - topNavOrder.indexOf(b.slug));
+const equipmentNavItems = [
+  { label: '武器', href: '/weapons' },
+  { label: '护甲', href: '/armor' },
+  { label: '驮篮', href: '/backpacks' },
+  { label: '盾牌', href: '/shields' },
+];
+const scrollNavItems = [
+  { label: '卷轴', href: '/scrolls' },
+  { label: '符文', href: '/runes' },
+];
+const withActiveState = (items: Array<{ label: string; href: string }>) =>
+  items.map((item) => ({ ...item, active: currentPath.startsWith(item.href) }));
+const equipmentItems = withActiveState(equipmentNavItems);
+const scrollItems = withActiveState(scrollNavItems);
 const otherNavItems = [
   {
     label: '材料',
@@ -32,6 +41,8 @@ const otherNavItems = [
   },
 ];
 const isOtherNavActive = otherNavItems.some((item) => item.active);
+const isEquipmentNavActive = equipmentItems.some((item) => item.active);
+const isScrollNavActive = scrollItems.some((item) => item.active);
 const CONTRIBUTORS = [
   {
     group: '网站贡献',
@@ -73,14 +84,42 @@ const CONTRIBUTORS = [
             <span class="sr-only">打开主导航</span>
           </button>
           <nav class="main-nav" id="main-navigation" data-main-nav aria-label="主导航">
-            {navCategories.map((category) => (
-              <a
-                href={`/${category.slug}`}
-                aria-current={currentPath.startsWith(`/${category.slug}`) ? 'page' : undefined}
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                class="nav-dropdown-toggle"
+                type="button"
+                data-nav-dropdown-toggle
+                aria-expanded="false"
+                aria-controls="equipment-nav-menu"
+                aria-current={isEquipmentNavActive ? 'page' : undefined}
               >
-                {category.label}
-              </a>
-            ))}
+                装备数据
+              </button>
+              <div class="nav-dropdown-menu" id="equipment-nav-menu" data-nav-dropdown-menu>
+                {equipmentItems.map((item) => (
+                  <a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a>
+                ))}
+              </div>
+            </div>
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                class="nav-dropdown-toggle"
+                type="button"
+                data-nav-dropdown-toggle
+                aria-expanded="false"
+                aria-controls="scroll-nav-menu"
+                aria-current={isScrollNavActive ? 'page' : undefined}
+              >
+                符文&卷轴
+              </button>
+              <div class="nav-dropdown-menu" id="scroll-nav-menu" data-nav-dropdown-menu>
+                {scrollItems.map((item) => (
+                  <a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a>
+                ))}
+              </div>
+            </div>
+            <a href="/amulets" aria-current={currentPath.startsWith('/amulets') ? 'page' : undefined}>护符</a>
+            <a href="/enemies" aria-current={currentPath.startsWith('/enemies') ? 'page' : undefined}>敌人</a>
             <a href="/lore" aria-current={currentPath.startsWith('/lore') ? 'page' : undefined}>背景故事</a>
             <div class="nav-dropdown" data-nav-dropdown>
               <button
@@ -139,23 +178,20 @@ const CONTRIBUTORS = [
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
       const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
-      const dropdown = document.querySelector<HTMLElement>('[data-nav-dropdown]');
-      const dropdownToggle = dropdown?.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]');
-      const dropdownMenu = dropdown?.querySelector<HTMLElement>('[data-nav-dropdown-menu]');
-      const dropdownLinks = () => [...(dropdownMenu?.querySelectorAll<HTMLAnchorElement>('a') ?? [])];
+      const dropdowns = [...document.querySelectorAll<HTMLElement>('[data-nav-dropdown]')];
 
       const setMenuOpen = (open: boolean) => {
         mainNav?.classList.toggle('is-open', open);
         menuToggle?.setAttribute('aria-expanded', String(open));
       };
 
-      const setDropdownOpen = (open: boolean) => {
-        dropdown?.classList.toggle('is-open', open);
-        dropdownToggle?.setAttribute('aria-expanded', String(open));
+      const setDropdownOpen = (dropdown: HTMLElement, open: boolean) => {
+        dropdown.classList.toggle('is-open', open);
+        dropdown.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]')?.setAttribute('aria-expanded', String(open));
       };
 
-      const focusDropdownItem = (index: number) => {
-        const links = dropdownLinks();
+      const focusDropdownItem = (dropdown: HTMLElement, index: number) => {
+        const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
         if (links.length === 0) return;
         links[(index + links.length) % links.length]?.focus();
       };
@@ -175,43 +211,45 @@ const CONTRIBUTORS = [
         setMenuOpen(!mainNav?.classList.contains('is-open'));
       });
 
-      dropdownToggle?.addEventListener('click', () => {
-        setDropdownOpen(!dropdown?.classList.contains('is-open'));
-      });
+      dropdowns.forEach((dropdown) => {
+        const dropdownToggle = dropdown.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]');
+        const dropdownMenu = dropdown.querySelector<HTMLElement>('[data-nav-dropdown-menu]');
 
-      dropdownToggle?.addEventListener('keydown', (event) => {
-        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
-        event.preventDefault();
-        setDropdownOpen(true);
-        focusDropdownItem(event.key === 'ArrowDown' ? 0 : dropdownLinks().length - 1);
-      });
+        dropdownToggle?.addEventListener('click', () => {
+          const open = !dropdown.classList.contains('is-open');
+          dropdowns.forEach((other) => setDropdownOpen(other, other === dropdown && open));
+        });
 
-      dropdownMenu?.addEventListener('keydown', (event) => {
-        if (!(event.target instanceof HTMLAnchorElement)) return;
-        const links = dropdownLinks();
-        const currentIndex = links.indexOf(event.target);
-
-        if (event.key === 'ArrowDown') {
+        dropdownToggle?.addEventListener('keydown', (event) => {
+          if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
           event.preventDefault();
-          focusDropdownItem(currentIndex + 1);
-        }
+          setDropdownOpen(dropdown, true);
+          const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
+          focusDropdownItem(dropdown, event.key === 'ArrowDown' ? 0 : links.length - 1);
+        });
 
-        if (event.key === 'ArrowUp') {
-          event.preventDefault();
-          focusDropdownItem(currentIndex - 1);
-        }
+        dropdownMenu?.addEventListener('keydown', (event) => {
+          if (!(event.target instanceof HTMLAnchorElement)) return;
+          const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
+          const currentIndex = links.indexOf(event.target);
+          if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            event.preventDefault();
+            focusDropdownItem(dropdown, currentIndex + (event.key === 'ArrowDown' ? 1 : -1));
+          }
+        });
       });
 
       document.addEventListener('click', (event) => {
         const target = event.target;
-        if (target instanceof Node && !dropdown?.contains(target)) setDropdownOpen(false);
+        if (target instanceof Node && !dropdowns.some((dropdown) => dropdown.contains(target))) {
+          dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
+        }
       });
 
       document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
-        setDropdownOpen(false);
+        dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
         setMenuOpen(false);
-        dropdownToggle?.focus();
       });
     </script>
   </body>

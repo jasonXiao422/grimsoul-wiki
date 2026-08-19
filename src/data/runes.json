@@ -1,0 +1,20 @@
+[
+  {
+    "id": "huo-yan-fu-wen",
+    "name": "火焰符文",
+    "quality": "unique",
+    "effect": "放置地面激活造成火焰伤害200并点燃敌人（单体伤害）燃烧150伤害"
+  },
+  {
+    "id": "bing-fu-wen",
+    "name": "冰符文",
+    "quality": "unique",
+    "effect": "放置地面激活触发时将冻结单个敌人60分钟"
+  },
+  {
+    "id": "kong-ju-fu-wen",
+    "name": "恐惧符文",
+    "quality": "unique",
+    "effect": "放置地面激活是使敌人陷入恐惧，他有5次次数"
+  }
+]
