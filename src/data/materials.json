@@ -2,7 +2,7 @@
   {
     "id": "mat-hou-bu",
     "name": "厚布",
-    "usedIn": 157
+    "usedIn": 158
   },
   {
     "id": "mat-pi-ge",
@@ -15,13 +15,13 @@
     "usedIn": 55
   },
   {
-    "id": "mat-sheng-zi",
-    "name": "绳子",
-    "usedIn": 51
-  },
-  {
     "id": "mat-tong-ding",
     "name": "铜锭",
+    "usedIn": 52
+  },
+  {
+    "id": "mat-sheng-zi",
+    "name": "绳子",
     "usedIn": 51
   },
   {
@@ -35,14 +35,14 @@
     "usedIn": 48
   },
   {
-    "id": "mat-xian",
-    "name": "线",
+    "id": "mat-bu-liao",
+    "name": "布料",
     "usedIn": 45
   },
   {
-    "id": "mat-bu-liao",
-    "name": "布料",
-    "usedIn": 44
+    "id": "mat-xian",
+    "name": "线",
+    "usedIn": 45
   },
   {
     "id": "mat-tie-ban",

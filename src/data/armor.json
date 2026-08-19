@@ -2637,8 +2637,20 @@
         "protection": null,
         "cost": [
           {
+            "material": "mat-hou-bu",
+            "qty": 14
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 16
+          },
+          {
             "material": "mat-qing-tong-ingot",
             "qty": 3
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 7
           },
           {
             "material": "mat-kong-lang-ya",
