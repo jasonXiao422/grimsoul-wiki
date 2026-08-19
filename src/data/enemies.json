@@ -106,8 +106,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "hou-ma-5-ji-tu-de-bian-fu",
-    "name": "后妈+5级图的蝙蝠",
+    "id": "ji-mu-ai-sha-5-ji-tu-de-bian-fu",
+    "name": "继母艾莎+5级图的蝙蝠",
     "group": "1-5级图",
     "groupNote": null,
     "quality": "common",
@@ -118,7 +118,7 @@
     "elementDamage": null,
     "note": "中毒5*8次",
     "locations": [
-      "后妈",
+      "继母艾莎",
       "5级图"
     ],
     "dataIncomplete": null
@@ -298,7 +298,7 @@
     "note": "伤害取决于所持武器（15-27）",
     "locations": [
       "荒废墓穴",
-      "后妈",
+      "继母艾莎",
       "夜晚地窖",
       "死灵法师",
       "死亡村庄"
@@ -1873,8 +1873,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "hou-ma",
-    "name": "后妈",
+    "id": "ji-mu-ai-sha",
+    "name": "继母艾莎",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
     "quality": "legendary",
