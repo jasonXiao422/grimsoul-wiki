@@ -1,21 +1,63 @@
 ---
 import { pinyin } from 'pinyin-pro';
-import { ALL_CATEGORIES, DATA_BY_CATEGORY, getItemHref, type CategorySlug } from '../lib/data';
+import { getCollection } from 'astro:content';
+import { ALL_CATEGORIES, DATA_BY_CATEGORY, EXTRA_DATA, getItemHref, type CategorySlug } from '../lib/data';
 
 const makePinyin = (name: string) => pinyin(name, { toneType: 'none', type: 'array' }) as string[];
-const searchIndex = ALL_CATEGORIES.flatMap((category) => {
+const toSearchFields = (terms: string[]) => {
+  const normalizedTerms = [...new Set(terms.filter(Boolean))];
+  const syllables = normalizedTerms.map((term) => makePinyin(term));
+  return {
+    terms: normalizedTerms,
+    pinyin: syllables.map((parts) => parts.join('')).join(' ').toLowerCase(),
+    initials: syllables.map((parts) => parts.map((part) => part[0] ?? '').join('')).join(' ').toLowerCase(),
+  };
+};
+
+const categoryEntries = ALL_CATEGORIES.flatMap((category) => {
   const slug = category.slug as CategorySlug;
   return [...DATA_BY_CATEGORY[slug]].map((item) => {
-    const syllables = makePinyin(item.name);
+    const fields = toSearchFields([item.name]);
     return {
       name: item.name,
       category: category.label,
       href: getItemHref(slug, item.id),
-      pinyin: syllables.join('').toLowerCase(),
-      initials: syllables.map((part) => part[0] ?? '').join('').toLowerCase(),
+      ...fields,
     };
   });
 });
+
+const knownNames = new Set([
+  ...Object.values(DATA_BY_CATEGORY).flatMap((items) => items.map((item) => item.name)),
+  ...EXTRA_DATA['armor-pieces'].map((item) => item.name),
+]);
+const stripMarkdown = (text: string) => text
+  .replace(/[`*_~]/g, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+const getLoreHeadings = (body: string) => [...body.matchAll(/^#{2,6}\s+(.+)$/gm)]
+  .map((match) => stripMarkdown(match[1]));
+
+const loreEntries = await getCollection('lore');
+const loreSearchEntries = loreEntries.map((entry) => {
+  const headings = getLoreHeadings(entry.body ?? '');
+  const keywords = [...knownNames].filter((name) => (entry.body ?? '').includes(name));
+  return {
+    name: entry.data.title,
+    category: '背景故事',
+    href: `/lore/${entry.id.replace(/\.md$/, '')}`,
+    ...toSearchFields([entry.data.title, ...headings, ...keywords]),
+  };
+});
+
+const orderSearchEntries = DATA_BY_CATEGORY.orders.map((item) => ({
+  name: item.name,
+  category: '骑士团',
+  href: `/orders/${item.id}`,
+  ...toSearchFields([item.name, item.eraLabel, item.summary, item.leader]),
+}));
+
+const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEntries];
 ---
 
 <div class="site-search" data-site-search>
@@ -44,14 +86,16 @@ const searchIndex = ALL_CATEGORIES.flatMap((category) => {
     }
 
     const matches = searchIndex
-      .filter((item) => item.name.includes(query) || item.pinyin.includes(query) || item.initials.includes(query))
+      .filter((item) => item.terms.some((term) => term.toLowerCase().includes(query))
+        || item.pinyin.includes(query)
+        || item.initials.includes(query))
       .slice(0, 8);
 
     if (matches.length === 0) {
       results.innerHTML = '<p class="muted" style="padding:10px 12px;margin:0">没有找到相关资料。</p>';
     } else {
       results.innerHTML = matches
-        .map((item) => `<a href="${item.href}"><strong>${item.name}</strong><span>${item.category}</span></a>`)
+        .map((item) => `<a href="${item.href}"><strong>${item.name}</strong><span class="search-category">${item.category}</span></a>`)
         .join('');
     }
     results.classList.add('is-open');

@@ -906,6 +906,11 @@ p {
   color: var(--text-dim);
 }
 
+.search-results .search-category {
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+}
+
 .lore-index {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
