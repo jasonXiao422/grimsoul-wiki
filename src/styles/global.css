@@ -1468,6 +1468,10 @@ p {
   max-width: 820px;
 }
 
+.guide-content {
+  overflow-x: auto;
+}
+
 .lore-content h2 {
   margin-top: 38px;
   padding-top: 22px;
@@ -1503,19 +1507,18 @@ p {
   margin-bottom: 0;
 }
 
-.lore-content table {
-  display: block;
-  width: 100%;
+.guide-content table {
+  display: table;
+  width: max-content;
   margin: 22px 0;
-  overflow-x: auto;
   border: 1px solid var(--border);
   border-radius: 8px;
   border-collapse: collapse;
   background: var(--bg-panel);
 }
 
-.lore-content th,
-.lore-content td {
+.guide-content th,
+.guide-content td {
   min-width: 140px;
   padding: 10px 12px;
   border: 1px solid var(--border);
@@ -1523,7 +1526,7 @@ p {
   vertical-align: top;
 }
 
-.lore-content th {
+.guide-content th {
   color: var(--accent);
   font-weight: 600;
   white-space: nowrap;
