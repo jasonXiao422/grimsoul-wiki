@@ -371,6 +371,18 @@
     ]
   },
   {
+    "id": "zhong-xing-beng-dai",
+    "name": "重型绷带",
+    "quality": "rare",
+    "healing": "瞬间150",
+    "healingSort": 150,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": null,
+    "effect": null,
+    "recipes": null
+  },
+  {
     "id": "huo-ji-pei-shu-cai",
     "name": "火鸡配蔬菜",
     "quality": "rare",
