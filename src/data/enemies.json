@@ -1056,9 +1056,9 @@
     "hp": 10000,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": 120,
+    "physicalDamage": "120（近战）\n180（远程）",
     "elementDamage": null,
-    "note": "狂暴时伤害持续翻倍；远程投掷固定180伤害；\n飞钩500伤害，命中减速90%并造成流血5*8；\n狂暴恢复400HP；喝酒恢复150HP(不打断可回满血)；\n起跳20伤害附带3.5秒眩晕，并净化玩家身上的增益效果",
+    "note": "通攻击：距离它较近时，使用斧头近战攻击；距离它较远时，会投掷斧头攻击。近战状态的攻击能給卡恩叠加狂怒效果，每层狂怒均会提升卡恩的近战、远程攻击速度与80点近战伤害，狂怒持续10秒，可叠加，每层独立计时。远程状态下能减慢玩家的奔跑速度。\n钩索：出现预警范围，短暂蓄力后若未脱离范围则被勾到卡恩身边并受到500点物理伤害。若被勾路径上有铁蒺藜，则受到额外伤害。\n净化：当身上有负面状态（中毒，诅咒，抑制，流血，禁疗等）时，解除所有负面状态并恢复400点生命值。这个技能有一段冷却时间。\n饮血：距离卡恩较远时，卡恩可能会开始饮血恢复生命值，每段恢复150点生命，可用攻击打断（注意：恐狼、dot伤害无法打断）。\n震地：卡恩跳走，落地区域有预警。落地时若未脱离预警范围则受到20点真实伤害，并被眩晕5秒；是魔王",
     "locations": [
       "酷吏地下城"
     ],
@@ -2126,7 +2126,7 @@
     "locations": [
       "圣诞节活动：寒冰宝藏"
     ],
-    "dataIncomplete": null
+    "dataIncomplete": true
   },
   {
     "id": "han-leng-shu",
@@ -2695,7 +2695,7 @@
     "hp": 120,
     "damageReduction": 57,
     "restoredFromDate": null,
-    "physicalDamage": 30,
+    "physicalDamage": 40,
     "elementDamage": {
       "type": "冰",
       "value": "30"
@@ -2715,7 +2715,7 @@
     "hp": 120,
     "damageReduction": 62,
     "restoredFromDate": null,
-    "physicalDamage": 90,
+    "physicalDamage": 270,
     "elementDamage": null,
     "note": "武器：渡鸦弩；远程高伤害，最低45；保持距离；概率回血40；治疗绷带*4；元素伤害减半",
     "locations": [
@@ -2749,7 +2749,7 @@
     "hp": 200,
     "damageReduction": 48,
     "restoredFromDate": null,
-    "physicalDamage": 98,
+    "physicalDamage": 60,
     "elementDamage": null,
     "note": "武器：萨姆风刃；攻速和跑步速度提高；概率回血40；治疗绷带*4；元素伤害减半",
     "locations": [
@@ -2766,7 +2766,7 @@
     "hp": 200,
     "damageReduction": 59,
     "restoredFromDate": null,
-    "physicalDamage": 132,
+    "physicalDamage": 100,
     "elementDamage": null,
     "note": "武器：尖刺三叉戟；概率流血5*4次；概率中毒12*5次；概率回血40；治疗绷带*4；元素伤害减半",
     "locations": [
@@ -2836,7 +2836,7 @@
     "restoredFromDate": null,
     "physicalDamage": 70,
     "elementDamage": null,
-    "note": "铁钉盾举盾，概率格挡2次命中；复活药剂1瓶（复活一次）；概率回血40；治疗绷带*4；元素伤害减半",
+    "note": "铁钉盾举盾，概率格挡2次命中；概率回血40；治疗绷带*4；元素伤害减半",
     "locations": [
       "大车炮台"
     ],
