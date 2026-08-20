@@ -44,7 +44,12 @@ const otherNavItems = [
 const isOtherNavActive = otherNavItems.some((item) => item.active);
 const isEquipmentNavActive = equipmentItems.some((item) => item.active);
 const isScrollNavActive = scrollItems.some((item) => item.active);
-const CONTRIBUTORS = [
+interface Contributor {
+  name: string;
+  url?: string;
+}
+
+const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
   {
     group: '网站贡献',
     people: [
@@ -61,6 +66,7 @@ const CONTRIBUTORS = [
       { name: '旋转青桃', url: 'https://space.bilibili.com/416097645' },
       { name: '长夜漫漫-无心睡眠', url: 'https://space.bilibili.com/405471736' },
       { name: 'MeowthGS', url: 'https://space.bilibili.com/198479610' },
+      { name: '莫小染es', url: 'https://space.bilibili.com/1901808438' },
     ],
   },
 ];
@@ -159,7 +165,11 @@ const CONTRIBUTORS = [
                   <h3 id={`footer-contributor-${group.group}`}>{group.group}</h3>
                   <p class="footer-contributor-links">
                     {group.people.map((contributor) => (
-                      <a href={contributor.url} target="_blank" rel="noopener noreferrer">{contributor.name}</a>
+                      contributor.url ? (
+                        <a href={contributor.url} target="_blank" rel="noopener noreferrer">{contributor.name}</a>
+                      ) : (
+                        contributor.name
+                      )
                     ))}
                   </p>
                 </section>
