@@ -2698,7 +2698,7 @@
     "physicalDamage": 40,
     "elementDamage": {
       "type": "冰",
-      "value": "30"
+      "value": "20"
     },
     "note": "武器：冰弓（冻伤20）；减速；保持距离；概率回血40；治疗绷带*4；元素伤害减半",
     "locations": [
