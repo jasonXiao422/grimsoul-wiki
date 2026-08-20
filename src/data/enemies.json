@@ -696,7 +696,7 @@
   },
   {
     "id": "ling-zhu-di-yi-ge-xiao-di-a-tuo-lu-si",
-    "name": "领主第一个小弟---阿托鲁斯",
+    "name": "领主第一个小弟-阿托鲁斯",
     "group": "被弃地下城",
     "groupNote": null,
     "quality": "rare",
@@ -713,7 +713,7 @@
   },
   {
     "id": "ling-zhu-di-er-ge-xiao-di-guo-long-de",
-    "name": "领主第二个小弟---郭隆德",
+    "name": "领主第二个小弟-郭隆德",
     "group": "被弃地下城",
     "groupNote": null,
     "quality": "rare",
@@ -730,7 +730,7 @@
   },
   {
     "id": "ling-zhu-di-san-ge-xiao-di-ji-du-er",
-    "name": "领主第三个小弟---吉杜尔",
+    "name": "领主第三个小弟-吉杜尔",
     "group": "被弃地下城",
     "groupNote": null,
     "quality": "rare",
@@ -2902,10 +2902,10 @@
     "hp": 200,
     "damageReduction": 82,
     "restoredFromDate": null,
-    "physicalDamage": 60,
+    "physicalDamage": 64,
     "elementDamage": {
       "type": "冰",
-      "value": "20"
+      "value": "15"
     },
     "note": "装备：冰斧，冰盾，雪地猎人套装；\n概率冻结；概率格挡伤害2秒；减慢攻速和移动速度；\n复活药1瓶（复活一次）；治疗2*苦药酒；概率回血100；元素伤害减半",
     "locations": [
@@ -2934,8 +2934,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "zhong-wei-xian-wei-luo-ti-zhong-wei",
-    "name": "中尉咸味---裸体中尉",
+    "id": "zhong-wei-xian-wei-pu-tong-mo-shi",
+    "name": "中尉咸味（普通模式）",
     "group": "大车炮台",
     "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。",
     "quality": "rare",
@@ -2951,8 +2951,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "xian-wei-zhong-wei-ying-xiong-mo-shi",
-    "name": "咸味中尉（英雄模式）",
+    "id": "zhong-wei-xian-wei-ying-xiong-mo-shi",
+    "name": "中尉咸味（英雄模式）",
     "group": "大车炮台",
     "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。",
     "quality": "rare",
@@ -2960,8 +2960,11 @@
     "damageReduction": 87,
     "restoredFromDate": null,
     "physicalDamage": 130,
-    "elementDamage": null,
-    "note": "装备：金色护卫火剑，尖刺套装；免疫陷阱、冰冻、减速、流血；\n复活药1瓶；治疗2*苦药酒；\n可用骷髅、雷电卷轴、火符文、眩晕技能、夜游神镰刀应对；元素伤害减半",
+    "elementDamage": {
+      "type": "火",
+      "value": "45"
+    },
+    "note": "装备：金色护卫火剑，尖刺套装；免疫陷阱、冰冻、减速、流血；\n复活药1瓶；治疗2*苦药酒；他的武器可以禁疗；\n可用骷髅、雷电卷轴、火符文、眩晕技能、夜游神镰刀应对；元素伤害减半",
     "locations": [
       "大车炮台"
     ],
