@@ -3113,7 +3113,8 @@
     "attackSpeed": 1,
     "range": 2,
     "durability": {
-      "raw": "待测"
+      "value": 143,
+      "unit": "点"
     },
     "cost": [],
     "effect": "使用这种武器攻击会使目标的治疗降为0.持续10秒",

@@ -327,7 +327,8 @@
     "quality": "legendary",
     "armor": 150,
     "durability": {
-      "raw": "待测"
+      "value": 200,
+      "unit": "点"
     },
     "cost": [],
     "effect": "吓跑夜游神，格挡时对附近所有敌人造成100点火焰伤害，激活盾牌减少敌人下次攻击物理伤害50，更耐用",
