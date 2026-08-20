@@ -450,6 +450,16 @@
     "obtain": "红猎奖励"
   },
   {
+    "id": "da-shi-gong-jian-tuo-lan",
+    "name": "大师弓箭驮篮",
+    "quality": "legendary",
+    "slots": 20,
+    "protection": null,
+    "cost": [],
+    "effect": "+1快捷插槽",
+    "obtain": "红猎奖励"
+  },
+  {
     "id": "xue-di-lie-ren-tuo-lan",
     "name": "雪地猎人驮篮",
     "quality": "legendary",
