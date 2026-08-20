@@ -17,7 +17,7 @@
   {
     "id": "mat-tie-ding",
     "name": "铁锭",
-    "usedIn": 52
+    "usedIn": 53
   },
   {
     "id": "mat-tong-ding",
@@ -87,12 +87,12 @@
   {
     "id": "mat-pi-tiao",
     "name": "皮条",
-    "usedIn": 10
+    "usedIn": 11
   },
   {
     "id": "mat-hua-mu-ban",
     "name": "桦木板",
-    "usedIn": 9
+    "usedIn": 10
   },
   {
     "id": "mat-gu-lao-bao-ban",
@@ -221,21 +221,6 @@
     "id": "mat-nan-gua-zi",
     "name": "南瓜子",
     "usedIn": 2
-  },
-  {
-    "id": "mat-tie-ding-2",
-    "name": ";铁锭",
-    "usedIn": 1
-  },
-  {
-    "id": "mat-hua-mu-ban-2",
-    "name": ";桦木板",
-    "usedIn": 1
-  },
-  {
-    "id": "mat-pi-tiao-2",
-    "name": ";皮条",
-    "usedIn": 1
   },
   {
     "id": "mat-tu-sha-juan-zhou",

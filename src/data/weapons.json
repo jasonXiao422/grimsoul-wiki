@@ -2104,15 +2104,15 @@
         "qty": 4
       },
       {
-        "material": "mat-tie-ding-2",
+        "material": "mat-tie-ding",
         "qty": 8
       },
       {
-        "material": "mat-hua-mu-ban-2",
+        "material": "mat-hua-mu-ban",
         "qty": 10
       },
       {
-        "material": "mat-pi-tiao-2",
+        "material": "mat-pi-tiao",
         "qty": 12
       }
     ],
