@@ -148,7 +148,7 @@ for (const item of items) {
                 const sortValue = getSortValue(compareKey, sortRawValue);
                 const sortEmpty = sortRawValue === null || sortRawValue === undefined || sortRawValue === '';
                 return (
-                  <td class:list={[column.numeric && 'numeric']} data-sort-value={sortEmpty ? '' : sortValue} data-sort-empty={sortEmpty ? 'true' : undefined}>
+                  <td class:list={[column.numeric && 'numeric']} data-label={index === 0 ? undefined : column.label} data-sort-value={sortEmpty ? '' : sortValue} data-sort-empty={sortEmpty ? 'true' : undefined}>
                     {index === 0 ? (
                       <a class="item-cell" href={`/${category.slug}/${item.id}`}>
                         <img

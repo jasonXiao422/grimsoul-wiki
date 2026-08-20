@@ -628,6 +628,10 @@ p {
   vertical-align: middle;
 }
 
+.data-table td::before {
+  display: none;
+}
+
 .data-table th {
   color: var(--accent);
   font-weight: 600;
@@ -1989,6 +1993,19 @@ p {
     position: static;
     top: auto;
     z-index: auto;
+  }
+
+  .data-table td[data-label]::before {
+    content: attr(data-label);
+    display: inline-block;
+    margin-right: 8px;
+    color: var(--text-dim);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .data-table td[data-label] {
+    white-space: nowrap;
   }
 
   .table-scroll {
