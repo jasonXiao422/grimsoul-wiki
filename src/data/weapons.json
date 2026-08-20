@@ -34,15 +34,15 @@
     "cost": [
       {
         "material": "mat-yuan-song-mu",
-        "qty": 1
+        "qty": 2
       },
       {
         "material": "mat-sheng-zi",
-        "qty": 1
+        "qty": 2
       },
       {
         "material": "mat-ya-ma-xian-wei",
-        "qty": 1
+        "qty": 3
       }
     ],
     "effect": "每次攻击耗费5秒；可吓退夜游神",
@@ -435,15 +435,15 @@
     "cost": [
       {
         "material": "mat-song-mu-ban",
-        "qty": 1
+        "qty": 5
       },
       {
         "material": "mat-tong-ding",
-        "qty": 1
+        "qty": 3
       },
       {
         "material": "mat-qing-tong-nail",
-        "qty": 1
+        "qty": 2
       }
     ],
     "effect": null,
@@ -542,15 +542,15 @@
     "cost": [
       {
         "material": "mat-song-mu-ban",
-        "qty": 1
+        "qty": 5
       },
       {
         "material": "mat-tong-ding",
-        "qty": 1
+        "qty": 3
       },
       {
         "material": "mat-qing-tong-nail",
-        "qty": 1
+        "qty": 2
       }
     ],
     "effect": null,
