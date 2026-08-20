@@ -43,7 +43,7 @@
 
   if (calculator) {
     const content = calculator.closest('.lore-content');
-    const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '升级公式');
+    const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '燕麦机制');
     if (formulaHeading) formulaHeading.insertAdjacentElement('afterend', calculator);
 
     const currentInput = calculator.querySelector<HTMLInputElement>('[data-horse-current]');
