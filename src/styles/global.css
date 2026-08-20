@@ -2020,6 +2020,16 @@ p {
     white-space: nowrap;
   }
 
+  .table-backpacks .data-table td:first-child,
+  .table-backpacks .data-table td:first-child .item-cell,
+  .table-backpacks .data-table td:first-child strong {
+    white-space: nowrap;
+  }
+
+  .table-backpacks .data-table td:first-child strong {
+    font-size: 0.9rem;
+  }
+
   .table-scroll {
     max-width: 100%;
     max-height: none;
