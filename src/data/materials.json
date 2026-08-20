@@ -15,6 +15,11 @@
     "usedIn": 55
   },
   {
+    "id": "mat-tie-ding",
+    "name": "铁锭",
+    "usedIn": 52
+  },
+  {
     "id": "mat-tong-ding",
     "name": "铜锭",
     "usedIn": 52
@@ -23,11 +28,6 @@
     "id": "mat-sheng-zi",
     "name": "绳子",
     "usedIn": 51
-  },
-  {
-    "id": "mat-tie-ding",
-    "name": "铁锭",
-    "usedIn": 50
   },
   {
     "id": "mat-mo-fa-pi-ge",
@@ -90,6 +90,11 @@
     "usedIn": 10
   },
   {
+    "id": "mat-hua-mu-ban",
+    "name": "桦木板",
+    "usedIn": 9
+  },
+  {
     "id": "mat-gu-lao-bao-ban",
     "name": "古老薄板",
     "usedIn": 9
@@ -98,11 +103,6 @@
     "id": "mat-ling-hun-sui-pian",
     "name": "灵魂碎片",
     "usedIn": 8
-  },
-  {
-    "id": "mat-hua-mu-ban",
-    "name": "桦木板",
-    "usedIn": 7
   },
   {
     "id": "mat-tie-sui-pian",
@@ -156,6 +156,11 @@
   {
     "id": "mat-ji-xie-zhuang-zhi",
     "name": "机械装置",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-you-zhi-gong-xian",
+    "name": "优质弓弦",
     "usedIn": 2
   },
   {
@@ -218,8 +223,18 @@
     "usedIn": 2
   },
   {
-    "id": "mat-you-zhi-gong-xian",
-    "name": "优质弓弦",
+    "id": "mat-tie-ding-2",
+    "name": ";铁锭",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-hua-mu-ban-2",
+    "name": ";桦木板",
+    "usedIn": 1
+  },
+  {
+    "id": "mat-pi-tiao-2",
+    "name": ";皮条",
     "usedIn": 1
   },
   {

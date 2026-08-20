@@ -306,7 +306,16 @@
       "value": 84,
       "unit": "点"
     },
-    "cost": [],
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 2
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 2
+      }
+    ],
     "effect": "可开采腐化银矿",
     "upgradeOf": null
   },
@@ -503,7 +512,16 @@
       "value": 84,
       "unit": "点"
     },
-    "cost": [],
+    "cost": [
+      {
+        "material": "mat-tie-ding",
+        "qty": 2
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 2
+      }
+    ],
     "effect": "可开采橡木",
     "upgradeOf": null
   },
@@ -2010,8 +2028,8 @@
         "qty": 6
       }
     ],
-    "effect": null,
-    "upgradeOf": "bian-zhong-jian"
+    "effect": "变种剑高级图纸；磨1比骑士剑伤害高1",
+    "upgradeOf": null
   },
   {
     "id": "qing-tong-mao",
@@ -2080,7 +2098,24 @@
       "value": 59,
       "unit": "点"
     },
-    "cost": [],
+    "cost": [
+      {
+        "material": "mat-you-zhi-gong-xian",
+        "qty": 4
+      },
+      {
+        "material": "mat-tie-ding-2",
+        "qty": 8
+      },
+      {
+        "material": "mat-hua-mu-ban-2",
+        "qty": 10
+      },
+      {
+        "material": "mat-pi-tiao-2",
+        "qty": 12
+      }
+    ],
     "effect": null,
     "upgradeOf": null
   },
