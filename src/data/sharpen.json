@@ -646,19 +646,19 @@
       {
         "level": 0,
         "damage": 59,
-        "quality": "common",
+        "quality": "rare",
         "successRate": null
       },
       {
         "level": 1,
         "damage": 65,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 100
       },
       {
         "level": 2,
         "damage": 71,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 70
       },
       {
@@ -911,19 +911,19 @@
       {
         "level": 0,
         "damage": 67,
-        "quality": "common",
+        "quality": "rare",
         "successRate": null
       },
       {
         "level": 1,
         "damage": 74,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 100
       },
       {
         "level": 2,
         "damage": 81,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 70
       },
       {
@@ -1017,19 +1017,19 @@
       {
         "level": 0,
         "damage": 70,
-        "quality": "common",
+        "quality": "rare",
         "successRate": null
       },
       {
         "level": 1,
         "damage": 77,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 100
       },
       {
         "level": 2,
         "damage": 84,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 70
       },
       {
@@ -1123,19 +1123,19 @@
       {
         "level": 0,
         "damage": 81,
-        "quality": "common",
+        "quality": "rare",
         "successRate": null
       },
       {
         "level": 1,
         "damage": 89,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 100
       },
       {
         "level": 2,
         "damage": 98,
-        "quality": "common",
+        "quality": "rare",
         "successRate": 70
       },
       {
