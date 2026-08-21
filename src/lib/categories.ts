@@ -12,7 +12,7 @@ export interface ColumnDef {
   /** 特殊渲染方式，组件里按这个分支处理 */
   render?: 'element' | 'durability' | 'cost' | 'tier' | 'list' | 'quality';
   /** 排序时改用另一个字段。显示的值是混合写法、无法直接比较时用，
-   *  例如食物的「持续治愈」显示「瞬间120，240」，排序用 healingSort 的 360 */
+   *  例如食物的「治愈」显示「瞬间120，240」，排序用 healingSort 的 360 */
   sortKey?: string;
 }
 
@@ -138,7 +138,7 @@ export const CATEGORIES: CategoryDef[] = [
     file: 'consumables',
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },
-      { key: 'healing', label: '持续治愈', sortable: true, numeric: true, sortKey: 'healingSort' },
+      { key: 'healing', label: '治愈', sortable: true, numeric: true, sortKey: 'healingSort' },
       { key: 'satiety', label: '饱食度', sortable: true, numeric: true },
       { key: 'thirst', label: '口渴值', sortable: true, numeric: true },
       { key: 'craftedAt', label: '制作地点', sortable: true },

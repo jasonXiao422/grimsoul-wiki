@@ -31,7 +31,7 @@ export const FIELD_LABELS: Record<string, string> = {
   note: '敌人介绍',
   locations: '出没地点',
   usedIn: '配方数',
-  healing: '持续治愈',
+  healing: '治愈',
   satiety: '饱食度',
   thirst: '口渴值',
   craftedAt: '制作地点',
