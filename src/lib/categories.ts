@@ -163,6 +163,23 @@ export const CATEGORIES: CategoryDef[] = [
     groupBy: 'group',
   },
   {
+    slug: 'sharpen',
+    label: '磨尖武器',
+    blurb: '各磨尖等级的伤害与成功率',
+    file: 'sharpen',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+      { key: 'damage0', label: '未磨', sortable: true, numeric: true },
+      { key: 'damage1', label: '磨1', sortable: true, numeric: true },
+      { key: 'damage2', label: '磨2', sortable: true, numeric: true },
+      { key: 'damage3', label: '磨3', sortable: true, numeric: true },
+      { key: 'damage4', label: '磨4', sortable: true, numeric: true },
+      { key: 'damage5', label: '磨5', sortable: true, numeric: true },
+    ],
+    filters: ['quality'],
+    defaultSort: 'damage0',
+  },
+  {
     slug: 'materials',
     label: '材料',
     blurb: '反查哪些配方用到它',

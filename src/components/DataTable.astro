@@ -1,7 +1,7 @@
 ---
 import type { CategoryDef } from '../lib/categories';
 import { TIER_COLOR } from '../lib/tiers';
-import { getByPath } from '../lib/data';
+import { getByPath, getItemIconSrc } from '../lib/data';
 import { FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
 import { normalizeElementName } from '../lib/quality';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
@@ -184,7 +184,7 @@ for (const item of items) {
                       <a class="item-cell" href={`/${category.slug}/${item.id}`}>
                         <img
                           class:list={['item-icon', qualityMeta && 'quality-icon']}
-                          src={`/images/${category.slug}/${item.id}.webp`}
+                          src={getItemIconSrc(category.slug, item)}
                           alt={item.name}
                           loading="lazy"
                           style={qualityStyle}

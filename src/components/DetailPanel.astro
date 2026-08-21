@@ -3,7 +3,7 @@ import ImageZoom from './ImageZoom.astro';
 import GroupNote from './GroupNote.astro';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
-import { getAnyItemName, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
+import { getAnyItemName, getItemIconSrc, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
 type DetailCategorySlug = CategorySlug | 'armor-pieces';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { categorySlug, item } = Astro.props;
-const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
+const iconSrc = getItemIconSrc(categorySlug, item);
 const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'groupNote', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
@@ -144,7 +144,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                         {refHref && (
                           <img
                             class:list={['item-icon', refQualityMeta && 'quality-icon']}
-                            src={`/images/${ref.cat}/${ref.id}.webp`}
+                            src={getItemIconSrc(ref.cat, ref)}
                             alt={recipeItem.name}
                             loading="lazy"
                             style={refQualityStyle}
@@ -189,7 +189,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                   <a href={getMaterialHref(material)}>
                     <img
                       class="item-icon"
-                      src={`/images/materials/${material.id}.webp`}
+                      src={getItemIconSrc('materials', material)}
                       alt={material.name}
                       loading="lazy"
                       data-fallback={materialFallback}
@@ -222,7 +222,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                 <div class="piece-head">
                   <img
                     class:list={['item-icon', pieceQualityMeta && 'quality-icon']}
-                    src={`/images/armor-pieces/${piece.id}.webp`}
+                    src={getItemIconSrc('armor-pieces', piece)}
                     alt={piece.name}
                     loading="lazy"
                     style={pieceQualityStyle}
@@ -248,7 +248,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                           <a href={getMaterialHref(material)}>
                             <img
                               class="item-icon"
-                              src={`/images/materials/${material.id}.webp`}
+                              src={getItemIconSrc('materials', material)}
                               alt={material.name}
                               loading="lazy"
                               data-fallback={materialFallback}

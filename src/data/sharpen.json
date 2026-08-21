@@ -1,0 +1,1221 @@
+[
+  {
+    "id": "lian-dao-2",
+    "name": "镰刀",
+    "weaponId": "lian-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "lian-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 15,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 16,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 18,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 21,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 25,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 30,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 15,
+    "damage1": 16,
+    "damage2": 18,
+    "damage3": 21,
+    "damage4": 25,
+    "damage5": 30,
+    "gain": 15
+  },
+  {
+    "id": "bi-shou-2",
+    "name": "匕首",
+    "weaponId": "bi-shou",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "bi-shou",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 19,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 21,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 23,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 27,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 32,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 38,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 19,
+    "damage1": 21,
+    "damage2": 23,
+    "damage3": 27,
+    "damage4": 32,
+    "damage5": 38,
+    "gain": 19
+  },
+  {
+    "id": "ye-men-shuang-ren-wan-dao-2",
+    "name": "也门双刃弯刀",
+    "weaponId": "ye-men-shuang-ren-wan-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "ye-men-shuang-ren-wan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 21,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 23,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 25,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 29,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 34,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 42,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 21,
+    "damage1": 23,
+    "damage2": 25,
+    "damage3": 29,
+    "damage4": 34,
+    "damage5": 42,
+    "gain": 21
+  },
+  {
+    "id": "po-ren-jian-2",
+    "name": "破刃剑",
+    "weaponId": "po-ren-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "po-ren-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 21,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 23,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 25,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 29,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 34,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 42,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 21,
+    "damage1": 23,
+    "damage2": 25,
+    "damage3": 29,
+    "damage4": 34,
+    "damage5": 42,
+    "gain": 21
+  },
+  {
+    "id": "dan-shou-jian-2",
+    "name": "单手剑",
+    "weaponId": "dan-shou-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "dan-shou-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 30,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 33,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 36,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 42,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 50,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 60,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 30,
+    "damage1": 33,
+    "damage2": 36,
+    "damage3": 42,
+    "damage4": 50,
+    "damage5": 60,
+    "gain": 30
+  },
+  {
+    "id": "lian-zhuang-jian-2",
+    "name": "镰状剑",
+    "weaponId": "lian-zhuang-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "lian-zhuang-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 33,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 36,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 39,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 46,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 54,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 66,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 33,
+    "damage1": 36,
+    "damage2": 39,
+    "damage3": 46,
+    "damage4": 54,
+    "damage5": 66,
+    "gain": 33
+  },
+  {
+    "id": "wan-dao-2",
+    "name": "弯刀",
+    "weaponId": "wan-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "wan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 36,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 40,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 44,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 51,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 60,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 72,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 36,
+    "damage1": 40,
+    "damage2": 44,
+    "damage3": 51,
+    "damage4": 60,
+    "damage5": 72,
+    "gain": 36
+  },
+  {
+    "id": "sha-shou-wan-dao-2",
+    "name": "杀手弯刀",
+    "weaponId": "sha-shou-wan-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "sha-shou-wan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 40,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 44,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 48,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 56,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 66,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 80,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 40,
+    "damage1": 44,
+    "damage2": 48,
+    "damage3": 56,
+    "damage4": 66,
+    "damage5": 80,
+    "gain": 40
+  },
+  {
+    "id": "ya-ta-gan-dao-2",
+    "name": "亚塔甘刀",
+    "weaponId": "ya-ta-gan-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "ya-ta-gan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 40,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 44,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 48,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 56,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 66,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 80,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 40,
+    "damage1": 44,
+    "damage2": 48,
+    "damage3": 56,
+    "damage4": 66,
+    "damage5": 80,
+    "gain": 40
+  },
+  {
+    "id": "tong-zhan-fu-2",
+    "name": "铜战斧",
+    "weaponId": "tong-zhan-fu",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "tong-zhan-fu",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 43,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 47,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 52,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 60,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 71,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 86,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 43,
+    "damage1": 47,
+    "damage2": 52,
+    "damage3": 60,
+    "damage4": 71,
+    "damage5": 86,
+    "gain": 43
+  },
+  {
+    "id": "bian-zhong-jian-2",
+    "name": "变种剑",
+    "weaponId": "bian-zhong-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "bian-zhong-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 58,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 64,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 70,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 81,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 96,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 116,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 58,
+    "damage1": 64,
+    "damage2": 70,
+    "damage3": 81,
+    "damage4": 96,
+    "damage5": 116,
+    "gain": 58
+  },
+  {
+    "id": "duan-wan-dao-2",
+    "name": "短弯刀",
+    "weaponId": "duan-wan-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "duan-wan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 59,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 65,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 71,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 83,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 98,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 118,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 59,
+    "damage1": 65,
+    "damage2": 71,
+    "damage3": 83,
+    "damage4": 98,
+    "damage5": 118,
+    "gain": 59
+  },
+  {
+    "id": "hei-duan-wan-dao-2",
+    "name": "黑短弯刀",
+    "weaponId": "hei-duan-wan-dao",
+    "quality": "rare",
+    "iconCat": "weapons",
+    "iconId": "hei-duan-wan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 59,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 65,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 71,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 83,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 98,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 118,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 59,
+    "damage1": 65,
+    "damage2": 71,
+    "damage3": 83,
+    "damage4": 98,
+    "damage5": 118,
+    "gain": 59
+  },
+  {
+    "id": "zhan-zheng-dao-2",
+    "name": "战争刀",
+    "weaponId": "zhan-zheng-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "zhan-zheng-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 61,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 67,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 73,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 85,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 100,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 122,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 61,
+    "damage1": 67,
+    "damage2": 73,
+    "damage3": 85,
+    "damage4": 100,
+    "damage5": 122,
+    "gain": 61
+  },
+  {
+    "id": "qi-shi-jian-2",
+    "name": "骑士剑",
+    "weaponId": "qi-shi-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "qi-shi-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 64,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 70,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 77,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 90,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 106,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 128,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 64,
+    "damage1": 70,
+    "damage2": 77,
+    "damage3": 90,
+    "damage4": 106,
+    "damage5": 128,
+    "gain": 64
+  },
+  {
+    "id": "qing-jian-2",
+    "name": "轻剑",
+    "weaponId": "qing-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "qing-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 64,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 71,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 77,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 90,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 106,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 128,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 64,
+    "damage1": 71,
+    "damage2": 77,
+    "damage3": 90,
+    "damage4": 106,
+    "damage5": 128,
+    "gain": 64
+  },
+  {
+    "id": "wu-shi-dao-2",
+    "name": "武士刀",
+    "weaponId": "wu-shi-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "wu-shi-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 67,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 74,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 81,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 94,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 111,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 134,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 67,
+    "damage1": 74,
+    "damage2": 81,
+    "damage3": 94,
+    "damage4": 111,
+    "damage5": 134,
+    "gain": 67
+  },
+  {
+    "id": "hei-wu-shi-dao-2",
+    "name": "黑武士刀",
+    "weaponId": "hei-wu-shi-dao",
+    "quality": "rare",
+    "iconCat": "weapons",
+    "iconId": "hei-wu-shi-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 67,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 74,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 81,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 94,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 111,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 134,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 67,
+    "damage1": 74,
+    "damage2": 81,
+    "damage3": 94,
+    "damage4": 111,
+    "damage5": 134,
+    "gain": 67
+  },
+  {
+    "id": "shuang-ren-da-kan-dao-2",
+    "name": "双刃大砍刀",
+    "weaponId": "shuang-ren-da-kan-dao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "shuang-ren-da-kan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 70,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 77,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 84,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 98,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 116,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 140,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 70,
+    "damage1": 77,
+    "damage2": 84,
+    "damage3": 98,
+    "damage4": 116,
+    "damage5": 140,
+    "gain": 70
+  },
+  {
+    "id": "hei-se-shuang-ren-da-kan-dao-2",
+    "name": "黑色双刃大砍刀",
+    "weaponId": "hei-se-shuang-ren-da-kan-dao",
+    "quality": "rare",
+    "iconCat": "weapons",
+    "iconId": "hei-se-shuang-ren-da-kan-dao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 70,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 77,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 84,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 98,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 116,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 140,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 70,
+    "damage1": 77,
+    "damage2": 84,
+    "damage3": 98,
+    "damage4": 116,
+    "damage5": 140,
+    "gain": 70
+  },
+  {
+    "id": "ji-2",
+    "name": "戟",
+    "weaponId": "ji",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "ji",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 81,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 89,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 98,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 114,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 134,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 162,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 81,
+    "damage1": 89,
+    "damage2": 98,
+    "damage3": 114,
+    "damage4": 134,
+    "damage5": 162,
+    "gain": 81
+  },
+  {
+    "id": "hei-ji-2",
+    "name": "黑戟",
+    "weaponId": "hei-ji",
+    "quality": "rare",
+    "iconCat": "weapons",
+    "iconId": "hei-ji",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 81,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 89,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 98,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 114,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 134,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 162,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 81,
+    "damage1": 89,
+    "damage2": 98,
+    "damage3": 114,
+    "damage4": 134,
+    "damage5": 162,
+    "gain": 81
+  },
+  {
+    "id": "chang-jian-2",
+    "name": "长剑",
+    "weaponId": "chang-jian",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "chang-jian",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 90,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 99,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 108,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 126,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 149,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 180,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 90,
+    "damage1": 99,
+    "damage2": 108,
+    "damage3": 126,
+    "damage4": 149,
+    "damage5": 180,
+    "gain": 90
+  }
+]

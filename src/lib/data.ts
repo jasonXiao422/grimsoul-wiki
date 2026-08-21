@@ -10,6 +10,7 @@ import amulets from '../data/amulets.json';
 import scrolls from '../data/scrolls.json';
 import runes from '../data/runes.json';
 import consumables from '../data/consumables.json';
+import sharpen from '../data/sharpen.json';
 import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 
@@ -25,6 +26,7 @@ export const DATA_BY_CATEGORY = {
   scrolls,
   runes,
   consumables,
+  sharpen,
   materials,
   orders: knightOrders,
 } as const;
@@ -171,6 +173,12 @@ export function getAnyItemName(id: string): string {
 
 export function getItemHref(category: CategorySlug, id: string): string {
   return `/${category}/${id}`;
+}
+
+export function getItemIconSrc(category: string, item: { id: string; iconCat?: string | null; iconId?: string | null }): string {
+  const iconCategory = item.iconCat && item.iconId ? item.iconCat : category;
+  const iconId = item.iconCat && item.iconId ? item.iconId : item.id;
+  return `/images/${iconCategory}/${iconId}.webp`;
 }
 
 function pushCostUsages(

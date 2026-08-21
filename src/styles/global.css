@@ -529,6 +529,73 @@ p {
   color: var(--accent);
 }
 
+.sharpen-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sharpen-summary p {
+  margin: 0;
+  color: var(--text-dim);
+}
+
+.sharpen-summary a {
+  color: var(--accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sharpen-level-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sharpen-level-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-panel);
+  text-align: center;
+}
+
+.sharpen-level-icon-wrap {
+  position: relative;
+  width: min(100%, 132px);
+  margin: 0 auto 12px;
+}
+
+.sharpen-level-icon {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.sharpen-level-badge {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: block;
+  width: max-content;
+  padding: 2px 5px;
+  border: 1px solid var(--bg-panel);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.sharpen-level-stat {
+  margin: 3px 0 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
 .panel {
   padding: 20px;
 }
@@ -1912,6 +1979,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .sharpen-level-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .order-emblem {
     width: 112px;
   }
@@ -1975,6 +2046,23 @@ p {
   .entry-meta {
     font-size: 0.94rem;
     line-height: 1.5;
+  }
+
+  .sharpen-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sharpen-summary a {
+    white-space: normal;
+  }
+
+  .sharpen-level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sharpen-level-card {
+    padding: 10px;
   }
 
   .footer-contributor-groups {

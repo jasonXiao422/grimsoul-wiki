@@ -38,6 +38,7 @@ FILES = {
     "scrolls": ("卷轴数据.xlsx", "Sheet1"),
     "runes": ("符文数据.xlsx", "Sheet1"),
     "consumables": ("食物_药数据.xlsx", "Sheet1"),
+    "sharpen": ("磨尖武器数据.xlsx", "磨刀等级"),
 }
 
 warnings = []
@@ -955,6 +956,79 @@ def link_recipe_entities(consumables, materials, catalog):
         )
 
 
+# 磨尖等级 → 品质。0/1/2 普通，3/4 稀有，5 独特。
+# 这是固定规则，不从单元格底色读，Excel 不需要刷颜色。
+SHARPEN_QUALITY = {0: "common", 1: "common", 2: "common",
+                   3: "rare", 4: "rare", 5: "unique"}
+
+# 各级磨刀的独立判定成功率，None 表示 0 级即原始状态
+SHARPEN_RATE = {0: None, 1: 100, 2: 70, 3: 60, 4: 50, 5: 40}
+
+
+def build_sharpen(weapons):
+    """
+    磨尖武器表列序：
+      0 名称 / 1 0级 / 2 +1 / 3 +2 / 4 +3 / 5 +4 / 6 +5
+
+    第 1 行是跨列标题，第 2 行是表头，从第 3 行起是数据。
+
+    每件武器展开成 6 个磨尖等级，共用同一张武器图标，
+    只靠外框品质色和角标区分。品质由等级推导，见 SHARPEN_QUALITY。
+
+    weapons 传入是为了把名称解析成武器 id，图标路径和详情页链接都靠它。
+    名称对不上就警告，不静默跳过。
+    """
+    by_name = {w["name"]: w for w in weapons}
+    out = []
+
+    for cells in rows_of("sharpen")[2:]:
+        row = list(cells)
+        name = text(row[0])
+        # 表末尾有几行说明文字，它们没有伤害数值，据此跳过
+        if not name or num(row[1]) is None:
+            continue
+
+        weapon = by_name.get(name)
+        if not weapon:
+            warnings.append(f"磨尖武器 {name}：在武器表里找不到同名条目，无法关联图标与详情页")
+
+        levels = []
+        for lvl in range(6):
+            dmg = num(row[1 + lvl])
+            if dmg is None:
+                warnings.append(f"磨尖武器 {name}：磨{lvl} 没有伤害数值")
+            levels.append({
+                "level": lvl,
+                "damage": dmg,
+                "quality": SHARPEN_QUALITY[lvl],
+                "successRate": SHARPEN_RATE[lvl],
+            })
+
+        base = levels[0]["damage"]
+        top = levels[5]["damage"]
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "weaponId": weapon["id"] if weapon else None,
+            "quality": weapon["quality"] if weapon else "common",
+            # 磨尖武器没有自己的图标目录，复用武器图。
+            # 图标路径默认按 /images/<板块>/<id>.webp 拼接，这两个字段用来覆盖它。
+            "iconCat": "weapons",
+            "iconId": weapon["id"] if weapon else None,
+            "levels": levels,
+            # 列表页直接用的扁平字段，省得前端从 levels 里挑
+            "damage0": levels[0]["damage"],
+            "damage1": levels[1]["damage"],
+            "damage2": levels[2]["damage"],
+            "damage3": levels[3]["damage"],
+            "damage4": levels[4]["damage"],
+            "damage5": levels[5]["damage"],
+            "gain": (top - base) if (base is not None and top is not None) else None,
+        })
+
+    return out
+
+
 def build_materials(*datasets, skip_names=()):
     """
     从所有配方里反推材料总表。
@@ -1018,6 +1092,7 @@ def main():
     scrolls = build_scrolls()
     runes = build_runes()
     consumables = build_consumables()
+    sharpen = build_sharpen(weapons)
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, consumables,
@@ -1049,6 +1124,7 @@ def main():
     write("scrolls", scrolls)
     write("runes", runes)
     write("consumables", consumables)
+    write("sharpen", sharpen)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)
