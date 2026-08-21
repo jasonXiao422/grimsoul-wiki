@@ -967,7 +967,7 @@
   {
     "id": "da-mi-ma-fen",
     "name": "大米玛芬",
-    "quality": "common",
+    "quality": "unique",
     "healing": "持续50",
     "healingSort": 50,
     "satiety": "40",
