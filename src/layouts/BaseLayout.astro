@@ -11,6 +11,7 @@ const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
 const currentPath = Astro.url.pathname;
 const equipmentNavItems = [
   { label: '武器', href: '/weapons' },
+  { label: '磨尖武器', href: '/sharpen' },
   { label: '护甲', href: '/armor' },
   { label: '驮篮', href: '/backpacks' },
   { label: '盾牌', href: '/shields' },
@@ -34,11 +35,6 @@ const otherNavItems = [
     label: '马匹机制',
     href: '/guides/horse',
     active: currentPath.startsWith('/guides/horse'),
-  },
-  {
-    label: '磨尖武器',
-    href: '/sharpen',
-    active: currentPath.startsWith('/sharpen'),
   },
   {
     label: '护甲与减伤',
