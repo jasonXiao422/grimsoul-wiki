@@ -1533,6 +1533,7 @@ p {
 
 .lore-content {
   max-width: 820px;
+  overflow-x: visible;
 }
 
 .guide-content {
@@ -1574,6 +1575,7 @@ p {
   margin-bottom: 0;
 }
 
+.lore-content table,
 .guide-content table {
   display: table;
   width: max-content;
@@ -1584,6 +1586,8 @@ p {
   background: var(--bg-panel);
 }
 
+.lore-content th,
+.lore-content td,
 .guide-content th,
 .guide-content td {
   min-width: 140px;
@@ -1593,9 +1597,30 @@ p {
   vertical-align: top;
 }
 
+.lore-content th,
 .guide-content th {
   color: var(--accent);
   font-weight: 600;
+  white-space: nowrap;
+}
+
+.lore-content table {
+  width: 100%;
+  max-width: 100%;
+  table-layout: auto;
+}
+
+.lore-content th,
+.lore-content td {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.lore-content th:first-child,
+.lore-content td:first-child {
+  width: 1%;
+  min-width: max-content;
   white-space: nowrap;
 }
 
