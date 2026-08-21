@@ -66,6 +66,22 @@ def text(v):
     return None if c is None else str(c)
 
 
+DOT_TYPE_MARKERS = (
+    ("点燃", "点燃"),
+    ("冻伤", "冻伤"),
+    ("中毒", "中毒"),
+    ("流血", "流血"),
+)
+
+
+def parse_dot_types(effect):
+    """从效果原文提取持续伤害类型；只记录类型，不解析数值。"""
+    value = text(effect)
+    if not value:
+        return []
+    return [dot_type for marker, dot_type in DOT_TYPE_MARKERS if marker in value]
+
+
 # 拼音相同但实为不同物品时，在此固定 id，避免顺序变化导致 id 漂移。
 # 例：青铜锭 dìng 与 青铜钉 dīng 去声调后拼音一致。
 ID_OVERRIDE = {
@@ -350,6 +366,7 @@ def build_weapons():
             "durability": parse_durability(row[5]),
             "cost": parse_cost(row[6]),
             "effect": effect,
+            "dotTypes": parse_dot_types(effect),
             "isRanged": bool(effect and "远程武器" in effect),
             "upgradeOf": blueprint,
         })

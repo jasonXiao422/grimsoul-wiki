@@ -47,7 +47,7 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'range', label: '攻距', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
     ],
-    filters: ['element.type', 'quality', 'isRanged'],
+    filters: ['damageType', 'quality', 'isRanged'],
     defaultSort: 'damage',
   },
   {

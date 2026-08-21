@@ -17,7 +17,29 @@ const fallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
 
+const DAMAGE_TYPE_ORDER = ['火', '冰', '毒', '衰败', '雷', '流血', '纯物理'];
+
+const getDamageTypes = (item: Record<string, any>) => {
+  const types = new Set<string>();
+  const directType = getByPath(item, 'element.type');
+  const normalizedDirectType = typeof directType === 'string' ? normalizeElementName(directType) : undefined;
+  if (normalizedDirectType && DAMAGE_TYPE_ORDER.includes(normalizedDirectType)) types.add(normalizedDirectType);
+
+  for (const dotType of Array.isArray(item.dotTypes) ? item.dotTypes : []) {
+    if (typeof dotType === 'string' && DAMAGE_TYPE_ORDER.includes(dotType === '点燃' ? '火' : dotType === '冻伤' ? '冰' : dotType === '中毒' ? '毒' : dotType === '流血' ? '流血' : dotType)) {
+      types.add(dotType === '点燃' ? '火' : dotType === '冻伤' ? '冰' : dotType === '中毒' ? '毒' : dotType);
+    }
+  }
+
+  if (types.size === 0) types.add('纯物理');
+  return DAMAGE_TYPE_ORDER.filter((type) => types.has(type));
+};
+
 const getFilterOptions = (key: string) => {
+  if (key === 'damageType') {
+    const available = new Set(items.flatMap((item) => getDamageTypes(item)));
+    return DAMAGE_TYPE_ORDER.filter((type) => available.has(type)).map((type) => [type, type]) as Array<[string, string]>;
+  }
   if (key === 'isRanged') return [['true', '远程'], ['false', '近战']] as Array<[string, string]>;
 
   const values = new Map<string, string>();
@@ -36,15 +58,16 @@ const getFilterOptions = (key: string) => {
   return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN'));
 };
 
-const getRowFilterValue = (key: string, value: unknown) => {
+const getRowFilterValue = (key: string, value: unknown, item?: Record<string, any>) => {
+  if (key === 'damageType' && item) return getDamageTypes(item).join('|');
   if (Array.isArray(value)) return value.map((item) => getRowFilterValue(key, item)).join('|');
   if (value === null || value === undefined || value === '') return '__none';
   if (key.endsWith('.type') && typeof value === 'string') return normalizeElementName(value) ?? value;
   return String(value);
 };
 
-const getFilterPlaceholder = (key: string) => key === 'element.type'
-  ? '元素筛选项'
+const getFilterPlaceholder = (key: string) => key === 'damageType'
+  ? '全部伤害类型'
   : key === 'isRanged'
     ? '远程/近战'
     : `全部${FIELD_LABELS[key] ?? '筛选项'}`;
@@ -146,7 +169,7 @@ for (const item of items) {
             <tr
               data-row
               data-search={category.columns.map((column) => getDisplayValue(item, column.key, getByPath(item, column.key))).join(' ')}
-              {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(filter, getByPath(item, filter))]))}
+              {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(filter, getByPath(item, filter), item)]))}
             >
               {category.columns.map((column, index) => {
                 const rawValue = getByPath(item, column.key);

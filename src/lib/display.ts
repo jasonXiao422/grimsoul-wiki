@@ -14,6 +14,7 @@ export const FIELD_LABELS: Record<string, string> = {
   cost: '合成配方',
   effect: '特殊效果',
   isRanged: '远程武器',
+  damageType: '伤害类型',
   upgradeOf: '高级图纸来源',
   tier: '品阶',
   obtain: '获取途径',
