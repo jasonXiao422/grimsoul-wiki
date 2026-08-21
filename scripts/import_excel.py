@@ -82,6 +82,16 @@ def parse_dot_types(effect):
     return [dot_type for marker, dot_type in DOT_TYPE_MARKERS if marker in value]
 
 
+def strip_ranged_marker(effect):
+    """移除 Excel 中仅用于筛选的「远程武器」标记及相邻标点。"""
+    value = text(effect)
+    if not value:
+        return None
+    value = re.sub(r"远程武器\s*[:：]?\s*", "", value)
+    value = value.strip().strip("；;：:").strip()
+    return value or None
+
+
 # 拼音相同但实为不同物品时，在此固定 id，避免顺序变化导致 id 漂移。
 # 例：青铜锭 dìng 与 青铜钉 dīng 去声调后拼音一致。
 ID_OVERRIDE = {
@@ -347,6 +357,7 @@ def build_weapons():
         name = re.sub(r"\s*\n\s*", "", name)
         base, skill, dmg_note = parse_damage(row[1])
         effect = text(row[7])
+        is_ranged = bool(effect and "远程武器" in effect)
         blueprint = None
         if effect and "图纸" in effect:
             m = re.match(r"^(.+?)的?高级图纸$", effect.strip())
@@ -365,9 +376,9 @@ def build_weapons():
             "range": clean(row[4]),
             "durability": parse_durability(row[5]),
             "cost": parse_cost(row[6]),
-            "effect": effect,
+            "effect": strip_ranged_marker(effect),
             "dotTypes": parse_dot_types(effect),
-            "isRanged": bool(effect and "远程武器" in effect),
+            "isRanged": is_ranged,
             "upgradeOf": blueprint,
         })
     # 把"XX的高级图纸"换成对应武器 id

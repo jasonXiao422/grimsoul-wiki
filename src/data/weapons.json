@@ -813,7 +813,7 @@
         "qty": 2
       }
     ],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -1033,7 +1033,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "几率点燃敌人（5火伤*5下）；吓退夜游神；远程武器",
+    "effect": "几率点燃敌人（5火伤*5下）；吓退夜游神",
     "dotTypes": [
       "点燃"
     ],
@@ -1058,7 +1058,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "狼和恐狼对受影响的目标造成更多伤害；远程武器",
+    "effect": "狼和恐狼对受影响的目标造成更多伤害",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -1081,7 +1081,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "减慢对手的攻击与奔跑速度；远程武器",
+    "effect": "减慢对手的攻击与奔跑速度",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -1204,7 +1204,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -1565,7 +1565,7 @@
         "qty": 10
       }
     ],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -1712,7 +1712,7 @@
         "qty": 1
       }
     ],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2294,7 +2294,7 @@
         "qty": 12
       }
     ],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2314,7 +2314,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2708,7 +2708,7 @@
         "qty": 6
       }
     ],
-    "effect": "远程武器",
+    "effect": null,
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2748,7 +2748,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "26.6%击晕敌人；潜行不造成伤害；远程武器",
+    "effect": "26.6%击晕敌人；潜行不造成伤害",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2768,7 +2768,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "26.6%击晕敌人；潜行不造成伤害；远程武器",
+    "effect": "26.6%击晕敌人；潜行不造成伤害",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2788,7 +2788,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "潜行时可造成三倍伤害；远程武器",
+    "effect": "潜行时可造成三倍伤害",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -3222,7 +3222,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "无视护甲目标对远程武器所具有的额外防御；远程武器",
+    "effect": "无视护甲目标对所具有的额外防御",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -3478,7 +3478,7 @@
         "qty": 2
       }
     ],
-    "effect": "让受影响的敌人中毒，18秒内造成120点伤害；远程武器：炼金卓制作，且概率失败变为蘑菇浸剂",
+    "effect": "让受影响的敌人中毒，18秒内造成120点伤害；炼金桌制作，且概率失败变为蘑菇浸剂",
     "dotTypes": [
       "中毒"
     ],
@@ -3500,7 +3500,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "对受影响的敌人造成恐惧，并造成35点伤害；远程武器",
+    "effect": "对受影响的敌人造成恐惧，并造成35点伤害",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -3523,7 +3523,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "暂时冻结受影响的敌人，并造成20点伤害；远程武器",
+    "effect": "暂时冻结受影响的敌人，并造成20点伤害",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
