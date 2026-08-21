@@ -13,6 +13,7 @@ export const FIELD_LABELS: Record<string, string> = {
   durability: '耐久',
   cost: '合成配方',
   effect: '特殊效果',
+  isRanged: '远程武器',
   upgradeOf: '高级图纸来源',
   tier: '品阶',
   obtain: '获取途径',
@@ -64,6 +65,7 @@ function formatElement(value: Record<string, unknown>): string {
 
 export function formatValue(key: string, value: unknown): string {
   if (key === 'obtain' && (value === null || value === undefined || value === '' || value === 'N/A')) return '无需图纸制作';
+  if (key === 'isRanged' && typeof value === 'boolean') return value ? '远程武器' : '近战武器';
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');
 

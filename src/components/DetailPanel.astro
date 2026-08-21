@@ -15,7 +15,7 @@ interface Props {
 
 const { categorySlug, item } = Astro.props;
 const iconSrc = `/images/${categorySlug}/${item.id}.webp`;
-const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'dataIncomplete', 'entity', 'groupNote', 'restoredFromDate']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dataIncomplete', 'entity', 'groupNote', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);

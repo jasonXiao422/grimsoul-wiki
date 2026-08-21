@@ -350,6 +350,7 @@ def build_weapons():
             "durability": parse_durability(row[5]),
             "cost": parse_cost(row[6]),
             "effect": effect,
+            "isRanged": bool(effect and "远程武器" in effect),
             "upgradeOf": blueprint,
         })
     # 把"XX的高级图纸"换成对应武器 id

@@ -12,6 +12,7 @@
     "durability": null,
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -46,6 +47,7 @@
       }
     ],
     "effect": "每次攻击耗费5秒；可吓退夜游神",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -73,6 +75,7 @@
       }
     ],
     "effect": "可破碎石头和铜矿",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -100,6 +103,7 @@
       }
     ],
     "effect": "可破碎石头和铜矿；消耗减半（3下一个铜矿）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -127,6 +131,7 @@
       }
     ],
     "effect": "可砍倒松树",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -154,6 +159,7 @@
       }
     ],
     "effect": "可砍倒松树；消耗减少（有树叶的3下/没树叶的2下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -181,6 +187,7 @@
       }
     ],
     "effect": "可砍倒松树和桦树",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -199,6 +206,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -226,6 +234,7 @@
       }
     ],
     "effect": "可破碎石头，铜矿和铁矿",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -249,6 +258,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -272,6 +282,7 @@
       }
     ],
     "effect": "潜行时的第一击攻击必定击晕敌人1秒",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -290,6 +301,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -317,6 +329,7 @@
       }
     ],
     "effect": "可开采腐化银矿",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -335,6 +348,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -353,6 +367,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -374,6 +389,7 @@
     },
     "cost": [],
     "effect": "23.2%概率减慢敌人的攻击与奔跑速度",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -395,6 +411,7 @@
     },
     "cost": [],
     "effect": "17.4%概率点燃敌人（2火伤*4下）；每次攻击耗费5秒",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -416,6 +433,7 @@
     },
     "cost": [],
     "effect": "有概率在攻击时获得逐渐治疗的效果",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -447,6 +465,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -478,6 +497,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -496,6 +516,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -523,6 +544,7 @@
       }
     ],
     "effect": "可开采橡木",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -554,6 +576,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "qiao"
   },
   {
@@ -572,6 +595,7 @@
     },
     "cost": [],
     "effect": "41.1%的概率中毒（10毒伤*6下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -603,6 +627,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "bi-shou"
   },
   {
@@ -634,6 +659,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "bi-shou"
   },
   {
@@ -661,6 +687,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -679,6 +706,7 @@
     },
     "cost": [],
     "effect": "12.1%概率瞬间秒杀敌人",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -697,6 +725,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -715,6 +744,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -749,7 +779,8 @@
         "qty": 2
       }
     ],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -781,6 +812,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -799,6 +831,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -826,6 +859,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "che-ba"
   },
   {
@@ -853,6 +887,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "che-ba"
   },
   {
@@ -871,6 +906,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -902,6 +938,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "jian-ci-chui"
   },
   {
@@ -933,6 +970,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "jian-ci-chui"
   },
   {
@@ -953,7 +991,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "几率点燃敌人（5火伤*5下）；吓退夜游神",
+    "effect": "几率点燃敌人（5火伤*5下）；吓退夜游神；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -974,7 +1013,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "狼和恐狼对受影响的目标造成更多伤害",
+    "effect": "狼和恐狼对受影响的目标造成更多伤害；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -995,7 +1035,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "减慢对手的攻击与奔跑速度",
+    "effect": "减慢对手的攻击与奔跑速度；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -1027,6 +1068,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1058,6 +1100,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "dan-shou-jian"
   },
   {
@@ -1093,6 +1136,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1110,7 +1154,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -1142,6 +1187,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1177,6 +1223,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1212,6 +1259,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "liu-xing-chui"
   },
   {
@@ -1247,6 +1295,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "liu-xing-chui"
   },
   {
@@ -1278,6 +1327,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "fa-lan-chui"
   },
   {
@@ -1313,6 +1363,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "wan-dao"
   },
   {
@@ -1348,6 +1399,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "wan-dao"
   },
   {
@@ -1366,6 +1418,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1397,6 +1450,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1415,6 +1469,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1449,7 +1504,8 @@
         "qty": 10
       }
     ],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -1468,6 +1524,7 @@
     },
     "cost": [],
     "effect": "潜行时可造成三倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1486,6 +1543,7 @@
     },
     "cost": [],
     "effect": "此武器以最后一击了结敌人来永久提升伤害（0/2/4）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1507,6 +1565,7 @@
     },
     "cost": [],
     "effect": "对同一对手连续打击时增加衰败伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1528,6 +1587,7 @@
     },
     "cost": [],
     "effect": "有机会在攻击时造成双倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1546,6 +1606,7 @@
     },
     "cost": [],
     "effect": "失去生命值越多，造成伤害越大；\n当生命值失去70%时达到双倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1584,7 +1645,8 @@
         "qty": 1
       }
     ],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -1603,6 +1665,7 @@
     },
     "cost": [],
     "effect": "攻击时，有30%概率恢复你的宠物狼饱食度（2口）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1624,6 +1687,7 @@
     },
     "cost": [],
     "effect": "52.2%概率点燃敌人（5火伤*4下）；吓退夜游神",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1642,6 +1706,7 @@
     },
     "cost": [],
     "effect": "49.2%概率使敌人流血（8*5下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1660,6 +1725,7 @@
     },
     "cost": [],
     "effect": "50.0%概率使敌人流血（8*5下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1699,6 +1765,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1717,6 +1784,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1735,6 +1803,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1753,6 +1822,7 @@
     },
     "cost": [],
     "effect": "约25.0%几率发动范围攻击（60点物理伤害；近距离）\n每多一个附近敌人，伤害暂时提升（1.5倍、2倍，……最高至4倍）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1771,6 +1841,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1789,6 +1860,7 @@
     },
     "cost": [],
     "effect": "每次击杀后，在接下来的10秒内可对最多3个远处敌人\n造成溅射伤害（穿刺伤害：0/15/30/45）\n主目标不受影响，仅对3个附加目标生效",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1810,6 +1882,7 @@
     },
     "cost": [],
     "effect": "减慢对手的攻击与奔跑速度",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1831,6 +1904,7 @@
     },
     "cost": [],
     "effect": "连续攻击的第四下100%冻结敌人",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1852,6 +1926,7 @@
     },
     "cost": [],
     "effect": "下雨时造成双倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1873,6 +1948,7 @@
     },
     "cost": [],
     "effect": "26.9%概率冻结敌人",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1894,6 +1970,7 @@
     },
     "cost": [],
     "effect": "吓退夜游神",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1933,6 +2010,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1951,6 +2029,7 @@
     },
     "cost": [],
     "effect": "每有一个额外的敌人靠近，伤害会暂时提升\n（提升倍率为1.2、1.4，直到最高2倍）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -1990,6 +2069,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "bian-zhong-jian"
   },
   {
@@ -2029,6 +2109,7 @@
       }
     ],
     "effect": "变种剑高级图纸；磨1比骑士剑伤害高1",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2064,6 +2145,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2082,6 +2164,7 @@
     },
     "cost": [],
     "effect": "连续命中时，伤害会暂时提升\n提升倍率为1.1、1.2…...直到最高2倍",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2116,7 +2199,8 @@
         "qty": 12
       }
     ],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2134,7 +2218,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2174,6 +2259,7 @@
       }
     ],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": "zhan-zheng-dao"
   },
   {
@@ -2192,6 +2278,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2210,6 +2297,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2228,6 +2316,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2249,6 +2338,7 @@
     },
     "cost": [],
     "effect": "约25.0%几率点燃（5火伤*6下）；吓退夜游神",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2270,6 +2360,7 @@
     },
     "cost": [],
     "effect": "约26.4%几率冻结敌人同时造成额外冻伤（10冰伤*6下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2288,6 +2379,7 @@
     },
     "cost": [],
     "effect": "52.8%概率威吓敌人",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2306,6 +2398,7 @@
     },
     "cost": [],
     "effect": "无视敌人200护甲",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2324,6 +2417,7 @@
     },
     "cost": [],
     "effect": "每一击造成目标最大生命值15%的额外伤害\n（对魔王无效）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2342,6 +2436,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2360,6 +2455,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2381,6 +2477,7 @@
     },
     "cost": [],
     "effect": "减慢敌人的奔跑与攻击速度",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2402,6 +2499,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2420,6 +2518,7 @@
     },
     "cost": [],
     "effect": "36.6%概率攻击时击晕对手",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2438,6 +2537,7 @@
     },
     "cost": [],
     "effect": "减慢敌人速度",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2456,6 +2556,7 @@
     },
     "cost": [],
     "effect": null,
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2490,7 +2591,8 @@
         "qty": 6
       }
     ],
-    "effect": null,
+    "effect": "远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2509,6 +2611,7 @@
     },
     "cost": [],
     "effect": "26.0%将敌人击晕，并造成双倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2526,7 +2629,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "26.6%击晕敌人；潜行不造成伤害",
+    "effect": "26.6%击晕敌人；潜行不造成伤害；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2544,7 +2648,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "26.6%击晕敌人；潜行不造成伤害",
+    "effect": "26.6%击晕敌人；潜行不造成伤害；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2562,7 +2667,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "潜行时可造成三倍伤害",
+    "effect": "潜行时可造成三倍伤害；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2581,6 +2687,7 @@
     },
     "cost": [],
     "effect": "对人的伤害增加至1.5倍",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2602,6 +2709,7 @@
     },
     "cost": [],
     "effect": "攻击时，造成额外的衰败伤害并消耗饱食度，当前的饱食度越高，伤害就越大",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2620,6 +2728,7 @@
     },
     "cost": [],
     "effect": "约62.5%几率在连续命中时永久降低敌人伤害\n依次降低为0.75、0.5、0.25倍",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2638,6 +2747,7 @@
     },
     "cost": [],
     "effect": "每次击杀后，暂时获得攻击速度增益\n提升倍率为1.15、1.3、1.45……，持续7秒",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2656,6 +2766,7 @@
     },
     "cost": [],
     "effect": "每次攻击提升武器攻击速度和伤害，攻速提升至（0.9/1/1.1/1.2/1.3）；伤害提升至（120/140/160/180/200）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2674,6 +2785,7 @@
     },
     "cost": [],
     "effect": "每次攻击提升武器攻击速度和伤害，攻速提升至（0.9/1/1.1/1.2/1.3）；伤害提升至（120/140/160/180/200）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2692,6 +2804,7 @@
     },
     "cost": [],
     "effect": "无视敌人400护甲",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2710,6 +2823,7 @@
     },
     "cost": [],
     "effect": "约20.0%几率造成恐惧；\n对陷阱、恐惧、眩晕或冰冻状态下的敌人造成2倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2731,6 +2845,7 @@
     },
     "cost": [],
     "effect": "造成伤害可加速主动技能充能",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2749,6 +2864,7 @@
     },
     "cost": [],
     "effect": "在夜间造成的伤害增加50%（全月12分钟内）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2767,6 +2883,7 @@
     },
     "cost": [],
     "effect": "约22.2%几率穿透并造成2倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2785,6 +2902,7 @@
     },
     "cost": [],
     "effect": "对怪物的伤害增加至1.5倍",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2803,6 +2921,7 @@
     },
     "cost": [],
     "effect": "潜行时的第一次攻击必定击晕敌人3秒",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2824,6 +2943,7 @@
     },
     "cost": [],
     "effect": "约15.9%几率造成冻结效果，最多影响2个近距离目标",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2845,6 +2965,7 @@
     },
     "cost": [],
     "effect": "约24.0%几率造成范围点燃（7火伤*4下，持续5秒）；\n吓退夜游神",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2863,6 +2984,7 @@
     },
     "cost": [],
     "effect": "将对目标造成的伤害的10%反弹给自身",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2881,6 +3003,7 @@
     },
     "cost": [],
     "effect": "暂时降低目标的命中率至0.5倍，持续约3秒",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2899,6 +3022,7 @@
     },
     "cost": [],
     "effect": "约23.9%几率发动范围攻击",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2917,6 +3041,7 @@
     },
     "cost": [],
     "effect": "约23.9%几率发动范围攻击",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2935,6 +3060,7 @@
     },
     "cost": [],
     "effect": "2.0%概率流放敌人",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -2952,7 +3078,8 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "无视护甲目标对远程武器所具有的额外防御",
+    "effect": "无视护甲目标对远程武器所具有的额外防御；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   },
   {
@@ -2988,6 +3115,7 @@
       }
     ],
     "effect": "伤害根据失去生命值的数量增加，失去生命值越多，造成伤害越大；\n潜行时不造成额外伤害；有机会在攻击时造成双倍伤害",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3006,6 +3134,7 @@
     },
     "cost": [],
     "effect": "造成流血（9*5下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3027,6 +3156,7 @@
     },
     "cost": [],
     "effect": "使目标治疗封禁10秒",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3045,6 +3175,7 @@
     },
     "cost": [],
     "effect": "击中时偷取敌人的生命值",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3063,6 +3194,7 @@
     },
     "cost": [],
     "effect": "约42.0%几率造成范围性攻速与移速降低",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3081,6 +3213,7 @@
     },
     "cost": [],
     "effect": "约56.0%几率在连续命中时永久降低敌方护甲\n（依次降低为0.75、0.5、0.25倍）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3099,6 +3232,7 @@
     },
     "cost": [],
     "effect": "约43.5%几率造成穿刺伤害（0.25–0.5倍）\n最多影响2个近距离目标",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3117,6 +3251,7 @@
     },
     "cost": [],
     "effect": "约43.5%几率造成穿刺伤害（0.25–0.5倍）\n最多影响2个近距离目标",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3135,6 +3270,7 @@
     },
     "cost": [],
     "effect": "约36.7%几率造成中毒（12*5下）",
+    "isRanged": false,
     "upgradeOf": null
   },
   {
@@ -3153,6 +3289,79 @@
     },
     "cost": [],
     "effect": "使用这种武器攻击会使目标的治疗降为0.持续10秒",
+    "isRanged": false,
+    "upgradeOf": null
+  },
+  {
+    "id": "tou-zhi-yao-shui",
+    "name": "投掷药水",
+    "quality": "rare",
+    "damage": null,
+    "skillBonus": null,
+    "damageNote": "无",
+    "element": {
+      "type": "毒",
+      "value": 120
+    },
+    "attackSpeed": "无",
+    "range": 5,
+    "durability": {
+      "value": 1,
+      "unit": "点"
+    },
+    "cost": [
+      {
+        "material": "mat-mu-di-mo-gu",
+        "qty": 20
+      },
+      {
+        "material": "mat-ai-sha-yan-lei",
+        "qty": 2
+      }
+    ],
+    "effect": "让受影响的敌人中毒，18秒内造成120点伤害；远程武器：炼金卓制作，且概率失败变为蘑菇浸剂",
+    "isRanged": true,
+    "upgradeOf": null
+  },
+  {
+    "id": "nan-gua-zha-dan",
+    "name": "南瓜炸弹",
+    "quality": "rare",
+    "damage": 35,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": "无",
+    "range": 5,
+    "durability": {
+      "value": 1,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "对受影响的敌人造成恐惧，并造成35点伤害；远程武器",
+    "isRanged": true,
+    "upgradeOf": null
+  },
+  {
+    "id": "bing-dong-yao-shui",
+    "name": "冰冻药水",
+    "quality": "rare",
+    "damage": 20,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "冰",
+      "value": 20
+    },
+    "attackSpeed": "无",
+    "range": 4,
+    "durability": {
+      "value": 1,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "暂时冻结受影响的敌人，并造成20点伤害；远程武器",
+    "isRanged": true,
     "upgradeOf": null
   }
 ]

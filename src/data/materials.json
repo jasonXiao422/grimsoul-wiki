@@ -228,6 +228,20 @@
     "usedIn": 1
   },
   {
+    "id": "mat-mu-di-mo-gu",
+    "name": "墓地蘑菇",
+    "usedIn": 1,
+    "entity": {
+      "cat": "consumables",
+      "id": "mu-di-mo-gu"
+    }
+  },
+  {
+    "id": "mat-ai-sha-yan-lei",
+    "name": "艾莎眼泪",
+    "usedIn": 1
+  },
+  {
     "id": "mat-huo-li-yao-shui",
     "name": "活力药水",
     "usedIn": 1,

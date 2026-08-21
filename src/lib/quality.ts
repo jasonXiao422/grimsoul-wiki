@@ -50,6 +50,9 @@ export const ELEMENT_ALIASES: Record<string, string> = {
   寒冷: '冰',
   雷电: '雷',
   闪电: '雷',
+  中毒: '毒',
+  毒伤: '毒',
+  毒素: '毒',
 };
 
 export function normalizeElementName(type?: string | null): string | undefined {
@@ -62,7 +65,7 @@ export const ELEMENT_META: Record<string, { label: string; color: string }> = {
   火:   { label: '火',   color: '#e05a3a' },
   冰:   { label: '冰',   color: '#4aa8e0' },
   衰败: { label: '衰败', color: '#5aa84a' },
-  毒:   { label: '毒',   color: '#7ab648' },
+  毒:   { label: '毒',   color: '#c8d92f' },
   雷:   { label: '雷',   color: '#35d6e8' },
 };
 

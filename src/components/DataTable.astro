@@ -18,6 +18,8 @@ const fallback =
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
 
 const getFilterOptions = (key: string) => {
+  if (key === 'isRanged') return [['true', '远程'], ['false', '近战']] as Array<[string, string]>;
+
   const values = new Map<string, string>();
   for (const item of items) {
     const raw = getByPath(item, key);
@@ -40,6 +42,12 @@ const getRowFilterValue = (key: string, value: unknown) => {
   if (key.endsWith('.type') && typeof value === 'string') return normalizeElementName(value) ?? value;
   return String(value);
 };
+
+const getFilterPlaceholder = (key: string) => key === 'element.type'
+  ? '元素筛选项'
+  : key === 'isRanged'
+    ? '远程/近战'
+    : `全部${FIELD_LABELS[key] ?? '筛选项'}`;
 
 const getDisplayValue = (item: Record<string, any>, key: string, value: unknown) => {
   if ((value === null || value === undefined || value === '') && item.dataIncomplete) return '数据待补充';
@@ -93,7 +101,7 @@ for (const item of items) {
           <label>
             <span class="sr-only">{FIELD_LABELS[filterKey] ?? '筛选项'}</span>
             <select class="filter-select" data-filter={filterKey}>
-              <option value="">全部{FIELD_LABELS[filterKey] ?? '筛选项'}</option>
+              <option value="">{getFilterPlaceholder(filterKey)}</option>
               {getFilterOptions(filterKey).map(([value, label]) => (
                 <option value={value}>{label}</option>
               ))}
