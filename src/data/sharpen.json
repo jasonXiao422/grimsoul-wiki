@@ -848,6 +848,59 @@
     "gain": 64
   },
   {
+    "id": "qing-tong-mao-2",
+    "name": "青铜矛",
+    "weaponId": "qing-tong-mao",
+    "quality": "common",
+    "iconCat": "weapons",
+    "iconId": "qing-tong-mao",
+    "levels": [
+      {
+        "level": 0,
+        "damage": 65,
+        "quality": "common",
+        "successRate": null
+      },
+      {
+        "level": 1,
+        "damage": 72,
+        "quality": "common",
+        "successRate": 100
+      },
+      {
+        "level": 2,
+        "damage": 78,
+        "quality": "common",
+        "successRate": 70
+      },
+      {
+        "level": 3,
+        "damage": 91,
+        "quality": "rare",
+        "successRate": 60
+      },
+      {
+        "level": 4,
+        "damage": 107,
+        "quality": "rare",
+        "successRate": 50
+      },
+      {
+        "level": 5,
+        "damage": 130,
+        "quality": "unique",
+        "successRate": 40
+      }
+    ],
+    "damage0": 65,
+    "damage1": 72,
+    "damage2": 78,
+    "damage3": 91,
+    "damage4": 107,
+    "damage5": 130,
+    "gain": 65
+  },
+  {
     "id": "wu-shi-dao-2",
     "name": "武士刀",
     "weaponId": "wu-shi-dao",

@@ -11,6 +11,7 @@
         "weaponId": "wan-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/wan-dao-2",
         "iconCat": "weapons",
         "iconId": "wan-dao"
       },
@@ -19,6 +20,7 @@
         "weaponId": "wan-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/wan-dao-2",
         "iconCat": "weapons",
         "iconId": "wan-dao"
       },
@@ -27,6 +29,7 @@
         "weaponId": "wan-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/wan-dao-2",
         "iconCat": "weapons",
         "iconId": "wan-dao"
       },
@@ -35,6 +38,7 @@
         "weaponId": "sha-shou-wan-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/sha-shou-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "sha-shou-wan-dao"
       },
@@ -43,6 +47,7 @@
         "weaponId": "sha-shou-wan-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/sha-shou-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "sha-shou-wan-dao"
       },
@@ -51,6 +56,7 @@
         "weaponId": "sha-shou-wan-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/sha-shou-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "sha-shou-wan-dao"
       },
@@ -59,6 +65,7 @@
         "weaponId": "ya-ta-gan-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/ya-ta-gan-dao-2",
         "iconCat": "weapons",
         "iconId": "ya-ta-gan-dao"
       },
@@ -67,6 +74,7 @@
         "weaponId": "ya-ta-gan-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/ya-ta-gan-dao-2",
         "iconCat": "weapons",
         "iconId": "ya-ta-gan-dao"
       },
@@ -75,6 +83,7 @@
         "weaponId": "ya-ta-gan-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/ya-ta-gan-dao-2",
         "iconCat": "weapons",
         "iconId": "ya-ta-gan-dao"
       },
@@ -83,6 +92,7 @@
         "weaponId": "tong-zhan-fu",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/tong-zhan-fu-2",
         "iconCat": "weapons",
         "iconId": "tong-zhan-fu"
       },
@@ -91,6 +101,7 @@
         "weaponId": "tong-zhan-fu",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/tong-zhan-fu-2",
         "iconCat": "weapons",
         "iconId": "tong-zhan-fu"
       },
@@ -99,6 +110,7 @@
         "weaponId": "tong-zhan-fu",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/tong-zhan-fu-2",
         "iconCat": "weapons",
         "iconId": "tong-zhan-fu"
       },
@@ -107,6 +119,7 @@
         "weaponId": "bian-zhong-jian",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/bian-zhong-jian-2",
         "iconCat": "weapons",
         "iconId": "bian-zhong-jian"
       },
@@ -115,6 +128,7 @@
         "weaponId": "bian-zhong-jian",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/bian-zhong-jian-2",
         "iconCat": "weapons",
         "iconId": "bian-zhong-jian"
       },
@@ -123,6 +137,7 @@
         "weaponId": "bian-zhong-jian",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/bian-zhong-jian-2",
         "iconCat": "weapons",
         "iconId": "bian-zhong-jian"
       },
@@ -131,6 +146,7 @@
         "weaponId": "duan-wan-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/duan-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "duan-wan-dao"
       },
@@ -139,6 +155,7 @@
         "weaponId": "duan-wan-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/duan-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "duan-wan-dao"
       },
@@ -147,6 +164,7 @@
         "weaponId": "duan-wan-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/duan-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "duan-wan-dao"
       },
@@ -155,6 +173,7 @@
         "weaponId": "zhan-zheng-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/zhan-zheng-dao-2",
         "iconCat": "weapons",
         "iconId": "zhan-zheng-dao"
       },
@@ -163,6 +182,7 @@
         "weaponId": "zhan-zheng-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/zhan-zheng-dao-2",
         "iconCat": "weapons",
         "iconId": "zhan-zheng-dao"
       },
@@ -171,6 +191,7 @@
         "weaponId": "zhan-zheng-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/zhan-zheng-dao-2",
         "iconCat": "weapons",
         "iconId": "zhan-zheng-dao"
       },
@@ -179,6 +200,7 @@
         "weaponId": "qi-shi-jian",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/qi-shi-jian-2",
         "iconCat": "weapons",
         "iconId": "qi-shi-jian"
       },
@@ -187,6 +209,7 @@
         "weaponId": "qi-shi-jian",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/qi-shi-jian-2",
         "iconCat": "weapons",
         "iconId": "qi-shi-jian"
       },
@@ -195,6 +218,7 @@
         "weaponId": "qi-shi-jian",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/qi-shi-jian-2",
         "iconCat": "weapons",
         "iconId": "qi-shi-jian"
       },
@@ -203,6 +227,7 @@
         "weaponId": "qing-jian",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/qing-jian-2",
         "iconCat": "weapons",
         "iconId": "qing-jian"
       },
@@ -211,6 +236,7 @@
         "weaponId": "qing-jian",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/qing-jian-2",
         "iconCat": "weapons",
         "iconId": "qing-jian"
       },
@@ -219,6 +245,7 @@
         "weaponId": "qing-jian",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/qing-jian-2",
         "iconCat": "weapons",
         "iconId": "qing-jian"
       },
@@ -227,6 +254,7 @@
         "weaponId": "qing-tong-mao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/qing-tong-mao-2",
         "iconCat": "weapons",
         "iconId": "qing-tong-mao"
       },
@@ -235,6 +263,7 @@
         "weaponId": "qing-tong-mao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/qing-tong-mao-2",
         "iconCat": "weapons",
         "iconId": "qing-tong-mao"
       },
@@ -243,6 +272,7 @@
         "weaponId": "qing-tong-mao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/qing-tong-mao-2",
         "iconCat": "weapons",
         "iconId": "qing-tong-mao"
       },
@@ -251,6 +281,7 @@
         "weaponId": "wu-shi-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/wu-shi-dao-2",
         "iconCat": "weapons",
         "iconId": "wu-shi-dao"
       },
@@ -259,6 +290,7 @@
         "weaponId": "wu-shi-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/wu-shi-dao-2",
         "iconCat": "weapons",
         "iconId": "wu-shi-dao"
       },
@@ -267,6 +299,7 @@
         "weaponId": "wu-shi-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/wu-shi-dao-2",
         "iconCat": "weapons",
         "iconId": "wu-shi-dao"
       },
@@ -275,6 +308,7 @@
         "weaponId": "shuang-ren-da-kan-dao",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/shuang-ren-da-kan-dao-2",
         "iconCat": "weapons",
         "iconId": "shuang-ren-da-kan-dao"
       },
@@ -283,6 +317,7 @@
         "weaponId": "shuang-ren-da-kan-dao",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/shuang-ren-da-kan-dao-2",
         "iconCat": "weapons",
         "iconId": "shuang-ren-da-kan-dao"
       },
@@ -291,6 +326,7 @@
         "weaponId": "shuang-ren-da-kan-dao",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/shuang-ren-da-kan-dao-2",
         "iconCat": "weapons",
         "iconId": "shuang-ren-da-kan-dao"
       },
@@ -299,6 +335,7 @@
         "weaponId": "ji",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/ji-2",
         "iconCat": "weapons",
         "iconId": "ji"
       },
@@ -307,6 +344,7 @@
         "weaponId": "ji",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/ji-2",
         "iconCat": "weapons",
         "iconId": "ji"
       },
@@ -315,6 +353,7 @@
         "weaponId": "ji",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/ji-2",
         "iconCat": "weapons",
         "iconId": "ji"
       },
@@ -323,6 +362,7 @@
         "weaponId": "chang-jian",
         "level": 0,
         "quality": "common",
+        "href": "/sharpen/chang-jian-2",
         "iconCat": "weapons",
         "iconId": "chang-jian"
       },
@@ -331,6 +371,7 @@
         "weaponId": "chang-jian",
         "level": 1,
         "quality": "common",
+        "href": "/sharpen/chang-jian-2",
         "iconCat": "weapons",
         "iconId": "chang-jian"
       },
@@ -339,6 +380,7 @@
         "weaponId": "chang-jian",
         "level": 2,
         "quality": "common",
+        "href": "/sharpen/chang-jian-2",
         "iconCat": "weapons",
         "iconId": "chang-jian"
       }
@@ -356,6 +398,7 @@
         "weaponId": "pei-zhong-chui",
         "level": null,
         "quality": "rare",
+        "href": "/weapons/pei-zhong-chui",
         "iconCat": "weapons",
         "iconId": "pei-zhong-chui"
       },
@@ -364,6 +407,7 @@
         "weaponId": "wan-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/wan-dao-2",
         "iconCat": "weapons",
         "iconId": "wan-dao"
       },
@@ -372,6 +416,7 @@
         "weaponId": "wan-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/wan-dao-2",
         "iconCat": "weapons",
         "iconId": "wan-dao"
       },
@@ -380,6 +425,7 @@
         "weaponId": "sha-shou-wan-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/sha-shou-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "sha-shou-wan-dao"
       },
@@ -388,6 +434,7 @@
         "weaponId": "sha-shou-wan-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/sha-shou-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "sha-shou-wan-dao"
       },
@@ -396,6 +443,7 @@
         "weaponId": "ya-ta-gan-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/ya-ta-gan-dao-2",
         "iconCat": "weapons",
         "iconId": "ya-ta-gan-dao"
       },
@@ -404,6 +452,7 @@
         "weaponId": "ya-ta-gan-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/ya-ta-gan-dao-2",
         "iconCat": "weapons",
         "iconId": "ya-ta-gan-dao"
       },
@@ -412,6 +461,7 @@
         "weaponId": "tong-zhan-fu",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/tong-zhan-fu-2",
         "iconCat": "weapons",
         "iconId": "tong-zhan-fu"
       },
@@ -420,6 +470,7 @@
         "weaponId": "tong-zhan-fu",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/tong-zhan-fu-2",
         "iconCat": "weapons",
         "iconId": "tong-zhan-fu"
       },
@@ -428,6 +479,7 @@
         "weaponId": "bian-zhong-jian",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/bian-zhong-jian-2",
         "iconCat": "weapons",
         "iconId": "bian-zhong-jian"
       },
@@ -436,6 +488,7 @@
         "weaponId": "bian-zhong-jian",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/bian-zhong-jian-2",
         "iconCat": "weapons",
         "iconId": "bian-zhong-jian"
       },
@@ -444,6 +497,7 @@
         "weaponId": "duan-wan-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/duan-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "duan-wan-dao"
       },
@@ -452,6 +506,7 @@
         "weaponId": "duan-wan-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/duan-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "duan-wan-dao"
       },
@@ -460,6 +515,7 @@
         "weaponId": "zhan-zheng-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/zhan-zheng-dao-2",
         "iconCat": "weapons",
         "iconId": "zhan-zheng-dao"
       },
@@ -468,6 +524,7 @@
         "weaponId": "zhan-zheng-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/zhan-zheng-dao-2",
         "iconCat": "weapons",
         "iconId": "zhan-zheng-dao"
       },
@@ -476,6 +533,7 @@
         "weaponId": "qi-shi-jian",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/qi-shi-jian-2",
         "iconCat": "weapons",
         "iconId": "qi-shi-jian"
       },
@@ -484,6 +542,7 @@
         "weaponId": "qi-shi-jian",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/qi-shi-jian-2",
         "iconCat": "weapons",
         "iconId": "qi-shi-jian"
       },
@@ -492,6 +551,7 @@
         "weaponId": "qing-jian",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/qing-jian-2",
         "iconCat": "weapons",
         "iconId": "qing-jian"
       },
@@ -500,6 +560,7 @@
         "weaponId": "qing-jian",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/qing-jian-2",
         "iconCat": "weapons",
         "iconId": "qing-jian"
       },
@@ -508,6 +569,7 @@
         "weaponId": "qing-tong-mao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/qing-tong-mao-2",
         "iconCat": "weapons",
         "iconId": "qing-tong-mao"
       },
@@ -516,6 +578,7 @@
         "weaponId": "qing-tong-mao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/qing-tong-mao-2",
         "iconCat": "weapons",
         "iconId": "qing-tong-mao"
       },
@@ -524,6 +587,7 @@
         "weaponId": "wu-shi-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/wu-shi-dao-2",
         "iconCat": "weapons",
         "iconId": "wu-shi-dao"
       },
@@ -532,6 +596,7 @@
         "weaponId": "wu-shi-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/wu-shi-dao-2",
         "iconCat": "weapons",
         "iconId": "wu-shi-dao"
       },
@@ -540,6 +605,7 @@
         "weaponId": "shuang-ren-da-kan-dao",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/shuang-ren-da-kan-dao-2",
         "iconCat": "weapons",
         "iconId": "shuang-ren-da-kan-dao"
       },
@@ -548,6 +614,7 @@
         "weaponId": "shuang-ren-da-kan-dao",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/shuang-ren-da-kan-dao-2",
         "iconCat": "weapons",
         "iconId": "shuang-ren-da-kan-dao"
       },
@@ -556,6 +623,7 @@
         "weaponId": "ji",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/ji-2",
         "iconCat": "weapons",
         "iconId": "ji"
       },
@@ -564,6 +632,7 @@
         "weaponId": "ji",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/ji-2",
         "iconCat": "weapons",
         "iconId": "ji"
       },
@@ -572,6 +641,7 @@
         "weaponId": "chang-jian",
         "level": 3,
         "quality": "rare",
+        "href": "/sharpen/chang-jian-2",
         "iconCat": "weapons",
         "iconId": "chang-jian"
       },
@@ -580,6 +650,7 @@
         "weaponId": "chang-jian",
         "level": 4,
         "quality": "rare",
+        "href": "/sharpen/chang-jian-2",
         "iconCat": "weapons",
         "iconId": "chang-jian"
       }
@@ -597,6 +668,7 @@
         "weaponId": "bian-zhong-jian",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/bian-zhong-jian-2",
         "iconCat": "weapons",
         "iconId": "bian-zhong-jian"
       },
@@ -605,6 +677,7 @@
         "weaponId": "duan-wan-dao",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/duan-wan-dao-2",
         "iconCat": "weapons",
         "iconId": "duan-wan-dao"
       },
@@ -613,6 +686,7 @@
         "weaponId": "zhan-zheng-dao",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/zhan-zheng-dao-2",
         "iconCat": "weapons",
         "iconId": "zhan-zheng-dao"
       },
@@ -621,6 +695,7 @@
         "weaponId": "qi-shi-jian",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/qi-shi-jian-2",
         "iconCat": "weapons",
         "iconId": "qi-shi-jian"
       },
@@ -629,6 +704,7 @@
         "weaponId": "qing-jian",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/qing-jian-2",
         "iconCat": "weapons",
         "iconId": "qing-jian"
       },
@@ -637,6 +713,7 @@
         "weaponId": "qing-tong-mao",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/qing-tong-mao-2",
         "iconCat": "weapons",
         "iconId": "qing-tong-mao"
       },
@@ -645,6 +722,7 @@
         "weaponId": "wu-shi-dao",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/wu-shi-dao-2",
         "iconCat": "weapons",
         "iconId": "wu-shi-dao"
       },
@@ -653,6 +731,7 @@
         "weaponId": "shuang-ren-da-kan-dao",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/shuang-ren-da-kan-dao-2",
         "iconCat": "weapons",
         "iconId": "shuang-ren-da-kan-dao"
       },
@@ -661,6 +740,7 @@
         "weaponId": "ji",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/ji-2",
         "iconCat": "weapons",
         "iconId": "ji"
       },
@@ -669,6 +749,7 @@
         "weaponId": "chang-jian",
         "level": 5,
         "quality": "unique",
+        "href": "/sharpen/chang-jian-2",
         "iconCat": "weapons",
         "iconId": "chang-jian"
       },
@@ -677,6 +758,7 @@
         "weaponId": "kuang-zhan-shi-fu-tou",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/kuang-zhan-shi-fu-tou",
         "iconCat": "weapons",
         "iconId": "kuang-zhan-shi-fu-tou"
       },
@@ -685,6 +767,7 @@
         "weaponId": "tu-fu-de-qie-rou-dao",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/tu-fu-de-qie-rou-dao",
         "iconCat": "weapons",
         "iconId": "tu-fu-de-qie-rou-dao"
       },
@@ -693,6 +776,7 @@
         "weaponId": "xiong-zhang",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/xiong-zhang",
         "iconCat": "weapons",
         "iconId": "xiong-zhang"
       },
@@ -701,6 +785,7 @@
         "weaponId": "lve-duo-zhe",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/lve-duo-zhe",
         "iconCat": "weapons",
         "iconId": "lve-duo-zhe"
       },
@@ -709,6 +794,7 @@
         "weaponId": "zhan-chui",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/zhan-chui",
         "iconCat": "weapons",
         "iconId": "zhan-chui"
       },
@@ -717,6 +803,7 @@
         "weaponId": "you-ling-jian",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/you-ling-jian",
         "iconCat": "weapons",
         "iconId": "you-ling-jian"
       },
@@ -725,6 +812,7 @@
         "weaponId": "sui-lu-zhe",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/sui-lu-zhe",
         "iconCat": "weapons",
         "iconId": "sui-lu-zhe"
       },
@@ -733,6 +821,7 @@
         "weaponId": "bei-zhou-bang-zi",
         "level": null,
         "quality": "unique",
+        "href": "/weapons/bei-zhou-bang-zi",
         "iconCat": "weapons",
         "iconId": "bei-zhou-bang-zi"
       }
@@ -750,6 +839,7 @@
         "weaponId": "ye-you-shen-de-lian-dao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/ye-you-shen-de-lian-dao",
         "iconCat": "weapons",
         "iconId": "ye-you-shen-de-lian-dao"
       },
@@ -758,6 +848,7 @@
         "weaponId": "shi-hun-shi",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/shi-hun-shi",
         "iconCat": "weapons",
         "iconId": "shi-hun-shi"
       },
@@ -766,6 +857,7 @@
         "weaponId": "yi-shi-da-lian-dao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/yi-shi-da-lian-dao",
         "iconCat": "weapons",
         "iconId": "yi-shi-da-lian-dao"
       },
@@ -774,6 +866,7 @@
         "weaponId": "lei-shen-yuan-yang-yue",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/lei-shen-yuan-yang-yue",
         "iconCat": "weapons",
         "iconId": "lei-shen-yuan-yang-yue"
       },
@@ -782,6 +875,7 @@
         "weaponId": "sha-shou-bi-shou",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/sha-shou-bi-shou",
         "iconCat": "weapons",
         "iconId": "sha-shou-bi-shou"
       },
@@ -790,6 +884,7 @@
         "weaponId": "kong-bu-da-lian-dao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/kong-bu-da-lian-dao",
         "iconCat": "weapons",
         "iconId": "kong-bu-da-lian-dao"
       },
@@ -798,6 +893,7 @@
         "weaponId": "shou-ge-zhe-yi-shi-zhi-jian",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/shou-ge-zhe-yi-shi-zhi-jian",
         "iconCat": "weapons",
         "iconId": "shou-ge-zhe-yi-shi-zhi-jian"
       },
@@ -806,6 +902,7 @@
         "weaponId": "fen-sui-zhe",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/fen-sui-zhe",
         "iconCat": "weapons",
         "iconId": "fen-sui-zhe"
       },
@@ -814,6 +911,7 @@
         "weaponId": "tie-zhi-bian-zhong-jian",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/tie-zhi-bian-zhong-jian",
         "iconCat": "weapons",
         "iconId": "tie-zhi-bian-zhong-jian"
       },
@@ -822,6 +920,7 @@
         "weaponId": "zhan-quan-zhi-fu",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/zhan-quan-zhi-fu",
         "iconCat": "weapons",
         "iconId": "zhan-quan-zhi-fu"
       },
@@ -830,6 +929,7 @@
         "weaponId": "sa-mu-feng-ren",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/sa-mu-feng-ren",
         "iconCat": "weapons",
         "iconId": "sa-mu-feng-ren"
       },
@@ -838,6 +938,7 @@
         "weaponId": "zui-e-ning-shi-zhi-ren",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/zui-e-ning-shi-zhi-ren",
         "iconCat": "weapons",
         "iconId": "zui-e-ning-shi-zhi-ren"
       },
@@ -846,6 +947,7 @@
         "weaponId": "yin-yue-lian-dao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/yin-yue-lian-dao",
         "iconCat": "weapons",
         "iconId": "yin-yue-lian-dao"
       },
@@ -854,6 +956,7 @@
         "weaponId": "tian-xuan-shou-hu-zhi-mao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/tian-xuan-shou-hu-zhi-mao",
         "iconCat": "weapons",
         "iconId": "tian-xuan-shou-hu-zhi-mao"
       },
@@ -862,6 +965,7 @@
         "weaponId": "yin-zhi-shuang-ren-da-kan-dao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/yin-zhi-shuang-ren-da-kan-dao",
         "iconCat": "weapons",
         "iconId": "yin-zhi-shuang-ren-da-kan-dao"
       },
@@ -870,6 +974,7 @@
         "weaponId": "zhu-shen-zhi-nu",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/zhu-shen-zhi-nu",
         "iconCat": "weapons",
         "iconId": "zhu-shen-zhi-nu"
       },
@@ -878,6 +983,7 @@
         "weaponId": "di-guo-zhi-ren",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/di-guo-zhi-ren",
         "iconCat": "weapons",
         "iconId": "di-guo-zhi-ren"
       },
@@ -886,6 +992,7 @@
         "weaponId": "da-shi-fu-tou",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/da-shi-fu-tou",
         "iconCat": "weapons",
         "iconId": "da-shi-fu-tou"
       },
@@ -894,6 +1001,7 @@
         "weaponId": "sheng-dian-qi-shi-jian",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/sheng-dian-qi-shi-jian",
         "iconCat": "weapons",
         "iconId": "sheng-dian-qi-shi-jian"
       },
@@ -902,6 +1010,7 @@
         "weaponId": "shi-xue",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/shi-xue",
         "iconCat": "weapons",
         "iconId": "shi-xue"
       },
@@ -910,6 +1019,7 @@
         "weaponId": "jian-jiao-fu-tou",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/jian-jiao-fu-tou",
         "iconCat": "weapons",
         "iconId": "jian-jiao-fu-tou"
       },
@@ -918,6 +1028,7 @@
         "weaponId": "xing-xing-zhe-zhi-gou",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/xing-xing-zhe-zhi-gou",
         "iconCat": "weapons",
         "iconId": "xing-xing-zhe-zhi-gou"
       },
@@ -926,6 +1037,7 @@
         "weaponId": "zhang-bing-dao",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/zhang-bing-dao",
         "iconCat": "weapons",
         "iconId": "zhang-bing-dao"
       },
@@ -934,6 +1046,7 @@
         "weaponId": "jian-ci-san-cha-ji",
         "level": null,
         "quality": "legendary",
+        "href": "/weapons/jian-ci-san-cha-ji",
         "iconCat": "weapons",
         "iconId": "jian-ci-san-cha-ji"
       }

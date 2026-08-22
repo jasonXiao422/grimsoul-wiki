@@ -49,13 +49,14 @@ const getContrastText = (hex: string) => {
               const qualityMeta = getQualityMeta(drop.quality);
               const qualityStyle = `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`;
               const badgeStyle = `background:${qualityMeta.border};color:${getContrastText(qualityMeta.border)}`;
-              return (
-                <a class="box-drop-card" href={`/weapons/${drop.weaponId}`}>
+              return drop.href ? (
+                <a class="box-drop-card" href={drop.href}>
                   <span class="box-drop-icon-wrap">
                     <img
                       class="item-icon quality-icon box-drop-icon"
                       src={getItemIconSrc('boxes', { id: drop.weaponId, iconCat: drop.iconCat, iconId: drop.iconId })}
                       alt={`${drop.name}${drop.level && drop.level > 0 ? ` 磨${drop.level}` : ''}`}
+                      title={drop.name}
                       loading="lazy"
                       style={qualityStyle}
                       data-fallback={fallback}
@@ -63,8 +64,23 @@ const getContrastText = (hex: string) => {
                     />
                     {drop.level !== null && drop.level > 0 && <span class="box-drop-badge" style={badgeStyle}>磨{drop.level}</span>}
                   </span>
-                  <span class="box-drop-name">{drop.name}</span>
                 </a>
+              ) : (
+                <div class="box-drop-card">
+                  <span class="box-drop-icon-wrap">
+                    <img
+                      class="item-icon quality-icon box-drop-icon"
+                      src={getItemIconSrc('boxes', { id: drop.weaponId, iconCat: drop.iconCat, iconId: drop.iconId })}
+                      alt={`${drop.name}${drop.level && drop.level > 0 ? ` 磨${drop.level}` : ''}`}
+                      title={drop.name}
+                      loading="lazy"
+                      style={qualityStyle}
+                      data-fallback={fallback}
+                      onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                    />
+                    {drop.level !== null && drop.level > 0 && <span class="box-drop-badge" style={badgeStyle}>磨{drop.level}</span>}
+                  </span>
+                </div>
               );
             })}
           </div>

@@ -659,10 +659,6 @@ p {
   text-align: center;
 }
 
-.box-drop-card:hover .box-drop-name {
-  color: var(--accent);
-}
-
 .box-drop-icon-wrap {
   position: relative;
   width: 56px;
@@ -690,13 +686,6 @@ p {
   white-space: nowrap;
 }
 
-.box-drop-name {
-  max-width: 100%;
-  color: var(--text-dim);
-  font-size: 0.78rem;
-  line-height: 1.25;
-  overflow-wrap: anywhere;
-}
 
 .armor-pieces-section {
   border-top: 0;

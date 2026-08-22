@@ -1064,7 +1064,7 @@ def box_quality(name):
     return "common"
 
 
-def build_boxes(weapons):
+def build_boxes(weapons, sharpen=()):
     """
     武器盒子表列序：
       0 盒子名称（合并单元格，只有该组第一行有值） / 1 掉落武器
@@ -1079,8 +1079,13 @@ def build_boxes(weapons):
     以此类推。这和磨尖等级推导出的品质是吻合的（+0~2 普通、+3~4 稀有、+5 独特）。
 
     weapons 传入用于把名称解析成武器 id，图标与详情页链接都靠它。
+
+    sharpen 传入磨尖武器数据。带磨尖等级、且该武器确实在磨尖表里的掉落，
+    链接指向磨尖详情页；否则指向普通武器页。磨尖表目前只收了 23 把，
+    盒子里的青铜矛就不在其中，硬跳会 404。
     """
     by_name = {w["name"]: w for w in weapons}
+    sharpen_ids = {x["name"]: x["id"] for x in sharpen}
     boxes = []
     current = None
 
@@ -1118,12 +1123,21 @@ def build_boxes(weapons):
         if not weapon:
             warnings.append(f"武器盒子 {current['name']}：掉落「{base}」在武器表里找不到")
 
+        sharpen_id = sharpen_ids.get(base)
         for lvl in levels:
+            # 有磨尖等级且磨尖表里收录了这把武器，才跳磨尖详情页
+            if lvl is not None and sharpen_id:
+                href = f"/sharpen/{sharpen_id}"
+            elif weapon:
+                href = f"/weapons/{weapon['id']}"
+            else:
+                href = None
             current["drops"].append({
                 "name": base,
                 "weaponId": weapon["id"] if weapon else None,
                 "level": lvl,
                 "quality": current["quality"],
+                "href": href,
                 "iconCat": "weapons",
                 "iconId": weapon["id"] if weapon else None,
             })
@@ -1195,7 +1209,7 @@ def main():
     runes = build_runes()
     consumables = build_consumables()
     sharpen = build_sharpen(weapons)
-    boxes = build_boxes(weapons)
+    boxes = build_boxes(weapons, sharpen)
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, consumables,
