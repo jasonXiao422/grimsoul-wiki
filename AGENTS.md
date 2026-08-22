@@ -56,6 +56,7 @@
 | `consumables.json` | 食物与药剂 |
 | `sharpen.json` | 磨尖武器，通过 `weaponId` 关联武器 |
 | `boxes.json` | 武器盒子及掉落列表，掉落通过 `weaponId` 关联武器 |
+| `debuffs.json` | 地牢减益图标载体，无列表页和详情页 |
 | `enemies.json` | 敌人，`group` 字段是地点大类 |
 | `materials.json` | **从所有配方自动反推**，不来自任何 Excel |
 | `knight-orders.json` | 骑士团，**唯一手工维护的 JSON** |
@@ -123,7 +124,8 @@
 | `dr_from_armor()` | 敌人减伤 = 护甲 /（护甲 + 165），向上取整。支持多段值与带前缀的字符串 |
 | `link_material_entities()` | 材料名与某个真实条目同名时（如皮驮篮既是驮篮也是升级材料），记录跳转目标写入 `entity` 字段 |
 | `cells_of()` | 需要读填充色或数字格式时用它，普通取值用 `rows_of()` |
-| `merged_ranges_of()` | 出现地点列的跨行合并单元格装的是分组共用的场地机制说明，不是地点。读出来写进 `groupNote`，该组各行的 `locations` 回退成分组名。`cells_of()` 用的 `read_only` 模式下 worksheet 没有 `merged_cells`，所以这里单独再开一次工作簿 |
+| `merged_ranges_of()` | 敌人 Excel 的出现地点与 H 列「场地机制」使用分组范围的合并单元格。场地机制原文保留在 `groupNote`，同时拆成结构化的 `groupNoteBlocks`；该组各行的 `locations` 回退成分组名。`cells_of()` 用的 `read_only` 模式下 worksheet 没有 `merged_cells`，所以这里单独再开一次工作簿 |
+| 场地机制结构化数据 | `groupNoteBlocks` 按小节保存标题、正文和条目；【英雄模式的减益】下的条目会带 `debuffs` 图标信息 |
 | 名称换行清理 | Excel 里 Alt+Enter 的手动换行会进名称，统一压掉 |
 
 **材料引用规则**：所有 `cost` 数组里只存 material 的 id，
@@ -173,6 +175,7 @@
 ## 图片规则
 
 - 路径按 `/images/<文件名>/<id>.webp` **自动拼接**，JSON 里不写 icon 字段
+- 敌人的场地机制在 Excel H 列按分组合并单元格导入，拆成 `groupNoteBlocks`；英雄模式减益条目带 `debuffs` 图标
 - 套装部件的图标在 `public/images/armor-pieces/`
 - 缺图时显示占位符，不要报错崩页面
 - `scripts/check-icons.mjs` 检查缺图，挂在 `prebuild`，只警告不中断

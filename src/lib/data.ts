@@ -12,6 +12,7 @@ import runes from '../data/runes.json';
 import consumables from '../data/consumables.json';
 import sharpen from '../data/sharpen.json';
 import boxes from '../data/boxes.json';
+import debuffs from '../data/debuffs.json';
 import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 
@@ -29,6 +30,7 @@ export const DATA_BY_CATEGORY = {
   consumables,
   sharpen,
   boxes,
+  debuffs,
   materials,
   orders: knightOrders,
 } as const;

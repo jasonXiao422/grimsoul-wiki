@@ -819,6 +819,107 @@ def parse_enemy_element(raw):
     return {"type": None, "value": s}
 
 
+# 场地机制正文里的小标题，形如 【英雄模式的减益】
+NOTE_BLOCK_RE = re.compile(r"^【(?P<title>[^】]+)】\s*(?P<body>.*)$")
+# 小标题下的编号条目，形如 （1）一条命：固定减益，死亡后无法返回地下城捡尸体
+NOTE_ITEM_RE = re.compile(r"^[（(](?P<index>\d+)[）)]\s*(?P<name>[^：:]+)[：:]\s*(?P<desc>.*)$")
+
+# 这些小标题下的编号条目会配图标，图标存在 public/images/<类别>/ 下
+NOTE_ICON_BLOCKS = {"英雄模式的减益": "debuffs"}
+
+# 同一段场地机制会被该分组的每只敌人各解析一遍，而 make_id 用全局 used_ids
+# 去重，重复调用会得到 xxx-2、xxx-3……所以按名称缓存，只算第一次。
+_NOTE_ICON_IDS = {}
+
+
+def note_icon_id(name):
+    if name not in _NOTE_ICON_IDS:
+        _NOTE_ICON_IDS[name] = make_id(name)
+    return _NOTE_ICON_IDS[name]
+
+
+def parse_group_note(raw):
+    """
+    把整段场地机制拆成结构化区块，供详情页分块渲染。
+
+    形态：
+        【地牢介绍】被弃地下城一共有三层……
+        【英雄模式的减益】英雄模式下的地牢会有4种随机减益……
+        （1）一条命：固定减益，死亡后无法返回地下城捡尸体
+        （2）瘟疫崛起：固定减益，敌人可以复活
+
+    返回 [{"title", "body", "items": [{"index","name","desc","iconCat","iconId"}]}]
+
+    编号条目归属于它上面最近的那个小标题。只有 NOTE_ICON_BLOCKS 里登记的
+    小标题，其条目才带 iconCat/iconId —— 酷吏那边的房间介绍也用编号，
+    但不需要图标。
+    """
+    if not raw:
+        return None
+
+    blocks = []
+    for line in str(raw).split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+
+        matched = NOTE_BLOCK_RE.match(line)
+        if matched:
+            blocks.append({
+                "title": matched.group("title").strip(),
+                "body": matched.group("body").strip() or None,
+                "items": [],
+            })
+            continue
+
+        item = NOTE_ITEM_RE.match(line)
+        if item and blocks:
+            block = blocks[-1]
+            entry = {
+                "index": int(item.group("index")),
+                "name": item.group("name").strip(),
+                "desc": item.group("desc").strip(),
+            }
+            icon_cat = NOTE_ICON_BLOCKS.get(block["title"])
+            if icon_cat:
+                entry["iconCat"] = icon_cat
+                entry["iconId"] = note_icon_id(entry["name"])
+            block["items"].append(entry)
+            continue
+
+        # 既不是小标题也不是编号条目，接到上一块的正文后面
+        if blocks:
+            block = blocks[-1]
+            block["body"] = f"{block['body']}\n{line}" if block["body"] else line
+        else:
+            blocks.append({"title": None, "body": line, "items": []})
+
+    return blocks or None
+
+
+def collect_note_icons(enemies):
+    """
+    把所有带图标的场地机制条目汇总成一份清单，写进 debuffs.json。
+
+    图标工具和缺图检查都按板块读 JSON，没有这份清单就没法给它们分配图标。
+    同一个减益可能出现在多个分组里，按 id 去重。
+    """
+    seen = {}
+    for enemy in enemies:
+        for block in enemy.get("groupNoteBlocks") or []:
+            for item in block["items"]:
+                if "iconId" not in item:
+                    continue
+                seen.setdefault(item["iconId"], {
+                    "id": item["iconId"],
+                    "name": item["name"],
+                    "desc": item["desc"],
+                    "group": enemy["group"],
+                    "quality": "common",
+                })
+    return list(seen.values())
+
+
 def build_enemies():
     """
     敌人表列序：
@@ -830,25 +931,26 @@ def build_enemies():
        敌人表用的色值（蓝 FF4A86E8 / 黄橙 FFBC04 / 紫 FF351C75）
        已经在 QUALITY_BY_FILL 里登记过，不必新增。
 
-    2. 出现地点列可能是跨多行的合并单元格，里面装的是整个分组共用的
-       场地机制说明（目前只有大车炮台）。这种情况写进 groupNote，
-       该组各行的 locations 回退成分组名，否则那段长文本会被
-       当成地点塞进 locations 数组。
+    2. 场地机制单独占 H 列，整组共用一段，用跨行合并单元格表示。
+       出现地点（G 列）也可能被合并（比如大车炮台整组都写「大车炮台」），
+       那种是正常地点，不是机制说明。两列各读各的，不再靠跨行数猜测。
 
     表头行（第二列是『生命』）同时充当地点分组标题。
     """
-    # 出现地点列（G）上跨 3 行及以上的合并区间视为分组说明
-    group_notes = [
-        (a, b, text(v))
-        for a, b, v in merged_ranges_of("enemies", 7)
-        if b - a + 1 >= 3
-    ]
+    def merged_lookup(column):
+        """把某列的合并区间做成「行号 → 左上角的值」的查表函数。"""
+        ranges = merged_ranges_of("enemies", column)
 
-    def note_at(row_index):
-        for a, b, v in group_notes:
-            if a <= row_index <= b:
-                return v
-        return None
+        def at(row_index):
+            for start, end, value in ranges:
+                if start <= row_index <= end:
+                    return value
+            return None
+
+        return at
+
+    note_at = merged_lookup(8)       # H 列：场地机制
+    location_at = merged_lookup(7)   # G 列：出现地点，合并时把值补给整组
 
     out, group = [], None
     for cells in cells_of("enemies")[1:]:
@@ -883,11 +985,11 @@ def build_enemies():
         if recovered_fields:
             warnings.append(f"敌人 {name}：{'/'.join(recovered_fields)}在 Excel 中被存为日期，已按单元格显示格式还原")
 
-        note = note_at(cells[0].row)
-        if note is not None:
-            locations = [group] if group else []
-        else:
-            locations = [p.strip() for p in re.split(r"[;；\n]", text(row[6]) or "") if p.strip()]
+        note = text(note_at(cells[0].row))
+        raw_location = text(row[6]) or text(location_at(cells[0].row)) or ""
+        locations = [p.strip() for p in re.split(r"[;；\n]", raw_location) if p.strip()]
+        if not locations and group:
+            locations = [group]
         if not locations:
             warnings.append(f"敌人 {name}：没有出现地点")
 
@@ -896,6 +998,7 @@ def build_enemies():
             "name": name,
             "group": group,
             "groupNote": note,
+            "groupNoteBlocks": parse_group_note(note),
             "quality": quality_from_fill(cells[0]),
             "hp": hp,
             "damageReduction": dr,
@@ -970,8 +1073,8 @@ def sharpen_quality(base_quality, level):
     磨尖后的品质取「武器自身品质」与「等级对应品质」中更高的一档。
 
     普通武器基础是 common，结果就是 SHARPEN_QUALITY 的原始规则。
-    黑武器基础是 rare，白板到磨4 都保持蓝框，磨5 才升到独特——
-    不会出现一把黑戟白板时显示白框的情况。
+    黑武器基础是 rare，未磨到磨4 都保持蓝框，磨5 才升到独特——
+    不会出现一把黑戟未磨时显示白框的情况。
     """
     by_level = SHARPEN_QUALITY[level]
     base = base_quality or "common"
@@ -1073,7 +1176,7 @@ def build_boxes(weapons, sharpen=()):
 
     掉落写法两种：
       「配重锤」            —— 固定掉落，无磨尖等级
-      「弯刀（+0/+1/+2）」   —— 该盒子能开出白板、磨1、磨2 三种，拆成三条
+      「弯刀（+0/+1/+2）」   —— 该盒子能开出未磨、磨1、磨2 三种，拆成三条
 
     卡片品质取盒子品质：普通盒子开出的都算普通，稀有盒子开出的算稀有，
     以此类推。这和磨尖等级推导出的品质是吻合的（+0~2 普通、+3~4 稀有、+5 独特）。
@@ -1204,6 +1307,7 @@ def main():
     shields = build_shields()
     backpacks = build_backpacks()
     enemies = build_enemies()
+    debuffs = collect_note_icons(enemies)
     amulets = build_amulets()
     scrolls = build_scrolls()
     runes = build_runes()
@@ -1237,6 +1341,7 @@ def main():
     write("shields", shields)
     write("backpacks", backpacks)
     write("enemies", enemies)
+    write("debuffs", debuffs)
     write("amulets", amulets)
     write("scrolls", scrolls)
     write("runes", runes)

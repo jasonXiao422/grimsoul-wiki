@@ -914,6 +914,13 @@ p {
   align-items: start;
 }
 
+.detail-grid h2,
+.sharpen-levels-title,
+.order-body h2,
+.order-related h2 {
+  color: var(--accent);
+}
+
 .detail-image {
   width: 100%;
   aspect-ratio: 1;

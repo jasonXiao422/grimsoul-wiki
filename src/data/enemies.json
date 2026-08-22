@@ -4,6 +4,7 @@
     "name": "老鼠",
     "group": "家里",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 1,
     "damageReduction": 0,
@@ -21,6 +22,7 @@
     "name": "鹿",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 25,
     "damageReduction": 0,
@@ -39,6 +41,7 @@
     "name": "熊",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 70,
     "damageReduction": 11,
@@ -57,6 +60,7 @@
     "name": "狼",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 50,
     "damageReduction": 0,
@@ -75,6 +79,7 @@
     "name": "恐狼",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 100,
     "damageReduction": 20,
@@ -93,6 +98,7 @@
     "name": "驼鹿",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 500,
     "damageReduction": 27,
@@ -110,6 +116,7 @@
     "name": "继母艾莎+5级图的蝙蝠",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 85,
     "damageReduction": 0,
@@ -128,6 +135,7 @@
     "name": "麻风病人",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 50,
     "damageReduction": 0,
@@ -145,6 +153,7 @@
     "name": "被咒骑士",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 200,
     "damageReduction": 30,
@@ -162,6 +171,7 @@
     "name": "被咒圣殿骑士",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 300,
     "damageReduction": 38,
@@ -179,6 +189,7 @@
     "name": "女巫",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 100,
     "damageReduction": 0,
@@ -197,6 +208,7 @@
     "name": "被咒者",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 90,
     "damageReduction": 0,
@@ -214,6 +226,7 @@
     "name": "黑暗猎人",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 80,
     "damageReduction": 0,
@@ -232,6 +245,7 @@
     "name": "瘟疫强盗",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 125,
     "damageReduction": 0,
@@ -252,6 +266,7 @@
     "name": "瘟疫野蛮人",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 95,
     "damageReduction": 23,
@@ -272,6 +287,7 @@
     "name": "无名新秀",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 90,
     "damageReduction": 0,
@@ -289,6 +305,7 @@
     "name": "骷髅",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 70,
     "damageReduction": 0,
@@ -310,6 +327,7 @@
     "name": "天灭者",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 300,
     "damageReduction": 0,
@@ -328,6 +346,7 @@
     "name": "白名流亡者",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 100,
     "damageReduction": "不定; <70.8",
@@ -346,6 +365,7 @@
     "name": "邻居(蓝名流亡者)",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 100,
     "damageReduction": "不定; <77.9",
@@ -363,6 +383,7 @@
     "name": "瘟疫缠身者",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 90,
     "damageReduction": 0,
@@ -380,6 +401,7 @@
     "name": "被咒勇士",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 140,
     "damageReduction": 30,
@@ -398,6 +420,7 @@
     "name": "被咒狂徒",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 200,
     "damageReduction": 38,
@@ -416,6 +439,7 @@
     "name": "被咒调查官",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 300,
     "damageReduction": 47,
@@ -433,6 +457,7 @@
     "name": "教徒",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 2800,
     "damageReduction": 0,
@@ -451,6 +476,7 @@
     "name": "贪财旧货商",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 1000,
     "damageReduction": 0,
@@ -468,6 +494,7 @@
     "name": "群生爪牙",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 900,
     "damageReduction": 37,
@@ -486,6 +513,7 @@
     "name": "瓦格",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 760,
     "damageReduction": 38,
@@ -505,6 +533,7 @@
     "name": "维比约恩---晕熊",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 2000,
     "damageReduction": 11,
@@ -523,6 +552,7 @@
     "name": "夜游神",
     "group": "1-5级图",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": "无限",
     "damageReduction": "无",
@@ -539,7 +569,76 @@
     "id": "bei-qi-yin-shi",
     "name": "被弃隐士",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 50,
     "damageReduction": 16,
@@ -557,7 +656,76 @@
     "id": "wen-yi-lang",
     "name": "瘟疫狼",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 55,
     "damageReduction": 0,
@@ -574,7 +742,76 @@
     "id": "ma-feng-zhan-shi",
     "name": "麻风战士",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 50,
     "damageReduction": 17,
@@ -591,7 +828,76 @@
     "id": "wen-yi-zhi-luan",
     "name": "瘟疫之卵",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 65,
     "damageReduction": 0,
@@ -608,7 +914,76 @@
     "id": "bei-qi-zhe",
     "name": "被弃者",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 175,
     "damageReduction": 30,
@@ -626,7 +1001,76 @@
     "id": "kuang-re-zhe",
     "name": "狂热者",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 10,
     "damageReduction": 0,
@@ -645,7 +1089,76 @@
     "id": "xie-du-zhe",
     "name": "亵渎者",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 400,
     "damageReduction": 44,
@@ -663,7 +1176,76 @@
     "id": "bei-fu-shen-zhe",
     "name": "被附身者",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "common",
     "hp": 100,
     "damageReduction": 0,
@@ -681,7 +1263,76 @@
     "id": "kuang-nu-xie-du",
     "name": "狂怒亵渎",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "rare",
     "hp": 400,
     "damageReduction": 44,
@@ -698,7 +1349,76 @@
     "id": "ling-zhu-di-yi-ge-xiao-di-a-tuo-lu-si",
     "name": "领主第一个小弟-阿托鲁斯",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "rare",
     "hp": 400,
     "damageReduction": 44,
@@ -715,7 +1435,76 @@
     "id": "ling-zhu-di-er-ge-xiao-di-guo-long-de",
     "name": "领主第二个小弟-郭隆德",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "rare",
     "hp": 450,
     "damageReduction": 52,
@@ -732,7 +1521,76 @@
     "id": "ling-zhu-di-san-ge-xiao-di-ji-du-er",
     "name": "领主第三个小弟-吉杜尔",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "rare",
     "hp": 300,
     "damageReduction": 60,
@@ -749,7 +1607,76 @@
     "id": "ling-zhu-di-si-ge-xiao-di-ya-long",
     "name": "领主第四个小弟-亚龙",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "rare",
     "hp": 400,
     "damageReduction": 44,
@@ -766,7 +1693,76 @@
     "id": "kan-shou-zhe-niu-lao-ban",
     "name": "看守者(牛老板)",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "rare",
     "hp": 600,
     "damageReduction": 55,
@@ -783,7 +1779,76 @@
     "id": "ai-sen-bo-ge-ling-zhu-pu-tong-ying-xiong",
     "name": "艾森博格领主(普通，英雄)",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "unique",
     "hp": "2000, 3000",
     "damageReduction": "55, 60",
@@ -800,7 +1865,76 @@
     "id": "pa-lei-ge-si",
     "name": "帕雷格斯",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "unique",
     "hp": 1750,
     "damageReduction": 42,
@@ -818,7 +1952,76 @@
     "id": "hei-qi-shi",
     "name": "黑骑士",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "unique",
     "hp": 900,
     "damageReduction": 30,
@@ -836,7 +2039,76 @@
     "id": "bei-zhou-shi-cong",
     "name": "被咒侍从",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "unique",
     "hp": 1750,
     "damageReduction": 42,
@@ -854,7 +2126,76 @@
     "id": "wen-yi-si-ling",
     "name": "瘟疫司令",
     "group": "被弃地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时\n【英雄模式的减益】英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益\n（1）一条命：固定减益，死亡后无法返回地下城捡尸体\n（2）瘟疫崛起：固定减益，敌人可以复活\n（3）全速奔跑：随即减益，敌人移动速度增加35%\n（4）超自然反应：随机减益，敌人有15%的机会躲避攻击\n（5）疯子的笑声：随机减益，陷阱数量增加\n（6）生锈的锁：随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小\n（7）被感染的空气：随机减益，角色最大生命值降低30\n（8）鹰眼：随机减益，敌人视野增加35%",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "被弃地下城一共有三层，第二层比第一层多了狂热者和狂怒亵渎，然后第三层主要是领主和他的四个小弟；被弃地下城有普通模式和英雄模式，普通模式玩家死亡后可以返回捡尸体，地点冷却时间为8小时，而英雄模式玩家死亡后无法返回，物品将永远丢失，地点冷却时间为4小时",
+        "items": []
+      },
+      {
+        "title": "英雄模式的减益",
+        "body": "英雄模式下的地牢会有4种随机减益，前2种为固定减益，后2种为随机减益",
+        "items": [
+          {
+            "index": 1,
+            "name": "一条命",
+            "desc": "固定减益，死亡后无法返回地下城捡尸体",
+            "iconCat": "debuffs",
+            "iconId": "yi-tiao-ming"
+          },
+          {
+            "index": 2,
+            "name": "瘟疫崛起",
+            "desc": "固定减益，敌人可以复活",
+            "iconCat": "debuffs",
+            "iconId": "wen-yi-jue-qi"
+          },
+          {
+            "index": 3,
+            "name": "全速奔跑",
+            "desc": "随即减益，敌人移动速度增加35%",
+            "iconCat": "debuffs",
+            "iconId": "quan-su-ben-pao"
+          },
+          {
+            "index": 4,
+            "name": "超自然反应",
+            "desc": "随机减益，敌人有15%的机会躲避攻击",
+            "iconCat": "debuffs",
+            "iconId": "chao-zi-ran-fan-ying"
+          },
+          {
+            "index": 5,
+            "name": "疯子的笑声",
+            "desc": "随机减益，陷阱数量增加",
+            "iconCat": "debuffs",
+            "iconId": "feng-zi-de-xiao-sheng"
+          },
+          {
+            "index": 6,
+            "name": "生锈的锁",
+            "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+            "iconCat": "debuffs",
+            "iconId": "sheng-xiu-de-suo"
+          },
+          {
+            "index": 7,
+            "name": "被感染的空气",
+            "desc": "随机减益，角色最大生命值降低30",
+            "iconCat": "debuffs",
+            "iconId": "bei-gan-ran-de-kong-qi"
+          },
+          {
+            "index": 8,
+            "name": "鹰眼",
+            "desc": "随机减益，敌人视野增加35%",
+            "iconCat": "debuffs",
+            "iconId": "ying-yan"
+          }
+        ]
+      }
+    ],
     "quality": "unique",
     "hp": 1600,
     "damageReduction": 55,
@@ -872,7 +2213,45 @@
     "id": "ku-li-zhen-cha-yuan",
     "name": "酷吏侦查员",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 180,
     "damageReduction": 0,
@@ -891,7 +2270,45 @@
     "id": "tong-ku-zhe",
     "name": "痛苦者",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 90,
     "damageReduction": 0,
@@ -910,7 +2327,45 @@
     "id": "lie-tou-zhe",
     "name": "猎头者",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 0,
@@ -927,7 +2382,45 @@
     "id": "zhi-fu-zhe",
     "name": "掷斧者",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 180,
     "damageReduction": 0,
@@ -944,7 +2437,45 @@
     "id": "nv-ji-si",
     "name": "女祭司",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 250,
     "damageReduction": 0,
@@ -963,7 +2494,45 @@
     "id": "tu-zai-zhe",
     "name": "屠宰者",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 350,
     "damageReduction": 44,
@@ -982,7 +2551,45 @@
     "id": "cheng-fa-zhe",
     "name": "惩罚者",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 350,
     "damageReduction": 52,
@@ -999,7 +2606,45 @@
     "id": "ku-li",
     "name": "酷吏",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 300,
     "damageReduction": 46,
@@ -1017,7 +2662,45 @@
     "id": "can-ren-ku-li",
     "name": "残忍酷吏",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 300,
     "damageReduction": 52,
@@ -1034,7 +2717,45 @@
     "id": "huo-yan-shou-wei",
     "name": "火焰守卫",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 175,
     "damageReduction": 93,
@@ -1051,7 +2772,45 @@
     "id": "ling-zhu-ka-en",
     "name": "领主卡恩",
     "group": "酷吏地下城",
-    "groupNote": null,
+    "groupNote": "【地牢介绍】酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。\n【陷阱类别】一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫\n【最终房间开启机制】第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：\n（1）火盆房间：6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次\n（2）钥匙房间：一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间\n（3）毒火房间：这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭\n【炸弹房】一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+    "groupNoteBlocks": [
+      {
+        "title": "地牢介绍",
+        "body": "酷吏地下城一共有三层，第一层的敌人包括痛苦者，猎头者，女祭司，屠宰者还有酷吏；第二层的敌人包括痛苦者，掷斧者，女祭司，惩罚者，残忍酷吏和火焰守卫；第三层敌人主要就是领主卡恩。",
+        "items": []
+      },
+      {
+        "title": "陷阱类别",
+        "body": "一二层陷阱包括：地刺，暗箭，触发空降小怪的暗板，喷火陷阱，毒火陷阱，太阳龙套装和拥有陷阱免疫技能的猫咪可以完全免疫这些陷阱；而第三层的卡恩领主房间的陷阱则无法通过任何方式免疫",
+        "items": []
+      },
+      {
+        "title": "最终房间开启机制",
+        "body": "第一层只有火盆房，第二层有三种，分别是火盆房间，钥匙房间，和毒火房间；下面是三种房间的介绍：",
+        "items": [
+          {
+            "index": 1,
+            "name": "火盆房间",
+            "desc": "6个火盆，按照一定顺序点燃即可打开最终房间，点错则触发空降小怪，第一层来1-2个，第二层来2-3个痛苦者，若每次都点错，则会点击6+5+4+3+2+1一共21次"
+          },
+          {
+            "index": 2,
+            "name": "钥匙房间",
+            "desc": "一共有5个铁处女箱子分布在这一层地牢，每个箱子存有一把最终房间的小钥匙，集齐5把即可打开最终房间"
+          },
+          {
+            "index": 3,
+            "name": "毒火房间",
+            "desc": "这个房间通往最终房间的道路上设置有伤害超高的毒火陷阱，需要解密即可灭掉所有毒火，你面前有5个拉杆，每个拉杆会改变一处毒火的点燃和熄灭，5个拉杆中只有3个正确的拉杆，拉下这三个拉杆，顺序无关，毒火陷阱即可熄灭"
+          }
+        ]
+      },
+      {
+        "title": "炸弹房",
+        "body": "一二层会大概率刷新出炸弹房，这些房间内有额外奖励，需要使用三级炸弹炸开，房间内安全没有敌人；这些炸弹房通常设在凹陷进去的光滑墙面，玩家贴上去右下角会显示炸弹图标示意可以进行爆破",
+        "items": []
+      }
+    ],
     "quality": "legendary",
     "hp": 10000,
     "damageReduction": 0,
@@ -1068,7 +2827,24 @@
     "id": "xiu-bo-er-chu-peng-de-kuang-gong",
     "name": "修博尔触碰的矿工",
     "group": "银矿",
-    "groupNote": null,
+    "groupNote": "【治疗效果降低】矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益\n【玩家死亡】玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体\n【腐化痕迹】地面上散布着腐化痕迹,踩上去持续掉血",
+    "groupNoteBlocks": [
+      {
+        "title": "治疗效果降低",
+        "body": "矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益",
+        "items": []
+      },
+      {
+        "title": "玩家死亡",
+        "body": "玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体",
+        "items": []
+      },
+      {
+        "title": "腐化痕迹",
+        "body": "地面上散布着腐化痕迹,踩上去持续掉血",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 335,
     "damageReduction": 48,
@@ -1085,7 +2861,24 @@
     "id": "xiu-bo-er-chu-peng-de-gong-bing",
     "name": "修博尔触碰的工兵",
     "group": "银矿",
-    "groupNote": null,
+    "groupNote": "【治疗效果降低】矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益\n【玩家死亡】玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体\n【腐化痕迹】地面上散布着腐化痕迹,踩上去持续掉血",
+    "groupNoteBlocks": [
+      {
+        "title": "治疗效果降低",
+        "body": "矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益",
+        "items": []
+      },
+      {
+        "title": "玩家死亡",
+        "body": "玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体",
+        "items": []
+      },
+      {
+        "title": "腐化痕迹",
+        "body": "地面上散布着腐化痕迹,踩上去持续掉血",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 450,
     "damageReduction": 0,
@@ -1102,7 +2895,24 @@
     "id": "xiu-bo-er-chu-peng-de-jian-gong",
     "name": "修博尔触碰的监工",
     "group": "银矿",
-    "groupNote": null,
+    "groupNote": "【治疗效果降低】矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益\n【玩家死亡】玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体\n【腐化痕迹】地面上散布着腐化痕迹,踩上去持续掉血",
+    "groupNoteBlocks": [
+      {
+        "title": "治疗效果降低",
+        "body": "矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益",
+        "items": []
+      },
+      {
+        "title": "玩家死亡",
+        "body": "玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体",
+        "items": []
+      },
+      {
+        "title": "腐化痕迹",
+        "body": "地面上散布着腐化痕迹,踩上去持续掉血",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 550,
     "damageReduction": 48,
@@ -1119,7 +2929,24 @@
     "id": "bu-wen-ding-de-gu-kui-lei",
     "name": "不稳定的骨傀儡",
     "group": "银矿",
-    "groupNote": null,
+    "groupNote": "【治疗效果降低】矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益\n【玩家死亡】玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体\n【腐化痕迹】地面上散布着腐化痕迹,踩上去持续掉血",
+    "groupNoteBlocks": [
+      {
+        "title": "治疗效果降低",
+        "body": "矿井内受黑暗力量影响,所有治疗手段效果压到三分之一，圣殿骑士套装可以免疫这个减益",
+        "items": []
+      },
+      {
+        "title": "玩家死亡",
+        "body": "玩家死亡会回到码头，而不是河对岸的城堡，并且可以回去捡尸体",
+        "items": []
+      },
+      {
+        "title": "腐化痕迹",
+        "body": "地面上散布着腐化痕迹,踩上去持续掉血",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 1000,
     "damageReduction": 42,
@@ -1137,6 +2964,7 @@
     "name": "麻风挖掘者",
     "group": "铜矿",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 60,
     "damageReduction": 0,
@@ -1154,6 +2982,7 @@
     "name": "麻风监督者",
     "group": "铜矿",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 70,
     "damageReduction": 20,
@@ -1171,6 +3000,7 @@
     "name": "鼠(铜矿)",
     "group": "铜矿",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 30,
     "damageReduction": 0,
@@ -1188,6 +3018,7 @@
     "name": "鲍勃（NPC）",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 800,
     "damageReduction": 64,
@@ -1205,6 +3036,7 @@
     "name": "玛丽莎（NPC）",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 700,
     "damageReduction": 23,
@@ -1225,6 +3057,7 @@
     "name": "坎多（NPC）",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 800,
     "damageReduction": 23,
@@ -1245,6 +3078,7 @@
     "name": "文森特（NPC）",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 800,
     "damageReduction": 78,
@@ -1262,6 +3096,7 @@
     "name": "不安的幽灵",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": "300 (传奇)",
     "damageReduction": 0,
@@ -1279,6 +3114,7 @@
     "name": "骷髅射手-古墓",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": "450 (传奇)",
     "damageReduction": 0,
@@ -1296,6 +3132,7 @@
     "name": "骷髅新兵-古墓",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": "500 (传奇)",
     "damageReduction": 24,
@@ -1313,6 +3150,7 @@
     "name": "骷髅守卫",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "2500 (传奇)",
     "damageReduction": 55,
@@ -1330,6 +3168,7 @@
     "name": "骷髅骑士",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "3000 (传奇)",
     "damageReduction": 38,
@@ -1347,6 +3186,7 @@
     "name": "女妖",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "3000 (传奇)",
     "damageReduction": 38,
@@ -1364,6 +3204,7 @@
     "name": "幽灵王冈德伯恩",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": "12000 (传奇)",
     "damageReduction": 60,
@@ -1381,6 +3222,7 @@
     "name": "愤怒战士的头",
     "group": "古墓",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": 250,
     "damageReduction": 0,
@@ -1398,6 +3240,7 @@
     "name": "野马",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 25,
     "damageReduction": 0,
@@ -1417,6 +3260,7 @@
     "name": "游商之一---繁殖者",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 400,
     "damageReduction": 55,
@@ -1434,6 +3278,7 @@
     "name": "游商(匕首)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 400,
     "damageReduction": 55,
@@ -1451,6 +3296,7 @@
     "name": "游商(法兰锤)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 400,
     "damageReduction": 55,
@@ -1468,6 +3314,7 @@
     "name": "游商(短弯刀)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 400,
     "damageReduction": 55,
@@ -1485,6 +3332,7 @@
     "name": "骷髅战士",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 200,
     "damageReduction": 0,
@@ -1503,6 +3351,7 @@
     "name": "被咒商人",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 400,
     "damageReduction": 37,
@@ -1520,6 +3369,7 @@
     "name": "荒废墓穴的蝙蝠",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 60,
     "damageReduction": 0,
@@ -1537,6 +3387,7 @@
     "name": "仆人",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 2000,
     "damageReduction": 0,
@@ -1554,6 +3405,7 @@
     "name": "马克思的记忆“过去的幽灵”",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 550,
     "damageReduction": 63,
@@ -1571,6 +3423,7 @@
     "name": "梦魇",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 40,
     "damageReduction": 0,
@@ -1588,6 +3441,7 @@
     "name": "不朽的梦魇",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": null,
     "damageReduction": null,
@@ -1605,6 +3459,7 @@
     "name": "哀悼死神的影子---城堡小幽灵",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 150,
     "damageReduction": 23,
@@ -1622,6 +3477,7 @@
     "name": "科学家幽灵",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 110,
     "damageReduction": 74,
@@ -1639,6 +3495,7 @@
     "name": "抄写员幽灵",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 185,
     "damageReduction": 74,
@@ -1656,6 +3513,7 @@
     "name": "伊莉莎(悲伤的夜晚)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 300,
     "damageReduction": 0,
@@ -1673,6 +3531,7 @@
     "name": "罗恩爵士",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 300,
     "damageReduction": 30,
@@ -1690,6 +3549,7 @@
     "name": "强盗首领",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 500,
     "damageReduction": "38(任务1), 62(任务2)",
@@ -1707,6 +3567,7 @@
     "name": "伊万领主（NPC）",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": null,
     "damageReduction": 0,
@@ -1724,6 +3585,7 @@
     "name": "福金领主（NPC）",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": null,
     "damageReduction": null,
@@ -1741,6 +3603,7 @@
     "name": "塞巴斯蒂安·科尔（NPC）",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": null,
     "damageReduction": null,
@@ -1758,6 +3621,7 @@
     "name": "邻居守卫恐狼(1)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 300,
     "damageReduction": 20,
@@ -1775,6 +3639,7 @@
     "name": "邻居守卫恐狼(2)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 600,
     "damageReduction": 20,
@@ -1792,6 +3657,7 @@
     "name": "邻居守卫恐狼(3)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": 1000,
     "damageReduction": 20,
@@ -1809,6 +3675,7 @@
     "name": "死灵法师(传奇)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 450,
     "damageReduction": 69,
@@ -1826,6 +3693,7 @@
     "name": "罗格沃尔的影子",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 2500,
     "damageReduction": 23,
@@ -1843,6 +3711,7 @@
     "name": "瘟疫祭司",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 9000,
     "damageReduction": 54,
@@ -1860,6 +3729,7 @@
     "name": "暗黑守护者(大树boss)",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 10500,
     "damageReduction": 0,
@@ -1877,6 +3747,7 @@
     "name": "继母艾莎",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": 1700,
     "damageReduction": 67,
@@ -1894,6 +3765,7 @@
     "name": "小骷髅-万圣节",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 75,
     "damageReduction": 0,
@@ -1911,6 +3783,7 @@
     "name": "骷髅射手-万圣节",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 45,
     "damageReduction": 0,
@@ -1928,6 +3801,7 @@
     "name": "骷髅新兵-万圣节",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 100,
     "damageReduction": 0,
@@ -1945,6 +3819,7 @@
     "name": "被遗忘的灵魂",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 150,
     "damageReduction": 24,
@@ -1962,6 +3837,7 @@
     "name": "复仇的灵魂",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 300,
     "damageReduction": 48,
@@ -1979,6 +3855,7 @@
     "name": "骷髅战士射手-万圣节",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 150,
     "damageReduction": 0,
@@ -1996,6 +3873,7 @@
     "name": "骷髅战士近战-万圣节",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 200,
     "damageReduction": 0,
@@ -2013,6 +3891,7 @@
     "name": "坟墓守卫",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 215,
     "damageReduction": 9,
@@ -2030,6 +3909,7 @@
     "name": "骷髅炼金师",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 200,
     "damageReduction": 24,
@@ -2047,6 +3927,7 @@
     "name": "被咒者奥塔",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 600,
     "damageReduction": 66,
@@ -2064,6 +3945,7 @@
     "name": "低语噩梦",
     "group": "韦格劳废墟",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 2000,
     "damageReduction": 58,
@@ -2081,6 +3963,7 @@
     "name": "火鸡",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 50,
     "damageReduction": 0,
@@ -2099,6 +3982,7 @@
     "name": "火鸡魔王",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 900,
     "damageReduction": 0,
@@ -2116,6 +4000,7 @@
     "name": "冰行者",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 100,
     "damageReduction": 0,
@@ -2133,6 +4018,7 @@
     "name": "寒冷鼠",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 45,
     "damageReduction": 0,
@@ -2150,6 +4036,7 @@
     "name": "寒冷骑士",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 200,
     "damageReduction": null,
@@ -2167,6 +4054,7 @@
     "name": "寒冷承载者",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 600,
     "damageReduction": 0,
@@ -2184,6 +4072,7 @@
     "name": "克劳斯司令（友军）",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 1500,
     "damageReduction": 52,
@@ -2201,6 +4090,7 @@
     "name": "瘟疫圣诞老人",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "rare",
     "hp": 1500,
     "damageReduction": 48,
@@ -2221,6 +4111,7 @@
     "name": "群生领主",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 1000,
     "damageReduction": 23,
@@ -2238,6 +4129,7 @@
     "name": "芬里尔",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 750,
     "damageReduction": 38,
@@ -2256,6 +4148,7 @@
     "name": "血腥影子",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 150,
     "damageReduction": 0,
@@ -2273,6 +4166,7 @@
     "name": "召唤师",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": 720,
     "damageReduction": 0,
@@ -2291,6 +4185,7 @@
     "name": "血腥死神",
     "group": "节日活动",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": 2000,
     "damageReduction": 0,
@@ -2308,6 +4203,7 @@
     "name": "衰败传播者",
     "group": "衰败摇篮",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 400,
     "damageReduction": 0,
@@ -2325,6 +4221,7 @@
     "name": "衰败茧",
     "group": "衰败摇篮",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 80,
     "damageReduction": 0,
@@ -2342,6 +4239,7 @@
     "name": "衰败被咒者",
     "group": "衰败摇篮",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 70,
     "damageReduction": 0,
@@ -2360,6 +4258,7 @@
     "name": "衰败骑士",
     "group": "衰败摇篮",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 180,
     "damageReduction": 15,
@@ -2378,6 +4277,7 @@
     "name": "衰败鼠",
     "group": "衰败摇篮",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 40,
     "damageReduction": 0,
@@ -2397,6 +4297,7 @@
     "name": "衰败根",
     "group": "衰败摇篮",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": 100,
     "damageReduction": 0,
@@ -2414,6 +4315,7 @@
     "name": "哈特碎片(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": "45, 80, 140",
     "damageReduction": 0,
@@ -2431,6 +4333,7 @@
     "name": "弗拉格纳的侍女",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "common",
     "hp": null,
     "damageReduction": null,
@@ -2448,6 +4351,7 @@
     "name": "辅佐官杰兹(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2469,6 +4373,7 @@
     "name": "辅佐官洛萨(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2490,6 +4395,7 @@
     "name": "辅佐官尼格罗特(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2511,6 +4417,7 @@
     "name": "随军牧师费纳娜(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2531,6 +4438,7 @@
     "name": "随军牧师格西妮(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2551,6 +4459,7 @@
     "name": "随军牧师奈法丽斯(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2571,6 +4480,7 @@
     "name": "调查官安东尼奥(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2591,6 +4501,7 @@
     "name": "调查官巴克斯特(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2611,6 +4522,7 @@
     "name": "调查官伊诺茨基(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "unique",
     "hp": "75, 670, 1325",
     "damageReduction": "5, 15, 20",
@@ -2631,6 +4543,7 @@
     "name": "哈特寒灾(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": "500, 1100, 2500",
     "damageReduction": "42, 52, 58",
@@ -2651,6 +4564,7 @@
     "name": "火焰化身哈利德(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": "500, 1200, 3300",
     "damageReduction": "32, 38, 71",
@@ -2671,6 +4585,7 @@
     "name": "衰败之女弗拉格纳(普通，英雄，传奇)",
     "group": "元素副本",
     "groupNote": null,
+    "groupNoteBlocks": null,
     "quality": "legendary",
     "hp": null,
     "damageReduction": null,
@@ -2690,7 +4605,39 @@
     "id": "da-che-pao-tai-gong-jian-shou",
     "name": "大车炮台弓箭手",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 120,
     "damageReduction": 57,
@@ -2710,7 +4657,39 @@
     "id": "da-che-pao-tai-nu-bing",
     "name": "大车炮台弩兵",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 120,
     "damageReduction": 62,
@@ -2727,7 +4706,39 @@
     "id": "da-che-pao-tai-jue-dou-zhe",
     "name": "大车炮台决斗者",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 69,
@@ -2744,7 +4755,39 @@
     "id": "da-che-pao-tai-jian-ke",
     "name": "大车炮台剑客",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 48,
@@ -2761,7 +4804,39 @@
     "id": "da-che-pao-tai-jue-dou-shi",
     "name": "大车炮台角斗士",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 59,
@@ -2778,7 +4853,39 @@
     "id": "da-che-pao-tai-ai-dao-zhe",
     "name": "大车炮台哀悼者",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 40,
@@ -2795,7 +4902,39 @@
     "id": "da-che-pao-tai-qiang-bing",
     "name": "大车炮台枪兵",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 57,
@@ -2812,7 +4951,39 @@
     "id": "da-che-pao-tai-yi-shi-zhe",
     "name": "大车炮台仪式者",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 65,
@@ -2829,7 +5000,39 @@
     "id": "da-che-pao-tai-zhan-shi",
     "name": "大车炮台战士",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 200,
     "damageReduction": 77,
@@ -2846,7 +5049,39 @@
     "id": "da-che-pao-tai-zhan-dou-lian-jin-shi",
     "name": "大车炮台战斗炼金师",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "common",
     "hp": 120,
     "damageReduction": 55,
@@ -2863,7 +5098,39 @@
     "id": "da-che-pao-tai-zhong-wei-yun",
     "name": "大车炮台中尉(晕)",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 200,
     "damageReduction": 86,
@@ -2880,7 +5147,39 @@
     "id": "da-che-pao-tai-zhong-wei-kong-ju",
     "name": "大车炮台中尉(恐惧)",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 250,
     "damageReduction": 77,
@@ -2897,7 +5196,39 @@
     "id": "da-che-pao-tai-zhong-wei-bing",
     "name": "大车炮台中尉(冰)",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 200,
     "damageReduction": 82,
@@ -2917,7 +5248,39 @@
     "id": "da-che-pao-tai-zhong-wei-feng-bao",
     "name": "大车炮台中尉(风暴)",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 250,
     "damageReduction": 83,
@@ -2937,7 +5300,39 @@
     "id": "zhong-wei-xian-wei-pu-tong-mo-shi",
     "name": "中尉咸味（普通模式）",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 500,
     "damageReduction": 0,
@@ -2954,7 +5349,39 @@
     "id": "zhong-wei-xian-wei-ying-xiong-mo-shi",
     "name": "中尉咸味（英雄模式）",
     "group": "大车炮台",
-    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害。\n【英雄模式玩家负面】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%。\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%。\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNote": "【场地机制】符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。\n【英雄模式玩家增益】玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%\n【英雄模式玩家减益】无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文\n【英雄模式敌方强化】敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%\n【小兵回血机制】受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。\n【中尉回血机制】受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+    "groupNoteBlocks": [
+      {
+        "title": "场地机制",
+        "body": "符文陷阱有四种：火焰符文造成70点火焰伤害并附加200的持续烧伤；冰冻符文造成30点冰冻伤害并冰冻3秒；恐惧符文使玩家恐惧5秒；信号符文踩中会吸引附近敌人。",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家增益",
+        "body": "玩家生命值增加40点；帐篷敌人不致命；敌人更容易受到火焰/冰冻/衰败伤害；玩家治疗效果提高20%",
+        "items": []
+      },
+      {
+        "title": "英雄模式玩家减益",
+        "body": "无法使用食物、卷轴、狼和猫、任何药水（含投掷型）；回复能力降低3倍；生命值减少40点；防御力降低25%；无法使用陷阱或符文",
+        "items": []
+      },
+      {
+        "title": "英雄模式敌方强化",
+        "body": "敌人生命值和回复能力增强；免疫冰冻、眩晕和恐惧；移动速度提高40%；视野范围增加30%；20%概率使用复活药（两条命）；造成的伤害增加20%；防御力提升25%",
+        "items": []
+      },
+      {
+        "title": "小兵回血机制",
+        "body": "受伤后立即回血,单次上限 40,超出部分每 5 秒补一次,总量 200 封顶。举例:掉 35 血 → 立刻回满 35;掉 50 血 → 先回 40,5 秒后再回 10。",
+        "items": []
+      },
+      {
+        "title": "中尉回血机制",
+        "body": "受伤后立即回血,单次上限 100,超出部分每 5 秒补一次,累计 400 封顶。举例:掉 80 血 → 立刻回满 80;掉 150 血 → 先回 100,5 秒后再回 50。",
+        "items": []
+      }
+    ],
     "quality": "rare",
     "hp": 500,
     "damageReduction": 87,

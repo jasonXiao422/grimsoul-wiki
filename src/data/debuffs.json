@@ -1,0 +1,58 @@
+[
+  {
+    "id": "yi-tiao-ming",
+    "name": "一条命",
+    "desc": "固定减益，死亡后无法返回地下城捡尸体",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "wen-yi-jue-qi",
+    "name": "瘟疫崛起",
+    "desc": "固定减益，敌人可以复活",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "quan-su-ben-pao",
+    "name": "全速奔跑",
+    "desc": "随即减益，敌人移动速度增加35%",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "chao-zi-ran-fan-ying",
+    "name": "超自然反应",
+    "desc": "随机减益，敌人有15%的机会躲避攻击",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "feng-zi-de-xiao-sheng",
+    "name": "疯子的笑声",
+    "desc": "随机减益，陷阱数量增加",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "sheng-xiu-de-suo",
+    "name": "生锈的锁",
+    "desc": "随机减益，打开宝箱和门所花费的时间增加150%，打开门的范围减小",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "bei-gan-ran-de-kong-qi",
+    "name": "被感染的空气",
+    "desc": "随机减益，角色最大生命值降低30",
+    "group": "被弃地下城",
+    "quality": "common"
+  },
+  {
+    "id": "ying-yan",
+    "name": "鹰眼",
+    "desc": "随机减益，敌人视野增加35%",
+    "group": "被弃地下城",
+    "quality": "common"
+  }
+]
