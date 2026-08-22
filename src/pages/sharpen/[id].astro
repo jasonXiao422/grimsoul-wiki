@@ -39,7 +39,7 @@ const gain = item.gain;
   <section class="page-heading">
     <p class="eyebrow">磨尖武器</p>
     <h1>{item.name}</h1>
-    <p class="muted">从未磨到磨5，伤害提升 {gain}</p>
+    <p class="muted">从白板到磨5，伤害提升 {gain}</p>
   </section>
 
   <section class="panel sharpen-summary">
@@ -74,8 +74,8 @@ const gain = item.gain;
               />
               {level.level > 0 && <span class="sharpen-level-badge" style={badgeStyle}>磨{level.level}</span>}
             </div>
-            <p class="sharpen-level-stat">伤害 {level.damage}</p>
-            {level.successRate !== null && <p class="sharpen-level-stat">成功率 {level.successRate}%</p>}
+            <p class="sharpen-level-stat sharpen-level-damage">伤害 {level.damage}</p>
+            {level.successRate !== null && <p class="sharpen-level-stat sharpen-level-success">成功率 {level.successRate}%</p>}
           </article>
         );
       })}

@@ -596,6 +596,17 @@ p {
   font-variant-numeric: tabular-nums;
 }
 
+.sharpen-level-damage {
+  color: var(--accent);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.sharpen-level-success {
+  color: var(--text);
+  font-weight: 700;
+}
+
 .panel {
   padding: 20px;
 }

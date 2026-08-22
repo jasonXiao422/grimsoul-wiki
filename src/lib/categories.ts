@@ -169,7 +169,7 @@ export const CATEGORIES: CategoryDef[] = [
     file: 'sharpen',
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },
-      { key: 'damage0', label: '未磨', sortable: true, numeric: true },
+      { key: 'damage0', label: '白板', sortable: true, numeric: true },
       { key: 'damage1', label: '磨1', sortable: true, numeric: true },
       { key: 'damage2', label: '磨2', sortable: true, numeric: true },
       { key: 'damage3', label: '磨3', sortable: true, numeric: true },
