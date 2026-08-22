@@ -1090,12 +1090,15 @@ def build_boxes(weapons):
         drop = text(row[1])
 
         if box_name:                       # 合并单元格只有首行有值
+            # make_id 用全局 used_ids 去重，同一个名字调两次会得到 xxx-2。
+            # 所以只算一次，iconId 直接复用。
+            box_id = make_id(box_name)
             current = {
-                "id": make_id(box_name),
+                "id": box_id,
                 "name": box_name,
                 "quality": box_quality(box_name),
                 "iconCat": "boxes",
-                "iconId": make_id(box_name),
+                "iconId": box_id,
                 "drops": [],
             }
             boxes.append(current)

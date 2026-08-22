@@ -4,7 +4,7 @@
     "name": "普通武器盒子",
     "quality": "common",
     "iconCat": "boxes",
-    "iconId": "pu-tong-wu-qi-he-zi-2",
+    "iconId": "pu-tong-wu-qi-he-zi",
     "drops": [
       {
         "name": "弯刀",
@@ -349,7 +349,7 @@
     "name": "稀有武器盒子",
     "quality": "rare",
     "iconCat": "boxes",
-    "iconId": "xi-you-wu-qi-he-zi-2",
+    "iconId": "xi-you-wu-qi-he-zi",
     "drops": [
       {
         "name": "配重锤",
@@ -590,7 +590,7 @@
     "name": "独特武器盒子",
     "quality": "unique",
     "iconCat": "boxes",
-    "iconId": "du-te-wu-qi-he-zi-2",
+    "iconId": "du-te-wu-qi-he-zi",
     "drops": [
       {
         "name": "变种剑",
@@ -743,7 +743,7 @@
     "name": "传奇武器盒子",
     "quality": "legendary",
     "iconCat": "boxes",
-    "iconId": "chuan-qi-wu-qi-he-zi-2",
+    "iconId": "chuan-qi-wu-qi-he-zi",
     "drops": [
       {
         "name": "夜游神的镰刀",
