@@ -16,7 +16,7 @@
   {
     "id": "quan-su-ben-pao",
     "name": "全速奔跑",
-    "desc": "随即减益，敌人移动速度增加35%",
+    "desc": "随机减益，敌人移动速度增加35%",
     "group": "被弃地下城",
     "quality": "common"
   },
