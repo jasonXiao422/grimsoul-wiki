@@ -55,6 +55,7 @@
 | `runes.json` | 符文 |
 | `consumables.json` | 食物与药剂 |
 | `sharpen.json` | 磨尖武器，通过 `weaponId` 关联武器 |
+| `boxes.json` | 武器盒子及掉落列表，掉落通过 `weaponId` 关联武器 |
 | `enemies.json` | 敌人，`group` 字段是地点大类 |
 | `materials.json` | **从所有配方自动反推**，不来自任何 Excel |
 | `knight-orders.json` | 骑士团，**唯一手工维护的 JSON** |
@@ -70,6 +71,7 @@
 卷轴数据.xlsx
 符文数据.xlsx
 磨尖武器数据.xlsx
+武器盒子数据.xlsx
 ```
 
 转换脚本是 `scripts/import_excel.py`，**单一入口，不要拆分成多个脚本**。
@@ -157,10 +159,11 @@
 | `/runes` `/runes/[id]` | 符文列表与详情 |
 | `/consumables` `/consumables/[id]` | 食物与药剂列表与详情 |
 | `/sharpen` `/sharpen/[id]` | 磨尖武器列表与六级伤害详情 |
+| `/boxes` | 武器盒子与完整掉落列表 |
 | 各板块 `/[category]` `/[category]/[id]` | 列表页与详情页 |
 
 顶部导航一级项：武器、护甲、盾牌、驮篮、护符、卷轴、符文、敌人、其他。
-「其他」是下拉，含材料、磨尖武器、马匹机制、护甲与减伤。
+「其他」是下拉，含材料、马匹机制、护甲与减伤、武器盒子。
 下拉必须支持点击展开，**不要用纯 CSS hover，手机触屏点不开**。
 
 敌人列表按 `group` 字段分组展示，但搜索要能跨组。
@@ -173,6 +176,7 @@
 - 套装部件的图标在 `public/images/armor-pieces/`
 - 缺图时显示占位符，不要报错崩页面
 - `scripts/check-icons.mjs` 检查缺图，挂在 `prebuild`，只警告不中断
+- 武器盒子的图标是透明抠图，直接展示不加图标框；掉落的武器卡片复用武器图标并带磨尖角标，品质取掉落品质
 
 ## 移动端
 

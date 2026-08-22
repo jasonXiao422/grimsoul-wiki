@@ -39,6 +39,7 @@ FILES = {
     "runes": ("符文数据.xlsx", "Sheet1"),
     "consumables": ("食物_药数据.xlsx", "Sheet1"),
     "sharpen": ("磨尖武器数据.xlsx", "磨刀等级"),
+    "boxes": ("武器盒子数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -1045,6 +1046,88 @@ def build_sharpen(weapons):
     return out
 
 
+# 「弯刀（+0/+1/+2）」这类写法，括号里是该盒子能开出的磨尖等级
+BOX_DROP_RE = re.compile(r"^(?P<name>.+?)[（(](?P<levels>[+\d/、,，\s]+)[）)]\s*$")
+
+# 盒子品质从名称里的品质词推导，不读单元格底色。
+# 盒子表自带一套色板，登记进 QUALITY_BY_FILL 只会让色值表越来越杂，
+# 而名称本身已经写明了品质，没有歧义。
+BOX_QUALITY_BY_NAME = {"普通": "common", "稀有": "rare",
+                       "独特": "unique", "传奇": "legendary", "传说": "legendary"}
+
+
+def box_quality(name):
+    for word, quality in BOX_QUALITY_BY_NAME.items():
+        if name.startswith(word):
+            return quality
+    warnings.append(f"武器盒子 {name}：名称里没有品质词，按普通处理")
+    return "common"
+
+
+def build_boxes(weapons):
+    """
+    武器盒子表列序：
+      0 盒子名称（合并单元格，只有该组第一行有值） / 1 掉落武器
+
+    第 1 行是标题，第 2 行是表头，从第 3 行起是数据。
+
+    掉落写法两种：
+      「配重锤」            —— 固定掉落，无磨尖等级
+      「弯刀（+0/+1/+2）」   —— 该盒子能开出未磨、磨1、磨2 三种，拆成三条
+
+    卡片品质取盒子品质：普通盒子开出的都算普通，稀有盒子开出的算稀有，
+    以此类推。这和磨尖等级推导出的品质是吻合的（+0~2 普通、+3~4 稀有、+5 独特）。
+
+    weapons 传入用于把名称解析成武器 id，图标与详情页链接都靠它。
+    """
+    by_name = {w["name"]: w for w in weapons}
+    boxes = []
+    current = None
+
+    for row in rows_of("boxes")[2:]:
+        row = list(row)
+        box_name = text(row[0])
+        drop = text(row[1])
+
+        if box_name:                       # 合并单元格只有首行有值
+            current = {
+                "id": make_id(box_name),
+                "name": box_name,
+                "quality": box_quality(box_name),
+                "iconCat": "boxes",
+                "iconId": make_id(box_name),
+                "drops": [],
+            }
+            boxes.append(current)
+
+        if not drop or current is None:
+            continue
+
+        matched = BOX_DROP_RE.match(drop)
+        if matched:
+            base = matched.group("name").strip()
+            levels = [int(x.strip().lstrip("+")) for x in
+                      re.split(r"[/、,，]", matched.group("levels")) if x.strip()]
+        else:
+            base, levels = drop, [None]
+
+        weapon = by_name.get(base)
+        if not weapon:
+            warnings.append(f"武器盒子 {current['name']}：掉落「{base}」在武器表里找不到")
+
+        for lvl in levels:
+            current["drops"].append({
+                "name": base,
+                "weaponId": weapon["id"] if weapon else None,
+                "level": lvl,
+                "quality": current["quality"],
+                "iconCat": "weapons",
+                "iconId": weapon["id"] if weapon else None,
+            })
+
+    return boxes
+
+
 def build_materials(*datasets, skip_names=()):
     """
     从所有配方里反推材料总表。
@@ -1109,6 +1192,7 @@ def main():
     runes = build_runes()
     consumables = build_consumables()
     sharpen = build_sharpen(weapons)
+    boxes = build_boxes(weapons)
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, consumables,
@@ -1141,6 +1225,7 @@ def main():
     write("runes", runes)
     write("consumables", consumables)
     write("sharpen", sharpen)
+    write("boxes", boxes)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)

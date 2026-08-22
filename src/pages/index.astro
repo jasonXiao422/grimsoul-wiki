@@ -6,6 +6,7 @@ import { getCategoryBlurb, getCategoryCount, type CategorySlug } from '../lib/da
 import knightOrders from '../data/knight-orders.json';
 import armor from '../data/armor.json';
 import armorPieces from '../data/armor-pieces.json';
+import boxes from '../data/boxes.json';
 
 const loreCount = (await getCollection('lore')).length;
 const orderCount = knightOrders.length;
@@ -34,6 +35,13 @@ const entryCards = [
     blurb: '护甲值与减伤的换算关系',
     href: '/guides/armor',
     badge: '机制攻略',
+  },
+  {
+    slug: 'boxes',
+    label: '武器盒子',
+    blurb: '普通、稀有、独特与传奇盒子掉落',
+    href: '/boxes',
+    badge: `${boxes.length} 个盒子`,
   },
   {
     slug: 'lore',

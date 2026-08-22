@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import boxes from '../../data/boxes.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
+
+const getQualityMeta = (quality: string) => QUALITY_META[quality as Quality];
+const getContrastText = (hex: string) => {
+  const value = hex.replace('#', '');
+  const rgb = [0, 2, 4].map((index) => Number.parseInt(value.slice(index, index + 2), 16) / 255);
+  const luminance = rgb.map((channel) => channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4)
+    .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+  return luminance > 0.45 ? '#131416' : '#f5f2eb';
+};
+---
+
+<BaseLayout title="武器盒子" description="武器盒子掉落与磨尖等级">
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '武器盒子' }]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">武器盒子</p>
+    <h1>武器盒子</h1>
+    <p class="muted">查看四种武器盒子的完整掉落列表。</p>
+  </section>
+
+  <div class="boxes-list">
+    {boxes.map((box) => {
+      const boxQuality = getQualityMeta(box.quality);
+      return (
+        <section class="panel box-section" aria-labelledby={`box-${box.id}`}>
+          <div class="box-visual">
+            <img
+              class="box-image"
+              src={getItemIconSrc('boxes', box)}
+              alt={box.name}
+              loading="lazy"
+              data-fallback={fallback}
+              onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+            />
+            <h2 id={`box-${box.id}`} style={`color:${boxQuality.text}`}>{box.name}</h2>
+          </div>
+          <div class="box-drops">
+            {box.drops.map((drop) => {
+              const qualityMeta = getQualityMeta(drop.quality);
+              const qualityStyle = `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`;
+              const badgeStyle = `background:${qualityMeta.border};color:${getContrastText(qualityMeta.border)}`;
+              return (
+                <a class="box-drop-card" href={`/weapons/${drop.weaponId}`}>
+                  <span class="box-drop-icon-wrap">
+                    <img
+                      class="item-icon quality-icon box-drop-icon"
+                      src={getItemIconSrc('boxes', { id: drop.weaponId, iconCat: drop.iconCat, iconId: drop.iconId })}
+                      alt={`${drop.name}${drop.level && drop.level > 0 ? ` 磨${drop.level}` : ''}`}
+                      loading="lazy"
+                      style={qualityStyle}
+                      data-fallback={fallback}
+                      onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                    />
+                    {drop.level !== null && drop.level > 0 && <span class="box-drop-badge" style={badgeStyle}>磨{drop.level}</span>}
+                  </span>
+                  <span class="box-drop-name">{drop.name}</span>
+                </a>
+              );
+            })}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</BaseLayout>

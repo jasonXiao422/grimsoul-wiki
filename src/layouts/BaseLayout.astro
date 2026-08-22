@@ -41,6 +41,11 @@ const otherNavItems = [
     href: '/guides/armor',
     active: currentPath.startsWith('/guides/armor'),
   },
+  {
+    label: '武器盒子',
+    href: '/boxes',
+    active: currentPath.startsWith('/boxes'),
+  },
 ];
 const isOtherNavActive = otherNavItems.some((item) => item.active);
 const isEquipmentNavActive = equipmentItems.some((item) => item.active);

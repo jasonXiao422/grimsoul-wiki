@@ -2,6 +2,7 @@
 import { pinyin } from 'pinyin-pro';
 import { getCollection } from 'astro:content';
 import { ALL_CATEGORIES, DATA_BY_CATEGORY, EXTRA_DATA, getItemHref, type CategorySlug } from '../lib/data';
+import boxes from '../data/boxes.json';
 
 const makePinyin = (name: string) => pinyin(name, { toneType: 'none', type: 'array' }) as string[];
 const toSearchFields = (terms: string[]) => {
@@ -57,7 +58,14 @@ const orderSearchEntries = DATA_BY_CATEGORY.orders.map((item) => ({
   ...toSearchFields([item.name, item.eraLabel, item.summary, item.leader]),
 }));
 
-const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEntries];
+const boxSearchEntries = boxes.map((item) => ({
+  name: item.name,
+  category: '武器盒子',
+  href: '/boxes',
+  ...toSearchFields([item.name]),
+}));
+
+const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEntries, ...boxSearchEntries];
 ---
 
 <div class="site-search" data-site-search>

@@ -1,0 +1,942 @@
+[
+  {
+    "id": "pu-tong-wu-qi-he-zi",
+    "name": "普通武器盒子",
+    "quality": "common",
+    "iconCat": "boxes",
+    "iconId": "pu-tong-wu-qi-he-zi-2",
+    "drops": [
+      {
+        "name": "弯刀",
+        "weaponId": "wan-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "wan-dao"
+      },
+      {
+        "name": "弯刀",
+        "weaponId": "wan-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "wan-dao"
+      },
+      {
+        "name": "弯刀",
+        "weaponId": "wan-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "wan-dao"
+      },
+      {
+        "name": "杀手弯刀",
+        "weaponId": "sha-shou-wan-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "sha-shou-wan-dao"
+      },
+      {
+        "name": "杀手弯刀",
+        "weaponId": "sha-shou-wan-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "sha-shou-wan-dao"
+      },
+      {
+        "name": "杀手弯刀",
+        "weaponId": "sha-shou-wan-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "sha-shou-wan-dao"
+      },
+      {
+        "name": "亚塔甘刀",
+        "weaponId": "ya-ta-gan-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "ya-ta-gan-dao"
+      },
+      {
+        "name": "亚塔甘刀",
+        "weaponId": "ya-ta-gan-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "ya-ta-gan-dao"
+      },
+      {
+        "name": "亚塔甘刀",
+        "weaponId": "ya-ta-gan-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "ya-ta-gan-dao"
+      },
+      {
+        "name": "铜战斧",
+        "weaponId": "tong-zhan-fu",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "tong-zhan-fu"
+      },
+      {
+        "name": "铜战斧",
+        "weaponId": "tong-zhan-fu",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "tong-zhan-fu"
+      },
+      {
+        "name": "铜战斧",
+        "weaponId": "tong-zhan-fu",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "tong-zhan-fu"
+      },
+      {
+        "name": "变种剑",
+        "weaponId": "bian-zhong-jian",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "bian-zhong-jian"
+      },
+      {
+        "name": "变种剑",
+        "weaponId": "bian-zhong-jian",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "bian-zhong-jian"
+      },
+      {
+        "name": "变种剑",
+        "weaponId": "bian-zhong-jian",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "bian-zhong-jian"
+      },
+      {
+        "name": "短弯刀",
+        "weaponId": "duan-wan-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "duan-wan-dao"
+      },
+      {
+        "name": "短弯刀",
+        "weaponId": "duan-wan-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "duan-wan-dao"
+      },
+      {
+        "name": "短弯刀",
+        "weaponId": "duan-wan-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "duan-wan-dao"
+      },
+      {
+        "name": "战争刀",
+        "weaponId": "zhan-zheng-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "zhan-zheng-dao"
+      },
+      {
+        "name": "战争刀",
+        "weaponId": "zhan-zheng-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "zhan-zheng-dao"
+      },
+      {
+        "name": "战争刀",
+        "weaponId": "zhan-zheng-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "zhan-zheng-dao"
+      },
+      {
+        "name": "骑士剑",
+        "weaponId": "qi-shi-jian",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qi-shi-jian"
+      },
+      {
+        "name": "骑士剑",
+        "weaponId": "qi-shi-jian",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qi-shi-jian"
+      },
+      {
+        "name": "骑士剑",
+        "weaponId": "qi-shi-jian",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qi-shi-jian"
+      },
+      {
+        "name": "轻剑",
+        "weaponId": "qing-jian",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qing-jian"
+      },
+      {
+        "name": "轻剑",
+        "weaponId": "qing-jian",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qing-jian"
+      },
+      {
+        "name": "轻剑",
+        "weaponId": "qing-jian",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qing-jian"
+      },
+      {
+        "name": "青铜矛",
+        "weaponId": "qing-tong-mao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qing-tong-mao"
+      },
+      {
+        "name": "青铜矛",
+        "weaponId": "qing-tong-mao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qing-tong-mao"
+      },
+      {
+        "name": "青铜矛",
+        "weaponId": "qing-tong-mao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "qing-tong-mao"
+      },
+      {
+        "name": "武士刀",
+        "weaponId": "wu-shi-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "wu-shi-dao"
+      },
+      {
+        "name": "武士刀",
+        "weaponId": "wu-shi-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "wu-shi-dao"
+      },
+      {
+        "name": "武士刀",
+        "weaponId": "wu-shi-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "wu-shi-dao"
+      },
+      {
+        "name": "双刃大砍刀",
+        "weaponId": "shuang-ren-da-kan-dao",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "双刃大砍刀",
+        "weaponId": "shuang-ren-da-kan-dao",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "双刃大砍刀",
+        "weaponId": "shuang-ren-da-kan-dao",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "戟",
+        "weaponId": "ji",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "ji"
+      },
+      {
+        "name": "戟",
+        "weaponId": "ji",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "ji"
+      },
+      {
+        "name": "戟",
+        "weaponId": "ji",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "ji"
+      },
+      {
+        "name": "长剑",
+        "weaponId": "chang-jian",
+        "level": 0,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "chang-jian"
+      },
+      {
+        "name": "长剑",
+        "weaponId": "chang-jian",
+        "level": 1,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "chang-jian"
+      },
+      {
+        "name": "长剑",
+        "weaponId": "chang-jian",
+        "level": 2,
+        "quality": "common",
+        "iconCat": "weapons",
+        "iconId": "chang-jian"
+      }
+    ]
+  },
+  {
+    "id": "xi-you-wu-qi-he-zi",
+    "name": "稀有武器盒子",
+    "quality": "rare",
+    "iconCat": "boxes",
+    "iconId": "xi-you-wu-qi-he-zi-2",
+    "drops": [
+      {
+        "name": "配重锤",
+        "weaponId": "pei-zhong-chui",
+        "level": null,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "pei-zhong-chui"
+      },
+      {
+        "name": "弯刀",
+        "weaponId": "wan-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "wan-dao"
+      },
+      {
+        "name": "弯刀",
+        "weaponId": "wan-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "wan-dao"
+      },
+      {
+        "name": "杀手弯刀",
+        "weaponId": "sha-shou-wan-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "sha-shou-wan-dao"
+      },
+      {
+        "name": "杀手弯刀",
+        "weaponId": "sha-shou-wan-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "sha-shou-wan-dao"
+      },
+      {
+        "name": "亚塔甘刀",
+        "weaponId": "ya-ta-gan-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "ya-ta-gan-dao"
+      },
+      {
+        "name": "亚塔甘刀",
+        "weaponId": "ya-ta-gan-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "ya-ta-gan-dao"
+      },
+      {
+        "name": "铜战斧",
+        "weaponId": "tong-zhan-fu",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "tong-zhan-fu"
+      },
+      {
+        "name": "铜战斧",
+        "weaponId": "tong-zhan-fu",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "tong-zhan-fu"
+      },
+      {
+        "name": "变种剑",
+        "weaponId": "bian-zhong-jian",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "bian-zhong-jian"
+      },
+      {
+        "name": "变种剑",
+        "weaponId": "bian-zhong-jian",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "bian-zhong-jian"
+      },
+      {
+        "name": "短弯刀",
+        "weaponId": "duan-wan-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "duan-wan-dao"
+      },
+      {
+        "name": "短弯刀",
+        "weaponId": "duan-wan-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "duan-wan-dao"
+      },
+      {
+        "name": "战争刀",
+        "weaponId": "zhan-zheng-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "zhan-zheng-dao"
+      },
+      {
+        "name": "战争刀",
+        "weaponId": "zhan-zheng-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "zhan-zheng-dao"
+      },
+      {
+        "name": "骑士剑",
+        "weaponId": "qi-shi-jian",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "qi-shi-jian"
+      },
+      {
+        "name": "骑士剑",
+        "weaponId": "qi-shi-jian",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "qi-shi-jian"
+      },
+      {
+        "name": "轻剑",
+        "weaponId": "qing-jian",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "qing-jian"
+      },
+      {
+        "name": "轻剑",
+        "weaponId": "qing-jian",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "qing-jian"
+      },
+      {
+        "name": "青铜矛",
+        "weaponId": "qing-tong-mao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "qing-tong-mao"
+      },
+      {
+        "name": "青铜矛",
+        "weaponId": "qing-tong-mao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "qing-tong-mao"
+      },
+      {
+        "name": "武士刀",
+        "weaponId": "wu-shi-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "wu-shi-dao"
+      },
+      {
+        "name": "武士刀",
+        "weaponId": "wu-shi-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "wu-shi-dao"
+      },
+      {
+        "name": "双刃大砍刀",
+        "weaponId": "shuang-ren-da-kan-dao",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "双刃大砍刀",
+        "weaponId": "shuang-ren-da-kan-dao",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "戟",
+        "weaponId": "ji",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "ji"
+      },
+      {
+        "name": "戟",
+        "weaponId": "ji",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "ji"
+      },
+      {
+        "name": "长剑",
+        "weaponId": "chang-jian",
+        "level": 3,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "chang-jian"
+      },
+      {
+        "name": "长剑",
+        "weaponId": "chang-jian",
+        "level": 4,
+        "quality": "rare",
+        "iconCat": "weapons",
+        "iconId": "chang-jian"
+      }
+    ]
+  },
+  {
+    "id": "du-te-wu-qi-he-zi",
+    "name": "独特武器盒子",
+    "quality": "unique",
+    "iconCat": "boxes",
+    "iconId": "du-te-wu-qi-he-zi-2",
+    "drops": [
+      {
+        "name": "变种剑",
+        "weaponId": "bian-zhong-jian",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "bian-zhong-jian"
+      },
+      {
+        "name": "短弯刀",
+        "weaponId": "duan-wan-dao",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "duan-wan-dao"
+      },
+      {
+        "name": "战争刀",
+        "weaponId": "zhan-zheng-dao",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "zhan-zheng-dao"
+      },
+      {
+        "name": "骑士剑",
+        "weaponId": "qi-shi-jian",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "qi-shi-jian"
+      },
+      {
+        "name": "轻剑",
+        "weaponId": "qing-jian",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "qing-jian"
+      },
+      {
+        "name": "青铜矛",
+        "weaponId": "qing-tong-mao",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "qing-tong-mao"
+      },
+      {
+        "name": "武士刀",
+        "weaponId": "wu-shi-dao",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "wu-shi-dao"
+      },
+      {
+        "name": "双刃大砍刀",
+        "weaponId": "shuang-ren-da-kan-dao",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "戟",
+        "weaponId": "ji",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "ji"
+      },
+      {
+        "name": "长剑",
+        "weaponId": "chang-jian",
+        "level": 5,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "chang-jian"
+      },
+      {
+        "name": "狂战士斧头",
+        "weaponId": "kuang-zhan-shi-fu-tou",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "kuang-zhan-shi-fu-tou"
+      },
+      {
+        "name": "屠夫的切肉刀",
+        "weaponId": "tu-fu-de-qie-rou-dao",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "tu-fu-de-qie-rou-dao"
+      },
+      {
+        "name": "熊掌",
+        "weaponId": "xiong-zhang",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "xiong-zhang"
+      },
+      {
+        "name": "掠夺者",
+        "weaponId": "lve-duo-zhe",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "lve-duo-zhe"
+      },
+      {
+        "name": "战锤",
+        "weaponId": "zhan-chui",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "zhan-chui"
+      },
+      {
+        "name": "幽灵剑",
+        "weaponId": "you-ling-jian",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "you-ling-jian"
+      },
+      {
+        "name": "碎颅者",
+        "weaponId": "sui-lu-zhe",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "sui-lu-zhe"
+      },
+      {
+        "name": "被咒棒子",
+        "weaponId": "bei-zhou-bang-zi",
+        "level": null,
+        "quality": "unique",
+        "iconCat": "weapons",
+        "iconId": "bei-zhou-bang-zi"
+      }
+    ]
+  },
+  {
+    "id": "chuan-qi-wu-qi-he-zi",
+    "name": "传奇武器盒子",
+    "quality": "legendary",
+    "iconCat": "boxes",
+    "iconId": "chuan-qi-wu-qi-he-zi-2",
+    "drops": [
+      {
+        "name": "夜游神的镰刀",
+        "weaponId": "ye-you-shen-de-lian-dao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "ye-you-shen-de-lian-dao"
+      },
+      {
+        "name": "噬魂师",
+        "weaponId": "shi-hun-shi",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "shi-hun-shi"
+      },
+      {
+        "name": "仪式大镰刀",
+        "weaponId": "yi-shi-da-lian-dao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "yi-shi-da-lian-dao"
+      },
+      {
+        "name": "雷神鸳鸯钺",
+        "weaponId": "lei-shen-yuan-yang-yue",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "lei-shen-yuan-yang-yue"
+      },
+      {
+        "name": "杀手匕首",
+        "weaponId": "sha-shou-bi-shou",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "sha-shou-bi-shou"
+      },
+      {
+        "name": "恐怖大镰刀",
+        "weaponId": "kong-bu-da-lian-dao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "kong-bu-da-lian-dao"
+      },
+      {
+        "name": "收割者仪式之剑",
+        "weaponId": "shou-ge-zhe-yi-shi-zhi-jian",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "shou-ge-zhe-yi-shi-zhi-jian"
+      },
+      {
+        "name": "粉碎者",
+        "weaponId": "fen-sui-zhe",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "fen-sui-zhe"
+      },
+      {
+        "name": "铁制变种剑",
+        "weaponId": "tie-zhi-bian-zhong-jian",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "tie-zhi-bian-zhong-jian"
+      },
+      {
+        "name": "战犬之斧",
+        "weaponId": "zhan-quan-zhi-fu",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "zhan-quan-zhi-fu"
+      },
+      {
+        "name": "萨姆风刃",
+        "weaponId": "sa-mu-feng-ren",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "sa-mu-feng-ren"
+      },
+      {
+        "name": "罪恶凝视之刃",
+        "weaponId": "zui-e-ning-shi-zhi-ren",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "zui-e-ning-shi-zhi-ren"
+      },
+      {
+        "name": "银月镰刀",
+        "weaponId": "yin-yue-lian-dao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "yin-yue-lian-dao"
+      },
+      {
+        "name": "天选守护之矛",
+        "weaponId": "tian-xuan-shou-hu-zhi-mao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "tian-xuan-shou-hu-zhi-mao"
+      },
+      {
+        "name": "银制双刃大砍刀",
+        "weaponId": "yin-zhi-shuang-ren-da-kan-dao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "yin-zhi-shuang-ren-da-kan-dao"
+      },
+      {
+        "name": "诸神之怒",
+        "weaponId": "zhu-shen-zhi-nu",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "zhu-shen-zhi-nu"
+      },
+      {
+        "name": "帝国之刃",
+        "weaponId": "di-guo-zhi-ren",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "di-guo-zhi-ren"
+      },
+      {
+        "name": "大师斧头",
+        "weaponId": "da-shi-fu-tou",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "da-shi-fu-tou"
+      },
+      {
+        "name": "圣殿骑士剑",
+        "weaponId": "sheng-dian-qi-shi-jian",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "sheng-dian-qi-shi-jian"
+      },
+      {
+        "name": "嗜血",
+        "weaponId": "shi-xue",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "shi-xue"
+      },
+      {
+        "name": "尖叫斧头",
+        "weaponId": "jian-jiao-fu-tou",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "jian-jiao-fu-tou"
+      },
+      {
+        "name": "行刑者之钩",
+        "weaponId": "xing-xing-zhe-zhi-gou",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "xing-xing-zhe-zhi-gou"
+      },
+      {
+        "name": "长柄刀",
+        "weaponId": "zhang-bing-dao",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "zhang-bing-dao"
+      },
+      {
+        "name": "尖刺三叉戟",
+        "weaponId": "jian-ci-san-cha-ji",
+        "level": null,
+        "quality": "legendary",
+        "iconCat": "weapons",
+        "iconId": "jian-ci-san-cha-ji"
+      }
+    ]
+  }
+]
