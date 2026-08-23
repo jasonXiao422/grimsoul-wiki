@@ -1,0 +1,65 @@
+[
+  {
+    "id": "liang-hao-ti-po",
+    "name": "良好体魄",
+    "desc": "玩家最大生命值增加40点",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "xun-lian-jing-bao",
+    "name": "训练警报",
+    "desc": "帐篷中的敌人没那么致命",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "ci-gu-han-bing",
+    "name": "刺骨寒冰",
+    "desc": "敌人更容易受到寒冷伤害",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "chi-yan",
+    "name": "炽焰",
+    "desc": "敌人更容易受到火焰伤害",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "shuai-bai",
+    "name": "衰败",
+    "desc": "敌人更容易受到衰败伤害",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "gao-xiao-zhi-liao",
+    "name": "高效治疗",
+    "desc": "玩家治疗效果提高20%",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "zhi-liao-zhi-feng",
+    "name": "治疗之风",
+    "desc": "每4秒恢复5生命值",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "jian-rui-jian-ci",
+    "name": "尖锐尖刺",
+    "desc": "敌人在攻击你时会受到伤害",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "qiang-li-zhong-ji",
+    "name": "强力重击",
+    "desc": "玩家攻击造成额外20点伤害",
+    "group": "大车炮台",
+    "quality": "common"
+  }
+]

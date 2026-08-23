@@ -1,0 +1,65 @@
+[
+  {
+    "id": "qiang-jian-ti-po",
+    "name": "强健体魄",
+    "desc": "敌人的生命值和治疗效果提高",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "shi-kong-de-kuang-nu",
+    "name": "失控的狂怒",
+    "desc": "敌人免疫冻结、眩晕和恐惧；",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "quan-su-ben-pao",
+    "name": "全速奔跑",
+    "desc": "敌人移动速度提高40%",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "jing-jue-de-shou-wei",
+    "name": "警觉的守卫",
+    "desc": "敌人视野范围增加30%",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "jue-chu-feng-sheng",
+    "name": "绝处逢生",
+    "desc": "敌人有20%概率避免死亡并恢复生命值（两条命）",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "chen-zhong-da-ji",
+    "name": "沉重打击",
+    "desc": "敌人造成的伤害增加20%",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "qiang-han-hu-jia",
+    "name": "强悍护甲",
+    "desc": "敌人防御力提升35%",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "fu-wen-xian-jing",
+    "name": "符文陷阱",
+    "desc": "地点中的符文数量增加",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "chao-zi-ran-fan-ying",
+    "name": "超自然反应",
+    "desc": "敌人有20%的机会躲避攻击",
+    "group": "大车炮台",
+    "quality": "common"
+  }
+]

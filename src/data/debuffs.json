@@ -54,5 +54,54 @@
     "desc": "随机减益，敌人视野增加35%",
     "group": "被弃地下城",
     "quality": "common"
+  },
+  {
+    "id": "sun-huai-de-yao-shui",
+    "name": "损坏的药水",
+    "desc": "无法使用药水（包括投掷药水）",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "fan-huang-de-juan-zhou",
+    "name": "泛黄的卷轴",
+    "desc": "无法使用卷轴",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "dan-xiao-de-dong-wu",
+    "name": "胆小的动物",
+    "desc": "你的恐狼会逃跑，猫咪的被动技能不起作用",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "yan-ge-yin-shi",
+    "name": "严格饮食",
+    "desc": "无法使用食物或水",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "kai-fang-xing-shang-kou",
+    "name": "开放性伤口",
+    "desc": "受到的治疗效果降低3倍",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "sheng-xiu-hu-jia",
+    "name": "生锈护甲",
+    "desc": "玩家护甲（防御力）降低25%",
+    "group": "大车炮台",
+    "quality": "common"
+  },
+  {
+    "id": "wu-yong-de-xian-jing",
+    "name": "无用的陷阱",
+    "desc": "无法使用陷阱或符文",
+    "group": "大车炮台",
+    "quality": "common"
   }
 ]

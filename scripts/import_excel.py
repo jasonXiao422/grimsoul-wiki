@@ -821,11 +821,21 @@ def parse_enemy_element(raw):
 
 # 场地机制正文里的小标题，形如 【英雄模式的减益】
 NOTE_BLOCK_RE = re.compile(r"^【(?P<title>[^】]+)】\s*(?P<body>.*)$")
-# 小标题下的编号条目，形如 （1）一条命：固定减益，死亡后无法返回地下城捡尸体
-NOTE_ITEM_RE = re.compile(r"^[（(](?P<index>\d+)[）)]\s*(?P<name>[^：:]+)[：:]\s*(?P<desc>.*)$")
+# 小标题下的编号条目，两种写法都要认：
+#   （1）一条命：固定减益，死亡后无法返回地下城捡尸体
+#   1.\t良好体魄：玩家最大生命值增加40点
+NOTE_ITEM_RE = re.compile(
+    r"^(?:[（(](?P<idx1>\d+)[）)]|(?P<idx2>\d+)\s*[.、．])\s*"
+    r"(?P<name>[^：:]+)[：:]\s*(?P<desc>.*)$"
+)
 
-# 这些小标题下的编号条目会配图标，图标存在 public/images/<类别>/ 下
-NOTE_ICON_BLOCKS = {"英雄模式的减益": "debuffs"}
+# 这些小标题下的编号条目会配图标，值是图标所在的板块目录
+NOTE_ICON_BLOCKS = {
+    "英雄模式的减益": "debuffs",       # 被弃地下城
+    "英雄模式玩家减益": "debuffs",      # 大车炮台
+    "英雄模式玩家增益": "buffs",
+    "英雄模式敌方强化": "enemy-buffs",
+}
 
 # 同一段场地机制会被该分组的每只敌人各解析一遍，而 make_id 用全局 used_ids
 # 去重，重复调用会得到 xxx-2、xxx-3……所以按名称缓存，只算第一次。
@@ -876,7 +886,7 @@ def parse_group_note(raw):
         if item and blocks:
             block = blocks[-1]
             entry = {
-                "index": int(item.group("index")),
+                "index": int(item.group("idx1") or item.group("idx2")),
                 "name": item.group("name").strip(),
                 "desc": item.group("desc").strip(),
             }
@@ -899,25 +909,31 @@ def parse_group_note(raw):
 
 def collect_note_icons(enemies):
     """
-    把所有带图标的场地机制条目汇总成一份清单，写进 debuffs.json。
+    把带图标的场地机制条目按板块汇总，返回 {板块: [条目, ...]}。
 
-    图标工具和缺图检查都按板块读 JSON，没有这份清单就没法给它们分配图标。
-    同一个减益可能出现在多个分组里，按 id 去重。
+    图标工具和缺图检查都按板块读 JSON，没有这份清单就没法分配图标。
+    同一段机制会被该分组的每只敌人各解析一遍，所以按 (板块, id) 去重。
+
+    注意有几个名称跨分组重复：被弃地下城和大车炮台都有「全速奔跑」
+    「超自然反应」「被感染的空气」，但数值不同。同板块内共用一张图标，
+    跨板块（减益 vs 敌方强化）则各算各的。
     """
-    seen = {}
+    buckets = {}
     for enemy in enemies:
         for block in enemy.get("groupNoteBlocks") or []:
             for item in block["items"]:
-                if "iconId" not in item:
+                cat = item.get("iconCat")
+                if not cat:
                     continue
-                seen.setdefault(item["iconId"], {
+                bucket = buckets.setdefault(cat, {})
+                bucket.setdefault(item["iconId"], {
                     "id": item["iconId"],
                     "name": item["name"],
                     "desc": item["desc"],
                     "group": enemy["group"],
                     "quality": "common",
                 })
-    return list(seen.values())
+    return {cat: list(items.values()) for cat, items in buckets.items()}
 
 
 def build_enemies():
@@ -1307,7 +1323,7 @@ def main():
     shields = build_shields()
     backpacks = build_backpacks()
     enemies = build_enemies()
-    debuffs = collect_note_icons(enemies)
+    note_icons = collect_note_icons(enemies)
     amulets = build_amulets()
     scrolls = build_scrolls()
     runes = build_runes()
@@ -1341,7 +1357,8 @@ def main():
     write("shields", shields)
     write("backpacks", backpacks)
     write("enemies", enemies)
-    write("debuffs", debuffs)
+    for _cat in ("buffs", "debuffs", "enemy-buffs"):
+        write(_cat, note_icons.get(_cat, []))
     write("amulets", amulets)
     write("scrolls", scrolls)
     write("runes", runes)

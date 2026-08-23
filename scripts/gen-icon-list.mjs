@@ -49,7 +49,9 @@ const SOURCES = [
   { file: 'consumables', cat: 'consumables', label: '食物药剂', parent: quality },
   { file: 'boxes', cat: 'boxes', label: '武器盒子', parent: quality },
   { file: 'enemies', cat: 'enemies', label: '敌人', parent: quality },
-  { file: 'debuffs', cat: 'debuffs', label: '地牢减益', parent: () => undefined },
+  { file: 'buffs', cat: 'buffs', label: '玩家增益', parent: () => undefined },
+  { file: 'debuffs', cat: 'debuffs', label: '玩家减益', parent: () => undefined },
+  { file: 'enemy-buffs', cat: 'enemy-buffs', label: '敌方强化', parent: () => undefined },
   { file: 'materials', cat: 'materials', label: '材料', parent: () => undefined },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },
 ];
