@@ -7,13 +7,6 @@
     "quality": "common"
   },
   {
-    "id": "shi-kong-de-kuang-nu",
-    "name": "失控的狂怒",
-    "desc": "敌人免疫冻结、眩晕和恐惧；",
-    "group": "大车炮台",
-    "quality": "common"
-  },
-  {
     "id": "quan-su-ben-pao",
     "name": "全速奔跑",
     "desc": "敌人移动速度提高40%",
