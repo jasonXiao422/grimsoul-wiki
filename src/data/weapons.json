@@ -1058,7 +1058,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "狼和恐狼对受影响的目标造成更多伤害",
+    "effect": "狼（被控制的野生狼）和恐狼（宠物）对受影响的目标造成更多伤害（2秒/30衰败伤）",
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
@@ -2808,7 +2808,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "对人的伤害增加至1.5倍",
+    "effect": "对人的伤害增加至1.4倍",
     "dotTypes": [],
     "isRanged": false,
     "upgradeOf": null
@@ -3034,7 +3034,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "对怪物的伤害增加至1.5倍",
+    "effect": "对怪物的伤害增加至1.4倍",
     "dotTypes": [],
     "isRanged": false,
     "upgradeOf": null
