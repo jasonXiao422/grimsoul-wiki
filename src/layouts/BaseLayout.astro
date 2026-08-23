@@ -194,6 +194,11 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         </div>
       </footer>
     </div>
+    <button class="back-to-top" type="button" data-back-to-top aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="m6 14 6-6 6 6" />
+      </svg>
+    </button>
     <script>
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
@@ -271,6 +276,17 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
         setMenuOpen(false);
       });
+
+      const backToTop = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
+      const updateBackToTop = () => {
+        backToTop?.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.75);
+      };
+
+      backToTop?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      });
+      updateBackToTop();
+      window.addEventListener('scroll', updateBackToTop, { passive: true });
     </script>
   </body>
 </html>
