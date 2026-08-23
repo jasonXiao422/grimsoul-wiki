@@ -2,7 +2,7 @@
   {
     "id": "qiang-jian-ti-po",
     "name": "强健体魄",
-    "desc": "敌人的生命值和治疗效果提高",
+    "desc": "敌人的生命值提高10%，治疗效果也提高",
     "group": "大车炮台",
     "quality": "common"
   },

@@ -51,7 +51,7 @@
   {
     "id": "jian-rui-jian-ci",
     "name": "尖锐尖刺",
-    "desc": "敌人在攻击你时会受到伤害",
+    "desc": "敌人在攻击你时会受到固定10点伤害",
     "group": "大车炮台",
     "quality": "common"
   },
