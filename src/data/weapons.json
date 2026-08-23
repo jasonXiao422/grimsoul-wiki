@@ -3435,7 +3435,7 @@
     "id": "hei-se-fu-lan-bei-er-ge",
     "name": "黑色弗兰贝尔格",
     "quality": "legendary",
-    "damage": 162,
+    "damage": 150,
     "skillBonus": 15,
     "damageNote": null,
     "element": null,
@@ -3446,7 +3446,7 @@
       "unit": "点"
     },
     "cost": [],
-    "effect": "使用这种武器攻击会使目标的治疗降为0.持续10秒",
+    "effect": "使用这种武器攻击会使目标的治疗降为0，持续10秒；被动伤敌护甲",
     "dotTypes": [],
     "isRanged": false,
     "upgradeOf": null
@@ -3478,7 +3478,7 @@
         "qty": 2
       }
     ],
-    "effect": "让受影响的敌人中毒，18秒内造成120点伤害；炼金桌制作，且概率失败变为蘑菇浸剂",
+    "effect": "让受影响的敌人中毒，18秒内造成120点伤害；；炼金桌制作，且概率失败变为蘑菇浸剂",
     "dotTypes": [
       "中毒"
     ],

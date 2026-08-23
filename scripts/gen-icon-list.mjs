@@ -49,6 +49,8 @@ const SOURCES = [
   { file: 'consumables', cat: 'consumables', label: '食物药剂', parent: quality },
   { file: 'boxes', cat: 'boxes', label: '武器盒子', parent: quality },
   { file: 'enemies', cat: 'enemies', label: '敌人', parent: quality },
+  // 敌人有两套图：列表用方形头像 enemies/，详情用游戏截图 enemies-full/
+  { file: 'enemies', cat: 'enemies-full', label: '敌人截图', parent: quality },
   { file: 'buffs', cat: 'buffs', label: '玩家增益', parent: () => undefined },
   { file: 'debuffs', cat: 'debuffs', label: '玩家减益', parent: () => undefined },
   { file: 'enemy-buffs', cat: 'enemy-buffs', label: '敌方强化', parent: () => undefined },

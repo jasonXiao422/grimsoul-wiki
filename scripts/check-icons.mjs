@@ -4,14 +4,17 @@
  */
 import fs from 'node:fs';
 
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'knight-orders'];
 const missing = [];
 
 for (const f of FILES) {
-  const p = `src/data/${f}.json`;
+  const dataFile = f === 'enemies-full' ? 'enemies' : f;
+  const p = `src/data/${dataFile}.json`;
   if (!fs.existsSync(p)) continue;
   for (const item of JSON.parse(fs.readFileSync(p, 'utf8'))) {
-    const iconCategory = item.iconCat && item.iconId ? item.iconCat : f;
+    const iconCategory = f === 'enemies-full'
+      ? 'enemies-full'
+      : item.iconCat && item.iconId ? item.iconCat : f;
     const iconId = item.iconCat && item.iconId ? item.iconId : item.id;
     if (!fs.existsSync(`public/images/${iconCategory}/${iconId}.webp`))
       missing.push(`${iconCategory}/${iconId}.webp  (${item.name})`);

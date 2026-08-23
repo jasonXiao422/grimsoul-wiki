@@ -1,6 +1,8 @@
 ---
 import ImageZoom from './ImageZoom.astro';
 import GroupNote from './GroupNote.astro';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
 import { getAnyItemName, getItemIconSrc, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
@@ -14,7 +16,12 @@ interface Props {
 }
 
 const { categorySlug, item } = Astro.props;
-const iconSrc = getItemIconSrc(categorySlug, item);
+const enemyScreenshotPath = categorySlug === 'enemies'
+  ? resolve(process.cwd(), 'public', 'images', 'enemies-full', `${item.id}.webp`)
+  : undefined;
+const iconSrc = enemyScreenshotPath && existsSync(enemyScreenshotPath)
+  ? `/images/enemies-full/${item.id}.webp`
+  : getItemIconSrc(categorySlug, item);
 const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'groupNote', 'groupNoteBlocks', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
