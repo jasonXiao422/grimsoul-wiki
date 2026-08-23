@@ -7,7 +7,9 @@
     "healingSort": 360,
     "satiety": null,
     "thirst": null,
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": "攻击速度提高25%，持续20秒",
     "recipes": [
       {
@@ -46,7 +48,10 @@
     "healingSort": 100,
     "satiety": null,
     "thirst": null,
-    "craftedAt": "厨师营地；默认配方",
+    "craftedAt": [
+      "厨师营地",
+      "默认配方"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -57,9 +62,9 @@
             "qty": 1,
             "note": null,
             "ref": {
-              "cat": "materials",
-              "id": "mat-lie-jiu",
-              "quality": null
+              "cat": "consumables",
+              "id": "lie-jiu",
+              "quality": "common"
             }
           },
           {
@@ -83,9 +88,9 @@
             "qty": 1,
             "note": null,
             "ref": {
-              "cat": "materials",
-              "id": "mat-lie-jiu",
-              "quality": null
+              "cat": "consumables",
+              "id": "lie-jiu",
+              "quality": "common"
             }
           },
           {
@@ -121,7 +126,9 @@
     "healingSort": 40,
     "satiety": null,
     "thirst": null,
-    "craftedAt": "默认配方",
+    "craftedAt": [
+      "默认配方"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -160,7 +167,10 @@
     "healingSort": 200,
     "satiety": null,
     "thirst": null,
-    "craftedAt": "厨师营地；默认配方",
+    "craftedAt": [
+      "厨师营地",
+      "默认配方"
+    ],
     "effect": "攻击速度提高25%，持续20秒",
     "recipes": [
       {
@@ -171,9 +181,9 @@
             "qty": 1,
             "note": null,
             "ref": {
-              "cat": "materials",
-              "id": "mat-lie-jiu",
-              "quality": null
+              "cat": "consumables",
+              "id": "lie-jiu",
+              "quality": "common"
             }
           },
           {
@@ -197,9 +207,9 @@
             "qty": 1,
             "note": null,
             "ref": {
-              "cat": "materials",
-              "id": "mat-lie-jiu",
-              "quality": null
+              "cat": "consumables",
+              "id": "lie-jiu",
+              "quality": "common"
             }
           },
           {
@@ -235,7 +245,9 @@
     "healingSort": 160,
     "satiety": null,
     "thirst": "40",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": "消除毒效果",
     "recipes": [
       {
@@ -274,7 +286,9 @@
     "healingSort": 150,
     "satiety": "100",
     "thirst": "10",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -339,7 +353,9 @@
     "healingSort": 150,
     "satiety": null,
     "thirst": "40",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -390,7 +406,9 @@
     "healingSort": 130,
     "satiety": "100",
     "thirst": null,
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -455,7 +473,9 @@
     "healingSort": 100,
     "satiety": "80",
     "thirst": "25",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -494,7 +514,9 @@
     "healingSort": 100,
     "satiety": "75",
     "thirst": "5",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -533,7 +555,10 @@
     "healingSort": 100,
     "satiety": null,
     "thirst": null,
-    "craftedAt": "厨师营地；草药桌",
+    "craftedAt": [
+      "厨师营地",
+      "草药桌"
+    ],
     "effect": "消除毒效果",
     "recipes": [
       {
@@ -588,7 +613,9 @@
     "healingSort": 90,
     "satiety": null,
     "thirst": "20",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": "减少冻结和减速效果一段时间，10次后中毒呕吐",
     "recipes": [
       {
@@ -627,7 +654,9 @@
     "healingSort": 80,
     "satiety": "70",
     "thirst": "20",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -666,7 +695,9 @@
     "healingSort": 80,
     "satiety": "40",
     "thirst": null,
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -717,7 +748,9 @@
     "healingSort": 80,
     "satiety": "10",
     "thirst": "80",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -756,7 +789,9 @@
     "healingSort": 75,
     "satiety": "30",
     "thirst": "-3",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -857,7 +892,10 @@
     "healingSort": 50,
     "satiety": "60",
     "thirst": null,
-    "craftedAt": "厨师营地；火",
+    "craftedAt": [
+      "厨师营地",
+      "火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -886,7 +924,10 @@
     "healingSort": 50,
     "satiety": "45",
     "thirst": "25",
-    "craftedAt": "厨师营地；篝火",
+    "craftedAt": [
+      "厨师营地",
+      "篝火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -931,7 +972,11 @@
     "healingSort": 50,
     "satiety": "45",
     "thirst": "10",
-    "craftedAt": "厨师营地；篝火；火",
+    "craftedAt": [
+      "厨师营地",
+      "篝火",
+      "火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -972,7 +1017,9 @@
     "healingSort": 50,
     "satiety": "40",
     "thirst": "-3",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": "幻觉效应",
     "recipes": [
       {
@@ -1013,9 +1060,28 @@
     "healingSort": 40,
     "satiety": null,
     "thirst": null,
-    "craftedAt": null,
+    "craftedAt": [
+      "花园苗床"
+    ],
     "effect": null,
-    "recipes": null
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "曼德拉草种",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-man-de-la-cao-zhong",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "jiang-guo-zhou",
@@ -1025,7 +1091,9 @@
     "healingSort": 50,
     "satiety": "37",
     "thirst": "23",
-    "craftedAt": "篝火",
+    "craftedAt": [
+      "篝火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1076,7 +1144,9 @@
     "healingSort": 40,
     "satiety": "20",
     "thirst": null,
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1115,7 +1185,9 @@
     "healingSort": 40,
     "satiety": "40",
     "thirst": "-3",
-    "craftedAt": "肉类烘干机",
+    "craftedAt": [
+      "肉类烘干机"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1144,7 +1216,10 @@
     "healingSort": 35,
     "satiety": "40",
     "thirst": "20",
-    "craftedAt": "厨师营地；篝火",
+    "craftedAt": [
+      "厨师营地",
+      "篝火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1199,7 +1274,10 @@
     "healingSort": 30,
     "satiety": "30",
     "thirst": "3",
-    "craftedAt": "厨师营地；火",
+    "craftedAt": [
+      "厨师营地",
+      "火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1228,7 +1306,10 @@
     "healingSort": 30,
     "satiety": "25",
     "thirst": "2",
-    "craftedAt": "厨师营地；火",
+    "craftedAt": [
+      "厨师营地",
+      "火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1257,7 +1338,10 @@
     "healingSort": 30,
     "satiety": "10",
     "thirst": "30",
-    "craftedAt": "厨师营地；篝火",
+    "craftedAt": [
+      "厨师营地",
+      "篝火"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1340,7 +1424,9 @@
     "healingSort": 20,
     "satiety": "20",
     "thirst": "20",
-    "craftedAt": "花园苗床",
+    "craftedAt": [
+      "花园苗床"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1369,7 +1455,9 @@
     "healingSort": 15,
     "satiety": "15",
     "thirst": "5",
-    "craftedAt": "花园苗床",
+    "craftedAt": [
+      "花园苗床"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1398,7 +1486,9 @@
     "healingSort": 15,
     "satiety": "15",
     "thirst": null,
-    "craftedAt": "花园苗床",
+    "craftedAt": [
+      "花园苗床"
+    ],
     "effect": null,
     "recipes": [
       {
@@ -1583,7 +1673,9 @@
     "healingSort": 1,
     "satiety": "5",
     "thirst": "-10",
-    "craftedAt": "厨师营地",
+    "craftedAt": [
+      "厨师营地"
+    ],
     "effect": "呕吐",
     "recipes": [
       {
@@ -1601,9 +1693,86 @@
     "healingSort": null,
     "satiety": null,
     "thirst": "40",
-    "craftedAt": null,
+    "craftedAt": [
+      "水井"
+    ],
     "effect": null,
-    "recipes": null
+    "recipes": [
+      {
+        "label": null,
+        "items": [
+          {
+            "name": "空水瓶",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-kong-shui-ping",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "lie-jiu",
+    "name": "烈酒",
+    "quality": "common",
+    "healing": null,
+    "healingSort": null,
+    "satiety": null,
+    "thirst": null,
+    "craftedAt": [
+      "厨师营地",
+      "草药桌"
+    ],
+    "effect": null,
+    "recipes": [
+      {
+        "label": "厨师营地配方",
+        "items": [
+          {
+            "name": "冬青果",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "dong-qing-guo",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "草药桌配方",
+        "items": [
+          {
+            "name": "山楂",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "shan-zha",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "小空瓶",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-kong-ping",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "zhuan-zhu-yao-shui",
@@ -1733,7 +1902,9 @@
     "healingSort": null,
     "satiety": null,
     "thirst": null,
-    "craftedAt": "草药桌",
+    "craftedAt": [
+      "草药桌"
+    ],
     "effect": "减少20%的元素伤害，持续3分钟",
     "recipes": [
       {

@@ -141,7 +141,7 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'healing', label: '治愈', sortable: true, numeric: true, sortKey: 'healingSort' },
       { key: 'satiety', label: '饱食度', sortable: true, numeric: true },
       { key: 'thirst', label: '口渴值', sortable: true, numeric: true },
-      { key: 'craftedAt', label: '制作地点', sortable: true },
+      { key: 'craftedAt', label: '制作地点', sortable: true, render: 'list' },
     ],
     filters: ['quality', 'craftedAt'],
     defaultSort: 'healing',

@@ -572,6 +572,29 @@ RECIPE_ITEM_RE = re.compile(r"^(?P<name>.+?)[：:]\s*(?P<qty>\d+)\s*(?:[（(](?P
 RECIPE_YIELD_RE = re.compile(r"[，,]\s*(?P<yield>得到.+)$")
 
 
+def split_crafted_at(raw):
+    """
+    制作地点拆成数组，供筛选器按「包含」匹配。
+
+    表里写「厨师营地；篝火；火」表示三个地方都能做。以前整串当一个值，
+    筛选器里就会冒出「厨师营地；篝火；火」这种复合选项，选了只能筛出
+    恰好这么写的条目。拆开后每个地点各成一项，勾「篝火」就能把所有
+    能在篝火做的都筛出来。
+    """
+    value = _consumable_value(raw)
+    if value is None:
+        return None
+    parts = [p.strip() for p in re.split(r"[;；、,，/]", str(value)) if p.strip()]
+    parts = [p for p in parts if p not in CONSUMABLE_EMPTY]
+    # 去重但保持原顺序
+    seen, out = set(), []
+    for p in parts:
+        if p not in seen:
+            seen.add(p)
+            out.append(p)
+    return out or None
+
+
 def _consumable_value(raw):
     value = text(raw)
     if value is None or value.strip() in CONSUMABLE_EMPTY:
@@ -701,7 +724,7 @@ def build_consumables():
             "healingSort": healing_sort_key(row[2]),
             "satiety": _consumable_value(row[3]),
             "thirst": _consumable_value(row[4]),
-            "craftedAt": _consumable_value(row[6]),
+            "craftedAt": split_crafted_at(row[6]),
             "effect": _consumable_value(row[1]),
             "recipes": parse_recipe_text(row[5], name),
         })

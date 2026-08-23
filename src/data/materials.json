@@ -134,11 +134,6 @@
     "usedIn": 4
   },
   {
-    "id": "mat-lie-jiu",
-    "name": "烈酒",
-    "usedIn": 4
-  },
-  {
     "id": "mat-lian-tiao",
     "name": "链条",
     "usedIn": 3
@@ -213,6 +208,11 @@
     "usedIn": 2
   },
   {
+    "id": "mat-xiao-kong-ping",
+    "name": "小空瓶",
+    "usedIn": 2
+  },
+  {
     "id": "mat-shui-dao-zhong",
     "name": "水稻种",
     "usedIn": 2
@@ -220,6 +220,11 @@
   {
     "id": "mat-nan-gua-zi",
     "name": "南瓜子",
+    "usedIn": 2
+  },
+  {
+    "id": "mat-man-de-la-cao-zhong",
+    "name": "曼德拉草种",
     "usedIn": 2
   },
   {
@@ -322,18 +327,13 @@
     "usedIn": 1
   },
   {
-    "id": "mat-xiao-kong-ping",
-    "name": "小空瓶",
-    "usedIn": 1
-  },
-  {
     "id": "mat-yan-mai-zhong",
     "name": "燕麦种",
     "usedIn": 1
   },
   {
-    "id": "mat-man-de-la-cao-zhong",
-    "name": "曼德拉草种",
+    "id": "mat-kong-shui-ping",
+    "name": "空水瓶",
     "usedIn": 1
   }
 ]
