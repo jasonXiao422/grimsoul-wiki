@@ -279,10 +279,19 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
 
       const backToTop = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
       const updateBackToTop = () => {
-        backToTop?.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.75);
+        backToTop?.classList.toggle('is-visible', window.scrollY > window.innerHeight);
       };
 
       backToTop?.addEventListener('click', () => {
+        try {
+          const path = window.location.pathname.length > 1 && window.location.pathname.endsWith('/')
+            ? window.location.pathname.slice(0, -1)
+            : window.location.pathname;
+          sessionStorage.setItem(`scroll-reset:${path}`, '1');
+          sessionStorage.setItem(`scroll:${path}`, '0');
+        } catch {
+          // sessionStorage may be unavailable in restricted browser modes.
+        }
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
       });
       updateBackToTop();

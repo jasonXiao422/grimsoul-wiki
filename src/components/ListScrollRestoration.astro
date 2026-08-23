@@ -11,6 +11,16 @@
 
     const root = document.documentElement;
     const storageKey = `scroll:${normalizePath(window.location.pathname)}`;
+    const resetKey = `scroll-reset:${normalizePath(window.location.pathname)}`;
+
+    try {
+      if (sessionStorage.getItem(resetKey) === '1') {
+        sessionStorage.setItem(storageKey, '0');
+        sessionStorage.removeItem(resetKey);
+      }
+    } catch {
+      // sessionStorage may be unavailable in restricted browser modes.
+    }
 
     const readSavedScroll = () => {
       try {
@@ -25,6 +35,10 @@
 
     const saveScroll = () => {
       try {
+        if (sessionStorage.getItem(resetKey) === '1') {
+          sessionStorage.setItem(storageKey, '0');
+          return;
+        }
         sessionStorage.setItem(storageKey, String(Math.max(0, Math.round(window.scrollY))));
       } catch {
         // sessionStorage may be unavailable in restricted browser modes.
