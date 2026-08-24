@@ -1522,6 +1522,10 @@ p {
   margin-bottom: 30px;
 }
 
+.orders-intro.lore-content {
+  max-width: none;
+}
+
 .orders-index {
   display: grid;
   gap: 30px;
