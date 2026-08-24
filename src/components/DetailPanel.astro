@@ -37,6 +37,19 @@ const getDetailValue = (key: string, value: unknown) => {
   return formatValue(key, value);
 };
 
+const parseEnemyNote = (value: unknown) => {
+  if (typeof value !== 'string' || !value.includes('【') || !value.includes('】')) return undefined;
+  const matches = [...value.matchAll(/【([^】]+)】/g)];
+  if (matches.length === 0) return undefined;
+  const intro = value.slice(0, matches[0].index ?? 0).trim();
+  const skills = matches.map((match, index) => {
+    const start = (match.index ?? 0) + match[0].length;
+    const end = matches[index + 1]?.index ?? value.length;
+    return { name: match[1].trim(), description: value.slice(start, end).trim() };
+  });
+  return { intro, skills };
+};
+
 const getDetailLabel = (key: string) => {
   if (categorySlug === 'shields' && key === 'armor') return '防御值';
   if (categorySlug === 'shields' && key === 'effect') return '效果';
@@ -73,6 +86,7 @@ const attrRows = Object.entries(item)
     rawValue: value,
     label: getDetailLabel(key),
     value: getDetailValue(key, value),
+    enemyNote: categorySlug === 'enemies' && key === 'note' ? parseEnemyNote(value) : undefined,
     elementStyle: getElementStyle(key, value),
     isIncomplete: isDataIncomplete && isEmptyValue(value),
   }));
@@ -115,7 +129,16 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
               <tr>
                 <th>{row.label}</th>
                   <td class:list={[row.isIncomplete && 'attr-value-incomplete']}>
-                  {row.elementStyle ? (
+                  {row.enemyNote ? (
+                    <div class="enemy-note">
+                      {row.enemyNote.intro && <p class="enemy-note-intro">{row.enemyNote.intro}</p>}
+                      {row.enemyNote.skills.map((skill) => (
+                        <p class="enemy-note-skill">
+                          <strong>【{skill.name}】</strong>{skill.description}
+                        </p>
+                      ))}
+                    </div>
+                  ) : row.elementStyle ? (
                     <span class="element-value" style={row.elementStyle}>{row.value}</span>
                   ) : (
                     row.value

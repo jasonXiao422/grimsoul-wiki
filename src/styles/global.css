@@ -1011,6 +1011,22 @@ p {
   color: var(--text-dim);
 }
 
+.enemy-note {
+  display: grid;
+  gap: 12px;
+  line-height: 1.7;
+}
+
+.enemy-note-intro,
+.enemy-note-skill {
+  margin: 0;
+}
+
+.enemy-note-skill strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .material-entity-link {
   margin-bottom: 18px;
   padding: 14px 16px;
