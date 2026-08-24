@@ -368,7 +368,7 @@
     "hp": 100,
     "damageReduction": "不定; <70.8",
     "restoredFromDate": null,
-    "physicalDamage": "不定; <59",
+    "physicalDamage": "不定;≤81",
     "elementDamage": null,
     "note": "在低生命值有可能会逃走",
     "locations": [
@@ -387,7 +387,7 @@
     "hp": 100,
     "damageReduction": "不定; <77.9",
     "restoredFromDate": null,
-    "physicalDamage": "不定; <81",
+    "physicalDamage": "不定; ≤81",
     "elementDamage": null,
     "note": "可以稍微回血；在低生命值有可能会逃走",
     "locations": [
