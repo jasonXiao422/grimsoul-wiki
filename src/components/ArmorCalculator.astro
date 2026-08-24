@@ -1,26 +1,21 @@
 <section class="armor-calculator panel" data-armor-calculator aria-labelledby="armor-calculator-title">
   <div class="armor-calculator-head">
-    <h2 id="armor-calculator-title">怪物护甲与减伤计算器</h2>
+    <h2 id="armor-calculator-title">护甲减伤计算器</h2>
     <p class="muted">输入护甲值或减伤百分比，实时换算另一侧数值。</p>
-  </div>
-
-  <div class="armor-calculator-scope" role="note">
-    <strong>适用范围</strong>
-    <span>仅用于换算怪物的护甲值与减伤百分比；不适用于玩家自身的护甲，也不能用来计算玩家受到攻击时的减伤。</span>
   </div>
 
   <div class="armor-calculator-controls">
     <label>
       <span>护甲值</span>
-      <input type="number" min="0" max="50000" value="165" inputmode="numeric" data-armor-value />
+      <input type="number" min="0" max="200000" value="165" inputmode="numeric" data-armor-value />
     </label>
     <label>
       <span>减伤百分比</span>
-      <input type="number" min="0" max="99.99" value="50" inputmode="decimal" step="0.01" data-armor-reduction />
+      <input type="number" min="0" max="99.9" value="50" inputmode="decimal" step="0.01" data-armor-reduction />
     </label>
   </div>
 
-  <p class="armor-calculator-message muted" data-armor-message hidden></p>
+  <p class="armor-calculator-message" data-armor-message hidden></p>
   <p class="armor-calculator-result" data-armor-result></p>
 
   <div class="armor-chart-wrap">
@@ -53,6 +48,8 @@
     const content = armorCalculator.closest('.lore-content');
     const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '公式与反推');
     if (formulaHeading) formulaHeading.insertAdjacentElement('afterend', armorCalculator);
+    const damageCalculator = document.querySelector<HTMLElement>('[data-damage-calculator]');
+    if (damageCalculator) armorCalculator.insertAdjacentElement('afterend', damageCalculator);
 
     const armorInput = armorCalculator.querySelector<HTMLInputElement>('[data-armor-value]');
     const reductionInput = armorCalculator.querySelector<HTMLInputElement>('[data-armor-reduction]');
@@ -65,8 +62,9 @@
     const point = armorCalculator.querySelector<SVGCircleElement>('[data-armor-point]');
 
     const halfPoint = 165;
-    const maxArmor = 50000;
-    const maxUsefulReduction = 0.995;
+    const maxArmor = 200000;
+    // 100% 减伤无法由 armor / (armor + 165) 达到，99.9% 已足够覆盖实际计算并避免输入理论上限。
+    const maxReductionPercent = 99.9;
     const chartMaxArmor = 1600;
     const chartBounds = {
       left: 56,
@@ -134,28 +132,12 @@
     };
 
     const updateResult = (armor: number, reduction: number) => {
-      const nextArmor = armor + 1;
-      const nextReduction = armorToReduction(nextArmor);
-      const currentText =
-        `当前 ${formatNumber(armor)} 护甲 → 减伤 ${formatPercent(reduction)}`;
-
       if (result) {
-        if (reduction >= maxUsefulReduction) {
-          result.textContent = `${currentText}。已接近理论上限，继续堆护甲收益极小`;
-          return;
-        }
-
-        const targetReduction = Math.min(maxUsefulReduction, reduction + 0.1);
-        const targetArmor = reductionToArmor(targetReduction * 100);
-        const extraArmor = Math.max(1, Math.ceil(targetArmor - armor));
-        const actualTargetReduction = armorToReduction(armor + extraArmor);
-        const gainedPercentagePoints = (actualTargetReduction - reduction) * 100;
-
-        result.textContent =
-          `${currentText}` +
-          `　再加 ${formatNumber(nextArmor - armor)} 护甲可到 ${formatPercent(nextReduction)}` +
-          `，再加 ${formatNumber(extraArmor)} 护甲可提升 ${formatNumber(gainedPercentagePoints, 2)} 个百分点`;
+        result.textContent = `当前 ${formatNumber(armor)} 护甲 → 减伤 ${formatPercent(reduction)}`;
       }
+      window.dispatchEvent(new CustomEvent('armor-reduction-change', {
+        detail: { percent: reduction * 100 },
+      }));
     };
 
     const syncFromArmor = ({ normalize = false } = {}) => {
@@ -171,7 +153,7 @@
       }
 
       if (normalizedArmor < 0 || normalizedArmor > maxArmor) {
-        setMessage('护甲值需要在 0-50000 之间。');
+        setMessage('护甲值需要在 0-200000 之间。');
         updateChartMarker(clampNumber(normalizedArmor, 0, chartMaxArmor), armorToReduction(clampNumber(normalizedArmor, 0, maxArmor)));
         return;
       }
@@ -187,7 +169,7 @@
       if (!armorInput || !reductionInput) return;
       const reductionValue = parseNumber(reductionInput.value);
 
-      if (normalize && reductionValue !== null) reductionInput.value = String(clampNumber(reductionValue, 0, 99.99));
+      if (normalize && reductionValue !== null) reductionInput.value = String(clampNumber(reductionValue, 0, maxReductionPercent));
       const normalizedReduction = parseNumber(reductionInput.value);
 
       if (normalizedReduction === null) {
@@ -195,9 +177,9 @@
         return;
       }
 
-      if (normalizedReduction < 0 || normalizedReduction > 99.99) {
-        setMessage('减伤百分比需要在 0-99.99 之间。');
-        const clampedReduction = clampNumber(normalizedReduction, 0, 99.99) / 100;
+      if (normalizedReduction < 0 || normalizedReduction > maxReductionPercent) {
+        setMessage('100% 减伤不存在。减伤公式为 护甲/(护甲+165)，无论护甲多高都无法达到 100%。实际伤害为 0，是因为攻击力 × (1 - 减伤) 小于 1 后被向下取整，并不是因为减伤达到 100%。');
+        const clampedReduction = clampNumber(normalizedReduction, 0, maxReductionPercent) / 100;
         updateChartMarker(reductionToArmor(clampedReduction * 100), clampedReduction);
         return;
       }

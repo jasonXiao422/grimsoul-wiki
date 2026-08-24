@@ -1,0 +1,114 @@
+<section class="armor-calculator panel damage-calculator" data-damage-calculator aria-labelledby="damage-calculator-title">
+  <div class="armor-calculator-head">
+    <h2 id="damage-calculator-title">伤害计算器</h2>
+    <p class="muted">输入物理攻击力和减伤百分比，计算实际掉血。</p>
+  </div>
+
+  <div class="armor-calculator-controls">
+    <label>
+      <span>物理攻击力</span>
+      <input type="number" min="0" max="100000" value="6" inputmode="numeric" step="1" data-damage-attack />
+    </label>
+    <label>
+      <span>减伤百分比</span>
+      <input type="number" min="0" max="99.9" value="50" inputmode="decimal" step="0.01" data-damage-reduction />
+    </label>
+  </div>
+
+  <div class="damage-calculator-result armor-calculator-result" data-damage-result></div>
+  <p class="damage-calculator-limit-message" data-damage-limit-message hidden></p>
+  <p class="damage-calculator-raw muted" data-damage-raw></p>
+  <p class="damage-calculator-zero" data-damage-zero hidden>该攻击无法造成伤害</p>
+  <p class="damage-calculator-threshold muted" data-damage-threshold></p>
+</section>
+
+<script>
+  const damageCalculator = document.querySelector<HTMLElement>('[data-damage-calculator]');
+
+  if (damageCalculator) {
+    const armorCalculator = document.querySelector<HTMLElement>('[data-armor-calculator]');
+    if (armorCalculator) armorCalculator.insertAdjacentElement('afterend', damageCalculator);
+
+    const attackInput = damageCalculator.querySelector<HTMLInputElement>('[data-damage-attack]');
+    const reductionInput = damageCalculator.querySelector<HTMLInputElement>('[data-damage-reduction]');
+    const result = damageCalculator.querySelector<HTMLElement>('[data-damage-result]');
+    const raw = damageCalculator.querySelector<HTMLElement>('[data-damage-raw]');
+    const limitMessage = damageCalculator.querySelector<HTMLElement>('[data-damage-limit-message]');
+    const zeroMessage = damageCalculator.querySelector<HTMLElement>('[data-damage-zero]');
+    const threshold = damageCalculator.querySelector<HTMLElement>('[data-damage-threshold]');
+    const armorReductionInput = document.querySelector<HTMLInputElement>('[data-armor-reduction]');
+
+    const parseNumber = (value: string) => {
+      if (value.trim() === '') return null;
+      const parsed = Number.parseFloat(value);
+      return Number.isFinite(parsed) ? parsed : null;
+    };
+
+    const clampNumber = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+    // 100% 减伤无法由 armor / (armor + 165) 达到，99.9% 已足够覆盖实际计算并避免输入理论上限。
+    const maxReductionPercent = 99.9;
+    const formatNumber = (value: number, digits = 2) => value.toLocaleString('zh-CN', {
+      maximumFractionDigits: digits,
+      minimumFractionDigits: 0,
+    });
+
+    const update = () => {
+      if (!attackInput || !reductionInput || !result || !limitMessage || !raw || !zeroMessage || !threshold) return;
+      const attack = parseNumber(attackInput.value);
+      const reduction = parseNumber(reductionInput.value);
+
+      if (reduction !== null && (reduction < 0 || reduction > maxReductionPercent)) {
+        result.hidden = true;
+        limitMessage.hidden = false;
+        limitMessage.textContent = '100% 减伤不存在。减伤公式为 护甲/(护甲+165)，无论护甲多高都无法达到 100%。实际伤害为 0，是因为攻击力 × (1 - 减伤) 小于 1 后被向下取整，并不是因为减伤达到 100%。';
+        raw.textContent = '';
+        zeroMessage.hidden = true;
+        threshold.textContent = '';
+        return;
+      }
+
+      result.hidden = false;
+      limitMessage.hidden = true;
+      if (attack === null || reduction === null || attack < 0 || reduction < 0) {
+        result.textContent = '请输入有效的攻击力和减伤百分比。';
+        raw.textContent = '';
+        zeroMessage.hidden = true;
+        threshold.textContent = '';
+        return;
+      }
+
+      const multiplier = 1 - reduction / 100;
+      const rawDamage = attack * multiplier;
+      const actualDamage = Math.floor(rawDamage + Number.EPSILON);
+      result.textContent = `实际伤害：${actualDamage}`;
+      raw.textContent = `${formatNumber(attack)} × (1 - ${reduction.toFixed(2)}%) = ${formatNumber(rawDamage, 2)} → 实际掉血 ${actualDamage}`;
+      zeroMessage.hidden = actualDamage !== 0;
+
+      if (reduction > 0) {
+        const minimumAttack = Math.ceil(1 / multiplier);
+        threshold.textContent = `当前减伤下，攻击力低于 ${minimumAttack} 时不造成伤害`;
+      } else {
+        threshold.textContent = '';
+      }
+    };
+
+    const syncReduction = (percent: number) => {
+      if (!reductionInput) return;
+      reductionInput.value = clampNumber(percent, 0, maxReductionPercent).toFixed(2);
+      update();
+    };
+
+    attackInput?.addEventListener('input', update);
+    reductionInput?.addEventListener('input', update);
+    window.addEventListener('armor-reduction-change', (event) => {
+      const percent = (event as CustomEvent<{ percent?: number }>).detail?.percent;
+      if (typeof percent === 'number') syncReduction(percent);
+    });
+
+    if (armorReductionInput) {
+      const percent = parseNumber(armorReductionInput.value);
+      if (percent !== null) syncReduction(percent);
+    }
+    update();
+  }
+</script>

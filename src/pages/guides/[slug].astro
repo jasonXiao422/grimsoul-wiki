@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArmorCalculator from '../../components/ArmorCalculator.astro';
+import DamageCalculator from '../../components/DamageCalculator.astro';
 import HorseCalculator from '../../components/HorseCalculator.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
@@ -59,6 +60,7 @@ const slug = entry.id.replace(/\.md$/, '');
         <Content />
         {slug === 'horse' && <HorseCalculator />}
         {slug === 'armor' && <ArmorCalculator />}
+        {slug === 'armor' && <DamageCalculator />}
       </div>
 
       <nav class="lore-pager" aria-label="上一篇和下一篇">

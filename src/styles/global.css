@@ -2016,22 +2016,6 @@ p {
   margin-bottom: 0;
 }
 
-.armor-calculator-scope {
-  display: grid;
-  gap: 4px;
-  margin: 14px 0;
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-  padding: 10px 12px;
-  background: var(--bg-panel);
-  color: var(--accent);
-  line-height: 1.55;
-}
-
-.armor-calculator-scope span {
-  color: var(--text);
-}
-
 .armor-calculator-controls {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2061,6 +2045,16 @@ p {
   margin: 0 0 12px;
 }
 
+.armor-calculator-message:not(.muted),
+.damage-calculator-limit-message {
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--bg-panel);
+  color: var(--accent);
+  line-height: 1.55;
+}
+
 .armor-calculator-result {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -2068,6 +2062,29 @@ p {
   background: var(--bg-panel);
   color: var(--text);
   font-variant-numeric: tabular-nums;
+}
+
+.damage-calculator {
+  margin-top: 0;
+}
+
+.damage-calculator-result {
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.damage-calculator-raw,
+.damage-calculator-zero,
+.damage-calculator-threshold,
+.damage-calculator-limit-message {
+  margin: 0 0 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.damage-calculator-zero {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .armor-chart-wrap {
