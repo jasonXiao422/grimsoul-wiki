@@ -1,17 +1,22 @@
 <section class="armor-calculator panel" data-armor-calculator aria-labelledby="armor-calculator-title">
   <div class="armor-calculator-head">
-    <h2 id="armor-calculator-title">护甲减伤计算器</h2>
+    <h2 id="armor-calculator-title">怪物护甲与减伤计算器</h2>
     <p class="muted">输入护甲值或减伤百分比，实时换算另一侧数值。</p>
+  </div>
+
+  <div class="armor-calculator-scope" role="note">
+    <strong>适用范围</strong>
+    <span>仅用于换算怪物的护甲值与减伤百分比；不适用于玩家自身的护甲，也不能用来计算玩家受到攻击时的减伤。</span>
   </div>
 
   <div class="armor-calculator-controls">
     <label>
       <span>护甲值</span>
-      <input type="number" min="0" max="5000" value="165" inputmode="numeric" data-armor-value />
+      <input type="number" min="0" max="50000" value="165" inputmode="numeric" data-armor-value />
     </label>
     <label>
       <span>减伤百分比</span>
-      <input type="number" min="0" max="99" value="50" inputmode="decimal" step="0.01" data-armor-reduction />
+      <input type="number" min="0" max="99.99" value="50" inputmode="decimal" step="0.01" data-armor-reduction />
     </label>
   </div>
 
@@ -60,7 +65,8 @@
     const point = armorCalculator.querySelector<SVGCircleElement>('[data-armor-point]');
 
     const halfPoint = 165;
-    const maxArmor = 5000;
+    const maxArmor = 50000;
+    const maxUsefulReduction = 0.995;
     const chartMaxArmor = 1600;
     const chartBounds = {
       left: 56,
@@ -128,17 +134,27 @@
     };
 
     const updateResult = (armor: number, reduction: number) => {
-      const nextArmor = Math.min(maxArmor, armor + 1);
+      const nextArmor = armor + 1;
       const nextReduction = armorToReduction(nextArmor);
-      const targetReduction = Math.min(0.99, reduction + 0.1);
-      const targetArmor = reductionToArmor(targetReduction * 100);
-      const extraArmor = Math.max(0, Math.ceil(targetArmor - armor));
+      const currentText =
+        `当前 ${formatNumber(armor)} 护甲 → 减伤 ${formatPercent(reduction)}`;
 
       if (result) {
+        if (reduction >= maxUsefulReduction) {
+          result.textContent = `${currentText}。已接近理论上限，继续堆护甲收益极小`;
+          return;
+        }
+
+        const targetReduction = Math.min(maxUsefulReduction, reduction + 0.1);
+        const targetArmor = reductionToArmor(targetReduction * 100);
+        const extraArmor = Math.max(1, Math.ceil(targetArmor - armor));
+        const actualTargetReduction = armorToReduction(armor + extraArmor);
+        const gainedPercentagePoints = (actualTargetReduction - reduction) * 100;
+
         result.textContent =
-          `当前 ${formatNumber(armor)} 护甲 → 减伤 ${formatPercent(reduction)}` +
+          `${currentText}` +
           `　再加 ${formatNumber(nextArmor - armor)} 护甲可到 ${formatPercent(nextReduction)}` +
-          `，再加 ${formatNumber(extraArmor)} 护甲可提升 10 个百分点`;
+          `，再加 ${formatNumber(extraArmor)} 护甲可提升 ${formatNumber(gainedPercentagePoints, 2)} 个百分点`;
       }
     };
 
@@ -155,7 +171,7 @@
       }
 
       if (normalizedArmor < 0 || normalizedArmor > maxArmor) {
-        setMessage('护甲值需要在 0-5000 之间。');
+        setMessage('护甲值需要在 0-50000 之间。');
         updateChartMarker(clampNumber(normalizedArmor, 0, chartMaxArmor), armorToReduction(clampNumber(normalizedArmor, 0, maxArmor)));
         return;
       }
@@ -171,7 +187,7 @@
       if (!armorInput || !reductionInput) return;
       const reductionValue = parseNumber(reductionInput.value);
 
-      if (normalize && reductionValue !== null) reductionInput.value = String(clampNumber(reductionValue, 0, 99));
+      if (normalize && reductionValue !== null) reductionInput.value = String(clampNumber(reductionValue, 0, 99.99));
       const normalizedReduction = parseNumber(reductionInput.value);
 
       if (normalizedReduction === null) {
@@ -179,9 +195,9 @@
         return;
       }
 
-      if (normalizedReduction < 0 || normalizedReduction > 99) {
-        setMessage('减伤百分比需要在 0-99 之间。');
-        const clampedReduction = clampNumber(normalizedReduction, 0, 99) / 100;
+      if (normalizedReduction < 0 || normalizedReduction > 99.99) {
+        setMessage('减伤百分比需要在 0-99.99 之间。');
+        const clampedReduction = clampNumber(normalizedReduction, 0, 99.99) / 100;
         updateChartMarker(reductionToArmor(clampedReduction * 100), clampedReduction);
         return;
       }
