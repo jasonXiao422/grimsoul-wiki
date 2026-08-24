@@ -112,8 +112,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "ji-mu-ai-sha-5-ji-tu-de-bian-fu",
-    "name": "继母艾莎+5级图的蝙蝠",
+    "id": "ji-mu-ai-sha-bian-fu",
+    "name": "继母艾莎蝙蝠",
     "group": "1-5级图",
     "groupNote": null,
     "groupNoteBlocks": null,
@@ -125,7 +125,24 @@
     "elementDamage": null,
     "note": "中毒5*8次",
     "locations": [
-      "继母艾莎",
+      "继母艾莎"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "5-ji-tu-de-bian-fu",
+    "name": "5级图的蝙蝠",
+    "group": "1-5级图",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": 85,
+    "damageReduction": 0,
+    "restoredFromDate": null,
+    "physicalDamage": 40,
+    "elementDamage": null,
+    "note": "中毒5*8次",
+    "locations": [
       "5级图"
     ],
     "dataIncomplete": null
