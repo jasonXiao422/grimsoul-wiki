@@ -2084,6 +2084,31 @@ p {
   margin-top: 0;
 }
 
+.calculator-help {
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.calculator-help-title {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.calculator-help ol {
+  margin: 0 0 10px;
+  padding-left: 1.4em;
+}
+
+.calculator-help blockquote {
+  margin: 0;
+  border-left: 3px solid var(--accent);
+  padding: 8px 12px;
+  background: var(--bg-panel);
+  color: var(--text);
+}
+
 .damage-calculator-result {
   margin-bottom: 8px;
   font-size: 1.15rem;
