@@ -42,7 +42,7 @@ main{padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fill,minma
 <body>
 <header>
   <h1>Grim Soul 图标批量工具</h1>
-  <div class="sub">把图片拖到对应格子里，自动压缩成 128&times;128 的 webp 并按正确文件名保存</div>
+  <div class="sub">把图片拖到对应格子里，自动转成 webp 并按正确文件名保存。图标为 128&times;128 方形居中；「敌人截图」为 1024&times;1024 方形居中</div>
   <div class="bar">
     <button id="pick">① 选择 public/images 文件夹</button>
     <select id="cat"><option value="">全部类别</option></select>
@@ -100,17 +100,57 @@ $('#pick').onclick = async () => {
   } catch(e) { /* 用户取消 */ }
 };
 
-async function saveIcon(item, file, cardEl) {
-  if (!dirHandle) { alert('请先点上方按钮选择 public/images 文件夹'); return; }
+/**
+ * 每个类别的输出规格。
+ *
+ * 图标类（默认）：128×128 方形画布，等比居中，留 2px 边距。
+ *   列表页和卡片上就是这么小，再大也看不出差别，白占体积。
+ *
+ * enemies-full：详情页大图。同样是方形居中，只是画布边长放大到 1024，
+ *   不留边距（截图本身通常已经裁好，再留白只会浪费像素）。
+ *
+ * 想让大图更清晰/更省体积，只改下面这一行的 max 和 quality。
+ */
+const OUTPUT_SPEC = {
+  'enemies-full': { max: 1024, square: true, pad: 0, quality: 0.92 },
+};
+const DEFAULT_SPEC = { max: 128, square: true, pad: 2, quality: 0.88 };
+
+const specOf = (cat) => OUTPUT_SPEC[cat] ?? DEFAULT_SPEC;
+
+/** 按类别规格把图片画进 canvas 并编码成 webp。返回 { blob, canvas }。 */
+async function encodeImage(cat, file) {
+  const spec = specOf(cat);
   const bmp = await createImageBitmap(file);
   const c = document.createElement('canvas');
-  c.width = c.height = 128;
   const ctx = c.getContext('2d');
-  // 等比缩放居中，留 2px 边距
-  const s = Math.min(124 / bmp.width, 124 / bmp.height);
-  const w = bmp.width * s, h = bmp.height * s;
-  ctx.drawImage(bmp, (128 - w) / 2, (128 - h) / 2, w, h);
-  const blob = await new Promise(r => c.toBlob(r, 'image/webp', 0.88));
+
+  if (spec.square) {
+    // 方形画布，等比缩放居中，四周留 pad 边距。
+    // 边长取 max 与「原图最长边」的较小值：原图比 max 小时不放大，
+    // 免得把小图拉伸成一张更糊的大图。
+    const longest = Math.max(bmp.width, bmp.height);
+    const side = Math.min(spec.max, longest + spec.pad * 2);
+    const box = side - spec.pad * 2;
+    c.width = c.height = side;
+    const s = Math.min(box / bmp.width, box / bmp.height);
+    const w = bmp.width * s, h = bmp.height * s;
+    ctx.drawImage(bmp, (side - w) / 2, (side - h) / 2, w, h);
+  } else {
+    // 大图：保持宽高比，只缩不放（Math.min(1, ...) 保证不会放大糊掉）
+    const s = Math.min(1, spec.max / Math.max(bmp.width, bmp.height));
+    c.width = Math.max(1, Math.round(bmp.width * s));
+    c.height = Math.max(1, Math.round(bmp.height * s));
+    ctx.drawImage(bmp, 0, 0, c.width, c.height);
+  }
+
+  const blob = await new Promise(r => c.toBlob(r, 'image/webp', spec.quality));
+  return { blob, canvas: c };
+}
+
+async function saveIcon(item, file, cardEl) {
+  if (!dirHandle) { alert('请先点上方按钮选择 public/images 文件夹'); return; }
+  const { blob, canvas: c } = await encodeImage(item.cat, file);
 
   const sub = await dirHandle.getDirectoryHandle(item.cat, { create: true });
   const fh = await sub.getFileHandle(item.id + '.webp', { create: true });
@@ -123,7 +163,7 @@ async function saveIcon(item, file, cardEl) {
   cardEl.classList.add('done');
   if (!cardEl.querySelector('.tick')) {
     const t = document.createElement('div'); t.className = 'tick';
-    t.textContent = '✓ 已保存 ' + Math.round(blob.size / 1024) + 'KB';
+    t.textContent = '✓ 已保存 ' + c.width + '×' + c.height + ' ' + Math.round(blob.size / 1024) + 'KB';
     cardEl.append(t);
   }
   doneSet.add(item.id); refreshCount();
@@ -205,14 +245,7 @@ function logLine(cls, html) {
 }
 
 async function saveQuiet(item, file) {
-  const bmp = await createImageBitmap(file);
-  const c = document.createElement('canvas');
-  c.width = c.height = 128;
-  const ctx = c.getContext('2d');
-  const sc = Math.min(124 / bmp.width, 124 / bmp.height);
-  const w = bmp.width * sc, h = bmp.height * sc;
-  ctx.drawImage(bmp, (128 - w) / 2, (128 - h) / 2, w, h);
-  const blob = await new Promise(r => c.toBlob(r, 'image/webp', 0.88));
+  const { blob } = await encodeImage(item.cat, file);
   const sub = await dirHandle.getDirectoryHandle(item.cat, { create: true });
   const fh = await sub.getFileHandle(item.id + '.webp', { create: true });
   const ws = await fh.createWritable();
