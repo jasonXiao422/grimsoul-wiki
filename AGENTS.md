@@ -210,13 +210,18 @@
 `icon-studio.html` 与 `icon-namer.html` 是浏览器端图标处理工具，
 `bg-packer.html` 是首页背景图压缩工具。
 
-**这些不属于站点构建的一部分**。不要修改，不要移进 `public/`，
-不要在 astro.config 里引用。
+这些不属于站点构建的一部分，不要移进 `public/`，不要在 astro.config 里引用。
+工具内的图片输出规格由 `icon-namer.html` 顶部的 `OUTPUT_SPEC` 常量控制
+（图标 128×128 方形居中；`enemies-full` 为 1024×1024，供敌人详情页大图使用），
+改尺寸只需改这一处，不要重写编码函数。
 
-工具内硬编码了全部条目清单，**数据增减后需要重新生成**，
-由 `scripts/update-tools.py` 负责更新；它已挂在 `npm run import` 上，
-数据导入时会自动更新，不需要单独执行。
-图标清单也可用 `node scripts/gen-icon-list.mjs` 重新生成。
+工具内硬编码了全部条目清单，数据增减后必须重新生成，
+否则图标工具里看不到新条目的槽位。
+负责改写的是 `scripts/gen-icon-list.mjs`，它只替换两个工具文件里的
+`const DATA` 和 `const CATS`，其余内容一字不动。
+该脚本已串在 `npm run import` 后面，数据导入时会自动执行；
+也可单独运行 `node scripts/gen-icon-list.mjs`，
+或加 `--check` 只打印统计不写文件。
 
 ## 页脚必须包含
 

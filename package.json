@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "validate": "node scripts/validate-data.mjs",
-    "import": "python3 scripts/import_excel.py"
+    "import": "python3 scripts/import_excel.py && node scripts/gen-icon-list.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
