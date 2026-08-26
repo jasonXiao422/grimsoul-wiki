@@ -1698,6 +1698,214 @@ p {
   align-items: start;
 }
 
+.tips-submit-panel {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 20px 22px;
+  border-color: var(--accent-dim);
+  background: rgba(201, 162, 39, 0.08);
+}
+
+.tips-submit-panel h2 {
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-family: var(--font-serif);
+}
+
+.tips-submit-panel p {
+  margin: 0;
+}
+
+.tips-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.tips-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tips-filter-button {
+  min-height: 38px;
+  padding: 7px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-panel);
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.tips-filter-button:hover,
+.tips-filter-button:focus-visible,
+.tips-filter-button.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.tip-card {
+  display: flex;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tip-card-cover {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.tip-card-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tip-cover-placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  background: var(--bg);
+  color: var(--accent-dim);
+  font-family: var(--font-serif);
+}
+
+.tip-card-body {
+  display: flex;
+  flex: 1;
+  min-height: 190px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.tip-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 3.4em;
+}
+
+.tip-card h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.tip-card h2 a {
+  color: var(--text);
+}
+
+.tip-card h2 a:hover {
+  color: var(--accent);
+}
+
+.tip-type-badge {
+  flex: 0 0 auto;
+  padding: 3px 7px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 4px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.tip-card-author,
+.tip-card-footer,
+.tip-author-meta {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.tip-card-author,
+.tip-card-summary,
+.tip-card-footer,
+.tip-author-meta {
+  margin: 0;
+}
+
+.tip-card-summary {
+  flex: 1;
+  line-height: 1.65;
+}
+
+.tip-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.tip-card-tags {
+  color: var(--accent-dim);
+}
+
+.tips-filter-empty,
+.tips-empty-state {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 30px 16px;
+  border: 1px dashed var(--border);
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.tip-author-meta a {
+  color: var(--accent);
+}
+
+.tip-video-card {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.tip-video-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  object-fit: cover;
+  background: var(--bg);
+}
+
+.tip-video-card .button {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 9px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+}
+
+.tip-video-card .button:hover,
+.tip-video-card .button:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.tips-content {
+  max-width: 820px;
+}
+
 .lore-article {
   min-width: 0;
 }
@@ -2224,6 +2432,22 @@ p {
 
   .lore-toc-mobile {
     display: block;
+  }
+
+  .tips-toolbar {
+    justify-content: flex-start;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tip-card {
+    flex-direction: column;
+  }
+
+  .tip-video-card {
+    grid-template-columns: 1fr;
   }
 
   .lore-pager {

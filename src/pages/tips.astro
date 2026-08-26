@@ -1,0 +1,100 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+type TipEntry = CollectionEntry<'tips'>;
+
+const entries = (await getCollection('tips')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const formatDate = (date: Date) => date.toISOString().slice(0, 10);
+---
+
+<BaseLayout title="攻略Tips" description="玩家投稿的 Grim Soul 中文攻略文章与视频。">
+  <div class="page-heading">
+    <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '攻略Tips' }]} />
+    <p class="eyebrow">玩家攻略</p>
+    <h1>攻略Tips</h1>
+    <p class="page-lead">汇集玩家分享的实用攻略、心得与视频。</p>
+  </div>
+
+  <section class="tips-submit-panel panel" aria-labelledby="tips-submit-title">
+    <h2 id="tips-submit-title">欢迎投稿</h2>
+    <p>本站攻略板块面向所有玩家开放投稿，文章、视频均可。</p>
+    <p>投稿经审核确认无误后会发布到本站，并在文章页明确标注作者昵称与 B 站主页链接。</p>
+    <p>投稿内容须为本人原创；如为转载，请先取得原作者授权并注明出处。</p>
+    <p>投稿邮箱：jason030422@outlook.com</p>
+    <p>已加入 QQ 群的玩家可直接在群内联系管理员，群号：905629612</p>
+  </section>
+
+  <div class="tips-toolbar">
+    <div class="tips-filters" role="group" aria-label="攻略类型筛选">
+      <button class="tips-filter-button is-active" type="button" data-tip-filter="all" aria-pressed="true">全部</button>
+      <button class="tips-filter-button" type="button" data-tip-filter="article" aria-pressed="false">文章</button>
+      <button class="tips-filter-button" type="button" data-tip-filter="video" aria-pressed="false">视频</button>
+    </div>
+  </div>
+
+  {entries.length > 0 ? (
+    <div class="tips-grid" data-tips-list>
+      {entries.map((entry: TipEntry) => (
+        <article class="tip-card panel" data-tip-card data-tip-type={entry.data.type}>
+          <a class="tip-card-cover" href={`/tips/${entry.slug}`} aria-label={`阅读：${entry.data.title}`}>
+            {entry.data.cover && (
+              <img
+                src={`/images/tips/${entry.data.cover}.webp`}
+                alt=""
+                loading="lazy"
+                onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+              />
+            )}
+            <span class="tip-cover-placeholder" hidden={Boolean(entry.data.cover)}>攻略Tips</span>
+          </a>
+          <div class="tip-card-body">
+            <div class="tip-card-title-row">
+              <span class="tip-type-badge">{entry.data.type === 'video' ? '视频' : '文章'}</span>
+              <h2><a href={`/tips/${entry.slug}`}>{entry.data.title}</a></h2>
+            </div>
+            <p class="tip-card-author">作者：{entry.data.author}</p>
+            <p class="tip-card-summary">{entry.data.summary}</p>
+            <div class="tip-card-footer">
+              <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+              {entry.data.tags && entry.data.tags.length > 0 && (
+                <span class="tip-card-tags">{entry.data.tags.join(' · ')}</span>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+      <p class="tips-filter-empty" data-tip-filter-empty hidden>暂无符合条件的攻略</p>
+    </div>
+  ) : (
+    <p class="tips-empty-state">暂无攻略，欢迎投稿</p>
+  )}
+</BaseLayout>
+
+<script>
+  const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-tip-filter]'));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-tip-card]'));
+  const emptyState = document.querySelector<HTMLElement>('[data-tip-filter-empty]');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.tipFilter ?? 'all';
+      let visibleCount = 0;
+
+      filterButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      cards.forEach((card) => {
+        const visible = filter === 'all' || card.dataset.tipType === filter;
+        card.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+      if (emptyState) emptyState.hidden = visibleCount > 0;
+    });
+  });
+</script>

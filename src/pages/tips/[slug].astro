@@ -1,0 +1,74 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+type TipEntry = CollectionEntry<'tips'>;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('tips');
+  return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: TipEntry };
+const { Content, headings } = await render(entry);
+const toc = headings.filter((heading) => heading.depth === 2);
+const formatDate = (date: Date) => date.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary}>
+  <div class="lore-detail-layout tips-detail-layout">
+    <article class="lore-article">
+      <header class="page-heading">
+        <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '攻略Tips', href: '/tips' }, { label: entry.data.title }]} />
+        <p class="eyebrow">{entry.data.type === 'video' ? '视频攻略' : '文章攻略'}</p>
+        <h1>{entry.data.title}</h1>
+        <p class="tip-author-meta">
+          作者：{entry.data.authorBilibili ? (
+            <a href={entry.data.authorBilibili} target="_blank" rel="noopener">{entry.data.author}</a>
+          ) : entry.data.author}
+          <span aria-hidden="true"> · </span>
+          <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+        </p>
+        <p class="page-lead">{entry.data.summary}</p>
+      </header>
+
+      {toc.length > 0 && (
+        <details class="lore-toc-mobile">
+          <summary>目录</summary>
+          <nav aria-label="文章目录">
+            {toc.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+          </nav>
+        </details>
+      )}
+
+      {entry.data.type === 'video' && (
+        <section class="tip-video-card panel" aria-label="视频攻略">
+          {entry.data.cover && (
+            <img
+              src={`/images/tips/${entry.data.cover}.webp`}
+              alt=""
+              onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+            />
+          )}
+          <span class="tip-cover-placeholder" hidden={Boolean(entry.data.cover)}>攻略Tips</span>
+          <div>
+            <p class="eyebrow">视频攻略</p>
+            <a class="button" href={entry.data.videoUrl} target="_blank" rel="noopener">在 B 站观看</a>
+          </div>
+        </section>
+      )}
+
+      <div class="lore-content tips-content panel"><Content /></div>
+    </article>
+
+    {toc.length > 0 && (
+      <aside class="lore-toc" aria-label="文章目录">
+        <h2>目录</h2>
+        <nav>
+          {toc.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+        </nav>
+      </aside>
+    )}
+  </div>
+</BaseLayout>
