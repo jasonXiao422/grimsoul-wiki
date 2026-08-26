@@ -18,19 +18,19 @@ videos:
 
 ## 携带配置
 
-- **武器**：四把[猖獗衰败之刃](/weapons/chang-jue-shuai-bai-zhi-ren) ＋ 一把[灼热火焰之弓](/weapons/zhuo-re-huo-yan-zhi-gong)（可秒杀工头）
-- **护甲**：[圣殿骑士套装](/armor/sheng-qi-shi-tao-zhuang-t6-ji)（六级套）
-- **药品**：一组[苦药酒](/consumables/ku-yao-jiu) ＋ 一组[北方汤](/consumables/bei-fang-tang)
+- **武器**：四把猖獗衰败之刃 ＋ 一把灼热火焰之弓（可秒杀工头）
+- **护甲**：圣殿骑士套装（六级套）
+- **药品**：一组苦药酒 ＋ 一组北方汤
 - **技能**：眩晕或者石化，取自赫拉特教派
-- **工具**：五把[铁丁字镐](/weapons/tie-ding-zi-gao) ＋ 一组夹子
+- **工具**：五把铁丁字镐 ＋ 一组夹子
 
 ## 控制手段
 
 本图怪物伤害特别高，三四只成群时必须靠控制拉开节奏，不要硬吃。
 
-- **[冰冻卷轴](/scrolls/bing-dong-juan-zhou)**：三只以上的怪群
+- **冰冻卷轴**：三只以上的怪群
 - **夹子**：两只以下
-- **[冰冻药水](/weapons/bing-dong-yao-shui)**：单只，以及专门针对骷髅
+- **冰冻药水**：单只，以及专门针对骷髅
 
 ## 机制要点
 
