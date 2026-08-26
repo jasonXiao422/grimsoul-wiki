@@ -1713,9 +1713,15 @@ p {
 }
 
 .tips-toolbar {
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 12px;
+  align-items: center;
   margin-bottom: 16px;
+}
+
+.tips-search {
+  min-width: 0;
 }
 
 .tips-filters {
@@ -1741,6 +1747,22 @@ p {
   color: var(--accent);
 }
 
+.tips-clear-search {
+  margin-left: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tips-clear-search:hover,
+.tips-clear-search:focus-visible {
+  color: var(--text);
+}
+
 .tips-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1753,6 +1775,10 @@ p {
   flex-direction: column;
   padding: 0;
   overflow: hidden;
+}
+
+.tip-card[hidden] {
+  display: none !important;
 }
 
 .tip-card-cover {
@@ -2533,6 +2559,14 @@ p {
 
   .header-inner {
     grid-template-columns: 1fr auto;
+  }
+
+  .tips-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-filters {
+    justify-content: flex-start;
   }
 
   .nav-menu-toggle {

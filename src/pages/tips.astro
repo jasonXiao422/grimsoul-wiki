@@ -29,6 +29,10 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
   </section>
 
   <div class="tips-toolbar">
+    <label class="tips-search">
+      <span class="sr-only">搜索攻略</span>
+      <input class="search-input" type="search" placeholder="搜索攻略" data-tip-search-input />
+    </label>
     <div class="tips-filters" role="group" aria-label="攻略类型筛选">
       <button class="tips-filter-button is-active" type="button" data-tip-filter="all" aria-pressed="true">全部</button>
       <button class="tips-filter-button" type="button" data-tip-filter="article" aria-pressed="false">文章</button>
@@ -39,7 +43,12 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
   {entries.length > 0 ? (
     <div class="tips-grid" data-tips-list>
       {entries.map((entry: TipEntry) => (
-        <article class="tip-card panel" data-tip-card data-tip-type={entry.data.type}>
+        <article
+          class="tip-card panel"
+          data-tip-card
+          data-tip-type={entry.data.type}
+          data-tip-search-text={[entry.data.title, entry.data.summary, entry.data.author, ...(entry.data.tags ?? [])].join(' ').toLowerCase()}
+        >
           <a class="tip-card-cover" href={`/tips/${entry.slug}`} aria-label={`阅读：${entry.data.title}`}>
             {entry.data.cover && (
               <img
@@ -67,7 +76,10 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
           </div>
         </article>
       ))}
-      <p class="tips-filter-empty" data-tip-filter-empty hidden>暂无符合条件的攻略</p>
+      <p class="tips-filter-empty" data-tip-filter-empty hidden>
+        没有匹配的攻略
+        <button class="tips-clear-search" type="button" data-tip-clear hidden>清除搜索</button>
+      </p>
     </div>
   ) : (
     <p class="tips-empty-state">暂无攻略，欢迎投稿</p>
@@ -78,23 +90,44 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
   const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-tip-filter]'));
   const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-tip-card]'));
   const emptyState = document.querySelector<HTMLElement>('[data-tip-filter-empty]');
+  const searchInput = document.querySelector<HTMLInputElement>('[data-tip-search-input]');
+  const clearSearch = document.querySelector<HTMLButtonElement>('[data-tip-clear]');
+  let activeFilter = 'all';
+
+  const applyFilters = () => {
+    const query = searchInput?.value.trim().toLowerCase() ?? '';
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const matchesType = activeFilter === 'all' || card.dataset.tipType === activeFilter;
+      const searchableText = card.dataset.tipSearchText ?? '';
+      const matchesSearch = !query || searchableText.includes(query);
+      const visible = matchesType && matchesSearch;
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+
+    if (emptyState) emptyState.hidden = visibleCount > 0;
+    if (clearSearch) clearSearch.hidden = !query || visibleCount > 0;
+  };
+
+  searchInput?.addEventListener('input', applyFilters);
+  clearSearch?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    searchInput?.focus();
+    applyFilters();
+  });
 
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const filter = button.dataset.tipFilter ?? 'all';
-      let visibleCount = 0;
+      activeFilter = button.dataset.tipFilter ?? 'all';
 
       filterButtons.forEach((item) => {
         const active = item === button;
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-pressed', String(active));
       });
-      cards.forEach((card) => {
-        const visible = filter === 'all' || card.dataset.tipType === filter;
-        card.hidden = !visible;
-        if (visible) visibleCount += 1;
-      });
-      if (emptyState) emptyState.hidden = visibleCount > 0;
+      applyFilters();
     });
   });
 </script>
