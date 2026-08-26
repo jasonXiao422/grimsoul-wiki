@@ -3383,24 +3383,6 @@
     "dataIncomplete": null
   },
   {
-    "id": "pu-ren",
-    "name": "仆人",
-    "group": "空降事件/剧情/固定地点副本",
-    "groupNote": null,
-    "groupNoteBlocks": null,
-    "quality": "common",
-    "hp": 2000,
-    "damageReduction": 0,
-    "restoredFromDate": null,
-    "physicalDamage": 10,
-    "elementDamage": null,
-    "note": null,
-    "locations": [
-      "骷髅图虔诚事件"
-    ],
-    "dataIncomplete": null
-  },
-  {
     "id": "ma-ke-si-de-ji-yi-guo-qu-de-you-ling",
     "name": "马克思的记忆“过去的幽灵”",
     "group": "空降事件/剧情/固定地点副本",
