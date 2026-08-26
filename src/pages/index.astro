@@ -9,6 +9,7 @@ import armorPieces from '../data/armor-pieces.json';
 import boxes from '../data/boxes.json';
 
 const loreCount = (await getCollection('lore')).length;
+const tipsCount = (await getCollection('tips')).length;
 const orderCount = knightOrders.length;
 
 const categoryCards = CATEGORIES.map((category) => ({
@@ -56,6 +57,13 @@ const entryCards = [
     blurb: '骑士团的起源、职责与最终命运',
     href: '/orders',
     badge: `${orderCount} 支`,
+  },
+  {
+    slug: 'tips',
+    label: '攻略Tips',
+    blurb: '玩家投稿的文章与视频攻略',
+    href: '/tips',
+    badge: `${tipsCount} 篇`,
   },
 ].map((card) => ({
   ...card,
