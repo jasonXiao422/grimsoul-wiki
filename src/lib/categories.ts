@@ -165,7 +165,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'sharpen',
     label: '磨尖武器',
-    blurb: '各磨尖等级的伤害与成功率',
+    blurb: '各磨尖等级的伤害',
     file: 'sharpen',
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },

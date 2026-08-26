@@ -652,11 +652,6 @@ p {
   font-weight: 700;
 }
 
-.sharpen-level-success {
-  color: var(--text);
-  font-weight: 700;
-}
-
 .panel {
   padding: 20px;
 }

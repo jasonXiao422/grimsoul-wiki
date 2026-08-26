@@ -1119,10 +1119,6 @@ def sharpen_quality(base_quality, level):
     base = base_quality or "common"
     return base if QUALITY_RANK.get(base, 0) >= QUALITY_RANK[by_level] else by_level
 
-# 各级磨刀的独立判定成功率，None 表示 0 级即原始状态
-SHARPEN_RATE = {0: None, 1: 100, 2: 70, 3: 60, 4: 50, 5: 40}
-
-
 def build_sharpen(weapons):
     """
     磨尖武器表列序：
@@ -1160,7 +1156,6 @@ def build_sharpen(weapons):
                 "level": lvl,
                 "damage": dmg,
                 "quality": sharpen_quality(base_quality, lvl),
-                "successRate": SHARPEN_RATE[lvl],
             })
 
         base = levels[0]["damage"]

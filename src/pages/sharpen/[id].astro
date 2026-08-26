@@ -29,7 +29,7 @@ const getContrastText = (hex: string) => {
 const gain = item.gain;
 ---
 
-<BaseLayout title={`${item.name}磨尖`} description={`${item.name}磨尖等级、伤害与成功率`}>
+<BaseLayout title={`${item.name}磨尖`} description={`${item.name}磨尖等级与伤害`}>
   <Breadcrumb items={[
     { label: '首页', href: '/' },
     { label: '磨尖武器', href: '/sharpen' },
@@ -43,7 +43,6 @@ const gain = item.gain;
   </section>
 
   <section class="panel sharpen-summary">
-    <p>各级成功率独立判定，失败不会累积到下一次。</p>
     <a href={`/weapons/${item.weaponId}`}>查看「{item.name}」武器详情</a>
   </section>
 
@@ -75,7 +74,6 @@ const gain = item.gain;
               {level.level > 0 && <span class="sharpen-level-badge" style={badgeStyle}>磨{level.level}</span>}
             </div>
             <p class="sharpen-level-stat sharpen-level-damage">伤害 {level.damage}</p>
-            {level.successRate !== null && <p class="sharpen-level-stat sharpen-level-success">成功率 {level.successRate}%</p>}
           </article>
         );
       })}
