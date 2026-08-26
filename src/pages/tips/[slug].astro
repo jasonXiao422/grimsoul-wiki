@@ -24,11 +24,12 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
         <p class="eyebrow">{entry.data.type === 'video' ? '视频攻略' : '文章攻略'}</p>
         <h1>{entry.data.title}</h1>
         <p class="tip-author-meta">
-          作者：{entry.data.authorBilibili ? (
+          <span class="tip-author-label">作者：</span>
+          <span class="tip-author-name">{entry.data.authorBilibili ? (
             <a href={entry.data.authorBilibili} target="_blank" rel="noopener">{entry.data.author}</a>
-          ) : entry.data.author}
+          ) : entry.data.author}</span>
           <span aria-hidden="true"> · </span>
-          <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+          <time datetime={entry.data.date.toISOString()}>发布于 {formatDate(entry.data.date)}</time>
         </p>
         <p class="page-lead">{entry.data.summary}</p>
       </header>
@@ -44,18 +45,17 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 
       {entry.data.type === 'video' && (
         <section class="tip-video-card panel" aria-label="视频攻略">
-          {entry.data.cover && (
-            <img
-              src={`/images/tips/${entry.data.cover}.webp`}
-              alt=""
-              onerror="this.hidden=true;this.nextElementSibling.hidden=false"
-            />
-          )}
-          <span class="tip-cover-placeholder" hidden={Boolean(entry.data.cover)}>攻略Tips</span>
-          <div>
-            <p class="eyebrow">视频攻略</p>
-            <a class="button" href={entry.data.videoUrl} target="_blank" rel="noopener">在 B 站观看</a>
+          <div class="tip-video-cover">
+            {entry.data.cover && (
+              <img
+                src={`/images/tips/${entry.data.cover}.webp`}
+                alt=""
+                onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+              />
+            )}
+            <span class="tip-cover-placeholder" hidden={Boolean(entry.data.cover)}>暂无封面</span>
           </div>
+          <a class="button" href={entry.data.videoUrl} target="_blank" rel="noopener">在 B 站观看</a>
         </section>
       )}
 

@@ -54,9 +54,9 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
           <div class="tip-card-body">
             <div class="tip-card-title-row">
               <span class="tip-type-badge">{entry.data.type === 'video' ? '视频' : '文章'}</span>
-              <h2><a href={`/tips/${entry.slug}`}>{entry.data.title}</a></h2>
+              <h2><a href={`/tips/${entry.slug}`} title={entry.data.title}>{entry.data.title}</a></h2>
             </div>
-            <p class="tip-card-author">作者：{entry.data.author}</p>
+            <p class="tip-card-author"><span class="tip-author-label">作者：</span><span class="tip-author-name">{entry.data.author}</span></p>
             <p class="tip-card-summary">{entry.data.summary}</p>
             <div class="tip-card-footer">
               <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
