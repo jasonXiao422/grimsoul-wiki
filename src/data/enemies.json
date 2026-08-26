@@ -3401,8 +3401,8 @@
     "dataIncomplete": null
   },
   {
-    "id": "meng-yan",
-    "name": "梦魇",
+    "id": "e-meng",
+    "name": "噩梦",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
     "groupNoteBlocks": null,
@@ -3419,14 +3419,14 @@
     "dataIncomplete": null
   },
   {
-    "id": "bu-xiu-de-meng-yan",
-    "name": "不朽的梦魇",
+    "id": "yong-heng-e-meng",
+    "name": "永恒噩梦",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "common",
-    "hp": null,
-    "damageReduction": null,
+    "hp": "无限",
+    "damageReduction": 0,
     "restoredFromDate": null,
     "physicalDamage": 62,
     "elementDamage": null,
@@ -3434,7 +3434,7 @@
     "locations": [
       "主线第四章：斗智"
     ],
-    "dataIncomplete": true
+    "dataIncomplete": null
   },
   {
     "id": "ai-dao-si-shen-de-ying-zi-cheng-bao-xiao-you-ling",
