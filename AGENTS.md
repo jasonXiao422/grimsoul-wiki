@@ -247,3 +247,29 @@ git add . && git commit -m "数据: xxx" && git push
 ```
 
 push 后 Cloudflare 自动构建部署，1～3 分钟生效。
+
+## Astro 内容缓存
+
+改动这几类文件后，`npm run build` 和 `npm run dev` 都会复用 `.astro` 目录下的内容缓存，
+导致代码明明改了、页面却毫无变化，且不会报任何错误：
+
+`src/content/config.ts`（内容集合 schema）
+`src/lib/rehype-*.ts`（markdown 渲染插件）
+其他参与 markdown 处理管线的代码
+
+解决办法是删掉项目根目录下的 `.astro` 目录再构建。该目录是可再生的构建缓存，
+删除不影响任何源码或数据：
+
+```bash
+rm -rf .astro && npm run build
+```
+
+Windows PowerShell 下删除前请先校验路径确实是当前项目根目录下的 `.astro`，避免误删。
+
+另外两点相关经验：
+
+改 `src/content/config.ts` 后必须重启 dev server，schema 只在启动时加载，热更新不生效。
+改 `.md`、组件、CSS、数据 JSON 则照常热更新，无需重启。
+Windows 上偶发 `EBUSY: resource busy or locked` 与 `spawn EPERM`，
+通常是杀毒软件或同步盘锁住了项目目录，与代码无关。重试即可，
+频繁出现时把项目目录加入杀毒软件排除列表。

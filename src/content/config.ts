@@ -17,11 +17,15 @@ const tips = defineCollection({
       summary: z.string(),
       tags: z.array(z.string()).optional(),
       cover: z.string().optional(),
-      videoUrl: z.string().url().optional(),
+      videos: z.array(z.object({
+        label: z.string(),
+        url: z.string(),
+        cover: z.string().optional(),
+      })).optional(),
     })
-    .refine((data) => data.type !== 'video' || Boolean(data.videoUrl), {
-      message: '视频类型必须填写 videoUrl',
-      path: ['videoUrl'],
+    .refine((data) => data.type !== 'video' || Boolean(data.videos?.length), {
+      message: '视频类型至少填写一个视频',
+      path: ['videos'],
     }),
 });
 

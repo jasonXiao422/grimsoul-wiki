@@ -1891,13 +1891,27 @@ p {
   text-underline-offset: 3px;
 }
 
+.tip-videos {
+  display: grid;
+  gap: 22px;
+}
+
 .tip-video-card {
   display: flex;
   width: 100%;
   min-width: 0;
   flex-direction: column;
   gap: 14px;
-  margin-bottom: 22px;
+  margin: 0;
+}
+
+.tip-video-label {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .tip-video-cover {
@@ -1932,6 +1946,22 @@ p {
 
 .tips-content {
   max-width: 820px;
+}
+
+.item-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+}
+
+.item-ref-icon {
+  width: 2.2em;
+  height: 2.2em;
+  flex: 0 0 auto;
+  object-fit: contain;
+  border-radius: 4px;
+  vertical-align: middle;
 }
 
 .lore-article {

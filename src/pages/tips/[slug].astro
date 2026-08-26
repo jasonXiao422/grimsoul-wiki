@@ -43,20 +43,28 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
         </details>
       )}
 
-      {entry.data.type === 'video' && (
-        <section class="tip-video-card panel" aria-label="视频攻略">
-          <div class="tip-video-cover">
-            {entry.data.cover && (
-              <img
-                src={`/images/tips/${entry.data.cover}.webp`}
-                alt=""
-                onerror="this.hidden=true;this.nextElementSibling.hidden=false"
-              />
-            )}
-            <span class="tip-cover-placeholder" hidden={Boolean(entry.data.cover)}>暂无封面</span>
-          </div>
-          <a class="button" href={entry.data.videoUrl} target="_blank" rel="noopener">在 B 站观看</a>
-        </section>
+      {entry.data.type === 'video' && entry.data.videos && (
+        <div class="tip-videos">
+          {entry.data.videos.map((video) => {
+            const videoCover = video.cover ?? entry.data.cover;
+            return (
+              <section class="tip-video-card panel" aria-label={video.label}>
+                <p class="tip-video-label">{video.label}</p>
+                <div class="tip-video-cover">
+                  {videoCover && (
+                    <img
+                      src={`/images/tips/${videoCover}.webp`}
+                      alt=""
+                      onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+                    />
+                  )}
+                  <span class="tip-cover-placeholder" hidden={Boolean(videoCover)}>暂无封面</span>
+                </div>
+                <a class="button" href={video.url} target="_blank" rel="noopener">在 B 站观看</a>
+              </section>
+            );
+          })}
+        </div>
       )}
 
       <div class="lore-content tips-content panel"><Content /></div>
