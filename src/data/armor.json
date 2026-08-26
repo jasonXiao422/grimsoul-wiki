@@ -4613,8 +4613,8 @@
   },
   {
     "id": "jue-dou-shi-tao-zhuang-t6-ji",
-    "name": "角斗士套装（T6+级）",
-    "tier": "T6+",
+    "name": "角斗士套装（T6级）",
+    "tier": "T6",
     "quality": "unique",
     "obtain": "红猎图纸",
     "totalArmor": 810,
