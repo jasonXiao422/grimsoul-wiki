@@ -19,6 +19,7 @@ const equipmentNavItems = [
 const scrollNavItems = [
   { label: '卷轴', href: '/scrolls' },
   { label: '符文', href: '/runes' },
+  { label: '护符', href: '/amulets' },
 ];
 const withActiveState = (items: Array<{ label: string; href: string }>) =>
   items.map((item) => ({ ...item, active: currentPath.startsWith(item.href) }));
@@ -129,7 +130,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
                 aria-controls="scroll-nav-menu"
                 aria-current={isScrollNavActive ? 'page' : undefined}
               >
-                符文&卷轴
+                魔法物品
               </button>
               <div class="nav-dropdown-menu" id="scroll-nav-menu" data-nav-dropdown-menu>
                 {scrollItems.map((item) => (
@@ -138,7 +139,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
               </div>
             </div>
             <a href={consumablesNavItem.href} aria-current={consumablesNavItem.active ? 'page' : undefined}>{consumablesNavItem.label}</a>
-            <a href="/amulets" aria-current={currentPath.startsWith('/amulets') ? 'page' : undefined}>护符</a>
+            <a href="/buildings" aria-current={currentPath.startsWith('/buildings') ? 'page' : undefined}>建筑</a>
             <a href="/enemies" aria-current={currentPath.startsWith('/enemies') ? 'page' : undefined}>敌人</a>
             <a href="/lore" aria-current={currentPath.startsWith('/lore') ? 'page' : undefined}>背景故事</a>
             <div class="nav-dropdown" data-nav-dropdown>

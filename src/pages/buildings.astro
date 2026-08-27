@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+---
+
+<BaseLayout title="建筑" description="建筑资料列表">
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '建筑' },
+  ]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">资料列表</p>
+    <h1>建筑</h1>
+    <p class="muted">建筑资料与功能说明。</p>
+  </section>
+
+  <p class="tips-empty-state">建筑数据整理中，敬请期待</p>
+</BaseLayout>
