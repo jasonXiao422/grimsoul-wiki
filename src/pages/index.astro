@@ -65,6 +65,13 @@ const entryCards = [
     href: '/tips',
     badge: `${tipsCount} 篇`,
   },
+  {
+    slug: 'buildings',
+    label: '建筑',
+    blurb: '收录所有建筑的组装配方，方便查看所需材料。',
+    href: '/buildings',
+    badge: '',
+  },
 ].map((card) => ({
   ...card,
   metaParts: [card.badge, card.blurb].filter((part): part is string => typeof part === 'string' && part.length > 0),
@@ -120,7 +127,7 @@ const heroImages = Object.keys(heroImageModules)
             {category.metaParts.map((part, index) => (
               <>
                 {index > 0 && <span class="entry-separator"> · </span>}
-                <span class:list={[index === 0 && 'count']}>{part}</span>
+                <span class:list={[index === 0 && category.badge && 'count']}>{part}</span>
               </>
             ))}
           </span>
