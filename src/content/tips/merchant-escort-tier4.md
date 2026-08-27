@@ -3,7 +3,7 @@ title: 商人护送第四档难度
 type: video
 author: 林林子呀-
 authorBilibili: "https://space.bilibili.com/3494358919678209"
-date: 2026-06-09
+date: 2026-06-29
 summary: Lv170-200 的空降商人护送事件，两把武器分工应对不同敌人，护甲 350 起步。
 tags: ["商人护送", "后期", "空降事件"]
 cover: merchant-escort-tier4
