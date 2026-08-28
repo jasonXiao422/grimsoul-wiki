@@ -13,9 +13,10 @@ type DetailCategorySlug = CategorySlug | 'armor-pieces';
 interface Props {
   categorySlug: DetailCategorySlug;
   item: Record<string, any>;
+  attributeTitle?: string;
 }
 
-const { categorySlug, item } = Astro.props;
+const { categorySlug, item, attributeTitle = '属性' } = Astro.props;
 const enemyScreenshotPath = categorySlug === 'enemies'
   ? resolve(process.cwd(), 'public', 'images', 'enemies-full', `${item.id}.webp`)
   : undefined;
@@ -139,7 +140,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
 
     {attrRows.length > 0 && (
       <section class="panel">
-        <h2>属性</h2>
+        <h2 class="detail-panel-title">{attributeTitle}</h2>
         <table class="attr-table">
           <tbody>
             {attrRows.map((row) => (
@@ -178,11 +179,13 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
       </section>
     )}
 
+    <slot />
+
     {categorySlug === 'enemies' && <GroupNote blocks={item.groupNoteBlocks} group={item.group} />}
 
     {recipes.length > 0 && (
       <section class="section panel">
-        <h2>制作配方</h2>
+        <h2 class="detail-panel-title">制作配方</h2>
         <div class="piece-list">
           {recipes.map((recipe) => (
             <article class="piece-card consumable-recipe">
@@ -236,7 +239,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
 
     {hasCostField && (
       <section class="section panel">
-        <h2>{recipeTitle}</h2>
+        <h2 class="detail-panel-title">{recipeTitle}</h2>
         {item.cost.length > 0 ? (
           <ul class="recipe-list">
             {item.cost.map((cost) => {
@@ -267,7 +270,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
 
     {pieces.length > 0 && (
       <section class="section panel">
-        <h2>套装部件</h2>
+        <h2 class="detail-panel-title">套装部件</h2>
         <div class="piece-list">
           {pieces.map((piece) => {
             const pieceQualityMeta = getQualityMeta(piece.quality);
