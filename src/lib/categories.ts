@@ -185,10 +185,10 @@ export const CATEGORIES: CategoryDef[] = [
     blurb: '反查哪些配方用到它',
     file: 'materials',
     columns: [
-      { key: 'name', label: '名称', sortable: true },
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'usedIn', label: '配方数', sortable: true, numeric: true },
     ],
-    filters: [],
+    filters: ['quality'],
     defaultSort: 'usedIn',
   },
 ];

@@ -100,7 +100,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-bu-liao",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -141,7 +141,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-ya-ma-xian-wei",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -151,7 +151,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-bu-liao",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -219,7 +219,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-bu-liao",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -539,7 +539,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-yan-mai",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -597,7 +597,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-xiao-kong-ping",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -638,7 +638,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-xiang",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -710,7 +710,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-shui-dao-zhong",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -804,7 +804,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-jiu-cong-zhong",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -820,7 +820,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-nan-gua-zi",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -836,7 +836,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-yan-mai-zhong",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -852,7 +852,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-man-de-la-cao-zhong",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -1075,7 +1075,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-man-de-la-cao-zhong",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -1159,7 +1159,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-jiu-cong-zhong",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -1439,7 +1439,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-nan-gua-zi",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -1470,7 +1470,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-jiu-cong-zhong",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -1501,7 +1501,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-shui-dao-zhong",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -1708,7 +1708,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-kong-shui-ping",
-              "quality": null
+              "quality": "common"
             }
           }
         ],
@@ -1766,7 +1766,7 @@
             "ref": {
               "cat": "materials",
               "id": "mat-xiao-kong-ping",
-              "quality": null
+              "quality": "common"
             }
           }
         ],

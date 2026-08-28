@@ -244,18 +244,23 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
           <ul class="recipe-list">
             {item.cost.map((cost) => {
               const material = MATERIALS_BY_ID.get(cost.material);
+              const materialQualityMeta = material ? getQualityMeta(material.quality) : undefined;
+              const materialQualityStyle = materialQualityMeta
+                ? `--quality-border:${materialQualityMeta.border};--quality-glow:${materialQualityMeta.glow}`
+                : undefined;
               return material && (
                 <li>
                   <a href={getMaterialHref(material)}>
                     <img
-                      class="item-icon"
+                      class:list={['item-icon', materialQualityMeta && 'quality-icon']}
                       src={getItemIconSrc('materials', material)}
                       alt={material.name}
                       loading="lazy"
+                      style={materialQualityStyle}
                       data-fallback={materialFallback}
                       onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
                     />
-                    <span>{material.name}</span>
+                    <span style={materialQualityMeta ? `color:${materialQualityMeta.text}` : undefined}>{material.name}</span>
                     <span class="qty">×{cost.qty}</span>
                   </a>
                 </li>
@@ -303,18 +308,23 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                   <ul class="recipe-list compact">
                     {piece.cost.map((cost) => {
                       const material = MATERIALS_BY_ID.get(cost.material);
+                      const materialQualityMeta = material ? getQualityMeta(material.quality) : undefined;
+                      const materialQualityStyle = materialQualityMeta
+                        ? `--quality-border:${materialQualityMeta.border};--quality-glow:${materialQualityMeta.glow}`
+                        : undefined;
                       return material && (
                         <li>
                           <a href={getMaterialHref(material)}>
                             <img
-                              class="item-icon"
+                              class:list={['item-icon', materialQualityMeta && 'quality-icon']}
                               src={getItemIconSrc('materials', material)}
                               alt={material.name}
                               loading="lazy"
+                              style={materialQualityStyle}
                               data-fallback={materialFallback}
                               onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
                             />
-                            <span>{material.name}</span>
+                            <span style={materialQualityMeta ? `color:${materialQualityMeta.text}` : undefined}>{material.name}</span>
                             <span class="qty">×{cost.qty}</span>
                           </a>
                         </li>

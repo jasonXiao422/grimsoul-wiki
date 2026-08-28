@@ -3,129 +3,154 @@
     "id": "mat-hou-bu",
     "name": "厚布",
     "usedIn": 158,
+    "quality": "common",
     "description": "在缝纫台上由2个布料制作而成，是游戏中必不可少的资源，无论前期还是后期，厚布都是制作护甲的主要材料之一，新手可在悲伤的夜晚或者迷宫刷取"
   },
   {
     "id": "mat-pi-ge",
     "name": "皮革",
     "usedIn": 131,
+    "quality": "common",
     "description": "在晒架上由一张动物毛皮晒制而成，是游戏中必不可少的资源，无论前期还是后期，皮革都是制作装备的主要材料之一，新手可在悲伤的夜晚或者迷宫刷取"
   },
   {
     "id": "mat-qing-tong-ingot",
     "name": "青铜锭",
     "usedIn": 55,
+    "quality": "common",
     "description": "在熔炉中由一块铜锭+一块锡矿烧制而成，不过在迷宫可以无限刷取现成的青铜锭，老玩家实际上很少自己烧制青铜锭"
   },
   {
     "id": "mat-tie-ding",
     "name": "铁锭",
-    "usedIn": 53
+    "usedIn": 53,
+    "quality": "common"
   },
   {
     "id": "mat-tong-ding",
     "name": "铜锭",
-    "usedIn": 52
+    "usedIn": 52,
+    "quality": "common"
   },
   {
     "id": "mat-sheng-zi",
     "name": "绳子",
-    "usedIn": 51
+    "usedIn": 51,
+    "quality": "common"
   },
   {
     "id": "mat-mo-fa-pi-ge",
     "name": "魔法皮革",
-    "usedIn": 48
+    "usedIn": 48,
+    "quality": "rare"
   },
   {
     "id": "mat-bu-liao",
     "name": "布料",
-    "usedIn": 45
+    "usedIn": 45,
+    "quality": "common"
   },
   {
     "id": "mat-xian",
     "name": "线",
-    "usedIn": 45
+    "usedIn": 45,
+    "quality": "common"
   },
   {
     "id": "mat-tie-ban",
     "name": "铁板",
-    "usedIn": 29
+    "usedIn": 29,
+    "quality": "common"
   },
   {
     "id": "mat-song-mu-ban",
     "name": "松木板",
-    "usedIn": 25
+    "usedIn": 25,
+    "quality": "common"
   },
   {
     "id": "mat-gang-ding",
     "name": "钢锭",
-    "usedIn": 19
+    "usedIn": 19,
+    "quality": "common"
   },
   {
     "id": "mat-ya-ma-xian-wei",
     "name": "亚麻纤维",
-    "usedIn": 17
+    "usedIn": 17,
+    "quality": "common"
   },
   {
     "id": "mat-sui-tong-pian",
     "name": "碎铜片",
-    "usedIn": 16
+    "usedIn": 16,
+    "quality": "common"
   },
   {
     "id": "mat-yuan-song-mu",
     "name": "原松木",
-    "usedIn": 14
+    "usedIn": 14,
+    "quality": "common"
   },
   {
     "id": "mat-qing-tong-nail",
     "name": "青铜钉",
-    "usedIn": 12
+    "usedIn": 12,
+    "quality": "common"
   },
   {
     "id": "mat-xiu-bo-er-de-hui-jin",
     "name": "修博尔的灰烬",
-    "usedIn": 12
+    "usedIn": 12,
+    "quality": "rare"
   },
   {
     "id": "mat-pi-tiao",
     "name": "皮条",
-    "usedIn": 11
+    "usedIn": 11,
+    "quality": "common"
   },
   {
     "id": "mat-hua-mu-ban",
     "name": "桦木板",
-    "usedIn": 10
+    "usedIn": 10,
+    "quality": "common"
   },
   {
     "id": "mat-gu-lao-bao-ban",
     "name": "古老薄板",
-    "usedIn": 9
+    "usedIn": 9,
+    "quality": "rare"
   },
   {
     "id": "mat-ling-hun-sui-pian",
     "name": "灵魂碎片",
-    "usedIn": 8
+    "usedIn": 8,
+    "quality": "common"
   },
   {
     "id": "mat-tie-sui-pian",
     "name": "铁碎片",
-    "usedIn": 7
+    "usedIn": 7,
+    "quality": "common"
   },
   {
     "id": "mat-ying-hua-mao-ding",
     "name": "硬化铆钉",
-    "usedIn": 6
+    "usedIn": 6,
+    "quality": "rare"
   },
   {
     "id": "mat-chun-yin",
     "name": "纯银",
-    "usedIn": 6
+    "usedIn": 6,
+    "quality": "unique"
   },
   {
     "id": "mat-pi-tuo-lan",
     "name": "皮驮篮",
     "usedIn": 6,
+    "quality": "rare",
     "entity": {
       "cat": "backpacks",
       "id": "pi-tuo-lan"
@@ -134,57 +159,68 @@
   {
     "id": "mat-shi-hui-yan",
     "name": "石灰岩",
-    "usedIn": 4
+    "usedIn": 4,
+    "quality": "common"
   },
   {
     "id": "mat-lian-tiao",
     "name": "链条",
-    "usedIn": 3
+    "usedIn": 3,
+    "quality": "common"
   },
   {
     "id": "mat-jiu-cong-zhong",
     "name": "韭葱种",
-    "usedIn": 3
+    "usedIn": 3,
+    "quality": "common"
   },
   {
     "id": "mat-gong-xian",
     "name": "弓弦",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-ji-xie-zhuang-zhi",
     "name": "机械装置",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "rare"
   },
   {
     "id": "mat-you-zhi-gong-xian",
     "name": "优质弓弦",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-tou-gu",
     "name": "头骨",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-dong-wu-mao-pi",
     "name": "动物毛皮",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-kong-lang-ya",
     "name": "恐狼牙",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-bo-tao",
     "name": "脖套",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "rare"
   },
   {
     "id": "mat-ye-shou-de-xin",
     "name": "野兽的心",
     "usedIn": 2,
+    "quality": "rare",
     "entity": {
       "cat": "consumables",
       "id": "ye-shou-de-xin"
@@ -193,52 +229,62 @@
   {
     "id": "mat-gu-tou",
     "name": "骨头",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "rare"
   },
   {
     "id": "mat-shen-sheng-bao-ying-juan-zhou",
     "name": "神圣报应卷轴",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "unique"
   },
   {
     "id": "mat-1-ji-zhi-liao-juan-zhou",
     "name": "1级治疗卷轴",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-xiang",
     "name": "香",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-xiao-kong-ping",
     "name": "小空瓶",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-shui-dao-zhong",
     "name": "水稻种",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-nan-gua-zi",
     "name": "南瓜子",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-man-de-la-cao-zhong",
     "name": "曼德拉草种",
-    "usedIn": 2
+    "usedIn": 2,
+    "quality": "common"
   },
   {
     "id": "mat-tu-sha-juan-zhou",
     "name": "屠杀卷轴",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "unique"
   },
   {
     "id": "mat-mu-di-mo-gu",
     "name": "墓地蘑菇",
     "usedIn": 1,
+    "quality": "common",
     "entity": {
       "cat": "consumables",
       "id": "mu-di-mo-gu"
@@ -247,12 +293,14 @@
   {
     "id": "mat-ai-sha-yan-lei",
     "name": "艾莎眼泪",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "common"
   },
   {
     "id": "mat-huo-li-yao-shui",
     "name": "活力药水",
     "usedIn": 1,
+    "quality": "unique",
     "entity": {
       "cat": "consumables",
       "id": "huo-li-yao-shui"
@@ -261,12 +309,14 @@
   {
     "id": "mat-leng-dong-yao-shui",
     "name": "冷冻药水",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "rare"
   },
   {
     "id": "mat-beng-dai",
     "name": "绷带",
     "usedIn": 1,
+    "quality": "common",
     "entity": {
       "cat": "consumables",
       "id": "beng-dai"
@@ -275,12 +325,14 @@
   {
     "id": "mat-ha-te-zhi-tou",
     "name": "哈特之头",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "legendary"
   },
   {
     "id": "mat-fang-yu-yao-gao",
     "name": "防御药膏",
     "usedIn": 1,
+    "quality": "rare",
     "entity": {
       "cat": "consumables",
       "id": "fang-yu-yao-gao"
@@ -290,6 +342,7 @@
     "id": "mat-zhuan-zhu-yao-shui",
     "name": "专注药水",
     "usedIn": 1,
+    "quality": "common",
     "entity": {
       "cat": "consumables",
       "id": "zhuan-zhu-yao-shui"
@@ -298,12 +351,14 @@
   {
     "id": "mat-ha-li-de-de-tou-kui",
     "name": "哈利德的头盔",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "legendary"
   },
   {
     "id": "mat-tian-wei-mo-gu-yao-jiu",
     "name": "甜味蘑菇药酒",
     "usedIn": 1,
+    "quality": "rare",
     "entity": {
       "cat": "consumables",
       "id": "tian-wei-mo-gu-yao-jiu"
@@ -312,31 +367,37 @@
   {
     "id": "mat-fu-la-ge-na-de-tou-bu",
     "name": "弗拉格纳的头部",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "legendary"
   },
   {
     "id": "mat-qian-xing-yao-shui",
     "name": "潜行药水",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "common"
   },
   {
     "id": "mat-luo-ge-wo-er-de-tou",
     "name": "罗格沃尔的头",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "legendary"
   },
   {
     "id": "mat-yan-mai",
     "name": "燕麦",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "common"
   },
   {
     "id": "mat-yan-mai-zhong",
     "name": "燕麦种",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "common"
   },
   {
     "id": "mat-kong-shui-ping",
     "name": "空水瓶",
-    "usedIn": 1
+    "usedIn": 1,
+    "quality": "common"
   }
 ]

@@ -40,6 +40,7 @@ FILES = {
     "consumables": ("食物_药数据.xlsx", "Sheet1"),
     "sharpen": ("磨尖武器数据.xlsx", "磨刀等级"),
     "boxes": ("武器盒子数据.xlsx", "Sheet1"),
+    "materials": ("材料数据.xlsx", "材料介绍"),
 }
 
 warnings = []
@@ -538,6 +539,7 @@ QUALITY_BY_FILL = {
     "FF4285F4": "rare",
     "FF02A5E3": "rare",
     "FF3399FF": "rare",      # 卷轴表用的第二种蓝
+    "FF0070C0": "rare",      # 材料表用的蓝
     # 黄橙 —— 独特
     "FFFBBC04": "unique",
     "FFF1C232": "unique",
@@ -547,6 +549,7 @@ QUALITY_BY_FILL = {
     "FF674EA7": "legendary",
     "FF9933FF": "legendary",
     "FF808080": "legendary",  # 盾牌表里黑色炽热惩罚护盾用了灰底
+    "FF7030A0": "legendary",  # 材料表用的紫
 }
 
 
@@ -1070,14 +1073,14 @@ def link_recipe_entities(consumables, materials, catalog):
     理论上还可能出现武器护甲。按 食物药剂 → 材料 → 其他板块 的顺序查名字，
     命中就在该原料上写 ref = {"cat", "id", "quality"}。
 
-    quality 带出来是为了让前端画品质色外框；材料没有品质，该字段为 None。
+    quality 带出来是为了让前端画品质色外框。
     查不到的原料保持纯文本，前端渲染成不可点击的普通标签。
     """
     index = {}
     for item in consumables:                       # 食物药剂优先，它们有自己的详情页
         index.setdefault(item["name"], ("consumables", item["id"], item.get("quality")))
     for item in materials:
-        index.setdefault(item["name"], ("materials", item["id"], None))
+        index.setdefault(item["name"], ("materials", item["id"], item.get("quality")))
     for name, hit in catalog.items():
         index.setdefault(name, (hit[0], hit[1], None))
 
@@ -1308,7 +1311,7 @@ def build_materials(*datasets, skip_names=()):
                         continue
                     counts[name] = counts.get(name, 0) + 1
     return [
-        {"id": make_id(name, "mat"), "name": name, "usedIn": n}
+        {"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"}
         for name, n in sorted(counts.items(), key=lambda kv: -kv[1])
     ]
 
@@ -1334,10 +1337,10 @@ def attach_material_descriptions(materials):
         report()
         return
 
-    workbook = load_workbook(path, read_only=True, data_only=True)
-    if "材料介绍" not in workbook.sheetnames:
+    try:
+        rows = cells_of("materials")
+    except KeyError:
         warnings.append("材料介绍表缺少工作表「材料介绍」，已跳过材料介绍导入")
-        workbook.close()
         report()
         return
 
@@ -1345,20 +1348,23 @@ def attach_material_descriptions(materials):
         normalize_material_name(material["name"]): material
         for material in materials
     }
-    worksheet = workbook["材料介绍"]
-    for name_value, description_value, *_ in worksheet.iter_rows(min_row=2, values_only=True):
-        name = normalize_material_name(name_value)
+    for cells in rows[1:]:
+        if not cells:
+            continue
+        name_cell = cells[0]
+        name = normalize_material_name(name_cell.value)
         if not name:
             continue
+        quality = quality_from_fill(name_cell)
         material = by_name.get(name)
         if material is None:
             warnings.append(f"材料介绍表中的材料「{name}」找不到对应材料，已跳过")
             continue
-        description = text(description_value)
+        material["quality"] = quality
+        description = text(cells[1].value if len(cells) > 1 else None)
         if description:
             material["description"] = description
 
-    workbook.close()
     report()
 
 
