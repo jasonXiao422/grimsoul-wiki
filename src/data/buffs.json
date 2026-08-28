@@ -16,21 +16,21 @@
   {
     "id": "ci-gu-han-bing",
     "name": "刺骨寒冰",
-    "desc": "敌人更容易受到寒冷伤害",
+    "desc": "敌人更容易受到寒冷伤害（+50%）",
     "group": "大车炮台",
     "quality": "common"
   },
   {
     "id": "chi-yan",
     "name": "炽焰",
-    "desc": "敌人更容易受到火焰伤害",
+    "desc": "敌人更容易受到火焰伤害（+50%）",
     "group": "大车炮台",
     "quality": "common"
   },
   {
     "id": "shuai-bai-zhi-chu",
     "name": "衰败之触",
-    "desc": "敌人更容易受到衰败伤害",
+    "desc": "敌人更容易受到衰败伤害（+50%）",
     "group": "大车炮台",
     "quality": "common"
   },
