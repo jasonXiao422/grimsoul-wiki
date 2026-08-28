@@ -1039,6 +1039,12 @@ p {
   font-weight: 700;
 }
 
+.material-description-text {
+  margin: 0;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
 .recipe-list,
 .plain-list {
   display: grid;

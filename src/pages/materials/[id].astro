@@ -30,6 +30,13 @@ const entityLabel = getEntityCategoryLabel(item.entity);
     </section>
   )}
 
+  {typeof item.description === 'string' && item.description.trim() && (
+    <section class="section panel material-description">
+      <h2>材料介绍</h2>
+      <p class="material-description-text">{item.description}</p>
+    </section>
+  )}
+
   <DetailPanel categorySlug="materials" item={item} />
 
   <section class="section panel">

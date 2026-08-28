@@ -1313,6 +1313,55 @@ def build_materials(*datasets, skip_names=()):
     ]
 
 
+def normalize_material_name(value):
+    """按材料配方的既有规则清理名称并归一化别名。"""
+    name = text(value)
+    if not name:
+        return None
+    name = re.sub(r"\s+", "", name)
+    return MATERIAL_ALIAS.get(name, name)
+
+
+def attach_material_descriptions(materials):
+    """从可选的材料介绍表给已生成的材料条目附加 description。"""
+    def report():
+        filled = sum(1 for material in materials if material.get("description"))
+        print(f"材料介绍导入：{filled} 条已填写，{len(materials) - filled} 条尚未填写。")
+
+    path = SRC / "材料数据.xlsx"
+    if not path.exists():
+        print("提示：未找到 data-source/材料数据.xlsx，跳过材料介绍导入。")
+        report()
+        return
+
+    workbook = load_workbook(path, read_only=True, data_only=True)
+    if "材料介绍" not in workbook.sheetnames:
+        warnings.append("材料介绍表缺少工作表「材料介绍」，已跳过材料介绍导入")
+        workbook.close()
+        report()
+        return
+
+    by_name = {
+        normalize_material_name(material["name"]): material
+        for material in materials
+    }
+    worksheet = workbook["材料介绍"]
+    for name_value, description_value, *_ in worksheet.iter_rows(min_row=2, values_only=True):
+        name = normalize_material_name(name_value)
+        if not name:
+            continue
+        material = by_name.get(name)
+        if material is None:
+            warnings.append(f"材料介绍表中的材料「{name}」找不到对应材料，已跳过")
+            continue
+        description = text(description_value)
+        if description:
+            material["description"] = description
+
+    workbook.close()
+    report()
+
+
 def link_materials(materials, *datasets):
     """把配方里的材料中文名替换成 material id。"""
     by_name = {m["name"]: m["id"] for m in materials}
@@ -1352,6 +1401,7 @@ def main():
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, consumables,
                                 skip_names={c["name"] for c in consumables})
+    attach_material_descriptions(materials)
 
     # 材料名若与某个真实条目同名，记录跳转目标
     catalog = {}
