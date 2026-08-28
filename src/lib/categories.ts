@@ -194,7 +194,7 @@ export const CATEGORIES: CategoryDef[] = [
   {
     slug: 'cabinets',
     label: '柜子',
-    blurb: '储存空间、城堡点数与组装配方',
+    blurb: '收录所有柜子的组装配方，方便查看所需材料。',
     file: 'cabinets',
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },

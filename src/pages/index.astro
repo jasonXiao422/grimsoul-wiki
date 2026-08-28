@@ -7,7 +7,6 @@ import knightOrders from '../data/knight-orders.json';
 import armor from '../data/armor.json';
 import armorPieces from '../data/armor-pieces.json';
 import boxes from '../data/boxes.json';
-import cabinets from '../data/cabinets.json';
 
 const loreCount = (await getCollection('lore')).length;
 const tipsCount = (await getCollection('tips')).length;
@@ -65,13 +64,6 @@ const entryCards = [
     blurb: '玩家投稿的文章与视频攻略',
     href: '/tips',
     badge: `${tipsCount} 篇`,
-  },
-  {
-    slug: 'cabinets',
-    label: '柜子',
-    blurb: '收录所有柜子的组装配方，方便查看所需材料。',
-    href: '/cabinets',
-    badge: `${cabinets.length} 条`,
   },
 ].map((card) => ({
   ...card,
