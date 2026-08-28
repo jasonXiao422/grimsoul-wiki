@@ -1,11 +1,12 @@
 ---
 import ImageZoom from './ImageZoom.astro';
 import GroupNote from './GroupNote.astro';
+import MaterialCostList from './MaterialCostList.astro';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
-import { getAnyItemName, getItemIconSrc, getMaterialHref, MATERIALS_BY_ID, type CategorySlug } from '../lib/data';
+import { getAnyItemName, getItemIconSrc, type CategorySlug } from '../lib/data';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
 type DetailCategorySlug = CategorySlug | 'armor-pieces';
@@ -241,32 +242,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
       <section class="section panel">
         <h2 class="detail-panel-title">{recipeTitle}</h2>
         {item.cost.length > 0 ? (
-          <ul class="recipe-list">
-            {item.cost.map((cost) => {
-              const material = MATERIALS_BY_ID.get(cost.material);
-              const materialQualityMeta = material ? getQualityMeta(material.quality) : undefined;
-              const materialQualityStyle = materialQualityMeta
-                ? `--quality-border:${materialQualityMeta.border};--quality-glow:${materialQualityMeta.glow}`
-                : undefined;
-              return material && (
-                <li>
-                  <a href={getMaterialHref(material)}>
-                    <img
-                      class:list={['item-icon', materialQualityMeta && 'quality-icon']}
-                      src={getItemIconSrc('materials', material)}
-                      alt={material.name}
-                      loading="lazy"
-                      style={materialQualityStyle}
-                      data-fallback={materialFallback}
-                      onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                    />
-                    <span style={materialQualityMeta ? `color:${materialQualityMeta.text}` : undefined}>{material.name}</span>
-                    <span class="qty">×{cost.qty}</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <MaterialCostList cost={item.cost} />
         ) : (
           <p class="muted">该条目无法制作，可能只能掉落、购买或活动获取。</p>
         )}
@@ -305,32 +281,7 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                 </div>
 
                 {piece.cost?.length > 0 ? (
-                  <ul class="recipe-list compact">
-                    {piece.cost.map((cost) => {
-                      const material = MATERIALS_BY_ID.get(cost.material);
-                      const materialQualityMeta = material ? getQualityMeta(material.quality) : undefined;
-                      const materialQualityStyle = materialQualityMeta
-                        ? `--quality-border:${materialQualityMeta.border};--quality-glow:${materialQualityMeta.glow}`
-                        : undefined;
-                      return material && (
-                        <li>
-                          <a href={getMaterialHref(material)}>
-                            <img
-                              class:list={['item-icon', materialQualityMeta && 'quality-icon']}
-                              src={getItemIconSrc('materials', material)}
-                              alt={material.name}
-                              loading="lazy"
-                              style={materialQualityStyle}
-                              data-fallback={materialFallback}
-                              onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                            />
-                            <span style={materialQualityMeta ? `color:${materialQualityMeta.text}` : undefined}>{material.name}</span>
-                            <span class="qty">×{cost.qty}</span>
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <MaterialCostList cost={piece.cost} compact />
                 ) : (
                   <p class="muted">该部件无合成配方。</p>
                 )}

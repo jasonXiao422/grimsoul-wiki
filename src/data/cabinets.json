@@ -1,0 +1,1547 @@
+[
+  {
+    "id": "shu-jia",
+    "name": "书架",
+    "quality": "legendary",
+    "storageTypes": [
+      "技能书",
+      "卷轴",
+      "地图"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-sha-lou",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-sha-lou",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 50
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-sha-lou",
+            "qty": 50
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-mo-fa-pi-ge",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fa-ming-jia-gui-zi",
+    "name": "发明家柜子",
+    "quality": "legendary",
+    "storageTypes": [
+      "炸弹",
+      "武器油",
+      "符文",
+      "魔法材料"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-jing-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-jing-zi",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-jing-zi",
+            "qty": 60
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wu-qi-gui",
+    "name": "武器柜",
+    "quality": "legendary",
+    "storageTypes": [
+      "武器",
+      "盾牌"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 50
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mu-dui",
+    "name": "木堆",
+    "quality": "legendary",
+    "storageTypes": [
+      "圆木",
+      "木板",
+      "魔法木材",
+      "山毛榉"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 10
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 40
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 100
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 200
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kuang-gong-de-gui-zi",
+    "name": "矿工的柜子",
+    "quality": "legendary",
+    "storageTypes": [
+      "石灰岩",
+      "石砖",
+      "矿石",
+      "金属锭"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 40
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 100
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "za-wu-gui",
+    "name": "杂物柜",
+    "quality": "legendary",
+    "storageTypes": [
+      "配件",
+      "钥匙",
+      "灵魂碎片"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-jie-zhi",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-jie-zhi",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-jie-zhi",
+            "qty": 60
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hu-jia-gui",
+    "name": "护甲柜",
+    "quality": "legendary",
+    "storageTypes": [
+      "护甲",
+      "驮篮"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-da-kou",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-da-kou",
+            "qty": 60
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-da-kou",
+            "qty": 120
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cai-feng-de-gui-zi",
+    "name": "裁缝的柜子",
+    "quality": "legendary",
+    "storageTypes": [
+      "厚布",
+      "布料",
+      "绳子",
+      "皮革"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-shu-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-shu-zi",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 100
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zhu-bao-zhan-shi-gui",
+    "name": "珠宝展示柜",
+    "quality": "legendary",
+    "storageTypes": [
+      "护符"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-jing-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-jing-zi",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-jing-zi",
+            "qty": 60
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cao-yao-shi-gui-zi",
+    "name": "草药师柜子",
+    "quality": "legendary",
+    "storageTypes": [
+      "药剂（包含冰冻药水，毒瓶，南瓜炸弹）"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-sha-lou",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xiao-kong-ping",
+            "qty": 10
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-sha-lou",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xiao-kong-ping",
+            "qty": 30
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-sha-lou",
+            "qty": 60
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-mo-fa-pi-ge",
+            "qty": 100
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xiao-kong-ping",
+            "qty": 60
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tong-yong-gui-zi",
+    "name": "通用柜子",
+    "quality": "legendary",
+    "storageTypes": [
+      "任何物品",
+      "但只能放置在地下"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 40
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 100
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shi-pin-gui",
+    "name": "食品柜",
+    "quality": "legendary",
+    "storageTypes": [
+      "食物",
+      "饮料",
+      "宠物零食"
+    ],
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 50,
+        "castlePoints": 250,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-chi-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-cha-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 75,
+        "castlePoints": 300,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-chi-zi",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-cha-zi",
+            "qty": 30
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 100,
+        "castlePoints": 350,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-chi-zi",
+            "qty": 60
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 40
+          },
+          {
+            "material": "mat-sheng-can-bei",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-cha-zi",
+            "qty": 60
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          }
+        ]
+      }
+    ]
+  }
+]

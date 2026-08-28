@@ -26,6 +26,9 @@ const withActiveState = (items: Array<{ label: string; href: string }>) =>
 const equipmentItems = withActiveState(equipmentNavItems);
 const scrollItems = withActiveState(scrollNavItems);
 const consumablesNavItem = { label: '食物&药剂', href: '/consumables', active: currentPath.startsWith('/consumables') };
+const buildingNavItems = [
+  { label: '柜子', href: '/cabinets', active: currentPath.startsWith('/cabinets') },
+];
 const otherNavItems = [
   {
     label: '材料',
@@ -56,6 +59,7 @@ const otherNavItems = [
 const isOtherNavActive = otherNavItems.some((item) => item.active);
 const isEquipmentNavActive = equipmentItems.some((item) => item.active);
 const isScrollNavActive = scrollItems.some((item) => item.active);
+const isBuildingNavActive = buildingNavItems.some((item) => item.active);
 interface Contributor {
   name: string;
   url?: string;
@@ -140,7 +144,23 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
               </div>
             </div>
             <a href={consumablesNavItem.href} aria-current={consumablesNavItem.active ? 'page' : undefined}>{consumablesNavItem.label}</a>
-            <a href="/buildings" aria-current={currentPath.startsWith('/buildings') ? 'page' : undefined}>建筑</a>
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                class="nav-dropdown-toggle"
+                type="button"
+                data-nav-dropdown-toggle
+                aria-expanded="false"
+                aria-controls="building-nav-menu"
+                aria-current={isBuildingNavActive ? 'page' : undefined}
+              >
+                建筑
+              </button>
+              <div class="nav-dropdown-menu" id="building-nav-menu" data-nav-dropdown-menu>
+                {buildingNavItems.map((item) => (
+                  <a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a>
+                ))}
+              </div>
+            </div>
             <a href="/enemies" aria-current={currentPath.startsWith('/enemies') ? 'page' : undefined}>敌人</a>
             <a href="/lore" aria-current={currentPath.startsWith('/lore') ? 'page' : undefined}>背景故事</a>
             <div class="nav-dropdown" data-nav-dropdown>

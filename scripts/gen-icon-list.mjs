@@ -55,6 +55,7 @@ const SOURCES = [
   { file: 'debuffs', cat: 'debuffs', label: '玩家减益', parent: () => undefined },
   { file: 'enemy-buffs', cat: 'enemy-buffs', label: '敌方强化', parent: () => undefined },
   { file: 'materials', cat: 'materials', label: '材料', parent: () => undefined },
+  { file: 'cabinets', cat: 'cabinets', label: '柜子', parent: quality },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },
 ];
 

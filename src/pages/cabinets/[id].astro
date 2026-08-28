@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MaterialCostList from '../../components/MaterialCostList.astro';
+import cabinets from '../../data/cabinets.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+export function getStaticPaths() {
+  return cabinets.map((cabinet) => ({
+    params: { id: cabinet.id },
+    props: { cabinet },
+  }));
+}
+
+const { cabinet } = Astro.props;
+const quality = typeof cabinet.quality === 'string' && cabinet.quality in QUALITY_META
+  ? QUALITY_META[cabinet.quality as Quality]
+  : QUALITY_META.common;
+const qualityStyle = `--quality-border:${quality.border};--quality-glow:${quality.glow}`;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
+---
+
+<BaseLayout title={cabinet.name} description={`${cabinet.name}详细资料`}>
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '建筑' },
+    { label: '柜子', href: '/cabinets' },
+    { label: cabinet.name },
+  ]} />
+
+  <section class="cabinet-detail-hero panel">
+    <div class="cabinet-detail-image-wrap">
+      <img
+        class="cabinet-detail-image quality-icon"
+        src={getItemIconSrc('cabinets', cabinet)}
+        alt={cabinet.name}
+        style={qualityStyle}
+        data-fallback={fallback}
+        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+      />
+    </div>
+    <div>
+      <p class="eyebrow">建筑资料</p>
+      <h1 style={`color:${quality.text}`}>{cabinet.name}</h1>
+      <div class="tag-list cabinet-detail-tags">
+        {cabinet.storageTypes.map((storageType) => <span class="tag">{storageType}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="cabinet-levels" aria-label="柜子等级信息">
+    {cabinet.levels.map((level) => (
+      <article class="cabinet-level panel">
+        <h2>{level.level}</h2>
+        <dl class="cabinet-level-stats">
+          <div><dt>储存空间</dt><dd>{level.capacity}</dd></div>
+          <div><dt>城堡点数</dt><dd>{level.castlePoints}</dd></div>
+        </dl>
+        <h3>组装材料</h3>
+        <MaterialCostList cost={level.cost} compact />
+      </article>
+    ))}
+  </section>
+</BaseLayout>

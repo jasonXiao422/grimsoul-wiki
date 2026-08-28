@@ -17,6 +17,7 @@ import debuffs from '../data/debuffs.json';
 import enemyBuffs from '../data/enemy-buffs.json';
 import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
+import cabinets from '../data/cabinets.json';
 
 export const ALL_CATEGORIES = CATEGORIES;
 
@@ -36,6 +37,7 @@ export const DATA_BY_CATEGORY = {
   debuffs,
   enemyBuffs,
   materials,
+  cabinets,
   orders: knightOrders,
 } as const;
 
@@ -57,6 +59,7 @@ const ENTITY_PATH_BY_CAT: Record<string, string> = {
   shields: 'shields',
   backpacks: 'backpacks',
   amulets: 'amulets',
+  cabinets: 'cabinets',
 };
 
 const ENTITY_LABEL_BY_CAT: Record<string, string> = {
@@ -66,6 +69,7 @@ const ENTITY_LABEL_BY_CAT: Record<string, string> = {
   shields: '盾牌',
   backpacks: '驮篮',
   amulets: '护符',
+  cabinets: '柜子',
 };
 
 export function getEntityHref(entity: MaterialEntity | undefined): string | undefined {
@@ -225,7 +229,7 @@ export function getRecipeUsages(materialId: string) {
     source: string;
   }> = [];
 
-  for (const slug of ['weapons', 'armor', 'shields', 'backpacks', 'amulets'] as const) {
+  for (const slug of ['weapons', 'armor', 'shields', 'backpacks', 'amulets', 'cabinets'] as const) {
     for (const item of DATA_BY_CATEGORY[slug] as readonly any[]) {
       pushCostUsages(usages, item.cost, materialId, {
         category: slug,
@@ -240,6 +244,14 @@ export function getRecipeUsages(materialId: string) {
           name: `${item.name}：${piece.name}`,
           href: `${getItemHref(slug, item.id)}#${piece.id}`,
           source: '套装部件',
+        });
+      }
+      for (const level of item.levels ?? []) {
+        pushCostUsages(usages, level.cost, materialId, {
+          category: slug,
+          name: `${item.name} ${level.level}`,
+          href: getItemHref(slug, item.id),
+          source: '柜子配方',
         });
       }
     }

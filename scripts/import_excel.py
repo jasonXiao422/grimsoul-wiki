@@ -41,6 +41,7 @@ FILES = {
     "sharpen": ("磨尖武器数据.xlsx", "磨刀等级"),
     "boxes": ("武器盒子数据.xlsx", "Sheet1"),
     "materials": ("材料数据.xlsx", "材料介绍"),
+    "cabinets": ("柜子数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -161,7 +162,9 @@ def parse_cost(raw):
             else:
                 warnings.append(f"材料段落无法解析: {part!r}")
     else:  # 星号写法
-        for m in re.finditer(r"([^\s*]+)\s*\*\s*([\d.]+)", s):
+        # 有些表用空格分隔，有些表用分号分隔；统一成空格后沿用原解析规则。
+        star_s = re.sub(r"[;,，]\s*", " ", s)
+        for m in re.finditer(r"([^\s*]+)\s*\*\s*([\d.]+)", star_s):
             items.append({"material": m.group(1).strip(), "qty": float(m.group(2))})
         if not items:
             warnings.append(f"材料字符串无法解析: {s!r}")
@@ -524,6 +527,65 @@ def build_backpacks():
             "obtain": text(row[5]),
         })
     return out
+
+
+def build_cabinets():
+    """柜子表每个柜子占三行，A/F 列分别是合并的名称与储存类型。"""
+    rows = cells_of("cabinets")
+    name_ranges = merged_ranges_of("cabinets", 1)
+    storage_ranges = merged_ranges_of("cabinets", 6)
+    names = {start: (end, value) for start, end, value in name_ranges}
+    storage_types = {start: (end, value) for start, end, value in storage_ranges}
+
+    out = []
+    for row_number, (end, raw_name) in names.items():
+        cells = rows[row_number - 1]
+        name = text(raw_name)
+        if not name:
+            continue
+        storage_end, raw_storage = storage_types.get(row_number, (end, None))
+        levels = []
+        for excel_row in range(row_number, end + 1):
+            row = [cell.value for cell in rows[excel_row - 1]]
+            levels.append({
+                "level": text(row[1]),
+                "capacity": clean(row[2]),
+                "castlePoints": clean(row[3]),
+                "cost": parse_cost(row[4]),
+            })
+        storage = parse_storage_types(raw_storage)
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "quality": quality_from_fill(cells[0]),
+            "storageTypes": storage,
+            "levels": levels,
+        })
+    return out
+
+
+def parse_storage_types(raw):
+    """按顶层逗号拆分储存类型，保留括号内的完整内容。"""
+    value = text(raw)
+    if not value:
+        return []
+    parts, current, depth = [], [], 0
+    for char in value:
+        if char in "（(":
+            depth += 1
+        elif char in "）)" and depth:
+            depth -= 1
+        if char in ",，" and depth == 0:
+            part = "".join(current).strip()
+            if part:
+                parts.append(part)
+            current = []
+        else:
+            current.append(char)
+    part = "".join(current).strip()
+    if part:
+        parts.append(part)
+    return parts
 
 
 QUALITY_KEY = {"普通": "common", "稀有": "rare", "独特": "unique", "传说": "legendary"}
@@ -1303,6 +1365,9 @@ def build_materials(*datasets, skip_names=()):
             for p in item.get("pieces", []) or []:
                 for c in p.get("cost", []) or []:
                     counts[c["material"]] = counts.get(c["material"], 0) + 1
+            for level in item.get("levels", []) or []:
+                for c in level.get("cost", []) or []:
+                    counts[c["material"]] = counts.get(c["material"], 0) + 1
             # 食物药剂的配方结构不同：recipes[].items[]，字段是 name 不是 material
             for r in item.get("recipes", []) or []:
                 for ing in r.get("items", []) or []:
@@ -1379,6 +1444,8 @@ def link_materials(materials, *datasets):
             fix(item.get("cost"))
             for p in item.get("pieces", []) or []:
                 fix(p.get("cost"))
+            for level in item.get("levels", []) or []:
+                fix(level.get("cost"))
 
 
 def write(name, data):
@@ -1403,9 +1470,10 @@ def main():
     consumables = build_consumables()
     sharpen = build_sharpen(weapons)
     boxes = build_boxes(weapons, sharpen)
+    cabinets = build_cabinets()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
-                                backpacks, amulets, consumables,
+                                backpacks, amulets, cabinets, consumables,
                                 skip_names={c["name"] for c in consumables})
     attach_material_descriptions(materials)
 
@@ -1420,7 +1488,7 @@ def main():
                 catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
     link_material_entities(materials, catalog)
 
-    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets)
+    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets)
 
     # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
     link_recipe_entities(consumables, materials, catalog)
@@ -1439,6 +1507,7 @@ def main():
     write("consumables", consumables)
     write("sharpen", sharpen)
     write("boxes", boxes)
+    write("cabinets", cabinets)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)

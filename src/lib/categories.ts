@@ -191,6 +191,16 @@ export const CATEGORIES: CategoryDef[] = [
     filters: ['quality'],
     defaultSort: 'usedIn',
   },
+  {
+    slug: 'cabinets',
+    label: '柜子',
+    blurb: '储存空间、城堡点数与组装配方',
+    file: 'cabinets',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+    ],
+    filters: ['quality'],
+  },
 ];
 
 export const CATEGORY_BY_SLUG = Object.fromEntries(

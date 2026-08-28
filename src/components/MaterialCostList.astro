@@ -1,0 +1,45 @@
+---
+import { getItemIconSrc, getMaterialHref, MATERIALS_BY_ID } from '../lib/data';
+import { QUALITY_META, type Quality } from '../lib/quality';
+
+interface Props {
+  cost: Array<{ material: string; qty: number }>;
+  compact?: boolean;
+}
+
+const { cost, compact = false } = Astro.props;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
+
+const getQualityMeta = (quality: unknown) =>
+  typeof quality === 'string' && quality in QUALITY_META
+    ? QUALITY_META[quality as Quality]
+    : QUALITY_META.common;
+---
+
+<ul class:list={['recipe-list', compact && 'compact']}>
+  {cost.map((entry) => {
+    const material = MATERIALS_BY_ID.get(entry.material);
+    if (!material) return null;
+    const qualityMeta = getQualityMeta(material.quality);
+    const qualityStyle = `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`;
+    return (
+      <li>
+        <a href={getMaterialHref(material)}>
+          <img
+            class="item-icon quality-icon"
+            src={getItemIconSrc('materials', material)}
+            alt={material.name}
+            loading="lazy"
+            style={qualityStyle}
+            data-fallback={fallback}
+            onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+          />
+          <span style={`color:${qualityMeta.text}`}>{material.name}</span>
+          <span class="qty">×{entry.qty}</span>
+        </a>
+      </li>
+    );
+  })}
+</ul>

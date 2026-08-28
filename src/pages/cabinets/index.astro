@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import cabinets from '../../data/cabinets.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
+
+const getQualityMeta = (quality: unknown) =>
+  typeof quality === 'string' && quality in QUALITY_META
+    ? QUALITY_META[quality as Quality]
+    : QUALITY_META.common;
+---
+
+<BaseLayout title="柜子" description={`${cabinets.length} 个柜子资料`}>
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '建筑' },
+    { label: '柜子' },
+  ]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">建筑资料</p>
+    <h1>柜子</h1>
+    <p class="muted">整理{cabinets.length}个柜子的等级、储存空间、城堡点数与组装材料。</p>
+  </section>
+
+  <div class="cabinets-grid">
+    {cabinets.map((cabinet) => {
+      const qualityMeta = getQualityMeta(cabinet.quality);
+      const qualityStyle = `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`;
+      return (
+        <a class="cabinet-card" href={`/cabinets/${cabinet.id}`}>
+          <div class="cabinet-card-image">
+            <img
+              class="cabinet-card-icon quality-icon"
+              src={getItemIconSrc('cabinets', cabinet)}
+              alt={cabinet.name}
+              loading="lazy"
+              style={qualityStyle}
+              data-fallback={fallback}
+              onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+            />
+          </div>
+          <strong class="cabinet-card-name" style={`color:${qualityMeta.text}`}>{cabinet.name}</strong>
+          <span class="tag-list cabinet-card-tags">
+            {cabinet.storageTypes.map((storageType) => <span class="tag">{storageType}</span>)}
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</BaseLayout>

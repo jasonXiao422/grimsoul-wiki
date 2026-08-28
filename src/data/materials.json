@@ -16,14 +16,20 @@
   {
     "id": "mat-qing-tong-ingot",
     "name": "青铜锭",
-    "usedIn": 55,
+    "usedIn": 67,
     "quality": "common",
     "description": "在熔炉中由一块铜锭+一块锡矿烧制而成，不过在迷宫可以无限刷取现成的青铜锭，老玩家实际上很少自己烧制青铜锭"
   },
   {
     "id": "mat-tie-ding",
     "name": "铁锭",
-    "usedIn": 53,
+    "usedIn": 65,
+    "quality": "common"
+  },
+  {
+    "id": "mat-xian",
+    "name": "线",
+    "usedIn": 64,
     "quality": "common"
   },
   {
@@ -41,7 +47,7 @@
   {
     "id": "mat-mo-fa-pi-ge",
     "name": "魔法皮革",
-    "usedIn": 48,
+    "usedIn": 50,
     "quality": "rare"
   },
   {
@@ -51,9 +57,33 @@
     "quality": "common"
   },
   {
-    "id": "mat-xian",
-    "name": "线",
-    "usedIn": 45,
+    "id": "mat-ji-xie-zhuang-zhi",
+    "name": "机械装置",
+    "usedIn": 38,
+    "quality": "rare"
+  },
+  {
+    "id": "mat-song-mu-ban",
+    "name": "松木板",
+    "usedIn": 37,
+    "quality": "common"
+  },
+  {
+    "id": "mat-qing-tong-nail",
+    "name": "青铜钉",
+    "usedIn": 37,
+    "quality": "common"
+  },
+  {
+    "id": "mat-u-xing-ding",
+    "name": "U形钉",
+    "usedIn": 36,
+    "quality": "rare"
+  },
+  {
+    "id": "mat-tie-sui-pian",
+    "name": "铁碎片",
+    "usedIn": 31,
     "quality": "common"
   },
   {
@@ -63,9 +93,15 @@
     "quality": "common"
   },
   {
-    "id": "mat-song-mu-ban",
-    "name": "松木板",
-    "usedIn": 25,
+    "id": "mat-sui-tong-pian",
+    "name": "碎铜片",
+    "usedIn": 28,
+    "quality": "common"
+  },
+  {
+    "id": "mat-hua-mu-ban",
+    "name": "桦木板",
+    "usedIn": 22,
     "quality": "common"
   },
   {
@@ -81,21 +117,21 @@
     "quality": "common"
   },
   {
-    "id": "mat-sui-tong-pian",
-    "name": "碎铜片",
-    "usedIn": 16,
-    "quality": "common"
-  },
-  {
     "id": "mat-yuan-song-mu",
     "name": "原松木",
     "usedIn": 14,
     "quality": "common"
   },
   {
-    "id": "mat-qing-tong-nail",
-    "name": "青铜钉",
-    "usedIn": 12,
+    "id": "mat-ying-hua-mao-ding",
+    "name": "硬化铆钉",
+    "usedIn": 14,
+    "quality": "rare"
+  },
+  {
+    "id": "mat-pi-tiao",
+    "name": "皮条",
+    "usedIn": 13,
     "quality": "common"
   },
   {
@@ -105,15 +141,27 @@
     "quality": "rare"
   },
   {
-    "id": "mat-pi-tiao",
-    "name": "皮条",
-    "usedIn": 11,
+    "id": "mat-mo-fa-mu-cai",
+    "name": "魔法木材",
+    "usedIn": 12,
+    "quality": "rare"
+  },
+  {
+    "id": "mat-mo-fa-tie-ding",
+    "name": "魔法铁锭",
+    "usedIn": 12,
+    "quality": "rare"
+  },
+  {
+    "id": "mat-lu-jia",
+    "name": "炉架",
+    "usedIn": 10,
     "quality": "common"
   },
   {
-    "id": "mat-hua-mu-ban",
-    "name": "桦木板",
-    "usedIn": 10,
+    "id": "mat-lian-tiao",
+    "name": "链条",
+    "usedIn": 9,
     "quality": "common"
   },
   {
@@ -127,18 +175,6 @@
     "name": "灵魂碎片",
     "usedIn": 8,
     "quality": "common"
-  },
-  {
-    "id": "mat-tie-sui-pian",
-    "name": "铁碎片",
-    "usedIn": 7,
-    "quality": "common"
-  },
-  {
-    "id": "mat-ying-hua-mao-ding",
-    "name": "硬化铆钉",
-    "usedIn": 6,
-    "quality": "rare"
   },
   {
     "id": "mat-chun-yin",
@@ -157,14 +193,62 @@
     }
   },
   {
+    "id": "mat-sha-lou",
+    "name": "沙漏",
+    "usedIn": 6,
+    "quality": "common"
+  },
+  {
+    "id": "mat-jing-zi",
+    "name": "镜子",
+    "usedIn": 6,
+    "quality": "common"
+  },
+  {
+    "id": "mat-xiao-kong-ping",
+    "name": "小空瓶",
+    "usedIn": 5,
+    "quality": "common"
+  },
+  {
     "id": "mat-shi-hui-yan",
     "name": "石灰岩",
     "usedIn": 4,
     "quality": "common"
   },
   {
-    "id": "mat-lian-tiao",
-    "name": "链条",
+    "id": "mat-la-zhu",
+    "name": "蜡烛",
+    "usedIn": 3,
+    "quality": "common"
+  },
+  {
+    "id": "mat-suo-tou",
+    "name": "锁头",
+    "usedIn": 3,
+    "quality": "common"
+  },
+  {
+    "id": "mat-jie-zhi",
+    "name": "戒指",
+    "usedIn": 3,
+    "quality": "common"
+  },
+  {
+    "id": "mat-da-kou",
+    "name": "搭扣",
+    "usedIn": 3,
+    "quality": "common"
+  },
+  {
+    "id": "mat-chi-zi",
+    "name": "匙子",
+    "usedIn": 3,
+    "quality": "common"
+  },
+  {
+    "id": "mat-cha-zi",
+    "name": "叉子",
     "usedIn": 3,
     "quality": "common"
   },
@@ -179,12 +263,6 @@
     "name": "弓弦",
     "usedIn": 2,
     "quality": "common"
-  },
-  {
-    "id": "mat-ji-xie-zhuang-zhi",
-    "name": "机械装置",
-    "usedIn": 2,
-    "quality": "rare"
   },
   {
     "id": "mat-you-zhi-gong-xian",
@@ -251,8 +329,8 @@
     "quality": "common"
   },
   {
-    "id": "mat-xiao-kong-ping",
-    "name": "小空瓶",
+    "id": "mat-shu-zi",
+    "name": "梳子",
     "usedIn": 2,
     "quality": "common"
   },
@@ -381,6 +459,12 @@
     "name": "罗格沃尔的头",
     "usedIn": 1,
     "quality": "legendary"
+  },
+  {
+    "id": "mat-sheng-can-bei",
+    "name": "圣餐杯",
+    "usedIn": 1,
+    "quality": "common"
   },
   {
     "id": "mat-yan-mai",
