@@ -470,7 +470,7 @@
     "hp": 2800,
     "damageReduction": 0,
     "restoredFromDate": null,
-    "physicalDamage": "44+Level/5",
+    "physicalDamage": "44+人物当前等级/5",
     "elementDamage": null,
     "note": null,
     "locations": [
