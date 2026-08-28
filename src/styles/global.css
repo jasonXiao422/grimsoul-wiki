@@ -1022,6 +1022,10 @@ p {
   font-weight: 700;
 }
 
+.enemy-note-line {
+  display: block;
+}
+
 .material-entity-link {
   margin-bottom: 18px;
   padding: 14px 16px;

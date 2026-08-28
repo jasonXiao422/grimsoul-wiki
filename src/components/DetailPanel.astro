@@ -45,9 +45,26 @@ const parseEnemyNote = (value: unknown) => {
   const skills = matches.map((match, index) => {
     const start = (match.index ?? 0) + match[0].length;
     const end = matches[index + 1]?.index ?? value.length;
-    return { name: match[1].trim(), description: value.slice(start, end).trim() };
+    const lines = value.slice(start, end)
+      .split(/\r?\n/)
+      .map((line) => line.trim().replace(/[；;]$/, ''))
+      .filter(Boolean)
+      .map((line) => {
+        const modeMatch = line.match(/^(普通模式|英雄模式|传奇模式)：(.*)$/);
+        return modeMatch
+          ? { mode: modeMatch[1], text: modeMatch[2] }
+          : { mode: undefined, text: line };
+      });
+    return { name: match[1].trim(), lines };
   });
   return { intro, skills };
+};
+
+const getEnemyModeColor = (mode?: string) => {
+  if (mode === '英雄模式') return QUALITY_META.unique.text;
+  if (mode === '传奇模式') return QUALITY_META.legendary.text;
+  if (mode === '普通模式') return 'var(--text)';
+  return undefined;
 };
 
 const getDetailLabel = (key: string) => {
@@ -134,7 +151,17 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
                       {row.enemyNote.intro && <p class="enemy-note-intro">{row.enemyNote.intro}</p>}
                       {row.enemyNote.skills.map((skill) => (
                         <p class="enemy-note-skill">
-                          <strong>【{skill.name}】</strong>{skill.description}
+                          <strong>【{skill.name}】</strong>
+                          {skill.lines.map((line) => (
+                            <span class="enemy-note-line">
+                              {line.mode && (
+                                <span style={getEnemyModeColor(line.mode) ? `color:${getEnemyModeColor(line.mode)}` : undefined}>
+                                  {line.mode}
+                                </span>
+                              )}
+                              {line.mode && '：'}{line.text}
+                            </span>
+                          ))}
                         </p>
                       ))}
                     </div>
