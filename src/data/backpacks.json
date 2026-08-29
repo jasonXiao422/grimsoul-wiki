@@ -508,5 +508,15 @@
     "cost": [],
     "effect": "10%的几率用闪电击中你的敌人，并击晕附近的敌人；+1快捷插槽",
     "obtain": "红猎奖励"
+  },
+  {
+    "id": "da-zong-shi-lie-ren-de-tuo-lan",
+    "name": "大宗师猎人的驮篮",
+    "quality": "legendary",
+    "slots": "20+1",
+    "protection": null,
+    "cost": [],
+    "effect": "击杀敌人时获得的红猎点增加10%",
+    "obtain": "红猎奖励"
   }
 ]

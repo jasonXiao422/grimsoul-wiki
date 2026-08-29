@@ -43,6 +43,8 @@ const SOURCES = [
   { file: 'armor-pieces', cat: 'armor-pieces', label: '护甲部件', parent: quality },
   { file: 'shields', cat: 'shields', label: '盾牌', parent: quality },
   { file: 'backpacks', cat: 'backpacks', label: '驮篮', parent: quality },
+  // 驮篮有两套图：列表用方形图标 backpacks/，详情用大图 backpacks-full/
+  { file: 'backpacks', cat: 'backpacks-full', label: '驮篮大图', parent: quality },
   { file: 'amulets', cat: 'amulets', label: '护符', parent: quality },
   { file: 'scrolls', cat: 'scrolls', label: '卷轴', parent: quality },
   { file: 'runes', cat: 'runes', label: '符文', parent: quality },

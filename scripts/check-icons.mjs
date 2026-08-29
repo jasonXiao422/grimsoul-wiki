@@ -4,16 +4,16 @@
  */
 import fs from 'node:fs';
 
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'knight-orders'];
 const missing = [];
 
 for (const f of FILES) {
-  const dataFile = f === 'enemies-full' ? 'enemies' : f;
+  const dataFile = ['backpacks-full', 'enemies-full'].includes(f) ? f.replace('-full', '') : f;
   const p = `src/data/${dataFile}.json`;
   if (!fs.existsSync(p)) continue;
   for (const item of JSON.parse(fs.readFileSync(p, 'utf8'))) {
-    const iconCategory = f === 'enemies-full'
-      ? 'enemies-full'
+    const iconCategory = ['backpacks-full', 'enemies-full'].includes(f)
+      ? f
       : item.iconCat && item.iconId ? item.iconCat : f;
     const iconId = item.iconCat && item.iconId ? item.iconId : item.id;
     if (!fs.existsSync(`public/images/${iconCategory}/${iconId}.webp`))

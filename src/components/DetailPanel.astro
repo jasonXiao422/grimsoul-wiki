@@ -18,11 +18,16 @@ interface Props {
 }
 
 const { categorySlug, item, attributeTitle = '属性' } = Astro.props;
-const enemyScreenshotPath = categorySlug === 'enemies'
-  ? resolve(process.cwd(), 'public', 'images', 'enemies-full', `${item.id}.webp`)
+const fullImageCategory = categorySlug === 'enemies'
+  ? 'enemies-full'
+  : categorySlug === 'backpacks'
+    ? 'backpacks-full'
+    : undefined;
+const fullImagePath = fullImageCategory
+  ? resolve(process.cwd(), 'public', 'images', fullImageCategory, `${item.id}.webp`)
   : undefined;
-const iconSrc = enemyScreenshotPath && existsSync(enemyScreenshotPath)
-  ? `/images/enemies-full/${item.id}.webp`
+const iconSrc = fullImageCategory && fullImagePath && existsSync(fullImagePath)
+  ? `/images/${fullImageCategory}/${item.id}.webp`
   : getItemIconSrc(categorySlug, item);
 const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'description', 'groupNote', 'groupNoteBlocks', 'restoredFromDate']);
 const materialFallback =

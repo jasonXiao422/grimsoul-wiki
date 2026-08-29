@@ -213,9 +213,30 @@
       "value": 200,
       "unit": "点"
     },
-    "cost": [],
+    "cost": [
+      {
+        "material": "mat-qing-tong-ingot",
+        "qty": 2
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 2
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 7
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 5
+      },
+      {
+        "material": "mat-pi-ge",
+        "qty": 6
+      }
+    ],
     "effect": "格挡3次攻击，单次格挡消耗3耐久，充能所需伤害220\n抵挡伤害减少20-40点，自身生命值越低，可抵挡的伤害越高",
-    "obtain": "英雄大车炮台"
+    "obtain": "红猎图纸"
   },
   {
     "id": "xuan-yun-dun",
