@@ -42,6 +42,7 @@ FILES = {
     "boxes": ("武器盒子数据.xlsx", "Sheet1"),
     "materials": ("材料数据.xlsx", "材料介绍"),
     "cabinets": ("柜子数据.xlsx", "Sheet1"),
+    "surface-chests": ("地表箱子数据.xlsx", "Sheet1"),
 }
 
 warnings = []
@@ -559,6 +560,37 @@ def build_cabinets():
             "name": name,
             "quality": quality_from_fill(cells[0]),
             "storageTypes": storage,
+            "levels": levels,
+        })
+    return out
+
+
+def build_surface_chests():
+    """地表箱子表每个箱子占三行，A/B 列分别是合并的地点与名称。"""
+    rows = cells_of("surface-chests")
+    location_ranges = merged_ranges_of("surface-chests", 1)
+    name_ranges = merged_ranges_of("surface-chests", 2)
+    locations = {start: (end, value) for start, end, value in location_ranges}
+    names = {start: (end, value) for start, end, value in name_ranges}
+
+    out = []
+    for row_number, (end, raw_name) in names.items():
+        name = text(raw_name)
+        if not name:
+            continue
+        _, raw_location = locations.get(row_number, (end, None))
+        levels = []
+        for excel_row in range(row_number, end + 1):
+            row = [cell.value for cell in rows[excel_row - 1]]
+            levels.append({
+                "level": text(row[2]),
+                "capacity": clean(row[3]),
+                "cost": parse_cost(row[4]),
+            })
+        out.append({
+            "id": make_id(name),
+            "name": name,
+            "location": text(raw_location),
             "levels": levels,
         })
     return out
@@ -1471,9 +1503,10 @@ def main():
     sharpen = build_sharpen(weapons)
     boxes = build_boxes(weapons, sharpen)
     cabinets = build_cabinets()
+    surface_chests = build_surface_chests()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
-                                backpacks, amulets, cabinets, consumables,
+                                backpacks, amulets, cabinets, surface_chests, consumables,
                                 skip_names={c["name"] for c in consumables})
     attach_material_descriptions(materials)
 
@@ -1481,14 +1514,15 @@ def main():
     catalog = {}
     for cat, data in [("weapons", weapons), ("armor", armor_sets),
                       ("armor-pieces", armor_pieces), ("shields", shields),
-                      ("backpacks", backpacks), ("consumables", consumables)]:
+                      ("backpacks", backpacks), ("surface-chests", surface_chests),
+                      ("consumables", consumables)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
             for pc in it.get("pieces", []) or []:
                 catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
     link_material_entities(materials, catalog)
 
-    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets)
+    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets, surface_chests)
 
     # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
     link_recipe_entities(consumables, materials, catalog)
@@ -1508,6 +1542,7 @@ def main():
     write("sharpen", sharpen)
     write("boxes", boxes)
     write("cabinets", cabinets)
+    write("surface-chests", surface_chests)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)

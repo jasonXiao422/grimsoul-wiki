@@ -1,0 +1,365 @@
+[
+  {
+    "id": "ma-tou-huo-xiang",
+    "name": "码头货箱",
+    "location": "东西码头",
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 15,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 40
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 20
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 20
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 20,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 80
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 80
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 80
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 40
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 25,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 120
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 120
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 100
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 60
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 120
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 100
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 60
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bei-qi-guan-cai",
+    "name": "被弃棺材",
+    "location": "被弃地下城",
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 15,
+        "cost": [
+          {
+            "material": "mat-lian-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 5
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 5
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 5
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 10
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 20
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 20,
+        "cost": [
+          {
+            "material": "mat-lian-tiao",
+            "qty": 40
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 10
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 40
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 25,
+        "cost": [
+          {
+            "material": "mat-lian-tiao",
+            "qty": 40
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 20
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 40
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ku-li-guan-cai",
+    "name": "酷吏棺材",
+    "location": "酷吏地下城",
+    "levels": [
+      {
+        "level": "Lv2",
+        "capacity": 15,
+        "cost": [
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 25
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 15
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 15
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 10
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 25
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 15
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 50
+          }
+        ]
+      },
+      {
+        "level": "Lv3",
+        "capacity": 20,
+        "cost": [
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 25
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 50
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 30
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 30
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 20
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 50
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 30
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 75
+          }
+        ]
+      },
+      {
+        "level": "Lv4",
+        "capacity": 25,
+        "cost": [
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 50
+          },
+          {
+            "material": "mat-suo-tou",
+            "qty": 75
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 45
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 45
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 30
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 75
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 45
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 100
+          }
+        ]
+      }
+    ]
+  }
+]

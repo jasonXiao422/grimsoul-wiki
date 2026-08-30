@@ -18,6 +18,7 @@ import enemyBuffs from '../data/enemy-buffs.json';
 import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 import cabinets from '../data/cabinets.json';
+import surfaceChests from '../data/surface-chests.json';
 
 export const ALL_CATEGORIES = CATEGORIES;
 
@@ -38,6 +39,7 @@ export const DATA_BY_CATEGORY = {
   enemyBuffs,
   materials,
   cabinets,
+  'surface-chests': surfaceChests,
   orders: knightOrders,
 } as const;
 
@@ -60,6 +62,7 @@ const ENTITY_PATH_BY_CAT: Record<string, string> = {
   backpacks: 'backpacks',
   amulets: 'amulets',
   cabinets: 'cabinets',
+  'surface-chests': 'surface-chests',
 };
 
 const ENTITY_LABEL_BY_CAT: Record<string, string> = {
@@ -70,6 +73,7 @@ const ENTITY_LABEL_BY_CAT: Record<string, string> = {
   backpacks: '驮篮',
   amulets: '护符',
   cabinets: '柜子',
+  'surface-chests': '地表箱子',
 };
 
 export function getEntityHref(entity: MaterialEntity | undefined): string | undefined {
@@ -229,7 +233,7 @@ export function getRecipeUsages(materialId: string) {
     source: string;
   }> = [];
 
-  for (const slug of ['weapons', 'armor', 'shields', 'backpacks', 'amulets', 'cabinets'] as const) {
+  for (const slug of ['weapons', 'armor', 'shields', 'backpacks', 'amulets', 'cabinets', 'surface-chests'] as const) {
     for (const item of DATA_BY_CATEGORY[slug] as readonly any[]) {
       pushCostUsages(usages, item.cost, materialId, {
         category: slug,

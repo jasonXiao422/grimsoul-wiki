@@ -58,6 +58,8 @@ const SOURCES = [
   { file: 'enemy-buffs', cat: 'enemy-buffs', label: '敌方强化', parent: () => undefined },
   { file: 'materials', cat: 'materials', label: '材料', parent: () => undefined },
   { file: 'cabinets', cat: 'cabinets', label: '柜子', parent: quality },
+  { file: 'surface-chests', cat: 'surface-chests-location', label: '地表箱子地点', parent: () => undefined },
+  { file: 'surface-chests', cat: 'surface-chests', label: '地表箱子', parent: () => undefined },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },
 ];
 

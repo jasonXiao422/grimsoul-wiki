@@ -201,6 +201,16 @@ export const CATEGORIES: CategoryDef[] = [
     ],
     filters: ['quality'],
   },
+  {
+    slug: 'surface-chests',
+    label: '地表箱子',
+    blurb: '各个地点箱子的储存空间与组装材料',
+    file: 'surface-chests',
+    columns: [
+      { key: 'name', label: '名称', sortable: true },
+    ],
+    filters: [],
+  },
 ];
 
 export const CATEGORY_BY_SLUG = Object.fromEntries(
