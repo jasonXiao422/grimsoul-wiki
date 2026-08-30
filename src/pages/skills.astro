@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import EmptyState from '../components/EmptyState.astro';
+---
+
+<BaseLayout title="技能" description="技能数据整理中">
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '技能' },
+  ]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">资料列表</p>
+    <h1>技能</h1>
+    <p class="muted">技能效果与相关资料。</p>
+  </section>
+
+  <EmptyState title="技能数据整理中" description="敬请期待" />
+</BaseLayout>

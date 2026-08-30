@@ -669,6 +669,51 @@ p {
   padding: 20px;
 }
 
+.empty-state {
+  display: grid;
+  min-height: 220px;
+  padding: 32px 20px;
+  place-items: center;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background: transparent;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.empty-state-content {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.empty-state-mark {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.empty-state h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 520px) {
+  .empty-state {
+    min-height: 200px;
+    padding: 28px 16px;
+  }
+}
+
 .section {
   margin-top: 36px;
 }

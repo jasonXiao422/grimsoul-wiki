@@ -25,7 +25,8 @@ const withActiveState = (items: Array<{ label: string; href: string }>) =>
   items.map((item) => ({ ...item, active: currentPath.startsWith(item.href) }));
 const equipmentItems = withActiveState(equipmentNavItems);
 const scrollItems = withActiveState(scrollNavItems);
-const consumablesNavItem = { label: '食物&药剂', href: '/consumables', active: currentPath.startsWith('/consumables') };
+const consumablesNavItem = { label: '食物&药', href: '/consumables', active: currentPath.startsWith('/consumables') };
+const skillsNavItem = { label: '技能', href: '/skills', active: currentPath.startsWith('/skills') };
 const buildingNavItems = [
   { label: '柜子', href: '/cabinets', active: currentPath.startsWith('/cabinets') },
   { label: '地表箱子', href: '/surface-chests', active: currentPath.startsWith('/surface-chests') },
@@ -145,6 +146,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
               </div>
             </div>
             <a href={consumablesNavItem.href} aria-current={consumablesNavItem.active ? 'page' : undefined}>{consumablesNavItem.label}</a>
+            <a href={skillsNavItem.href} aria-current={skillsNavItem.active ? 'page' : undefined}>{skillsNavItem.label}</a>
             <div class="nav-dropdown" data-nav-dropdown>
               <button
                 class="nav-dropdown-toggle"
