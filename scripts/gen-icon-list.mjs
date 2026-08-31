@@ -60,8 +60,19 @@ const SOURCES = [
   { file: 'cabinets', cat: 'cabinets', label: '柜子', parent: quality },
   { file: 'surface-chests', cat: 'surface-chests-location', label: '地表箱子地点', parent: () => undefined },
   { file: 'surface-chests', cat: 'surface-chests', label: '地表箱子', parent: () => undefined },
+  { file: 'skills', cat: 'skills', label: '技能', parent: () => undefined },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },
 ];
+
+const SKILL_CATEGORY_IDS = {
+  主动技能: 'skill-cat-zhu-dong',
+  伤害: 'skill-cat-shang-hai',
+  治疗: 'skill-cat-zhi-liao',
+  闪避: 'skill-cat-shan-bi',
+  资源: 'skill-cat-zi-yuan',
+  角色: 'skill-cat-jue-se',
+  特殊: 'skill-cat-te-shu',
+};
 
 function quality(item, source) {
   const q = item.quality;
@@ -115,6 +126,13 @@ function build() {
       const row = { cat: source.cat, catLabel: source.label, id: item.id, name: item.name };
       if (parent !== undefined) row.parent = parent;
       rows.push(row);
+    }
+  }
+
+  const skills = load('skills');
+  for (const [name, id] of Object.entries(SKILL_CATEGORY_IDS)) {
+    if (skills.some((item) => item.category === name)) {
+      rows.push({ cat: 'skill-categories', catLabel: '技能类别', id, name });
     }
   }
 

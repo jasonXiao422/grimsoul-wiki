@@ -211,6 +211,16 @@ export const CATEGORIES: CategoryDef[] = [
     ],
     filters: [],
   },
+  {
+    slug: 'skills',
+    label: '技能',
+    blurb: '技能效果、等级数值与掉落地点',
+    file: 'skills',
+    columns: [
+      { key: 'name', label: '技能名称', sortable: true },
+    ],
+    filters: [],
+  },
 ];
 
 export const CATEGORY_BY_SLUG = Object.fromEntries(

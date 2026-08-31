@@ -19,6 +19,7 @@ import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 import cabinets from '../data/cabinets.json';
 import surfaceChests from '../data/surface-chests.json';
+import skills from '../data/skills.json';
 
 export const ALL_CATEGORIES = CATEGORIES;
 
@@ -40,6 +41,7 @@ export const DATA_BY_CATEGORY = {
   materials,
   cabinets,
   'surface-chests': surfaceChests,
+  skills,
   orders: knightOrders,
 } as const;
 

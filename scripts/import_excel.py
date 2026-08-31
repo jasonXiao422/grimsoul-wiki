@@ -43,10 +43,12 @@ FILES = {
     "materials": ("材料数据.xlsx", "材料介绍"),
     "cabinets": ("柜子数据.xlsx", "Sheet1"),
     "surface-chests": ("地表箱子数据.xlsx", "Sheet1"),
+    "skills": ("技能数据.xlsx", "技能"),
 }
 
 warnings = []
 used_ids = {}
+skill_drop_parse_warnings = 0
 
 
 # ---------------------------------------------------------------- 工具函数
@@ -183,6 +185,16 @@ def num(v):
     if isinstance(v, float) and v == int(v):
         return int(v)
     return v
+
+
+def format_skill_level_value(cell):
+    value = clean(cell.value)
+    if value is None:
+        return None
+    if isinstance(value, (int, float)) and "%" in str(cell.number_format or ""):
+        percent = round(value * 100, 10)
+        return f"{num(percent)}%"
+    return value
 
 
 def parse_damage(raw):
@@ -593,6 +605,112 @@ def build_surface_chests():
             "location": text(raw_location),
             "levels": levels,
         })
+    return out
+
+
+SKILL_CATEGORY_BY_FILL = {
+    "FFFFC000": ("主动技能", "#ffc000"),
+    "FFE06666": ("伤害", "#e06666"),
+    "FF92D050": ("治疗", "#92d050"),
+    "FFD8D4CC": ("闪避", "#d8d4cc"),
+    "FF8A8579": ("资源", "#8a8579"),
+    "FF00B0F0": ("角色", "#00b0f0"),
+    "FF7030A0": ("特殊", "#7030a0"),
+}
+
+
+def skill_category_from_fill(cell):
+    try:
+        fg = cell.fill.fgColor
+        rgb = fg.rgb if fg and fg.type == "rgb" else None
+    except Exception:
+        rgb = None
+    if rgb not in SKILL_CATEGORY_BY_FILL:
+        warnings.append(f"未登记的技能类别底色 {rgb}（{cell.value}），无法识别类别")
+        return None, None
+    return SKILL_CATEGORY_BY_FILL[rgb]
+
+
+def parse_skill_drop_locations(raw):
+    value = text(raw)
+    if not value:
+        return []
+    locations = []
+    for part in value.split("；"):
+        part = part.strip()
+        if not part:
+            continue
+        _, separator, location_text = re.split(r"([：:])", part, maxsplit=1) if re.search(r"[：:]", part) else ("", "", part)
+        location_text = location_text if separator else part
+        for location in location_text.split("/"):
+            location = location.strip().strip("；")
+            if location and location not in locations:
+                locations.append(location)
+    return locations
+
+
+def parse_skill_drop_locations_by_level(raw):
+    global skill_drop_parse_warnings
+    value = text(raw)
+    if not value:
+        return []
+    out = []
+    for part in value.split("；"):
+        part = part.strip()
+        if not part:
+            continue
+        match = re.match(r"^Lv(\d+)(?:-Lv(\d+))?\s*[：:]\s*(.+)$", part)
+        if not match:
+            skill_drop_parse_warnings += 1
+            warnings.append(f"技能掉落地点片段无法解析，已跳过: {part!r}")
+            continue
+        start = int(match.group(1))
+        end = int(match.group(2) or start)
+        if end < start:
+            skill_drop_parse_warnings += 1
+            warnings.append(f"技能掉落等级范围无效，已跳过: {part!r}")
+            continue
+        locations = [location.strip() for location in match.group(3).split("/") if location.strip()]
+        if not locations:
+            skill_drop_parse_warnings += 1
+            warnings.append(f"技能掉落地点为空，已跳过: {part!r}")
+            continue
+        out.append({"levels": list(range(start, end + 1)), "locations": list(dict.fromkeys(locations))})
+    return out
+
+
+def build_skills():
+    rows = cells_of("skills")
+    headers = [index + 1 for index, row in enumerate(rows) if text(row[2].value) == "Lvl 1"]
+    out = []
+    for header_index, header_row in enumerate(headers):
+        end_row = headers[header_index + 1] - 1 if header_index + 1 < len(headers) else len(rows)
+        category = text(rows[header_row - 1][1].value)
+        for excel_row in range(header_row + 1, end_row + 1):
+            row = rows[excel_row - 1]
+            name = text(row[1].value)
+            if not name:
+                continue
+            category_from_fill, category_color = skill_category_from_fill(row[1])
+            if category_from_fill and category_from_fill != category:
+                warnings.append(f"技能类别表头与名称底色不一致（{name}：{category} / {category_from_fill}）")
+            levels = []
+            for level, cell in enumerate(row[2:17], start=1):
+                value = format_skill_level_value(cell)
+                if value is not None:
+                    levels.append({"level": level, "value": value})
+            drop_raw = text(row[17].value)
+            drop_locations_by_level = parse_skill_drop_locations_by_level(drop_raw)
+            out.append({
+                "id": make_id(name, "skill"),
+                "name": name,
+                "category": category,
+                "categoryColor": category_color,
+                "levels": levels,
+                "dropLocationsRaw": drop_raw or "",
+                "dropLocations": parse_skill_drop_locations(drop_raw),
+                "dropLocationsByLevel": drop_locations_by_level,
+            })
     return out
 
 
@@ -1504,6 +1622,7 @@ def main():
     boxes = build_boxes(weapons, sharpen)
     cabinets = build_cabinets()
     surface_chests = build_surface_chests()
+    skills = build_skills()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, cabinets, surface_chests, consumables,
@@ -1543,10 +1662,13 @@ def main():
     write("boxes", boxes)
     write("cabinets", cabinets)
     write("surface-chests", surface_chests)
+    write("skills", skills)
     write("materials", materials)
 
     total_pieces = sum(len(s["pieces"]) for s in armor_sets)
     print(f"\n护甲套装 {len(armor_sets)} 套，含部件 {total_pieces} 件；散件 {len(armor_pieces)} 件")
+    parsed_skill_count = sum(1 for skill in skills if not skill["dropLocationsRaw"] or skill["dropLocationsByLevel"])
+    print(f"技能掉落地点结构化解析：{parsed_skill_count} 条技能成功，{skill_drop_parse_warnings} 条片段警告")
 
     if warnings:
         print(f"\n⚠ {len(warnings)} 条需要留意：\n")

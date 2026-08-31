@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import skills from '../../data/skills.json';
+import { getSkillCategoryId } from '../../lib/skills';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+export function getStaticPaths() {
+  const categories = [...new Set(skills.map((skill) => skill.category))];
+  return categories.map((category) => ({
+    params: { category: getSkillCategoryId(category) },
+    props: { category, items: skills.filter((skill) => skill.category === category) },
+  }));
+}
+
+const { category, items } = Astro.props;
+const categoryColor = items[0]?.categoryColor ?? 'var(--accent)';
+const dropLocations = [...new Set(items.flatMap((skill) => skill.dropLocations))].sort((a, b) => a.localeCompare(b, 'zh-Hans-CN'));
+const levelQuality = (level: number): Quality => level <= 2 ? 'common' : level <= 6 ? 'rare' : level <= 10 ? 'unique' : 'legendary';
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
+---
+
+<BaseLayout title={category} description={`${category}技能资料`}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '技能', href: '/skills' }, { label: category }]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">技能资料</p>
+    <h1 style={`color:${categoryColor}`}>{category}</h1>
+    <p class="muted">共 {items.length} 个技能，支持按技能名称或掉落地点检索。</p>
+  </section>
+
+  <section class="skills-table-block" data-skills-table>
+    <div class="table-tools skills-table-tools">
+      <label>
+        <span class="sr-only">搜索技能</span>
+        <input class="search-input" type="search" data-skills-query placeholder="搜索技能名称或掉落地点" />
+      </label>
+      <label>
+        <span class="sr-only">按掉落地点筛选</span>
+        <select class="filter-select" data-skills-location-filter>
+          <option value="">全部地点</option>
+          {dropLocations.map((location) => <option value={location}>{location}</option>)}
+        </select>
+      </label>
+    </div>
+    <div class="table-scroll skills-table-scroll">
+      <table class="data-table skills-table">
+        <thead>
+          <tr>
+            <th>技能名称</th>
+            {Array.from({ length: 15 }, (_, index) => <th>Lv{index + 1}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((skill) => (
+            <tr
+              data-skills-row
+              data-search-text={`${skill.name} ${skill.dropLocations.join(' ')}`}
+              data-drop-locations={skill.dropLocations.join('|')}
+              data-drop-by-level={JSON.stringify(skill.dropLocationsByLevel)}
+            >
+              <td>
+                <a class="item-cell" href={`/skills/${getSkillCategoryId(skill.category)}/${skill.id}`}>
+                  <img
+                    class="item-icon quality-icon"
+                    src={`/images/skills/${skill.id}.webp`}
+                    alt={skill.name}
+                    loading="lazy"
+                    style={`--quality-border:${categoryColor};--quality-glow:${categoryColor}`}
+                    data-fallback={fallback}
+                    onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                  />
+                  <strong style={`color:${categoryColor}`}>{skill.name}</strong>
+                </a>
+              </td>
+              {Array.from({ length: 15 }, (_, index) => {
+                const level = index + 1;
+                const value = skill.levels.find((entry) => entry.level === level)?.value;
+                const quality = QUALITY_META[levelQuality(level)];
+                return (
+                  <td class:list={[level === 1 && 'skill-description']} data-skill-level={level} style={value === undefined ? undefined : `color:${quality.text}`}>
+                    {level > 1 && <span class="skill-level-label">Lv{level}</span>}
+                    {value ?? '—'}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" data-skills-empty hidden>没有找到符合条件的技能。</p>
+    <button class="skills-clear-filters" type="button" data-skills-clear hidden>清除筛选</button>
+  </section>
+</BaseLayout>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-skills-table]');
+  const input = root?.querySelector<HTMLInputElement>('[data-skills-query]');
+  const locationFilter = root?.querySelector<HTMLSelectElement>('[data-skills-location-filter]');
+  const clear = root?.querySelector<HTMLButtonElement>('[data-skills-clear]');
+  const rows = () => [...(root?.querySelectorAll<HTMLTableRowElement>('[data-skills-row]') ?? [])];
+  const empty = root?.querySelector<HTMLElement>('[data-skills-empty]');
+  const applyLocationHighlights = () => {
+    const selectedLocation = locationFilter?.value ?? '';
+    rows().forEach((row) => {
+      let groups: Array<{ levels: number[]; locations: string[] }> = [];
+      try {
+        groups = JSON.parse(row.dataset.dropByLevel ?? '[]');
+      } catch {
+        groups = [];
+      }
+      row.querySelectorAll<HTMLElement>('[data-skill-level]').forEach((cell) => {
+        const level = Number(cell.dataset.skillLevel);
+        const highlighted = Boolean(selectedLocation) && groups.some((group) =>
+          group.levels.includes(level) && group.locations.includes(selectedLocation)
+        );
+        cell.classList.toggle('is-location-highlighted', highlighted);
+      });
+    });
+  };
+  const applyFilters = () => {
+    const query = (input?.value ?? '').trim().toLocaleLowerCase('zh-Hans-CN');
+    const selectedLocation = locationFilter?.value ?? '';
+    let visible = 0;
+    rows().forEach((row) => {
+      const matchesSearch = !query || (row.dataset.searchText ?? '').toLocaleLowerCase('zh-Hans-CN').includes(query);
+      const matchesLocation = !selectedLocation || (row.dataset.dropLocations ?? '').split('|').includes(selectedLocation);
+      const match = matchesSearch && matchesLocation;
+      row.toggleAttribute('hidden', !match);
+      if (match) visible += 1;
+    });
+    if (empty) empty.hidden = visible > 0;
+    if (clear) clear.hidden = !query && !selectedLocation;
+  };
+  input?.addEventListener('input', applyFilters);
+  locationFilter?.addEventListener('change', applyLocationHighlights);
+  clear?.addEventListener('click', () => {
+    if (input) input.value = '';
+    if (locationFilter) locationFilter.value = '';
+    applyFilters();
+    applyLocationHighlights();
+  });
+  applyLocationHighlights();
+</script>

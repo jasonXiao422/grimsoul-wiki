@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import skills from '../../data/skills.json';
+import { getSkillCategoryId } from '../../lib/skills';
+
+const categories = [...new Map(skills.map((skill) => [skill.category, skill])).values()];
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
+---
+
+<BaseLayout title="技能" description={`${skills.length} 个技能资料`}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '技能' }]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">技能资料</p>
+    <h1>技能</h1>
+    <p class="muted">整理技能效果、等级数值与掉落地点。</p>
+  </section>
+
+  <div class="cabinets-grid">
+    {categories.map((category) => {
+      const categoryId = getSkillCategoryId(category.category);
+      const count = skills.filter((skill) => skill.category === category.category).length;
+      return (
+        <a class="cabinet-card" href={`/skills/${categoryId}`}>
+          <div
+            class="cabinet-card-image quality-icon"
+            style={`--quality-border:${category.categoryColor};--quality-glow:${category.categoryColor}`}
+          >
+            <img
+              class="cabinet-card-icon"
+              src={`/images/skill-categories/${categoryId}.webp`}
+              alt={category.category}
+              loading="lazy"
+              data-fallback={fallback}
+              onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+            />
+          </div>
+          <strong class="cabinet-card-name" style={`color:${category.categoryColor}`}>{category.category}</strong>
+          <span class="tag-list cabinet-card-tags"><span class="tag">{count} 个技能</span></span>
+        </a>
+      );
+    })}
+  </div>
+</BaseLayout>

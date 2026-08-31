@@ -912,9 +912,6 @@ p {
 }
 
 .data-table thead th {
-  position: sticky;
-  top: var(--header-height);
-  z-index: 2;
   background: var(--bg-panel);
   box-shadow: inset 0 -1px 0 var(--border);
 }
@@ -934,9 +931,6 @@ p {
 }
 
 .data-table .group-row th {
-  position: sticky;
-  top: calc(var(--header-height) + var(--table-header-height));
-  z-index: 2;
   padding: 10px 14px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -1427,6 +1421,107 @@ p {
 
 .cabinet-level .recipe-list.compact {
   grid-template-columns: 1fr;
+}
+
+.skills-table-scroll {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.skills-table-tools {
+  grid-template-columns: minmax(220px, 1fr) minmax(180px, 260px);
+}
+
+.skills-clear-filters {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  margin-top: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.skills-clear-filters:hover,
+.skills-clear-filters:focus-visible {
+  color: var(--text);
+}
+
+.skills-table {
+  min-width: 1500px;
+}
+
+.skills-table th,
+.skills-table td {
+  white-space: nowrap;
+}
+
+.skills-table th:first-child,
+.skills-table td:first-child {
+  min-width: 190px;
+}
+
+.skills-table .skill-description {
+  width: 270px;
+  max-width: 270px;
+  white-space: normal;
+  line-height: 1.55;
+}
+
+.skills-table .skill-level-label {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--text-dim);
+  font-size: 0.72em;
+  line-height: 1;
+}
+
+.skills-table td.is-location-highlighted {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.skills-table tr[hidden],
+.skills-table [hidden] {
+  display: none !important;
+}
+
+.skill-level-list,
+.skill-drop-panel {
+  margin-top: 22px;
+}
+
+.skill-level-list h2,
+.skill-drop-panel h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.skill-level-list dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.skill-level-list dl > div {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #101113;
+}
+
+.skill-level-list dt {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.skill-level-list dd,
+.skill-drop-panel p {
+  margin: 0;
+  line-height: 1.65;
 }
 
 @media (max-width: 900px) {
