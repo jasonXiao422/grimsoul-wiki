@@ -887,6 +887,11 @@ p {
   font-size: 0.9rem;
 }
 
+.usage-note p strong {
+  display: inline;
+  margin: 0 0.2em 0 0;
+}
+
 .usage-note p {
   margin: 0;
 }
