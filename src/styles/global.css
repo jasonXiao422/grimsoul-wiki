@@ -229,6 +229,10 @@ img {
   padding: 32px 0 88px;
 }
 
+.main-content > section + section {
+  margin-top: 36px;
+}
+
 .site-footer {
   width: 100%;
   border-top: 1px solid var(--border);
@@ -455,6 +459,16 @@ h2 {
   font-size: 1.55rem;
 }
 
+.home-section-title {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
 h3 {
   margin: 0 0 10px;
   font-size: 1.15rem;
@@ -549,7 +563,7 @@ p {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
 

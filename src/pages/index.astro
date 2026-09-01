@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryCard from '../components/EntryCard.astro';
 import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../lib/categories';
 import { getCategoryBlurb, getCategoryCount, type CategorySlug } from '../lib/data';
@@ -20,6 +21,13 @@ const categoryCards = CATEGORIES.map((category) => ({
     ? `${armor.length} 套 + ${armorPieces.length} 件`
     : `${getCategoryCount(category.slug as CategorySlug)} 条`,
 }));
+
+// 最近更新区块只维护类别 slug；卡片内容与资料入口统一从现有类别配置和数据生成。
+const RECENT_UPDATES = ['skills'] as const;
+const recentUpdateCards = RECENT_UPDATES.flatMap((slug) => {
+  const card = categoryCards.find((entry) => entry.slug === slug);
+  return card ? [card] : [];
+});
 
 const entryCards = [
   ...categoryCards,
@@ -65,10 +73,7 @@ const entryCards = [
     href: '/tips',
     badge: `${tipsCount} 篇`,
   },
-].map((card) => ({
-  ...card,
-  metaParts: [card.badge, card.blurb].filter((part): part is string => typeof part === 'string' && part.length > 0),
-}));
+];
 
 const heroHoldMs = 6000;
 const heroFadeMs = 1500;
@@ -111,20 +116,19 @@ const heroImages = Object.keys(heroImageModules)
   </section>
 
   <section>
-    <h2>资料入口</h2>
+    <h2 class="home-section-title">最近更新</h2>
+    <div class="grid">
+      {recentUpdateCards.map((card) => (
+        <EntryCard {...card} />
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="home-section-title">资料入口</h2>
     <div class="grid">
       {entryCards.map((category) => (
-        <a class="entry-card" href={category.href}>
-          <strong>{category.label}</strong>
-          <span class="entry-meta">
-            {category.metaParts.map((part, index) => (
-              <>
-                {index > 0 && <span class="entry-separator"> · </span>}
-                <span class:list={[index === 0 && category.badge && 'count']}>{part}</span>
-              </>
-            ))}
-          </span>
-        </a>
+        <EntryCard {...category} />
       ))}
     </div>
   </section>

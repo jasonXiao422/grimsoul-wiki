@@ -1,0 +1,23 @@
+---
+interface Props {
+  label: string;
+  href: string;
+  badge?: string;
+  blurb?: string;
+}
+
+const { label, href, badge, blurb } = Astro.props;
+const metaParts = [badge, blurb].filter((part): part is string => typeof part === 'string' && part.length > 0);
+---
+
+<a class="entry-card" href={href}>
+  <strong>{label}</strong>
+  <span class="entry-meta">
+    {metaParts.map((part, index) => (
+      <>
+        {index > 0 && <span class="entry-separator"> · </span>}
+        <span class:list={[index === 0 && badge && 'count']}>{part}</span>
+      </>
+    ))}
+  </span>
+</a>
