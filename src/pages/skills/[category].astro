@@ -28,20 +28,20 @@ const fallback =
   <section class="page-heading">
     <p class="eyebrow">技能资料</p>
     <h1 style={`color:${categoryColor}`}>{category}</h1>
-    <p class="muted">共 {items.length} 个技能，支持按技能名称或掉落地点检索。</p>
+    <p class="muted">共 {items.length} 个技能，支持按技能名称搜索、按掉落地点筛选。</p>
   </section>
 
   <aside class="usage-note">
     <strong>使用提示</strong>
     <p>选择掉落地点后，表格中对应等级的数值会高亮显示。例如想知道被弃者地下城能掉哪些技能、掉到几级，选择「被弃者地下城」即可，高亮的等级就是该地点能掉落的范围。</p>
-    <p>也可以直接在搜索框输入技能名称或地点名称查找。</p>
+    <p>也可以在搜索框直接输入技能名称查找。</p>
   </aside>
 
   <section class="skills-table-block" data-skills-table>
     <div class="table-tools skills-table-tools">
       <label>
         <span class="sr-only">搜索技能</span>
-        <input class="search-input" type="search" data-skills-query placeholder="搜索技能名称或掉落地点" />
+        <input class="search-input" type="search" data-skills-query placeholder="搜索技能名称" />
       </label>
       <label>
         <span class="sr-only">按掉落地点筛选</span>
@@ -63,7 +63,7 @@ const fallback =
           {items.map((skill) => (
             <tr
               data-skills-row
-              data-search-text={`${skill.name} ${skill.dropLocations.join(' ')}`}
+              data-search-text={skill.name}
               data-drop-locations={skill.dropLocations.join('|')}
               data-drop-by-level={JSON.stringify(skill.dropLocationsByLevel)}
             >
@@ -109,15 +109,19 @@ const fallback =
   const clear = root?.querySelector<HTMLButtonElement>('[data-skills-clear]');
   const rows = () => [...(root?.querySelectorAll<HTMLTableRowElement>('[data-skills-row]') ?? [])];
   const empty = root?.querySelector<HTMLElement>('[data-skills-empty]');
+  const rowDropGroups = (row: HTMLTableRowElement) => {
+    try {
+      return JSON.parse(row.dataset.dropByLevel ?? '[]') as Array<{ levels: number[]; locations: string[] }>;
+    } catch {
+      return [];
+    }
+  };
+  const rowDropsAtLocation = (row: HTMLTableRowElement, location: string) =>
+    rowDropGroups(row).some((group) => group.locations.includes(location));
   const applyLocationHighlights = () => {
     const selectedLocation = locationFilter?.value ?? '';
     rows().forEach((row) => {
-      let groups: Array<{ levels: number[]; locations: string[] }> = [];
-      try {
-        groups = JSON.parse(row.dataset.dropByLevel ?? '[]');
-      } catch {
-        groups = [];
-      }
+      const groups = rowDropGroups(row);
       row.querySelectorAll<HTMLElement>('[data-skill-level]').forEach((cell) => {
         const level = Number(cell.dataset.skillLevel);
         const highlighted = Boolean(selectedLocation) && groups.some((group) =>
@@ -133,21 +137,22 @@ const fallback =
     let visible = 0;
     rows().forEach((row) => {
       const matchesSearch = !query || (row.dataset.searchText ?? '').toLocaleLowerCase('zh-Hans-CN').includes(query);
-      const matchesLocation = !selectedLocation || (row.dataset.dropLocations ?? '').split('|').includes(selectedLocation);
+      const matchesLocation = !selectedLocation || rowDropsAtLocation(row, selectedLocation);
       const match = matchesSearch && matchesLocation;
       row.toggleAttribute('hidden', !match);
       if (match) visible += 1;
     });
     if (empty) empty.hidden = visible > 0;
     if (clear) clear.hidden = !query && !selectedLocation;
+    applyLocationHighlights();
   };
   input?.addEventListener('input', applyFilters);
-  locationFilter?.addEventListener('change', applyLocationHighlights);
+  locationFilter?.addEventListener('change', applyFilters);
   clear?.addEventListener('click', () => {
     if (input) input.value = '';
     if (locationFilter) locationFilter.value = '';
     applyFilters();
     applyLocationHighlights();
   });
-  applyLocationHighlights();
+  applyFilters();
 </script>
