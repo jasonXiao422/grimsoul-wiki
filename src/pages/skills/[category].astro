@@ -63,6 +63,7 @@ const fallback =
           {items.map((skill) => (
             <tr
               data-skills-row
+              data-skill-id={skill.id}
               data-search-text={skill.name}
               data-drop-locations={skill.dropLocations.join('|')}
               data-drop-by-level={JSON.stringify(skill.dropLocationsByLevel)}
@@ -97,6 +98,30 @@ const fallback =
         </tbody>
       </table>
     </div>
+    <section class="skills-search-drops panel" data-skills-search-drops hidden>
+      <h2>掉落位置</h2>
+      <div class="skills-search-drop-list">
+        {items.map((skill) => (
+          <article class="skills-search-drop" data-skills-search-result data-skill-id={skill.id} hidden>
+            <div class="skills-search-drop-heading">
+              <a class="item-cell" href={`/skills/${getSkillCategoryId(skill.category)}/${skill.id}`}>
+                <img
+                  class="item-icon quality-icon skill-icon skill-search-drop-icon"
+                  src={`/images/skills/${skill.id}.webp`}
+                  alt={skill.name}
+                  loading="lazy"
+                  style={`--quality-border:${categoryColor};--quality-glow:${categoryColor}`}
+                  data-fallback={fallback}
+                  onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                />
+                <strong class="skills-search-drop-name" style={`color:${categoryColor}`}>{skill.name}</strong>
+              </a>
+            </div>
+            <p class="skills-search-drop-text">{skill.dropLocationsRaw}</p>
+          </article>
+        ))}
+      </div>
+    </section>
     <p class="muted" data-skills-empty hidden>没有找到符合条件的技能。</p>
     <button class="skills-clear-filters" type="button" data-skills-clear hidden>清除筛选</button>
   </section>
@@ -109,6 +134,8 @@ const fallback =
   const clear = root?.querySelector<HTMLButtonElement>('[data-skills-clear]');
   const rows = () => [...(root?.querySelectorAll<HTMLTableRowElement>('[data-skills-row]') ?? [])];
   const empty = root?.querySelector<HTMLElement>('[data-skills-empty]');
+  const searchDrops = root?.querySelector<HTMLElement>('[data-skills-search-drops]');
+  const searchDropEntries = () => [...(root?.querySelectorAll<HTMLElement>('[data-skills-search-result]') ?? [])];
   const rowDropGroups = (row: HTMLTableRowElement) => {
     try {
       return JSON.parse(row.dataset.dropByLevel ?? '[]') as Array<{ levels: number[]; locations: string[] }>;
@@ -144,6 +171,14 @@ const fallback =
     });
     if (empty) empty.hidden = visible > 0;
     if (clear) clear.hidden = !query && !selectedLocation;
+    let searchResultCount = 0;
+    searchDropEntries().forEach((entry) => {
+      const resultRow = rows().find((row) => row.dataset.skillId === entry.dataset.skillId);
+      const matches = Boolean(query) && Boolean(resultRow) && !resultRow.hidden;
+      entry.hidden = !matches;
+      if (matches) searchResultCount += 1;
+    });
+    if (searchDrops) searchDrops.hidden = !query || searchResultCount === 0;
     applyLocationHighlights();
   };
   input?.addEventListener('input', applyFilters);

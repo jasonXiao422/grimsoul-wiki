@@ -1544,6 +1544,56 @@ p {
   display: none !important;
 }
 
+.skills-search-drops {
+  margin-top: 18px;
+  padding: 16px;
+}
+
+.skills-search-drops h2 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.skills-search-drop-list {
+  display: grid;
+  gap: 0;
+  margin-top: 8px;
+}
+
+.skills-search-drop {
+  min-width: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.skills-search-drop:first-child {
+  border-top: 0;
+}
+
+.skills-search-drop-heading,
+.skills-search-drop-heading .item-cell {
+  min-width: 0;
+}
+
+.skills-search-drop-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+}
+
+.skills-search-drop-name {
+  overflow-wrap: anywhere;
+}
+
+.skills-search-drop-text {
+  margin: 8px 0 0;
+  color: var(--text-dim);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 .skill-level-list,
 .skill-drop-panel {
   margin-top: 22px;
