@@ -26,7 +26,12 @@ const fallback =
       return (
         <a class="cabinet-card" href={`/skills/${categoryId}`}>
           <div
-            class="cabinet-card-image quality-icon"
+            class:list={[
+              'cabinet-card-image',
+              'quality-icon',
+              'skill-category-icon',
+              ['闪避', '资源'].includes(category.category) && 'is-light-category',
+            ]}
             style={`--quality-border:${category.categoryColor};--quality-glow:${category.categoryColor}`}
           >
             <img

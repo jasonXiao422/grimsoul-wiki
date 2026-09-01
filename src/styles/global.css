@@ -1008,6 +1008,23 @@ p {
   box-shadow: 0 0 0 1px #101113, 0 0 14px var(--quality-glow);
 }
 
+.skill-category-icon.quality-icon,
+.skill-icon.quality-icon {
+  --skill-glow-radius: 7px;
+  --skill-glow-opacity: 38%;
+  box-shadow: 0 0 0 1px #101113, 0 0 var(--skill-glow-radius) color-mix(in srgb, var(--quality-glow) var(--skill-glow-opacity), transparent);
+}
+
+.skill-category-icon.is-light-category.quality-icon {
+  --skill-glow-radius: 5px;
+  --skill-glow-opacity: 24%;
+}
+
+.skill-icon.quality-icon {
+  --skill-glow-radius: 5px;
+  --skill-glow-opacity: 24%;
+}
+
 .item-icon.is-missing {
   object-fit: contain;
   padding: 5px;
