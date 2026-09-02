@@ -1506,7 +1506,7 @@ p {
 .fixed-building-summary {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  gap: 14px 32px;
   margin: 22px 0 0;
   padding-top: 14px;
   border-top: 1px solid var(--border);
@@ -1514,19 +1514,22 @@ p {
 
 .fixed-building-summary div {
   display: flex;
-  gap: 7px;
+  flex-wrap: wrap;
+  gap: 4px 10px;
   align-items: baseline;
 }
 
 .fixed-building-summary dt {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: 1.1rem;
 }
 
 .fixed-building-summary dd {
-  margin: 6px 0 0;
+  margin: 0;
   color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
@@ -1589,13 +1592,14 @@ p {
   }
 
   .fixed-building-detail-image-wrap {
-    max-width: 300px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
 
 
   .fixed-building-summary {
-    gap: 8px 16px;
+    gap: 14px 22px;
   }
 }
 

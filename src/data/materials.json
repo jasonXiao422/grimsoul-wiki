@@ -89,7 +89,7 @@
   {
     "id": "mat-sui-tong-pian",
     "name": "碎铜片",
-    "usedIn": 35,
+    "usedIn": 36,
     "quality": "common"
   },
   {
@@ -107,7 +107,7 @@
   {
     "id": "mat-yuan-song-mu",
     "name": "原松木",
-    "usedIn": 20,
+    "usedIn": 21,
     "quality": "common"
   },
   {
@@ -159,6 +159,12 @@
     "quality": "common"
   },
   {
+    "id": "mat-lu-jia",
+    "name": "炉架",
+    "usedIn": 14,
+    "quality": "common"
+  },
+  {
     "id": "mat-shi-kuai",
     "name": "石块",
     "usedIn": 14,
@@ -173,12 +179,6 @@
   {
     "id": "mat-suo-tou",
     "name": "锁头",
-    "usedIn": 13,
-    "quality": "common"
-  },
-  {
-    "id": "mat-lu-jia",
-    "name": "炉架",
     "usedIn": 13,
     "quality": "common"
   },
@@ -341,6 +341,12 @@
     "quality": "common"
   },
   {
+    "id": "mat-tong-kuang-shi",
+    "name": "铜矿石",
+    "usedIn": 2,
+    "quality": "common"
+  },
+  {
     "id": "mat-jia-qian",
     "name": "夹钳",
     "usedIn": 2,
@@ -487,12 +493,6 @@
   {
     "id": "mat-sheng-can-bei",
     "name": "圣餐杯",
-    "usedIn": 1,
-    "quality": "common"
-  },
-  {
-    "id": "mat-tong-kuang-shi",
-    "name": "铜矿石",
     "usedIn": 1,
     "quality": "common"
   },

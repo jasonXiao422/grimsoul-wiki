@@ -41,10 +41,27 @@
         "qty": 5
       }
     ],
-    "assembleCost": [],
+    "assembleCost": [
+      {
+        "material": "mat-lu-jia",
+        "qty": 4
+      },
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 4
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 4
+      },
+      {
+        "material": "mat-tong-kuang-shi",
+        "qty": 4
+      }
+    ],
     "blueprintSource": "默认图纸",
     "tags": [
-      "无需组装"
+      "需组装"
     ]
   },
   {
