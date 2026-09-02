@@ -23,7 +23,7 @@ const categoryCards = CATEGORIES.map((category) => ({
 }));
 
 // 最近更新区块只维护类别 slug；卡片内容与资料入口统一从现有类别配置和数据生成。
-const RECENT_UPDATES = ['skills'] as const;
+const RECENT_UPDATES = ['fixed-buildings'] as const;
 const recentUpdateCards = RECENT_UPDATES.flatMap((slug) => {
   const card = categoryCards.find((entry) => entry.slug === slug);
   return card ? [card] : [];
