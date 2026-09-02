@@ -1189,13 +1189,13 @@
     ]
   },
   {
-    "id": "yi-zhou-nian-ji-nian-bao-xiang",
-    "name": "一周年纪念宝箱",
+    "id": "hong-bao-xiang",
+    "name": "红宝箱",
     "quality": "rare",
     "castlePoints": 200,
     "capacity": 20,
     "maxCount": 999,
-    "purpose": "庆祝游戏1周年的纪念宝箱",
+    "purpose": "宝箱的价格无法与内容物的价值相提并论，仅第一二季红猎出现过",
     "buildCost": [],
     "assembleCost": [],
     "blueprintSource": "无",
@@ -1218,7 +1218,7 @@
     "blueprintSource": "无",
     "tags": [
       "商店购买",
-      "周年庆",
+      "红猎",
       "箱子"
     ]
   },
