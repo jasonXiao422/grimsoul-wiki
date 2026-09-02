@@ -34,9 +34,9 @@ const fallback =
       <h1 style={`color:${quality.text}`}>{building.name}</h1>
       <div class="tag-list fixed-building-detail-tags">{building.tags.map((tag) => <span class="tag">{tag}</span>)}</div>
       <dl class="fixed-building-summary">
-        {hasValue(building.castlePoints) && <div><dt class="eyebrow">城堡点数</dt><dd>{building.castlePoints}</dd></div>}
-        {hasValue(building.capacity) && <div><dt class="eyebrow">储存空间</dt><dd>{building.capacity}</dd></div>}
-        {hasValue(building.maxCount) && <div><dt class="eyebrow">最多建造数量</dt><dd>{building.maxCount}</dd></div>}
+        {hasValue(building.castlePoints) && <div class="tag fixed-building-summary-item"><dt class="eyebrow">城堡点数</dt><dd>{building.castlePoints}</dd></div>}
+        {hasValue(building.capacity) && <div class="tag fixed-building-summary-item"><dt class="eyebrow">储存空间</dt><dd>{building.capacity}</dd></div>}
+        {hasValue(building.maxCount) && <div class="tag fixed-building-summary-item"><dt class="eyebrow">最多建造数量</dt><dd>{building.maxCount}</dd></div>}
       </dl>
     </div>
   </section>
