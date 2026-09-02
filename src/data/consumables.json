@@ -1049,7 +1049,7 @@
     "satiety": "10",
     "thirst": "-5",
     "craftedAt": null,
-    "effect": "攻击速度提高15%，持续15秒，20次中毒呕吐",
+    "effect": "20次中毒呕吐",
     "recipes": null
   },
   {
