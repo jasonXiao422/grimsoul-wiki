@@ -19,6 +19,7 @@ import knightOrders from '../data/knight-orders.json';
 import armorPieces from '../data/armor-pieces.json';
 import cabinets from '../data/cabinets.json';
 import surfaceChests from '../data/surface-chests.json';
+import fixedBuildings from '../data/fixed-buildings.json';
 import skills from '../data/skills.json';
 
 export const ALL_CATEGORIES = CATEGORIES;
@@ -41,6 +42,7 @@ export const DATA_BY_CATEGORY = {
   materials,
   cabinets,
   'surface-chests': surfaceChests,
+  'fixed-buildings': fixedBuildings,
   skills,
   orders: knightOrders,
 } as const;
@@ -65,6 +67,7 @@ const ENTITY_PATH_BY_CAT: Record<string, string> = {
   amulets: 'amulets',
   cabinets: 'cabinets',
   'surface-chests': 'surface-chests',
+  'fixed-buildings': 'fixed-buildings',
 };
 
 const ENTITY_LABEL_BY_CAT: Record<string, string> = {
@@ -76,6 +79,7 @@ const ENTITY_LABEL_BY_CAT: Record<string, string> = {
   amulets: '护符',
   cabinets: '柜子',
   'surface-chests': '地表箱子',
+  'fixed-buildings': '不可升级建筑',
 };
 
 export function getEntityHref(entity: MaterialEntity | undefined): string | undefined {
@@ -261,6 +265,17 @@ export function getRecipeUsages(materialId: string) {
         });
       }
     }
+  }
+
+  for (const item of DATA_BY_CATEGORY['fixed-buildings'] as readonly any[]) {
+    pushCostUsages(usages, item.buildCost, materialId, {
+      category: 'fixed-buildings', name: item.name,
+      href: getItemHref('fixed-buildings', item.id), source: '建造材料',
+    });
+    pushCostUsages(usages, item.assembleCost, materialId, {
+      category: 'fixed-buildings', name: item.name,
+      href: getItemHref('fixed-buildings', item.id), source: '组装材料',
+    });
   }
 
   for (const item of armorPieces) {

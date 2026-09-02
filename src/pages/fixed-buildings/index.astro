@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import fixedBuildings from '../../data/fixed-buildings.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+const tags = [...new Set(fixedBuildings.flatMap((building) => building.tags))];
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>');
+const getQualityMeta = (quality: unknown) =>
+  typeof quality === 'string' && quality in QUALITY_META
+    ? QUALITY_META[quality as Quality]
+    : QUALITY_META.common;
+---
+
+<BaseLayout title="不可升级建筑" description={`收录 ${fixedBuildings.length} 个不可升级建筑的用途、材料与图纸来源`}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '不可升级建筑' }]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">建筑资料</p>
+    <h1>不可升级建筑</h1>
+    <p class="muted">收录不可升级建筑的用途、建造材料与图纸来源。</p>
+  </section>
+
+  <div class="fixed-buildings-filter" data-fixed-buildings-filter>
+    <label class="fixed-buildings-search">
+      <span class="sr-only">搜索建筑名称</span>
+      <input type="search" placeholder="搜索建筑名称" aria-label="搜索建筑名称" data-building-search />
+    </label>
+    <label class="fixed-buildings-tag-filter">
+      <span class="sr-only">按标签筛选</span>
+      <select aria-label="按标签筛选" data-building-tag>
+        <option value="">全部标签</option>
+        {tags.map((tag) => <option value={tag}>{tag}</option>)}
+      </select>
+    </label>
+  </div>
+
+  <div class="fixed-buildings-grid">
+    {fixedBuildings.map((building) => {
+      const quality = getQualityMeta(building.quality);
+      const qualityStyle = `--quality-border:${quality.border};--quality-glow:${quality.glow}`;
+      return (
+        <a class="fixed-building-card" href={`/fixed-buildings/${building.id}`} data-tags={building.tags.join('|')}>
+          <div class="fixed-building-card-image">
+            <img class="fixed-building-card-icon quality-icon" src={getItemIconSrc('fixed-buildings', building)} alt={building.name} loading="lazy" style={qualityStyle} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" />
+          </div>
+          <strong class="fixed-building-card-name" style={`color:${quality.text}`}>{building.name}</strong>
+          {building.capacity !== null && building.capacity !== undefined && <span class="tag fixed-building-card-capacity"><span>储存空间：</span><strong>{building.capacity}</strong></span>}
+        </a>
+      );
+    })}
+  </div>
+  <div class="fixed-buildings-empty" data-building-empty hidden>
+    <p>没有找到匹配的建筑。</p>
+    <button type="button" class="fixed-buildings-empty-action" data-clear-building-search>清除搜索</button>
+  </div>
+
+  <script>
+    const cards = [...document.querySelectorAll('.fixed-building-card')];
+    const search = document.querySelector('[data-building-search]');
+    const tagSelect = document.querySelector('[data-building-tag]');
+    const empty = document.querySelector('[data-building-empty]');
+    const applyFilters = () => {
+      const query = (search?.value ?? '').trim().toLocaleLowerCase();
+      const activeTag = tagSelect?.value ?? '';
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const cardTags = (card.dataset.tags ?? '').split('|');
+        const name = card.querySelector('.fixed-building-card-name')?.textContent?.toLocaleLowerCase() ?? '';
+        const visible = (!activeTag || cardTags.includes(activeTag)) && (!query || name.includes(query));
+        card.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+      empty?.toggleAttribute('hidden', visibleCount > 0);
+    };
+    tagSelect?.addEventListener('change', applyFilters);
+    search?.addEventListener('input', applyFilters);
+    document.querySelector('[data-clear-building-search]')?.addEventListener('click', () => {
+      if (search) search.value = '';
+      search?.focus();
+      applyFilters();
+    });
+  </script>
+</BaseLayout>

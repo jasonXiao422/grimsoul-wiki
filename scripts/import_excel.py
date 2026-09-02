@@ -43,6 +43,7 @@ FILES = {
     "materials": ("材料数据.xlsx", "材料介绍"),
     "cabinets": ("柜子数据.xlsx", "Sheet1"),
     "surface-chests": ("地表箱子数据.xlsx", "Sheet1"),
+    "fixed-buildings": ("不可升级建筑数据.xlsx", "Sheet1"),
     "skills": ("技能数据.xlsx", "技能"),
 }
 
@@ -158,6 +159,8 @@ def parse_cost(raw):
     """
     s = text(raw)
     if not s:
+        return []
+    if s in ("无", "待补充"):
         return []
     s = s.replace("\n", " ").replace("：", ":").replace("；", ";")
     items = []
@@ -613,6 +616,37 @@ def build_surface_chests():
             "location": text(raw_location),
             "levels": levels,
         })
+    return out
+
+
+def build_fixed_buildings():
+    """不可升级建筑表：每行一个建筑，A 列名称底色表示品质。"""
+    out = []
+    for cells in cells_of("fixed-buildings")[1:]:
+        row = [cell.value for cell in cells]
+        name = text(row[0] if len(row) > 0 else None)
+        if not name:
+            continue
+        raw_build_cost = text(row[5] if len(row) > 5 else None)
+        raw_assemble_cost = text(row[6] if len(row) > 6 else None)
+        item = {
+            "id": make_id(name),
+            "name": name,
+            "quality": quality_from_fill(cells[0]),
+            "castlePoints": clean(row[1] if len(row) > 1 else None),
+            "capacity": clean(row[2] if len(row) > 2 else None),
+            "maxCount": clean(row[3] if len(row) > 3 else None),
+            "purpose": text(row[4] if len(row) > 4 else None),
+            "buildCost": [] if raw_build_cost in (None, "无") else parse_cost(raw_build_cost),
+            "assembleCost": [] if raw_assemble_cost in (None, "无") else parse_cost(raw_assemble_cost),
+            "blueprintSource": text(row[7] if len(row) > 7 else None),
+            "tags": [tag.strip() for tag in (text(row[8]) or "").split("；") if tag.strip()],
+        }
+        if raw_build_cost == "待补充":
+            item["buildCostPending"] = True
+        if raw_assemble_cost == "待补充":
+            item["assembleCostPending"] = True
+        out.append(item)
     return out
 
 
@@ -1536,6 +1570,9 @@ def build_materials(*datasets, skip_names=()):
             for level in item.get("levels", []) or []:
                 for c in level.get("cost", []) or []:
                     counts[c["material"]] = counts.get(c["material"], 0) + 1
+            for cost_key in ("buildCost", "assembleCost"):
+                for c in item.get(cost_key, []) or []:
+                    counts[c["material"]] = counts.get(c["material"], 0) + 1
             # 食物药剂的配方结构不同：recipes[].items[]，字段是 name 不是 material
             for r in item.get("recipes", []) or []:
                 for ing in r.get("items", []) or []:
@@ -1610,6 +1647,8 @@ def link_materials(materials, *datasets):
     for data in datasets:
         for item in data:
             fix(item.get("cost"))
+            fix(item.get("buildCost"))
+            fix(item.get("assembleCost"))
             for p in item.get("pieces", []) or []:
                 fix(p.get("cost"))
             for level in item.get("levels", []) or []:
@@ -1640,10 +1679,11 @@ def main():
     boxes = build_boxes(weapons, sharpen)
     cabinets = build_cabinets()
     surface_chests = build_surface_chests()
+    fixed_buildings = build_fixed_buildings()
     skills = build_skills()
 
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
-                                backpacks, amulets, cabinets, surface_chests, consumables,
+                                backpacks, amulets, cabinets, surface_chests, fixed_buildings, consumables,
                                 skip_names={c["name"] for c in consumables})
     attach_material_descriptions(materials)
 
@@ -1652,6 +1692,7 @@ def main():
     for cat, data in [("weapons", weapons), ("armor", armor_sets),
                       ("armor-pieces", armor_pieces), ("shields", shields),
                       ("backpacks", backpacks), ("surface-chests", surface_chests),
+                      ("fixed-buildings", fixed_buildings),
                       ("consumables", consumables)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
@@ -1659,7 +1700,7 @@ def main():
                 catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
     link_material_entities(materials, catalog)
 
-    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets, surface_chests)
+    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets, surface_chests, fixed_buildings)
 
     # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
     link_recipe_entities(consumables, materials, catalog)
@@ -1680,6 +1721,7 @@ def main():
     write("boxes", boxes)
     write("cabinets", cabinets)
     write("surface-chests", surface_chests)
+    write("fixed-buildings", fixed_buildings)
     write("skills", skills)
     write("materials", materials)
 

@@ -1,0 +1,1641 @@
+[
+  {
+    "id": "nong-jia-bao-xiang",
+    "name": "农家宝箱",
+    "quality": "common",
+    "castlePoints": 5,
+    "capacity": 10,
+    "maxCount": 20,
+    "purpose": "储存个人细软的一般宝箱",
+    "buildCost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 4
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 4
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "箱子"
+    ]
+  },
+  {
+    "id": "du-ya-long",
+    "name": "渡鸦笼",
+    "quality": "common",
+    "castlePoints": 200,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "渡鸦会传递来自盟军的任务和奖励，并及时发现游商",
+    "buildCost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 6
+      },
+      {
+        "material": "mat-tong-kuang-shi",
+        "qty": 5
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "shui-jing",
+    "name": "水井",
+    "quality": "common",
+    "castlePoints": 150,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "不尽的取水源泉",
+    "buildCost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 3
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 10
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 2
+      },
+      {
+        "material": "mat-kong-shui-tong",
+        "qty": 1
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "huo",
+    "name": "火",
+    "quality": "common",
+    "castlePoints": 10,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "火，照亮夜晚，帮助煮食",
+    "buildCost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 3
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 3
+      },
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 1
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "gou-huo",
+    "name": "篝火",
+    "quality": "common",
+    "castlePoints": 50,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "您可以用锅烹制美味汤品或芳香的浆果饮料",
+    "buildCost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 5
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 5
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 1
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 1
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "ma-jiu",
+    "name": "马厩",
+    "quality": "common",
+    "castlePoints": 1500,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "要抓马必须先制作并组装马厩",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 12
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 6
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-pi-tiao",
+        "qty": 40
+      },
+      {
+        "material": "mat-lian-tiao",
+        "qty": 20
+      },
+      {
+        "material": "mat-long-tou",
+        "qty": 1
+      },
+      {
+        "material": "mat-ma-an",
+        "qty": 1
+      },
+      {
+        "material": "mat-si-liao-cao",
+        "qty": 1
+      },
+      {
+        "material": "mat-po-ma-dai",
+        "qty": 5
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 40
+      },
+      {
+        "material": "mat-la-zhu",
+        "qty": 10
+      }
+    ],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "zhan-shi-bao-xiang",
+    "name": "战士宝箱",
+    "quality": "common",
+    "castlePoints": 20,
+    "capacity": 15,
+    "maxCount": 100,
+    "purpose": "比农家宝箱储存更大",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 8
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 5
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "箱子"
+    ]
+  },
+  {
+    "id": "rou-lei-hong-gan-ji",
+    "name": "肉类烘干机",
+    "quality": "common",
+    "castlePoints": 100,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "晒制牛肉干",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 10
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 8
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 8
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 8
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "shai-jia",
+    "name": "晒架",
+    "quality": "common",
+    "castlePoints": 100,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "用于制作绳子和皮革",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 14
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 10
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 10
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "xi-zi",
+    "name": "席子",
+    "quality": "common",
+    "castlePoints": 100,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "从外面返回您的城堡后会出现在此处，而不是随机刷在地图中",
+    "buildCost": [
+      {
+        "material": "mat-ya-ma-xian-wei",
+        "qty": 14
+      },
+      {
+        "material": "mat-dong-wu-mao-pi",
+        "qty": 7
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 8
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "mu-qian",
+    "name": "木签",
+    "quality": "common",
+    "castlePoints": 0,
+    "capacity": null,
+    "maxCount": 80,
+    "purpose": "建造在城堡周围防止外敌，当然自己碰到也会掉血，是全场最没用的建筑，城堡最多刷新3个麻风病人，把他们关起来就不会再有新的敌人了",
+    "buildCost": [
+      {
+        "material": "mat-yuan-song-mu",
+        "qty": 8
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 8
+      },
+      {
+        "material": "mat-sui-tong-pian",
+        "qty": 4
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "gong-zuo-tai",
+    "name": "工作台",
+    "quality": "common",
+    "castlePoints": 200,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "制作：青铜钉/铁板/皮革/皮条/优质弓弦",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 20
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 12
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 10
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "mo-shi",
+    "name": "磨石",
+    "quality": "common",
+    "castlePoints": 1000,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "用于磨尖武器",
+    "buildCost": [
+      {
+        "material": "mat-qing-tong-ingot",
+        "qty": 30
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 40
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 35
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-shou-bing",
+        "qty": 2
+      },
+      {
+        "material": "mat-sha-lun",
+        "qty": 2
+      },
+      {
+        "material": "mat-jia-qian",
+        "qty": 2
+      },
+      {
+        "material": "mat-ji-xie-zhuang-zhi",
+        "qty": 20
+      },
+      {
+        "material": "mat-xian",
+        "qty": 100
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 200
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 80
+      }
+    ],
+    "blueprintSource": "被弃者地下城（一二层）",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "zhu-tai",
+    "name": "烛台",
+    "quality": "common",
+    "castlePoints": 50,
+    "capacity": null,
+    "maxCount": 10,
+    "purpose": "可以稍微照亮您的住处",
+    "buildCost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-xian",
+        "qty": 7
+      },
+      {
+        "material": "mat-la-zhu",
+        "qty": 4
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "di-xia-shi",
+    "name": "地下室",
+    "quality": "common",
+    "castlePoints": 200,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "开启城堡的地下一层，改变此建筑在地表的位置并不会改变地下室入口的位置，地下室入口始终在中间",
+    "buildCost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 20
+      },
+      {
+        "material": "mat-ji-xie-zhuang-zhi",
+        "qty": 5
+      },
+      {
+        "material": "mat-xian",
+        "qty": 11
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 20
+      },
+      {
+        "material": "mat-qiao",
+        "qty": 1
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "cao-yao-zhuo",
+    "name": "草药桌",
+    "quality": "common",
+    "castlePoints": 200,
+    "capacity": null,
+    "maxCount": 3,
+    "purpose": "制作：烈酒/蘑菇浸剂/坚持药膏",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 18
+      },
+      {
+        "material": "mat-tong-ding",
+        "qty": 12
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 8
+      },
+      {
+        "material": "mat-xian",
+        "qty": 8
+      },
+      {
+        "material": "mat-kong-shui-ping",
+        "qty": 4
+      },
+      {
+        "material": "mat-la-zhu",
+        "qty": 8
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "shang-ren-bao-xiang",
+    "name": "商人宝箱",
+    "quality": "rare",
+    "castlePoints": 50,
+    "capacity": 20,
+    "maxCount": 100,
+    "purpose": "可以装很多东西的结实宝箱",
+    "buildCost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 16
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 9
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 12
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "箱子"
+    ]
+  },
+  {
+    "id": "ku-xing-yi",
+    "name": "酷刑椅",
+    "quality": "common",
+    "castlePoints": 1000,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "需要对野图中的被弃隐士使用一级控制卷轴，然后立即返回家中，被弃隐士就会坐在椅子上了，首次审问他即可开启被弃地下二层，而之后的每一次审问即可开启地牢导航功能，人物将会在地牢中的小地图上看到指向最终房间方向的绿色箭头，每审问一次，被弃隐士可以在椅子上停留三天时间",
+    "buildCost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 5
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 15
+      },
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 30
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-jia-qian",
+        "qty": 4
+      },
+      {
+        "material": "mat-qian-zi",
+        "qty": 2
+      },
+      {
+        "material": "mat-jian-ci-shou-zhuo",
+        "qty": 4
+      },
+      {
+        "material": "mat-ji-xie-zhuang-zhi",
+        "qty": 20
+      },
+      {
+        "material": "mat-suo-tou",
+        "qty": 20
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 200
+      },
+      {
+        "material": "mat-lian-tiao",
+        "qty": 200
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 300
+      }
+    ],
+    "blueprintSource": "被弃者地下城（一层）",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "ku-xing-jia",
+    "name": "酷刑架",
+    "quality": "common",
+    "castlePoints": 1500,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "需要对4级5级图/叛徒地下墓穴地表/神祠地表中的酷吏侦察员使用三级控制卷轴，然后立即返回家中，侦查员就会出现在酷刑架上了，首次审问他即可开启酷吏地下二层，而之后的每一次审问即可开启地牢导航功能，人物将会在地牢的小地图上看到指向最终房间方向的绿色箭头，每审问一次，侦查员可以在架子上停留三天时间",
+    "buildCost": [
+      {
+        "material": "mat-song-mu-ban",
+        "qty": 60
+      },
+      {
+        "material": "mat-qing-tong-ingot",
+        "qty": 45
+      },
+      {
+        "material": "mat-xian",
+        "qty": 35
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-po-fu-long-tou",
+        "qty": 1
+      },
+      {
+        "material": "mat-tie-mo-ju",
+        "qty": 2
+      },
+      {
+        "material": "mat-sui-xi-qi",
+        "qty": 8
+      },
+      {
+        "material": "mat-yi-duan-zhe-cha-zi",
+        "qty": 3
+      },
+      {
+        "material": "mat-gong-ju-bao",
+        "qty": 1
+      },
+      {
+        "material": "mat-ji-xie-zhuang-zhi",
+        "qty": 80
+      },
+      {
+        "material": "mat-tie-sui-pian",
+        "qty": 160
+      },
+      {
+        "material": "mat-pi-tiao",
+        "qty": 350
+      }
+    ],
+    "blueprintSource": "酷吏地下城（一层）",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "lian-jin-zhuo",
+    "name": "炼金桌",
+    "quality": "common",
+    "castlePoints": 2000,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "制作：炼金之金/投掷药水",
+    "buildCost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 50
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 40
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 15
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-xian-zhe-zhi-shi",
+        "qty": 1
+      },
+      {
+        "material": "mat-yan-bo-he-yan-chu",
+        "qty": 2
+      },
+      {
+        "material": "mat-cheng",
+        "qty": 2
+      },
+      {
+        "material": "mat-qu-jing-ping",
+        "qty": 4
+      },
+      {
+        "material": "mat-sha-lou",
+        "qty": 20
+      },
+      {
+        "material": "mat-xiao-kong-ping",
+        "qty": 50
+      },
+      {
+        "material": "mat-xian",
+        "qty": 200
+      },
+      {
+        "material": "mat-la-zhu",
+        "qty": 300
+      }
+    ],
+    "blueprintSource": "被弃者地下城（二层）",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "jiao-huo-chang-mao",
+    "name": "缴获长矛",
+    "quality": "common",
+    "castlePoints": 100,
+    "capacity": null,
+    "maxCount": 8,
+    "purpose": "把不共戴天的仇敌的头挂在长毛上，目前包括：哈利德/哈特/罗格沃尔/继母艾莎/艾森博格/卡恩/弗拉格纳",
+    "buildCost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 10
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 4
+      },
+      {
+        "material": "mat-hou-bu",
+        "qty": 5
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 8
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "继母艾莎",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "zheng-fu-zhe-wang-zuo",
+    "name": "征服者王座",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 10,
+    "maxCount": 100,
+    "purpose": "用您胜利的证明来装饰它，用于存放并展示武器",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买"
+    ]
+  },
+  {
+    "id": "wu-qi-jia",
+    "name": "武器架",
+    "quality": "common",
+    "castlePoints": 200,
+    "capacity": 10,
+    "maxCount": 3,
+    "purpose": "令每一个武器爱好者感到特别自豪，用于存放并展示武器",
+    "buildCost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 50
+      },
+      {
+        "material": "mat-qing-tong-nail",
+        "qty": 20
+      },
+      {
+        "material": "mat-gu-jian",
+        "qty": 10
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "被弃者地下城（二三层）",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "hao-hua-hu-jia-jia",
+    "name": "豪华护甲架",
+    "quality": "unique",
+    "castlePoints": 300,
+    "capacity": 8,
+    "maxCount": 999,
+    "purpose": "不仅可以展示您最好的护甲，还可以展示您最喜欢的武器",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买"
+    ]
+  },
+  {
+    "id": "hu-jia-jia",
+    "name": "护甲架",
+    "quality": "common",
+    "castlePoints": 300,
+    "capacity": 6,
+    "maxCount": 2,
+    "purpose": "为宣扬最佳装备提供最好的机会，用于存放并展示护甲和盾牌",
+    "buildCost": [
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 60
+      },
+      {
+        "material": "mat-gu-jian",
+        "qty": 12
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-qing-tong-ingot",
+        "qty": 15
+      },
+      {
+        "material": "mat-shi-hui-yan",
+        "qty": 30
+      }
+    ],
+    "assembleCost": [],
+    "blueprintSource": "继母艾莎",
+    "tags": [
+      "无需组装"
+    ]
+  },
+  {
+    "id": "gao-lu",
+    "name": "高炉",
+    "quality": "common",
+    "castlePoints": 2000,
+    "capacity": null,
+    "maxCount": 2,
+    "purpose": "制作：钢锭/魔法银锭",
+    "buildCost": [
+      {
+        "material": "mat-tie-sui-pian",
+        "qty": 50
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 60
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 100
+      },
+      {
+        "material": "mat-hua-mu-ban",
+        "qty": 60
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-jiao-zhu-tong-dao",
+        "qty": 2
+      },
+      {
+        "material": "mat-rong-lian-guo",
+        "qty": 1
+      },
+      {
+        "material": "mat-fang-re-gang-qian",
+        "qty": 6
+      },
+      {
+        "material": "mat-mu-ju",
+        "qty": 8
+      },
+      {
+        "material": "mat-feng-xiang",
+        "qty": 4
+      },
+      {
+        "material": "mat-tie-ding",
+        "qty": 140
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 300
+      },
+      {
+        "material": "mat-tie-sui-pian",
+        "qty": 350
+      }
+    ],
+    "blueprintSource": "酷吏地下城（二三层）",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "ji-si-quan",
+    "name": "祭祀圈",
+    "quality": "common",
+    "castlePoints": 2000,
+    "capacity": null,
+    "maxCount": 1,
+    "purpose": "允许制作，修改，和升级护符",
+    "buildCost": [
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 20
+      },
+      {
+        "material": "mat-shi-kuai",
+        "qty": 20
+      },
+      {
+        "material": "mat-sheng-zi",
+        "qty": 20
+      },
+      {
+        "material": "mat-xian",
+        "qty": 20
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-lian-jin-zhi-jin",
+        "qty": 2
+      },
+      {
+        "material": "mat-xiu-bo-er-de-hui-jin",
+        "qty": 40
+      },
+      {
+        "material": "mat-ye-shou-de-xin",
+        "qty": 40
+      },
+      {
+        "material": "mat-tou-gu",
+        "qty": 40
+      },
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 200
+      },
+      {
+        "material": "mat-xiang",
+        "qty": 200
+      },
+      {
+        "material": "mat-mo-fa-yin-ding",
+        "qty": 300
+      },
+      {
+        "material": "mat-la-zhu",
+        "qty": 400
+      }
+    ],
+    "blueprintSource": "默认图纸",
+    "tags": [
+      "需组装"
+    ]
+  },
+  {
+    "id": "bing-feng-bao-zuo",
+    "name": "冰封宝座",
+    "quality": "unique",
+    "castlePoints": 600,
+    "capacity": null,
+    "maxCount": 50,
+    "purpose": "工艺精巧，但只有冷血的统治者才能坐在宝座上",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "圣诞活动"
+    ]
+  },
+  {
+    "id": "sheng-dan-shu",
+    "name": "圣诞树",
+    "quality": "common",
+    "castlePoints": 100,
+    "capacity": null,
+    "maxCount": 5,
+    "purpose": "主要冬季节日的标志，让家里充满舒适的气氛，和一种神奇的感觉，但是过了圣诞节树上的装饰就会消失",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "圣诞节期间默认图纸",
+    "tags": [
+      "圣诞活动"
+    ],
+    "buildCostPending": true
+  },
+  {
+    "id": "dao-cao-ren",
+    "name": "稻草人",
+    "quality": "common",
+    "castlePoints": 50,
+    "capacity": null,
+    "maxCount": 3,
+    "purpose": "与原先目的相反，很受乌鸦的欢迎，南瓜头里会有烛光闪烁",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "万圣节期间默认图纸",
+    "tags": [
+      "万圣活动"
+    ],
+    "buildCostPending": true
+  },
+  {
+    "id": "diao-ke-de-can-zhuo",
+    "name": "雕刻的餐桌",
+    "quality": "common",
+    "castlePoints": 500,
+    "capacity": null,
+    "maxCount": 50,
+    "purpose": "允许您在任何饮食效率上再加10%",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买"
+    ]
+  },
+  {
+    "id": "bi-lu",
+    "name": "壁炉",
+    "quality": "common",
+    "castlePoints": 500,
+    "capacity": null,
+    "maxCount": 30,
+    "purpose": "城堡里暖和与舒适感的最重要来源",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买"
+    ]
+  },
+  {
+    "id": "ge-te-shi-chuang",
+    "name": "哥特式床",
+    "quality": "common",
+    "castlePoints": 500,
+    "capacity": null,
+    "maxCount": 50,
+    "purpose": "很少见的手工内部装饰物品，一套包括了所有床上用品",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买"
+    ]
+  },
+  {
+    "id": "you-ya-bao-xiang",
+    "name": "优雅宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "既漂亮又大的宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "qing-tong-bao-xiang",
+    "name": "青铜宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "配得上骑士团团长的宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "bai-yin-bao-xiang",
+    "name": "白银宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "白银可靠的保护着宝箱里的东西不受从前主人幽灵的影响",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "guan-cai-bao-xiang-hong",
+    "name": "棺材宝箱（红）",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "很时尚的万圣节储存室，适合放20个战利品",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "万圣活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "guan-cai-bao-xiang-lan",
+    "name": "棺材宝箱（蓝）",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "很时尚的万圣节储存室，适合放20个战利品",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "万圣活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "yi-zhou-nian-ji-nian-bao-xiang",
+    "name": "一周年纪念宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "庆祝游戏1周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "er-zhou-nian-ji-nian-bao-xiang",
+    "name": "二周年纪念宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 20,
+    "maxCount": 999,
+    "purpose": "庆祝游戏2周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "huo-bao-xiang",
+    "name": "活宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "如果你不介意弄脏手，任何东西都可以排上用场，有开启音效和动画",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "弗拉格纳",
+      "箱子"
+    ]
+  },
+  {
+    "id": "jing-zhi-bao-xiang",
+    "name": "精致宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "可以装饰宴会厅的宽敞宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "gu-tou-bao-xiang",
+    "name": "骨头宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "为那些不惧直面死亡的人准备的宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "si-ren-bao-xiang",
+    "name": "死人宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "这个宝箱会讲出让你毛骨悚然的故事",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "bing-bao-xiang",
+    "name": "冰宝箱",
+    "quality": "rare",
+    "castlePoints": 300,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "具有秘密力量，放置冰晶融化或破裂，这个宝箱的制作方法是个谜",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "圣诞活动",
+      "中福袋",
+      "箱子"
+    ]
+  },
+  {
+    "id": "hua-li-de-guan-cai-bao-xiang",
+    "name": "华丽的棺材宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "很时尚的万圣节储存室，适合放25个战利品",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "万圣活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "san-zhou-nian-ji-nian-bao-xiang",
+    "name": "三周年纪念宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "庆祝游戏3周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "si-zhou-nian-ji-nian-bao-xiang",
+    "name": "四周年纪念宝箱",
+    "quality": "rare",
+    "castlePoints": 200,
+    "capacity": 25,
+    "maxCount": 999,
+    "purpose": "庆祝游戏4周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "bu-an-de-bao-xiang",
+    "name": "不安的宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "你的宝藏在安全的手中！",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "wu-ming-bao-xiang",
+    "name": "无名宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "一个古老的宝箱，用来存放禁忌的神器，但如果你愿意，也可以用来放蔬菜",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "野蛮人营地",
+      "箱子"
+    ]
+  },
+  {
+    "id": "he-la-te-bao-xiang",
+    "name": "赫拉特宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "你的财宝受到赫拉特之火的可靠保护",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "wen-yi-bao-xiang",
+    "name": "瘟疫宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "瘟疫之神的忠实追随者拥有的战利品存储室",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "箱子"
+    ]
+  },
+  {
+    "id": "gu-mu-bao-xiang",
+    "name": "古墓宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "宝箱上的图案诉说着被遗忘的灾难",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "红猎",
+      "箱子"
+    ]
+  },
+  {
+    "id": "gu-lao-shi-tou-bao-xiang",
+    "name": "古老石头宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "这个宝箱似乎比帝国本身还要古老",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "荒废墓穴",
+      "红猎",
+      "箱子"
+    ]
+  },
+  {
+    "id": "gui-zu-bao-xiang",
+    "name": "贵族宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "能保护你的奢华长袍，和优雅装饰万无一失",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "红猎",
+      "箱子"
+    ]
+  },
+  {
+    "id": "lie-ren-bao-xiang",
+    "name": "猎人宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "鹿不会来为他们的亲戚报仇吧……对吗？",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "红猎",
+      "圣诞活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "yi-jie-bao-xiang",
+    "name": "异界宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "很时尚的万圣节储存室，适合放30个战利品",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "万圣活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "wu-zhou-nian-ji-nian-bao-xiang",
+    "name": "五周年纪念宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "庆祝游戏5周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "liu-zhou-nian-ji-nian-bao-xiang",
+    "name": "六周年纪念宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 30,
+    "maxCount": 999,
+    "purpose": "庆祝游戏6周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "xian-ji-bao-xiang",
+    "name": "献祭宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 35,
+    "maxCount": 999,
+    "purpose": "吓人的外表是避免被抢劫的最佳防护",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "红猎",
+      "箱子"
+    ]
+  },
+  {
+    "id": "fei-cui-bao-xiang",
+    "name": "翡翠宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 35,
+    "maxCount": 999,
+    "purpose": "东方富豪拥有的豪华宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "红猎",
+      "箱子"
+    ]
+  },
+  {
+    "id": "jie-ri-bao-xiang",
+    "name": "节日宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 35,
+    "maxCount": 999,
+    "purpose": "即使在最艰难的时刻，也能保存一点派对的欢乐",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "圣诞活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "hua-cai-de-guan-cai-bao-xiang",
+    "name": "华彩的棺材宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 35,
+    "maxCount": 999,
+    "purpose": "很时尚的万圣节储存室，适合放35个战利品",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "万圣活动",
+      "箱子"
+    ]
+  },
+  {
+    "id": "qi-zhou-nian-ji-nian-bao-xiang",
+    "name": "七周年纪念宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 35,
+    "maxCount": 999,
+    "purpose": "庆祝游戏7周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "ba-zhou-nian-ji-nian-bao-xiang",
+    "name": "八周年纪念宝箱",
+    "quality": "unique",
+    "castlePoints": 200,
+    "capacity": 35,
+    "maxCount": 999,
+    "purpose": "庆祝游戏8周年的纪念宝箱",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "周年庆",
+      "箱子"
+    ]
+  },
+  {
+    "id": "hei-gang-bao-xiang",
+    "name": "黑钢宝箱",
+    "quality": "legendary",
+    "castlePoints": 200,
+    "capacity": 50,
+    "maxCount": 999,
+    "purpose": "由黑钢制成的储存室，容量增加，有开启动画",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "商店购买",
+      "黑色星期五",
+      "箱子"
+    ]
+  }
+]

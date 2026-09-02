@@ -7,7 +7,7 @@ import { ARMOR_PIECES_TABLE, CATEGORIES } from '../../lib/categories';
 import { EXTRA_DATA, getCategoryBlurb, getListItems, type CategorySlug } from '../../lib/data';
 
 export function getStaticPaths() {
-  return CATEGORIES.filter((category) => !['orders', 'cabinets', 'surface-chests', 'skills'].includes(category.slug)).map((category) => ({
+  return CATEGORIES.filter((category) => !['orders', 'cabinets', 'surface-chests', 'fixed-buildings', 'skills'].includes(category.slug)).map((category) => ({
     params: { category: category.slug },
     props: {
       category,

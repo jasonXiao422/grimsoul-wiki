@@ -1349,6 +1349,256 @@ p {
   gap: 12px;
 }
 
+.fixed-buildings-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.fixed-buildings-search {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.fixed-buildings-search input {
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--bg-panel);
+}
+
+.fixed-buildings-tag-filter {
+  flex: 0 1 240px;
+  min-width: 180px;
+}
+
+.fixed-buildings-tag-filter select {
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 34px 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  background: var(--bg-panel);
+}
+
+.fixed-buildings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.fixed-building-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-panel);
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.fixed-building-card:hover,
+.fixed-building-card:focus-visible {
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+.fixed-building-card[hidden] {
+  display: none !important;
+}
+
+.fixed-building-card-image {
+  display: grid;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+.fixed-building-card-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fixed-building-card-name {
+  min-height: 2.6em;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.fixed-building-card-capacity {
+  margin-top: auto;
+  align-self: flex-start;
+  gap: 2px;
+  overflow-wrap: anywhere;
+}
+
+.fixed-building-card-capacity strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.fixed-buildings-empty {
+  padding: 26px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.fixed-buildings-empty p {
+  margin: 0 0 12px;
+}
+
+.fixed-buildings-empty-action {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  background: var(--bg-panel);
+  cursor: pointer;
+}
+
+.fixed-buildings-empty-action:hover,
+.fixed-buildings-empty-action:focus-visible {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+.fixed-building-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.fixed-building-detail-image-wrap {
+  aspect-ratio: 1 / 1;
+}
+
+.fixed-building-detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.fixed-building-detail-hero h1 {
+  margin-top: 0;
+}
+
+.fixed-building-detail-tags {
+  margin-top: 18px;
+}
+
+.fixed-building-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 22px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.fixed-building-summary div {
+  display: flex;
+  gap: 7px;
+  align-items: baseline;
+}
+
+.fixed-building-summary dt {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+}
+
+.fixed-building-summary dd {
+  margin: 6px 0 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.fixed-building-purpose {
+  margin-top: 18px;
+}
+
+.fixed-building-purpose h2,
+.fixed-building-cost-panel h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.fixed-building-purpose p {
+  max-width: 72rem;
+  margin-bottom: 0;
+  color: var(--text-dim);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.fixed-building-blueprint {
+  margin-top: 18px;
+}
+
+.fixed-building-blueprint h2 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.fixed-building-blueprint p {
+  margin-bottom: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.fixed-building-cost-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+@media (max-width: 720px) {
+  .fixed-buildings-filter {
+    align-items: stretch;
+  }
+
+  .fixed-buildings-search,
+  .fixed-buildings-tag-filter {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .fixed-building-detail-hero,
+  .fixed-building-cost-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fixed-building-detail-image-wrap {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+
+  .fixed-building-summary {
+    gap: 8px 16px;
+  }
+}
+
 .cabinet-card {
   min-width: 0;
   display: flex;

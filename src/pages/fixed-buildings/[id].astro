@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MaterialCostList from '../../components/MaterialCostList.astro';
+import fixedBuildings from '../../data/fixed-buildings.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+export function getStaticPaths() {
+  return fixedBuildings.map((building) => ({ params: { id: building.id }, props: { building } }));
+}
+
+const { building } = Astro.props;
+const quality = typeof building.quality === 'string' && building.quality in QUALITY_META
+  ? QUALITY_META[building.quality as Quality]
+  : QUALITY_META.common;
+const qualityStyle = `--quality-border:${quality.border};--quality-glow:${quality.glow}`;
+const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '' && value !== '无';
+const hasBuildCost = building.buildCostPending || building.buildCost.length > 0;
+const hasAssembleCost = building.assembleCostPending || building.assembleCost.length > 0;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>');
+---
+
+<BaseLayout title={building.name} description={`${building.name}详细资料`}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '不可升级建筑', href: '/fixed-buildings' }, { label: building.name }]} />
+
+  <section class="fixed-building-detail-hero panel">
+    <div class="fixed-building-detail-image-wrap">
+      <img class="fixed-building-detail-image quality-icon" src={getItemIconSrc('fixed-buildings', building)} alt={building.name} style={qualityStyle} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" />
+    </div>
+    <div>
+      <h1 style={`color:${quality.text}`}>{building.name}</h1>
+      <div class="tag-list fixed-building-detail-tags">{building.tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+      <dl class="fixed-building-summary">
+        {hasValue(building.castlePoints) && <div><dt class="eyebrow">城堡点数</dt><dd>{building.castlePoints}</dd></div>}
+        {hasValue(building.capacity) && <div><dt class="eyebrow">储存空间</dt><dd>{building.capacity}</dd></div>}
+        {hasValue(building.maxCount) && <div><dt class="eyebrow">最多建造数量</dt><dd>{building.maxCount}</dd></div>}
+      </dl>
+    </div>
+  </section>
+
+  {hasValue(building.purpose) && <section class="fixed-building-purpose panel"><h2>用途</h2><p>{building.purpose}</p></section>}
+  {hasValue(building.blueprintSource) && <section class="fixed-building-blueprint panel"><h2>图纸掉落地点</h2><p>{building.blueprintSource}</p></section>}
+
+  <div class="fixed-building-cost-grid">
+    {hasBuildCost && <section class="panel fixed-building-cost-panel"><h2>建造材料</h2>{building.buildCostPending ? <p class="muted">配方待补充</p> : <MaterialCostList cost={building.buildCost} compact />}</section>}
+    {hasAssembleCost && <section class="panel fixed-building-cost-panel"><h2>组装材料</h2>{building.assembleCostPending ? <p class="muted">配方待补充</p> : <MaterialCostList cost={building.assembleCost} compact />}</section>}
+  </div>
+</BaseLayout>

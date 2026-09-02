@@ -60,6 +60,7 @@ const SOURCES = [
   { file: 'cabinets', cat: 'cabinets', label: '柜子', parent: quality },
   { file: 'surface-chests', cat: 'surface-chests-location', label: '地表箱子地点', parent: () => undefined },
   { file: 'surface-chests', cat: 'surface-chests', label: '地表箱子', parent: () => undefined },
+  { file: 'fixed-buildings', cat: 'fixed-buildings', label: '不可升级建筑', parent: quality },
   { file: 'skills', cat: 'skills', label: '技能', parent: () => undefined },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },
 ];

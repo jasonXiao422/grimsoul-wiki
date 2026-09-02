@@ -212,6 +212,16 @@ export const CATEGORIES: CategoryDef[] = [
     filters: [],
   },
   {
+    slug: 'fixed-buildings',
+    label: '不可升级建筑',
+    blurb: '不可升级建筑的用途、建造材料与图纸来源',
+    file: 'fixed-buildings',
+    columns: [
+      { key: 'name', label: '名称', sortable: true, render: 'quality' },
+    ],
+    filters: [],
+  },
+  {
     slug: 'skills',
     label: '技能',
     blurb: '技能效果、等级数值与掉落地点',
