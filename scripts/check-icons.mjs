@@ -4,17 +4,17 @@
  */
 import fs from 'node:fs';
 
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'cabinets', 'surface-chests-location', 'surface-chests', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'materials-full', 'cabinets', 'surface-chests-location', 'surface-chests', 'knight-orders'];
 const missing = [];
 
 for (const f of FILES) {
-  const dataFile = ['backpacks-full', 'enemies-full', 'surface-chests-location', 'surface-chests'].includes(f)
+  const dataFile = ['backpacks-full', 'enemies-full', 'materials-full', 'surface-chests-location', 'surface-chests'].includes(f)
     ? (f.startsWith('surface-chests') ? 'surface-chests' : f.replace('-full', ''))
     : f;
   const p = `src/data/${dataFile}.json`;
   if (!fs.existsSync(p)) continue;
   for (const item of JSON.parse(fs.readFileSync(p, 'utf8'))) {
-    const iconCategory = ['backpacks-full', 'enemies-full', 'surface-chests-location', 'surface-chests'].includes(f)
+    const iconCategory = ['backpacks-full', 'enemies-full', 'materials-full', 'surface-chests-location', 'surface-chests'].includes(f)
       ? f
       : item.iconCat && item.iconId ? item.iconCat : f;
     const iconId = item.iconCat && item.iconId ? item.iconId : item.id;

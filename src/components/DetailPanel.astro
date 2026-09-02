@@ -22,6 +22,8 @@ const fullImageCategory = categorySlug === 'enemies'
   ? 'enemies-full'
   : categorySlug === 'backpacks'
     ? 'backpacks-full'
+    : categorySlug === 'materials'
+      ? 'materials-full'
     : undefined;
 const fullImagePath = fullImageCategory
   ? resolve(process.cwd(), 'public', 'images', fullImageCategory, `${item.id}.webp`)

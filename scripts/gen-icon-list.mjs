@@ -57,6 +57,8 @@ const SOURCES = [
   { file: 'debuffs', cat: 'debuffs', label: '玩家减益', parent: () => undefined },
   { file: 'enemy-buffs', cat: 'enemy-buffs', label: '敌方强化', parent: () => undefined },
   { file: 'materials', cat: 'materials', label: '材料', parent: () => undefined },
+  // 材料有两套图：列表与配方用方形图标 materials/，详情用大图 materials-full/
+  { file: 'materials', cat: 'materials-full', label: '材料大图', parent: () => undefined },
   { file: 'cabinets', cat: 'cabinets', label: '柜子', parent: quality },
   { file: 'surface-chests', cat: 'surface-chests-location', label: '地表箱子地点', parent: () => undefined },
   { file: 'surface-chests', cat: 'surface-chests', label: '地表箱子', parent: () => undefined },
