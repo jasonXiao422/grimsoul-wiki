@@ -118,6 +118,7 @@ const fallback =
               </a>
             </div>
             <p class="skills-search-drop-text">{skill.dropLocationsRaw}</p>
+            {skill.levels.some((level) => level.level >= 11) && <p class="skills-search-drop-text">Lv11 及以上：打牌</p>}
           </article>
         ))}
       </div>

@@ -15,6 +15,7 @@ export function getStaticPaths() {
 const { skill } = Astro.props;
 const levelQuality = (level: number): Quality => level <= 2 ? 'common' : level <= 6 ? 'rare' : level <= 10 ? 'unique' : 'legendary';
 const categoryColor = skill.categoryColor;
+const highLevels = skill.levels.filter((level) => level.level >= 11).map((level) => level.level);
 const fallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
@@ -54,5 +55,6 @@ const fallback =
   <section class="skill-drop-panel panel">
     <h2>掉落地点</h2>
     <p>{skill.dropLocationsRaw || '暂无记录'}</p>
+    {highLevels.length > 0 && <p>Lv11 及以上：打牌</p>}
   </section>
 </BaseLayout>

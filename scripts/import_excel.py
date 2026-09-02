@@ -50,6 +50,14 @@ warnings = []
 used_ids = {}
 skill_drop_parse_warnings = 0
 
+# 全站规则：技能的 Lv11 及以上等级统一通过「打牌」获得。
+# 该规则不写在 Excel 中，由导入时按技能实际最大等级自动附加。
+# 仅对确实拥有 Lv11+ 数据的技能生效。若游戏机制变更，只需修改此处。
+HIGH_LEVEL_SOURCE_NAME = "打牌"
+HIGH_LEVEL_THRESHOLD = 11
+high_level_source_added_count = 0
+high_level_source_skipped_count = 0
+
 
 # ---------------------------------------------------------------- 工具函数
 
@@ -680,6 +688,7 @@ def parse_skill_drop_locations_by_level(raw):
 
 
 def build_skills():
+    global high_level_source_added_count, high_level_source_skipped_count
     rows = cells_of("skills")
     headers = [index + 1 for index, row in enumerate(rows) if text(row[2].value) == "Lvl 1"]
     out = []
@@ -701,6 +710,15 @@ def build_skills():
                     levels.append({"level": level, "value": value})
             drop_raw = text(row[17].value)
             drop_locations_by_level = parse_skill_drop_locations_by_level(drop_raw)
+            high_levels = [level["level"] for level in levels if level["level"] >= HIGH_LEVEL_THRESHOLD]
+            drop_locations = parse_skill_drop_locations(drop_raw)
+            if high_levels:
+                drop_locations_by_level.append({"levels": high_levels, "locations": [HIGH_LEVEL_SOURCE_NAME]})
+                if HIGH_LEVEL_SOURCE_NAME not in drop_locations:
+                    drop_locations.append(HIGH_LEVEL_SOURCE_NAME)
+                high_level_source_added_count += 1
+            else:
+                high_level_source_skipped_count += 1
             out.append({
                 "id": make_id(name, "skill"),
                 "name": name,
@@ -708,7 +726,7 @@ def build_skills():
                 "categoryColor": category_color,
                 "levels": levels,
                 "dropLocationsRaw": drop_raw or "",
-                "dropLocations": parse_skill_drop_locations(drop_raw),
+                "dropLocations": drop_locations,
                 "dropLocationsByLevel": drop_locations_by_level,
             })
     return out
@@ -1669,6 +1687,7 @@ def main():
     print(f"\n护甲套装 {len(armor_sets)} 套，含部件 {total_pieces} 件；散件 {len(armor_pieces)} 件")
     parsed_skill_count = sum(1 for skill in skills if not skill["dropLocationsRaw"] or skill["dropLocationsByLevel"])
     print(f"技能掉落地点结构化解析：{parsed_skill_count} 条技能成功，{skill_drop_parse_warnings} 条片段警告")
+    print(f"技能「{HIGH_LEVEL_SOURCE_NAME}」规则：{high_level_source_added_count} 条技能已附加，{high_level_source_skipped_count} 条最高只到 Lv10，已跳过")
 
     if warnings:
         print(f"\n⚠ {len(warnings)} 条需要留意：\n")
