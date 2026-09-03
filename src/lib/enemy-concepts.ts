@@ -24,6 +24,9 @@ export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
   "bei-zhou-qi-shi": [
     { file: "damned-knight-concept.webp", caption: "角色设定", credit: "Pavel Goloviy", creditUrl: "https://korontari.artstation.com/projects/9xJXR" },
   ],
+  "bei-zhou-sheng-dian-qi-shi": [
+    { file: "damned-templar-concept.webp", caption: "角色设定", credit: "Pavel Goloviy", creditUrl: "https://korontari.artstation.com/projects/9xJXR" },
+  ],
 };
 
 export function getEnemyConcepts(id: string): EnemyConcept[] {
