@@ -1433,6 +1433,7 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 12px;
+  align-items: stretch;
 }
 
 .fixed-building-card {
@@ -1479,16 +1480,29 @@ p {
   overflow-wrap: anywhere;
 }
 
-.fixed-building-card-capacity {
+.fixed-building-card-stats {
   margin-top: auto;
   align-self: flex-start;
-  gap: 2px;
-  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  height: 46px;
+  min-width: 0;
 }
 
-.fixed-building-card-capacity strong {
+.fixed-building-card-stats .fixed-building-card-capacity {
+  min-width: 0;
+  min-height: 0;
+  padding: 1px 6px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.fixed-building-card-stats .fixed-building-card-capacity strong {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .fixed-buildings-empty {

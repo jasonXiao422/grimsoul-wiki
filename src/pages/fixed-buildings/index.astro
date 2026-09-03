@@ -13,6 +13,7 @@ const getQualityMeta = (quality: unknown) =>
   typeof quality === 'string' && quality in QUALITY_META
     ? QUALITY_META[quality as Quality]
     : QUALITY_META.common;
+const hasValue = (value: unknown): value is string | number => value !== null && value !== undefined;
 ---
 
 <BaseLayout title="不可升级建筑" description={`收录 ${fixedBuildings.length} 个不可升级建筑的用途、材料与图纸来源`}>
@@ -48,7 +49,12 @@ const getQualityMeta = (quality: unknown) =>
             <img class="fixed-building-card-icon quality-icon" src={getItemIconSrc('fixed-buildings', building)} alt={building.name} loading="lazy" style={qualityStyle} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" />
           </div>
           <strong class="fixed-building-card-name" style={`color:${quality.text}`}>{building.name}</strong>
-          {building.capacity !== null && building.capacity !== undefined && <span class="tag fixed-building-card-capacity"><span>储存空间：</span><strong>{building.capacity}</strong></span>}
+          {(hasValue(building.castlePoints) || hasValue(building.capacity)) && (
+            <div class="fixed-building-card-stats">
+              {hasValue(building.castlePoints) && <span class="tag fixed-building-card-capacity"><span>城堡点数: </span><strong>{building.castlePoints}</strong></span>}
+              {hasValue(building.capacity) && <span class="tag fixed-building-card-capacity"><span>储存空间: </span><strong>{building.capacity}</strong></span>}
+            </div>
+          )}
         </a>
       );
     })}
