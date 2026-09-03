@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArmorCalculator from '../../components/ArmorCalculator.astro';
 import DamageCalculator from '../../components/DamageCalculator.astro';
 import HorseCalculator from '../../components/HorseCalculator.astro';
-import ImageZoom from '../../components/ImageZoom.astro';
+import MarkdownImageZoom from '../../components/MarkdownImageZoom.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 type GuideEntry = CollectionEntry<'guides'>;
@@ -60,9 +60,10 @@ const slug = entry.id.replace(/\.md$/, '');
       <div class="lore-content guide-content panel">
         <Content />
         {slug === 'horse' && (
-          <div hidden aria-hidden="true">
-            <ImageZoom src="/images/pages/horse-levels.webp" alt="" />
-          </div>
+          <MarkdownImageZoom
+            containerSelector=".guide-content"
+            bootstrapSrc="/images/pages/horse-levels.webp"
+          />
         )}
         {slug === 'horse' && <HorseCalculator />}
         {slug === 'armor' && <ArmorCalculator />}
@@ -101,18 +102,6 @@ const slug = entry.id.replace(/\.md$/, '');
     )}
   </div>
 
-  {slug === 'horse' && (
-    <script is:inline>
-      const guideContent = document.querySelector('.guide-content');
-      guideContent?.querySelectorAll('img').forEach((image) => {
-        const src = image.getAttribute('src');
-        if (!src) return;
-        image.classList.add('js-zoom-image');
-        image.dataset.zoomSrc = src;
-        image.dataset.zoomAlt = image.getAttribute('alt') ?? '';
-      });
-    </script>
-  )}
 </BaseLayout>
 
 <style>

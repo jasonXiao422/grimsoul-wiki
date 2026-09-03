@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import MarkdownImageZoom from '../../components/MarkdownImageZoom.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 type LoreEntry = CollectionEntry<'lore'>;
@@ -56,6 +57,12 @@ const toc = headings.filter((heading) => heading.depth === 2);
 
       <div class="lore-content panel">
         <Content />
+        {entry.id === '06-characters.md' && (
+          <MarkdownImageZoom
+            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept"
+            bootstrapSrc="/images/pages/furgin-concept.webp"
+          />
+        )}
       </div>
 
       <nav class="lore-pager" aria-label="上一篇和下一篇">
@@ -90,3 +97,13 @@ const toc = headings.filter((heading) => heading.depth === 2);
     )}
   </div>
 </BaseLayout>
+
+<style>
+  .lore-content :global(.lore-furgin-concept-image) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: zoom-in;
+  }
+</style>

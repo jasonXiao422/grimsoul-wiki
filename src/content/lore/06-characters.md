@@ -30,6 +30,14 @@ summary: 疯子、叛徒、隐士，以及一个至死都以为自己在守护�
 
 > 附注：文档中有一处写作「哈金领主」，应为福金的另一种译法。
 
+<figure class="enemy-concept lore-furgin-concept">
+  <img class="lore-furgin-concept-image" src="/images/pages/furgin-concept.webp" alt="福金领主角色设定" />
+  <figcaption class="enemy-concept-caption">
+    <span>角色设定</span>
+    <a class="enemy-concept-credit" href="https://isaicheva_natalia.artstation.com/projects/2xVKRv" target="_blank" rel="noopener noreferrer">Natalia Isaicheva</a>
+  </figcaption>
+</figure>
+
 ## 马克斯领主 · 黄昏利刃骑士团
 
 曾经是**最热心的反异端勇士**，事迹颇有传奇色彩。
@@ -113,6 +121,14 @@ summary: 疯子、叛徒、隐士，以及一个至死都以为自己在守护�
 第三幕里你帮他赶走了觊觎他佩剑的强盗；第四幕里他为报答你，
 开启了过去的回忆。他与塞巴斯蒂安·科尔仍保持书信联系。
 
+<figure class="enemy-concept lore-ivan-concept">
+  <img class="lore-furgin-concept-image" src="/images/pages/ivan-concept.webp" alt="伊万领主角色设定" />
+  <figcaption class="enemy-concept-caption">
+    <span>角色设定</span>
+    <a class="enemy-concept-credit" href="https://isaicheva_natalia.artstation.com/projects/2xVKJa" target="_blank" rel="noopener noreferrer">Natalia Isaicheva</a>
+  </figcaption>
+</figure>
+
 ## 格哈德·艾森博格 · 破碎机 → 被弃者
 
 他的日记是这个故事里最令人不适的一份，因为你能看着一个正派的人
@@ -153,6 +169,14 @@ summary: 疯子、叛徒、隐士，以及一个至死都以为自己在守护�
 > 他们以为，我们已经忘记。他们以为，我们已经饶恕。
 > 但是，终有一日，我们会变得足够强大，可以向帝国复仇。
 
+<figure class="enemy-concept lore-eisenberg-concept">
+  <img class="lore-furgin-concept-image" src="/images/concepts/eisenberg-concept.webp" alt="格哈德·艾森博格角色设定" />
+  <figcaption class="enemy-concept-caption">
+    <span>角色设定</span>
+    <a class="enemy-concept-credit" href="https://isaicheva_natalia.artstation.com/projects/xzPwG1" target="_blank" rel="noopener noreferrer">Natalia Isaicheva</a>
+  </figcaption>
+</figure>
+
 这正是福金忧虑的地方——他要的是一把对付冷酷国王的刀，
 造出来的却是一把只想砍回帝国的刀。
 
@@ -170,6 +194,14 @@ summary: 疯子、叛徒、隐士，以及一个至死都以为自己在守护�
 > 附注：《瘟疫之地的居民》分类由「雅克·科尔上校司令」编写，
 > 与塞巴斯蒂安·科尔同姓，关系不明。
 
+<figure class="enemy-concept lore-sebastian-concept">
+  <img class="lore-furgin-concept-image" src="/images/pages/sebastian-concept.webp" alt="塞巴斯蒂安·科尔角色设定" />
+  <figcaption class="enemy-concept-caption">
+    <span>角色设定</span>
+    <a class="enemy-concept-credit" href="https://www.artstation.com/artwork/486oN1" target="_blank" rel="noopener noreferrer">Natalia Isaicheva</a>
+  </figcaption>
+</figure>
+
 ## 艾莎
 
 原本是侍奉小王子的年轻女祭司，因拒绝执行谋杀命令而带着孩子出逃。
@@ -182,6 +214,14 @@ summary: 疯子、叛徒、隐士，以及一个至死都以为自己在守护�
 
 对那个孩子而言，她是「奸诈父亲与懦弱兄长的记忆」之外，
 生命中唯一的光明。
+
+<figure class="enemy-concept lore-elsa-concept">
+  <img class="lore-furgin-concept-image" src="/images/concepts/elsa-concept-1.webp" alt="艾莎角色设定" />
+  <figcaption class="enemy-concept-caption">
+    <span>角色设定</span>
+    <span class="enemy-concept-credit">Kefir Games 官方设定</span>
+  </figcaption>
+</figure>
 
 ## 鲁伯特
 
