@@ -963,6 +963,11 @@ p {
   padding: 7px 12px;
 }
 
+.search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .filter-select {
   padding: 7px 34px 7px 10px;
 }
@@ -2067,6 +2072,12 @@ p {
 
 .search-results.is-open {
   display: block;
+}
+
+.search-results .search-status {
+  margin: 0;
+  padding: 10px 12px;
+  color: var(--text-dim);
 }
 
 .search-results a {

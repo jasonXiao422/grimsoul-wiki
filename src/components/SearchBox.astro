@@ -1,77 +1,3 @@
----
-import { pinyin } from 'pinyin-pro';
-import { getCollection } from 'astro:content';
-import { ALL_CATEGORIES, DATA_BY_CATEGORY, EXTRA_DATA, getItemHref, type CategorySlug } from '../lib/data';
-import boxes from '../data/boxes.json';
-
-const makePinyin = (name: string) => pinyin(name, { toneType: 'none', type: 'array' }) as string[];
-const toSearchFields = (terms: string[]) => {
-  const normalizedTerms = [...new Set(terms.filter(Boolean))];
-  const syllables = normalizedTerms.map((term) => makePinyin(term));
-  return {
-    terms: normalizedTerms,
-    pinyin: syllables.map((parts) => parts.join('')).join(' ').toLowerCase(),
-    initials: syllables.map((parts) => parts.map((part) => part[0] ?? '').join('')).join(' ').toLowerCase(),
-  };
-};
-
-const categoryEntries = ALL_CATEGORIES.flatMap((category) => {
-  const slug = category.slug as CategorySlug;
-  return [...DATA_BY_CATEGORY[slug]].map((item) => {
-    const fields = toSearchFields([item.name]);
-    const categoryFields = toSearchFields([category.label]);
-    return {
-      name: item.name,
-      category: category.label,
-      href: getItemHref(slug, item),
-      categoryTerms: categoryFields.terms,
-      categoryPinyin: categoryFields.pinyin,
-      categoryInitials: categoryFields.initials,
-      ...fields,
-    };
-  });
-});
-
-const knownNames = new Set([
-  ...Object.values(DATA_BY_CATEGORY).flatMap((items) => items.map((item) => item.name)),
-  ...EXTRA_DATA['armor-pieces'].map((item) => item.name),
-]);
-const stripMarkdown = (text: string) => text
-  .replace(/[`*_~]/g, '')
-  .replace(/\s+/g, ' ')
-  .trim();
-const getLoreHeadings = (body: string) => [...body.matchAll(/^#{2,6}\s+(.+)$/gm)]
-  .map((match) => stripMarkdown(match[1]));
-
-const loreEntries = await getCollection('lore');
-const loreSearchEntries = loreEntries.map((entry) => {
-  const headings = getLoreHeadings(entry.body ?? '');
-  const keywords = [...knownNames].filter((name) => (entry.body ?? '').includes(name));
-  return {
-    name: entry.data.title,
-    category: '背景故事',
-    href: `/lore/${entry.id.replace(/\.md$/, '')}`,
-    ...toSearchFields([entry.data.title, ...headings, ...keywords]),
-  };
-});
-
-const orderSearchEntries = DATA_BY_CATEGORY.orders.map((item) => ({
-  name: item.name,
-  category: '骑士团',
-  href: `/orders/${item.id}`,
-  ...toSearchFields([item.name, item.eraLabel, item.summary, item.leader]),
-}));
-
-const boxSearchEntries = boxes.map((item) => ({
-  name: item.name,
-  category: '武器盒子',
-  href: '/boxes',
-  ...toSearchFields([item.name]),
-}));
-
-const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEntries, ...boxSearchEntries];
----
-
 <div class="site-search" data-site-search>
   <label>
     <span class="sr-only">全站搜索</span>
@@ -80,47 +6,61 @@ const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEnt
   <div class="search-results" data-global-results></div>
 </div>
 
-<script define:vars={{ searchIndex }}>
+<script>
   const root = document.querySelector('[data-site-search]');
   const input = root?.querySelector('[data-global-search]');
   const results = root?.querySelector('[data-global-results]');
+  let searchIndex = null;
+  let searchIndexPromise = null;
 
   const closeResults = () => {
     results?.classList.remove('is-open');
     if (results) results.innerHTML = '';
   };
 
-  input?.addEventListener('input', () => {
-    const query = input.value.trim().toLowerCase();
+  const showMessage = (message) => {
+    if (!results) return;
+    results.innerHTML = `<p class="muted search-status">${message}</p>`;
+    results.classList.add('is-open');
+  };
+
+  const loadSearchIndex = () => {
+    if (searchIndex) return Promise.resolve(searchIndex);
+    if (!searchIndexPromise) {
+      showMessage('正在加载搜索数据……');
+      searchIndexPromise = fetch('/search-index.json')
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((index) => {
+          searchIndex = index;
+          return index;
+        })
+        .catch(() => {
+          searchIndexPromise = null;
+          throw new Error('搜索数据加载失败');
+        });
+    }
+    return searchIndexPromise;
+  };
+
+  const renderResults = (index, query) => {
     if (!query || !results) {
       closeResults();
       return;
     }
-
     const getMatch = (item) => {
-      const namePositions = item.terms
-        .map((term) => term.toLowerCase().indexOf(query))
-        .filter((position) => position >= 0);
+      const namePositions = item.terms.map((term) => term.toLowerCase().indexOf(query)).filter((position) => position >= 0);
       const namePosition = namePositions.length > 0 ? Math.min(...namePositions) : -1;
-      if (item.terms.some((term) => term.toLowerCase() === query)) {
-        return { priority: 0, position: 0 };
-      }
-      if (namePosition >= 0) {
-        return { priority: 1, position: namePosition };
-      }
-      if (item.pinyin.includes(query) || item.initials.includes(query)) {
-        return { priority: 2, position: 0 };
-      }
+      if (item.terms.some((term) => term.toLowerCase() === query)) return { priority: 0, position: 0 };
+      if (namePosition >= 0) return { priority: 1, position: namePosition };
+      if (item.pinyin.includes(query) || item.initials.includes(query)) return { priority: 2, position: 0 };
       const categoryMatches = item.categoryTerms?.some((term) => term.toLowerCase().includes(query));
-      if (categoryMatches || item.categoryPinyin?.includes(query) || item.categoryInitials?.includes(query)) {
-        return { priority: 3, position: 0 };
-      }
+      if (categoryMatches || item.categoryPinyin?.includes(query) || item.categoryInitials?.includes(query)) return { priority: 3, position: 0 };
       return null;
     };
-
-    const matched = searchIndex
-      .map((item, index) => ({ item, match: getMatch(item), index }))
-      .filter((entry) => entry.match !== null);
+    const matched = index.map((item, index) => ({ item, match: getMatch(item), index })).filter((entry) => entry.match !== null);
     const groups = new Map();
     for (const entry of matched) {
       const key = `${entry.match.priority}:${entry.match.position}`;
@@ -153,18 +93,30 @@ const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEnt
       });
     const matches = orderedMatches.slice(0, 12);
     const remainingCount = orderedMatches.length - matches.length;
-
     if (matches.length === 0) {
-      results.innerHTML = '<p class="muted" style="padding:10px 12px;margin:0">没有找到相关资料。</p>';
+      results.innerHTML = '<p class="muted search-status">没有找到相关资料。</p>';
     } else {
-      results.innerHTML = matches
-        .map(({ item }) => `<a href="${item.href}"><strong>${item.name}</strong><span class="search-category">${item.category}</span></a>`)
-        .join('')
+      results.innerHTML = matches.map(({ item }) => `<a href="${item.href}"><strong>${item.name}</strong><span class="search-category">${item.category}</span></a>`).join('')
         + (remainingCount > 0 ? `<p class="search-more">还有 ${remainingCount} 条结果</p>` : '');
     }
     results.classList.add('is-open');
-  });
+  };
 
+  const refreshResults = () => {
+    const query = input?.value.trim().toLowerCase() ?? '';
+    if (!query) {
+      closeResults();
+      return;
+    }
+    loadSearchIndex()
+      .then((index) => renderResults(index, input?.value.trim().toLowerCase() ?? ''))
+      .catch(() => showMessage('搜索数据加载失败，请稍后重试。'));
+  };
+
+  input?.addEventListener('focus', () => {
+    loadSearchIndex().catch(() => showMessage('搜索数据加载失败，请稍后重试。'));
+  });
+  input?.addEventListener('input', refreshResults);
   document.addEventListener('click', (event) => {
     if (!root?.contains(event.target)) closeResults();
   });
