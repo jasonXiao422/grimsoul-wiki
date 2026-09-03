@@ -2,6 +2,7 @@ export type EnemyConcept = {
   file: string;
   caption: string;
   credit: string;
+  creditUrl?: string;
 };
 
 export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
@@ -13,6 +14,12 @@ export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
     { file: "rogvold-model.webp", caption: "角色模型", credit: "Kefir Games 官方设定" },
     { file: "rogvold-concept-1.webp", caption: "幽魂形态与场景设定", credit: "Kefir Games 官方设定" },
     { file: "rogvold-concept-2.webp", caption: "角色设定与面具方案", credit: "Kefir Games 官方设定" },
+  ],
+  "tan-cai-jiu-huo-shang": [
+    { file: "merchant-model-1.webp", caption: "角色模型", credit: "Eugene Nepomnyaschiy", creditUrl: "https://www.artstation.com/bagstor" },
+    { file: "merchant-model-2.webp", caption: "模型布线", credit: "Eugene Nepomnyaschiy", creditUrl: "https://www.artstation.com/bagstor" },
+    { file: "merchant-concept-1.webp", caption: "角色设定与草图", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/isaicheva_natalia" },
+    { file: "merchant-concept-2.webp", caption: "面部方案与背包设计", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/isaicheva_natalia" },
   ],
 };
 

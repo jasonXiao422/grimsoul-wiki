@@ -314,7 +314,18 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
               />
               <figcaption class="enemy-concept-caption">
                 <span>{concept.caption}</span>
-                <span class="enemy-concept-credit">{concept.credit}</span>
+                {concept.creditUrl ? (
+                  <a
+                    class="enemy-concept-credit"
+                    href={concept.creditUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {concept.credit}
+                  </a>
+                ) : (
+                  <span class="enemy-concept-credit">{concept.credit}</span>
+                )}
               </figcaption>
             </figure>
           ))}
