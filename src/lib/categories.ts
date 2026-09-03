@@ -1,3 +1,5 @@
+import { getSkillDetailPath } from './skills';
+
 /**
  * 数据类别的统一配置。
  * 列表页、详情页、搜索索引全部由这个对象驱动。
@@ -30,6 +32,7 @@ export interface CategoryDef {
   defaultSort?: string;
   /** 默认排序方向，缺省为 asc */
   defaultSortDir?: 'asc' | 'desc';
+  detailPath?: (id: string, item: unknown) => string;
 }
 
 export const CATEGORIES: CategoryDef[] = [
@@ -230,6 +233,7 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'name', label: '技能名称', sortable: true },
     ],
     filters: [],
+    detailPath: (id, item) => getSkillDetailPath(id, item),
   },
 ];
 

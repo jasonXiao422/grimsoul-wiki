@@ -2061,6 +2061,15 @@ p {
   font-size: 0.82rem;
 }
 
+.search-results .search-more {
+  margin: 0;
+  padding: 9px 12px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
 .lore-index {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

@@ -19,10 +19,14 @@ const categoryEntries = ALL_CATEGORIES.flatMap((category) => {
   const slug = category.slug as CategorySlug;
   return [...DATA_BY_CATEGORY[slug]].map((item) => {
     const fields = toSearchFields([item.name]);
+    const categoryFields = toSearchFields([category.label]);
     return {
       name: item.name,
       category: category.label,
-      href: getItemHref(slug, item.id),
+      href: getItemHref(slug, item),
+      categoryTerms: categoryFields.terms,
+      categoryPinyin: categoryFields.pinyin,
+      categoryInitials: categoryFields.initials,
       ...fields,
     };
   });
@@ -93,18 +97,70 @@ const searchIndex = [...categoryEntries, ...loreSearchEntries, ...orderSearchEnt
       return;
     }
 
-    const matches = searchIndex
-      .filter((item) => item.terms.some((term) => term.toLowerCase().includes(query))
-        || item.pinyin.includes(query)
-        || item.initials.includes(query))
-      .slice(0, 8);
+    const getMatch = (item) => {
+      const namePositions = item.terms
+        .map((term) => term.toLowerCase().indexOf(query))
+        .filter((position) => position >= 0);
+      const namePosition = namePositions.length > 0 ? Math.min(...namePositions) : -1;
+      if (item.terms.some((term) => term.toLowerCase() === query)) {
+        return { priority: 0, position: 0 };
+      }
+      if (namePosition >= 0) {
+        return { priority: 1, position: namePosition };
+      }
+      if (item.pinyin.includes(query) || item.initials.includes(query)) {
+        return { priority: 2, position: 0 };
+      }
+      const categoryMatches = item.categoryTerms?.some((term) => term.toLowerCase().includes(query));
+      if (categoryMatches || item.categoryPinyin?.includes(query) || item.categoryInitials?.includes(query)) {
+        return { priority: 3, position: 0 };
+      }
+      return null;
+    };
+
+    const matched = searchIndex
+      .map((item, index) => ({ item, match: getMatch(item), index }))
+      .filter((entry) => entry.match !== null);
+    const groups = new Map();
+    for (const entry of matched) {
+      const key = `${entry.match.priority}:${entry.match.position}`;
+      if (!groups.has(key)) groups.set(key, new Map());
+      const category = entry.item.category;
+      if (!groups.get(key).has(category)) groups.get(key).set(category, []);
+      groups.get(key).get(category).push(entry);
+    }
+    const orderedMatches = [...groups.entries()]
+      .sort(([a], [b]) => {
+        const [aPriority, aPosition] = a.split(':').map(Number);
+        const [bPriority, bPosition] = b.split(':').map(Number);
+        return aPriority - bPriority || aPosition - bPosition;
+      })
+      .map(([, categoryGroups]) => categoryGroups)
+      .flatMap((categoryGroups) => {
+        const result = [];
+        let hasEntries = true;
+        while (hasEntries) {
+          hasEntries = false;
+          for (const entries of categoryGroups.values()) {
+            const entry = entries.shift();
+            if (entry) {
+              result.push(entry);
+              hasEntries = true;
+            }
+          }
+        }
+        return result;
+      });
+    const matches = orderedMatches.slice(0, 12);
+    const remainingCount = orderedMatches.length - matches.length;
 
     if (matches.length === 0) {
       results.innerHTML = '<p class="muted" style="padding:10px 12px;margin:0">没有找到相关资料。</p>';
     } else {
       results.innerHTML = matches
-        .map((item) => `<a href="${item.href}"><strong>${item.name}</strong><span class="search-category">${item.category}</span></a>`)
-        .join('');
+        .map(({ item }) => `<a href="${item.href}"><strong>${item.name}</strong><span class="search-category">${item.category}</span></a>`)
+        .join('')
+        + (remainingCount > 0 ? `<p class="search-more">还有 ${remainingCount} 条结果</p>` : '');
     }
     results.classList.add('is-open');
   });

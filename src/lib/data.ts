@@ -193,8 +193,10 @@ export function getAnyItemName(id: string): string {
   return piece?.name ?? '未知条目';
 }
 
-export function getItemHref(category: CategorySlug, id: string): string {
-  return `/${category}/${id}`;
+export function getItemHref(category: CategorySlug, itemOrId: string | { id: string }): string {
+  const id = typeof itemOrId === 'string' ? itemOrId : itemOrId.id;
+  const detailPath = CATEGORY_BY_SLUG[category]?.detailPath;
+  return `/${detailPath ? detailPath(id, typeof itemOrId === 'string' ? { id } : itemOrId) : `${category}/${id}`}`;
 }
 
 export function getItemIconSrc(category: string, item: { id: string; iconCat?: string | null; iconId?: string | null }): string {

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import skills from '../../data/skills.json';
 import { getSkillCategoryId } from '../../lib/skills';
+import { getItemHref } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
 export function getStaticPaths() {
@@ -69,7 +70,7 @@ const fallback =
               data-drop-by-level={JSON.stringify(skill.dropLocationsByLevel)}
             >
               <td>
-                <a class="item-cell" href={`/skills/${getSkillCategoryId(skill.category)}/${skill.id}`}>
+                  <a class="item-cell" href={getItemHref('skills', skill)}>
                   <img
                     class="item-icon quality-icon skill-icon"
                     src={`/images/skills/${skill.id}.webp`}
@@ -104,7 +105,7 @@ const fallback =
         {items.map((skill) => (
           <article class="skills-search-drop" data-skills-search-result data-skill-id={skill.id} hidden>
             <div class="skills-search-drop-heading">
-              <a class="item-cell" href={`/skills/${getSkillCategoryId(skill.category)}/${skill.id}`}>
+              <a class="item-cell" href={getItemHref('skills', skill)}>
                 <img
                   class="item-icon quality-icon skill-icon skill-search-drop-icon"
                   src={`/images/skills/${skill.id}.webp`}
