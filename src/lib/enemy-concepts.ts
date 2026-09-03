@@ -33,6 +33,12 @@ export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
     { file: "eisenberg-concept.webp", caption: "角色设定与草图", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/artwork/xzPwG1" },
     { file: "eisenberg-scene.webp", caption: "场景设定", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/artwork/xzPwG1" },
   ],
+  "bu-wen-ding-de-gu-kui-lei": [
+    { file: "unstable-skeleton-concept.webp", caption: "形态设定与模型", credit: "BrickWorks Games", creditUrl: "https://www.facebook.com/photo.php?fbid=1502169901927595&set=pb.100064037977309.-2207520000&type=3" },
+  ],
+  "xiu-bo-er-chu-peng-de-kuang-gong": [
+    { file: "miner-concept.webp", caption: "角色设定与感染过程", credit: "BrickWorks Games", creditUrl: "https://www.facebook.com/photo.php?fbid=1471942634950322&set=pb.100064037977309.-2207520000&type=3" },
+  ],
 };
 
 export function getEnemyConcepts(id: string): EnemyConcept[] {
