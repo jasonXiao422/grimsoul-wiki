@@ -12,6 +12,8 @@
  * blocks 为空时不渲染任何东西，调用方不必先判空。
  */
 import { getItemIconSrc } from '../lib/data';
+import ImageZoom from './ImageZoom.astro';
+import { GROUP_NOTE_ILLUSTRATIONS } from '../lib/group-note-illustrations';
 
 interface NoteItem {
   index?: number | string;
@@ -34,6 +36,7 @@ interface Props {
 }
 
 const { blocks, group } = Astro.props;
+const illustration = group ? GROUP_NOTE_ILLUSTRATIONS[group] : undefined;
 const fallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -43,6 +46,16 @@ const fallback =
   <section class="group-note">
     <h2 class="group-note__title">{group ? `${group}｜场地机制` : '场地机制'}</h2>
     <div class="group-note__body">
+      {illustration && (
+        <section class="group-note__block">
+          <h3>场地俯瞰图</h3>
+          <ImageZoom
+            src={illustration.src}
+            alt={illustration.alt}
+            class="group-note__illustration"
+          />
+        </section>
+      )}
       {blocks.map((block) => (
         <section class="group-note__block">
           <h3>{block.title}</h3>
@@ -125,6 +138,16 @@ const fallback =
     font-weight: 600;
   }
 
+  :global(.group-note__illustration) {
+    display: block;
+    width: 100%;
+    max-width: 50%;
+    height: auto;
+    margin-inline: 0;
+    border-radius: 8px;
+    cursor: zoom-in;
+  }
+
   .group-note__items {
     display: grid;
     gap: 12px;
@@ -165,6 +188,10 @@ const fallback =
   }
 
   @media (max-width: 640px) {
+    :global(.group-note__illustration) {
+      max-width: 100%;
+    }
+
     .group-note__title {
       padding: 10px 12px;
     }
