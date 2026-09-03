@@ -84,6 +84,7 @@ const heroImages = Object.keys(heroImageModules)
   .map((path, index) => ({
     src: path.replace(/^\/public/, ''),
     isFirst: index === 0,
+    isTopAligned: [1, 4].includes(getHeroImageNumber(path)),
   }));
 ---
 
@@ -98,7 +99,7 @@ const heroImages = Object.keys(heroImageModules)
     <div class="hero-media" aria-hidden="true">
       {heroImages.map((image) => (
         <img
-          class:list={['hero-image', { 'is-active': image.isFirst }]}
+          class:list={['hero-image', { 'is-active': image.isFirst, 'is-top-aligned': image.isTopAligned }]}
           src={image.src}
           data-hero-image
           loading={image.isFirst ? 'eager' : 'lazy'}

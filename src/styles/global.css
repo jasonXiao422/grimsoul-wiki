@@ -486,7 +486,7 @@ p {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  min-height: clamp(360px, 58vh, 620px);
+  min-height: clamp(420px, 68vh, 725px);
   display: grid;
   align-content: center;
   border-bottom: 1px solid var(--border);
@@ -521,6 +521,10 @@ p {
   object-fit: cover;
   object-position: center;
   transition: opacity var(--hero-fade-duration, 1.5s) ease;
+}
+
+.hero-image.is-top-aligned {
+  object-position: center top;
 }
 
 .hero-image.is-active {
@@ -558,6 +562,13 @@ p {
 
   .hero-image:not(:first-child) {
     display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -3298,7 +3309,7 @@ p {
   }
 
   .hero {
-    min-height: 420px;
+    min-height: 490px;
   }
 
   .lore-detail-layout {
