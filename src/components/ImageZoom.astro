@@ -33,6 +33,7 @@ const fallback =
     const dialog = document.createElement('dialog');
     dialog.className = 'image-dialog';
     dialog.dataset.imageDialog = '';
+    dialog.tabIndex = -1;
 
     const closeButton = document.createElement('button');
     closeButton.type = 'button';
@@ -43,27 +44,30 @@ const fallback =
     dialog.append(closeButton, dialogImage);
     document.body.append(dialog);
 
-    closeButton.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-
     return dialog;
   };
 
   document.addEventListener('click', (event) => {
-    const image = event.target instanceof HTMLImageElement && event.target.matches('.js-zoom-image')
-      ? event.target
+    const target = event.target;
+    const dialog = document.querySelector<HTMLDialogElement>('[data-image-dialog]');
+    if (dialog && (target === dialog || target instanceof HTMLButtonElement && target.closest('[data-image-dialog]') === dialog)) {
+      dialog.close();
+      return;
+    }
+
+    const image = target instanceof HTMLImageElement && target.matches('.js-zoom-image')
+      ? target
       : undefined;
     if (!image) return;
 
-    const dialog = getImageDialog();
-    const dialogImage = dialog.querySelector('img');
+    const imageDialog = getImageDialog();
+    const dialogImage = imageDialog.querySelector('img');
     const zoomSrc = image.dataset.zoomSrc;
     if (!dialogImage || !zoomSrc) return;
 
     dialogImage.src = zoomSrc;
     dialogImage.alt = image.dataset.zoomAlt ?? image.alt;
-    dialog.showModal();
+    imageDialog.showModal();
+    imageDialog.focus({ preventScroll: true });
   });
 </script>

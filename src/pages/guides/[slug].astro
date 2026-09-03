@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArmorCalculator from '../../components/ArmorCalculator.astro';
 import DamageCalculator from '../../components/DamageCalculator.astro';
 import HorseCalculator from '../../components/HorseCalculator.astro';
+import ImageZoom from '../../components/ImageZoom.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 type GuideEntry = CollectionEntry<'guides'>;
@@ -58,6 +59,11 @@ const slug = entry.id.replace(/\.md$/, '');
 
       <div class="lore-content guide-content panel">
         <Content />
+        {slug === 'horse' && (
+          <div hidden aria-hidden="true">
+            <ImageZoom src="/images/pages/horse-levels.webp" alt="" />
+          </div>
+        )}
         {slug === 'horse' && <HorseCalculator />}
         {slug === 'armor' && <ArmorCalculator />}
         {slug === 'armor' && <DamageCalculator />}
@@ -94,6 +100,19 @@ const slug = entry.id.replace(/\.md$/, '');
       </aside>
     )}
   </div>
+
+  {slug === 'horse' && (
+    <script is:inline>
+      const guideContent = document.querySelector('.guide-content');
+      guideContent?.querySelectorAll('img').forEach((image) => {
+        const src = image.getAttribute('src');
+        if (!src) return;
+        image.classList.add('js-zoom-image');
+        image.dataset.zoomSrc = src;
+        image.dataset.zoomAlt = image.getAttribute('alt') ?? '';
+      });
+    </script>
+  )}
 </BaseLayout>
 
 <style>
@@ -104,6 +123,7 @@ const slug = entry.id.replace(/\.md$/, '');
     margin: 22px 0;
     border: 1px solid var(--border);
     border-radius: 8px;
+    cursor: zoom-in;
   }
 
   .lore-article :global(.horse-appearance-grid) {
@@ -127,6 +147,7 @@ const slug = entry.id.replace(/\.md$/, '');
     height: auto;
     border-radius: 8px;
     margin: 0 auto;
+    cursor: zoom-in;
   }
 
   .lore-article :global(.horse-appearance-card figcaption) {
