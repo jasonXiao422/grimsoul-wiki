@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SearchBox from '../components/SearchBox.astro';
+import ImageDialog from '../components/ImageDialog.astro';
 
 interface Props {
   title: string;
@@ -229,6 +230,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         <path d="m6 14 6-6 6 6" />
       </svg>
     </button>
+    <ImageDialog />
     <script>
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');

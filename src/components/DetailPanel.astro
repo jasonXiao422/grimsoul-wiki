@@ -307,19 +307,11 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
         <div class="enemy-concepts-list">
           {enemyConcepts.map((concept) => (
             <figure class="enemy-concept">
-              <a
-                class="enemy-concept-link"
-                href={`/images/concepts/${concept.file}`}
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  class="enemy-concept-image"
-                  src={`/images/concepts/${concept.file}`}
-                  alt={concept.caption}
-                  loading="lazy"
-                />
-              </a>
+              <ImageZoom
+                src={`/images/concepts/${concept.file}`}
+                alt={concept.caption}
+                class="enemy-concept-image"
+              />
               <figcaption class="enemy-concept-caption">
                 <span>{concept.caption}</span>
                 <span class="enemy-concept-credit">{concept.credit}</span>
@@ -331,37 +323,3 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
     )}
   </div>
 </article>
-
-<style>
-  .enemy-concepts-list {
-    display: grid;
-    gap: 20px;
-  }
-
-  .enemy-concept {
-    margin: 0;
-  }
-
-  .enemy-concept-link {
-    display: block;
-  }
-
-  .enemy-concept-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .enemy-concept-caption {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 8px 0 0;
-    color: var(--text);
-  }
-
-  .enemy-concept-credit {
-    color: var(--text-dim);
-  }
-</style>
