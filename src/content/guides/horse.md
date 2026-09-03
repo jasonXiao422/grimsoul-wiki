@@ -16,6 +16,17 @@ summary: 饱食度、升级消耗与商人交易价格的完整算法。
 - 放弃你的马或马车会受到处罚：返回基地时消耗的资源**加倍**（圣诞马和骇影除外），
   并可能导致饱食度为负数
 
+<div class="horse-appearance-grid">
+  <figure class="horse-appearance-card">
+    <img src="/images/pages/horse-christmas.webp" alt="圣诞马">
+    <figcaption>圣诞马</figcaption>
+  </figure>
+  <figure class="horse-appearance-card">
+    <img src="/images/pages/horse-nightmare.webp" alt="骇影">
+    <figcaption>骇影</figcaption>
+  </figure>
+</div>
+
 ## 燕麦机制
 
 **1 燕麦 = 5 饱食度**
@@ -42,6 +53,8 @@ summary: 饱食度、升级消耗与商人交易价格的完整算法。
 | 5 级 | 解锁 5 级图 |
 | 10 级 | 解锁城堡 |
 | 15 级 | 解锁大车炮台 |
+
+<img class="horse-levels-image" src="/images/pages/horse-levels.webp" alt="马匹四个阶段的外观对比">
 
 马的等级上限是 **19 级**，15 级之后仍可继续升级。
 

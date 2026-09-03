@@ -7,6 +7,7 @@ import { resolve } from 'node:path';
 import { TIER_COLOR } from '../lib/tiers';
 import { FIELD_LABELS, formatValue } from '../lib/display';
 import { getAnyItemName, getItemIconSrc, type CategorySlug } from '../lib/data';
+import { getEnemyConcepts } from '../lib/enemy-concepts';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
 type DetailCategorySlug = CategorySlug | 'armor-pieces';
@@ -128,6 +129,7 @@ const qualityStyle = qualityMeta
   : undefined;
 const titleColor = qualityMeta?.text ?? tierColor;
 const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配方' : '合成配方';
+const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [];
 ---
 
 <article class="detail-grid">
@@ -298,5 +300,68 @@ const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配�
         </div>
       </section>
     )}
+
+    {enemyConcepts.length > 0 && (
+      <section class="enemy-concepts section panel">
+        <h2 class="detail-panel-title">角色原画</h2>
+        <div class="enemy-concepts-list">
+          {enemyConcepts.map((concept) => (
+            <figure class="enemy-concept">
+              <a
+                class="enemy-concept-link"
+                href={`/images/concepts/${concept.file}`}
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  class="enemy-concept-image"
+                  src={`/images/concepts/${concept.file}`}
+                  alt={concept.caption}
+                  loading="lazy"
+                />
+              </a>
+              <figcaption class="enemy-concept-caption">
+                <span>{concept.caption}</span>
+                <span class="enemy-concept-credit">{concept.credit}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
 </article>
+
+<style>
+  .enemy-concepts-list {
+    display: grid;
+    gap: 20px;
+  }
+
+  .enemy-concept {
+    margin: 0;
+  }
+
+  .enemy-concept-link {
+    display: block;
+  }
+
+  .enemy-concept-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .enemy-concept-caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 0;
+    color: var(--text);
+  }
+
+  .enemy-concept-credit {
+    color: var(--text-dim);
+  }
+</style>

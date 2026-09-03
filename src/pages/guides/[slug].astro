@@ -95,3 +95,56 @@ const slug = entry.id.replace(/\.md$/, '');
     )}
   </div>
 </BaseLayout>
+
+<style>
+  .lore-article :global(.horse-levels-image) {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 22px 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .lore-article :global(.horse-appearance-grid) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 640px;
+    margin: 22px auto;
+  }
+
+  .lore-article :global(.horse-appearance-card) {
+    margin: 0;
+    text-align: center;
+  }
+
+  .lore-article :global(.horse-appearance-card img) {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+
+  .lore-article :global(.horse-appearance-card figcaption) {
+    margin-top: 2px;
+    color: var(--accent);
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  @media (max-width: 720px) {
+    .lore-article :global(.horse-appearance-grid) {
+      grid-template-columns: 1fr;
+    }
+
+    .lore-article :global(.horse-appearance-card img) {
+      max-width: 320px;
+    }
+  }
+</style>
