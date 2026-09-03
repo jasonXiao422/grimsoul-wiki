@@ -1097,6 +1097,21 @@ p {
   gap: 6px;
 }
 
+.table-consumables .table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table-consumables .tag-list {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.table-consumables .tag-list .tag {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
