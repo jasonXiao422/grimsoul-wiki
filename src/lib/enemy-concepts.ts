@@ -21,6 +21,9 @@ export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
     { file: "merchant-concept-1.webp", caption: "角色设定与草图", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/isaicheva_natalia" },
     { file: "merchant-concept-2.webp", caption: "面部方案与背包设计", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/isaicheva_natalia" },
   ],
+  "bei-zhou-qi-shi": [
+    { file: "damned-knight-concept.webp", caption: "角色设定", credit: "Pavel Goloviy", creditUrl: "https://korontari.artstation.com/projects/9xJXR" },
+  ],
 };
 
 export function getEnemyConcepts(id: string): EnemyConcept[] {
