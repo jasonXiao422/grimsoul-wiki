@@ -4126,6 +4126,25 @@
     "dataIncomplete": null
   },
   {
+    "id": "wen-yi-jing-ling",
+    "name": "瘟疫精灵",
+    "group": "节日活动",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": 120,
+    "damageReduction": 13,
+    "restoredFromDate": null,
+    "physicalDamage": "无",
+    "elementDamage": null,
+    "note": "靠近会逃跑，和贪财旧货商一样会发出猥琐的笑声",
+    "locations": [
+      "瘟疫精灵村庄",
+      "圣诞节活动"
+    ],
+    "dataIncomplete": null
+  },
+  {
     "id": "fen-li-er",
     "name": "芬里尔",
     "group": "节日活动",
