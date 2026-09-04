@@ -28,8 +28,8 @@ export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
     { file: "damned-templar-concept.webp", caption: "角色设定", credit: "Pavel Goloviy", creditUrl: "https://korontari.artstation.com/projects/9xJXR" },
   ],
   "ai-sen-bo-ge-ling-zhu-pu-tong-ying-xiong": [
-    { file: "eisenberg-model-1.webp", caption: "模型布线", credit: "Eugene Nepomnyaschiy", creditUrl: "https://www.artstation.com/artwork/YKl9bX" },
-    { file: "eisenberg-model-2.webp", caption: "角色模型", credit: "Eugene Nepomnyaschiy", creditUrl: "https://www.artstation.com/artwork/YKl9bX" },
+    { file: "eisenberg-model-1.webp", caption: "角色模型", credit: "Eugene Nepomnyaschiy", creditUrl: "https://www.artstation.com/artwork/YKl9bX" },
+    { file: "eisenberg-model-2.webp", caption: "模型布线", credit: "Eugene Nepomnyaschiy", creditUrl: "https://www.artstation.com/artwork/YKl9bX" },
     { file: "eisenberg-concept.webp", caption: "角色设定与草图", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/artwork/xzPwG1" },
     { file: "eisenberg-scene.webp", caption: "场景设定", credit: "Natalia Isaicheva", creditUrl: "https://www.artstation.com/artwork/xzPwG1" },
   ],
