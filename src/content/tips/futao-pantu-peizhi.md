@@ -5,7 +5,7 @@ author: 芙桃不傲娇
 authorBilibili: "https://space.bilibili.com/483430426"
 date: 2026-04-29
 summary: 叛徒五层十五波，逐波讲解护甲与武器门槛，核心是不要死——死了前面所有层数全白打。
-tags: ["叛徒", "低消耗", "萌新向"]
+tags: ["叛徒", "低消耗", "萌新"]
 cover: futao-pantu-peizhi
 videos:
   - label: 中低耗打法
