@@ -2776,12 +2776,15 @@
       }
     ],
     "quality": "rare",
-    "hp": 175,
-    "damageReduction": 93,
+    "hp": 300,
+    "damageReduction": 92,
     "restoredFromDate": null,
-    "physicalDamage": 65,
-    "elementDamage": null,
-    "note": "可受到冰伤害（玩家无防寒保护时）；免疫其他元素伤害",
+    "physicalDamage": 45,
+    "elementDamage": {
+      "type": "火",
+      "value": "20"
+    },
+    "note": "可受到冰伤害（玩家无防寒保护时），可被冰冻；免疫其他元素伤害",
     "locations": [
       "酷吏地下城2层"
     ],
