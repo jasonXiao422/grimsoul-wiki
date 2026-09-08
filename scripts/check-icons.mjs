@@ -4,8 +4,9 @@
  */
 import fs from 'node:fs';
 
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'materials-full', 'cabinets', 'surface-chests-location', 'surface-chests', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'materials-full', 'cabinets', 'surface-chests-location', 'surface-chests', 'upgradable-buildings', 'knight-orders'];
 const missing = [];
+const checkedIcons = new Set();
 
 for (const f of FILES) {
   const dataFile = ['backpacks-full', 'enemies-full', 'materials-full', 'surface-chests-location', 'surface-chests'].includes(f)
@@ -14,6 +15,17 @@ for (const f of FILES) {
   const p = `src/data/${dataFile}.json`;
   if (!fs.existsSync(p)) continue;
   for (const item of JSON.parse(fs.readFileSync(p, 'utf8'))) {
+    if (f === 'upgradable-buildings') {
+      for (const level of item.levels ?? []) {
+        if (!level.iconId) continue;
+        const iconPath = `public/images/upgradable-buildings/${level.iconId}.webp`;
+        if (!checkedIcons.has(iconPath)) {
+          checkedIcons.add(iconPath);
+          if (!fs.existsSync(iconPath)) missing.push(`upgradable-buildings/${level.iconId}.webp  (${item.name} ${level.level})`);
+        }
+      }
+      continue;
+    }
     const iconCategory = ['backpacks-full', 'enemies-full', 'materials-full', 'surface-chests-location', 'surface-chests'].includes(f)
       ? f
       : item.iconCat && item.iconId ? item.iconCat : f;

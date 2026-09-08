@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ImageZoom from '../../components/ImageZoom.astro';
+import MaterialCostList from '../../components/MaterialCostList.astro';
+import upgradableBuildings from '../../data/upgradable-buildings.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
+
+export function getStaticPaths() {
+  return upgradableBuildings.map((building) => ({ params: { id: building.id }, props: { building } }));
+}
+
+const { building } = Astro.props;
+const levels = [...building.levels].sort((a, b) => a.levelRank - b.levelRank);
+const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '';
+const getQualityMeta = (quality: unknown) =>
+  typeof quality === 'string' && quality in QUALITY_META
+    ? QUALITY_META[quality as Quality]
+    : QUALITY_META.common;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>');
+const pendingText = '游戏未出，敬请期待';
+const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-glow:${QUALITY_META.common.glow}`;
+---
+
+<BaseLayout title={building.name} description={`${building.name}的等级、用途、组装材料与图纸来源`}>
+  <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '可升级建筑', href: '/upgradable-buildings' }, { label: building.name }]} />
+
+  <section class="upgradable-building-detail-hero panel">
+    <div class="upgradable-building-detail-image-wrap">
+      <img
+        class="upgradable-building-detail-image quality-icon"
+        src={getItemIconSrc('upgradable-buildings', building)}
+        alt={building.name}
+        style={commonQualityStyle}
+        data-fallback={fallback}
+        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+      />
+    </div>
+    <div>
+      <h1>{building.name}</h1>
+      {hasValue(building.maxCount) && (
+        <span class="tag upgradable-building-max-count">
+          最多建造 {building.maxCount}{typeof building.maxCount === 'number' ? ' 座' : ''}
+        </span>
+      )}
+    </div>
+  </section>
+
+  {building.notes.length > 0 && (
+    <section class="upgradable-building-notes panel">
+      <h2>备注</h2>
+      <ul>
+        {building.notes.map((note) => {
+          const quality = getQualityMeta(note.quality);
+          return (
+            <li>
+              <strong style={`color:${quality.text}`}>{note.name}</strong>
+              <span>：{note.description}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )}
+
+  <section class="upgradable-building-levels">
+    <h2 class="detail-panel-title">等级信息</h2>
+    <div class="upgradable-building-level-grid">
+      {levels.map((level) => (
+        <article class="upgradable-building-level panel">
+          <div class="upgradable-building-level-heading">
+            <h3>{level.level}</h3>
+            {building.iconMode === 'per-level' && level.iconId && (
+              <ImageZoom
+                src={`/images/upgradable-buildings/${level.iconId}.webp`}
+                alt={`${building.name} ${level.level}`}
+                class="upgradable-building-level-icon quality-icon"
+                style={`${commonQualityStyle};width:180px;height:180px;max-width:180px;max-height:180px;box-sizing:border-box;border-radius:6px`}
+              />
+            )}
+          </div>
+          <table class="attr-table upgradable-building-level-summary">
+            <tbody>
+              {hasValue(level.castlePoints) && <tr><th>城堡点数</th><td>{level.castlePoints}</td></tr>}
+              <tr><th>用途</th><td>{level.purposePending ? pendingText : (level.purpose ?? '无')}</td></tr>
+              <tr><th>图纸掉落地点</th><td>{level.blueprintPending ? pendingText : (level.blueprintSource ?? '无')}</td></tr>
+            </tbody>
+          </table>
+          <section class="upgradable-building-level-cost">
+            <h4>组装材料</h4>
+            {level.costPending ? <p class="muted">{pendingText}</p> : level.cost.length > 0 ? <MaterialCostList cost={level.cost} compact /> : <p>无</p>}
+          </section>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .upgradable-building-detail-hero {
+    display: grid;
+    grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+  }
+
+  .upgradable-building-detail-image-wrap {
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+  }
+
+  .upgradable-building-detail-image {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  .upgradable-building-max-count {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 4px;
+    white-space: nowrap;
+    justify-self: start;
+  }
+
+  .upgradable-building-notes,
+  .upgradable-building-levels {
+    margin-top: 18px;
+  }
+
+  .upgradable-building-notes h2,
+  .upgradable-building-levels > h2 {
+    margin-top: 0;
+  }
+
+  .upgradable-building-notes ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .upgradable-building-notes li {
+    color: var(--text);
+    white-space: pre-line;
+  }
+
+  .upgradable-building-level-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .upgradable-building-level {
+    min-width: 0;
+  }
+
+  .upgradable-building-level h3 {
+    margin: 0;
+    color: var(--accent);
+  }
+
+  .upgradable-building-level-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .upgradable-building-level-icon {
+    flex: 0 0 auto;
+    object-fit: contain;
+    cursor: zoom-in;
+  }
+
+  .upgradable-building-level-summary {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .upgradable-building-level-summary th {
+    width: auto;
+    padding-right: 24px;
+    white-space: nowrap;
+  }
+
+  .upgradable-building-level-summary td {
+    max-width: 44em;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+
+  .upgradable-building-level-cost {
+    margin-top: 18px;
+  }
+
+  .upgradable-building-level-cost h4 {
+    margin: 0 0 10px;
+    color: var(--accent);
+  }
+
+  .upgradable-building-level-cost > p {
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .upgradable-building-detail-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .upgradable-building-detail-image-wrap {
+      width: min(180px, 100%);
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+
+    .upgradable-building-level-summary td {
+      max-width: none;
+    }
+  }
+</style>

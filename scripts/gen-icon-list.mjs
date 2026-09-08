@@ -37,6 +37,7 @@ const QUALITY_NAME = {
  * 新增类别时在这里加一行。
  */
 const SOURCES = [
+  { file: 'upgradable-buildings', cat: 'upgradable-buildings', label: '可升级建筑', expand: expandUpgradableBuilding },
   { file: 'weapons', cat: 'weapons', label: '武器', parent: quality },
   // 护甲套装后面紧跟它自己的 5 件部件
   { file: 'armor', cat: 'armor', label: '护甲套装', parent: quality, expand: expandArmorSet },
@@ -101,6 +102,21 @@ function expandArmorSet(set, source) {
     rows.push({ cat: 'armor-pieces', catLabel: '护甲部件', id: piece.id, name: piece.name, parent });
   }
   return rows;
+}
+
+function expandUpgradableBuilding(building, source) {
+  const ids = building.iconMode === 'shared'
+    ? [building.iconId]
+    : (building.levels ?? [])
+      .filter((level) => level.levelRank > 0 && level.iconId)
+      .map((level) => level.iconId);
+  return ids.map((id) => ({
+    cat: source.cat,
+    catLabel: source.label,
+    id,
+    name: building.name,
+    parent: building.iconMode === 'shared' ? 'Lv1-Lv4 共用' : undefined,
+  }));
 }
 
 function fail(message) {

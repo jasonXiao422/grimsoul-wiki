@@ -20,6 +20,7 @@ import armorPieces from '../data/armor-pieces.json';
 import cabinets from '../data/cabinets.json';
 import surfaceChests from '../data/surface-chests.json';
 import fixedBuildings from '../data/fixed-buildings.json';
+import upgradableBuildings from '../data/upgradable-buildings.json';
 import skills from '../data/skills.json';
 
 export const ALL_CATEGORIES = CATEGORIES;
@@ -43,6 +44,7 @@ export const DATA_BY_CATEGORY = {
   cabinets,
   'surface-chests': surfaceChests,
   'fixed-buildings': fixedBuildings,
+  'upgradable-buildings': upgradableBuildings,
   skills,
   orders: knightOrders,
 } as const;
@@ -68,6 +70,7 @@ const ENTITY_PATH_BY_CAT: Record<string, string> = {
   cabinets: 'cabinets',
   'surface-chests': 'surface-chests',
   'fixed-buildings': 'fixed-buildings',
+  'upgradable-buildings': 'upgradable-buildings',
 };
 
 const ENTITY_LABEL_BY_CAT: Record<string, string> = {
@@ -80,6 +83,7 @@ const ENTITY_LABEL_BY_CAT: Record<string, string> = {
   cabinets: '柜子',
   'surface-chests': '地表箱子',
   'fixed-buildings': '不可升级建筑',
+  'upgradable-buildings': '可升级建筑',
 };
 
 export function getEntityHref(entity: MaterialEntity | undefined): string | undefined {

@@ -1,0 +1,2335 @@
+[
+  {
+    "id": "hua-yuan-miao-chuang",
+    "name": "花园苗床",
+    "iconCat": "upgradable-buildings",
+    "iconId": "hua-yuan-miao-chuang",
+    "iconMode": "shared",
+    "maxCount": 3,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 20,
+        "purpose": "一次性种植20个种子",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-yuan-song-mu",
+            "qty": 4
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 2
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "hua-yuan-miao-chuang"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 100,
+        "purpose": "一次性种植40个种子",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-pi-ge-ruan-guan",
+            "qty": 20
+          },
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 60
+          },
+          {
+            "material": "mat-ping-zhuang-shui",
+            "qty": 60
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "hua-yuan-miao-chuang"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 180,
+        "purpose": "一次性种植60个种子",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "hua-yuan-miao-chuang"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 260,
+        "purpose": "一次性种植80个种子",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "hua-yuan-miao-chuang"
+      }
+    ]
+  },
+  {
+    "id": "rong-lu",
+    "name": "熔炉",
+    "iconCat": "upgradable-buildings",
+    "iconId": "rong-lu",
+    "iconMode": "shared",
+    "maxCount": 2,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 30,
+        "purpose": "一次性烧制20个矿石",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-shi-hui-yan",
+            "qty": 11
+          },
+          {
+            "material": "mat-tong-kuang-shi",
+            "qty": 6
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "rong-lu"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 110,
+        "purpose": "一次性烧制40个矿石",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-jie-shui-pan",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-mei-tan",
+            "qty": 5
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-xian",
+            "qty": 40
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 40
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "rong-lu"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 190,
+        "purpose": "一次性烧制60个矿石",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "rong-lu"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 270,
+        "purpose": "一次性烧制80个矿石",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "rong-lu"
+      }
+    ]
+  },
+  {
+    "id": "mu-gong-tai",
+    "name": "木工台",
+    "iconCat": "upgradable-buildings",
+    "iconId": "mu-gong-tai",
+    "iconMode": "shared",
+    "maxCount": 2,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 80,
+        "purpose": "一次性制作20块木板",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-yuan-song-mu",
+            "qty": 14
+          },
+          {
+            "material": "mat-tong-kuang-shi",
+            "qty": 6
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "mu-gong-tai"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 160,
+        "purpose": "一次性制作40块木板",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-shou-ju",
+            "qty": 10
+          },
+          {
+            "material": "mat-mu-gong-pao",
+            "qty": 10
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 40
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 40
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "mu-gong-tai"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 240,
+        "purpose": "一次性制作60块木板",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "mu-gong-tai"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 320,
+        "purpose": "一次性制作80块木板",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "mu-gong-tai"
+      }
+    ]
+  },
+  {
+    "id": "shi-jiang-tai",
+    "name": "石匠台",
+    "iconCat": "upgradable-buildings",
+    "iconId": "shi-jiang-tai",
+    "iconMode": "shared",
+    "maxCount": 2,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 150,
+        "purpose": "一次性制作20块石块",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 22
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 8
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 10
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "shi-jiang-tai"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 230,
+        "purpose": "一次性制作40块石块",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-xie-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-xian",
+            "qty": 20
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 20
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 40
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 40
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "shi-jiang-tai"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 310,
+        "purpose": "一次性制作60块石块",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "shi-jiang-tai"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 390,
+        "purpose": "一次性制作80块石块",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "shi-jiang-tai"
+      }
+    ]
+  },
+  {
+    "id": "feng-ren-tai",
+    "name": "缝纫台",
+    "iconCat": "upgradable-buildings",
+    "iconId": "feng-ren-tai",
+    "iconMode": "shared",
+    "maxCount": 2,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 150,
+        "purpose": "一次性制作20个布制品",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 25
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 10
+          },
+          {
+            "material": "mat-pi-tiao",
+            "qty": 10
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 10
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "feng-ren-tai"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 230,
+        "purpose": "一次性制作40个布制品",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-jian-dao",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 5
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 20
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 40
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 40
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 40
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "feng-ren-tai"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 310,
+        "purpose": "一次性制作60个布制品",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "feng-ren-tai"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 390,
+        "purpose": "一次性制作80个布制品",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "feng-ren-tai"
+      }
+    ]
+  },
+  {
+    "id": "kong-lang-peng",
+    "name": "恐狼棚",
+    "iconCat": "upgradable-buildings",
+    "iconId": "kong-lang-peng-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [
+      {
+        "name": "恐狼围栏",
+        "quality": "unique",
+        "description": "恐狼棚中的宠物最大数量+1"
+      },
+      {
+        "name": "恐狼食盆",
+        "quality": "rare",
+        "description": "恐狼棚中最大食物容量+5"
+      },
+      {
+        "name": "恐狼水盆",
+        "quality": "rare",
+        "description": "恐狼棚中最大水容量+5"
+      }
+    ],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 200,
+        "purpose": "允许养殖一共3只恐狼\n允许驻扎在城堡一共0只恐狼",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-yuan-song-mu",
+            "qty": 20
+          },
+          {
+            "material": "mat-shi-hui-yan",
+            "qty": 20
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 5
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 5
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "kong-lang-peng-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 500,
+        "purpose": "允许养殖一共7只恐狼\n允许驻扎在城堡一共1只恐狼",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-bo-tao",
+            "qty": 4
+          },
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 50
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 50
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 30
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被弃地下城",
+        "blueprintPending": false,
+        "iconId": "kong-lang-peng-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 1000,
+        "purpose": "允许养殖一共12只恐狼\n允许驻扎在城堡一共2只恐狼",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-bo-tao",
+            "qty": 10
+          },
+          {
+            "material": "mat-yuan-hua-mu",
+            "qty": 50
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 50
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 20
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 60
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被弃地下城",
+        "blueprintPending": false,
+        "iconId": "kong-lang-peng-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 1700,
+        "purpose": "允许养殖一共20只恐狼\n允许驻扎在城堡一共3只恐狼",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-bo-tao",
+            "qty": 20
+          },
+          {
+            "material": "mat-xun-lian-ren-ou",
+            "qty": 2
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 100
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 50
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 150
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "继母艾莎；叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "kong-lang-peng-lv4"
+      }
+    ]
+  },
+  {
+    "id": "mao-wo",
+    "name": "猫窝",
+    "iconCat": "upgradable-buildings",
+    "iconId": "mao-wo-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [
+      {
+        "name": "猫咪床",
+        "quality": "unique",
+        "description": "猫窝中的宠物最大数量+1"
+      },
+      {
+        "name": "猫咪食盆",
+        "quality": "rare",
+        "description": "猫窝中最大食物容量+5"
+      },
+      {
+        "name": "猫咪水盆",
+        "quality": "rare",
+        "description": "猫窝中最大水容量+5"
+      }
+    ],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 200,
+        "purpose": "允许养殖一共3只猫\n允许驻扎在城堡一共0只猫",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-yuan-song-mu",
+            "qty": 20
+          },
+          {
+            "material": "mat-shi-hui-yan",
+            "qty": 20
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 5
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 5
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "mao-wo-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 500,
+        "purpose": "允许养殖一共7只猫\n允许驻扎在城堡一共1只猫",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-mao-zhua-ban",
+            "qty": 4
+          },
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 50
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 50
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 10
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 30
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "mao-wo-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 1000,
+        "purpose": "允许养殖一共12只猫\n允许驻扎在城堡一共2只猫",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-mao-zhua-ban",
+            "qty": 10
+          },
+          {
+            "material": "mat-yuan-hua-mu",
+            "qty": 50
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 50
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 20
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 60
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "mao-wo-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 1700,
+        "purpose": "允许养殖一共20只猫\n允许驻扎在城堡一共3只猫",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-mao-zhua-ban",
+            "qty": 20
+          },
+          {
+            "material": "mat-mao-mi-zhen-tou",
+            "qty": 4
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 100
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 50
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 150
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "继母艾莎；叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "mao-wo-lv4"
+      }
+    ]
+  },
+  {
+    "id": "zao-tai",
+    "name": "灶台",
+    "iconCat": "upgradable-buildings",
+    "iconId": "zao-tai-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 200,
+        "purpose": "在城堡中饥饿和口渴的积累速度降低25%",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 20
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 10
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "红猎",
+        "blueprintPending": false,
+        "iconId": "zao-tai-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 0,
+        "purpose": "在城堡中饥饿和口渴的积累速度降低50%",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-chi-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-cha-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 20
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 40
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 20
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "zao-tai-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 0,
+        "purpose": "在城堡中饥饿和口渴的积累速度降低75%",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-chi-zi",
+            "qty": 60
+          },
+          {
+            "material": "mat-cha-zi",
+            "qty": 60
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 40
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 80
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "zao-tai-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 0,
+        "purpose": "在城堡中饥饿和口渴的积累速度降低100%",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 40
+          },
+          {
+            "material": "mat-chi-zi",
+            "qty": 180
+          },
+          {
+            "material": "mat-cha-zi",
+            "qty": 180
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 100
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 80
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 200
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 200
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 60
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "zao-tai-lv4"
+      }
+    ]
+  },
+  {
+    "id": "ji-tan",
+    "name": "祭坛",
+    "iconCat": "upgradable-buildings",
+    "iconId": "ji-tan-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv0",
+        "levelRank": 0,
+        "castlePoints": 0,
+        "purpose": "无",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 60
+          },
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 20
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": null
+      },
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 500,
+        "purpose": "技能槽位：8",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-ji-tan-he-xin",
+            "qty": 1
+          },
+          {
+            "material": "mat-ji-tan-you-bian-ban",
+            "qty": 1
+          },
+          {
+            "material": "mat-ji-tan-zuo-bian-ban",
+            "qty": 1
+          },
+          {
+            "material": "mat-sheng-can-bei",
+            "qty": 40
+          },
+          {
+            "material": "mat-xiang",
+            "qty": 50
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 80
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 100
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 200
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "ji-tan-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 2000,
+        "purpose": "技能槽位：12",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-ming-yun-zhi-shu",
+            "qty": 2
+          },
+          {
+            "material": "mat-dao-gao-ling",
+            "qty": 200
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 200
+          },
+          {
+            "material": "mat-xiang",
+            "qty": 150
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 300
+          },
+          {
+            "material": "mat-sheng-can-bei",
+            "qty": 100
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被弃地下城",
+        "blueprintPending": false,
+        "iconId": "ji-tan-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 3000,
+        "purpose": "技能槽位：16",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-si-zhe-zhi-shu",
+            "qty": 4
+          },
+          {
+            "material": "mat-pan-tu-zhi-xue",
+            "qty": 200
+          },
+          {
+            "material": "mat-dao-gao-ling",
+            "qty": 400
+          },
+          {
+            "material": "mat-tou-gu",
+            "qty": 200
+          },
+          {
+            "material": "mat-sheng-can-bei",
+            "qty": 300
+          },
+          {
+            "material": "mat-xiang",
+            "qty": 300
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 600
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 900
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被弃地下城",
+        "blueprintPending": false,
+        "iconId": "ji-tan-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 4000,
+        "purpose": "技能槽位：20",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "ji-tan-lv4"
+      }
+    ]
+  },
+  {
+    "id": "shen-miao",
+    "name": "神庙",
+    "iconCat": "upgradable-buildings",
+    "iconId": "shen-miao-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 300,
+        "purpose": "可以让您加入骑士团",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-shi-hui-yan",
+            "qty": 50
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 50
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 20
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 40
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "shen-miao-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 800,
+        "purpose": "可以让您创建骑士团",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 10
+          },
+          {
+            "material": "mat-lie-jiu",
+            "qty": 10
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 40
+          },
+          {
+            "material": "mat-xiang",
+            "qty": 15
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 40
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 70
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被弃地下城；3级图",
+        "blueprintPending": false,
+        "iconId": "shen-miao-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 1500,
+        "purpose": null,
+        "purposePending": true,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "shen-miao-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 2500,
+        "purpose": null,
+        "purposePending": true,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "shen-miao-lv4"
+      }
+    ]
+  },
+  {
+    "id": "zhi-tu-shi-zhuo-zi",
+    "name": "制图师桌子",
+    "iconCat": "upgradable-buildings",
+    "iconId": "zhi-tu-shi-zhuo-zi-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv0",
+        "levelRank": 0,
+        "castlePoints": 0,
+        "purpose": "可以用地图碎片制作地图盒子和地图",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 20
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 5
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 20
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被诅咒的天文台",
+        "blueprintPending": false,
+        "iconId": null
+      },
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 500,
+        "purpose": "可以制作普通地图",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-di-qiu-yi",
+            "qty": 1
+          },
+          {
+            "material": "mat-gan-jing-de-yang-pi-zhi",
+            "qty": 30
+          },
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 10
+          },
+          {
+            "material": "mat-xian",
+            "qty": 5
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-bu-liao",
+            "qty": 20
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被诅咒的天文台",
+        "blueprintPending": false,
+        "iconId": "zhi-tu-shi-zhuo-zi-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 1000,
+        "purpose": "可以制作稀有地图",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-wang-yuan-jing",
+            "qty": 4
+          },
+          {
+            "material": "mat-di-qiu-yi",
+            "qty": 8
+          },
+          {
+            "material": "mat-gan-jing-de-yang-pi-zhi",
+            "qty": 150
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 200
+          },
+          {
+            "material": "mat-pi-ge",
+            "qty": 200
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 300
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "被诅咒的天文台",
+        "blueprintPending": false,
+        "iconId": "zhi-tu-shi-zhuo-zi-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 1500,
+        "purpose": "可以制作独特地图",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "zhi-tu-shi-zhuo-zi-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 2000,
+        "purpose": "可以制作传奇地图",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "zhi-tu-shi-zhuo-zi-lv4"
+      }
+    ]
+  },
+  {
+    "id": "hu-jia-shi-xiu-li-zhuo",
+    "name": "护甲师修理桌",
+    "iconCat": "upgradable-buildings",
+    "iconId": "hu-jia-shi-xiu-li-zhuo-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv0",
+        "levelRank": 0,
+        "castlePoints": 0,
+        "purpose": "可将两件残缺耐久的相同护甲耐久相加",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 60
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 60
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 100
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 60
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "哈特；哈利德；弗拉格纳",
+        "blueprintPending": false,
+        "iconId": null
+      },
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 500,
+        "purpose": "可修复普通护甲",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-suan-ye",
+            "qty": 1
+          },
+          {
+            "material": "mat-jia-ju",
+            "qty": 2
+          },
+          {
+            "material": "mat-chui-zi",
+            "qty": 3
+          },
+          {
+            "material": "mat-feng-yi-zhen-tao-zhuang",
+            "qty": 4
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 50
+          },
+          {
+            "material": "mat-da-kou",
+            "qty": 100
+          },
+          {
+            "material": "mat-xian",
+            "qty": 150
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 200
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "hu-jia-shi-xiu-li-zhuo-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 1000,
+        "purpose": "可修复稀有护甲",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-zhui-zi",
+            "qty": 4
+          },
+          {
+            "material": "mat-suan-ye",
+            "qty": 4
+          },
+          {
+            "material": "mat-feng-yi-zhen-tao-zhuang",
+            "qty": 10
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 150
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "hu-jia-shi-xiu-li-zhuo-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 1500,
+        "purpose": "可修复独特护甲",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-la-xian",
+            "qty": 4
+          },
+          {
+            "material": "mat-zhui-zi",
+            "qty": 8
+          },
+          {
+            "material": "mat-suan-ye",
+            "qty": 8
+          },
+          {
+            "material": "mat-jia-ju",
+            "qty": 20
+          },
+          {
+            "material": "mat-feng-yi-zhen-tao-zhuang",
+            "qty": 20
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 200
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "hu-jia-shi-xiu-li-zhuo-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 2000,
+        "purpose": "可修复传奇护甲",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "hu-jia-shi-xiu-li-zhuo-lv4"
+      }
+    ]
+  },
+  {
+    "id": "tie-jiang-shi-xiu-li-zhuo",
+    "name": "铁匠师修理桌",
+    "iconCat": "upgradable-buildings",
+    "iconId": "tie-jiang-shi-xiu-li-zhuo-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv0",
+        "levelRank": 0,
+        "castlePoints": 0,
+        "purpose": "可将两把残缺耐久的相同武器耐久相加",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 60
+          },
+          {
+            "material": "mat-shi-kuai",
+            "qty": 60
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 100
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 60
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "哈特；哈利德；弗拉格纳",
+        "blueprintPending": false,
+        "iconId": null
+      },
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 500,
+        "purpose": "可修复普通武器",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-suan-ye",
+            "qty": 1
+          },
+          {
+            "material": "mat-jia-ju",
+            "qty": 2
+          },
+          {
+            "material": "mat-sha-lun",
+            "qty": 2
+          },
+          {
+            "material": "mat-tie-jiang-chui",
+            "qty": 3
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 40
+          },
+          {
+            "material": "mat-tong-ding",
+            "qty": 100
+          },
+          {
+            "material": "mat-pi-tiao",
+            "qty": 150
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 200
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "tie-jiang-shi-xiu-li-zhuo-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 1000,
+        "purpose": "可修复稀有武器",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-zao-zi",
+            "qty": 2
+          },
+          {
+            "material": "mat-suan-ye",
+            "qty": 6
+          },
+          {
+            "material": "mat-chui-zi",
+            "qty": 10
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 100
+          },
+          {
+            "material": "mat-qing-tong-ingot",
+            "qty": 150
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "tie-jiang-shi-xiu-li-zhuo-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 1500,
+        "purpose": "可修复独特武器",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-tie-zhen",
+            "qty": 4
+          },
+          {
+            "material": "mat-zao-zi",
+            "qty": 8
+          },
+          {
+            "material": "mat-suan-ye",
+            "qty": 12
+          },
+          {
+            "material": "mat-jia-ju",
+            "qty": 20
+          },
+          {
+            "material": "mat-chui-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 200
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 200
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "tie-jiang-shi-xiu-li-zhuo-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 2000,
+        "purpose": "可修复传奇武器",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "tie-jiang-shi-xiu-li-zhuo-lv4"
+      }
+    ]
+  },
+  {
+    "id": "mo-fa-bao-xiang",
+    "name": "魔法宝箱",
+    "iconCat": "upgradable-buildings",
+    "iconId": "mo-fa-bao-xiang",
+    "iconMode": "shared",
+    "maxCount": 1,
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv0",
+        "levelRank": 0,
+        "castlePoints": 0,
+        "purpose": "当你在地下城的一个房间里找到魔法宝箱，可以从中拿出你在家里放入的任何东西，但是只能拿出不能放入",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 50
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 40
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 40
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "酷吏地下城一层",
+        "blueprintPending": false,
+        "iconId": null
+      },
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 200,
+        "purpose": "可储存5格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 50
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 140
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 140
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 140
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 140
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 140
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 350
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 350
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "酷吏地下城一层",
+        "blueprintPending": false,
+        "iconId": "mo-fa-bao-xiang"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 400,
+        "purpose": "可储存10格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 55
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 155
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 155
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 155
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 155
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 155
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 385
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 385
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "mo-fa-bao-xiang"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 800,
+        "purpose": "可储存15格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 60
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 160
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 160
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 160
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 160
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 160
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 400
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 400
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "mo-fa-bao-xiang"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 1600,
+        "purpose": "可储存20格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 65
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 170
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 170
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 170
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 170
+          },
+          {
+            "material": "mat-ling-hun-sui-pian",
+            "qty": 170
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 420
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 420
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "叛徒地下墓穴",
+        "blueprintPending": false,
+        "iconId": "mo-fa-bao-xiang"
+      }
+    ]
+  },
+  {
+    "id": "da-che",
+    "name": "大车",
+    "iconCat": "upgradable-buildings",
+    "iconId": "da-che-lv4",
+    "iconMode": "per-level",
+    "maxCount": 1,
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv0",
+        "levelRank": 0,
+        "castlePoints": 0,
+        "purpose": "一种运输工具，消耗比马多10%燕麦，允许你携带更多资源",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-tong-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 30
+          },
+          {
+            "material": "mat-xian",
+            "qty": 30
+          },
+          {
+            "material": "mat-pi-tiao",
+            "qty": 25
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "大车炮台",
+        "blueprintPending": false,
+        "iconId": null
+      },
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 2000,
+        "purpose": "可储存10格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-da-che-zhou",
+            "qty": 4
+          },
+          {
+            "material": "mat-lun-zi",
+            "qty": 4
+          },
+          {
+            "material": "mat-che-ba",
+            "qty": 2
+          },
+          {
+            "material": "mat-hou-bu",
+            "qty": 100
+          },
+          {
+            "material": "mat-la-zhu",
+            "qty": 150
+          },
+          {
+            "material": "mat-lian-tiao",
+            "qty": 150
+          },
+          {
+            "material": "mat-pi-tiao",
+            "qty": 400
+          },
+          {
+            "material": "mat-sui-tong-pian",
+            "qty": 500
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "da-che-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 2200,
+        "purpose": "可储存15格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-zhou-gong",
+            "qty": 4
+          },
+          {
+            "material": "mat-da-che-zhou",
+            "qty": 8
+          },
+          {
+            "material": "mat-lun-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 300
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 500
+          },
+          {
+            "material": "mat-tie-sui-pian",
+            "qty": 500
+          },
+          {
+            "material": "mat-tie-ding",
+            "qty": 900
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 900
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "da-che-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 2600,
+        "purpose": "可储存20格",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-kuan-chang-de-tong",
+            "qty": 4
+          },
+          {
+            "material": "mat-zhou-gong",
+            "qty": 8
+          },
+          {
+            "material": "mat-da-che-zhou",
+            "qty": 8
+          },
+          {
+            "material": "mat-lun-zi",
+            "qty": 20
+          },
+          {
+            "material": "mat-ji-xie-zhuang-zhi",
+            "qty": 300
+          },
+          {
+            "material": "mat-ying-hua-mao-ding",
+            "qty": 300
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 300
+          },
+          {
+            "material": "mat-mo-fa-tie-ding",
+            "qty": 300
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "da-che-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 3400,
+        "purpose": "可储存25格",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": false,
+        "iconId": "da-che-lv4"
+      }
+    ]
+  },
+  {
+    "id": "chuan",
+    "name": "船",
+    "iconCat": "upgradable-buildings",
+    "iconId": "chuan-lv4",
+    "iconMode": "per-level",
+    "maxCount": "无（码头自带建筑）",
+    "tags": [
+      "图纸解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": "无",
+        "purpose": "从东卢比尼亚到西卢比尼亚的必不可少的交通工具，但只可载人",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-fan-bu",
+            "qty": 40
+          },
+          {
+            "material": "mat-heng-gan",
+            "qty": 10
+          },
+          {
+            "material": "mat-duo-bing",
+            "qty": 1
+          },
+          {
+            "material": "mat-wei-gan",
+            "qty": 2
+          },
+          {
+            "material": "mat-qing-tong-nail",
+            "qty": 600
+          },
+          {
+            "material": "mat-sheng-zi",
+            "qty": 600
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 800
+          },
+          {
+            "material": "mat-mo-fa-mu-cai",
+            "qty": 400
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "无需图纸",
+        "blueprintPending": false,
+        "iconId": "chuan-lv1"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": null,
+        "purpose": "可载人和恐狼",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "chuan-lv2"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": null,
+        "purpose": "可载人，恐狼和马",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "chuan-lv3"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": null,
+        "purpose": "可载人，恐狼，马和大车",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": null,
+        "blueprintPending": true,
+        "iconId": "chuan-lv4"
+      }
+    ]
+  }
+]

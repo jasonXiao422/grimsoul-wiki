@@ -44,6 +44,7 @@ FILES = {
     "cabinets": ("柜子数据.xlsx", "Sheet1"),
     "surface-chests": ("地表箱子数据.xlsx", "Sheet1"),
     "fixed-buildings": ("不可升级建筑数据.xlsx", "Sheet1"),
+    "upgradable-buildings": ("可升级建筑数据.xlsx", "Sheet1"),
     "skills": ("技能数据.xlsx", "技能"),
 }
 
@@ -647,6 +648,99 @@ def build_fixed_buildings():
         if raw_assemble_cost == "待补充":
             item["assembleCostPending"] = True
         out.append(item)
+    return out
+
+
+def rich_note_parts(value):
+    """读取可升级建筑备注中的富文本配件名、说明和品质。"""
+    if value is None:
+        return []
+    notes = []
+    pending = None
+    for run in value:
+        color = getattr(getattr(run, "font", None), "color", None)
+        rgb = color.rgb if color and color.type == "rgb" else None
+        if rgb in ("FFFFC000", "FF0070C0"):
+            pending = {
+                "name": run.text.strip(),
+                "quality": QUALITY_BY_FILL[rgb],
+            }
+            continue
+        if pending:
+            description = run.text.strip().lstrip("：:").strip()
+            notes.append({**pending, "description": description})
+            pending = None
+    return notes
+
+
+def build_upgradable_buildings():
+    """可升级建筑表：按 A 列合并范围分组，C 列保存各级数据。"""
+    fn, sheet = FILES["upgradable-buildings"]
+    wb = load_workbook(SRC / fn, read_only=False, data_only=False, rich_text=True)
+    ws = wb[sheet]
+    name_ranges = sorted(
+        (rng for rng in ws.merged_cells.ranges if rng.min_col == 1 and rng.min_row > 1),
+        key=lambda rng: rng.min_row,
+    )
+    out = []
+
+    for name_range in name_ranges:
+        start = name_range.min_row
+        end = name_range.max_row
+        name_cell = ws.cell(start, 1)
+        name = text(name_cell.value)
+        if not name:
+            continue
+
+        font_color = name_cell.font.color
+        is_red = bool(font_color and font_color.type == "rgb" and font_color.rgb == "FFFF0000")
+        icon_mode = "shared" if is_red else "per-level"
+        item_id = make_id(name)
+        levels = []
+        notes = rich_note_parts(ws.cell(start, 9).value)
+
+        for row_number in range(start, end + 1):
+            level_raw = text(ws.cell(row_number, 3).value)
+            if not level_raw:
+                continue
+            level = "Lv0" if level_raw == "建造材料" else level_raw
+            level_number = 0 if level == "Lv0" else int(level.removeprefix("Lv"))
+            raw_cost = text(ws.cell(row_number, 6).value)
+            raw_blueprint = text(ws.cell(row_number, 7).value)
+            raw_purpose = text(ws.cell(row_number, 5).value)
+            cost_pending = raw_cost == "游戏未出"
+            blueprint_pending = raw_blueprint == "游戏未出"
+            purpose_pending = raw_purpose == "游戏未出"
+            icon_id = None
+            if level_number > 0:
+                icon_id = item_id if is_red else f"{item_id}-lv{level_number}"
+            levels.append({
+                "level": level,
+                "levelRank": level_number,
+                "castlePoints": clean(ws.cell(row_number, 4).value),
+                "purpose": None if purpose_pending else raw_purpose,
+                "purposePending": purpose_pending,
+                "cost": [] if raw_cost in (None, "无", "游戏未出") else parse_cost(raw_cost),
+                "costPending": cost_pending,
+                "blueprintSource": None if raw_blueprint in (None, "无", "游戏未出") else raw_blueprint,
+                "blueprintPending": blueprint_pending,
+                "iconId": icon_id,
+            })
+
+        list_icon_id = item_id if is_red else f"{item_id}-lv4"
+        out.append({
+            "id": item_id,
+            "name": name,
+            "iconCat": "upgradable-buildings",
+            "iconId": list_icon_id,
+            "iconMode": icon_mode,
+            "maxCount": clean(ws.cell(start, 2).value),
+            "tags": [tag.strip() for tag in (text(ws.cell(start, 8).value) or "").split("；") if tag.strip()],
+            "notes": notes,
+            "levels": levels,
+        })
+
+    wb.close()
     return out
 
 
@@ -1549,7 +1643,7 @@ def build_boxes(weapons, sharpen=()):
     return boxes
 
 
-def build_materials(*datasets, skip_names=()):
+def build_materials(*datasets, skip_names=(), existing=None, extra_materials=()):
     """
     从所有配方里反推材料总表。
 
@@ -1580,10 +1674,31 @@ def build_materials(*datasets, skip_names=()):
                     if name in skip:
                         continue
                     counts[name] = counts.get(name, 0) + 1
-    return [
-        {"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"}
-        for name, n in sorted(counts.items(), key=lambda kv: -kv[1])
-    ]
+    if existing is None:
+        return [
+            {"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"}
+            for name, n in sorted(counts.items(), key=lambda kv: -kv[1])
+        ]
+
+    materials = list(existing)
+    known_names = {material["name"] for material in materials}
+    for name, n in sorted(counts.items(), key=lambda kv: -kv[1]):
+        if name in known_names:
+            continue
+        materials.append({"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"})
+        known_names.add(name)
+    for extra in extra_materials:
+        name = extra["name"]
+        if name in known_names:
+            continue
+        materials.append({
+            "id": make_id(name, "mat"),
+            "name": name,
+            "usedIn": 0,
+            "quality": extra["quality"],
+        })
+        known_names.add(name)
+    return materials
 
 
 def normalize_material_name(value):
@@ -1682,9 +1797,21 @@ def main():
     fixed_buildings = build_fixed_buildings()
     skills = build_skills()
 
+    # 先生成全部现有类别及现有材料，确保新类别的 make_id 排在它们之后。
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, cabinets, surface_chests, fixed_buildings, consumables,
                                 skip_names={c["name"] for c in consumables})
+    upgradable_buildings = build_upgradable_buildings()
+    accessory_materials = [
+        {"name": note["name"], "quality": note["quality"]}
+        for building in upgradable_buildings
+        for note in building.get("notes", [])
+    ]
+    materials = build_materials(
+        upgradable_buildings,
+        existing=materials,
+        extra_materials=accessory_materials,
+    )
     attach_material_descriptions(materials)
 
     # 材料名若与某个真实条目同名，记录跳转目标
@@ -1693,6 +1820,7 @@ def main():
                       ("armor-pieces", armor_pieces), ("shields", shields),
                       ("backpacks", backpacks), ("surface-chests", surface_chests),
                       ("fixed-buildings", fixed_buildings),
+                      ("upgradable-buildings", upgradable_buildings),
                       ("consumables", consumables)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
@@ -1700,7 +1828,7 @@ def main():
                 catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
     link_material_entities(materials, catalog)
 
-    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets, surface_chests, fixed_buildings)
+    link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets, surface_chests, fixed_buildings, upgradable_buildings)
 
     # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
     link_recipe_entities(consumables, materials, catalog)
@@ -1722,6 +1850,7 @@ def main():
     write("cabinets", cabinets)
     write("surface-chests", surface_chests)
     write("fixed-buildings", fixed_buildings)
+    write("upgradable-buildings", upgradable_buildings)
     write("skills", skills)
     write("materials", materials)
 

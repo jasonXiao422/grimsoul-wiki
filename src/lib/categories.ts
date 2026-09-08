@@ -225,6 +225,16 @@ export const CATEGORIES: CategoryDef[] = [
     filters: [],
   },
   {
+    slug: 'upgradable-buildings',
+    label: '可升级建筑',
+    blurb: '可升级建筑的等级、用途、材料与图纸来源',
+    file: 'upgradable-buildings',
+    columns: [
+      { key: 'name', label: '名称', sortable: true },
+    ],
+    filters: ['tags'],
+  },
+  {
     slug: 'skills',
     label: '技能',
     blurb: '技能效果、等级数值与掉落地点',
