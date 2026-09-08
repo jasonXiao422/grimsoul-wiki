@@ -36,7 +36,7 @@ const fallback =
       <dl class="fixed-building-summary">
         {hasValue(building.castlePoints) && <div class="tag fixed-building-summary-item"><dt class="eyebrow">城堡点数</dt><dd>{building.castlePoints}</dd></div>}
         {hasValue(building.capacity) && <div class="tag fixed-building-summary-item"><dt class="eyebrow">储存空间</dt><dd>{building.capacity}</dd></div>}
-        {hasValue(building.maxCount) && <div class="tag fixed-building-summary-item"><dt class="eyebrow">最多建造数量</dt><dd>{building.maxCount}</dd></div>}
+        {hasValue(building.maxCount) && <div class="tag fixed-building-summary-item fixed-building-max-count"><dt class="eyebrow">最多建造数量</dt><dd style="color:var(--accent)">{building.maxCount}</dd></div>}
       </dl>
     </div>
   </section>

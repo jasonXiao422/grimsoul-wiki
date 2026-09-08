@@ -3,8 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ImageZoom from '../../components/ImageZoom.astro';
 import MaterialCostList from '../../components/MaterialCostList.astro';
+import materials from '../../data/materials.json';
 import upgradableBuildings from '../../data/upgradable-buildings.json';
-import { getItemIconSrc } from '../../lib/data';
+import { getItemIconSrc, getMaterialHref } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
 export function getStaticPaths() {
@@ -13,6 +14,7 @@ export function getStaticPaths() {
 
 const { building } = Astro.props;
 const levels = [...building.levels].sort((a, b) => a.levelRank - b.levelRank);
+const materialByName = new Map(materials.map((material) => [material.name, material]));
 const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '';
 const getQualityMeta = (quality: unknown) =>
   typeof quality === 'string' && quality in QUALITY_META
@@ -51,14 +53,40 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
 
   {building.notes.length > 0 && (
     <section class="upgradable-building-notes panel">
-      <h2>备注</h2>
-      <ul>
+      <h2 class="detail-panel-title">备注</h2>
+      <ul class="recipe-list compact upgradable-building-notes-list">
         {building.notes.map((note) => {
-          const quality = getQualityMeta(note.quality);
+          const material = materialByName.get(note.name);
+          const quality = getQualityMeta(material?.quality ?? note.quality);
+          const qualityStyle = `--quality-border:${quality.border};--quality-glow:${quality.glow}`;
           return (
             <li>
-              <strong style={`color:${quality.text}`}>{note.name}</strong>
-              <span>：{note.description}</span>
+              {material ? (
+                <a href={getMaterialHref(material)}>
+                  <span class="upgradable-building-note-icon">
+                    <img
+                      class="item-icon quality-icon"
+                      src={getItemIconSrc('materials', material)}
+                      alt={material.name}
+                      loading="lazy"
+                      style={qualityStyle}
+                      data-fallback={fallback}
+                      onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                    />
+                  </span>
+                  <span class="upgradable-building-note-content">
+                    <span class="upgradable-building-note-name" style={`color:${quality.text}`}>{material.name}</span>
+                    <span class="upgradable-building-note-description">：{note.description}</span>
+                  </span>
+                </a>
+              ) : (
+                <span>
+                  <span class="upgradable-building-note-content">
+                    <strong class="upgradable-building-note-name" style={`color:${quality.text}`}>{note.name}</strong>
+                    <span class="upgradable-building-note-description">：{note.description}</span>
+                  </span>
+                </span>
+              )}
             </li>
           );
         })}
@@ -121,13 +149,14 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     border-radius: 6px;
   }
 
-  .upgradable-building-max-count {
+  .upgradable-building-detail-hero .upgradable-building-max-count {
     display: inline-block;
     width: fit-content;
     max-width: 100%;
     margin-top: 4px;
     white-space: nowrap;
     justify-self: start;
+    color: var(--accent);
   }
 
   .upgradable-building-notes,
@@ -140,16 +169,43 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     margin-top: 0;
   }
 
-  .upgradable-building-notes ul {
-    display: grid;
-    gap: 8px;
+  .upgradable-building-notes .upgradable-building-notes-list {
     margin: 0;
-    padding-left: 20px;
   }
 
-  .upgradable-building-notes li {
+  .upgradable-building-notes-list a {
+    display: flex;
+    align-items: center;
+  }
+
+  .upgradable-building-notes-list .item-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .upgradable-building-note-icon {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    align-self: center;
+  }
+
+  .upgradable-building-note-content {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .upgradable-building-note-name {
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .upgradable-building-note-description {
+    min-width: 0;
     color: var(--text);
     white-space: pre-line;
+    overflow-wrap: anywhere;
   }
 
   .upgradable-building-level-grid {
@@ -219,6 +275,10 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
       width: min(180px, 100%);
       height: auto;
       aspect-ratio: 1 / 1;
+    }
+
+    .upgradable-building-notes .upgradable-building-notes-list {
+      grid-template-columns: 1fr;
     }
 
     .upgradable-building-level-summary td {
