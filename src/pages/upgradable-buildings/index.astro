@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import upgradableBuildings from '../../data/upgradable-buildings.json';
-import { getItemIconSrc } from '../../lib/data';
 import { QUALITY_META } from '../../lib/quality';
 
 const tags = [...new Set(upgradableBuildings.flatMap((building) => building.tags))];
@@ -41,7 +40,7 @@ const qualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-g
         <div class="upgradable-building-card-image">
           <img
             class="upgradable-building-card-icon quality-icon"
-            src={getItemIconSrc('upgradable-buildings', building)}
+            src={`/images/upgradable-buildings/${building.id}-cover.webp`}
             alt={building.name}
             loading="lazy"
             style={qualityStyle}

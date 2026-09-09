@@ -110,13 +110,22 @@ function expandUpgradableBuilding(building, source) {
     : (building.levels ?? [])
       .filter((level) => level.levelRank > 0 && level.iconId)
       .map((level) => level.iconId);
-  return ids.map((id) => ({
+  return [
+    {
+      cat: source.cat,
+      catLabel: source.label,
+      id: `${building.id}-cover`,
+      name: building.name,
+      parent: '列表封面',
+    },
+    ...ids.map((id) => ({
     cat: source.cat,
     catLabel: source.label,
     id,
     name: building.name,
     parent: building.iconMode === 'shared' ? 'Lv1-Lv4 共用' : undefined,
-  }));
+    })),
+  ];
 }
 
 function fail(message) {

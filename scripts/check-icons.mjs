@@ -16,6 +16,11 @@ for (const f of FILES) {
   if (!fs.existsSync(p)) continue;
   for (const item of JSON.parse(fs.readFileSync(p, 'utf8'))) {
     if (f === 'upgradable-buildings') {
+      const coverPath = `public/images/upgradable-buildings/${item.id}-cover.webp`;
+      if (!checkedIcons.has(coverPath)) {
+        checkedIcons.add(coverPath);
+        if (!fs.existsSync(coverPath)) missing.push(`upgradable-buildings/${item.id}-cover.webp  (${item.name} 列表封面)`);
+      }
       for (const level of item.levels ?? []) {
         if (!level.iconId) continue;
         const iconPath = `public/images/upgradable-buildings/${level.iconId}.webp`;

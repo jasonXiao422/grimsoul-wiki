@@ -34,7 +34,7 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     <div class="upgradable-building-detail-image-wrap">
       <img
         class="upgradable-building-detail-image quality-icon"
-        src={getItemIconSrc('upgradable-buildings', building)}
+        src={`/images/upgradable-buildings/${building.id}-cover.webp`}
         alt={building.name}
         style={commonQualityStyle}
         data-fallback={fallback}
@@ -99,17 +99,32 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     <div class="upgradable-building-level-grid">
       {levels.map((level) => (
         <article class="upgradable-building-level panel">
+          {(() => {
+            const levelPending = level.purposePending || level.costPending || level.blueprintPending;
+            return (
           <div class="upgradable-building-level-heading">
             <h3>{level.level}</h3>
-            {building.iconMode === 'per-level' && level.iconId && (
-              <ImageZoom
-                src={`/images/upgradable-buildings/${level.iconId}.webp`}
-                alt={`${building.name} ${level.level}`}
-                class="upgradable-building-level-icon quality-icon"
-                style={`${commonQualityStyle};width:180px;height:180px;max-width:180px;max-height:180px;box-sizing:border-box;border-radius:6px`}
-              />
+            {building.iconMode === 'per-level' && (levelPending || level.iconId) && (
+              levelPending ? (
+                <div
+                  class="upgradable-building-level-icon upgradable-building-level-placeholder quality-icon"
+                  style={`${commonQualityStyle};width:180px;height:180px;box-sizing:border-box;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--accent)`}
+                  aria-label={`${building.name} ${level.level} 敬请期待`}
+                >
+                  敬请期待
+                </div>
+              ) : (
+                <ImageZoom
+                  src={`/images/upgradable-buildings/${level.iconId}.webp`}
+                  alt={`${building.name} ${level.level}`}
+                  class="upgradable-building-level-icon quality-icon"
+                  style={`${commonQualityStyle};width:180px;height:180px;max-width:180px;max-height:180px;box-sizing:border-box;border-radius:6px`}
+                />
+              )
             )}
           </div>
+            );
+          })()}
           <table class="attr-table upgradable-building-level-summary">
             <tbody>
               {hasValue(level.castlePoints) && <tr><th>城堡点数</th><td>{level.castlePoints}</td></tr>}
@@ -235,6 +250,16 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     cursor: zoom-in;
   }
 
+  .upgradable-building-level-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    color: var(--accent);
+    font-size: 1rem;
+    text-align: center;
+  }
+
   .upgradable-building-level-summary {
     width: fit-content;
     max-width: 100%;
@@ -272,7 +297,9 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     }
 
     .upgradable-building-detail-image-wrap {
-      width: min(180px, 100%);
+      width: 100%;
+      max-width: none;
+      margin: 0;
       height: auto;
       aspect-ratio: 1 / 1;
     }
