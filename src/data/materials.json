@@ -688,19 +688,19 @@
     "id": "mat-mao-zhua-ban",
     "name": "猫抓板",
     "usedIn": 3,
-    "quality": "common"
+    "quality": "rare"
   },
   {
     "id": "mat-chui-zi",
     "name": "槌子",
     "usedIn": 3,
-    "quality": "common"
+    "quality": "rare"
   },
   {
     "id": "mat-feng-yi-zhen-tao-zhuang",
     "name": "缝衣针套装",
     "usedIn": 3,
-    "quality": "common"
+    "quality": "rare"
   },
   {
     "id": "mat-da-che-zhou",
@@ -712,7 +712,7 @@
     "id": "mat-lun-zi",
     "name": "轮子",
     "usedIn": 3,
-    "quality": "common"
+    "quality": "rare"
   },
   {
     "id": "mat-yuan-hua-mu",
@@ -724,7 +724,7 @@
     "id": "mat-dao-gao-ling",
     "name": "祷告铃",
     "usedIn": 2,
-    "quality": "common"
+    "quality": "rare"
   },
   {
     "id": "mat-di-qiu-yi",
@@ -736,7 +736,7 @@
     "id": "mat-gan-jing-de-yang-pi-zhi",
     "name": "干净的羊皮纸",
     "usedIn": 2,
-    "quality": "common"
+    "quality": "rare"
   },
   {
     "id": "mat-zhui-zi",
