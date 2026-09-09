@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import ImageZoom from '../../components/ImageZoom.astro';
 import MaterialCostList from '../../components/MaterialCostList.astro';
 import fixedBuildings from '../../data/fixed-buildings.json';
+import { BUILDING_CONCEPTS } from '../../lib/building-concepts';
 import { getItemIconSrc } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const { building } = Astro.props;
+const buildingConcepts = BUILDING_CONCEPTS[building.id] ?? [];
 const quality = typeof building.quality === 'string' && building.quality in QUALITY_META
   ? QUALITY_META[building.quality as Quality]
   : QUALITY_META.common;
@@ -51,4 +53,35 @@ const hasAssembleCost = building.assembleCostPending || building.assembleCost.le
     {hasBuildCost && <section class="panel fixed-building-cost-panel"><h2>建造材料</h2>{building.buildCostPending ? <p class="muted">配方待补充</p> : <MaterialCostList cost={building.buildCost} compact />}</section>}
     {hasAssembleCost && <section class="panel fixed-building-cost-panel"><h2>组装材料</h2>{building.assembleCostPending ? <p class="muted">配方待补充</p> : <MaterialCostList cost={building.assembleCost} compact />}</section>}
   </div>
+  {buildingConcepts.length > 0 && (
+    <section class="enemy-concepts section panel">
+      <h2 class="detail-panel-title">建筑原画</h2>
+      <div class="enemy-concepts-list">
+        {buildingConcepts.map((concept) => (
+          <figure class="enemy-concept">
+            <ImageZoom
+              src={`/images/concepts/${concept.file}`}
+              alt={concept.caption}
+              class="enemy-concept-image"
+            />
+            <figcaption class="enemy-concept-caption">
+              <span>{concept.caption}</span>
+              {concept.creditUrl ? (
+                <a
+                  class="enemy-concept-credit"
+                  href={concept.creditUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {concept.credit}
+                </a>
+              ) : (
+                <span class="enemy-concept-credit">{concept.credit}</span>
+              )}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>

@@ -6,6 +6,7 @@ import MaterialCostList from '../../components/MaterialCostList.astro';
 import materials from '../../data/materials.json';
 import upgradableBuildings from '../../data/upgradable-buildings.json';
 import { getItemIconSrc, getMaterialHref } from '../../lib/data';
+import { BUILDING_CONCEPTS } from '../../lib/building-concepts';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
 export function getStaticPaths() {
@@ -13,6 +14,7 @@ export function getStaticPaths() {
 }
 
 const { building } = Astro.props;
+const buildingConcepts = BUILDING_CONCEPTS[building.id] ?? [];
 const levels = [...building.levels].sort((a, b) => a.levelRank - b.levelRank);
 const materialByName = new Map(materials.map((material) => [material.name, material]));
 const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '';
@@ -138,6 +140,37 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
       ))}
     </div>
   </section>
+  {buildingConcepts.length > 0 && (
+    <section class="enemy-concepts section panel">
+      <h2 class="detail-panel-title">建筑原画</h2>
+      <div class="enemy-concepts-list">
+        {buildingConcepts.map((concept) => (
+          <figure class="enemy-concept">
+            <ImageZoom
+              src={`/images/concepts/${concept.file}`}
+              alt={concept.caption}
+              class="enemy-concept-image"
+            />
+            <figcaption class="enemy-concept-caption">
+              <span>{concept.caption}</span>
+              {concept.creditUrl ? (
+                <a
+                  class="enemy-concept-credit"
+                  href={concept.creditUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {concept.credit}
+                </a>
+              ) : (
+                <span class="enemy-concept-credit">{concept.credit}</span>
+              )}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
