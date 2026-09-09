@@ -3208,26 +3208,6 @@
     "upgradeOf": null
   },
   {
-    "id": "shuang-fa-nu",
-    "name": "双发弩",
-    "quality": "legendary",
-    "damage": 120,
-    "skillBonus": null,
-    "damageNote": null,
-    "element": null,
-    "attackSpeed": 0.3,
-    "range": 7,
-    "durability": {
-      "value": 100,
-      "unit": "点"
-    },
-    "cost": [],
-    "effect": "无视护甲目标对所具有的额外防御",
-    "dotTypes": [],
-    "isRanged": true,
-    "upgradeOf": null
-  },
-  {
     "id": "kuang-zhan-shi-zhan-fu",
     "name": "狂战士战斧",
     "quality": "unique",
@@ -3429,6 +3409,26 @@
       "中毒"
     ],
     "isRanged": false,
+    "upgradeOf": null
+  },
+  {
+    "id": "shuang-fa-nu",
+    "name": "双发弩",
+    "quality": "legendary",
+    "damage": 150,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": null,
+    "attackSpeed": 0.5,
+    "range": 7,
+    "durability": {
+      "value": 100,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "无视护甲目标对所具有的额外防御",
+    "dotTypes": [],
+    "isRanged": true,
     "upgradeOf": null
   },
   {
