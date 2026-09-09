@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import ImageZoom from '../../components/ImageZoom.astro';
 import MaterialCostList from '../../components/MaterialCostList.astro';
 import fixedBuildings from '../../data/fixed-buildings.json';
 import { getItemIconSrc } from '../../lib/data';
@@ -18,9 +19,6 @@ const qualityStyle = `--quality-border:${quality.border};--quality-glow:${qualit
 const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '' && value !== '无';
 const hasBuildCost = building.buildCostPending || building.buildCost.length > 0;
 const hasAssembleCost = building.assembleCostPending || building.assembleCost.length > 0;
-const fallback =
-  'data:image/svg+xml;charset=utf-8,' +
-  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>');
 ---
 
 <BaseLayout title={building.name} description={`${building.name}详细资料`}>
@@ -28,7 +26,12 @@ const fallback =
 
   <section class="fixed-building-detail-hero panel">
     <div class="fixed-building-detail-image-wrap">
-      <img class="fixed-building-detail-image quality-icon" src={getItemIconSrc('fixed-buildings', building)} alt={building.name} style={qualityStyle} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" />
+      <ImageZoom
+        src={getItemIconSrc('fixed-buildings', building)}
+        alt={building.name}
+        class="fixed-building-detail-image quality-icon"
+        style={qualityStyle}
+      />
     </div>
     <div>
       <h1 style={`color:${quality.text}`}>{building.name}</h1>

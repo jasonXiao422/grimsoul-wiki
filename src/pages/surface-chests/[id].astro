@@ -1,12 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import ImageZoom from '../../components/ImageZoom.astro';
 import MaterialCostList from '../../components/MaterialCostList.astro';
 import surfaceChests from '../../data/surface-chests.json';
-
-const fallback =
-  'data:image/svg+xml;charset=utf-8,' +
-  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
 
 export function getStaticPaths() {
   return surfaceChests.map((chest) => ({
@@ -27,12 +24,10 @@ const { chest } = Astro.props;
 
   <section class="cabinet-detail-hero panel">
     <div class="cabinet-detail-image-wrap">
-      <img
+      <ImageZoom
         class="cabinet-detail-image"
         src={`/images/surface-chests/${chest.id}.webp`}
         alt={chest.name}
-        data-fallback={fallback}
-        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
       />
     </div>
     <div>

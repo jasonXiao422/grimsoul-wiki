@@ -64,6 +64,10 @@ img {
   display: block;
 }
 
+.js-zoom-image {
+  cursor: zoom-in;
+}
+
 .enemy-concepts-list {
   display: grid;
   gap: 20px;
@@ -80,7 +84,6 @@ img {
   max-height: 480px;
   height: auto;
   border-radius: 8px;
-  cursor: zoom-in;
 }
 
 .enemy-concept-caption {
@@ -1150,7 +1153,6 @@ p {
   border-radius: 8px;
   object-fit: cover;
   background: #101113;
-  cursor: zoom-in;
 }
 
 .detail-image.quality-icon {

@@ -32,13 +32,11 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
 
   <section class="upgradable-building-detail-hero panel">
     <div class="upgradable-building-detail-image-wrap">
-      <img
+      <ImageZoom
         class="upgradable-building-detail-image quality-icon"
         src={`/images/upgradable-buildings/${building.id}-cover.webp`}
         alt={building.name}
         style={commonQualityStyle}
-        data-fallback={fallback}
-        onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
       />
     </div>
     <div>
@@ -247,7 +245,6 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
   .upgradable-building-level-icon {
     flex: 0 0 auto;
     object-fit: contain;
-    cursor: zoom-in;
   }
 
   .upgradable-building-level-placeholder {
