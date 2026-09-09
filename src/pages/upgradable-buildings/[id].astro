@@ -291,6 +291,42 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     margin: 0;
   }
 
+  .upgradable-building-level-cost :global(.recipe-list.compact) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .upgradable-building-level-cost :global(.recipe-list.compact > li) {
+    min-width: 0;
+  }
+
+  .upgradable-building-level-cost :global(.recipe-list.compact > li > a) {
+    min-height: 68px;
+    align-items: center;
+  }
+
+  .upgradable-building-level-cost :global(.recipe-list.compact > li > a > span:first-of-type) {
+    min-width: 0;
+    line-height: 1.3;
+  }
+
+  .upgradable-building-level-cost :global(.recipe-list.compact .qty) {
+    white-space: nowrap;
+    margin-left: auto;
+  }
+
+  @media (max-width: 1199px) {
+    .upgradable-building-level-cost :global(.recipe-list.compact) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .upgradable-building-level-cost :global(.recipe-list.compact) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   @media (max-width: 720px) {
     .upgradable-building-detail-hero {
       grid-template-columns: 1fr;
