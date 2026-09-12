@@ -2,6 +2,7 @@
 import ImageZoom from './ImageZoom.astro';
 import GroupNote from './GroupNote.astro';
 import MaterialCostList from './MaterialCostList.astro';
+import QualityText from './QualityText.astro';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { TIER_COLOR } from '../lib/tiers';
@@ -32,7 +33,7 @@ const fullImagePath = fullImageCategory
 const iconSrc = fullImageCategory && fullImagePath && existsSync(fullImagePath)
   ? `/images/${fullImageCategory}/${item.id}.webp`
   : getItemIconSrc(categorySlug, item);
-const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'description', 'group', 'groupNote', 'groupNoteBlocks', 'restoredFromDate']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'description', 'group', 'groupNote', 'groupNoteBlocks', 'noteSegments', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -47,27 +48,36 @@ const getDetailValue = (key: string, value: unknown) => {
   return formatValue(key, value);
 };
 
-const parseEnemyNote = (value: unknown) => {
-  if (typeof value !== 'string' || !value.includes('【') || !value.includes('】')) return undefined;
-  const matches = [...value.matchAll(/【([^】]+)】/g)];
-  if (matches.length === 0) return undefined;
-  const intro = value.slice(0, matches[0].index ?? 0).trim();
-  const skills = matches.map((match, index) => {
-    const start = (match.index ?? 0) + match[0].length;
-    const end = matches[index + 1]?.index ?? value.length;
-    const lines = value.slice(start, end)
-      .split(/\r?\n/)
-      .map((line) => line.trim().replace(/[；;]$/, ''))
-      .filter(Boolean)
-      .map((line) => {
-        const modeMatch = line.match(/^(普通模式|英雄模式|传奇模式)：(.*)$/);
-        return modeMatch
-          ? { mode: modeMatch[1], text: modeMatch[2] }
-          : { mode: undefined, text: line };
+type QualityTextSegment = { text: string; quality?: Quality };
+
+const trimTextRange = (text: string, start: number, end: number) => {
+  while (start < end && /\s/.test(text[start])) start += 1;
+  while (end > start && /\s/.test(text[end - 1])) end -= 1;
+  return { start, end };
+};
+
+const sliceQualitySegments = (
+  segments: QualityTextSegment[] | undefined,
+  start: number,
+  end: number,
+) => {
+  if (!segments) return undefined;
+  const result: QualityTextSegment[] = [];
+  let offset = 0;
+  for (const segment of segments) {
+    const segmentEnd = offset + segment.text.length;
+    const from = Math.max(start, offset);
+    const to = Math.min(end, segmentEnd);
+    if (from < to) {
+      result.push({
+        text: segment.text.slice(from - offset, to - offset),
+        ...(segment.quality ? { quality: segment.quality } : {}),
       });
-    return { name: match[1].trim(), lines };
-  });
-  return { intro, skills };
+    }
+    offset = segmentEnd;
+    if (offset >= end) break;
+  }
+  return result;
 };
 
 const getEnemyModeColor = (mode?: string) => {
@@ -75,6 +85,59 @@ const getEnemyModeColor = (mode?: string) => {
   if (mode === '传奇模式') return QUALITY_META.legendary.text;
   if (mode === '普通模式') return 'var(--text)';
   return undefined;
+};
+
+const parseEnemyNote = (value: unknown, sourceSegments?: QualityTextSegment[]) => {
+  if (typeof value !== 'string' || !value.includes('【') || !value.includes('】')) return undefined;
+  const matches = [...value.matchAll(/【([^】]+)】/g)];
+  if (matches.length === 0) return undefined;
+  const introRange = trimTextRange(value, 0, matches[0].index ?? 0);
+  const intro = value.slice(introRange.start, introRange.end);
+  const introSegments = sliceQualitySegments(sourceSegments, introRange.start, introRange.end);
+  const skills = matches.map((match, index) => {
+    const matchStart = match.index ?? 0;
+    const titleStart = matchStart + 1;
+    const titleRange = trimTextRange(value, titleStart, matchStart + match[0].length - 1);
+    const title = value.slice(titleRange.start, titleRange.end);
+    const heading = `【${title}】`;
+    const headingSegments = sourceSegments
+      ? [
+          ...(sliceQualitySegments(sourceSegments, matchStart, matchStart + 1) ?? []),
+          ...(sliceQualitySegments(sourceSegments, titleRange.start, titleRange.end) ?? []),
+          ...(sliceQualitySegments(sourceSegments, matchStart + match[0].length - 1, matchStart + match[0].length) ?? []),
+        ]
+      : undefined;
+    const start = matchStart + match[0].length;
+    const end = matches[index + 1]?.index ?? value.length;
+    const lines: { mode?: string; text: string; segments?: QualityTextSegment[] }[] = [];
+    let lineStart = start;
+    while (lineStart < end) {
+      const newline = value.indexOf('\n', lineStart);
+      const rawEnd = newline === -1 || newline >= end ? end : newline;
+      const contentEnd = rawEnd > lineStart && value[rawEnd - 1] === '\r' ? rawEnd - 1 : rawEnd;
+      const lineRange = trimTextRange(value, lineStart, contentEnd);
+      let cleanEnd = lineRange.end;
+      if (cleanEnd > lineRange.start && /[；;]/.test(value[cleanEnd - 1])) cleanEnd -= 1;
+      if (cleanEnd > lineRange.start) {
+        const lineText = value.slice(lineRange.start, cleanEnd);
+        if (sourceSegments) {
+          lines.push({
+            text: lineText,
+            segments: sliceQualitySegments(sourceSegments, lineRange.start, cleanEnd),
+          });
+        } else {
+          const modeMatch = lineText.match(/^(普通模式|英雄模式|传奇模式)：(.*)$/);
+          lines.push(modeMatch
+            ? { mode: modeMatch[1], text: modeMatch[2] }
+            : { text: lineText });
+        }
+      }
+      if (rawEnd === end || newline === -1 || newline >= end) break;
+      lineStart = newline + 1;
+    }
+    return { heading, headingSegments, lines };
+  });
+  return { intro, introSegments, skills };
 };
 
 const getDetailLabel = (key: string) => {
@@ -113,7 +176,9 @@ const attrRows = Object.entries(item)
     rawValue: value,
     label: getDetailLabel(key),
     value: getDetailValue(key, value),
-    enemyNote: categorySlug === 'enemies' && key === 'note' ? parseEnemyNote(value) : undefined,
+    enemyNote: categorySlug === 'enemies' && key === 'note'
+      ? parseEnemyNote(value, item.noteSegments)
+      : undefined,
     elementStyle: getElementStyle(key, value),
     isIncomplete: isDataIncomplete && isEmptyValue(value),
   }));
@@ -159,18 +224,26 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                   <td class:list={[row.isIncomplete && 'attr-value-incomplete']}>
                   {row.enemyNote ? (
                     <div class="enemy-note">
-                      {row.enemyNote.intro && <p class="enemy-note-intro">{row.enemyNote.intro}</p>}
+                      {row.enemyNote.intro && (
+                        <p class="enemy-note-intro">
+                          <QualityText text={row.enemyNote.intro} segments={row.enemyNote.introSegments} />
+                        </p>
+                      )}
                       {row.enemyNote.skills.map((skill) => (
                         <p class="enemy-note-skill">
-                          <strong>【{skill.name}】</strong>
+                          <strong><QualityText text={skill.heading} segments={skill.headingSegments} /></strong>
                           {skill.lines.map((line) => (
                             <span class="enemy-note-line">
-                              {line.mode && (
-                                <span style={getEnemyModeColor(line.mode) ? `color:${getEnemyModeColor(line.mode)}` : undefined}>
-                                  {line.mode}
-                                </span>
+                              {line.mode ? (
+                                <>
+                                  <span style={getEnemyModeColor(line.mode) ? `color:${getEnemyModeColor(line.mode)}` : undefined}>
+                                    {line.mode}
+                                  </span>
+                                  ：{line.text}
+                                </>
+                              ) : (
+                                <QualityText text={line.text} segments={line.segments} />
                               )}
-                              {line.mode && '：'}{line.text}
                             </span>
                           ))}
                         </p>

@@ -16,6 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 from openpyxl import load_workbook
+from openpyxl.cell.rich_text import CellRichText, TextBlock
 from pypinyin import lazy_pinyin
 
 # Windows 控制台默认 GBK 编码，打印中文警告会抛 UnicodeEncodeError，
@@ -59,6 +60,14 @@ HIGH_LEVEL_SOURCE_NAME = "打牌"
 HIGH_LEVEL_THRESHOLD = 11
 high_level_source_added_count = 0
 high_level_source_skipped_count = 0
+
+# 敌人介绍与场地机制中的显式字体色映射。主题色和无颜色均按普通文本处理。
+ENEMY_RICH_TEXT_QUALITY_BY_RGB = {
+    "FF4A86E8": "rare",
+    "FFFBBC04": "unique",
+    "FFFFC000": "unique",
+    "FF351C75": "legendary",
+}
 
 
 # ---------------------------------------------------------------- 工具函数
@@ -351,14 +360,14 @@ def rows_of(key):
     return list(wb[sheet].iter_rows(values_only=True))
 
 
-def cells_of(key):
+def cells_of(key, rich_text=False):
     """返回单元格对象而非纯值，用于读取 number_format。"""
     fn, sheet = FILES[key]
-    wb = load_workbook(SRC / fn, read_only=True, data_only=False)
+    wb = load_workbook(SRC / fn, read_only=True, data_only=False, rich_text=rich_text)
     return list(wb[sheet].iter_rows())
 
 
-def merged_ranges_of(key, column):
+def merged_ranges_of(key, column, rich_text=False):
     """
     取指定列上的合并单元格区间，返回 [(起始行, 结束行, 左上角的值), ...]。
 
@@ -366,7 +375,7 @@ def merged_ranges_of(key, column):
     所以这里单独再开一次工作簿。一次导入只调用一次，开销可以接受。
     """
     fn, sheet = FILES[key]
-    wb = load_workbook(SRC / fn, read_only=False, data_only=False)
+    wb = load_workbook(SRC / fn, read_only=False, data_only=False, rich_text=rich_text)
     ws = wb[sheet]
     out = []
     for rng in ws.merged_cells.ranges:
@@ -375,6 +384,71 @@ def merged_ranges_of(key, column):
         out.append((rng.min_row, rng.max_row, ws.cell(row=rng.min_row, column=rng.min_col).value))
     wb.close()
     return out
+
+
+def enemy_rich_text_value(value, row_number, column_name):
+    """将敌人表富文本还原为原有纯文本，并在有品质色时返回原始 run 片段。"""
+    if not isinstance(value, CellRichText):
+        return text(value), None
+
+    characters = []
+    has_quality = False
+    reported_colors = set()
+    for run_index, part in enumerate(value):
+        run_text = part.text if isinstance(part, TextBlock) else str(part)
+        font = part.font if isinstance(part, TextBlock) else None
+        color = getattr(font, "color", None) if font else None
+        quality = None
+        if color is not None and color.type == "rgb":
+            rgb = str(color.rgb).upper()
+            quality = ENEMY_RICH_TEXT_QUALITY_BY_RGB.get(rgb)
+            if quality:
+                has_quality = True
+            elif rgb not in reported_colors:
+                warnings.append(
+                    f"敌人表第 {row_number} 行 {column_name} 列：未登记的富文本 RGB 色值 {rgb}"
+                )
+                reported_colors.add(rgb)
+
+        for char in run_text:
+            characters.append({
+                "char": " " if char == "\u3000" else char,
+                "quality": quality,
+                "run": run_index,
+            })
+
+    # 与 text()/clean() 保持相同的首尾空白裁剪和换行前空白清理，
+    # 同时保留字符来源 run，保证切片位置仍与导出的纯文本一致。
+    start, end = 0, len(characters)
+    while start < end and characters[start]["char"].isspace():
+        start += 1
+    while end > start and characters[end - 1]["char"].isspace():
+        end -= 1
+    characters = characters[start:end]
+    normalized_text = "".join(item["char"] for item in characters)
+    remove = set()
+    for match in re.finditer(r"\s+\n", normalized_text):
+        remove.update(range(match.start(), match.end() - 1))
+    characters = [item for index, item in enumerate(characters) if index not in remove]
+    plain = "".join(item["char"] for item in characters)
+
+    if not plain:
+        return None, None
+    if not has_quality:
+        return plain, None
+
+    segments = []
+    for item in characters:
+        if not segments or segments[-1]["_run"] != item["run"]:
+            segment = {"text": item["char"], "_run": item["run"]}
+            if item["quality"]:
+                segment["quality"] = item["quality"]
+            segments.append(segment)
+        else:
+            segments[-1]["text"] += item["char"]
+    for segment in segments:
+        segment.pop("_run")
+    return plain, segments
 
 
 def build_weapons():
@@ -1232,7 +1306,28 @@ def note_icon_id(name):
     return _NOTE_ICON_IDS[name]
 
 
-def parse_group_note(raw):
+def slice_rich_text_segments(segments, start, end):
+    """按纯文本字符位置切分富文本 run，片段顺序和品质保持不变。"""
+    if not segments or end <= start:
+        return []
+    result = []
+    offset = 0
+    for segment in segments:
+        segment_end = offset + len(segment["text"])
+        overlap_start = max(start, offset)
+        overlap_end = min(end, segment_end)
+        if overlap_start < overlap_end:
+            part = {"text": segment["text"][overlap_start - offset:overlap_end - offset]}
+            if segment.get("quality"):
+                part["quality"] = segment["quality"]
+            result.append(part)
+        offset = segment_end
+        if offset >= end:
+            break
+    return result
+
+
+def parse_group_note(raw, rich_segments=None):
     """
     把整段场地机制拆成结构化区块，供详情页分块渲染。
 
@@ -1252,18 +1347,46 @@ def parse_group_note(raw):
         return None
 
     blocks = []
-    for line in str(raw).split("\n"):
-        line = line.strip()
+    offset = 0
+    for original_line in str(raw).split("\n"):
+        line_start = offset
+        offset += len(original_line) + 1
+        leading = len(original_line) - len(original_line.lstrip())
+        trailing = len(original_line.rstrip())
+        line_start += leading
+        line_end = line_start - leading + trailing
+        line = original_line.strip()
         if not line:
             continue
 
         matched = NOTE_BLOCK_RE.match(line)
         if matched:
-            blocks.append({
+            block = {
                 "title": matched.group("title").strip(),
                 "body": matched.group("body").strip() or None,
                 "items": [],
-            })
+            }
+            if rich_segments is not None:
+                title_start, title_end = matched.span("title")
+                title_trim = matched.group("title")
+                title_leading = len(title_trim) - len(title_trim.lstrip())
+                title_trailing = len(title_trim.rstrip())
+                block["titleSegments"] = slice_rich_text_segments(
+                    rich_segments,
+                    line_start + title_start + title_leading,
+                    line_start + title_start + title_trailing,
+                )
+                if block["body"]:
+                    body_start, body_end = matched.span("body")
+                    body_value = matched.group("body")
+                    body_leading = len(body_value) - len(body_value.lstrip())
+                    body_trailing = len(body_value.rstrip())
+                    block["bodySegments"] = slice_rich_text_segments(
+                        rich_segments,
+                        line_start + body_start + body_leading,
+                        line_start + body_start + body_trailing,
+                    )
+            blocks.append(block)
             continue
 
         item = NOTE_ITEM_RE.match(line)
@@ -1274,6 +1397,25 @@ def parse_group_note(raw):
                 "name": item.group("name").strip(),
                 "desc": item.group("desc").strip(),
             }
+            if rich_segments is not None:
+                name_start, _ = item.span("name")
+                name_value = item.group("name")
+                name_leading = len(name_value) - len(name_value.lstrip())
+                name_trailing = len(name_value.rstrip())
+                desc_start, _ = item.span("desc")
+                desc_value = item.group("desc")
+                desc_leading = len(desc_value) - len(desc_value.lstrip())
+                desc_trailing = len(desc_value.rstrip())
+                entry["nameSegments"] = slice_rich_text_segments(
+                    rich_segments,
+                    line_start + name_start + name_leading,
+                    line_start + name_start + name_trailing,
+                )
+                entry["descSegments"] = slice_rich_text_segments(
+                    rich_segments,
+                    line_start + desc_start + desc_leading,
+                    line_start + desc_start + desc_trailing,
+                )
             icon_cat = NOTE_ICON_BLOCKS.get(block["title"])
             if icon_cat:
                 entry["iconCat"] = icon_cat
@@ -1285,8 +1427,20 @@ def parse_group_note(raw):
         if blocks:
             block = blocks[-1]
             block["body"] = f"{block['body']}\n{line}" if block["body"] else line
+            if rich_segments is not None:
+                block.setdefault("bodySegments", [])
+                if block["bodySegments"]:
+                    block["bodySegments"].append({"text": "\n"})
+                block["bodySegments"].extend(
+                    slice_rich_text_segments(rich_segments, line_start, line_end)
+                )
         else:
-            blocks.append({"title": None, "body": line, "items": []})
+            block = {"title": None, "body": line, "items": []}
+            if rich_segments is not None:
+                block["bodySegments"] = slice_rich_text_segments(
+                    rich_segments, line_start, line_end
+                )
+            blocks.append(block)
 
     return blocks or None
 
@@ -1337,9 +1491,9 @@ def build_enemies():
 
     表头行（第二列是『生命』）同时充当地点分组标题。
     """
-    def merged_lookup(column):
+    def merged_lookup(column, rich_text=False):
         """把某列的合并区间做成「行号 → 左上角的值」的查表函数。"""
-        ranges = merged_ranges_of("enemies", column)
+        ranges = merged_ranges_of("enemies", column, rich_text=rich_text)
 
         def at(row_index):
             for start, end, value in ranges:
@@ -1349,11 +1503,11 @@ def build_enemies():
 
         return at
 
-    note_at = merged_lookup(8)       # H 列：场地机制
+    note_at = merged_lookup(8, rich_text=True)  # H 列：场地机制
     location_at = merged_lookup(7)   # G 列：出现地点，合并时把值补给整组
 
     out, group = [], None
-    for cells in cells_of("enemies")[1:]:
+    for cells in cells_of("enemies", rich_text=True)[1:]:
         row = [c.value for c in cells]
         first = text(row[0])
         if not first:
@@ -1385,7 +1539,10 @@ def build_enemies():
         if recovered_fields:
             warnings.append(f"敌人 {name}：{'/'.join(recovered_fields)}在 Excel 中被存为日期，已按单元格显示格式还原")
 
-        note = text(note_at(cells[0].row))
+        note, group_note_segments = enemy_rich_text_value(
+            note_at(cells[0].row), cells[0].row, "H"
+        )
+        enemy_note, enemy_note_segments = enemy_rich_text_value(row[5], cells[0].row, "F")
         raw_location = text(row[6]) or text(location_at(cells[0].row)) or ""
         locations = [p.strip() for p in re.split(r"[;；\n]", raw_location) if p.strip()]
         if not locations and group:
@@ -1393,22 +1550,25 @@ def build_enemies():
         if not locations:
             warnings.append(f"敌人 {name}：没有出现地点")
 
-        out.append({
+        enemy_data = {
             "id": make_id(name),
             "name": name,
             "group": group,
             "groupNote": note,
-            "groupNoteBlocks": parse_group_note(note),
+            "groupNoteBlocks": parse_group_note(note, group_note_segments),
             "quality": quality_from_fill(cells[0]),
             "hp": hp,
             "damageReduction": dr,
             "restoredFromDate": True if recovered_fields else None,
             "physicalDamage": phys,
             "elementDamage": element,
-            "note": text(row[5]),
+            "note": enemy_note,
             "locations": locations,
             "dataIncomplete": True if data_incomplete else None,
-        })
+        }
+        if enemy_note_segments is not None:
+            enemy_data["noteSegments"] = enemy_note_segments
+        out.append(enemy_data)
     return out
 
 

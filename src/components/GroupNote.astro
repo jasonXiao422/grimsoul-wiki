@@ -13,19 +13,30 @@
  */
 import { getItemIconSrc } from '../lib/data';
 import ImageZoom from './ImageZoom.astro';
+import QualityText from './QualityText.astro';
 import { GROUP_NOTE_ILLUSTRATIONS } from '../lib/group-note-illustrations';
+import type { Quality } from '../lib/quality';
+
+interface TextSegment {
+  text: string;
+  quality?: Quality;
+}
 
 interface NoteItem {
   index?: number | string;
   name: string;
+  nameSegments?: TextSegment[];
   desc: string;
+  descSegments?: TextSegment[];
   iconCat?: string | null;
   iconId?: string | null;
 }
 
 interface NoteBlock {
   title: string;
+  titleSegments?: TextSegment[];
   body: string;
+  bodySegments?: TextSegment[];
   items?: NoteItem[];
 }
 
@@ -58,8 +69,10 @@ const fallback =
       )}
       {blocks.map((block) => (
         <section class="group-note__block">
-          <h3>{block.title}</h3>
-          {block.body && <p>{block.body}</p>}
+            <h3><QualityText text={block.title} segments={block.titleSegments} /></h3>
+            {block.body && (
+              <p><QualityText text={block.body} segments={block.bodySegments} /></p>
+            )}
           {block.items && block.items.length > 0 && (
             <ol class="group-note__items">
               {block.items.map((entry) => (
@@ -80,8 +93,11 @@ const fallback =
                     />
                   )}
                   <div class="group-note__item-copy">
-                    <h4>{entry.index ? `${entry.index}. ` : ''}{entry.name}</h4>
-                    <p>{entry.desc}</p>
+                    <h4>
+                      {entry.index ? `${entry.index}. ` : ''}
+                      <QualityText text={entry.name} segments={entry.nameSegments} />
+                    </h4>
+                    <p><QualityText text={entry.desc} segments={entry.descSegments} /></p>
                   </div>
                 </li>
               ))}

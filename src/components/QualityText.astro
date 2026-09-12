@@ -1,0 +1,26 @@
+---
+import { QUALITY_META, type Quality } from '../lib/quality';
+
+interface TextSegment {
+  text: string;
+  quality?: Quality;
+}
+
+interface Props {
+  text: string;
+  segments?: TextSegment[] | null;
+}
+
+const { text, segments } = Astro.props;
+const hasMatchingSegments = Array.isArray(segments) &&
+  segments.map((segment) => segment.text).join('') === text;
+---
+
+{hasMatchingSegments
+  ? segments.map((segment) => {
+      const color = segment.quality ? QUALITY_META[segment.quality]?.text : undefined;
+      return color
+        ? <span style={`color:${color}`}>{segment.text}</span>
+        : segment.text;
+    })
+  : text}
