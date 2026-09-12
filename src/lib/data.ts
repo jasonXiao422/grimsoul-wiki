@@ -132,6 +132,8 @@ const GROUP_ORDER = [
   '大车炮台',
 ];
 
+const ENEMY_SOURCE_ORDER_GROUPS: string[] = ['暮焰修道院', '暮焰修道院盟军'];
+
 function compareSortValues(a: string | number, b: string | number) {
   if (typeof a === 'number' && typeof b === 'number') return a - b;
   return String(a).localeCompare(String(b), 'zh-Hans-CN');
@@ -162,6 +164,7 @@ export function getListItems(slug: CategorySlug): DataItem[] {
       const groupResult = (aRank === -1 ? GROUP_ORDER.length : aRank) - (bRank === -1 ? GROUP_ORDER.length : bRank)
         || aGroup.localeCompare(bGroup, 'zh-Hans-CN');
       if (groupResult) return groupResult;
+      if (slug === 'enemies' && ENEMY_SOURCE_ORDER_GROUPS.includes(aGroup)) return 0;
     }
 
     const aRaw = getByPath(a as Record<string, unknown>, compareKey);
