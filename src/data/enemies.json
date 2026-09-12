@@ -4333,7 +4333,7 @@
   {
     "id": "ha-te-sui-pian-pu-tong-ying-xiong-chuan-qi",
     "name": "哈特碎片(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "common",
@@ -4351,7 +4351,7 @@
   {
     "id": "fu-la-ge-na-de-shi-nv-pu-tong-ying-xiong-chuan-qi",
     "name": "弗拉格纳的侍女(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "common",
@@ -4372,7 +4372,7 @@
   {
     "id": "fu-zuo-guan-jie-zi-pu-tong-ying-xiong-chuan-qi",
     "name": "辅佐官杰兹(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4393,7 +4393,7 @@
   {
     "id": "fu-zuo-guan-luo-sa-pu-tong-ying-xiong-chuan-qi",
     "name": "辅佐官洛萨(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4414,7 +4414,7 @@
   {
     "id": "fu-zuo-guan-ni-ge-luo-te-pu-tong-ying-xiong-chuan-qi",
     "name": "辅佐官尼格罗特(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4435,7 +4435,7 @@
   {
     "id": "sui-jun-mu-shi-fei-na-na-pu-tong-ying-xiong-chuan-qi",
     "name": "随军牧师费纳娜(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4456,7 +4456,7 @@
   {
     "id": "sui-jun-mu-shi-ge-xi-ni-pu-tong-ying-xiong-chuan-qi",
     "name": "随军牧师格西妮(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4477,7 +4477,7 @@
   {
     "id": "sui-jun-mu-shi-nai-fa-li-si-pu-tong-ying-xiong-chuan-qi",
     "name": "随军牧师奈法丽斯(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4498,7 +4498,7 @@
   {
     "id": "diao-cha-guan-an-dong-ni-ao-pu-tong-ying-xiong-chuan-qi",
     "name": "调查官安东尼奥(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4519,7 +4519,7 @@
   {
     "id": "diao-cha-guan-ba-ke-si-te-pu-tong-ying-xiong-chuan-qi",
     "name": "调查官巴克斯特(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4540,7 +4540,7 @@
   {
     "id": "diao-cha-guan-yi-nuo-ci-ji-pu-tong-ying-xiong-chuan-qi",
     "name": "调查官伊诺茨基(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
@@ -4561,7 +4561,7 @@
   {
     "id": "ha-te-han-zai-pu-tong-ying-xiong-chuan-qi",
     "name": "哈特寒灾(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "legendary",
@@ -4582,7 +4582,7 @@
   {
     "id": "huo-yan-hua-shen-ha-li-de-pu-tong-ying-xiong-chuan-qi",
     "name": "火焰化身哈利德(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "legendary",
@@ -4603,7 +4603,7 @@
   {
     "id": "shuai-bai-zhi-nv-fu-la-ge-na-pu-tong-ying-xiong-chuan-qi",
     "name": "衰败之女弗拉格纳(普通，英雄，传奇)",
-    "group": "元素副本",
+    "group": "三元素副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "legendary",
@@ -4620,6 +4620,426 @@
       "沼泽中心"
     ],
     "dataIncomplete": null
+  },
+  {
+    "id": "hui-jin-zhi-ren-pu-tong-ying-xiong-chuan-qi",
+    "name": "灰烬之人（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": "60，180，360",
+    "damageReduction": "0，23，23",
+    "restoredFromDate": null,
+    "physicalDamage": "4，20，20",
+    "elementDamage": {
+      "type": "火",
+      "value": "2，5，30"
+    },
+    "note": null,
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "ran-shao-de-kuang-re-zhe-pu-tong-ying-xiong-chuan-qi",
+    "name": "燃烧的狂热者（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": "100，300，600",
+    "damageReduction": "13，23，23",
+    "restoredFromDate": null,
+    "physicalDamage": "4，20，20",
+    "elementDamage": {
+      "type": "火",
+      "value": "2，5，30"
+    },
+    "note": "攻速很快，但是会自燃掉血",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "wu-yan-nv-ji-si-pu-tong-ying-xiong-chuan-qi",
+    "name": "污焰女祭司（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": "150，350，700",
+    "damageReduction": "13，47，47",
+    "restoredFromDate": null,
+    "physicalDamage": "无",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【特性】复活一次，受2倍冰伤，1.5倍衰败伤，火伤免疫\n【治疗术】若有污焰仆人在旁边，则会每隔2秒回复仆人一定血量，普通/英雄/传奇：30/50/100\n【火焰的怀抱】一次性召唤2个灰烬之人，上限普通/英雄/传奇分别为：6/3/3\n普通模式：召唤时造成10点火焰伤害和5*1的点燃\n英雄模式：召唤时造成20点火焰伤害和5*2的点燃\n传奇模式：",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "wu-yan-pu-ren-pu-tong-ying-xiong-chuan-qi",
+    "name": "污焰仆人（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": "150，300，600",
+    "damageReduction": "13，47，47",
+    "restoredFromDate": null,
+    "physicalDamage": "无",
+    "elementDamage": {
+      "type": "火",
+      "value": "10，20，90"
+    },
+    "note": "【特性】复活一次，每隔2秒恢复5/8/15（普通/英雄/传奇）点血量，受2倍冰伤，1.5倍衰败伤，火伤免疫\n【火焰炸弹】投掷火元素炸弹\n普通模式：造成10点火焰伤害和5*1的点燃\n英雄模式：造成20点火焰伤害和5*2的点燃\n传奇模式：造成90点火焰伤害和5*3的点燃",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "wu-yan-rong-lu-pu-tong-ying-xiong-chuan-qi",
+    "name": "污焰熔炉（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": "375，800，1600",
+    "damageReduction": "37，64.5，64.5",
+    "restoredFromDate": null,
+    "physicalDamage": "10，20，20",
+    "elementDamage": {
+      "type": "火",
+      "value": "5，10，40"
+    },
+    "note": "【特性】受2倍冰伤，1.5倍衰败伤，火伤免疫\n【眩晕】普通攻击概率造成1秒眩晕\n【反甲】近战攻击它会对玩家造成火焰伤害，远程不会\n普通模式：近战反甲5点火焰伤害\n英雄模式：近战反甲7点火焰伤害\n传奇模式：近战反甲15点火焰伤害",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "chi-yan-zhi-hun-pu-tong-ying-xiong-chuan-qi",
+    "name": "炽焰之魂（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": "100，500，2000",
+    "damageReduction": "0，0，0",
+    "restoredFromDate": null,
+    "physicalDamage": "25，50，100",
+    "elementDamage": {
+      "type": "火",
+      "value": "15，100，200"
+    },
+    "note": "锁定角色后，追踪角色并引爆自身，爆炸造成一定物理伤害和火焰伤害，且造成2秒眩晕",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "xiu-shi-zhang-da-mi-an-pu-tong-ying-xiong-chuan-qi",
+    "name": "修士长达米安（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": "1000，2700，4500",
+    "damageReduction": "37，55，64.5",
+    "restoredFromDate": null,
+    "physicalDamage": "无",
+    "elementDamage": {
+      "type": "火",
+      "value": "10，20，150"
+    },
+    "note": "【特性】受2倍冰伤，1.5倍衰败伤，火伤免疫；\n【召唤】一次性召唤2个灰烬之人，上限3个，召唤时释放一定火焰伤害，在普通/英雄/传奇的伤害分别为：10点火焰伤害+5*1的点燃/20点火焰伤害+5*4的点燃/150点火焰伤害+5*5的点燃\n【赫拉特的祝福】能无限复活露西安娜，且定期回复灰烬之人和露西安娜一定血量，在普通/英雄/传奇中分别为30/40/150\n【泥沼】降低移动速度和攻击速度4秒\n【赫拉特之盾】护盾保护期间无敌",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "yong-heng-zhi-yan-de-lu-xi-an-na-pu-tong-ying-xiong-chuan-qi",
+    "name": "永恒之焰的露西安娜（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": "500，1300，2200",
+    "damageReduction": "37，74.5，80.5",
+    "restoredFromDate": null,
+    "physicalDamage": "15，30，60",
+    "elementDamage": {
+      "type": "火",
+      "value": "5， 40，90"
+    },
+    "note": "【特性】受2倍冰伤，1.5倍衰败伤，火伤免疫\n【烈焰之盾】举盾减少任意攻击一定伤害三下后放下：\n普通模式：固定减少5点\n英雄模式：固定减少15点\n传奇模式：固定减少253点\n【烈焰踢】造成一定物理伤害的同时并施加恐惧效果：\n普通模式：一脚造成20物理伤害，并恐惧3秒\n英雄模式：一脚造成70物理伤害，并恐惧3秒\n传奇模式：一脚造成150物理伤害，并恐惧3秒\n【烈焰震怒】巨锤砸地，造成一定伤害并眩晕2秒\n普通模式：造成10点物理伤害和10点火焰伤害\n英雄模式：造成30点物理伤害和70点火焰伤害\n传奇模式：造成60点物理伤害和110点火焰伤害",
+    "locations": [
+      "暮焰修道院"
+    ],
+    "dataIncomplete": null
+  },
+  {
+    "id": "shen-bu-ke-ce-de-ji-di-en-pu-tong-ying-xiong-chuan-qi",
+    "name": "深不可测的吉迪恩（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": null,
+    "damageReduction": "30，50，50",
+    "restoredFromDate": null,
+    "physicalDamage": "20，30，60",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】他将所有神圣经文都铭记于心，哪怕最末一卷卷轴也不例外。然而，没人能预测他下一句会低声念出哪一节。\n【技能效果】提升友军移速100%，物理攻击+10/+20/+40（普通/英雄/传奇），护甲+100/+200/+400（普通/英雄/传奇），火焰防御+50/+100/+150（普通/英雄/传奇），每秒回复2/4/8点生命值上限60/120/240（普通/英雄/传奇），上述所有buff持续30秒\n【人物装备】大兜帽，衬衫，皇家信使裤，皇家信使靴，车把\n【所需戒指】普通/英雄/传奇：免费/免费/免费",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "pin-zhe-a-er-fu-lei-de-pu-tong-ying-xiong-chuan-qi",
+    "name": "贫者阿尔弗雷德（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": null,
+    "damageReduction": "30，50，50",
+    "restoredFromDate": null,
+    "physicalDamage": "20，30，60",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】出身于商人世家，他将全部财富捐给了有需要的人，余生都在受赫拉特恩典祝福的修道院中度过。\n【技能效果】回复友军血量30/70/140（普通/英雄/传奇）\n【人物装备】骑士团棉衣，车把\n【所需戒指】普通/英雄/传奇：免费/免费/免费",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "shou-zhu-fu-de-te-lun-si-pu-tong-ying-xiong-chuan-qi",
+    "name": "受祝福的特伦斯（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": null,
+    "damageReduction": "30，24，24",
+    "restoredFromDate": null,
+    "physicalDamage": "15，20，40",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】他退入卢比尼亚的荒野，通过禁食和鞭笞来苦修肉身。据说，他身上的伤疤多得如同卷轴上的经文。\n【技能效果】自身会每一秒以1/3/4（普通/英雄/传奇）火焰伤害掉血，但是在敌方单位攻击特伦斯时，以及特伦斯攻击敌方单位时都会回复自身血量5/15/25（普通/英雄/传奇）\n【人物装备】乞丐裤，木棍\n【所需戒指】普通/英雄/传奇：免费/免费/免费",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "liu-lang-zhe-ao-lie-ge-pu-tong-ying-xiong-chuan-qi",
+    "name": "流浪者奥列格（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "common",
+    "hp": null,
+    "damageReduction": "30，50，48",
+    "restoredFromDate": null,
+    "physicalDamage": "50，100，180",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】一位贵族抛下华丽丝绸，踏上尘土飞扬之路，他已凭神圣誓言将自己献给帝国的所有神祠。他的脚都走到见骨了，却仍不断前行。\n【技能效果】人物移速缓慢，概率闪避敌人攻击，概率对敌人造成出血，单次3/6/12（普通/英雄/传奇），可叠加\n【人物装备】皇家信使套装，长剑\n【所需戒指】普通/英雄/传奇：免费/免费/免费",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "wu-qing-de-a-qi-bo-er-de-pu-tong-ying-xiong-chuan-qi",
+    "name": "无情的阿奇博尔德（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": null,
+    "damageReduction": "60，60，60",
+    "restoredFromDate": null,
+    "physicalDamage": "60，120，200",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】一位将信仰置于血缘之上的调查官。他将被指控为异端的亲生儿子送上火刑架，即便儿子苦苦哀求怜悯，他也始终不为所动。\n【技能效果】行刑者帽兜赋予他一定概率造成5倍物理伤害的力量，敌人血量越低概率越高，若是一刀死的敌人则概率为100%；击杀敌方单位会给自身和友军回复生命值10/15/30（普通/英雄/传奇）\n【人物装备】行刑者帽兜，圣殿骑士护甲，吟游诗人手套，吟游诗人裤子，吟游诗人靴子，铜战斧\n【所需戒指】普通/英雄/传奇：10/30/60",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "ren-ci-de-sa-bin-na-pu-tong-ying-xiong-chuan-qi",
+    "name": "仁慈的萨宾娜（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": null,
+    "damageReduction": "48，55，55",
+    "restoredFromDate": null,
+    "physicalDamage": "30，40，80",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】在那座每个灵魂都已死去的医院里，她是最后一位治疗师。她负伤虚弱，却仍帮助每一个有需要的人，直到生命最后一息。\n【技能效果】每秒回复友军血量7点/15点/30点（普通/英雄/传奇），并给敌方施加禁疗效果\n【人物装备】瘟疫医生套装，渡鸦弩\n【所需戒指】普通/英雄/传奇：10/30/60",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "jian-yi-de-gu-si-ta-fu-pu-tong-ying-xiong-chuan-qi",
+    "name": "坚毅的古斯塔夫（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": null,
+    "damageReduction": "60，67，71",
+    "restoredFromDate": null,
+    "physicalDamage": "30，40，80",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】他孤身站在白盾骑士团的战旗下。尽管身负致命伤，他仍坚守一小时，击退了异教徒的猛攻，拼尽全力保护朝圣者。\n【技能效果】圣骑士套装赋予他2.24倍的回血效果；可举盾抵挡三次攻击\n【人物装备】圣骑士套装，法尔维斯护盾，双刃大砍刀\n【所需戒指】普通/英雄/传奇：10/30/60",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "chuan-jiao-shi-yi-en-pu-tong-ying-xiong-chuan-qi",
+    "name": "传教士伊恩（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "unique",
+    "hp": null,
+    "damageReduction": "48，55，55",
+    "restoredFromDate": null,
+    "physicalDamage": "35，40，80",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】他带着寥寥数名信徒，携着赫拉特之光来到异教徒的土地上。部落向他提出，只要他放弃信仰便可饶他一命 —— 伊恩则以祈祷作答。\n【技能效果】提升友军物理伤害10/20/40（普通/英雄/传奇），持续60秒；提升友军攻击速度20%/25%/25%（普通/英雄/传奇），持续3/3/5秒（普通/英雄/传奇）；自身每受到一定伤害就回复一定比例的血量，每次回复1点/2点/4点（普通/英雄/传奇），但可叠加\n【人物装备】不知名传教士套装，青铜矛\n【所需戒指】普通/英雄/传奇：10/30/60",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "sheng-bi-de-pu-tong-ying-xiong-chuan-qi",
+    "name": "圣彼得（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "legendary",
+    "hp": null,
+    "damageReduction": "60，65，64.5",
+    "restoredFromDate": null,
+    "physicalDamage": "40，50，99",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】他的信仰如此虔诚，以至于死亡本身三度在他面前退却。驱退死神的药酒也以他的名字命名。\n【技能效果】给友军提供复活buff，持续6分30秒；施展法术回复友军血量，单次8/17/36（普通/英雄/传奇），一共9次\n【人物装备】圣骑士胸甲，吟游诗人手套，皇家信使裤，皇家信使靴，诸神之怒\n【所需戒指】普通/英雄/传奇：30/90/180",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "bu-fen-de-sai-lai-si-di-na-pu-tong-ying-xiong-chuan-qi",
+    "name": "不焚的塞莱斯蒂娜（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "legendary",
+    "hp": null,
+    "damageReduction": "60，64.5，64.5",
+    "restoredFromDate": null,
+    "physicalDamage": "20，30，40",
+    "elementDamage": {
+      "type": "冰",
+      "value": "20，30，40"
+    },
+    "note": "【人物介绍】她周身环绕着火焰走进大教堂，石砌穹顶在重压下呻吟着，她将文物全部带出，没有留下一件。火焰没有触及她，因为她早已属于火焰。\n【技能效果】提升友军的火焰伤害防御力点数，持续60秒，普通/英雄/传奇分别为100点/150点/200点；冰霜匕首赋予她概率减慢敌人攻击与奔跑速度的能力\n【人物装备】纯净守护者护甲，帝国猎人手套，纯净守护者腿甲，战靴，冰霜匕首\n【所需戒指】普通/英雄/传奇：30/90/180",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "jian-yi-de-ai-lin-na-pu-tong-ying-xiong-chuan-qi",
+    "name": "坚毅的埃琳娜（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "legendary",
+    "hp": null,
+    "damageReduction": "75，80，80",
+    "restoredFromDate": null,
+    "physicalDamage": "40，50，99",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】当绝望笼罩众人时，她重新集结了营团，带领他们继续前进。敌方首领倒下了，她的族人安然无恙地走了出来。我们守护着她的遗骸，并坚信埃琳娜的烈酒守护着我们。\n【技能效果】皇帝之盾赋予她给友军提供魔法护盾的能力，吸收一定伤害，持续30秒；4件尖刺护甲赋予她给予近战中敌人反甲伤害,在普通/英雄/传奇中分别为20/40/60\n【人物装备】尖刺套装（无头盔），皇帝之盾，铁质变种剑\n【所需戒指】普通/英雄/传奇：30/90/180",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
+  },
+  {
+    "id": "shen-chui-ai-de-li-ke-pu-tong-ying-xiong-chuan-qi",
+    "name": "神锤埃德里克（普通，英雄，传奇）",
+    "group": "暮焰修道院",
+    "groupNote": null,
+    "groupNoteBlocks": null,
+    "quality": "legendary",
+    "hp": null,
+    "damageReduction": "65，75，78",
+    "restoredFromDate": null,
+    "physicalDamage": "120，220，350",
+    "elementDamage": {
+      "type": null,
+      "value": "无"
+    },
+    "note": "【人物介绍】他以如此狂烈的怒火粉碎伪神，每一锤落下，石块都被击飞百步之外。据说，锤上镶着他摧毁的第一个偶像的一块碎片。\n【技能效果】给近战中的对手施加禁疗效果\n【人物装备】圣殿骑士套装，碎颅者\n【所需戒指】普通/英雄/传奇：30/90/180",
+    "locations": [
+      "暮焰修道院盟军"
+    ],
+    "dataIncomplete": true
   },
   {
     "id": "da-che-pao-tai-gong-jian-shou",

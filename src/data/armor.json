@@ -4769,7 +4769,7 @@
         "qty": 20
       }
     ],
-    "setEffect": "全套装备：减少出些造成的伤害30%",
+    "setEffect": "全套装备：减少出血造成的伤害30%",
     "pieces": [
       {
         "id": "jian-ci-tou-kui",

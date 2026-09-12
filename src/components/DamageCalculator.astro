@@ -89,7 +89,7 @@
 
       const multiplier = 1 - reduction / 100;
       const rawDamage = attack * multiplier;
-      const actualDamage = Math.floor(rawDamage + Number.EPSILON);
+      const actualDamage = Math.floor(Number(rawDamage.toFixed(6)));
       result.textContent = `实际伤害：${actualDamage}`;
       raw.textContent = `${formatNumber(attack)} × (1 - ${reduction.toFixed(2)}%) = ${formatNumber(rawDamage, 2)} → 实际掉血 ${actualDamage}`;
       zeroMessage.hidden = actualDamage !== 0;
