@@ -10,6 +10,17 @@ export const SKILL_CATEGORY_IDS = {
 
 export type SkillCategory = keyof typeof SKILL_CATEGORY_IDS;
 
+export type SkillDropLocationGroup = { levels: number[]; locations: string[] };
+
+export function getHighLevelDropGroup(skill: {
+  dropLocationsRaw: string;
+  dropLocationsByLevel: SkillDropLocationGroup[];
+}): SkillDropLocationGroup | undefined {
+  return skill.dropLocationsByLevel.find((group) =>
+    group.locations.some((location) => !skill.dropLocationsRaw.includes(location))
+  );
+}
+
 export function getSkillCategoryId(category: string): string {
   return SKILL_CATEGORY_IDS[category as SkillCategory] ?? category;
 }

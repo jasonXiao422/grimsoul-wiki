@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import skills from '../../data/skills.json';
-import { getSkillCategoryId } from '../../lib/skills';
+import { getHighLevelDropGroup, getSkillCategoryId } from '../../lib/skills';
 import { getItemHref } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
@@ -102,26 +102,29 @@ const fallback =
     <section class="skills-search-drops panel" data-skills-search-drops hidden>
       <h2>掉落位置</h2>
       <div class="skills-search-drop-list">
-        {items.map((skill) => (
-          <article class="skills-search-drop" data-skills-search-result data-skill-id={skill.id} hidden>
-            <div class="skills-search-drop-heading">
-              <a class="item-cell" href={getItemHref('skills', skill)}>
-                <img
-                  class="item-icon quality-icon skill-icon skill-search-drop-icon"
-                  src={`/images/skills/${skill.id}.webp`}
-                  alt={skill.name}
-                  loading="lazy"
-                  style={`--quality-border:${categoryColor};--quality-glow:${categoryColor}`}
-                  data-fallback={fallback}
-                  onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                />
-                <strong class="skills-search-drop-name" style={`color:${categoryColor}`}>{skill.name}</strong>
-              </a>
-            </div>
-            <p class="skills-search-drop-text">{skill.dropLocationsRaw}</p>
-            {skill.levels.some((level) => level.level >= 11) && <p class="skills-search-drop-text">Lv11 及以上：打牌</p>}
-          </article>
-        ))}
+        {items.map((skill) => {
+          const highLevelDropGroup = getHighLevelDropGroup(skill);
+          return (
+            <article class="skills-search-drop" data-skills-search-result data-skill-id={skill.id} hidden>
+              <div class="skills-search-drop-heading">
+                <a class="item-cell" href={getItemHref('skills', skill)}>
+                  <img
+                    class="item-icon quality-icon skill-icon skill-search-drop-icon"
+                    src={`/images/skills/${skill.id}.webp`}
+                    alt={skill.name}
+                    loading="lazy"
+                    style={`--quality-border:${categoryColor};--quality-glow:${categoryColor}`}
+                    data-fallback={fallback}
+                    onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
+                  />
+                  <strong class="skills-search-drop-name" style={`color:${categoryColor}`}>{skill.name}</strong>
+                </a>
+              </div>
+              <p class="skills-search-drop-text">{skill.dropLocationsRaw}</p>
+              {highLevelDropGroup && <p class="skills-search-drop-text">Lv{Math.min(...highLevelDropGroup.levels)} 及以上：{highLevelDropGroup.locations.join('/')}</p>}
+            </article>
+          );
+        })}
       </div>
     </section>
     <p class="muted" data-skills-empty hidden>没有找到符合条件的技能。</p>
