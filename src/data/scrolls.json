@@ -154,5 +154,29 @@
     "name": "4级瘟疫卷轴",
     "quality": "legendary",
     "effect": "诅咒附近的敌人，使其受到的治疗效果降低100%，持续30秒"
+  },
+  {
+    "id": "1-ji-huo-yan-juan-zhou",
+    "name": "1级火焰卷轴",
+    "quality": "common",
+    "effect": "对附近敌人造成40点周期性火焰伤害：10*4点燃"
+  },
+  {
+    "id": "2-ji-huo-yan-juan-zhou",
+    "name": "2级火焰卷轴",
+    "quality": "rare",
+    "effect": "对附近敌人造成80点周期性火焰伤害：10*8点燃"
+  },
+  {
+    "id": "3-ji-huo-yan-juan-zhou",
+    "name": "3级火焰卷轴",
+    "quality": "unique",
+    "effect": "对附近敌人造成160点周期性火焰伤害：10*16点燃"
+  },
+  {
+    "id": "4-ji-huo-yan-juan-zhou",
+    "name": "4级火焰卷轴",
+    "quality": "legendary",
+    "effect": "对附近敌人造成320点周期性火焰伤害：10*32点燃"
   }
 ]
