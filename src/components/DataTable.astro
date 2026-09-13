@@ -332,5 +332,15 @@ for (const item of items) {
     root.querySelectorAll<HTMLButtonElement>('[data-sort-key]').forEach((button) => {
       button.addEventListener('click', () => sortRows(button.dataset.sortKey ?? ''));
     });
+
+    const params = new URLSearchParams(window.location.search);
+    filters.forEach((filter) => {
+      const key = filter.dataset.filter;
+      const value = key ? params.get(key) : null;
+      if (value !== null && [...filter.options].some((option) => option.value === value)) {
+        filter.value = value;
+      }
+    });
+    applyFilters();
   });
 </script>

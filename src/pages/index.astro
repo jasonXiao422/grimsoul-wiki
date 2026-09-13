@@ -22,12 +22,27 @@ const categoryCards = CATEGORIES.map((category) => ({
     : `${getCategoryCount(category.slug as CategorySlug)} 条`,
 }));
 
-// 最近更新区块只维护类别 slug；卡片内容与资料入口统一从现有类别配置和数据生成。
-const RECENT_UPDATES = ['upgradable-buildings'] as const;
-const recentUpdateCards = RECENT_UPDATES.flatMap((slug) => {
-  const card = categoryCards.find((entry) => entry.slug === slug);
-  return card ? [card] : [];
-});
+// 最近更新是手工维护的清单；以后新增更新只需在这里添加条目。
+const RECENT_UPDATES = [
+  {
+    label: '暮焰修道院敌人数据',
+    href: '/enemies?group=暮焰修道院',
+    badge: '8 名敌人',
+    blurb: '生命、减伤与元素伤害',
+  },
+  {
+    label: '暮焰修道院盟军数据',
+    href: '/enemies?group=暮焰修道院盟军',
+    badge: '12 名盟军',
+    blurb: '生命、减伤与元素伤害',
+  },
+  {
+    label: '新的火焰卷轴',
+    href: '/scrolls',
+    badge: '新卷轴',
+    blurb: '火焰效果',
+  },
+];
 
 const entryCards = [
   ...categoryCards,
@@ -118,8 +133,8 @@ const heroImages = Object.keys(heroImageModules)
 
   <section>
     <h2 class="home-section-title">最近更新</h2>
-    <div class="grid">
-      {recentUpdateCards.map((card) => (
+    <div class="grid recent-updates-grid">
+      {RECENT_UPDATES.map((card) => (
         <EntryCard {...card} />
       ))}
     </div>
@@ -223,3 +238,31 @@ const heroImages = Object.keys(heroImageModules)
     }
   </script>
 </BaseLayout>
+
+<style>
+  .recent-updates-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .recent-updates-grid :global(.entry-card) {
+    min-height: 0;
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .recent-updates-grid :global(.entry-card strong) {
+    font-size: 1.05rem;
+  }
+
+  .recent-updates-grid :global(.entry-meta) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 700px) {
+    .recent-updates-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
