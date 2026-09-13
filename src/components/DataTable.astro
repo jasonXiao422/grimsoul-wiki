@@ -334,6 +334,10 @@ for (const item of items) {
     });
 
     const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('q');
+    if (searchQuery !== null && search) {
+      search.value = searchQuery;
+    }
     filters.forEach((filter) => {
       const key = filter.dataset.filter;
       const value = key ? params.get(key) : null;
