@@ -1,5 +1,31 @@
 import { tierRank } from './tiers';
-import { ELEMENT_ALIASES, ELEMENT_META, normalizeElementName, QUALITY_META, QUALITY_ORDER } from './quality';
+import { ELEMENT_ALIASES, ELEMENT_META, normalizeElementName, QUALITY_META, QUALITY_ORDER, type Quality } from './quality';
+
+const ENEMY_DIFFICULTY_SUFFIXES = [
+  '（普通，英雄，传奇）',
+  '（普通，英雄）',
+  '(普通，英雄，传奇)',
+  '(普通，英雄)',
+] as const;
+
+export const stripEnemyDifficultySuffix = (name: string) => {
+  const suffix = ENEMY_DIFFICULTY_SUFFIXES.find((candidate) => name.endsWith(candidate));
+  return suffix ? name.slice(0, -suffix.length) : name;
+};
+
+export const splitEnemyDamageStages = (value: unknown) => {
+  if (typeof value !== 'string') return undefined;
+  const parts = value.split(/(\s*[，,]\s*)/);
+  if (parts.length === 1) return undefined;
+
+  let stage = 0;
+  return parts.map((text, index) => {
+    if (index % 2 === 1) return { text, quality: undefined };
+    const quality: Quality | undefined = stage === 1 ? 'unique' : stage === 2 ? 'legendary' : undefined;
+    stage += 1;
+    return { text, quality };
+  });
+};
 
 export const FIELD_LABELS: Record<string, string> = {
   name: '名称',

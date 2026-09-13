@@ -6,7 +6,7 @@ import QualityText from './QualityText.astro';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { TIER_COLOR } from '../lib/tiers';
-import { FIELD_LABELS, formatValue } from '../lib/display';
+import { FIELD_LABELS, formatValue, splitEnemyDamageStages, stripEnemyDifficultySuffix } from '../lib/display';
 import { getAnyItemName, getItemIconSrc, type CategorySlug } from '../lib/data';
 import { getEnemyConcepts } from '../lib/enemy-concepts';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
@@ -46,6 +46,18 @@ const getDetailValue = (key: string, value: unknown) => {
   if (isEmptyValue(value) && isDataIncomplete) return '数据待补充';
   if (key === 'upgradeOf' && typeof value === 'string') return getAnyItemName(value);
   return formatValue(key, value);
+};
+
+const getEnemyDamageValue = (key: string, value: unknown) => {
+  if (key === 'elementDamage' && value && typeof value === 'object') {
+    return (value as Record<string, unknown>).value;
+  }
+  return ['hp', 'damageReduction', 'physicalDamage'].includes(key) ? value : undefined;
+};
+
+const getEnemyElementLabel = (value: unknown) => {
+  if (!value || typeof value !== 'object') return '';
+  return formatValue('elementDamage', { ...(value as Record<string, unknown>), value: null });
 };
 
 type QualityTextSegment = { text: string; quality?: Quality };
@@ -171,17 +183,24 @@ const attrRows = Object.entries(item)
     Object.hasOwn(FIELD_LABELS, key) &&
     (!isEmptyValue(value) || isDataIncomplete),
   )
-  .map(([key, value]) => ({
-    key,
-    rawValue: value,
-    label: getDetailLabel(key),
-    value: getDetailValue(key, value),
-    enemyNote: categorySlug === 'enemies' && key === 'note'
-      ? parseEnemyNote(value, item.noteSegments)
-      : undefined,
-    elementStyle: getElementStyle(key, value),
-    isIncomplete: isDataIncomplete && isEmptyValue(value),
-  }));
+  .map(([key, value]) => {
+    const displayValue = getDetailValue(key, value);
+    return {
+      key,
+      rawValue: value,
+      label: getDetailLabel(key),
+      value: displayValue,
+      damageSegments: categorySlug === 'enemies' && displayValue !== '数据待补充'
+        ? splitEnemyDamageStages(getEnemyDamageValue(key, value))
+        : undefined,
+      elementLabel: key === 'elementDamage' ? getEnemyElementLabel(value) : '',
+      enemyNote: categorySlug === 'enemies' && key === 'note'
+        ? parseEnemyNote(value, item.noteSegments)
+        : undefined,
+      elementStyle: getElementStyle(key, value),
+      isIncomplete: isDataIncomplete && isEmptyValue(value),
+    };
+  });
 
 const hasCostField = Array.isArray(item.cost);
 const recipes = categorySlug === 'consumables' && Array.isArray(item.recipes) ? item.recipes : [];
@@ -193,6 +212,7 @@ const qualityStyle = qualityMeta
   ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
   : undefined;
 const titleColor = qualityMeta?.text ?? tierColor;
+const displayName = categorySlug === 'enemies' ? stripEnemyDifficultySuffix(item.name) : item.name;
 const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配方' : '合成配方';
 const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [];
 ---
@@ -210,7 +230,7 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
   <div>
     <div class="page-heading">
       <p class="eyebrow" style={tierColor ? `color:${tierColor}` : undefined}>{eyebrow}</p>
-      <h1 style={titleColor ? `color:${titleColor}` : undefined}>{item.name}</h1>
+      <h1 style={titleColor ? `color:${titleColor}` : undefined}>{displayName}</h1>
     </div>
 
     {attrRows.length > 0 && (
@@ -221,7 +241,10 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
             {attrRows.map((row) => (
               <tr>
                 <th>{row.label}</th>
-                  <td class:list={[row.isIncomplete && 'attr-value-incomplete']}>
+                  <td class:list={[
+                    row.isIncomplete && 'attr-value-incomplete',
+                    categorySlug === 'enemies' && ['hp', 'damageReduction', 'physicalDamage', 'elementDamage'].includes(row.key) && 'enemy-attr-value-numeric',
+                  ]}>
                   {row.enemyNote ? (
                     <div class="enemy-note">
                       {row.enemyNote.intro && (
@@ -249,6 +272,17 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                         </p>
                       ))}
                     </div>
+                  ) : row.damageSegments && row.key === 'elementDamage' ? (
+                    <span class="element-value">
+                      <span style={row.elementStyle}>{row.elementLabel}</span>
+                      {row.damageSegments.map((part) => part.quality
+                        ? <span style={`color:${QUALITY_META[part.quality].text}`}>{part.text}</span>
+                        : part.text)}
+                    </span>
+                  ) : row.damageSegments ? (
+                    row.damageSegments.map((part) => part.quality
+                      ? <span style={`color:${QUALITY_META[part.quality].text}`}>{part.text}</span>
+                      : part.text)
                   ) : row.elementStyle ? (
                     <span class="element-value" style={row.elementStyle}>{row.value}</span>
                   ) : (

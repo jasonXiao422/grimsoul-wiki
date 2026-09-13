@@ -1096,7 +1096,6 @@ p {
 }
 
 .element-value {
-  font-weight: 600;
 }
 
 .tag-list {
@@ -1179,6 +1178,10 @@ p {
 
 .attr-table td {
   text-align: left;
+}
+
+.enemy-attr-value-numeric {
+  font-variant-numeric: tabular-nums;
 }
 
 .attr-table td.attr-value-incomplete {

@@ -2,7 +2,7 @@
 import type { CategoryDef } from '../lib/categories';
 import { TIER_COLOR } from '../lib/tiers';
 import { getByPath, getItemIconSrc } from '../lib/data';
-import { FIELD_LABELS, formatValue, getSortValue } from '../lib/display';
+import { FIELD_LABELS, formatValue, getSortValue, splitEnemyDamageStages, stripEnemyDifficultySuffix } from '../lib/display';
 import { normalizeElementName } from '../lib/quality';
 import { QUALITY_META, elementColor, type Quality } from '../lib/quality';
 
@@ -18,18 +18,6 @@ const fallback =
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
 
 const DAMAGE_TYPE_ORDER = ['火', '冰', '毒', '衰败', '雷', '流血', '纯物理'];
-const ENEMY_DIFFICULTY_SUFFIXES = [
-  '（普通，英雄，传奇）',
-  '（普通，英雄）',
-  '(普通，英雄，传奇)',
-  '(普通，英雄)',
-] as const;
-
-const stripEnemyDifficultySuffix = (name: string) => {
-  const suffix = ENEMY_DIFFICULTY_SUFFIXES.find((candidate) => name.endsWith(candidate));
-  return suffix ? name.slice(0, -suffix.length) : name;
-};
-
 const getDamageTypes = (item: Record<string, any>) => {
   const types = new Set<string>();
   const directType = getByPath(item, 'element.type');
@@ -101,20 +89,6 @@ const getElementColor = (value: unknown) => {
   if (!value || typeof value !== 'object') return undefined;
   const type = (value as Record<string, unknown>).type;
   return typeof type === 'string' ? elementColor(type) : undefined;
-};
-
-const splitEnemyDamageStages = (value: unknown) => {
-  if (typeof value !== 'string') return undefined;
-  const parts = value.split(/(\s*[，,]\s*)/);
-  if (parts.length === 1) return undefined;
-
-  let stage = 0;
-  return parts.map((text, index) => {
-    if (index % 2 === 1) return { text, quality: undefined };
-    const quality: Quality | undefined = stage === 1 ? 'unique' : stage === 2 ? 'legendary' : undefined;
-    stage += 1;
-    return { text, quality };
-  });
 };
 
 const getElementDamageValue = (value: unknown) =>
