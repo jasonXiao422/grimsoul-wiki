@@ -313,6 +313,7 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                     const ref = recipeItem.ref;
                     const refHref = ref?.cat && ref?.id ? `/${ref.cat}/${ref.id}` : undefined;
                     const refQualityMeta = getQualityMeta(ref?.quality ?? 'common');
+                    const refNameQualityMeta = ref?.quality ? getQualityMeta(ref.quality) : undefined;
                     const refQualityStyle = refQualityMeta
                       ? `--quality-border:${refQualityMeta.border};--quality-glow:${refQualityMeta.glow}`
                       : undefined;
@@ -330,9 +331,10 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                           />
                         )}
                         <span>
-                          {recipeItem.name} ×{recipeItem.qty}
+                          <span style={refNameQualityMeta ? `color:${refNameQualityMeta.text}` : undefined}>{recipeItem.name}</span>
                           {recipeItem.note && `（${recipeItem.note}）`}
                         </span>
+                        <span class="qty">×{recipeItem.qty}</span>
                       </>
                     );
                     return (

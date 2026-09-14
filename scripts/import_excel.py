@@ -1668,7 +1668,7 @@ def link_recipe_entities(consumables, materials, catalog):
 
 def link_weapon_recipe_entities(weapons, materials, catalog):
     """把武器分组配方里的名称关联到已有类别或材料条目。"""
-    index = {name: (hit[0], hit[1], None) for name, hit in catalog.items()}
+    index = {name: (hit[0], hit[1], hit[2]) for name, hit in catalog.items()}
     for material in materials:
         index.setdefault(material["name"], ("materials", material["id"], material.get("quality")))
 
@@ -2056,9 +2056,9 @@ def main():
                       ("consumables", consumables),
                       ("scrolls", scrolls)]:
         for it in data:
-            catalog.setdefault(it["name"], (cat, it["id"]))
+            catalog.setdefault(it["name"], (cat, it["id"], it.get("quality")))
             for pc in it.get("pieces", []) or []:
-                catalog.setdefault(pc["name"], ("armor-pieces", pc["id"]))
+                catalog.setdefault(pc["name"], ("armor-pieces", pc["id"], pc.get("quality")))
     link_material_entities(materials, catalog)
 
     link_materials(materials, weapons, armor_sets, armor_pieces, shields, backpacks, amulets, cabinets, surface_chests, fixed_buildings, upgradable_buildings)

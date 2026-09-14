@@ -443,7 +443,7 @@
             "ref": {
               "cat": "weapons",
               "id": "huo-ba",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -651,7 +651,7 @@
             "ref": {
               "cat": "weapons",
               "id": "bi-shou",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -697,7 +697,7 @@
             "ref": {
               "cat": "weapons",
               "id": "ye-men-shuang-ren-wan-dao",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -743,7 +743,7 @@
             "ref": {
               "cat": "weapons",
               "id": "po-ren-jian",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -789,7 +789,7 @@
             "ref": {
               "cat": "weapons",
               "id": "nai-yong-bi-shou",
-              "quality": null
+              "quality": "rare"
             }
           },
           {
@@ -1306,7 +1306,7 @@
             "ref": {
               "cat": "weapons",
               "id": "fu-he-gong",
-              "quality": null
+              "quality": "rare"
             }
           },
           {
@@ -2076,7 +2076,7 @@
             "ref": {
               "cat": "weapons",
               "id": "fa-lan-chui",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -2122,7 +2122,7 @@
             "ref": {
               "cat": "weapons",
               "id": "jian-xi-xiu-shi-chui",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -2853,7 +2853,7 @@
             "ref": {
               "cat": "weapons",
               "id": "qing-tong-mao",
-              "quality": null
+              "quality": "common"
             }
           },
           {
@@ -3274,7 +3274,7 @@
             "ref": {
               "cat": "weapons",
               "id": "bei-zhou-bang-zi",
-              "quality": null
+              "quality": "unique"
             }
           },
           {
@@ -3304,7 +3304,7 @@
             "ref": {
               "cat": "scrolls",
               "id": "4-ji-huo-yan-juan-zhou",
-              "quality": null
+              "quality": "legendary"
             }
           }
         ],
@@ -3347,7 +3347,7 @@
             "ref": {
               "cat": "weapons",
               "id": "zhong-nu",
-              "quality": null
+              "quality": "rare"
             }
           },
           {
@@ -3833,7 +3833,7 @@
             "ref": {
               "cat": "weapons",
               "id": "kuang-zhan-shi-zhan-fu",
-              "quality": null
+              "quality": "unique"
             }
           },
           {
