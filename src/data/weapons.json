@@ -3334,7 +3334,7 @@
     "dotTypes": [
       "点燃"
     ],
-    "isRanged": false,
+    "isRanged": true,
     "upgradeOf": null,
     "recipes": [
       {
