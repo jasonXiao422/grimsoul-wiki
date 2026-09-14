@@ -1258,6 +1258,14 @@ p {
   font-variant-numeric: tabular-nums;
 }
 
+.weapon-cost-section .recipe-list {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.weapon-cost-section .recipe-list a {
+  min-height: 54px;
+}
+
 .plain-list li {
   padding: 10px 12px;
 }

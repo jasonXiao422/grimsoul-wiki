@@ -357,7 +357,7 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
     )}
 
     {hasCostField && (categorySlug !== 'weapons' || recipes.length === 0) && (
-      <section class="section panel">
+      <section class:list={['section', 'panel', categorySlug === 'weapons' && 'weapon-cost-section']}>
         <h2 class="detail-panel-title">{recipeTitle}</h2>
         {item.cost.length > 0 ? (
           <MaterialCostList cost={item.cost} />
