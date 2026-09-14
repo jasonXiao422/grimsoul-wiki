@@ -60,6 +60,22 @@ export type MaterialEntity = { cat: string; id: string };
 
 export const MATERIALS_BY_ID = new Map(materials.map((item) => [item.id, item]));
 
+const MATERIAL_NAME_ALIASES: Record<string, string> = {
+  绳索: '绳子',
+  金属线: '线',
+  附魔皮革: '魔法皮革',
+  真银: '纯银',
+  肖博尔之烬: '修博尔的灰烬',
+  肖博尔骨灰: '修博尔的灰烬',
+  古代板甲: '古老薄板',
+  铜碎片: '碎铜片',
+};
+
+const normalizeMaterialName = (name: string) => name.replace(/\s+/g, '');
+const MATERIAL_ID_BY_NAME = new Map(
+  materials.map((item) => [normalizeMaterialName(item.name), item.id])
+);
+
 const ENTITY_PATH_BY_CAT: Record<string, string> = {
   weapons: 'weapons',
   armor: 'armor',
@@ -272,6 +288,38 @@ export function getRecipeUsages(materialId: string) {
           href: getItemHref(slug, item.id),
           source: '柜子配方',
         });
+      }
+    }
+  }
+
+  for (const item of DATA_BY_CATEGORY['upgradable-buildings'] as readonly any[]) {
+    for (const level of item.levels ?? []) {
+      pushCostUsages(usages, level.cost, materialId, {
+        category: 'upgradable-buildings',
+        name: `${item.name} ${level.level}`,
+        href: getItemHref('upgradable-buildings', item.id),
+        source: '建筑材料',
+      });
+    }
+  }
+
+  for (const slug of ['weapons', 'consumables'] as const) {
+    for (const item of DATA_BY_CATEGORY[slug] as readonly any[]) {
+      for (const recipe of item.recipes ?? []) {
+        for (const ingredient of recipe.items ?? []) {
+          if (ingredient.ref?.cat && ingredient.ref.cat !== 'materials') continue;
+          const name = normalizeMaterialName(ingredient.name ?? '');
+          const canonicalName = MATERIAL_NAME_ALIASES[name] ?? name;
+          if (MATERIAL_ID_BY_NAME.get(normalizeMaterialName(canonicalName)) !== materialId) continue;
+          usages.push({
+            category: slug,
+            categoryLabel: CATEGORY_LABELS[slug] ?? slug,
+            name: item.name,
+            href: getItemHref(slug, item.id),
+            qty: ingredient.qty,
+            source: recipe.label?.trim() || '配方',
+          });
+        }
       }
     }
   }

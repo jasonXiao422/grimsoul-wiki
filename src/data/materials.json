@@ -2,46 +2,46 @@
   {
     "id": "mat-hou-bu",
     "name": "厚布",
-    "usedIn": 159,
+    "usedIn": 162,
     "quality": "common",
     "description": "在缝纫台上由2个布料制作而成，是游戏中必不可少的资源，无论前期还是后期，厚布都是制作护甲的主要材料之一，新手可在悲伤的夜晚或者迷宫刷取"
   },
   {
     "id": "mat-pi-ge",
     "name": "皮革",
-    "usedIn": 132,
+    "usedIn": 135,
     "quality": "common",
     "description": "在晒架上由一张动物毛皮晒制而成，是游戏中必不可少的资源，无论前期还是后期，皮革都是制作装备的主要材料之一，新手可在悲伤的夜晚或者迷宫刷取"
   },
   {
     "id": "mat-tie-ding",
     "name": "铁锭",
-    "usedIn": 74,
+    "usedIn": 82,
     "quality": "common"
   },
   {
     "id": "mat-qing-tong-ingot",
     "name": "青铜锭",
-    "usedIn": 72,
+    "usedIn": 78,
     "quality": "common",
     "description": "在熔炉中由一块铜锭+一块锡矿烧制而成，不过在迷宫可以无限刷取现成的青铜锭，老玩家实际上很少自己烧制青铜锭"
   },
   {
     "id": "mat-xian",
     "name": "线",
-    "usedIn": 71,
+    "usedIn": 76,
     "quality": "common"
   },
   {
     "id": "mat-tong-ding",
     "name": "铜锭",
-    "usedIn": 61,
+    "usedIn": 70,
     "quality": "common"
   },
   {
     "id": "mat-sheng-zi",
     "name": "绳子",
-    "usedIn": 59,
+    "usedIn": 71,
     "quality": "common"
   },
   {
@@ -53,49 +53,49 @@
   {
     "id": "mat-song-mu-ban",
     "name": "松木板",
-    "usedIn": 48,
+    "usedIn": 61,
     "quality": "common"
   },
   {
     "id": "mat-qing-tong-nail",
     "name": "青铜钉",
-    "usedIn": 47,
+    "usedIn": 67,
     "quality": "common"
   },
   {
     "id": "mat-ji-xie-zhuang-zhi",
     "name": "机械装置",
-    "usedIn": 46,
+    "usedIn": 56,
     "quality": "rare"
   },
   {
     "id": "mat-bu-liao",
     "name": "布料",
-    "usedIn": 45,
+    "usedIn": 48,
     "quality": "common"
   },
   {
     "id": "mat-u-xing-ding",
     "name": "U形钉",
-    "usedIn": 45,
+    "usedIn": 54,
     "quality": "rare"
   },
   {
     "id": "mat-sui-tong-pian",
     "name": "碎铜片",
-    "usedIn": 41,
+    "usedIn": 49,
     "quality": "common"
   },
   {
     "id": "mat-tie-sui-pian",
     "name": "铁碎片",
-    "usedIn": 37,
+    "usedIn": 40,
     "quality": "common"
   },
   {
     "id": "mat-hua-mu-ban",
     "name": "桦木板",
-    "usedIn": 31,
+    "usedIn": 45,
     "quality": "common"
   },
   {
@@ -107,13 +107,13 @@
   {
     "id": "mat-yuan-song-mu",
     "name": "原松木",
-    "usedIn": 21,
+    "usedIn": 25,
     "quality": "common"
   },
   {
     "id": "mat-ya-ma-xian-wei",
     "name": "亚麻纤维",
-    "usedIn": 20,
+    "usedIn": 24,
     "quality": "common"
   },
   {
@@ -125,49 +125,49 @@
   {
     "id": "mat-pi-tiao",
     "name": "皮条",
-    "usedIn": 18,
+    "usedIn": 22,
     "quality": "common"
   },
   {
     "id": "mat-mo-fa-mu-cai",
     "name": "魔法木材",
-    "usedIn": 18,
+    "usedIn": 25,
     "quality": "rare"
   },
   {
     "id": "mat-mo-fa-tie-ding",
     "name": "魔法铁锭",
-    "usedIn": 18,
+    "usedIn": 23,
     "quality": "rare"
   },
   {
     "id": "mat-ying-hua-mao-ding",
     "name": "硬化铆钉",
-    "usedIn": 17,
+    "usedIn": 19,
     "quality": "rare"
   },
   {
     "id": "mat-ling-hun-sui-pian",
     "name": "灵魂碎片",
-    "usedIn": 16,
+    "usedIn": 24,
     "quality": "common"
   },
   {
     "id": "mat-lian-tiao",
     "name": "链条",
-    "usedIn": 14,
+    "usedIn": 29,
     "quality": "common"
   },
   {
     "id": "mat-lu-jia",
     "name": "炉架",
-    "usedIn": 14,
+    "usedIn": 25,
     "quality": "common"
   },
   {
     "id": "mat-shi-kuai",
     "name": "石块",
-    "usedIn": 14,
+    "usedIn": 27,
     "quality": "common"
   },
   {
@@ -191,13 +191,13 @@
   {
     "id": "mat-la-zhu",
     "name": "蜡烛",
-    "usedIn": 11,
+    "usedIn": 18,
     "quality": "common"
   },
   {
     "id": "mat-shi-hui-yan",
     "name": "石灰岩",
-    "usedIn": 9,
+    "usedIn": 13,
     "quality": "common"
   },
   {
@@ -261,7 +261,7 @@
   {
     "id": "mat-tou-gu",
     "name": "头骨",
-    "usedIn": 3,
+    "usedIn": 4,
     "quality": "common"
   },
   {
@@ -283,7 +283,7 @@
   {
     "id": "mat-xiang",
     "name": "香",
-    "usedIn": 3,
+    "usedIn": 7,
     "quality": "common"
   },
   {
@@ -295,19 +295,19 @@
   {
     "id": "mat-da-kou",
     "name": "搭扣",
-    "usedIn": 3,
+    "usedIn": 4,
     "quality": "common"
   },
   {
     "id": "mat-chi-zi",
     "name": "匙子",
-    "usedIn": 3,
+    "usedIn": 6,
     "quality": "common"
   },
   {
     "id": "mat-cha-zi",
     "name": "叉子",
-    "usedIn": 3,
+    "usedIn": 6,
     "quality": "common"
   },
   {
@@ -337,7 +337,7 @@
   {
     "id": "mat-bo-tao",
     "name": "脖套",
-    "usedIn": 2,
+    "usedIn": 5,
     "quality": "rare"
   },
   {
@@ -375,7 +375,7 @@
   {
     "id": "mat-tong-kuang-shi",
     "name": "铜矿石",
-    "usedIn": 2,
+    "usedIn": 4,
     "quality": "common"
   },
   {
@@ -535,7 +535,7 @@
   {
     "id": "mat-sheng-can-bei",
     "name": "圣餐杯",
-    "usedIn": 1,
+    "usedIn": 4,
     "quality": "common"
   },
   {
@@ -581,7 +581,7 @@
   {
     "id": "mat-sha-lun",
     "name": "砂轮",
-    "usedIn": 1,
+    "usedIn": 2,
     "quality": "rare"
   },
   {

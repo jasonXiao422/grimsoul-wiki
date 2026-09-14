@@ -1912,11 +1912,18 @@ def build_materials(*datasets, skip_names=(), existing=None, extra_materials=())
 
     materials = list(existing)
     known_names = {material["name"] for material in materials}
+    materials_by_name = {material["name"]: material for material in materials}
+    materials_by_id = {material["id"]: material for material in materials}
     for name, n in sorted(counts.items(), key=lambda kv: -kv[1]):
-        if name in known_names:
+        existing_material = materials_by_name.get(name) or materials_by_id.get(name)
+        if existing_material:
+            existing_material["usedIn"] = existing_material.get("usedIn", 0) + n
             continue
-        materials.append({"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"})
+        material = {"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"}
+        materials.append(material)
         known_names.add(name)
+        materials_by_name[name] = material
+        materials_by_id[material["id"]] = material
     for extra in extra_materials:
         name = extra["name"]
         if name in known_names:
