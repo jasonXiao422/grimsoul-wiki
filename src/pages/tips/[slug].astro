@@ -136,7 +136,7 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
     if (listItem) {
       listItem.classList.add('tips-enemy-list-item');
       if (listItem.parentElement?.tagName === 'UL') {
-        listItem.parentElement.classList.add('recipe-list', 'compact', 'tips-enemy-list-grid');
+        listItem.parentElement.classList.add('recipe-list', 'tips-enemy-list-grid');
       }
       link.classList.add('tips-enemy-link-list');
     } else {
@@ -170,21 +170,16 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 
 <style>
   .tips-content :global(ul.tips-enemy-list-grid) {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: start;
     gap: 8px;
   }
 
   .tips-content :global(ul.tips-enemy-list-grid > li.tips-enemy-list-item) {
     min-width: 0;
-    width: auto;
     margin: 0;
     list-style: none;
-  }
-
-  .tips-content :global(ul.tips-enemy-list-grid > li.tips-enemy-list-item > a.tips-enemy-link-list) {
-    width: auto;
-    min-height: 0;
   }
 
   .tips-content :global(a.tips-enemy-link-list),
