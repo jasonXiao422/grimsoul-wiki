@@ -2,15 +2,45 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import enemies from '../../data/enemies.json';
+import { getItemIconSrc } from '../../lib/data';
+import { QUALITY_META, type Quality } from '../../lib/quality';
 
 type TipEntry = CollectionEntry<'tips'>;
+const enemyIconFallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>');
 
 export async function getStaticPaths() {
   const entries = await getCollection('tips');
-  return entries.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+  const enemiesById = new Map(enemies.map((enemy) => [enemy.id, enemy] as const));
+  return entries.map((entry) => {
+    const enemyIds = new Set(
+      Array.from(entry.body.matchAll(/\/enemies\/([^\s)]+)/g), (match) => match[1]),
+    );
+    const enemyIcons = Array.from(enemyIds, (id) => {
+      const enemy = enemiesById.get(id);
+      if (!enemy) return null;
+      const quality = typeof enemy.quality === 'string'
+        ? QUALITY_META[enemy.quality as Quality]
+        : undefined;
+      return {
+        id,
+        src: getItemIconSrc('enemies', enemy),
+        textColor: quality?.text ?? '',
+        qualityStyle: quality
+          ? `--quality-border:${quality.border};--quality-glow:${quality.glow}`
+          : '',
+      };
+    }).filter((enemy): enemy is NonNullable<typeof enemy> => enemy !== null);
+    return { params: { slug: entry.slug }, props: { entry, enemyIcons } };
+  });
 }
 
-const { entry } = Astro.props as { entry: TipEntry };
+const { entry, enemyIcons } = Astro.props as {
+  entry: TipEntry;
+  enemyIcons: Array<{ id: string; src: string; textColor: string; qualityStyle: string }>;
+};
 const { Content, headings } = await render(entry);
 const toc = headings.filter((heading) => heading.depth === 2);
 const formatDate = (date: Date) => date.toISOString().slice(0, 10);
@@ -80,3 +110,134 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
     )}
   </div>
 </BaseLayout>
+
+<script define:vars={{ enemyIcons, enemyIconFallback }}>
+  const content = document.querySelector('.tips-content');
+  const iconsById = new Map(enemyIcons.map((enemy) => [enemy.id, enemy]));
+
+  content?.querySelectorAll('a[href^="/enemies/"]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const url = new URL(href, window.location.origin);
+    const match = url.pathname.match(/^\/enemies\/([^/]+)\/?$/);
+    if (!match) return;
+
+    let id;
+    try {
+      id = decodeURIComponent(match[1]);
+    } catch {
+      return;
+    }
+    const enemy = iconsById.get(id);
+    if (!enemy || link.querySelector(':scope > .tips-enemy-icon-wrap')) return;
+
+    const listItem = link.parentElement?.tagName === 'LI' ? link.parentElement : null;
+    const iconVariant = listItem ? 'list' : 'inline';
+    if (listItem) {
+      listItem.classList.add('tips-enemy-list-item');
+      if (listItem.parentElement?.tagName === 'UL') {
+        listItem.parentElement.classList.add('recipe-list', 'compact', 'tips-enemy-list-grid');
+      }
+      link.classList.add('tips-enemy-link-list');
+    } else {
+      link.classList.add('tips-enemy-link-inline');
+    }
+
+    const iconWrap = document.createElement('span');
+    iconWrap.className = `tips-enemy-icon-wrap tips-enemy-icon-wrap-${iconVariant}`;
+    iconWrap.setAttribute('aria-hidden', 'true');
+
+    const icon = document.createElement('img');
+    icon.className = `item-icon tips-enemy-link-icon-${iconVariant}${enemy.qualityStyle ? ' quality-icon' : ''}`;
+    icon.src = enemy.src;
+    icon.alt = '';
+    icon.loading = 'lazy';
+    icon.style.cssText = enemy.qualityStyle;
+    icon.addEventListener('error', () => {
+      icon.src = enemyIconFallback;
+      icon.classList.add('is-missing');
+    }, { once: true });
+
+    const label = document.createElement('span');
+    label.className = `tips-enemy-link-label-${iconVariant}`;
+    while (link.firstChild) label.append(link.firstChild);
+
+    iconWrap.append(icon);
+    if (enemy.textColor) link.style.setProperty('--enemy-link-color', enemy.textColor);
+    link.append(iconWrap, label);
+  });
+</script>
+
+<style>
+  .tips-content :global(ul.tips-enemy-list-grid) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tips-content :global(ul.tips-enemy-list-grid > li.tips-enemy-list-item) {
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    list-style: none;
+  }
+
+  .tips-content :global(ul.tips-enemy-list-grid > li.tips-enemy-list-item > a.tips-enemy-link-list) {
+    width: auto;
+    min-height: 0;
+  }
+
+  .tips-content :global(a.tips-enemy-link-list),
+  .tips-content :global(a.tips-enemy-link-inline) {
+    color: var(--enemy-link-color);
+  }
+
+  .tips-content :global(a.tips-enemy-link-list:hover),
+  .tips-content :global(a.tips-enemy-link-inline:hover) {
+    color: var(--accent);
+  }
+
+  .tips-content :global(.tips-enemy-link-label-list) {
+    min-width: 0;
+    white-space: nowrap;
+    line-height: 1.35;
+  }
+
+  .tips-content :global(.tips-enemy-icon-wrap-list) {
+    display: inline-flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .tips-content :global(.tips-enemy-link-icon-list) {
+    display: block;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+
+  .tips-content :global(.tips-enemy-icon-wrap-inline) {
+    position: relative;
+    display: inline-block;
+    width: 22px;
+    height: 0;
+    margin-inline-end: 0.35em;
+    line-height: 0;
+    vertical-align: middle;
+  }
+
+  .tips-content :global(.tips-enemy-link-icon-inline) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    transform: translateY(-50%);
+  }
+
+</style>
