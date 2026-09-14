@@ -201,6 +201,47 @@ def parse_cost(raw):
     return [{"material": k, "qty": int(v) if v == int(v) else v} for k, v in merged.items()]
 
 
+def parse_weapon_recipes(raw):
+    """解析带标签的武器配方；普通无标签星号材料串仍由 parse_cost 处理。"""
+    value = text(raw)
+    if not value:
+        return None
+
+    recipes = []
+    for line in str(value).split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+
+        label, separator, body = line.partition("：")
+        if not separator:
+            label, separator, body = line.partition(":")
+        if not separator or not label.strip() or not body.strip():
+            return None
+
+        items = []
+        position = 0
+        for match in re.finditer(r"([^\s*]+)\s*\*\s*([\d.]+)", body):
+            between = body[position:match.start()]
+            if between and not re.fullmatch(r"[\s,，;；]*", between):
+                return None
+            qty = float(match.group(2))
+            items.append({
+                "name": match.group(1).strip(),
+                "qty": int(qty) if qty == int(qty) else qty,
+                "note": None,
+            })
+            position = match.end()
+
+        trailing = body[position:]
+        if not items or (trailing and not re.fullmatch(r"[\s,，;；]*", trailing)):
+            return None
+
+        recipes.append({"label": label.strip(), "items": items, "yield": None})
+
+    return recipes or None
+
+
 def num(v):
     """浮点整数转 int，避免 JSON 里出现 5.0 这种。"""
     if isinstance(v, float) and v == int(v):
@@ -469,7 +510,8 @@ def build_weapons():
             if m:
                 blueprint = m.group(1).strip()
                 effect = None
-        out.append({
+        recipes = parse_weapon_recipes(row[6])
+        weapon = {
             "id": make_id(name),
             "name": name,
             "quality": quality_from_fill(cells[0]),
@@ -480,12 +522,15 @@ def build_weapons():
             "attackSpeed": clean(row[3]),
             "range": clean(row[4]),
             "durability": parse_durability(row[5]),
-            "cost": parse_cost(row[6]),
+            "cost": [] if recipes else parse_cost(row[6]),
             "effect": strip_ranged_marker(effect),
             "dotTypes": parse_dot_types(effect),
             "isRanged": is_ranged,
             "upgradeOf": blueprint,
-        })
+        }
+        if recipes:
+            weapon["recipes"] = recipes
+        out.append(weapon)
     # 把"XX的高级图纸"换成对应武器 id
     by_name = {w["name"]: w["id"] for w in out}
     for w in out:
@@ -1621,6 +1666,30 @@ def link_recipe_entities(consumables, materials, catalog):
         )
 
 
+def link_weapon_recipe_entities(weapons, materials, catalog):
+    """把武器分组配方里的名称关联到已有类别或材料条目。"""
+    index = {name: (hit[0], hit[1], None) for name, hit in catalog.items()}
+    for material in materials:
+        index.setdefault(material["name"], ("materials", material["id"], material.get("quality")))
+
+    unresolved = set()
+    for weapon in weapons:
+        for recipe in weapon.get("recipes") or []:
+            for ingredient in recipe["items"]:
+                name = MATERIAL_ALIAS.get(ingredient["name"], ingredient["name"])
+                hit = index.get(name)
+                if not hit:
+                    unresolved.add(ingredient["name"])
+                    continue
+                ingredient["ref"] = {"cat": hit[0], "id": hit[1], "quality": hit[2]}
+
+    if unresolved:
+        warnings.append(
+            "武器配方里有 %d 种原料在站内找不到对应条目，将显示为纯文本：%s"
+            % (len(unresolved), "、".join(sorted(unresolved)))
+        )
+
+
 # 磨尖等级 → 品质。0/1/2 普通，3/4 稀有，5 独特。
 # 这是固定规则，不从单元格底色读，Excel 不需要刷颜色。
 SHARPEN_QUALITY = {0: "common", 1: "common", 2: "common",
@@ -1961,7 +2030,9 @@ def main():
     # 先生成全部现有类别及现有材料，确保新类别的 make_id 排在它们之后。
     materials = build_materials(weapons, armor_sets, armor_pieces, shields,
                                 backpacks, amulets, cabinets, surface_chests, fixed_buildings, consumables,
-                                skip_names={c["name"] for c in consumables})
+                                skip_names={c["name"] for c in consumables}
+                                | {w["name"] for w in weapons}
+                                | {s["name"] for s in scrolls})
     upgradable_buildings = build_upgradable_buildings()
     accessory_materials = [
         {"name": note["name"], "quality": note["quality"]}
@@ -1982,7 +2053,8 @@ def main():
                       ("backpacks", backpacks), ("surface-chests", surface_chests),
                       ("fixed-buildings", fixed_buildings),
                       ("upgradable-buildings", upgradable_buildings),
-                      ("consumables", consumables)]:
+                      ("consumables", consumables),
+                      ("scrolls", scrolls)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"]))
             for pc in it.get("pieces", []) or []:
@@ -1993,6 +2065,7 @@ def main():
 
     # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
     link_recipe_entities(consumables, materials, catalog)
+    link_weapon_recipe_entities(weapons, materials, catalog)
 
     write("weapons", weapons)
     write("armor", armor_sets)

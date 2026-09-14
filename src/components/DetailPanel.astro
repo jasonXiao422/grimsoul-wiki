@@ -203,7 +203,7 @@ const attrRows = Object.entries(item)
   });
 
 const hasCostField = Array.isArray(item.cost);
-const recipes = categorySlug === 'consumables' && Array.isArray(item.recipes) ? item.recipes : [];
+const recipes = ['consumables', 'weapons'].includes(categorySlug) && Array.isArray(item.recipes) ? item.recipes : [];
 const pieces = Array.isArray(item.pieces) ? item.pieces : [];
 const eyebrow = item.tier ? `品阶 ${item.tier}` : '资料详情';
 const tierColor = typeof item.tier === 'string' ? TIER_COLOR[item.tier] : undefined;
@@ -354,7 +354,7 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
       </section>
     )}
 
-    {hasCostField && (
+    {hasCostField && (categorySlug !== 'weapons' || recipes.length === 0) && (
       <section class="section panel">
         <h2 class="detail-panel-title">{recipeTitle}</h2>
         {item.cost.length > 0 ? (

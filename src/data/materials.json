@@ -63,16 +63,16 @@
     "quality": "common"
   },
   {
+    "id": "mat-ji-xie-zhuang-zhi",
+    "name": "机械装置",
+    "usedIn": 46,
+    "quality": "rare"
+  },
+  {
     "id": "mat-bu-liao",
     "name": "布料",
     "usedIn": 45,
     "quality": "common"
-  },
-  {
-    "id": "mat-ji-xie-zhuang-zhi",
-    "name": "机械装置",
-    "usedIn": 45,
-    "quality": "rare"
   },
   {
     "id": "mat-u-xing-ding",
@@ -81,15 +81,15 @@
     "quality": "rare"
   },
   {
-    "id": "mat-tie-sui-pian",
-    "name": "铁碎片",
-    "usedIn": 37,
+    "id": "mat-sui-tong-pian",
+    "name": "碎铜片",
+    "usedIn": 41,
     "quality": "common"
   },
   {
-    "id": "mat-sui-tong-pian",
-    "name": "碎铜片",
-    "usedIn": 36,
+    "id": "mat-tie-sui-pian",
+    "name": "铁碎片",
+    "usedIn": 37,
     "quality": "common"
   },
   {
@@ -183,6 +183,18 @@
     "quality": "common"
   },
   {
+    "id": "mat-xiao-suan-jia",
+    "name": "硝酸钾",
+    "usedIn": 12,
+    "quality": "common"
+  },
+  {
+    "id": "mat-la-zhu",
+    "name": "蜡烛",
+    "usedIn": 11,
+    "quality": "common"
+  },
+  {
     "id": "mat-shi-hui-yan",
     "name": "石灰岩",
     "usedIn": 9,
@@ -195,22 +207,16 @@
     "quality": "rare"
   },
   {
-    "id": "mat-la-zhu",
-    "name": "蜡烛",
-    "usedIn": 8,
-    "quality": "common"
+    "id": "mat-chun-yin",
+    "name": "纯银",
+    "usedIn": 7,
+    "quality": "unique"
   },
   {
     "id": "mat-sha-lou",
     "name": "沙漏",
     "usedIn": 7,
     "quality": "common"
-  },
-  {
-    "id": "mat-chun-yin",
-    "name": "纯银",
-    "usedIn": 6,
-    "quality": "unique"
   },
   {
     "id": "mat-pi-tuo-lan",
@@ -233,6 +239,24 @@
     "name": "小空瓶",
     "usedIn": 6,
     "quality": "common"
+  },
+  {
+    "id": "mat-xiao-xing-huo-yan-jing-hua",
+    "name": "小型火焰精华",
+    "usedIn": 5,
+    "quality": "rare"
+  },
+  {
+    "id": "mat-da-xing-huo-yan-jing-hua",
+    "name": "大型火焰精华",
+    "usedIn": 4,
+    "quality": "legendary"
+  },
+  {
+    "id": "mat-huo-yan-jing-hua",
+    "name": "火焰精华",
+    "usedIn": 3,
+    "quality": "unique"
   },
   {
     "id": "mat-tou-gu",
@@ -326,13 +350,21 @@
     "id": "mat-shen-sheng-bao-ying-juan-zhou",
     "name": "神圣报应卷轴",
     "usedIn": 2,
-    "quality": "unique"
+    "quality": "unique",
+    "entity": {
+      "cat": "scrolls",
+      "id": "shen-sheng-bao-ying-juan-zhou"
+    }
   },
   {
     "id": "mat-1-ji-zhi-liao-juan-zhou",
     "name": "1级治疗卷轴",
     "usedIn": 2,
-    "quality": "common"
+    "quality": "common",
+    "entity": {
+      "cat": "scrolls",
+      "id": "1-ji-zhi-liao-juan-zhou"
+    }
   },
   {
     "id": "mat-shu-zi",
@@ -383,10 +415,20 @@
     "quality": "common"
   },
   {
+    "id": "mat-ji-hao-de-wu-qi-you",
+    "name": "极好的武器油",
+    "usedIn": 1,
+    "quality": "rare"
+  },
+  {
     "id": "mat-tu-sha-juan-zhou",
     "name": "屠杀卷轴",
     "usedIn": 1,
-    "quality": "unique"
+    "quality": "unique",
+    "entity": {
+      "cat": "scrolls",
+      "id": "tu-sha-juan-zhou"
+    }
   },
   {
     "id": "mat-mu-di-mo-gu",

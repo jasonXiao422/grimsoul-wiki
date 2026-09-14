@@ -431,7 +431,55 @@
       "点燃"
     ],
     "isRanged": false,
-    "upgradeOf": null
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方",
+        "items": [
+          {
+            "name": "火把",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "huo-ba",
+              "quality": null
+            }
+          },
+          {
+            "name": "小型火焰精华",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-xing-huo-yan-jing-hua",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "碎铜片",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-sui-tong-pian",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "yi-shi-bi-shou",
@@ -570,6 +618,214 @@
     "dotTypes": [],
     "isRanged": false,
     "upgradeOf": null
+  },
+  {
+    "id": "lie-yan-bi-shou",
+    "name": "烈焰匕首",
+    "quality": "rare",
+    "damage": 19,
+    "skillBonus": 5,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 10
+    },
+    "attackSpeed": 1.4,
+    "range": 1.2,
+    "durability": {
+      "raw": "待测"
+    },
+    "cost": [],
+    "effect": "杀死敌人后，造成额外2点火焰伤害，持续20秒，这20秒内每杀一个敌人，火焰伤害就增加2，20秒后回到初始的10点",
+    "dotTypes": [],
+    "isRanged": false,
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方1",
+        "items": [
+          {
+            "name": "匕首",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "bi-shou",
+              "quality": null
+            }
+          },
+          {
+            "name": "小型火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-xing-huo-yan-jing-hua",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "碎铜片",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-sui-tong-pian",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "元素熔炉配方2",
+        "items": [
+          {
+            "name": "也门双刃弯刀",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "ye-men-shuang-ren-wan-dao",
+              "quality": null
+            }
+          },
+          {
+            "name": "小型火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-xing-huo-yan-jing-hua",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "碎铜片",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-sui-tong-pian",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "元素熔炉配方3",
+        "items": [
+          {
+            "name": "破刃剑",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "po-ren-jian",
+              "quality": null
+            }
+          },
+          {
+            "name": "小型火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-xing-huo-yan-jing-hua",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "碎铜片",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-sui-tong-pian",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "元素熔炉配方4",
+        "items": [
+          {
+            "name": "耐用匕首",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "nai-yong-bi-shou",
+              "quality": null
+            }
+          },
+          {
+            "name": "小型火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-xing-huo-yan-jing-hua",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "碎铜片",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-sui-tong-pian",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "zhan-dou-chan",
@@ -1038,7 +1294,55 @@
       "点燃"
     ],
     "isRanged": true,
-    "upgradeOf": null
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方",
+        "items": [
+          {
+            "name": "复合弓",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "fu-he-gong",
+              "quality": null
+            }
+          },
+          {
+            "name": "火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-huo-yan-jing-hua",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "shuai-bai-zhi-gong",
@@ -1760,7 +2064,101 @@
       "点燃"
     ],
     "isRanged": false,
-    "upgradeOf": null
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方1",
+        "items": [
+          {
+            "name": "法兰锤",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "fa-lan-chui",
+              "quality": null
+            }
+          },
+          {
+            "name": "火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-huo-yan-jing-hua",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      },
+      {
+        "label": "元素熔炉配方2",
+        "items": [
+          {
+            "name": "见习修士锤",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "jian-xi-xiu-shi-chui",
+              "quality": null
+            }
+          },
+          {
+            "name": "火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-huo-yan-jing-hua",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "xiong-zhang",
@@ -2443,7 +2841,55 @@
       "点燃"
     ],
     "isRanged": false,
-    "upgradeOf": null
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方",
+        "items": [
+          {
+            "name": "青铜矛",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "qing-tong-mao",
+              "quality": null
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 15,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "极好的武器油",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ji-hao-de-wu-qi-you",
+              "quality": "rare"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "bing-lian",
@@ -2792,6 +3238,152 @@
     "dotTypes": [],
     "isRanged": true,
     "upgradeOf": null
+  },
+  {
+    "id": "zang-huo-dui",
+    "name": "葬火堆",
+    "quality": "legendary",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 45
+    },
+    "attackSpeed": 0.9,
+    "range": 1.5,
+    "durability": {
+      "value": 30,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "击杀敌人会对能见范围内所有敌人造成周期性火焰伤害200点，即4*50点燃",
+    "dotTypes": [
+      "点燃"
+    ],
+    "isRanged": false,
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方",
+        "items": [
+          {
+            "name": "被咒棒子",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "bei-zhou-bang-zi",
+              "quality": null
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "4级火焰卷轴",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "4-ji-huo-yan-juan-zhou",
+              "quality": null
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
+  },
+  {
+    "id": "lie-yan-tu-xi",
+    "name": "烈焰吐息",
+    "quality": "legendary",
+    "damage": 90,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 45
+    },
+    "attackSpeed": 0.4,
+    "range": 7,
+    "durability": {
+      "value": 34,
+      "unit": "点"
+    },
+    "cost": [],
+    "effect": "击中目标时，持续5秒，一共造成200点火焰伤害，即5*40点燃",
+    "dotTypes": [
+      "点燃"
+    ],
+    "isRanged": false,
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方",
+        "items": [
+          {
+            "name": "重弩",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "zhong-nu",
+              "quality": null
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "机械装置",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ji-xie-zhuang-zhi",
+              "quality": "rare"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "tie-zhi-bian-zhong-jian",
@@ -3206,6 +3798,78 @@
     "dotTypes": [],
     "isRanged": false,
     "upgradeOf": null
+  },
+  {
+    "id": "huo-yan-shi-yan",
+    "name": "火焰誓言",
+    "quality": "legendary",
+    "damage": 125,
+    "skillBonus": null,
+    "damageNote": null,
+    "element": {
+      "type": "火",
+      "value": 60
+    },
+    "attackSpeed": 1,
+    "range": 2,
+    "durability": {
+      "raw": "待测"
+    },
+    "cost": [],
+    "effect": "每次攻击都会给自己叠加一层点燃，每层持续37秒，造成 20*3共60点火焰伤害。身上每有一层点燃，这把武器的火焰伤害就+3。举例：以每秒一次的频率持续攻击，可稳定维持37层，武器火焰伤害从60提升到171，同时你自己每秒承受约60点点燃伤害。若攻击37秒后停手，最后一层还要再烧37秒，累计自伤2220点。全套冰霜护甲可做到不受任何点燃伤害。",
+    "dotTypes": [
+      "点燃"
+    ],
+    "isRanged": false,
+    "upgradeOf": null,
+    "recipes": [
+      {
+        "label": "元素熔炉配方",
+        "items": [
+          {
+            "name": "狂战士战斧",
+            "qty": 1,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "kuang-zhan-shi-zhan-fu",
+              "quality": null
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "硝酸钾",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-suan-jia",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "纯银",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-chun-yin",
+              "quality": "unique"
+            }
+          }
+        ],
+        "yield": null
+      }
+    ]
   },
   {
     "id": "kuang-zhan-shi-zhan-fu",
