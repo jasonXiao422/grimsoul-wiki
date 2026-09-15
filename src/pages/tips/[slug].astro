@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import MarkdownImageZoom from '../../components/MarkdownImageZoom.astro';
 import enemies from '../../data/enemies.json';
 import { getItemIconSrc } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
@@ -98,6 +99,10 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
       )}
 
       <div class="lore-content tips-content panel"><Content /></div>
+      <MarkdownImageZoom
+        containerSelector=".tips-content"
+        bootstrapSrc="/images/pages/horse-levels.webp"
+      />
     </article>
 
     {toc.length > 0 && (
