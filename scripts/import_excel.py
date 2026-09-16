@@ -818,12 +818,17 @@ def parse_forge_recipes(raw):
 def build_element_forge(weapons):
     by_name = {weapon["name"]: weapon for weapon in weapons}
     merged = {}
-    for column in (1, 2, 3, 4):
+    for column in (1, 2, 3, 4, 10):
         for start, end, value in merged_ranges_of("element-forge", column):
             for row_number in range(start, end + 1):
                 merged[(column, row_number)] = value
 
     rows = cells_of("element-forge")[1:]
+    first_row = [cell.value for cell in rows[0]] if rows else []
+    raw_tags = merged.get((10, 2))
+    if raw_tags is None and len(first_row) > 9:
+        raw_tags = first_row[9]
+    forge_tags = [tag.strip() for tag in (text(raw_tags) or "").split("；") if tag.strip()]
     blueprints = []
     building_name = None
     castle_points = None
@@ -863,7 +868,7 @@ def build_element_forge(weapons):
         "buildCost": build_cost,
         "assembleCost": assemble_cost,
         "blueprintSource": "暮焰修道院",
-        "tags": [],
+        "tags": forge_tags,
         "buildingType": "element-forge",
         "blueprints": blueprints,
     }

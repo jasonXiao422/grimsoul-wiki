@@ -157,6 +157,7 @@ const getDetailLabel = (key: string) => {
   if (categorySlug === 'shields' && key === 'effect') return '效果';
   if (categorySlug === 'backpacks' && key === 'slots') return '储存栏';
   if (categorySlug === 'backpacks' && key === 'effect') return '效果';
+  if (categorySlug === 'enemies' && key === 'elementDamage') return '固定元素伤害';
   return FIELD_LABELS[key] ?? key;
 };
 

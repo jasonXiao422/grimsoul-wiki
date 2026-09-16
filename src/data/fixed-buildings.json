@@ -330,7 +330,10 @@
       }
     ],
     "blueprintSource": "暮焰修道院",
-    "tags": [],
+    "tags": [
+      "需组装",
+      "修道院"
+    ],
     "buildingType": "element-forge",
     "blueprints": [
       {

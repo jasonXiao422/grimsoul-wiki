@@ -45,7 +45,7 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },
       { key: 'damage', label: '物理伤害', sortable: true, numeric: true },
       { key: 'skillBonus', label: '满级技能', sortable: true, numeric: true },
-      { key: 'element', label: '元素伤害', render: 'element' },
+      { key: 'element', label: '固定元素伤害', render: 'element' },
       { key: 'attackSpeed', label: '攻速', sortable: true, numeric: true },
       { key: 'range', label: '攻距', sortable: true, numeric: true },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
@@ -160,7 +160,7 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'hp', label: '生命', sortable: true, numeric: true },
       { key: 'damageReduction', label: '减伤%', sortable: true, numeric: true },
       { key: 'physicalDamage', label: '物理伤害', sortable: true, numeric: true },
-      { key: 'elementDamage', label: '元素伤害', render: 'element' },
+      { key: 'elementDamage', label: '固定元素伤害', render: 'element' },
     ],
     filters: ['group', 'quality'],
     groupBy: 'group',
@@ -222,7 +222,7 @@ export const CATEGORIES: CategoryDef[] = [
     columns: [
       { key: 'name', label: '名称', sortable: true, render: 'quality' },
     ],
-    filters: [],
+    filters: ['tags'],
   },
   {
     slug: 'upgradable-buildings',
