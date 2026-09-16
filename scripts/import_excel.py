@@ -906,6 +906,10 @@ def build_upgradable_buildings():
         key=lambda rng: rng.min_row,
     )
     out = []
+    blueprint_source_at = {}
+    for start_row, end_row, value in merged_ranges_of("upgradable-buildings", 7):
+        for row_number in range(start_row, end_row + 1):
+            blueprint_source_at[row_number] = value
 
     for name_range in name_ranges:
         start = name_range.min_row
@@ -930,6 +934,8 @@ def build_upgradable_buildings():
             level_number = 0 if level == "Lv0" else int(level.removeprefix("Lv"))
             raw_cost = text(ws.cell(row_number, 6).value)
             raw_blueprint = text(ws.cell(row_number, 7).value)
+            if raw_blueprint is None:
+                raw_blueprint = text(blueprint_source_at.get(row_number))
             raw_purpose = text(ws.cell(row_number, 5).value)
             cost_pending = raw_cost == "游戏未出"
             blueprint_pending = raw_blueprint == "游戏未出"
