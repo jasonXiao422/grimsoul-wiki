@@ -4,17 +4,30 @@
  */
 import fs from 'node:fs';
 
-const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'materials-full', 'cabinets', 'surface-chests-location', 'surface-chests', 'upgradable-buildings', 'knight-orders'];
+const FILES = ['weapons', 'armor', 'armor-pieces', 'shields', 'backpacks', 'backpacks-full', 'enemies', 'enemies-full', 'buffs', 'debuffs', 'enemy-buffs', 'amulets', 'scrolls', 'runes', 'consumables', 'boxes', 'materials', 'materials-full', 'cabinets', 'surface-chests-location', 'surface-chests', 'fixed-buildings', 'upgradable-buildings', 'forge-blueprints', 'knight-orders'];
 const missing = [];
 const checkedIcons = new Set();
 
 for (const f of FILES) {
-  const dataFile = ['backpacks-full', 'enemies-full', 'materials-full', 'surface-chests-location', 'surface-chests'].includes(f)
+  const dataFile = f === 'forge-blueprints'
+    ? 'fixed-buildings'
+    : ['backpacks-full', 'enemies-full', 'materials-full', 'surface-chests-location', 'surface-chests'].includes(f)
     ? (f.startsWith('surface-chests') ? 'surface-chests' : f.replace('-full', ''))
     : f;
   const p = `src/data/${dataFile}.json`;
   if (!fs.existsSync(p)) continue;
   for (const item of JSON.parse(fs.readFileSync(p, 'utf8'))) {
+    if (f === 'forge-blueprints') {
+      for (const blueprint of item.blueprints ?? []) {
+        if (!blueprint.weaponId) continue;
+        const iconPath = `public/images/forge-blueprints/${blueprint.weaponId}.webp`;
+        if (!checkedIcons.has(iconPath)) {
+          checkedIcons.add(iconPath);
+          if (!fs.existsSync(iconPath)) missing.push(`forge-blueprints/${blueprint.weaponId}.webp  (${blueprint.weaponName})`);
+        }
+      }
+      continue;
+    }
     if (f === 'upgradable-buildings') {
       const coverPath = `public/images/upgradable-buildings/${item.id}-cover.webp`;
       if (!checkedIcons.has(coverPath)) {

@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import ImageZoom from '../../../components/ImageZoom.astro';
+import fixedBuildings from '../../../data/fixed-buildings.json';
+import { getItemIconSrc } from '../../../lib/data';
+import { QUALITY_META, type Quality } from '../../../lib/quality';
+
+export function getStaticPaths() {
+  return fixedBuildings
+    .filter((building) => building.buildingType === 'element-forge')
+    .flatMap((building) => (building.blueprints ?? []).filter((blueprint) => blueprint.weaponId).map((blueprint) => ({
+      params: { id: building.id, weaponId: blueprint.weaponId },
+      props: { building, blueprint },
+    })));
+}
+
+const { building, blueprint } = Astro.props;
+const fallback =
+  'data:image/svg+xml;charset=utf-8,' +
+  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M24 16h48v64H24z" fill="#2c2f35"/><path d="M32 29h32M32 43h32M32 57h24" stroke="#8a6f1a" stroke-width="5"/></svg>');
+
+const itemQuality = (item: any) => typeof item?.ref?.quality === 'string' && item.ref.quality in QUALITY_META
+  ? QUALITY_META[item.ref.quality as Quality]
+  : undefined;
+const itemStyle = (item: any) => {
+  const meta = itemQuality(item);
+  return meta ? `--quality-border:${meta.border};--quality-glow:${meta.glow}` : undefined;
+};
+const itemHref = (item: any) => item.ref?.cat && item.ref?.id ? `/${item.ref.cat}/${item.ref.id}` : undefined;
+const renderItems = (items: any[]) => items ?? [];
+const blueprintQuality = typeof blueprint.weaponQuality === 'string' && blueprint.weaponQuality in QUALITY_META
+  ? QUALITY_META[blueprint.weaponQuality as Quality]
+  : undefined;
+const blueprintQualityStyle = blueprintQuality
+  ? `--quality-border:${blueprintQuality.border};--quality-glow:${blueprintQuality.glow}`
+  : undefined;
+---
+
+<BaseLayout title={`${blueprint.weaponName}｜元素熔炉图纸`} description={`${blueprint.weaponName}元素熔炉图纸详情`}>
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '不可升级建筑', href: '/fixed-buildings' },
+    { label: building.name, href: `/fixed-buildings/${building.id}` },
+    { label: blueprint.weaponName },
+  ]} />
+
+  <section class="fixed-building-detail-hero panel forge-blueprint-heading">
+    <div class="fixed-building-detail-image-wrap">
+      <ImageZoom
+        src={`/images/forge-blueprints/${blueprint.weaponId}.webp`}
+        alt={blueprint.weaponName}
+        class={`fixed-building-detail-image${blueprintQuality ? ' quality-icon' : ''}`}
+        style={blueprintQualityStyle}
+      />
+    </div>
+    <div>
+      <h1 style={blueprintQuality ? `color:${blueprintQuality.text}` : undefined}>{blueprint.weaponName}</h1>
+      <a href={`/weapons/${blueprint.weaponId}`}>查看武器详情</a>
+    </div>
+  </section>
+
+  {blueprint.dropLocation && <section class="section panel"><h2 class="detail-panel-title">图纸掉落地点</h2><p>{blueprint.dropLocation}</p></section>}
+
+  {blueprint.researchCost?.length > 0 ? (
+    <section class="section panel forge-blueprint-section">
+      <h2 class="detail-panel-title">图纸研究材料</h2>
+      <ul class="recipe-list compact forge-blueprint-item-list">
+        {renderItems(blueprint.researchCost).map((item) => {
+          const href = itemHref(item);
+          const meta = itemQuality(item);
+          const content = (
+            <>
+              {href && <img class:list={['item-icon', meta && 'quality-icon']} src={getItemIconSrc(item.ref.cat, item.ref)} alt={item.name} style={itemStyle(item)} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" />}
+              <span class="forge-blueprint-item-name" style={meta ? `color:${meta.text}` : undefined}>{item.name}</span>
+              <span class="qty">×{item.qty}</span>
+            </>
+          );
+          return <li>{href ? <a class="recipe-item-link" href={href}>{content}</a> : <span class="recipe-item-unlinked">{content}</span>}</li>;
+        })}
+      </ul>
+    </section>
+  ) : <section class="section panel forge-blueprint-section"><h2 class="detail-panel-title">图纸研究材料</h2><p class="muted">熔炉自带，无需研究材料。</p></section>}
+
+  {blueprint.recipes?.length > 0 ? (
+    <section class="section panel forge-blueprint-section">
+      <h2 class="detail-panel-title">武器制作配方</h2>
+      <div class="piece-list">
+        {blueprint.recipes.map((recipe) => (
+          <article class="piece-card consumable-recipe">
+            {recipe.label && <h3>{recipe.label}</h3>}
+            {recipe.items?.length > 0 && (
+              <ul class="recipe-list compact consumable-recipe-list">
+                {renderItems(recipe.items).map((item) => {
+                  const href = itemHref(item);
+                  const meta = itemQuality(item);
+                  const content = (
+                    <>
+                      {href && <img class:list={['item-icon', meta && 'quality-icon']} src={getItemIconSrc(item.ref.cat, item.ref)} alt={item.name} style={itemStyle(item)} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" />}
+                      <span class="forge-blueprint-item-name" style={meta ? `color:${meta.text}` : undefined}>{item.name}</span>
+                      <span class="qty">×{item.qty}</span>
+                    </>
+                  );
+                  return <li>{href ? <a class="recipe-item-link" href={href}>{content}</a> : <span class="recipe-item-unlinked">{content}</span>}</li>;
+                })}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  ) : <section class="section panel forge-blueprint-section"><h2 class="detail-panel-title">武器制作配方</h2><p class="muted">熔炉自带，无需制作配方。</p></section>}
+
+  {!blueprint.dropLocation && <p class="muted forge-blueprint-note">熔炉自带，无需额外掉落。</p>}
+</BaseLayout>
+
+<style>
+  .forge-blueprint-heading {
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  .forge-blueprint-heading .fixed-building-detail-image-wrap {
+    width: 120px;
+    height: 120px;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .forge-blueprint-heading :global(.fixed-building-detail-image) {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+
+  .forge-blueprint-heading h1 {
+    margin: 0 0 8px;
+  }
+
+  .forge-blueprint-item-list {
+    margin: 0;
+  }
+
+  .forge-blueprint-section :global(.recipe-list.compact) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .forge-blueprint-section :global(.recipe-list.compact > li) {
+    min-width: 0;
+  }
+
+  .forge-blueprint-section :global(.recipe-list.compact > li > a),
+  .forge-blueprint-section :global(.recipe-list.compact > li > .recipe-item-unlinked) {
+    min-height: 62px;
+    align-items: center;
+  }
+
+  .forge-blueprint-section :global(.recipe-list.compact > li > a > span:first-of-type),
+  .forge-blueprint-section :global(.recipe-list.compact > li > .recipe-item-unlinked > span:first-of-type) {
+    min-width: 0;
+    line-height: 1.3;
+  }
+
+  .forge-blueprint-section :global(.recipe-list.compact .qty) {
+    white-space: nowrap;
+    margin-left: auto;
+  }
+
+  @media (max-width: 1199px) {
+    .forge-blueprint-section :global(.recipe-list.compact) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .forge-blueprint-section :global(.recipe-list.compact) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 639px) {
+    .forge-blueprint-section :global(.recipe-list.compact) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+</style>

@@ -45,9 +45,13 @@ FILES = {
     "cabinets": ("柜子数据.xlsx", "Sheet1"),
     "surface-chests": ("地表箱子数据.xlsx", "Sheet1"),
     "fixed-buildings": ("不可升级建筑数据.xlsx", "Sheet1"),
+    "element-forge": ("元素熔炉数据.xlsx", "Sheet1"),
     "upgradable-buildings": ("可升级建筑数据.xlsx", "Sheet1"),
     "skills": ("技能数据.xlsx", "技能"),
 }
+
+# 不可升级建筑的展示顺序：元素熔炉插在晒架之后。
+FIXED_BUILDING_INSERT_AFTER_ID = "shai-jia"
 
 warnings = []
 used_ids = {}
@@ -768,6 +772,101 @@ def build_fixed_buildings():
             item["assembleCostPending"] = True
         out.append(item)
     return out
+
+
+def parse_forge_items(raw):
+    value = text(raw)
+    if not value or value in ("无需研究材料", "无需配方", "无需掉落"):
+        return []
+    items = []
+    for match in re.finditer(r"([^\s*；;]+)\s*\*\s*([\d.]+)", value):
+        qty = float(match.group(2))
+        items.append({
+            "name": match.group(1).strip(),
+            "qty": int(qty) if qty == int(qty) else qty,
+            "note": None,
+        })
+    if not items:
+        warnings.append(f"元素熔炉材料无法解析: {value!r}")
+    return items
+
+
+def parse_forge_recipes(raw):
+    value = text(raw)
+    if not value or value == "无需配方":
+        return []
+    recipes = []
+    for line in str(value).splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        label, separator, body = line.partition("：")
+        if not separator:
+            label, separator, body = line.partition(":")
+        if separator:
+            label = label.strip() or None
+        else:
+            label, body = None, line
+        items = parse_forge_items(body)
+        if not items:
+            warnings.append(f"元素熔炉配方无法解析: {line!r}")
+            continue
+        recipes.append({"label": label, "items": items, "yield": None})
+    return recipes
+
+
+def build_element_forge(weapons):
+    by_name = {weapon["name"]: weapon for weapon in weapons}
+    merged = {}
+    for column in (1, 2, 3, 4):
+        for start, end, value in merged_ranges_of("element-forge", column):
+            for row_number in range(start, end + 1):
+                merged[(column, row_number)] = value
+
+    rows = cells_of("element-forge")[1:]
+    blueprints = []
+    building_name = None
+    castle_points = None
+    build_cost = []
+    assemble_cost = []
+    for row_number, cells in enumerate(rows, start=2):
+        row = [cell.value for cell in cells]
+        building_name = building_name or text(merged.get((1, row_number)))
+        castle_points = castle_points if castle_points is not None else clean(merged.get((2, row_number)))
+        if not build_cost:
+            build_cost = parse_cost(merged.get((3, row_number)))
+        if not assemble_cost:
+            assemble_cost = parse_cost(merged.get((4, row_number)))
+        weapon_name = text(row[5] if len(row) > 5 else None)
+        if not weapon_name:
+            continue
+        weapon = by_name.get(weapon_name)
+        if not weapon:
+            warnings.append(f"元素熔炉武器 {weapon_name}：在武器表里找不到对应条目")
+        blueprints.append({
+            "weaponName": weapon_name,
+            "weaponId": weapon["id"] if weapon else None,
+            "weaponQuality": weapon.get("quality") if weapon else None,
+            "dropLocation": text(row[8] if len(row) > 8 else None),
+            "researchCost": parse_forge_items(row[6] if len(row) > 6 else None),
+            "recipes": parse_forge_recipes(row[7] if len(row) > 7 else None),
+        })
+
+    return {
+        "id": make_id(building_name),
+        "name": building_name,
+        "quality": "common",
+        "castlePoints": castle_points,
+        "capacity": None,
+        "maxCount": None,
+        "purpose": "研究并制作元素武器",
+        "buildCost": build_cost,
+        "assembleCost": assemble_cost,
+        "blueprintSource": "暮焰修道院",
+        "tags": [],
+        "buildingType": "element-forge",
+        "blueprints": blueprints,
+    }
 
 
 def rich_note_parts(value):
@@ -1683,6 +1782,32 @@ def link_weapon_recipe_entities(weapons, materials, catalog):
                     continue
                 ingredient["ref"] = {"cat": hit[0], "id": hit[1], "quality": hit[2]}
 
+
+def link_element_forge_entities(buildings, materials, catalog):
+    index = {name: (hit[0], hit[1], hit[2]) for name, hit in catalog.items()}
+    for material in materials:
+        index.setdefault(material["name"], ("materials", material["id"], material.get("quality")))
+    unresolved = set()
+    for building in buildings:
+        for blueprint in building.get("blueprints", []) or []:
+            for group in [blueprint.get("researchCost", [])] + [
+                item
+                for recipe in blueprint.get("recipes", []) or []
+                for item in [recipe.get("items", [])]
+            ]:
+                for ingredient in group:
+                    name = MATERIAL_ALIAS.get(ingredient["name"], ingredient["name"])
+                    hit = index.get(name)
+                    if not hit:
+                        unresolved.add(ingredient["name"])
+                        continue
+                    ingredient["ref"] = {"cat": hit[0], "id": hit[1], "quality": hit[2]}
+    if unresolved:
+        warnings.append(
+            "元素熔炉配方中有 %d 种条目在站内找不到对应记录，将显示为纯文字：%s"
+            % (len(unresolved), "、".join(sorted(unresolved)))
+        )
+
     if unresolved:
         warnings.append(
             "武器配方里有 %d 种原料在站内找不到对应条目，将显示为纯文本：%s"
@@ -1900,10 +2025,28 @@ def build_materials(*datasets, skip_names=(), existing=None, extra_materials=())
             # 食物药剂的配方结构不同：recipes[].items[]，字段是 name 不是 material
             for r in item.get("recipes", []) or []:
                 for ing in r.get("items", []) or []:
+                    if ing.get("ref") and ing["ref"].get("cat") != "materials":
+                        continue
                     name = MATERIAL_ALIAS.get(ing["name"], ing["name"])
                     if name in skip:
                         continue
                     counts[name] = counts.get(name, 0) + 1
+            for blueprint in item.get("blueprints", []) or []:
+                for ing in blueprint.get("researchCost", []) or []:
+                    if ing.get("ref") and ing["ref"].get("cat") != "materials":
+                        continue
+                    name = MATERIAL_ALIAS.get(ing["name"], ing["name"])
+                    if name in skip:
+                        continue
+                    counts[name] = counts.get(name, 0) + 1
+                for recipe in blueprint.get("recipes", []) or []:
+                    for ing in recipe.get("items", []) or []:
+                        if ing.get("ref") and ing["ref"].get("cat") != "materials":
+                            continue
+                        name = MATERIAL_ALIAS.get(ing["name"], ing["name"])
+                        if name in skip:
+                            continue
+                        counts[name] = counts.get(name, 0) + 1
     if existing is None:
         return [
             {"id": make_id(name, "mat"), "name": name, "usedIn": n, "quality": "common"}
@@ -2032,6 +2175,19 @@ def main():
     cabinets = build_cabinets()
     surface_chests = build_surface_chests()
     fixed_buildings = build_fixed_buildings()
+    element_forge = build_element_forge(weapons)
+    anchor_index = next(
+        (index for index, building in enumerate(fixed_buildings)
+         if building.get("id") == FIXED_BUILDING_INSERT_AFTER_ID),
+        None,
+    )
+    if anchor_index is None:
+        warnings.append(
+            f"未找到不可升级建筑展示顺序锚点 {FIXED_BUILDING_INSERT_AFTER_ID}，元素熔炉已追加到末尾"
+        )
+        fixed_buildings.append(element_forge)
+    else:
+        fixed_buildings.insert(anchor_index + 1, element_forge)
     skills = build_skills()
 
     # 先生成全部现有类别及现有材料，确保新类别的 make_id 排在它们之后。
@@ -2039,7 +2195,8 @@ def main():
                                 backpacks, amulets, cabinets, surface_chests, fixed_buildings, consumables,
                                 skip_names={c["name"] for c in consumables}
                                 | {w["name"] for w in weapons}
-                                | {s["name"] for s in scrolls})
+                                | {s["name"] for s in scrolls}
+                                | {r["name"] for r in runes})
     upgradable_buildings = build_upgradable_buildings()
     accessory_materials = [
         {"name": note["name"], "quality": note["quality"]}
@@ -2061,7 +2218,8 @@ def main():
                       ("fixed-buildings", fixed_buildings),
                       ("upgradable-buildings", upgradable_buildings),
                       ("consumables", consumables),
-                      ("scrolls", scrolls)]:
+                      ("scrolls", scrolls),
+                      ("runes", runes)]:
         for it in data:
             catalog.setdefault(it["name"], (cat, it["id"], it.get("quality")))
             for pc in it.get("pieces", []) or []:
@@ -2073,6 +2231,7 @@ def main():
     # 食物药剂的配方原料横跨食物、材料和其他板块，解析成可跳转的引用
     link_recipe_entities(consumables, materials, catalog)
     link_weapon_recipe_entities(weapons, materials, catalog)
+    link_element_forge_entities(fixed_buildings, materials, catalog)
 
     write("weapons", weapons)
     write("armor", armor_sets)

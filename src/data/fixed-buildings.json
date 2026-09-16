@@ -298,6 +298,1175 @@
     ]
   },
   {
+    "id": "yuan-su-rong-lu",
+    "name": "元素熔炉",
+    "quality": "common",
+    "castlePoints": 2000,
+    "capacity": null,
+    "maxCount": null,
+    "purpose": "研究并制作元素武器",
+    "buildCost": [
+      {
+        "material": "mat-shi-kuai",
+        "qty": 40
+      }
+    ],
+    "assembleCost": [
+      {
+        "material": "mat-tong-ding",
+        "qty": 10
+      },
+      {
+        "material": "mat-ling-hun-sui-pian",
+        "qty": 5
+      },
+      {
+        "material": "mat-la-zhu",
+        "qty": 5
+      },
+      {
+        "material": "mat-sha-lou",
+        "qty": 5
+      }
+    ],
+    "blueprintSource": "暮焰修道院",
+    "tags": [],
+    "buildingType": "element-forge",
+    "blueprints": [
+      {
+        "weaponName": "神殿火把",
+        "weaponId": "shen-dian-huo-ba",
+        "weaponQuality": "rare",
+        "dropLocation": "无需掉落",
+        "researchCost": [],
+        "recipes": [
+          {
+            "label": null,
+            "items": [
+              {
+                "name": "火把",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "huo-ba",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "小型火焰精华",
+                "qty": 5,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-xing-huo-yan-jing-hua",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "碎铜片",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-sui-tong-pian",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "烈焰匕首",
+        "weaponId": "lie-yan-bi-shou",
+        "weaponQuality": "rare",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "烈焰匕首",
+            "qty": 3,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "lie-yan-bi-shou",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "小型火焰精华",
+            "qty": 100,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiao-xing-huo-yan-jing-hua",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 50,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "碎铜片",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-sui-tong-pian",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "灵魂碎片",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ling-hun-sui-pian",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "1级火焰卷轴",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "1-ji-huo-yan-juan-zhou",
+              "quality": "common"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": "配方1",
+            "items": [
+              {
+                "name": "匕首",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "bi-shou",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "小型火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-xing-huo-yan-jing-hua",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 2,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "碎铜片",
+                "qty": 5,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-sui-tong-pian",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          },
+          {
+            "label": "配方2",
+            "items": [
+              {
+                "name": "也门双刃弯刀",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "ye-men-shuang-ren-wan-dao",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "小型火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-xing-huo-yan-jing-hua",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 2,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "碎铜片",
+                "qty": 5,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-sui-tong-pian",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          },
+          {
+            "label": "配方3",
+            "items": [
+              {
+                "name": "破刃剑",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "po-ren-jian",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "小型火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-xing-huo-yan-jing-hua",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 2,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "碎铜片",
+                "qty": 5,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-sui-tong-pian",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          },
+          {
+            "label": "配方4",
+            "items": [
+              {
+                "name": "耐用匕首",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "nai-yong-bi-shou",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "小型火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-xing-huo-yan-jing-hua",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 2,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "碎铜片",
+                "qty": 5,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-sui-tong-pian",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "灼热火焰之弓",
+        "weaponId": "zhuo-re-huo-yan-zhi-gong",
+        "weaponQuality": "unique",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "灼热火焰之弓",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "zhuo-re-huo-yan-zhi-gong",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "火焰精华",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-huo-yan-jing-hua",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "优质弓弦",
+            "qty": 100,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-you-zhi-gong-xian",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "桦木板",
+            "qty": 400,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-hua-mu-ban",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "2级火焰卷轴",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "2-ji-huo-yan-juan-zhou",
+              "quality": "rare"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": null,
+            "items": [
+              {
+                "name": "复合弓",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "fu-he-gong",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-huo-yan-jing-hua",
+                  "quality": "unique"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "蜡烛",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-la-zhu",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "照明器",
+        "weaponId": "zhao-ming-qi",
+        "weaponQuality": "unique",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "照明器",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "zhao-ming-qi",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "火焰精华",
+            "qty": 150,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-huo-yan-jing-hua",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "青铜锭",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-qing-tong-ingot",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "线",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xian",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "2级火焰卷轴",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "2-ji-huo-yan-juan-zhou",
+              "quality": "rare"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": "配方1",
+            "items": [
+              {
+                "name": "法兰锤",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "fa-lan-chui",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-huo-yan-jing-hua",
+                  "quality": "unique"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "蜡烛",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-la-zhu",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          },
+          {
+            "label": "配方2",
+            "items": [
+              {
+                "name": "见习修士锤",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "jian-xi-xiu-shi-chui",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-huo-yan-jing-hua",
+                  "quality": "unique"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "蜡烛",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-la-zhu",
+                  "quality": "common"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "火焰阔头枪",
+        "weaponId": "huo-yan-kuo-tou-qiang",
+        "weaponQuality": "legendary",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "火焰阔头枪",
+            "qty": 20,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "huo-yan-kuo-tou-qiang",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 400,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "魔法皮革",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-pi-ge",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "魔法铁锭",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-tie-ding",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "魔法木材",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-mu-cai",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "极好的武器油",
+            "qty": 50,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ji-hao-de-wu-qi-you",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "3级火焰卷轴",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "3-ji-huo-yan-juan-zhou",
+              "quality": "unique"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": null,
+            "items": [
+              {
+                "name": "青铜矛",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "qing-tong-mao",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "大型火焰精华",
+                "qty": 10,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-da-xing-huo-yan-jing-hua",
+                  "quality": "legendary"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 15,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "极好的武器油",
+                "qty": 5,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-ji-hao-de-wu-qi-you",
+                  "quality": "rare"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "烈焰吐息",
+        "weaponId": "lie-yan-tu-xi",
+        "weaponQuality": "legendary",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "烈焰吐息",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "lie-yan-tu-xi",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 250,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 500,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "优质弓弦",
+            "qty": 200,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-you-zhi-gong-xian",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "魔法皮革",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-pi-ge",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "魔法木材",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-mu-cai",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "机械装置",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ji-xie-zhuang-zhi",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "3级火焰卷轴",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "3-ji-huo-yan-juan-zhou",
+              "quality": "unique"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": null,
+            "items": [
+              {
+                "name": "重弩",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "zhong-nu",
+                  "quality": "rare"
+                }
+              },
+              {
+                "name": "大型火焰精华",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-da-xing-huo-yan-jing-hua",
+                  "quality": "legendary"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "机械装置",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-ji-xie-zhuang-zhi",
+                  "quality": "rare"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "葬火堆",
+        "weaponId": "zang-huo-dui",
+        "weaponQuality": "legendary",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "葬火堆",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "zang-huo-dui",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 250,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 500,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "香",
+            "qty": 500,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-xiang",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "灵魂碎片",
+            "qty": 500,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ling-hun-sui-pian",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "火焰符文",
+            "qty": 50,
+            "note": null,
+            "ref": {
+              "cat": "runes",
+              "id": "huo-yan-fu-wen",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "命运之书",
+            "qty": 2,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-ming-yun-zhi-shu",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "4级火焰卷轴",
+            "qty": 10,
+            "note": null,
+            "ref": {
+              "cat": "scrolls",
+              "id": "4-ji-huo-yan-juan-zhou",
+              "quality": "legendary"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": null,
+            "items": [
+              {
+                "name": "被咒棒子",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "bei-zhou-bang-zi",
+                  "quality": "unique"
+                }
+              },
+              {
+                "name": "大型火焰精华",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-da-xing-huo-yan-jing-hua",
+                  "quality": "legendary"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "4级火焰卷轴",
+                "qty": 2,
+                "note": null,
+                "ref": {
+                  "cat": "scrolls",
+                  "id": "4-ji-huo-yan-juan-zhou",
+                  "quality": "legendary"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      },
+      {
+        "weaponName": "火焰誓言",
+        "weaponId": "huo-yan-shi-yan",
+        "weaponQuality": "legendary",
+        "dropLocation": "暮焰修道院",
+        "researchCost": [
+          {
+            "name": "火焰誓言",
+            "qty": 5,
+            "note": null,
+            "ref": {
+              "cat": "weapons",
+              "id": "huo-yan-shi-yan",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "大型火焰精华",
+            "qty": 250,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-da-xing-huo-yan-jing-hua",
+              "quality": "legendary"
+            }
+          },
+          {
+            "name": "蜡烛",
+            "qty": 500,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-la-zhu",
+              "quality": "common"
+            }
+          },
+          {
+            "name": "魔法皮革",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-pi-ge",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "魔法铁锭",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-tie-ding",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "魔法木材",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-mo-fa-mu-cai",
+              "quality": "rare"
+            }
+          },
+          {
+            "name": "纯银",
+            "qty": 300,
+            "note": null,
+            "ref": {
+              "cat": "materials",
+              "id": "mat-chun-yin",
+              "quality": "unique"
+            }
+          },
+          {
+            "name": "坚持药膏",
+            "qty": 40,
+            "note": null,
+            "ref": {
+              "cat": "consumables",
+              "id": "jian-chi-yao-gao",
+              "quality": "unique"
+            }
+          }
+        ],
+        "recipes": [
+          {
+            "label": null,
+            "items": [
+              {
+                "name": "狂战士战斧",
+                "qty": 1,
+                "note": null,
+                "ref": {
+                  "cat": "weapons",
+                  "id": "kuang-zhan-shi-zhan-fu",
+                  "quality": "unique"
+                }
+              },
+              {
+                "name": "大型火焰精华",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-da-xing-huo-yan-jing-hua",
+                  "quality": "legendary"
+                }
+              },
+              {
+                "name": "硝酸钾",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-xiao-suan-jia",
+                  "quality": "common"
+                }
+              },
+              {
+                "name": "纯银",
+                "qty": 20,
+                "note": null,
+                "ref": {
+                  "cat": "materials",
+                  "id": "mat-chun-yin",
+                  "quality": "unique"
+                }
+              }
+            ],
+            "yield": null
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "xi-zi",
     "name": "席子",
     "quality": "common",

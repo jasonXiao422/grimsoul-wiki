@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ImageZoom from '../../components/ImageZoom.astro';
 import MaterialCostList from '../../components/MaterialCostList.astro';
+import ElementForgeDetail from '../../components/ElementForgeDetail.astro';
 import fixedBuildings from '../../data/fixed-buildings.json';
 import { BUILDING_CONCEPTS } from '../../lib/building-concepts';
 import { getItemIconSrc } from '../../lib/data';
@@ -26,6 +27,8 @@ const hasAssembleCost = building.assembleCostPending || building.assembleCost.le
 <BaseLayout title={building.name} description={`${building.name}详细资料`}>
   <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '不可升级建筑', href: '/fixed-buildings' }, { label: building.name }]} />
 
+  {building.buildingType === 'element-forge' ? <ElementForgeDetail building={building} /> : (
+  <>
   <section class="fixed-building-detail-hero panel">
     <div class="fixed-building-detail-image-wrap">
       <ImageZoom
@@ -83,5 +86,7 @@ const hasAssembleCost = building.assembleCostPending || building.assembleCost.le
         ))}
       </div>
     </section>
+  )}
+  </>
   )}
 </BaseLayout>

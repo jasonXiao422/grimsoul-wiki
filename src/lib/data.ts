@@ -335,6 +335,42 @@ export function getRecipeUsages(materialId: string) {
     });
   }
 
+  for (const building of DATA_BY_CATEGORY['fixed-buildings'] as readonly any[]) {
+    if (building.buildingType !== 'element-forge') continue;
+    for (const blueprint of building.blueprints ?? []) {
+      const name = `${building.name}：${blueprint.weaponName}`;
+      const href = `${getItemHref('fixed-buildings', building.id)}/${blueprint.weaponId}`;
+      for (const ingredient of blueprint.researchCost ?? []) {
+        if (ingredient.ref?.cat !== 'materials') continue;
+        const canonicalName = MATERIAL_NAME_ALIASES[ingredient.name] ?? ingredient.name;
+        if (MATERIAL_ID_BY_NAME.get(normalizeMaterialName(canonicalName)) !== materialId) continue;
+        usages.push({
+          category: 'fixed-buildings',
+          categoryLabel: CATEGORY_LABELS['fixed-buildings'] ?? '不可升级建筑',
+          name,
+          href,
+          qty: ingredient.qty,
+          source: '图纸研究',
+        });
+      }
+      for (const recipe of blueprint.recipes ?? []) {
+        for (const ingredient of recipe.items ?? []) {
+          if (ingredient.ref?.cat !== 'materials') continue;
+          const canonicalName = MATERIAL_NAME_ALIASES[ingredient.name] ?? ingredient.name;
+          if (MATERIAL_ID_BY_NAME.get(normalizeMaterialName(canonicalName)) !== materialId) continue;
+          usages.push({
+            category: 'fixed-buildings',
+            categoryLabel: CATEGORY_LABELS['fixed-buildings'] ?? '不可升级建筑',
+            name,
+            href,
+            qty: ingredient.qty,
+            source: recipe.label?.trim() ? `图纸配方：${recipe.label.trim()}` : '图纸配方',
+          });
+        }
+      }
+    }
+  }
+
   for (const item of armorPieces) {
     pushCostUsages(usages, item.cost, materialId, {
       category: 'armor',

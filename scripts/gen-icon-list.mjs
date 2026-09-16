@@ -64,6 +64,7 @@ const SOURCES = [
   { file: 'surface-chests', cat: 'surface-chests-location', label: '地表箱子地点', parent: () => undefined },
   { file: 'surface-chests', cat: 'surface-chests', label: '地表箱子', parent: () => undefined },
   { file: 'fixed-buildings', cat: 'fixed-buildings', label: '不可升级建筑', parent: quality },
+  { file: 'fixed-buildings', cat: 'forge-blueprints', label: '元素熔炉图纸', parent: () => undefined, expand: expandForgeBlueprints },
   { file: 'skills', cat: 'skills', label: '技能', parent: () => undefined },
   { file: 'knight-orders', cat: 'knight-orders', label: '骑士团', parent: era },
 ];
@@ -126,6 +127,18 @@ function expandUpgradableBuilding(building, source) {
     parent: building.iconMode === 'shared' ? 'Lv1-Lv4 共用' : undefined,
     })),
   ];
+}
+
+function expandForgeBlueprints(building, source) {
+  if (building.buildingType !== 'element-forge') return [];
+  return (building.blueprints ?? [])
+    .filter((blueprint) => blueprint.weaponId)
+    .map((blueprint) => ({
+      cat: source.cat,
+      catLabel: source.label,
+      id: blueprint.weaponId,
+      name: blueprint.weaponName,
+    }));
 }
 
 function fail(message) {
