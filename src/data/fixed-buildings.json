@@ -2826,5 +2826,20 @@
       "黑色星期五",
       "箱子"
     ]
+  },
+  {
+    "id": "ji-jian-jia-ren",
+    "name": "击剑假人",
+    "quality": "legendary",
+    "castlePoints": 200,
+    "capacity": 1,
+    "maxCount": 999,
+    "purpose": "和营地的假人异曲同工，用来测试武器效果，不消耗耐久，和营地不同的是，击剑假人的储存栏位中可放置被击败敌人的头颅，它将获得原持有者的防御属性",
+    "buildCost": [],
+    "assembleCost": [],
+    "blueprintSource": "无",
+    "tags": [
+      "红猎"
+    ]
   }
 ]
