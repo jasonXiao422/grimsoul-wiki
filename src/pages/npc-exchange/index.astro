@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import EmptyState from '../../components/EmptyState.astro';
+---
+
+<BaseLayout title="NPC兑换图" description="整理游戏中各个 NPC 的兑换内容与所需材料">
+  <div class="page-heading">
+    <Breadcrumb items={[{ label: '首页', href: '/' }, { label: 'NPC兑换图' }]} />
+    <p class="eyebrow">NPC资料</p>
+    <h1>NPC兑换图</h1>
+    <p class="muted">整理游戏中各个 NPC 的兑换内容与所需材料。</p>
+  </div>
+
+  <section class="npc-exchange-list" aria-label="NPC兑换图条目">
+    <EmptyState title="内容准备中" description="数据正在整理中，敬请期待" />
+  </section>
+</BaseLayout>
