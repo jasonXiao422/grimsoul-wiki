@@ -1611,6 +1611,7 @@ p {
 .fixed-building-summary dt {
   margin: 0;
   font-family: var(--font-serif);
+  color: var(--accent);
 }
 
 .fixed-building-summary dd {
