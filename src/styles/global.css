@@ -3139,6 +3139,7 @@ p {
 }
 
 .horse-calculator-input-help {
+  color: var(--accent-dim);
   font-size: 0.78rem;
   line-height: 1.2;
 }
