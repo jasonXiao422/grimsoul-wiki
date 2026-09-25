@@ -1158,6 +1158,28 @@ p {
   border: 2px solid var(--quality-border);
 }
 
+.enemy-mode-images {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.enemy-mode-image-card {
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.enemy-mode-image-card .detail-image {
+  box-sizing: border-box;
+}
+
+.enemy-mode-image-card figcaption {
+  margin-top: 8px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .attr-table {
   width: 100%;
   border-collapse: collapse;

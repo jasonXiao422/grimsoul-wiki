@@ -48,6 +48,13 @@ for (const f of FILES) {
       ? f
       : item.iconCat && item.iconId ? item.iconCat : f;
     const iconId = item.iconCat && item.iconId ? item.iconId : item.id;
+    if (f === 'enemies-full' && item.hasModeImages) {
+      for (const [suffix, mode] of [['normal', '普通'], ['hero', '英雄'], ['legend', '传奇']]) {
+        const modePath = `public/images/enemies-full/${item.id}-${suffix}.webp`;
+        if (!fs.existsSync(modePath)) missing.push(`enemies-full/${item.id}-${suffix}.webp  (${item.name} ${mode})`);
+      }
+      continue;
+    }
     if (!fs.existsSync(`public/images/${iconCategory}/${iconId}.webp`))
       missing.push(`${iconCategory}/${iconId}.webp  (${item.name})`);
     for (const pc of item.pieces ?? []) {

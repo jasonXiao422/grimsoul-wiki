@@ -1661,6 +1661,7 @@ def build_enemies():
 
     note_at = merged_lookup(8, rich_text=True)  # H 列：场地机制
     location_at = merged_lookup(7)   # G 列：出现地点，合并时把值补给整组
+    multi_mode_at = merged_lookup(9)  # I 列：多模式图，兼容合并单元格
 
     out, group = [], None
     for cells in cells_of("enemies", rich_text=True)[1:]:
@@ -1722,6 +1723,9 @@ def build_enemies():
             "locations": locations,
             "dataIncomplete": True if data_incomplete else None,
         }
+        multi_mode = text(row[8]) or text(multi_mode_at(cells[0].row))
+        if multi_mode == "是":
+            enemy_data["hasModeImages"] = True
         if enemy_note_segments is not None:
             enemy_data["noteSegments"] = enemy_note_segments
         out.append(enemy_data)

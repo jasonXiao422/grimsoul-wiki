@@ -33,7 +33,7 @@ const fullImagePath = fullImageCategory
 const iconSrc = fullImageCategory && fullImagePath && existsSync(fullImagePath)
   ? `/images/${fullImageCategory}/${item.id}.webp`
   : getItemIconSrc(categorySlug, item);
-const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'description', 'group', 'groupNote', 'groupNoteBlocks', 'noteSegments', 'restoredFromDate']);
+const hiddenKeys = new Set(['id', 'name', 'quality', 'cost', 'pieces', 'recipes', 'healingSort', 'isRanged', 'dotTypes', 'dataIncomplete', 'entity', 'description', 'group', 'groupNote', 'groupNoteBlocks', 'noteSegments', 'hasModeImages', 'restoredFromDate']);
 const materialFallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>`);
@@ -212,6 +212,17 @@ const qualityMeta = getQualityMeta(item.quality);
 const qualityStyle = qualityMeta
   ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
   : undefined;
+const enemyModeImages = categorySlug === 'enemies' && item.hasModeImages
+  ? [
+      { label: '普通', suffix: 'normal', quality: 'common' as Quality },
+      { label: '英雄', suffix: 'hero', quality: 'unique' as Quality },
+      { label: '传奇', suffix: 'legend', quality: 'legendary' as Quality },
+    ].map((mode) => ({
+      ...mode,
+      meta: QUALITY_META[mode.quality],
+      src: `/images/enemies-full/${item.id}-${mode.suffix}.webp`,
+    }))
+  : [];
 const titleColor = qualityMeta?.text ?? tierColor;
 const displayName = categorySlug === 'enemies' ? stripEnemyDifficultySuffix(item.name) : item.name;
 const recipeTitle = ['shields', 'amulets'].includes(categorySlug) ? '制作配方' : '合成配方';
@@ -220,12 +231,28 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
 
 <article class="detail-grid">
   <aside>
-    <ImageZoom
-      src={iconSrc}
-      alt={item.name}
-      class={`detail-image${qualityMeta ? ' quality-icon' : ''}`}
-      style={qualityStyle}
-    />
+    {enemyModeImages.length > 0 ? (
+      <div class="enemy-mode-images">
+        {enemyModeImages.map((mode) => (
+          <figure class="enemy-mode-image-card">
+            <ImageZoom
+              src={mode.src}
+              alt={`${item.name}（${mode.label}）`}
+              class="detail-image quality-icon"
+              style={`--quality-border:${mode.meta.border};--quality-glow:${mode.meta.glow}`}
+            />
+            <figcaption style={`color:${mode.meta.text}`}>{mode.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    ) : (
+      <ImageZoom
+        src={iconSrc}
+        alt={item.name}
+        class={`detail-image${qualityMeta ? ' quality-icon' : ''}`}
+        style={qualityStyle}
+      />
+    )}
   </aside>
 
   <div>
