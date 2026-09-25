@@ -1,17 +1,24 @@
 <section class="horse-calculator panel" data-horse-calculator aria-labelledby="horse-calculator-title">
   <div class="horse-calculator-head">
     <h2 id="horse-calculator-title">升级计算器</h2>
-    <p class="muted">输入当前等级和目标等级，实时换算饱食度与燕麦消耗。</p>
+    <p class="muted">输入等级和当前剩余体力，实时换算需要补充的经验与食物消耗。</p>
   </div>
 
   <div class="horse-calculator-controls">
     <label>
       <span>当前等级</span>
-      <input type="number" min="1" max="18" value="1" inputmode="numeric" data-horse-current />
+      <input type="number" min="1" max="19" value="1" inputmode="numeric" data-horse-current />
+      <small class="horse-calculator-input-help muted">照游戏马匹面板填</small>
     </label>
     <label>
       <span>目标等级</span>
-      <input type="number" min="2" max="19" value="15" inputmode="numeric" data-horse-target />
+      <input type="number" min="2" max="20" value="15" inputmode="numeric" data-horse-target />
+      <small class="horse-calculator-input-help muted">想练到几级。20 即 19 级升满，游戏内不显示这个数字</small>
+    </label>
+    <label>
+      <span>当前剩余体力</span>
+      <input type="number" min="0" value="80" inputmode="numeric" data-horse-stamina />
+      <small class="horse-calculator-input-help muted">照面板填，新抓的马是 80</small>
     </label>
   </div>
 
@@ -19,23 +26,30 @@
 
   <div class="horse-calculator-results" data-horse-results>
     <div>
-      <span>需要饱食度</span>
-      <strong data-horse-fullness>0</strong>
+      <span class="horse-calculator-result-label" data-tip="还差多少经验" tabindex="0">需要经验<span class="horse-tip-icon" aria-hidden="true">ⓘ</span></span>
+      <strong data-horse-experience>0</strong>
     </div>
     <div>
-      <span>燕麦个数</span>
+      <span class="horse-calculator-result-label" data-tip="还要走多少步" tabindex="0">需要走<span class="horse-tip-icon" aria-hidden="true">ⓘ</span></span>
+      <strong data-horse-steps>0 步</strong>
+    </div>
+    <div>
+      <span class="horse-calculator-result-label" data-tip="只喂燕麦要多少个" tabindex="0">全用燕麦<span class="horse-tip-icon" aria-hidden="true">ⓘ</span></span>
       <strong data-horse-oats>0</strong>
     </div>
     <div>
-      <span>燕麦组数</span>
-      <strong data-horse-stacks>0.00</strong>
+      <span class="horse-calculator-result-label" data-tip="只喂萝卜要多少个" tabindex="0">全用萝卜<span class="horse-tip-icon" aria-hidden="true">ⓘ</span></span>
+      <strong data-horse-carrots>0</strong>
+    </div>
+    <div>
+      <span class="horse-calculator-result-label" data-tip="萝卜配燕麦怎么搭，先用满整数个萝卜，余下用燕麦补" tabindex="0">混合参考<span class="horse-tip-icon" aria-hidden="true">ⓘ</span></span>
+      <strong data-horse-mixed>0 萝卜 + 0 燕麦</strong>
     </div>
   </div>
 
-  <p class="horse-calculator-note muted" data-horse-initial-note hidden>已扣除系统默认的初始饱食度 80</p>
+  <p class="horse-calculator-note muted" data-horse-initial-note hidden></p>
 
-  <div class="horse-chart" data-horse-chart aria-label="1-18 级每级所需饱食度柱状图"></div>
-  <p class="horse-chart-help muted">点击柱子设置目标等级，Shift+点击设置当前等级</p>
+  <p class="horse-calculator-example muted">举例：5 级、体力 20 练到 15 级，需要 2355 经验，全用燕麦 471 个，全用萝卜 22 个，或 21 萝卜 + 9 燕麦。</p>
 </section>
 
 <script>
@@ -43,21 +57,28 @@
 
   if (calculator) {
     const content = calculator.closest('.lore-content');
-    const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '燕麦机制');
-    if (formulaHeading) formulaHeading.insertAdjacentElement('afterend', calculator);
+    const headings = [...(content?.querySelectorAll('h2') ?? [])];
+    const formulaHeading = headings.find((heading) => heading.textContent?.trim() === '升级消耗');
+    if (formulaHeading) {
+      const nextHeading = headings[headings.indexOf(formulaHeading) + 1];
+      if (nextHeading) {
+        nextHeading.insertAdjacentElement('beforebegin', calculator);
+      } else {
+        content?.append(calculator);
+      }
+    }
 
     const currentInput = calculator.querySelector<HTMLInputElement>('[data-horse-current]');
     const targetInput = calculator.querySelector<HTMLInputElement>('[data-horse-target]');
+    const staminaInput = calculator.querySelector<HTMLInputElement>('[data-horse-stamina]');
     const message = calculator.querySelector<HTMLElement>('[data-horse-message]');
     const results = calculator.querySelector<HTMLElement>('[data-horse-results]');
-    const fullnessOutput = calculator.querySelector<HTMLElement>('[data-horse-fullness]');
+    const experienceOutput = calculator.querySelector<HTMLElement>('[data-horse-experience]');
+    const stepsOutput = calculator.querySelector<HTMLElement>('[data-horse-steps]');
     const oatsOutput = calculator.querySelector<HTMLElement>('[data-horse-oats]');
-    const stacksOutput = calculator.querySelector<HTMLElement>('[data-horse-stacks]');
+    const carrotsOutput = calculator.querySelector<HTMLElement>('[data-horse-carrots]');
+    const mixedOutput = calculator.querySelector<HTMLElement>('[data-horse-mixed]');
     const initialNote = calculator.querySelector<HTMLElement>('[data-horse-initial-note]');
-    const chart = calculator.querySelector<HTMLElement>('[data-horse-chart]');
-
-    const levels = Array.from({ length: 18 }, (_, index) => index + 1);
-    const maxCost = 25 * 18;
 
     const parseInteger = (value: string) => {
       if (value.trim() === '') return null;
@@ -69,34 +90,17 @@
       return Math.min(max, Math.max(min, value));
     };
 
+    const getInteger = (input: HTMLInputElement) => {
+      const value = parseInteger(input.value);
+      if (value === null) return { value, message: '请输入体力。' };
+      return { value, message: '' };
+    };
+
     const getLevel = (input: HTMLInputElement, min: number, max: number) => {
       const value = parseInteger(input.value);
       if (value === null) return { value, message: '请输入等级。' };
       if (value < min || value > max) return { value, message: `等级需要在 ${min}-${max} 之间。` };
       return { value, message: '' };
-    };
-
-    const renderChart = (currentLevel: number, targetLevel: number) => {
-      if (!chart) return;
-      chart.innerHTML = levels
-        .map((level) => {
-          const cost = 25 * level;
-          const active = targetLevel > currentLevel && level >= currentLevel && level < targetLevel;
-          const tooltip = `${level} 级 → ${level + 1} 级：25×${level} = ${cost} 饱食度`;
-          return `
-            <button
-              class="horse-chart-bar"
-              type="button"
-              data-horse-chart-level="${level}"
-              title="${tooltip}"
-              aria-label="${tooltip}"
-            >
-              <span class="${active ? 'is-active' : ''}" style="height:${Math.round((cost / maxCost) * 100)}%"></span>
-              <small>${level}</small>
-            </button>
-          `;
-        })
-        .join('');
     };
 
     const showMessage = (text: string) => {
@@ -109,28 +113,26 @@
     };
 
     const calculate = ({ normalize = false } = {}) => {
-      if (!currentInput || !targetInput) return;
+      if (!currentInput || !targetInput || !staminaInput) return;
 
       if (normalize) {
         const parsedCurrent = parseInteger(currentInput.value);
         const parsedTarget = parseInteger(targetInput.value);
-        if (parsedCurrent !== null) currentInput.value = String(clampInteger(parsedCurrent, 1, 18));
-        if (parsedTarget !== null) targetInput.value = String(clampInteger(parsedTarget, 2, 19));
+        if (parsedCurrent !== null) currentInput.value = String(clampInteger(parsedCurrent, 1, 19));
+        if (parsedTarget !== null) targetInput.value = String(clampInteger(parsedTarget, 2, 20));
       }
 
-      const current = getLevel(currentInput, 1, 18);
-      const target = getLevel(targetInput, 2, 19);
+      const current = getLevel(currentInput, 1, 19);
+      const target = getLevel(targetInput, 2, 20);
+      const stamina = getInteger(staminaInput);
 
-      if (current.value === null || target.value === null) {
-        renderChart(current.value ?? 1, target.value ?? 1);
+      if (current.value === null || target.value === null || stamina.value === null) {
         showMessage('请输入当前等级和目标等级。');
         return;
       }
 
-      renderChart(current.value, target.value);
-
-      if (current.message || target.message) {
-        showMessage(current.message || target.message);
+      if (current.message || target.message || stamina.message) {
+        showMessage(current.message || target.message || stamina.message);
         return;
       }
 
@@ -142,21 +144,31 @@
         return;
       }
 
-      let fullness = 0;
+      let requiredExperience = 0;
       for (let level = currentLevel; level < targetLevel; level += 1) {
-        fullness += 25 * level;
+        requiredExperience += 25 * level;
       }
-      if (currentLevel === 1) fullness = Math.max(0, fullness - 80);
+      const experienceToSupply = Math.max(0, requiredExperience - stamina.value);
+      const oats = Math.ceil(experienceToSupply / 5);
+      const carrots = Math.ceil(experienceToSupply / 110);
+      const mixedCarrots = Math.floor(experienceToSupply / 110);
+      const mixedOats = Math.ceil((experienceToSupply - mixedCarrots * 110) / 5);
 
-      const oats = Math.ceil(fullness / 5);
       const stacks = oats / 20;
 
       if (message) message.hidden = true;
       if (results) results.hidden = false;
-      if (fullnessOutput) fullnessOutput.textContent = String(fullness);
-      if (oatsOutput) oatsOutput.textContent = String(oats);
-      if (stacksOutput) stacksOutput.textContent = stacks.toFixed(2);
-      if (initialNote) initialNote.hidden = currentLevel !== 1;
+      if (experienceOutput) experienceOutput.textContent = String(experienceToSupply);
+      if (stepsOutput) stepsOutput.textContent = `${experienceToSupply} 步`;
+      if (oatsOutput) oatsOutput.textContent = `${oats} 个 / ${stacks.toFixed(2)} 组`;
+      if (carrotsOutput) carrotsOutput.textContent = `${carrots} 个`;
+      if (mixedOutput) mixedOutput.textContent = `${mixedCarrots} 萝卜 + ${mixedOats} 燕麦`;
+      if (initialNote) {
+        initialNote.hidden = false;
+        initialNote.textContent = experienceToSupply === 0
+          ? `当前体力已足够，走完后还剩 ${stamina.value - requiredExperience} 体力`
+          : `本次升级总需求 ${requiredExperience} 经验，扣除当前剩余体力 ${stamina.value} 后需补 ${experienceToSupply} 经验`;
+      }
     };
 
     const normalizeInput = (event: Event) => {
@@ -171,38 +183,13 @@
 
     currentInput?.addEventListener('input', () => calculate());
     targetInput?.addEventListener('input', () => calculate());
+    staminaInput?.addEventListener('input', () => calculate());
     currentInput?.addEventListener('blur', normalizeInput);
     targetInput?.addEventListener('blur', normalizeInput);
+    staminaInput?.addEventListener('blur', normalizeInput);
     currentInput?.addEventListener('keydown', handleKeydown);
     targetInput?.addEventListener('keydown', handleKeydown);
-    chart?.addEventListener('click', (event) => {
-      const bar = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-horse-chart-level]');
-      if (!bar || !currentInput || !targetInput) return;
-      const level = Number.parseInt(bar.dataset.horseChartLevel ?? '', 10);
-      if (!Number.isFinite(level)) return;
-
-      if (event instanceof MouseEvent && event.shiftKey) {
-        currentInput.value = String(level);
-      } else {
-        targetInput.value = String(level + 1);
-      }
-      calculate();
-    });
-    chart?.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      const bar = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-horse-chart-level]');
-      if (!bar || !currentInput || !targetInput) return;
-      event.preventDefault();
-      const level = Number.parseInt(bar.dataset.horseChartLevel ?? '', 10);
-      if (!Number.isFinite(level)) return;
-
-      if (event.shiftKey) {
-        currentInput.value = String(level);
-      } else {
-        targetInput.value = String(level + 1);
-      }
-      calculate();
-    });
+    staminaInput?.addEventListener('keydown', handleKeydown);
     calculate();
   }
 </script>

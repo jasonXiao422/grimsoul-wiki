@@ -5,6 +5,7 @@ import ArmorCalculator from '../../components/ArmorCalculator.astro';
 import DamageCalculator from '../../components/DamageCalculator.astro';
 import HorseCalculator from '../../components/HorseCalculator.astro';
 import MarkdownImageZoom from '../../components/MarkdownImageZoom.astro';
+import { QUALITY_META } from '../../lib/quality';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 type GuideEntry = CollectionEntry<'guides'>;
@@ -31,6 +32,7 @@ const { entry, previous, next } = Astro.props as {
 const { Content, headings } = await render(entry);
 const toc = headings.filter((heading) => heading.depth === 2);
 const slug = entry.id.replace(/\.md$/, '');
+const horseAppearanceQualityStyle = `--quality-border:${QUALITY_META.unique.border};--quality-glow:${QUALITY_META.unique.glow}`;
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.summary}>
@@ -57,7 +59,10 @@ const slug = entry.id.replace(/\.md$/, '');
         </details>
       )}
 
-      <div class="lore-content guide-content panel">
+      <div
+        class="lore-content guide-content panel"
+        style={slug === 'horse' ? horseAppearanceQualityStyle : undefined}
+      >
         <Content />
         {slug === 'horse' && (
           <MarkdownImageZoom
@@ -133,6 +138,8 @@ const slug = entry.id.replace(/\.md$/, '');
     width: 100%;
     max-width: 300px;
     height: auto;
+    border: 2px solid var(--quality-border);
+    box-shadow: 0 0 14px var(--quality-glow);
     border-radius: 8px;
     margin: 0 auto;
   }
@@ -141,18 +148,9 @@ const slug = entry.id.replace(/\.md$/, '');
     margin-top: 2px;
     color: var(--accent);
     font-family: var(--font-serif);
-    font-size: 1.05rem;
+    font-size: clamp(0.72rem, 3vw, 1.05rem);
     line-height: 1.4;
     text-align: center;
-  }
-
-  @media (max-width: 720px) {
-    .lore-article :global(.horse-appearance-grid) {
-      grid-template-columns: 1fr;
-    }
-
-    .lore-article :global(.horse-appearance-card img) {
-      max-width: 320px;
-    }
+    white-space: nowrap;
   }
 </style>
