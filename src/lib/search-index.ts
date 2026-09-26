@@ -29,7 +29,10 @@ const toSearchFields = (terms: string[]) => {
 const stripMarkdown = (text: string) => text.replace(/[`*_~]/g, '').replace(/\s+/g, ' ').trim();
 const getLoreHeadings = (body: string) => [...body.matchAll(/^#{2,6}\s+(.+)$/gm)].map((match) => stripMarkdown(match[1]));
 
-export function createSearchIndex(loreEntries: CollectionEntry<'lore'>[]): SearchEntry[] {
+export function createSearchIndex(
+  loreEntries: CollectionEntry<'lore'>[],
+  loreScrollEntries: CollectionEntry<'lore-scrolls'>[],
+): SearchEntry[] {
   const categoryEntries = ALL_CATEGORIES.flatMap((category) => {
     const slug = category.slug as CategorySlug;
     return [...DATA_BY_CATEGORY[slug]].map((item) => ({
@@ -56,6 +59,12 @@ export function createSearchIndex(loreEntries: CollectionEntry<'lore'>[]): Searc
       ...[...knownNames].filter((name) => (entry.body ?? '').includes(name)),
     ]),
   }));
+  const loreScrollSearchEntries = loreScrollEntries.map((entry) => ({
+    name: entry.data.title,
+    category: '卷轴原文',
+    href: `/lore/scrolls/${entry.id.replace(/\.md$/, '')}`,
+    ...toSearchFields([entry.data.title]),
+  }));
   const orderSearchEntries = DATA_BY_CATEGORY.orders.map((item) => ({
     name: item.name,
     category: '骑士团',
@@ -68,5 +77,5 @@ export function createSearchIndex(loreEntries: CollectionEntry<'lore'>[]): Searc
     href: '/boxes',
     ...toSearchFields([item.name]),
   }));
-  return [...categoryEntries, ...loreSearchEntries, ...orderSearchEntries, ...boxSearchEntries];
+  return [...categoryEntries, ...loreSearchEntries, ...loreScrollSearchEntries, ...orderSearchEntries, ...boxSearchEntries];
 }

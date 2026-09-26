@@ -24,31 +24,33 @@ const loreCards = [
     href: '/orders',
   },
 ].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, 'zh-Hans-CN'));
+
 ---
 
-<BaseLayout title="背景故事" description="瘟疫之地背景故事目录">
+<BaseLayout title="世界观" description="瘟疫之地背景故事目录">
   <Breadcrumb items={[
     { label: '首页', href: '/' },
     { label: '背景故事' },
+    { label: '世界观' },
   ]} />
 
   <section class="page-heading">
-    <p class="eyebrow">世界观</p>
-    <h1>背景故事</h1>
+    <p class="eyebrow">背景故事</p>
+    <h1>世界观</h1>
     <p class="muted">整理瘟疫之地的传说、瘟疫、帝国记录与未解谜团。</p>
   </section>
 
   <LoreTimeline />
 
   <section class="lore-index" aria-label="背景故事目录">
-    {loreCards.map((entry) => (
-      <a class="lore-card" href={entry.href}>
-        <span class="lore-order">{String(entry.order).padStart(2, '0')}</span>
-        <span>
-          <strong>{entry.title}</strong>
-          <span>{entry.summary}</span>
-        </span>
-      </a>
-    ))}
+      {loreCards.map((entry) => (
+        <a class="lore-card" href={entry.href}>
+          <span class="lore-order">{String(entry.order).padStart(2, '0')}</span>
+          <span>
+            <strong>{entry.title}</strong>
+            <span>{entry.summary}</span>
+          </span>
+        </a>
+      ))}
   </section>
 </BaseLayout>

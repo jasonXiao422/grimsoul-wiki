@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const equipmentNavItems = [
   { label: '武器', href: '/weapons' },
   { label: '磨尖武器', href: '/sharpen' },
@@ -67,6 +67,12 @@ const otherNavItems = [
   },
 ];
 const isOtherNavActive = otherNavItems.some((item) => item.active);
+const isLoreScrolls = currentPath.startsWith('/lore/scrolls');
+const loreNavItems = [
+  { label: '世界观', href: '/lore', active: (currentPath === '/lore' || currentPath.startsWith('/lore/')) && !isLoreScrolls },
+  { label: '卷轴原文', href: '/lore/scrolls', active: isLoreScrolls },
+];
+const isLoreNavActive = loreNavItems.some((item) => item.active);
 const isEquipmentNavActive = equipmentItems.some((item) => item.active);
 const isScrollNavActive = scrollItems.some((item) => item.active);
 const isBuildingNavActive = buildingNavItems.some((item) => item.active);
@@ -173,7 +179,23 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
               </div>
             </div>
             <a href="/enemies" aria-current={currentPath.startsWith('/enemies') ? 'page' : undefined}>敌人</a>
-            <a href="/lore" aria-current={currentPath.startsWith('/lore') ? 'page' : undefined}>背景故事</a>
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                class="nav-dropdown-toggle"
+                type="button"
+                data-nav-dropdown-toggle
+                aria-expanded="false"
+                aria-controls="lore-nav-menu"
+                aria-current={isLoreNavActive ? 'page' : undefined}
+              >
+                背景故事
+              </button>
+              <div class="nav-dropdown-menu" id="lore-nav-menu" data-nav-dropdown-menu>
+                {loreNavItems.map((item) => (
+                  <a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a>
+                ))}
+              </div>
+            </div>
             <div class="nav-dropdown" data-nav-dropdown>
               <button
                 class="nav-dropdown-toggle"

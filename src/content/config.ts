@@ -32,5 +32,13 @@ const tips = defineCollection({
 export const collections = {
   guides: defineCollection({ schema: guideSchema }),
   lore: defineCollection({ schema: guideSchema }),
+  'lore-scrolls': defineCollection({
+    schema: z.object({
+      title: z.string(),
+      group: z.enum(['历史与传说', '日记与笔记', '档案与杂记']),
+      order: z.number(),
+      pages: z.number(),
+    }),
+  }),
   tips,
 };

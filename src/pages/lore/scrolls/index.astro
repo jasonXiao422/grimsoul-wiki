@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { getCollection } from 'astro:content';
+
+const scrollEntries = await getCollection('lore-scrolls');
+const scrollGroups = ['历史与传说', '日记与笔记', '档案与杂记'].map((group) => ({
+  group,
+  entries: scrollEntries
+    .filter((entry) => entry.data.group === group)
+    .sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'zh-Hans-CN')),
+}));
+---
+
+<BaseLayout title="卷轴原文" description="散落在游戏各处的卷轴与书信，按原文收录">
+  <Breadcrumb items={[
+    { label: '首页', href: '/' },
+    { label: '背景故事', href: '/lore' },
+    { label: '卷轴原文' },
+  ]} />
+
+  <section class="page-heading">
+    <p class="eyebrow">背景故事</p>
+    <h1>卷轴原文</h1>
+    <p class="muted">散落在游戏各处的卷轴与书信，按原文收录</p>
+  </section>
+
+  <div class="lore-scrolls-groups">
+    {scrollGroups.map(({ group, entries }) => (
+      <section class="lore-scrolls-group" aria-labelledby={`scroll-group-${group}`}>
+        <h3 id={`scroll-group-${group}`}>{group}</h3>
+        <ul>
+          {entries.map((entry) => (
+            <li>
+              <a class="scroll-card" href={`/lore/scrolls/${entry.id.replace(/\.md$/, '')}`}>
+                <strong>{entry.data.title}</strong>
+                <span>{entry.data.pages} 页</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

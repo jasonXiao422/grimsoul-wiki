@@ -3,7 +3,8 @@ import { createSearchIndex } from '../lib/search-index';
 
 export async function GET() {
   const loreEntries = await getCollection('lore');
-  return new Response(JSON.stringify(createSearchIndex(loreEntries)), {
+  const loreScrollEntries = await getCollection('lore-scrolls');
+  return new Response(JSON.stringify(createSearchIndex(loreEntries, loreScrollEntries)), {
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   });
 }
