@@ -3744,13 +3744,14 @@
     "groupNoteBlocks": null,
     "quality": "common",
     "hp": 500,
-    "damageReduction": "38(任务1), 62(任务2)",
+    "damageReduction": "37.5(怪物出现)/62.5(如何消灭死亡)",
     "restoredFromDate": null,
     "physicalDamage": 36,
     "elementDamage": null,
     "note": null,
     "locations": [
-      "主线第三章：北方"
+      "主线第三章：怪物出现",
+      "如何消灭死亡"
     ],
     "dataIncomplete": null
   },
@@ -3768,7 +3769,7 @@
     "elementDamage": null,
     "note": null,
     "locations": [
-      "故事人物"
+      "故事人物：如何消灭死亡"
     ],
     "dataIncomplete": true
   },
