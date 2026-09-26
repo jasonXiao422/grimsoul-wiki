@@ -3600,7 +3600,7 @@
     "groupNoteBlocks": null,
     "quality": "common",
     "hp": 600,
-    "damageReduction": 63,
+    "damageReduction": 62.6,
     "restoredFromDate": null,
     "physicalDamage": 66,
     "elementDamage": null,
