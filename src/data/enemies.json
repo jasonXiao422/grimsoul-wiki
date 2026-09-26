@@ -6642,7 +6642,7 @@
       }
     ],
     "quality": "rare",
-    "hp": null,
+    "hp": "200，待测，待测",
     "damageReduction": "30，50，50",
     "restoredFromDate": null,
     "physicalDamage": "20，30，60",
@@ -6654,7 +6654,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】他将所有神圣经文都铭记于心，哪怕最末一卷卷轴也不例外。然而，没人能预测他下一句会低声念出哪一节。\n【技能效果】提升友军移速100%，物理攻击+10/"
@@ -6977,7 +6977,7 @@
       }
     ],
     "quality": "rare",
-    "hp": null,
+    "hp": "180，待测，待测",
     "damageReduction": "30，50，50",
     "restoredFromDate": null,
     "physicalDamage": "20，30，60",
@@ -6989,7 +6989,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】出身于商人世家，他将全部财富捐给了有需要的人，余生都在受赫拉特恩典祝福的修道院中度过。\n【技能效果】回复友军血量30/"
@@ -7214,7 +7214,7 @@
       }
     ],
     "quality": "rare",
-    "hp": null,
+    "hp": "300，待测，待测",
     "damageReduction": "30，24，24",
     "restoredFromDate": null,
     "physicalDamage": "15，20，40",
@@ -7226,7 +7226,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】他退入卢比尼亚的荒野，通过禁食和鞭笞来苦修肉身。据说，他身上的伤疤多得如同卷轴上的经文。\n【技能效果】自身会每一秒以1/"
@@ -7479,7 +7479,7 @@
       }
     ],
     "quality": "rare",
-    "hp": null,
+    "hp": "200，待测，待测",
     "damageReduction": "30，50，48",
     "restoredFromDate": null,
     "physicalDamage": "50，100，180",
@@ -7491,7 +7491,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】一位贵族抛下华丽丝绸，踏上尘土飞扬之路，他已凭神圣誓言将自己献给帝国的所有神祠。他的脚都走到见骨了，却仍不断前行。\n【技能效果】人物移速缓慢，概率闪避敌人攻击，概率对敌人造成出血，单次3/"
@@ -7716,7 +7716,7 @@
       }
     ],
     "quality": "unique",
-    "hp": null,
+    "hp": "200，待测，待测",
     "damageReduction": "60，60，60",
     "restoredFromDate": null,
     "physicalDamage": "60，120，200",
@@ -7728,7 +7728,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】一位将信仰置于血缘之上的调查官。他将被指控为异端的亲生儿子送上火刑架，即便儿子苦苦哀求怜悯，他也始终不为所动。\n【技能效果】行刑者帽兜赋予他一定概率造成5倍物理伤害的力量，敌人血量越低概率越高，若是一刀死的敌人则概率为100%；击杀敌方单位会给自身和友军回复生命值10/"
@@ -7953,7 +7953,7 @@
       }
     ],
     "quality": "unique",
-    "hp": null,
+    "hp": "220，待测，待测",
     "damageReduction": "48，55，55",
     "restoredFromDate": null,
     "physicalDamage": "30，40，80",
@@ -7965,7 +7965,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】在那座每个灵魂都已死去的医院里，她是最后一位治疗师。她负伤虚弱，却仍帮助每一个有需要的人，直到生命最后一息。\n【技能效果】每秒回复友军血量7点/"
@@ -8190,7 +8190,7 @@
       }
     ],
     "quality": "unique",
-    "hp": null,
+    "hp": "400，待测，待测",
     "damageReduction": "60，67，71",
     "restoredFromDate": null,
     "physicalDamage": "30，40，80",
@@ -8202,7 +8202,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】他孤身站在白盾骑士团的战旗下。尽管身负致命伤，他仍坚守一小时，击退了异教徒的猛攻，拼尽全力保护朝圣者。\n【技能效果】圣骑士套装赋予他2.24倍的回血效果；可举盾抵挡三次攻击；战吼嘲讽吸引敌人仇恨\n【人物装备】圣骑士套装，法尔维斯护盾，双刃大砍刀\n【所需戒指】普通/"
@@ -8399,7 +8399,7 @@
       }
     ],
     "quality": "unique",
-    "hp": null,
+    "hp": "200，待测，待测",
     "damageReduction": "48，55，55",
     "restoredFromDate": null,
     "physicalDamage": "35，40，80",
@@ -8411,7 +8411,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】他带着寥寥数名信徒，携着赫拉特之光来到异教徒的土地上。部落向他提出，只要他放弃信仰便可饶他一命 —— 伊恩则以祈祷作答。\n【技能效果】提升友军物理伤害10/"
@@ -8720,7 +8720,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": null,
+    "hp": "250，待测，待测",
     "damageReduction": "60，65，64.5",
     "restoredFromDate": null,
     "physicalDamage": "40，50，99",
@@ -8732,7 +8732,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】他的信仰如此虔诚，以至于死亡本身三度在他面前退却。驱退死神的药酒也以他的名字命名。\n【技能效果】给友军提供复活buff，持续6分30秒；施展法术回复友军血量，单次8/"
@@ -8957,7 +8957,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": null,
+    "hp": "250，待测，待测",
     "damageReduction": "60，64.5，64.5",
     "restoredFromDate": null,
     "physicalDamage": "20，30，40",
@@ -8969,7 +8969,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】她周身环绕着火焰走进大教堂，石砌穹顶在重压下呻吟着，她将文物全部带出，没有留下一件。火焰没有触及她，因为她早已属于火焰。\n【技能效果】提升友军的火焰伤害防御力点数，持续60秒，普通/"
@@ -9194,7 +9194,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": null,
+    "hp": "500，待测，待测",
     "damageReduction": "75，80，80",
     "restoredFromDate": null,
     "physicalDamage": "40，50，99",
@@ -9206,7 +9206,7 @@
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
         "text": "【人物介绍】当绝望笼罩众人时，她重新集结了营团，带领他们继续前进。敌方首领倒下了，她的族人安然无恙地走了出来。我们守护着她的遗骸，并坚信埃琳娜的烈酒守护着我们。\n【技能效果】皇帝之盾赋予她给友军提供魔法护盾的能力，吸收一定伤害，持续30秒；4件尖刺护甲赋予她给予近战中敌人反甲伤害,在普通/"
@@ -9431,7 +9431,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": null,
+    "hp": "300，待测，待测",
     "damageReduction": "65，75，78",
     "restoredFromDate": null,
     "physicalDamage": "120，220，350",
@@ -9439,14 +9439,14 @@
       "type": null,
       "value": "无"
     },
-    "note": "【人物介绍】他以如此狂烈的怒火粉碎伪神，每一锤落下，石块都被击飞百步之外。据说，锤上镶着他摧毁的第一个偶像的一块碎片。\n【技能效果】给近战中的对手施加禁疗效果；免疫眩晕\n【人物装备】圣殿骑士套装，碎颅者\n【所需戒指】普通/英雄/传奇：30/90/180",
+    "note": "【人物介绍】他以如此狂烈的怒火粉碎伪神，每一锤落下，石块都被击飞百步之外。据说，锤上镶着他摧毁的第一个偶像的一块碎片。\n【技能效果】给近战中的对手施加禁疗效果；概率眩晕敌人，且自身免疫眩晕\n【人物装备】圣殿骑士套装，碎颅者\n【所需戒指】普通/英雄/传奇：30/90/180",
     "locations": [
       "暮焰修道院"
     ],
-    "dataIncomplete": true,
+    "dataIncomplete": null,
     "noteSegments": [
       {
-        "text": "【人物介绍】他以如此狂烈的怒火粉碎伪神，每一锤落下，石块都被击飞百步之外。据说，锤上镶着他摧毁的第一个偶像的一块碎片。\n【技能效果】给近战中的对手施加禁疗效果；免疫眩晕\n【人物装备】圣殿骑士套装，碎颅者\n【所需戒指】普通/"
+        "text": "【人物介绍】他以如此狂烈的怒火粉碎伪神，每一锤落下，石块都被击飞百步之外。据说，锤上镶着他摧毁的第一个偶像的一块碎片。\n【技能效果】给近战中的对手施加禁疗效果；概率眩晕敌人，且自身免疫眩晕\n【人物装备】圣殿骑士套装，碎颅者\n【所需戒指】普通/"
       },
       {
         "text": "英雄",
