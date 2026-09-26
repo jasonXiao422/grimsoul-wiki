@@ -3599,10 +3599,10 @@
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "common",
-    "hp": 550,
+    "hp": 600,
     "damageReduction": 63,
     "restoredFromDate": null,
-    "physicalDamage": 70,
+    "physicalDamage": 66,
     "elementDamage": null,
     "note": null,
     "locations": [
