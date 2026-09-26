@@ -1012,6 +1012,14 @@ p {
   box-shadow: inset 0 -1px 0 var(--border);
 }
 
+@media (min-width: 721px) {
+  .data-table:not(.skills-table) thead th {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 5;
+  }
+}
+
 .data-table th button {
   width: 100%;
   border: 0;
@@ -1102,21 +1110,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-}
-
-.table-consumables .table-scroll {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-.table-consumables .tag-list {
-  flex-wrap: nowrap;
-  gap: 6px;
-}
-
-.table-consumables .tag-list .tag {
-  flex: 0 0 auto;
-  white-space: nowrap;
 }
 
 .tag {
@@ -1433,6 +1426,34 @@ p {
 
   .cabinets-table td[data-label]::before {
     white-space: normal;
+  }
+
+  .data-table td[data-label]::before {
+    content: attr(data-label);
+    display: inline-block;
+    margin-right: 8px;
+    color: var(--text-dim);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .data-table td[data-label] {
+    white-space: nowrap;
+  }
+
+  .table-consumables .table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .table-consumables .tag-list {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .table-consumables .tag-list .tag {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .cabinet-cost-list {
@@ -3599,19 +3620,6 @@ p {
     position: static;
     top: auto;
     z-index: auto;
-  }
-
-  .data-table td[data-label]::before {
-    content: attr(data-label);
-    display: inline-block;
-    margin-right: 8px;
-    color: var(--text-dim);
-    font-weight: 400;
-    white-space: nowrap;
-  }
-
-  .data-table td[data-label] {
-    white-space: nowrap;
   }
 
   .table-backpacks .data-table td:first-child,
