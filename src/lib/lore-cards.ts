@@ -8,7 +8,7 @@ export const MANUAL_LORE_CARDS = [
   {
     order: 11,
     title: '官方外传',
-    summary: '官方在游戏之外发布的背景故事',
+    summary: '主线之外的官方故事',
     href: '/lore/side-stories',
   },
 ] as const;
