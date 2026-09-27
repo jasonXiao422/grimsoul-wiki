@@ -135,7 +135,7 @@ img {
 
 .header-inner {
   display: grid;
-  grid-template-columns: auto 1fr minmax(220px, 320px);
+  grid-template-columns: auto auto minmax(180px, 1fr);
   gap: 18px;
   align-items: center;
   min-height: 72px;
@@ -149,7 +149,7 @@ img {
 
 .main-nav {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -157,7 +157,7 @@ img {
 .main-nav a,
 .nav-dropdown-toggle {
   min-height: 36px;
-  padding: 5px 10px;
+  padding: 5px 8px;
   border: 1px solid transparent;
   border-radius: 6px;
   background: transparent;
@@ -2112,6 +2112,8 @@ p {
 
 .site-search {
   position: relative;
+  max-width: 320px;
+  justify-self: end;
 }
 
 .search-results {
@@ -3567,17 +3569,6 @@ p {
     bottom: 10%;
   }
 
-  .header-inner {
-    grid-template-columns: 1fr;
-    padding: 12px 0;
-  }
-
-  .main-nav {
-    justify-content: flex-start;
-    overflow: visible;
-    flex-wrap: wrap;
-  }
-
   .table-tools,
   .armor-page-tools,
   .detail-grid {
@@ -3645,30 +3636,30 @@ p {
   }
 }
 
-@media (max-width: 639px) {
-  html,
-  body {
-    overflow-x: hidden;
-  }
-
+@media (max-width: 990px) {
   .header-inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
-  .tips-toolbar {
-    grid-template-columns: 1fr;
+  .brand {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .tips-filters {
-    justify-content: flex-start;
+  .site-search {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .nav-menu-toggle {
     display: grid;
+    grid-column: 3;
+    grid-row: 1;
   }
 
   .main-nav {
     grid-column: 1 / -1;
+    grid-row: 2;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -3693,9 +3684,45 @@ p {
     box-shadow: none;
     transform: none;
   }
+}
+
+@media (max-width: 639px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .header-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .tips-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-filters {
+    justify-content: flex-start;
+  }
+
+  .nav-menu-toggle {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+  }
 
   .site-search {
     grid-column: 1 / -1;
+    grid-row: auto;
+    max-width: none;
+    justify-self: stretch;
   }
 
   .entry-card {
