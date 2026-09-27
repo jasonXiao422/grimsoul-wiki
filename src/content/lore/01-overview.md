@@ -12,11 +12,19 @@ summary: 三位神明、两个世界、一个正在应验的诅咒。
 你是一名感染了「灰色死神」的流亡者。你不会真正死去——你的灵魂总会回到
 你第一次死去的地方。
 
+<figure class="enemy-concept lore-title-illustration">
+  <img class="lore-title-illustration-image" src="/images/pages/grim-soul-title-illustration.webp" alt="Grim Soul 标题插画：骑士牵着战马站在墓地中，远处有活死人逼近" />
+  <figcaption class="enemy-concept-caption">
+    <span>游戏插画</span>
+    <span class="enemy-concept-credit">Pavel Goloviy</span>
+  </figcaption>
+</figure>
+
 ## 三位神明
 
 理解了他们的克制关系，就理解了这个游戏的全部冲突。
 
-### 光明神 · 赫拉特教
+<h3 id="光明神--赫拉特教"><img class="faith-icon" src="/images/pages/faith-harat.webp" alt="" width="44" height="44"> 光明神 · 赫拉特教</h3>
 
 帝国国教。三个世纪前，达格利亚国王罗伯特三世与赫拉特教结盟：
 他宣布赫拉特教为唯一合法宗教，教会则承认他是光明神在地上的代理人。
@@ -26,7 +34,7 @@ summary: 三位神明、两个世界、一个正在应验的诅咒。
 赫拉特教的原型明显是中世纪西欧教会——神权凌驾君权、宗教裁判所、
 遍布全境的异端追查。这套体系后来反噬了它自己扶植的每一位皇帝。
 
-### 无名之神 · 卢比尼亚的古老信仰
+<h3 id="无名之神--卢比尼亚的古老信仰"><img class="faith-icon" src="/images/pages/faith-nameless.webp" alt="" width="44" height="44"> 无名之神 · 卢比尼亚的古老信仰</h3>
 
 带来死亡的神，信仰源自卢比尼亚森林深处的异教部落。
 
@@ -37,7 +45,7 @@ summary: 三位神明、两个世界、一个正在应验的诅咒。
 就奈何不了他们。这解释了游戏里最常见的疑问——为什么夜游神不攻击僵尸，
 也不敢进入被弃者地下城。
 
-### 瘟疫之神 · 福金领主召唤的存在
+<h3 id="瘟疫之神--福金领主召唤的存在"><img class="faith-icon" src="/images/pages/faith-plague.webp" alt="" width="44" height="44"> 瘟疫之神 · 福金领主召唤的存在</h3>
 
 通过散布瘟疫赋予生物「永生」。绝大多数感染者堕落成没有灵魂的活死人，
 只有精神坚强、灵魂纯净的人（比如你）才能在保持自我的同时获得死后复活的能力。

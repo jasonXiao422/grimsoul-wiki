@@ -39,6 +39,9 @@ export const ENEMY_CONCEPTS: Record<string, EnemyConcept[]> = {
   "xiu-bo-er-chu-peng-de-kuang-gong": [
     { file: "miner-concept.webp", caption: "角色设定与感染过程", credit: "BrickWorks Games", creditUrl: "https://www.facebook.com/photo.php?fbid=1471942634950322&set=pb.100064037977309.-2207520000&type=3" },
   ],
+  "wu-yan-nv-ji-si-pu-tong-ying-xiong-chuan-qi": [
+    { file: "../pages/tainted-flame-priestess-concept.webp", caption: "角色设定", credit: "Grim Soul 官方", creditUrl: "https://www.facebook.com/photo.php?fbid=1547889480688970" },
+  ],
 };
 
 export function getEnemyConcepts(id: string): EnemyConcept[] {

@@ -3043,6 +3043,19 @@ p {
   scroll-margin-top: 96px;
 }
 
+.lore-content :is(h2, h3):has(> .faith-icon) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lore-content .faith-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
 .scroll-leaf {
   padding: 28px 36px;
   border: 1px solid var(--border);
@@ -3874,6 +3887,11 @@ p {
     align-self: center;
     flex-shrink: 0;
     margin-left: 12px;
+  }
+
+  .lore-content .faith-icon {
+    width: 36px;
+    height: 36px;
   }
 
   .sharpen-summary {
