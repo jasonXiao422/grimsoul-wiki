@@ -32,6 +32,7 @@ const getLoreHeadings = (body: string) => [...body.matchAll(/^#{2,6}\s+(.+)$/gm)
 export function createSearchIndex(
   loreEntries: CollectionEntry<'lore'>[],
   loreScrollEntries: CollectionEntry<'lore-scrolls'>[],
+  sideStoryEntries: CollectionEntry<'side-stories'>[],
 ): SearchEntry[] {
   const categoryEntries = ALL_CATEGORIES.flatMap((category) => {
     const slug = category.slug as CategorySlug;
@@ -65,6 +66,12 @@ export function createSearchIndex(
     href: `/lore/scrolls/${entry.id.replace(/\.md$/, '')}`,
     ...toSearchFields([entry.data.title]),
   }));
+  const sideStorySearchEntries = sideStoryEntries.map((entry) => ({
+    name: entry.data.title,
+    category: '官方外传',
+    href: `/lore/side-stories/${entry.id.replace(/\.md$/, '')}`,
+    ...toSearchFields([entry.data.title]),
+  }));
   const orderSearchEntries = DATA_BY_CATEGORY.orders.map((item) => ({
     name: item.name,
     category: '骑士团',
@@ -77,5 +84,5 @@ export function createSearchIndex(
     href: '/boxes',
     ...toSearchFields([item.name]),
   }));
-  return [...categoryEntries, ...loreSearchEntries, ...loreScrollSearchEntries, ...orderSearchEntries, ...boxSearchEntries];
+  return [...categoryEntries, ...loreSearchEntries, ...loreScrollSearchEntries, ...sideStorySearchEntries, ...orderSearchEntries, ...boxSearchEntries];
 }

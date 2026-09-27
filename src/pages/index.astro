@@ -8,11 +8,12 @@ import knightOrders from '../data/knight-orders.json';
 import armor from '../data/armor.json';
 import armorPieces from '../data/armor-pieces.json';
 import boxes from '../data/boxes.json';
+import { MANUAL_LORE_CARDS } from '../lib/lore-cards';
 
 const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
 const loreEntries = (await getCollection('lore'))
   .filter((entry) => getLoreSlug(entry.id) !== '07-knight-orders');
-const loreCount = loreEntries.length + 1;
+const loreCount = loreEntries.length + MANUAL_LORE_CARDS.length;
 const scrollCount = (await getCollection('lore-scrolls')).length;
 const tipsCount = (await getCollection('tips')).length;
 const orderCount = knightOrders.length;

@@ -1,15 +1,14 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumb from '../../components/Breadcrumb.astro';
-import MarkdownImageZoom from '../../components/MarkdownImageZoom.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
-type LoreEntry = CollectionEntry<'lore'>;
+type SideStoryEntry = CollectionEntry<'side-stories'>;
 
-const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
+const getSideStorySlug = (id: string) => id.replace(/\.md$/, '');
 
 export async function getStaticPaths() {
-  const entries = (await getCollection('lore'))
+  const entries = (await getCollection('side-stories'))
     .sort((a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title, 'zh-Hans-CN'));
 
   return entries.map((entry, index) => ({
@@ -23,9 +22,9 @@ export async function getStaticPaths() {
 }
 
 const { entry, previous, next } = Astro.props as {
-  entry: LoreEntry;
-  previous: LoreEntry | null;
-  next: LoreEntry | null;
+  entry: SideStoryEntry;
+  previous: SideStoryEntry | null;
+  next: SideStoryEntry | null;
 };
 const { Content, headings } = await render(entry);
 const toc = headings.filter((heading) => heading.depth === 2);
@@ -38,11 +37,13 @@ const toc = headings.filter((heading) => heading.depth === 2);
         <Breadcrumb items={[
           { label: '首页', href: '/' },
           { label: '世界观', href: '/lore' },
+          { label: '官方外传', href: '/lore/side-stories' },
           { label: entry.data.title },
         ]} />
-        <p class="eyebrow">第{entry.data.order}篇</p>
+        <p class="eyebrow">官方外传</p>
         <h1>{entry.data.title}</h1>
         <p class="muted">{entry.data.summary}</p>
+        <small class="muted">来源：{entry.data.source}，非游戏内文本</small>
       </header>
 
       {toc.length > 0 && (
@@ -58,17 +59,11 @@ const toc = headings.filter((heading) => heading.depth === 2);
 
       <div class="lore-content panel">
         <Content />
-        {(entry.id === '06-characters.md' || entry.id === '01-overview.md') && (
-          <MarkdownImageZoom
-            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept, .lore-title-illustration"
-            bootstrapSrc="/images/pages/furgin-concept.webp"
-          />
-        )}
       </div>
 
       <nav class="lore-pager" aria-label="上一篇和下一篇">
         {previous ? (
-          <a href={`/lore/${getLoreSlug(previous.id)}`}>
+          <a href={`/lore/side-stories/${getSideStorySlug(previous.id)}`}>
             <span>上一篇</span>
             <strong>{previous.data.title}</strong>
           </a>
@@ -76,7 +71,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
           <span></span>
         )}
         {next ? (
-          <a href={`/lore/${getLoreSlug(next.id)}`}>
+          <a href={`/lore/side-stories/${getSideStorySlug(next.id)}`}>
             <span>下一篇</span>
             <strong>{next.data.title}</strong>
           </a>
@@ -98,19 +93,3 @@ const toc = headings.filter((heading) => heading.depth === 2);
     )}
   </div>
 </BaseLayout>
-
-<style>
-  .lore-content :global(.lore-furgin-concept-image) {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .lore-content :global(.lore-title-illustration-image) {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-</style>

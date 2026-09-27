@@ -40,5 +40,13 @@ export const collections = {
       pages: z.number(),
     }),
   }),
+  'side-stories': defineCollection({
+    schema: z.object({
+      title: z.string(),
+      order: z.number(),
+      summary: z.string(),
+      source: z.string(),
+    }),
+  }),
   tips,
 };

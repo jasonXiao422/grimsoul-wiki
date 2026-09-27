@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import LoreTimeline from '../components/LoreTimeline.astro';
 import { getCollection } from 'astro:content';
+import { MANUAL_LORE_CARDS } from '../lib/lore-cards';
 
 const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
 
@@ -17,12 +18,7 @@ const entries = (await getCollection('lore'))
 
 const loreCards = [
   ...entries,
-  {
-    order: 7,
-    title: '骑士团概览',
-    summary: '十四支骑士团，按建立顺序排开就是一部帝国衰亡史。',
-    href: '/orders',
-  },
+  ...MANUAL_LORE_CARDS,
 ].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, 'zh-Hans-CN'));
 
 ---
@@ -30,7 +26,6 @@ const loreCards = [
 <BaseLayout title="世界观" description="瘟疫之地背景故事目录">
   <Breadcrumb items={[
     { label: '首页', href: '/' },
-    { label: '背景故事' },
     { label: '世界观' },
   ]} />
 
