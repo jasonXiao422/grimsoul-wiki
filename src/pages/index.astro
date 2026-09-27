@@ -9,7 +9,11 @@ import armor from '../data/armor.json';
 import armorPieces from '../data/armor-pieces.json';
 import boxes from '../data/boxes.json';
 
-const loreCount = (await getCollection('lore')).length;
+const getLoreSlug = (id: string) => id.replace(/\.md$/, '');
+const loreEntries = (await getCollection('lore'))
+  .filter((entry) => getLoreSlug(entry.id) !== '07-knight-orders');
+const loreCount = loreEntries.length + 1;
+const scrollCount = (await getCollection('lore-scrolls')).length;
 const tipsCount = (await getCollection('tips')).length;
 const orderCount = knightOrders.length;
 
@@ -37,7 +41,7 @@ const entryCards = [
   {
     slug: 'horse-guide',
     label: '马匹机制',
-    blurb: '饱食度、升级消耗与交易价格',
+    blurb: '体力、升级消耗与交易价格',
     href: '/guides/horse',
     badge: '机制攻略',
   },
@@ -57,10 +61,17 @@ const entryCards = [
   },
   {
     slug: 'lore',
-    label: '背景故事',
-    blurb: '世界背景、历史与未解之谜',
+    label: '世界观',
+    blurb: '世界背景、帝国历史与未解之谜',
     href: '/lore',
     badge: `${loreCount} 篇`,
+  },
+  {
+    slug: 'lore-scrolls',
+    label: '卷轴原文',
+    blurb: '游戏内卷轴与书信原文收录',
+    href: '/lore/scrolls',
+    badge: `${scrollCount} 篇`,
   },
   {
     slug: 'orders',
