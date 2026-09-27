@@ -3714,6 +3714,24 @@ p {
     line-height: 1.5;
   }
 
+  .lore-scrolls-group ul {
+    gap: 8px;
+  }
+
+  .scroll-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 0;
+    padding: 12px 14px;
+  }
+
+  .scroll-card span {
+    align-self: center;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
   .sharpen-summary {
     align-items: flex-start;
     flex-direction: column;
