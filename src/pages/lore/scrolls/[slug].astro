@@ -24,6 +24,15 @@ const previous = groupEntries[entryIndex - 1] ?? null;
 const next = groupEntries[entryIndex + 1] ?? null;
 const { Content, headings } = await render(entry);
 const toc = headings.filter((heading) => heading.depth === 2);
+const plainText = entry.body
+  .replace(/<p>\s*<span[^>]*class=["'][^"']*scroll-page[^"']*["'][^>]*>.*?<\/span>\s*<\/p>/gis, ' ')
+  .replace(/<[^>]*>/g, ' ')
+  .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+  .replace(/[`*_~>#-]/g, ' ')
+  .replace(/\s+/g, '');
+const wordCount = (plainText.match(/[\u3400-\u9fffA-Za-z0-9]/g) ?? []).length;
+const readingMinutes = Math.max(1, Math.ceil(wordCount / 400));
+const getScrollSlug = (id: string) => id.replace(/\.md$/, '');
 ---
 
 <BaseLayout title={entry.data.title} description={`${entry.data.group} · 共 ${entry.data.pages} 页`}>
@@ -37,7 +46,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
         ]} />
         <p class="eyebrow">{entry.data.group}</p>
         <h1>{entry.data.title}</h1>
-        <p class="muted">共 {entry.data.pages} 页</p>
+        <p class="muted">{entry.data.group} · {entry.data.pages} 页 · 约 {wordCount} 字 · 阅读约 {readingMinutes} 分钟</p>
       </header>
 
       {toc.length > 0 && (
@@ -57,7 +66,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
 
       <nav class="lore-pager" aria-label="上一篇和下一篇">
         {previous ? (
-            <a href={`/lore/scrolls/${previous.id.replace(/\.md$/, '')}`}>
+          <a href={`/lore/scrolls/${getScrollSlug(previous.id)}`}>
             <span>上一篇</span>
             <strong>{previous.data.title}</strong>
           </a>
@@ -65,7 +74,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
           <span></span>
         )}
         {next ? (
-            <a href={`/lore/scrolls/${next.id.replace(/\.md$/, '')}`}>
+          <a href={`/lore/scrolls/${getScrollSlug(next.id)}`}>
             <span>下一篇</span>
             <strong>{next.data.title}</strong>
           </a>
@@ -75,15 +84,30 @@ const toc = headings.filter((heading) => heading.depth === 2);
       </nav>
     </article>
 
-    {toc.length > 0 && (
-      <aside class="lore-toc">
-        <h2>目录</h2>
-        <nav aria-label="文章目录">
-          {toc.map((heading) => (
-            <a href={`#${heading.slug}`}>{heading.text}</a>
+    <aside class="scroll-sidebar">
+      {toc.length > 0 && (
+        <section>
+          <h2>目录</h2>
+          <nav aria-label="文章目录">
+            {toc.map((heading) => (
+              <a href={`#${heading.slug}`}>{heading.text}</a>
+            ))}
+          </nav>
+        </section>
+      )}
+      <section>
+        <h2>同组卷轴</h2>
+        <nav aria-label="同组卷轴">
+          {groupEntries.map((candidate) => (
+            <a
+              href={`/lore/scrolls/${getScrollSlug(candidate.id)}`}
+              aria-current={candidate.id === entry.id ? 'page' : undefined}
+            >
+              {candidate.data.title}
+            </a>
           ))}
         </nav>
-      </aside>
-    )}
+      </section>
+    </aside>
   </div>
 </BaseLayout>

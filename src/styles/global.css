@@ -3007,6 +3007,12 @@ p {
   overflow-x: visible;
 }
 
+.scroll-body {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
 .lore-content img[src$="horse-level-cost.webp"] {
   display: block;
   width: 100%;
@@ -3040,16 +3046,50 @@ p {
   scroll-margin-top: 96px;
 }
 
-.scroll-body .scroll-page {
-  display: block;
-  margin-top: 32px;
-  color: var(--accent-dim);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+.scroll-leaf {
+  padding: 28px 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-panel);
 }
 
-.scroll-body .scroll-page:first-child {
-  margin-top: 0;
+.scroll-leaf + .scroll-leaf {
+  margin-top: 20px;
+}
+
+.scroll-leaf > .scroll-page {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  color: var(--accent-dim);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.scroll-leaf > .scroll-page::before,
+.scroll-leaf > .scroll-page::after {
+  flex: 1;
+  height: 1px;
+  background: var(--accent-dim);
+  content: '';
+}
+
+.scroll-leaf > p:not(.scroll-page) {
+  max-width: 36em;
+  margin: 0 auto 0.9em;
+  font-family: var(--font-serif);
+  line-height: 1.9;
+}
+
+.scroll-body > .scroll-leaf:first-of-type > p:not(.scroll-page):first-of-type::first-letter {
+  float: left;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 3.2em;
+  line-height: 1;
 }
 
 .lore-content blockquote {
@@ -3161,6 +3201,42 @@ p {
 
 .lore-toc-mobile nav {
   margin-top: 12px;
+}
+
+.scroll-sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + 16px);
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-panel);
+}
+
+.scroll-sidebar section + section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.scroll-sidebar h2 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.scroll-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.scroll-sidebar a {
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+.scroll-sidebar a:hover,
+.scroll-sidebar a:focus-visible,
+.scroll-sidebar a[aria-current='page'] {
+  color: var(--accent);
 }
 
 .lore-pager {
@@ -3524,6 +3600,10 @@ p {
   }
 
   .lore-toc {
+    display: none;
+  }
+
+  .scroll-sidebar {
     display: none;
   }
 
