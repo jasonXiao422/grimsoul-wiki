@@ -262,6 +262,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
     <script>
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
+      const headerInner = siteHeader?.querySelector<HTMLElement>('.header-inner');
       const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
       const dropdowns = [...document.querySelectorAll<HTMLElement>('[data-nav-dropdown]')];
 
@@ -282,8 +283,10 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       };
 
       const updateHeaderHeight = () => {
-        if (!siteHeader) return;
-        document.documentElement.style.setProperty('--header-height', `${siteHeader.offsetHeight}px`);
+        if (!siteHeader || !headerInner) return;
+        const firstRowHeight = Number.parseFloat(getComputedStyle(headerInner).gridTemplateRows.split(' ')[0] ?? '');
+        const headerHeight = Number.isFinite(firstRowHeight) ? firstRowHeight + 1 : siteHeader.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
       };
 
       updateHeaderHeight();
