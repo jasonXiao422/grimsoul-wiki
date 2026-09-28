@@ -3864,14 +3864,14 @@
     "dataIncomplete": null
   },
   {
-    "id": "si-ling-fa-shi-chuan-qi",
-    "name": "死灵法师(传奇)",
+    "id": "bian-jie-zhe-a-er-bu-lei-xi-te",
+    "name": "变节者阿尔布雷希特",
     "group": "空降事件/剧情/固定地点副本",
     "groupNote": null,
     "groupNoteBlocks": null,
     "quality": "unique",
-    "hp": 450,
-    "damageReduction": 69,
+    "hp": "450，450，450",
+    "damageReduction": "0，48，69",
     "restoredFromDate": null,
     "physicalDamage": "无",
     "elementDamage": null,
