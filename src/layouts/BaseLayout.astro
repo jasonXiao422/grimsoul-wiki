@@ -295,6 +295,117 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         new ResizeObserver(updateHeaderHeight).observe(siteHeader);
       }
 
+      document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((gallery) => {
+        const slides = [...gallery.querySelectorAll<HTMLElement>(':scope > .lore-gallery-slide')];
+        if (slides.length === 0) return;
+
+        const track = document.createElement('div');
+        track.className = 'lore-gallery-track';
+        slides.forEach((slide) => track.append(slide));
+        gallery.append(track);
+
+        const setActive = (index: number) => {
+          slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
+          dots?.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === index);
+            if (dotIndex === index) dot.setAttribute('aria-current', 'true');
+            else dot.removeAttribute('aria-current');
+          });
+        };
+        const getClosestIndex = () => {
+          const center = track.scrollLeft + track.clientWidth / 2;
+          return slides.reduce((closest, slide, index) => {
+            const distance = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - center);
+            const closestDistance = Math.abs(slides[closest].offsetLeft + slides[closest].offsetWidth / 2 - center);
+            return distance < closestDistance ? index : closest;
+          }, 0);
+        };
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let isProgrammaticScroll = false;
+        let scrollEndFallbackTimer: number | undefined;
+        const finishProgrammaticScroll = () => {
+          isProgrammaticScroll = false;
+          if (scrollEndFallbackTimer !== undefined) {
+            window.clearTimeout(scrollEndFallbackTimer);
+            scrollEndFallbackTimer = undefined;
+          }
+        };
+        const scrollToSlide = (index: number) => {
+          const target = slides[(index + slides.length) % slides.length];
+          if (!target) return;
+          const left = target.offsetLeft - (track.clientWidth - target.offsetWidth) / 2;
+          isProgrammaticScroll = true;
+          track.scrollTo({
+            left,
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          });
+          setActive((index + slides.length) % slides.length);
+        };
+
+        let dots: HTMLButtonElement[] | undefined;
+        if (slides.length > 1) {
+          const previous = document.createElement('button');
+          previous.type = 'button';
+          previous.className = 'lore-gallery-arrow lore-gallery-arrow-previous';
+          previous.setAttribute('aria-label', '上一张');
+          previous.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 20 7 12 15 4" /></svg>';
+          previous.addEventListener('click', () => scrollToSlide(getClosestIndex() - 1));
+
+          const next = document.createElement('button');
+          next.type = 'button';
+          next.className = 'lore-gallery-arrow lore-gallery-arrow-next';
+          next.setAttribute('aria-label', '下一张');
+          next.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 20 17 12 9 4" /></svg>';
+          next.addEventListener('click', () => scrollToSlide(getClosestIndex() + 1));
+
+          const dotsContainer = document.createElement('div');
+          dotsContainer.className = 'lore-gallery-dots';
+          dots = slides.map((_, index) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'lore-gallery-dot';
+            dot.setAttribute('aria-label', `第 ${index + 1} 张`);
+            dot.addEventListener('click', () => scrollToSlide(index));
+            dotsContainer.append(dot);
+            return dot;
+          });
+
+          gallery.append(previous, next, dotsContainer);
+        }
+
+        setActive(0);
+        const updateActive = () => {
+          if (!isProgrammaticScroll) setActive(getClosestIndex());
+        };
+        const observer = new IntersectionObserver(updateActive, { root: track, threshold: [0.25, 0.5, 0.75] });
+        slides.forEach((slide) => observer.observe(slide));
+        track.addEventListener('scroll', () => {
+          if (isProgrammaticScroll) {
+            if (scrollEndFallbackTimer !== undefined) window.clearTimeout(scrollEndFallbackTimer);
+            scrollEndFallbackTimer = window.setTimeout(finishProgrammaticScroll, 150);
+            return;
+          }
+          updateActive();
+        }, { passive: true });
+        track.addEventListener('scrollend', finishProgrammaticScroll);
+
+        gallery.addEventListener('keydown', (event) => {
+          if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+          event.preventDefault();
+          scrollToSlide(getClosestIndex() + (event.key === 'ArrowRight' ? 1 : -1));
+        });
+
+        gallery.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof HTMLImageElement)) return;
+          const slide = target.closest<HTMLElement>('.lore-gallery-slide');
+          if (!slide || slide.classList.contains('is-active')) return;
+          event.preventDefault();
+          event.stopPropagation();
+          scrollToSlide(slides.indexOf(slide));
+        });
+      });
+
       menuToggle?.addEventListener('click', () => {
         setMenuOpen(!mainNav?.classList.contains('is-open'));
       });

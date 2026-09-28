@@ -12,13 +12,48 @@ summary: 三位神明、两个世界、一个正在应验的诅咒。
 你是一名感染了「灰色死神」的流亡者。你不会真正死去——你的灵魂总会回到
 你第一次死去的地方。
 
-<figure class="enemy-concept lore-title-illustration">
-  <img class="lore-title-illustration-image" src="/images/pages/grim-soul-title-illustration.webp" alt="Grim Soul 标题插画：骑士牵着战马站在墓地中，远处有活死人逼近" />
-  <figcaption class="enemy-concept-caption">
-    <span>游戏插画</span>
-    <span class="enemy-concept-credit">Pavel Goloviy</span>
-  </figcaption>
-</figure>
+<div class="lore-gallery" data-gallery tabindex="0" aria-label="游戏插画">
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/grim-soul-title-illustration.webp" alt="骑士牵着战马站在墓地中，远处有活死人逼近" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Pavel Goloviy</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-02.webp" alt="骑士在墓地的石棺后张弓，活死人从坟墓中爬出" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-03.webp" alt="手持火把的流亡者站在发出红光的废墟铁门前" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-04.webp" alt="地下城各个房间的俯视概念图" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-05.webp" alt="俯视视角下的流亡者营地与木栅栏" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-06.webp" alt="马车在晨雾弥漫的林间穿行" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-07.webp" alt="白发剑士站在倒下的敌人身旁" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-08.webp" alt="林间停着一辆堆满货物的商人马车" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-09.webp" alt="满月下的巨大角魔与持火把的骑士对峙" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-10.webp" alt="流亡者举剑对抗一头直立的巨熊" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+</div>
 
 ## 三位神明
 

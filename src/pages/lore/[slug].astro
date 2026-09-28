@@ -60,7 +60,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
         <Content />
         {(entry.id === '06-characters.md' || entry.id === '01-overview.md') && (
           <MarkdownImageZoom
-            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept, .lore-title-illustration"
+            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept, .lore-gallery"
             bootstrapSrc="/images/pages/furgin-concept.webp"
           />
         )}
@@ -107,10 +107,4 @@ const toc = headings.filter((heading) => heading.depth === 2);
     border-radius: 8px;
   }
 
-  .lore-content :global(.lore-title-illustration-image) {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
 </style>
