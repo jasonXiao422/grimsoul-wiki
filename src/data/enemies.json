@@ -6643,7 +6643,7 @@
       }
     ],
     "quality": "rare",
-    "hp": "200，待测，待测",
+    "hp": "200，250，500",
     "damageReduction": "30，50，50",
     "restoredFromDate": null,
     "physicalDamage": "20，30，60",
@@ -6978,7 +6978,7 @@
       }
     ],
     "quality": "rare",
-    "hp": "180，待测，待测",
+    "hp": "180，250，500",
     "damageReduction": "30，50，50",
     "restoredFromDate": null,
     "physicalDamage": "20，30，60",
@@ -7215,7 +7215,7 @@
       }
     ],
     "quality": "rare",
-    "hp": "300，待测，待测",
+    "hp": "300，500，1000",
     "damageReduction": "30，24，24",
     "restoredFromDate": null,
     "physicalDamage": "15，20，40",
@@ -7480,7 +7480,7 @@
       }
     ],
     "quality": "rare",
-    "hp": "200，250，待测",
+    "hp": "200，250，500",
     "damageReduction": "30，50，48",
     "restoredFromDate": null,
     "physicalDamage": "50，100，180",
@@ -7717,7 +7717,7 @@
       }
     ],
     "quality": "unique",
-    "hp": "200，待测，待测",
+    "hp": "200，300，600",
     "damageReduction": "60，60，60",
     "restoredFromDate": null,
     "physicalDamage": "60，120，200",
@@ -7954,7 +7954,7 @@
       }
     ],
     "quality": "unique",
-    "hp": "220，300，待测",
+    "hp": "220，300，600",
     "damageReduction": "48，55，55",
     "restoredFromDate": null,
     "physicalDamage": "30，40，80",
@@ -8191,7 +8191,7 @@
       }
     ],
     "quality": "unique",
-    "hp": "400，500，待测",
+    "hp": "400，500，1000",
     "damageReduction": "60，67，71",
     "restoredFromDate": null,
     "physicalDamage": "30，40，80",
@@ -8400,7 +8400,7 @@
       }
     ],
     "quality": "unique",
-    "hp": "200，待测，待测",
+    "hp": "200，300，600",
     "damageReduction": "48，55，55",
     "restoredFromDate": null,
     "physicalDamage": "35，40，80",
@@ -8721,7 +8721,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": "250，400，待测",
+    "hp": "250，400，800",
     "damageReduction": "60，65，64.5",
     "restoredFromDate": null,
     "physicalDamage": "40，50，99",
@@ -8958,7 +8958,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": "250，待测，待测",
+    "hp": "250，400，800",
     "damageReduction": "60，64.5，64.5",
     "restoredFromDate": null,
     "physicalDamage": "20，30，40",
@@ -9195,7 +9195,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": "500，700，待测",
+    "hp": "500，700，1400",
     "damageReduction": "75，80，80",
     "restoredFromDate": null,
     "physicalDamage": "40，50，99",
@@ -9432,7 +9432,7 @@
       }
     ],
     "quality": "legendary",
-    "hp": "300，待测，待测",
+    "hp": "300，500，1000",
     "damageReduction": "65，75，78",
     "restoredFromDate": null,
     "physicalDamage": "120，220，350",
