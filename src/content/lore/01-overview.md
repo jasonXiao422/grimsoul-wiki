@@ -123,6 +123,22 @@ summary: 三位神明、两个世界、一个正在应验的诅咒。
 
 > 血腥死神的到来是世界即将终结的第一个迹象。
 
+<figure class="enemy-concept lore-xiu-bo-er-illustration">
+  <img class="lore-xiu-bo-er-illustration-image" src="/images/pages/xiu-bo-er-spirits.webp" alt="流亡者手持火把与剑，在废墟中对抗一群发光的幽灵" />
+  <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+</figure>
+
+<aside class="lore-item-callout">
+  <a class="lore-item-callout-link" href="/materials/mat-xiu-bo-er-de-hui-jin">
+    <img class="item-icon quality-icon" src="/images/materials/mat-xiu-bo-er-de-hui-jin.webp" alt="" style="--quality-border:#4a86c8;--quality-glow:rgba(74,134,200,.35)">
+    <span class="lore-item-callout-text">
+      <span class="lore-item-callout-label">游戏内材料</span>
+      <strong>修博尔的灰烬</strong>
+      <span class="lore-item-callout-desc">活人手中的一片死者国度</span>
+    </span>
+  </a>
+</aside>
+
 ## 冲突的本质
 
 福金领主召唤瘟疫之神，不是为了毁灭帝国，而是为了**保护**它。

@@ -3327,6 +3327,59 @@ p {
   object-fit: contain;
 }
 
+.lore-content .lore-item-callout {
+  margin: 12px 0 24px;
+}
+
+.lore-content .lore-item-callout-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.lore-content .lore-item-callout-link:hover,
+.lore-content .lore-item-callout-link:focus-visible {
+  border-color: var(--accent);
+}
+
+.lore-content .lore-item-callout-link .item-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.lore-content .lore-item-callout-text {
+  display: grid;
+  gap: 2px;
+}
+
+.lore-content .lore-item-callout-label {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.lore-content .lore-item-callout-text strong {
+  color: var(--accent-dim);
+  font-weight: 600;
+}
+
+.lore-content .lore-item-callout-desc {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.lore-content .lore-item-callout-link:hover .lore-item-callout-text strong,
+.lore-content .lore-item-callout-link:focus-visible .lore-item-callout-text strong {
+  color: var(--accent);
+}
+
 .scroll-leaf {
   padding: 28px 36px;
   border: 1px solid var(--border);

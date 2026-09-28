@@ -60,7 +60,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
         <Content />
         {(entry.id === '06-characters.md' || entry.id === '01-overview.md') && (
           <MarkdownImageZoom
-            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept, .lore-gallery"
+            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept, .lore-gallery, .lore-xiu-bo-er-illustration"
             bootstrapSrc="/images/pages/furgin-concept.webp"
           />
         )}
@@ -100,7 +100,8 @@ const toc = headings.filter((heading) => heading.depth === 2);
 </BaseLayout>
 
 <style>
-  .lore-content :global(.lore-furgin-concept-image) {
+  .lore-content :global(.lore-furgin-concept-image),
+  .lore-content :global(.lore-xiu-bo-er-illustration-image) {
     display: block;
     width: 100%;
     height: auto;
