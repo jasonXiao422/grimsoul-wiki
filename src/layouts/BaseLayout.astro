@@ -254,8 +254,10 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       </footer>
     </div>
     <button class="back-to-top" type="button" data-back-to-top aria-label="回到顶部">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="m6 14 6-6 6 6" />
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle class="to-top-track" cx="24" cy="24" r="22" />
+        <circle class="to-top-progress" cx="24" cy="24" r="22" />
+        <polyline class="to-top-chevron" points="17 27 24 20 31 27" />
       </svg>
     </button>
     <ImageDialog />
@@ -472,8 +474,29 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       });
 
       const backToTop = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
+      const progressCircle = backToTop?.querySelector<SVGCircleElement>('.to-top-progress');
+      const progressCircumference = 2 * Math.PI * 22;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let backToTopFrame: number | undefined;
       const updateBackToTop = () => {
-        backToTop?.classList.toggle('is-visible', window.scrollY > window.innerHeight);
+        backToTopFrame = undefined;
+        const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+        const hasScrollableContent = maxScrollY > 0;
+        const progress = hasScrollableContent
+          ? Math.min(1, Math.max(0, window.scrollY / maxScrollY))
+          : 0;
+        backToTop?.classList.toggle(
+          'is-visible',
+          hasScrollableContent && window.scrollY > window.innerHeight,
+        );
+        progressCircle?.style.setProperty(
+          'stroke-dashoffset',
+          String(progressCircumference * (1 - progress)),
+        );
+      };
+      const scheduleBackToTopUpdate = () => {
+        if (backToTopFrame !== undefined) return;
+        backToTopFrame = window.requestAnimationFrame(updateBackToTop);
       };
 
       backToTop?.addEventListener('click', () => {
@@ -486,10 +509,11 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         } catch {
           // sessionStorage may be unavailable in restricted browser modes.
         }
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       });
       updateBackToTop();
-      window.addEventListener('scroll', updateBackToTop, { passive: true });
+      window.addEventListener('scroll', scheduleBackToTopUpdate, { passive: true });
+      window.addEventListener('resize', scheduleBackToTopUpdate);
     </script>
   </body>
 </html>
