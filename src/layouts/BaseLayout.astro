@@ -304,13 +304,24 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         slides.forEach((slide) => track.append(slide));
         gallery.append(track);
 
+        let counterCurrent: HTMLSpanElement | undefined;
+        let progressFill: HTMLSpanElement | undefined;
+        const formatCounter = (value: number) => String(value).padStart(2, '0');
+        const positionArrows = () => {
+          const activeSlide = slides.find((slide) => slide.classList.contains('is-active'));
+          const image = activeSlide?.querySelector<HTMLImageElement>('img');
+          if (!image) return;
+          const galleryRect = gallery.getBoundingClientRect();
+          const imageRect = image.getBoundingClientRect();
+          const center = imageRect.top + imageRect.height / 2 - galleryRect.top;
+          gallery.style.setProperty('--gallery-arrow-y', `${center}px`);
+          if (!image.complete) image.addEventListener('load', positionArrows, { once: true });
+        };
         const setActive = (index: number) => {
           slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
-          dots?.forEach((dot, dotIndex) => {
-            dot.classList.toggle('is-active', dotIndex === index);
-            if (dotIndex === index) dot.setAttribute('aria-current', 'true');
-            else dot.removeAttribute('aria-current');
-          });
+          counterCurrent?.replaceChildren(document.createTextNode(formatCounter(index + 1)));
+          if (progressFill) progressFill.style.width = `${((index + 1) / slides.length) * 100}%`;
+          positionArrows();
         };
         const getClosestIndex = () => {
           const center = track.scrollLeft + track.clientWidth / 2;
@@ -342,7 +353,6 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
           setActive((index + slides.length) % slides.length);
         };
 
-        let dots: HTMLButtonElement[] | undefined;
         if (slides.length > 1) {
           const previous = document.createElement('button');
           previous.type = 'button';
@@ -358,22 +368,32 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
           next.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 20 17 12 9 4" /></svg>';
           next.addEventListener('click', () => scrollToSlide(getClosestIndex() + 1));
 
-          const dotsContainer = document.createElement('div');
-          dotsContainer.className = 'lore-gallery-dots';
-          dots = slides.map((_, index) => {
-            const dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = 'lore-gallery-dot';
-            dot.setAttribute('aria-label', `第 ${index + 1} 张`);
-            dot.addEventListener('click', () => scrollToSlide(index));
-            dotsContainer.append(dot);
-            return dot;
-          });
+          const counter = document.createElement('div');
+          counter.className = 'lore-gallery-counter';
+          counter.setAttribute('aria-live', 'polite');
+          counterCurrent = document.createElement('span');
+          counterCurrent.className = 'lore-gallery-current';
+          const separator = document.createElement('span');
+          separator.className = 'lore-gallery-sep';
+          separator.textContent = '/';
+          const total = document.createElement('span');
+          total.className = 'lore-gallery-total';
+          total.textContent = formatCounter(slides.length);
+          counter.append(counterCurrent, separator, total);
 
-          gallery.append(previous, next, dotsContainer);
+          const progress = document.createElement('div');
+          progress.className = 'lore-gallery-progress';
+          progressFill = document.createElement('span');
+          progress.append(progressFill);
+
+          gallery.append(previous, next, counter, progress);
         }
 
         setActive(0);
+        if ('ResizeObserver' in window) {
+          const galleryResizeObserver = new ResizeObserver(positionArrows);
+          galleryResizeObserver.observe(gallery);
+        }
         const updateActive = () => {
           if (!isProgrammaticScroll) setActive(getClosestIndex());
         };

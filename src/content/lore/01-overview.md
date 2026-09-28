@@ -53,6 +53,30 @@ summary: 三位神明、两个世界、一个正在应验的诅咒。
     <img src="/images/pages/lore-gallery-10.webp" alt="流亡者举剑对抗一头直立的巨熊" loading="lazy">
     <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
   </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-11.webp" alt="月色下的哥特式废墟城墙，墙上燃着蓝色火炬" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-12.webp" alt="密林中亮着火光的茅草小屋与水井" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-13.webp" alt="红发剑士站在满地倒下的敌人之间" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-14.webp" alt="飘雪的屋内，壁炉、圣诞树与宝箱" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-15.webp" alt="三名兜帽人围着地图沙盘，其中一人操纵着提线木偶" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
+  <figure class="lore-gallery-slide">
+    <img src="/images/pages/lore-gallery-16.webp" alt="背着行囊的骑手远望燃烧的雪山城堡" loading="lazy">
+    <figcaption class="enemy-concept-caption"><span>游戏插画</span><span class="enemy-concept-credit">Grim Soul 官方</span></figcaption>
+  </figure>
 </div>
 
 ## 三位神明
