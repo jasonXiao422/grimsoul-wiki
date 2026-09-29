@@ -17,7 +17,11 @@
     "id": "mat-tie-ding",
     "name": "铁锭",
     "usedIn": 82,
-    "quality": "common"
+    "quality": "common",
+    "description": "使用这个铁锭，您可以打制坚固的护甲和头盔，在熔炉中由2个铁矿石烧制而成，或者5个铁碎片烧制而成",
+    "dropLocations": [
+      "死亡村庄Lv170-Lv200"
+    ]
   },
   {
     "id": "mat-qing-tong-ingot",
@@ -30,25 +34,40 @@
     "id": "mat-xian",
     "name": "线",
     "usedIn": 77,
-    "quality": "common"
+    "quality": "common",
+    "description": "它其实比看起来更结实",
+    "dropLocations": [
+      "酷吏地下城",
+      "1-5级图",
+      "荒废墓穴"
+    ]
   },
   {
     "id": "mat-tong-ding",
     "name": "铜锭",
     "usedIn": 71,
-    "quality": "common"
+    "quality": "common",
+    "description": "这种金属可能比较软，但加工方便"
   },
   {
     "id": "mat-sheng-zi",
     "name": "绳子",
     "usedIn": 71,
-    "quality": "common"
+    "quality": "common",
+    "description": "细绳可以将倍吊死的人的痛苦加倍"
   },
   {
     "id": "mat-mo-fa-pi-ge",
     "name": "魔法皮革",
     "usedIn": 53,
-    "quality": "rare"
+    "quality": "rare",
+    "description": "由未知动物的皮制成的皮革，上面覆盖着神秘的符文",
+    "dropLocations": [
+      "险恶城堡",
+      "叛徒地下墓穴",
+      "3-5级图",
+      "死灵法师的巢穴"
+    ]
   },
   {
     "id": "mat-song-mu-ban",
@@ -78,7 +97,8 @@
     "id": "mat-bu-liao",
     "name": "布料",
     "usedIn": 48,
-    "quality": "common"
+    "quality": "common",
+    "description": "这些烂布片可以被缝制在一起，制成更结实的布料"
   },
   {
     "id": "mat-u-xing-ding",
