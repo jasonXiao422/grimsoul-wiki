@@ -70,6 +70,14 @@ summary: 疯子、叛徒、隐士，以及一个至死都以为自己在守护�
 
 卡恩的笔记是整个游戏里最完整的一份堕落记录，可以逐段读出他的变化。
 
+<figure class="enemy-concept lore-kahn-concept">
+  <img class="lore-kahn-concept-image" src="/images/pages/kahn-concept.webp" alt="手持双斧的卡恩领主与身披鳞甲的骑士对峙" />
+  <figcaption class="enemy-concept-caption">
+    <span>游戏插画</span>
+    <a class="enemy-concept-credit" href="https://static-platform.aghanim.com/news/1b/ab/20/7a/1bab207a-e6a5-4aa0-870e-eeea7c15dde8.webp" target="_blank" rel="noopener noreferrer">Grim Soul 官方</a>
+  </figcaption>
+</figure>
+
 **起点是委屈**：
 
 > 我们为了帝国的荣耀而杀戮，而帝国要求更多的尸体。

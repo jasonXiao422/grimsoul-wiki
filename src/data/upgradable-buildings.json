@@ -532,6 +532,114 @@
     ]
   },
   {
+    "id": "huo",
+    "name": "火",
+    "iconCat": "upgradable-buildings",
+    "iconId": "huo",
+    "iconMode": "shared",
+    "maxCount": 2,
+    "tags": [
+      "等级解锁"
+    ],
+    "notes": [],
+    "levels": [
+      {
+        "level": "Lv1",
+        "levelRank": 1,
+        "castlePoints": 10,
+        "purpose": "一次性制作20个食物",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-yuan-song-mu",
+            "qty": 3
+          },
+          {
+            "material": "mat-shi-hui-yan",
+            "qty": 3
+          },
+          {
+            "material": "mat-ya-ma-xian-wei",
+            "qty": 1
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "默认图纸",
+        "blueprintPending": false,
+        "iconId": "huo"
+      },
+      {
+        "level": "Lv2",
+        "levelRank": 2,
+        "castlePoints": 20,
+        "purpose": "一次性制作40个食物",
+        "purposePending": false,
+        "cost": [
+          {
+            "material": "mat-song-mu-ban",
+            "qty": 60
+          },
+          {
+            "material": "mat-shi-hui-yan",
+            "qty": 60
+          },
+          {
+            "material": "mat-hua-mu-ban",
+            "qty": 40
+          },
+          {
+            "material": "mat-lu-jia",
+            "qty": 20
+          },
+          {
+            "material": "mat-mei-tan",
+            "qty": 20
+          },
+          {
+            "material": "mat-shan-mao-ju",
+            "qty": 20
+          },
+          {
+            "material": "mat-u-xing-ding",
+            "qty": 20
+          },
+          {
+            "material": "mat-yan-yan",
+            "qty": 20
+          }
+        ],
+        "costPending": false,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "huo"
+      },
+      {
+        "level": "Lv3",
+        "levelRank": 3,
+        "castlePoints": 30,
+        "purpose": "一次性制作60个食物",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "huo"
+      },
+      {
+        "level": "Lv4",
+        "levelRank": 4,
+        "castlePoints": 40,
+        "purpose": "一次性制作80个食物",
+        "purposePending": false,
+        "cost": [],
+        "costPending": true,
+        "blueprintSource": "堕落骑士；破损大车；商人护送；死亡村庄；被咒商人的财宝；维尔比约恩的巢穴；死灵法师的巢穴；野蛮人营地",
+        "blueprintPending": false,
+        "iconId": "huo"
+      }
+    ]
+  },
+  {
     "id": "kong-lang-peng",
     "name": "恐狼棚",
     "iconCat": "upgradable-buildings",

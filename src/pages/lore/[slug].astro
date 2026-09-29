@@ -58,12 +58,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
 
       <div class="lore-content panel">
         <Content />
-        {(entry.id === '06-characters.md' || entry.id === '01-overview.md') && (
-          <MarkdownImageZoom
-            containerSelector=".lore-furgin-concept, .lore-ivan-concept, .lore-eisenberg-concept, .lore-sebastian-concept, .lore-elsa-concept, .lore-gallery, .lore-xiu-bo-er-illustration"
-            bootstrapSrc="/images/pages/furgin-concept.webp"
-          />
-        )}
+        <MarkdownImageZoom containerSelector=".lore-content figure.enemy-concept, .lore-content .lore-gallery" />
       </div>
 
       <nav class="lore-pager" aria-label="上一篇和下一篇">
@@ -101,6 +96,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
 
 <style>
   .lore-content :global(.lore-furgin-concept-image),
+  .lore-content :global(.lore-kahn-concept-image),
   .lore-content :global(.lore-xiu-bo-er-illustration-image) {
     display: block;
     width: 100%;

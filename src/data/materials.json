@@ -53,7 +53,7 @@
   {
     "id": "mat-song-mu-ban",
     "name": "松木板",
-    "usedIn": 61,
+    "usedIn": 62,
     "quality": "common"
   },
   {
@@ -83,7 +83,7 @@
   {
     "id": "mat-u-xing-ding",
     "name": "U形钉",
-    "usedIn": 54,
+    "usedIn": 55,
     "quality": "rare"
   },
   {
@@ -95,7 +95,7 @@
   {
     "id": "mat-hua-mu-ban",
     "name": "桦木板",
-    "usedIn": 46,
+    "usedIn": 47,
     "quality": "common"
   },
   {
@@ -117,21 +117,15 @@
     "quality": "common"
   },
   {
-    "id": "mat-yuan-song-mu",
-    "name": "原松木",
-    "usedIn": 25,
-    "quality": "common"
-  },
-  {
     "id": "mat-mo-fa-mu-cai",
     "name": "魔法木材",
     "usedIn": 28,
     "quality": "rare"
   },
   {
-    "id": "mat-ya-ma-xian-wei",
-    "name": "亚麻纤维",
-    "usedIn": 24,
+    "id": "mat-yuan-song-mu",
+    "name": "原松木",
+    "usedIn": 25,
     "quality": "common"
   },
   {
@@ -139,6 +133,12 @@
     "name": "魔法铁锭",
     "usedIn": 25,
     "quality": "rare"
+  },
+  {
+    "id": "mat-ya-ma-xian-wei",
+    "name": "亚麻纤维",
+    "usedIn": 24,
+    "quality": "common"
   },
   {
     "id": "mat-gang-ding",
@@ -179,7 +179,7 @@
   {
     "id": "mat-lu-jia",
     "name": "炉架",
-    "usedIn": 25,
+    "usedIn": 26,
     "quality": "common"
   },
   {
@@ -207,12 +207,6 @@
     "quality": "rare"
   },
   {
-    "id": "mat-shi-hui-yan",
-    "name": "石灰岩",
-    "usedIn": 13,
-    "quality": "common"
-  },
-  {
     "id": "mat-chun-yin",
     "name": "纯银",
     "usedIn": 9,
@@ -223,6 +217,12 @@
     "name": "古老薄板",
     "usedIn": 9,
     "quality": "rare"
+  },
+  {
+    "id": "mat-shi-hui-yan",
+    "name": "石灰岩",
+    "usedIn": 14,
+    "quality": "common"
   },
   {
     "id": "mat-huo-yan-jing-hua",
@@ -763,6 +763,12 @@
     "quality": "rare"
   },
   {
+    "id": "mat-mei-tan",
+    "name": "煤炭",
+    "usedIn": 2,
+    "quality": "common"
+  },
+  {
     "id": "mat-yuan-hua-mu",
     "name": "原桦木",
     "usedIn": 2,
@@ -827,12 +833,6 @@
     "quality": "rare"
   },
   {
-    "id": "mat-mei-tan",
-    "name": "煤炭",
-    "usedIn": 1,
-    "quality": "common"
-  },
-  {
     "id": "mat-shou-ju",
     "name": "手锯",
     "usedIn": 1,
@@ -855,6 +855,20 @@
     "name": "剪刀",
     "usedIn": 1,
     "quality": "rare"
+  },
+  {
+    "id": "mat-shan-mao-ju",
+    "name": "山毛榉",
+    "usedIn": 1,
+    "quality": "rare",
+    "description": "不需要魔法就能确保带来火热的火焰！可作为燃料使用"
+  },
+  {
+    "id": "mat-yan-yan",
+    "name": "岩盐",
+    "usedIn": 1,
+    "quality": "rare",
+    "description": "对流亡者而言，一袋盐的价值比得上一袋金子"
   },
   {
     "id": "mat-xun-lian-ren-ou",

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
+import MarkdownImageZoom from '../../../components/MarkdownImageZoom.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 type SideStoryEntry = CollectionEntry<'side-stories'>;
@@ -59,6 +60,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
 
       <div class="lore-content panel">
         <Content />
+        <MarkdownImageZoom containerSelector=".lore-content figure.enemy-concept, .lore-content .lore-gallery" />
       </div>
 
       <nav class="lore-pager" aria-label="上一篇和下一篇">

@@ -3,10 +3,13 @@ import ImageZoom from './ImageZoom.astro';
 
 interface Props {
   containerSelector: string;
-  bootstrapSrc: string;
+  bootstrapSrc?: string;
 }
 
-const { containerSelector, bootstrapSrc } = Astro.props;
+const {
+  containerSelector,
+  bootstrapSrc = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+} = Astro.props;
 ---
 
 <div hidden aria-hidden="true">
@@ -14,12 +17,13 @@ const { containerSelector, bootstrapSrc } = Astro.props;
 </div>
 
 <script define:vars={{ containerSelector }}>
-  const content = document.querySelector(containerSelector);
-  content?.querySelectorAll('img').forEach((image) => {
-    const src = image.getAttribute('src');
-    if (!src) return;
-    image.classList.add('js-zoom-image');
-    image.dataset.zoomSrc = src;
-    image.dataset.zoomAlt = image.getAttribute('alt') ?? '';
+  document.querySelectorAll(containerSelector).forEach((content) => {
+    content.querySelectorAll('img').forEach((image) => {
+      const src = image.getAttribute('src');
+      if (!src) return;
+      image.classList.add('js-zoom-image');
+      image.dataset.zoomSrc = src;
+      image.dataset.zoomAlt = image.getAttribute('alt') ?? '';
+    });
   });
 </script>
