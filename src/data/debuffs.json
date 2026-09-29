@@ -86,14 +86,14 @@
   {
     "id": "kai-fang-xing-shang-kou",
     "name": "开放性伤口",
-    "desc": "受到的治疗效果降低3倍",
+    "desc": "受到的治疗效果降低2倍",
     "group": "大车炮台",
     "quality": "common"
   },
   {
     "id": "sheng-xiu-hu-jia",
     "name": "生锈护甲",
-    "desc": "玩家护甲（防御力）降低25%",
+    "desc": "玩家护甲（防御力）减少400",
     "group": "大车炮台",
     "quality": "common"
   },

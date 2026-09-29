@@ -9,21 +9,21 @@
   {
     "id": "quan-su-ben-pao",
     "name": "全速奔跑",
-    "desc": "敌人移动速度提高40%",
+    "desc": "敌人移动速度和攻击速度都提高40%",
     "group": "大车炮台",
     "quality": "common"
   },
   {
     "id": "jing-jue-de-shou-wei",
     "name": "警觉的守卫",
-    "desc": "敌人视野范围增加30%",
+    "desc": "敌人视野范围增加30%，无法偷袭敌人",
     "group": "大车炮台",
     "quality": "common"
   },
   {
     "id": "jue-chu-feng-sheng",
     "name": "绝处逢生",
-    "desc": "敌人有20%概率避免死亡并恢复生命值（两条命）",
+    "desc": "敌人有25%概率避免死亡并恢复生命值（两条命）",
     "group": "大车炮台",
     "quality": "common"
   },
@@ -37,7 +37,7 @@
   {
     "id": "qiang-han-hu-jia",
     "name": "强悍护甲",
-    "desc": "敌人防御力提升35%",
+    "desc": "敌人护甲提高200",
     "group": "大车炮台",
     "quality": "common"
   },
@@ -51,7 +51,7 @@
   {
     "id": "chao-zi-ran-fan-ying",
     "name": "超自然反应",
-    "desc": "敌人有20%的机会躲避攻击",
+    "desc": "敌人有25%的机会躲避攻击",
     "group": "大车炮台",
     "quality": "common"
   }

@@ -37,14 +37,14 @@
   {
     "id": "gao-xiao-zhi-liao",
     "name": "高效治疗",
-    "desc": "玩家治疗效果提高20%",
+    "desc": "玩家治疗效果提高50%",
     "group": "大车炮台",
     "quality": "common"
   },
   {
     "id": "zhi-liao-zhi-feng",
     "name": "治疗之风",
-    "desc": "每4秒恢复5生命值",
+    "desc": "每2秒恢复10生命值",
     "group": "大车炮台",
     "quality": "common"
   },
@@ -58,7 +58,7 @@
   {
     "id": "qiang-li-zhong-ji",
     "name": "强力重击",
-    "desc": "玩家攻击造成额外20点伤害",
+    "desc": "玩家攻击造成额外30点伤害",
     "group": "大车炮台",
     "quality": "common"
   }
