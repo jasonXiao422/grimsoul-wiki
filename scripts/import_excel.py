@@ -2144,6 +2144,15 @@ def attach_material_descriptions(materials):
         description = text(cells[1].value if len(cells) > 1 else None)
         if description:
             material["description"] = description
+        raw_drop_locations = text(cells[2].value if len(cells) > 2 else None)
+        if raw_drop_locations and raw_drop_locations != "无":
+            drop_locations = [
+                location.strip()
+                for location in re.split(r"[；;、/／]", raw_drop_locations)
+                if location.strip()
+            ]
+            if drop_locations:
+                material["dropLocations"] = drop_locations
 
     report()
 

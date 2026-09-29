@@ -814,7 +814,11 @@
     "id": "mat-pi-ge-ruan-guan",
     "name": "皮革软管",
     "usedIn": 1,
-    "quality": "rare"
+    "quality": "rare",
+    "dropLocations": [
+      "死亡村庄",
+      "被咒者的财宝"
+    ]
   },
   {
     "id": "mat-ping-zhuang-shui",
@@ -836,25 +840,43 @@
     "id": "mat-shou-ju",
     "name": "手锯",
     "usedIn": 1,
-    "quality": "rare"
+    "quality": "rare",
+    "dropLocations": [
+      "破损大车",
+      "野蛮人营地",
+      "被咒者财宝"
+    ]
   },
   {
     "id": "mat-mu-gong-pao",
     "name": "木工刨",
     "usedIn": 1,
-    "quality": "rare"
+    "quality": "rare",
+    "description": "专为刨平木材而造的工具，前提是你会用。是二级木工台的组装材料。",
+    "dropLocations": [
+      "商人护送",
+      "破损大车",
+      "野蛮人营地"
+    ]
   },
   {
     "id": "mat-xie-zi",
     "name": "楔子",
     "usedIn": 1,
-    "quality": "rare"
+    "quality": "rare",
+    "dropLocations": [
+      "墓地之夜",
+      "死亡村庄"
+    ]
   },
   {
     "id": "mat-jian-dao",
     "name": "剪刀",
     "usedIn": 1,
-    "quality": "rare"
+    "quality": "rare",
+    "dropLocations": [
+      "商人护送"
+    ]
   },
   {
     "id": "mat-shan-mao-ju",
@@ -868,7 +890,13 @@
     "name": "岩盐",
     "usedIn": 1,
     "quality": "rare",
-    "description": "对流亡者而言，一袋盐的价值比得上一袋金子。可在以下地点获取：被诅咒的天文台/商人护送/破损大车/维比约恩的巢穴"
+    "description": "对流亡者而言，一袋盐的价值比得上一袋金子",
+    "dropLocations": [
+      "被诅咒的天文台",
+      "商人护送",
+      "破损大车",
+      "维比约恩的巢穴"
+    ]
   },
   {
     "id": "mat-xun-lian-ren-ou",

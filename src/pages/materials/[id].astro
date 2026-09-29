@@ -37,6 +37,14 @@ const entityLabel = getEntityCategoryLabel(item.entity);
         <p class="material-description-text">{item.description}</p>
       </section>
     )}
+    {Array.isArray(item.dropLocations) && item.dropLocations.length > 0 && (
+      <section class="section panel material-drop-locations">
+        <h2 class="detail-panel-title">掉落地点</h2>
+        <div class="tag-list">
+          {item.dropLocations.map((location) => <span class="tag">{location}</span>)}
+        </div>
+      </section>
+    )}
   </DetailPanel>
 
   <section class="section panel">
