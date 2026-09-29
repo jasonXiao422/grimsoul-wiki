@@ -195,8 +195,8 @@ const attrRows = Object.entries(item)
         ? splitEnemyDamageStages(getEnemyDamageValue(key, value))
         : undefined,
       elementLabel: key === 'elementDamage' ? getEnemyElementLabel(value) : '',
-      enemyNote: categorySlug === 'enemies' && key === 'note'
-        ? parseEnemyNote(value, item.noteSegments)
+      note: (categorySlug === 'enemies' && key === 'note') || (categorySlug === 'weapons' && key === 'effect')
+        ? parseEnemyNote(value, categorySlug === 'enemies' ? item.noteSegments : undefined)
         : undefined,
       elementStyle: getElementStyle(key, value),
       isIncomplete: isDataIncomplete && isEmptyValue(value),
@@ -273,14 +273,14 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                     row.isIncomplete && 'attr-value-incomplete',
                     categorySlug === 'enemies' && ['hp', 'damageReduction', 'physicalDamage', 'elementDamage'].includes(row.key) && 'enemy-attr-value-numeric',
                   ]}>
-                  {row.enemyNote ? (
+                  {row.note ? (
                     <div class="enemy-note">
-                      {row.enemyNote.intro && (
+                      {row.note.intro && (
                         <p class="enemy-note-intro">
-                          <QualityText text={row.enemyNote.intro} segments={row.enemyNote.introSegments} />
+                          <QualityText text={row.note.intro} segments={row.note.introSegments} />
                         </p>
                       )}
-                      {row.enemyNote.skills.map((skill) => (
+                      {row.note.skills.map((skill) => (
                         <p class="enemy-note-skill">
                           <strong><QualityText text={skill.heading} segments={skill.headingSegments} /></strong>
                           {skill.lines.map((line) => (
