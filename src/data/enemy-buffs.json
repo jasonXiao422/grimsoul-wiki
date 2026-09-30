@@ -2,7 +2,7 @@
   {
     "id": "qiang-jian-ti-po",
     "name": "强健体魄",
-    "desc": "敌人的生命值提高10%，治疗效果也提高",
+    "desc": "敌人的生命值提高，治疗效果也提高",
     "group": "大车炮台",
     "quality": "common"
   },
@@ -30,7 +30,7 @@
   {
     "id": "chen-zhong-da-ji",
     "name": "沉重打击",
-    "desc": "敌人造成的伤害增加20%",
+    "desc": "敌人造成的伤害增加40%",
     "group": "大车炮台",
     "quality": "common"
   },
