@@ -6,6 +6,7 @@ import MaterialCostList from '../../components/MaterialCostList.astro';
 import ElementForgeDetail from '../../components/ElementForgeDetail.astro';
 import fixedBuildings from '../../data/fixed-buildings.json';
 import { BUILDING_CONCEPTS } from '../../lib/building-concepts';
+import { getBuildingPreviews } from '../../lib/building-previews';
 import { getItemIconSrc } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
@@ -15,6 +16,7 @@ export function getStaticPaths() {
 
 const { building } = Astro.props;
 const buildingConcepts = BUILDING_CONCEPTS[building.id] ?? [];
+const buildingPreviews = getBuildingPreviews(building.id);
 const quality = typeof building.quality === 'string' && building.quality in QUALITY_META
   ? QUALITY_META[building.quality as Quality]
   : QUALITY_META.common;
@@ -88,5 +90,26 @@ const hasAssembleCost = building.assembleCostPending || building.assembleCost.le
     </section>
   )}
   </>
+  )}
+
+  {buildingPreviews.length > 0 && (
+    <section class="enemy-concepts section panel">
+      <h2 class="detail-panel-title">建筑示意图</h2>
+      <div class="enemy-concepts-list">
+        {buildingPreviews.map((preview) => (
+          <figure class="enemy-concept">
+            <ImageZoom
+              src={preview.src}
+              alt={preview.alt}
+              class="enemy-concept-image building-preview-image"
+              style="display:block;width:100%;max-width:640px;height:auto;max-height:none;margin:0 auto;border-radius:8px"
+            />
+            <figcaption class="enemy-concept-caption">
+              <span>{preview.caption}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
   )}
 </BaseLayout>

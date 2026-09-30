@@ -7,6 +7,7 @@ import materials from '../../data/materials.json';
 import upgradableBuildings from '../../data/upgradable-buildings.json';
 import { getItemIconSrc, getMaterialHref } from '../../lib/data';
 import { BUILDING_CONCEPTS } from '../../lib/building-concepts';
+import { getBuildingPreviews } from '../../lib/building-previews';
 import { QUALITY_META, type Quality } from '../../lib/quality';
 
 export function getStaticPaths() {
@@ -15,6 +16,7 @@ export function getStaticPaths() {
 
 const { building } = Astro.props;
 const buildingConcepts = BUILDING_CONCEPTS[building.id] ?? [];
+const buildingPreviews = getBuildingPreviews(building.id);
 const levels = [...building.levels].sort((a, b) => a.levelRank - b.levelRank);
 const materialByName = new Map(materials.map((material) => [material.name, material]));
 const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '';
@@ -165,6 +167,27 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
               ) : (
                 <span class="enemy-concept-credit">{concept.credit}</span>
               )}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {buildingPreviews.length > 0 && (
+    <section class="enemy-concepts section panel">
+      <h2 class="detail-panel-title">建筑示意图</h2>
+      <div class="enemy-concepts-list">
+        {buildingPreviews.map((preview) => (
+          <figure class="enemy-concept">
+            <ImageZoom
+              src={preview.src}
+              alt={preview.alt}
+              class="enemy-concept-image building-preview-image"
+              style="display:block;width:100%;max-width:640px;height:auto;max-height:none;margin:0 auto;border-radius:8px"
+            />
+            <figcaption class="enemy-concept-caption">
+              <span>{preview.caption}</span>
             </figcaption>
           </figure>
         ))}
