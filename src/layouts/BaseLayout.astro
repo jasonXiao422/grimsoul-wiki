@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SearchBox from '../components/SearchBox.astro';
 import ImageDialog from '../components/ImageDialog.astro';
+import NavLoader from '../components/NavLoader.astro';
 import { DATA_VERSION } from '../lib/site';
 
 interface Props {
@@ -252,7 +253,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       <main class="main-content">
         <slot />
         {showDataVersion && (
-          <p class="data-version-note">基于 {DATA_VERSION} 游戏资料整理，实战数值以游戏为准</p>
+          <p class="data-version-note">基于 {DATA_VERSION} 游戏资料整理</p>
         )}
       </main>
 
@@ -295,6 +296,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       </svg>
     </button>
     <ImageDialog />
+    <NavLoader />
     <script>
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');

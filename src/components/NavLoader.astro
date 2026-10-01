@@ -1,0 +1,198 @@
+<div class="nav-loader" data-nav-loader hidden>
+  <div
+    class="nav-loader-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-live="polite"
+    aria-label="页面加载中"
+    data-nav-loader-dialog
+  >
+    <button class="nav-loader-close" type="button" aria-label="关闭" data-nav-loader-close>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+        <path d="m6 6 12 12M18 6 6 18" />
+      </svg>
+    </button>
+    <div class="nav-loader-content">
+      <span class="nav-loader-spinner" aria-hidden="true"></span>
+      <span data-nav-loader-message></span>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    const loader = document.querySelector('[data-nav-loader]');
+    const closeButton = loader?.querySelector('[data-nav-loader-close]');
+    const message = loader?.querySelector('[data-nav-loader-message]');
+    if (!loader || !closeButton || !message) return;
+
+    const messages = [
+      '红天使档案员正在翻查卷宗……',
+      '史官塔德乌什正在誊抄笔记……',
+      '流亡者正在点燃火把……',
+      '正在穿过卢比尼亚的迷雾……',
+      '正在向修博尔询问答案……',
+    ];
+    let showTimer;
+    let hideTimer;
+
+    const clearTimers = () => {
+      if (showTimer !== undefined) window.clearTimeout(showTimer);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+      showTimer = undefined;
+      hideTimer = undefined;
+    };
+
+    const hideLoader = () => {
+      clearTimers();
+      loader.hidden = true;
+    };
+
+    const showLoader = () => {
+      showTimer = undefined;
+      message.textContent = messages[Math.floor(Math.random() * messages.length)];
+      loader.hidden = false;
+      closeButton.focus({ preventScroll: true });
+      hideTimer = window.setTimeout(hideLoader, 10000);
+    };
+
+    const startTimer = () => {
+      if (showTimer !== undefined || !loader.hidden) return;
+      showTimer = window.setTimeout(showLoader, 500);
+    };
+
+    const isNavigableLink = (event) => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return false;
+      if (!(event.target instanceof Element)) return false;
+
+      const link = event.target.closest('a[href]');
+      if (!link || link.hasAttribute('download') || link.target === '_blank') return false;
+
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin || url.protocol === 'mailto:' || url.protocol === 'tel:') return false;
+      if (url.pathname === window.location.pathname && url.search === window.location.search) return false;
+
+      return true;
+    };
+
+    document.addEventListener('click', (event) => {
+      if (isNavigableLink(event)) startTimer();
+    });
+
+    closeButton.addEventListener('click', () => {
+      window.stop();
+      hideLoader();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !loader.hidden) {
+        window.stop();
+        hideLoader();
+      }
+    });
+
+    window.addEventListener('pagehide', hideLoader);
+    window.addEventListener('pageshow', hideLoader);
+  })();
+</script>
+
+<style>
+  .nav-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: nav-loader-fade-in 0.2s ease;
+  }
+
+  .nav-loader[hidden] {
+    display: none;
+  }
+
+  .nav-loader-dialog {
+    position: relative;
+    width: min(560px, calc(100% - 32px));
+    padding: 10px;
+    border: 1px solid var(--accent-dim);
+    border-radius: 8px;
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .nav-loader-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 20px;
+    padding: 28px 44px 28px 28px;
+    border: 1px solid var(--line-gold);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .nav-loader-spinner {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--line);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: nav-loader-spin 0.8s linear infinite;
+  }
+
+  .nav-loader-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--line-gold);
+    border-radius: 6px;
+    color: var(--text-dim);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav-loader-close:hover,
+  .nav-loader-close:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .nav-loader-dialog {
+      background: var(--bg-panel);
+    }
+  }
+
+  @keyframes nav-loader-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes nav-loader-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-loader {
+      animation: none;
+    }
+
+    .nav-loader-spinner {
+      animation: none;
+    }
+  }
+</style>
