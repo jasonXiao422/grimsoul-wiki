@@ -569,6 +569,8 @@ img {
 }
 
 .breadcrumb {
+  display: flex;
+  align-items: center;
   margin: 0 0 16px;
   color: var(--text-dim);
   font-size: 0.92rem;
@@ -576,6 +578,7 @@ img {
 
 .breadcrumb-list {
   display: flex;
+  flex: 1 1 auto;
   flex-wrap: nowrap;
   align-items: center;
   min-width: 0;
@@ -584,6 +587,29 @@ img {
   overflow: hidden;
   list-style: none;
   white-space: nowrap;
+}
+
+.breadcrumb-back {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  margin-right: 12px;
+  padding-right: 12px;
+  border-right: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.breadcrumb-back:hover,
+.breadcrumb-back:focus-visible {
+  color: var(--accent);
+}
+
+.breadcrumb-back svg {
+  flex: 0 0 auto;
 }
 
 .breadcrumb-list-mobile {
@@ -4577,6 +4603,10 @@ p {
 
   .breadcrumb-item.is-current {
     flex: 1 1 auto;
+  }
+
+  .breadcrumb-back {
+    min-height: 44px;
   }
 
   .lore-timeline-track {

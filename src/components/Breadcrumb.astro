@@ -23,10 +23,23 @@ const mobileItems =
           },
           ...items.slice(-2),
         ];
+
+const parentHref = items
+  .slice(0, -1)
+  .reverse()
+  .find((item) => item.href)?.href;
 ---
 
 {items.length > 0 && (
   <nav class="breadcrumb" aria-label="面包屑">
+    {parentHref && (
+      <a class="breadcrumb-back" href={parentHref} data-breadcrumb-back>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <span>返回</span>
+      </a>
+    )}
     <ol class="breadcrumb-list breadcrumb-list-desktop">
       {items.map((item, index) => {
         const isCurrent = index === items.length - 1 || !item.href;
@@ -61,3 +74,16 @@ const mobileItems =
     </ol>
   </nav>
 )}
+
+<script is:inline>
+  document.addEventListener('click', (event) => {
+    const backLink = event.target?.closest?.('[data-breadcrumb-back]');
+    if (!backLink || !document.referrer || history.length <= 1) return;
+
+    const referrer = new URL(document.referrer);
+    if (referrer.origin !== window.location.origin || referrer.pathname === window.location.pathname) return;
+
+    event.preventDefault();
+    history.back();
+  });
+</script>

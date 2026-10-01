@@ -273,3 +273,10 @@ Windows PowerShell 下删除前请先校验路径确实是当前项目根目录�
 Windows 上偶发 `EBUSY: resource busy or locked` 与 `spawn EPERM`，
 通常是杀毒软件或同步盘锁住了项目目录，与代码无关。重试即可，
 频繁出现时把项目目录加入杀毒软件排除列表。
+
+## 卡片列表分页
+
+所有资料卡片网格类列表一律使用 src/components/CardPager.astro 分页，每页固定 24 张，不得自定义其他数量。
+新建或修改任何卡片列表页时，默认接入 CardPager；可见卡片不超过 24 张时分页器自动隐藏。
+详细规则见 docs/design-system.md 第七节「卡片列表分页」。
+DataTable 表格类列表不分页，保持整页。
