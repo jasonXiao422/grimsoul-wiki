@@ -1836,12 +1836,30 @@
         "value": "80%"
       }
     ],
-    "dropLocationsRaw": "",
+    "dropLocationsRaw": "Lv1-Lv10：银矿",
     "dropLocations": [
+      "银矿",
       "打牌",
       "神秘之书"
     ],
     "dropLocationsByLevel": [
+      {
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "locations": [
+          "银矿"
+        ]
+      },
       {
         "levels": [
           11,
