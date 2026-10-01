@@ -15,9 +15,11 @@
 
 ```css
 /* 线条 */
---line: color-mix(in srgb, var(--accent-dim) 30%, transparent);         /* 默认边框 */
---line-strong: color-mix(in srgb, var(--accent-dim) 55%, transparent);  /* 强调边框、分隔线 */
+--line: rgba(255, 255, 255, 0.07);                                      /* 默认边框 */
+--line-strong: rgba(255, 255, 255, 0.12);                               /* 强调边框、分隔线 */
+--line-gold: color-mix(in srgb, var(--accent-dim) 55%, transparent);     /* 卡片角标 */
 --line-hover: color-mix(in srgb, var(--accent) 65%, transparent);       /* 悬停 */
+--fill-input: color-mix(in srgb, var(--bg-panel) 85%, white 3%);         /* 输入框底色 */
 
 /* 底色 */
 --surface: color-mix(in srgb, var(--bg-panel) 88%, var(--accent-dim));  /* 卡片底，带极淡的金色倾向 */
@@ -37,7 +39,7 @@
 --kicker-spacing: 0.28em;
 ```
 
-所有颜色都由现有变量调配，不写新的色值。唯一例外是背景用的 --tint-green。
+所有颜色都由现有变量调配，不写新的色值。唯一例外是背景用的 --tint-green，以及本节规定的透明白和 color-mix 调配。
 
 ## 三、装饰元件
 
@@ -47,7 +49,7 @@
 
 - 位置：距右、下各 10px
 - 尺寸：10px × 10px
-- 线：右边与下边各 1px，颜色 var(--line-strong)
+- 线：右边与下边各 1px，颜色 var(--line-gold)
 - 角标位于圆角内侧，不与边框圆弧重叠
 - 悬停时随边框一起变为 var(--line-hover)
 - 实现：::after 伪元素，pointer-events: none
@@ -87,16 +89,18 @@
 
 | 组件 | 规则 |
 |---|---|
-| 卡片 | 保留现有圆角；1px var(--line)；底 var(--surface)；带角标；悬停边框 var(--line-hover) |
-| 面板（详情页内容区） | 保留现有圆角；1px var(--line)；不带角标 |
+| 卡片 | 保留现有圆角；1px var(--line) 中性淡色边框；底 var(--surface)；角标使用 var(--line-gold)；悬停边框 var(--line-hover) |
+| 面板（详情页内容区） | 保留现有圆角；1px var(--line) 中性淡色边框；不带角标 |
 | 按钮 | 保留现有圆角；1px var(--line-strong)；透明底；悬停边框 var(--line-hover)、文字 var(--accent) |
-| 输入框、搜索框 | 保留现有圆角；1px var(--line)；聚焦时边框 var(--line-hover)，不用发光阴影 |
+| 输入框、搜索框 | 保留现有圆角；1px transparent；底 var(--fill-input)；聚焦时边框 var(--line-hover)，不用发光阴影 |
 | 标签 | 保留现有圆角；1px var(--line)；字号略小 |
 | 表格 | 外框 1px var(--line)；表头底部 1px var(--line-strong)；行间 1px var(--line) |
 | 导航当前项 | 底 var(--surface-active)；左侧 2px var(--accent) 竖条 |
 | 面包屑 | 分隔符用 / ，颜色 var(--line-strong) |
 | 分页 | 保留现有圆角；当前页边框 var(--accent-dim)、底 var(--surface-active) |
 | 数字统计 | 衬线字体，tabular-nums |
+
+金色只用于强调与交互，包括悬停、选中、当前项、主要按钮、提示框、引用块、状态标签与关键数字；普通边框与分隔线一律使用中性淡色。
 
 ## 五、页面背景
 
@@ -118,15 +122,34 @@
 - 图标框：内凹效果，内阴影使图标像嵌在框里
 - 仅用于入口卡片、条目卡片和图标框，面板与正文区域不加立体效果
 
-## 七、动效
+## 七、毛玻璃
+
+原则：毛玻璃只用于浮在内容之上的层，背后有内容透出才有效果；平铺的卡片、面板、正文区域不使用。
+
+适用位置：导航下拉菜单、手机汉堡菜单、搜索结果下拉、表格吸顶表头、回到顶部按钮、图片放大弹窗的背景遮罩、提示浮层。
+
+不适用：页头保持不透明，避免正文文字从下方透出影响阅读；首页大图保持原样，不加任何框体。
+
+```css
+--glass-bg: color-mix(in srgb, var(--bg-panel) 70%, transparent);
+--glass-bg-strong: color-mix(in srgb, var(--bg-panel) 85%, transparent);
+--glass-border: rgba(255, 255, 255, 0.08);
+--glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+--glass-blur: blur(16px) saturate(140%);
+--glass-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+```
+
+规则：背景使用 `var(--glass-bg)`，`backdrop-filter` 与 `-webkit-backdrop-filter` 使用 `var(--glass-blur)`；边框为 1px `var(--glass-border)`，顶部高光使用 `var(--glass-highlight)`；浮起的层加 `var(--glass-shadow)`，页头与吸顶表头不加投影；文字较多的浮层使用 `var(--glass-bg-strong)`；使用 `@supports not (backdrop-filter: blur(1px))` 回退为实色 `var(--bg-panel)`；639px 以下模糊降为 `blur(10px)`；同一屏不叠加两层以上毛玻璃。
+
+## 八、动效
 
 - 只做颜色、透明度、投影与 2px 以内的位移过渡，时长 0.2s
 - 不做缩放、弹跳等动效
 - 遵守 prefers-reduced-motion
 
-## 八、禁止事项
+## 九、禁止事项
 
-- 不用发光效果；投影只用于第六节规定的组件
+- 不用发光效果；投影只用于第六、七节规定的组件
 - 不引入新颜色值
 - 不使用大面积纹理图片
 - 装饰元件不得遮挡或干扰正文内容

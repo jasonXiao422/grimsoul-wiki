@@ -7,9 +7,17 @@
   --text-dim: #8a8579;
   --accent: #c9a227;
   --accent-dim: #8a6f1a;
-  --line: color-mix(in srgb, var(--accent-dim) 30%, transparent);
-  --line-strong: color-mix(in srgb, var(--accent-dim) 55%, transparent);
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.12);
+  --line-gold: color-mix(in srgb, var(--accent-dim) 55%, transparent);
   --line-hover: color-mix(in srgb, var(--accent) 65%, transparent);
+  --fill-input: color-mix(in srgb, var(--bg-panel) 85%, white 3%);
+  --glass-bg: color-mix(in srgb, var(--bg-panel) 70%, transparent);
+  --glass-bg-strong: color-mix(in srgb, var(--bg-panel) 85%, transparent);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --glass-blur: blur(16px) saturate(140%);
+  --glass-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
   --surface: color-mix(in srgb, var(--bg-panel) 88%, var(--accent-dim));
   --surface-active: color-mix(in srgb, var(--bg-panel) 80%, var(--accent-dim));
   --kicker-size: 0.72rem;
@@ -37,6 +45,22 @@
   --header-height: 73px;
   --table-header-height: 45px;
   color-scheme: dark;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --glass-blur: blur(10px) saturate(140%);
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .nav-dropdown-menu,
+  .main-nav.is-open,
+  .search-results,
+  .back-to-top,
+  .data-table:not(.skills-table) thead th {
+    background: var(--bg-panel);
+  }
 }
 
 .card-pager {
@@ -246,8 +270,7 @@ img {
   z-index: 20;
   width: 100%;
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  backdrop-filter: blur(12px);
+  background: var(--bg-panel);
 }
 
 .header-inner,
@@ -354,10 +377,12 @@ img {
   min-width: 160px;
   max-width: calc(100vw - 24px);
   padding: 6px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
-  background: var(--bg-deep);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.36);
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
   transform: translateX(-50%);
 }
 
@@ -408,12 +433,12 @@ img {
   height: 44px;
   padding: 0;
   place-items: center;
-  border: none;
+  border: 1px solid var(--glass-border);
   border-radius: 50%;
-  background: color-mix(in srgb, var(--bg-panel) 72%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
   cursor: pointer;
   opacity: 0;
   transform: translateY(8px);
@@ -838,8 +863,8 @@ p {
   bottom: 10px;
   width: 10px;
   height: 10px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line-gold);
+  border-bottom: 1px solid var(--line-gold);
   pointer-events: none;
 }
 
@@ -1022,7 +1047,7 @@ p {
   display: block;
   width: 18px;
   height: 18px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--line);
   transform: rotate(45deg);
 }
 
@@ -1227,9 +1252,9 @@ p {
 .search-input,
 .filter-select {
   min-height: 40px;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 6px;
-  background: var(--bg-deep);
+  background: var(--fill-input);
   color: var(--text);
 }
 
@@ -1300,6 +1325,11 @@ p {
     position: sticky;
     top: var(--header-height);
     z-index: 5;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-highlight), inset 0 -1px 0 var(--border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
   }
 }
 
@@ -1740,10 +1770,10 @@ p {
   width: 100%;
   min-height: 36px;
   padding: 7px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 6px;
   color: var(--text);
-  background: var(--bg-panel);
+  background: var(--fill-input);
 }
 
 .fixed-buildings-tag-filter {
@@ -1755,10 +1785,10 @@ p {
   width: 100%;
   min-height: 36px;
   padding: 7px 34px 7px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 6px;
   color: var(--text);
-  background: var(--bg-panel);
+  background: var(--fill-input);
 }
 
 .fixed-buildings-grid {
@@ -2336,7 +2366,9 @@ p {
 }
 
 .image-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .image-dialog img {
@@ -2379,10 +2411,12 @@ p {
   display: none;
   max-height: 360px;
   overflow: auto;
-  border: 1px solid var(--line);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
-  background: var(--bg-deep);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.36);
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
 }
 
 @media (min-width: 991px) {
@@ -3973,10 +4007,10 @@ p {
 .horse-calculator-controls input {
   min-height: 40px;
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 6px;
   padding: 7px 10px;
-  background: var(--bg-panel);
+  background: var(--fill-input);
   color: var(--text);
 }
 
@@ -4092,10 +4126,10 @@ p {
 .armor-calculator-controls input {
   min-height: 40px;
   width: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 6px;
   padding: 7px 10px;
-  background: var(--bg-panel);
+  background: var(--fill-input);
   color: var(--text);
 }
 
@@ -4333,9 +4367,9 @@ p {
     overflow: visible;
   }
 
-  .main-nav.is-open {
-    display: flex;
-  }
+.main-nav.is-open {
+  display: flex;
+}
 
   .main-nav a,
   .nav-dropdown-toggle {
@@ -4357,6 +4391,13 @@ p {
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    padding: 8px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: var(--glass-bg-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: var(--glass-highlight), var(--glass-shadow);
   }
 
   .data-table td[data-label]::before {
