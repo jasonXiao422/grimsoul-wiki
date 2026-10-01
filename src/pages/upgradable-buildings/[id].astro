@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import StatTiles from '../../components/StatTiles.astro';
 import ImageZoom from '../../components/ImageZoom.astro';
 import MaterialCostList from '../../components/MaterialCostList.astro';
 import materials from '../../data/materials.json';
@@ -20,18 +22,13 @@ const buildingPreviews = getBuildingPreviews(building.id);
 const levels = [...building.levels].sort((a, b) => a.levelRank - b.levelRank);
 const materialByName = new Map(materials.map((material) => [material.name, material]));
 const hasValue = (value: unknown) => value !== null && value !== undefined && value !== '';
-const getQualityMeta = (quality: unknown) =>
-  typeof quality === 'string' && quality in QUALITY_META
-    ? QUALITY_META[quality as Quality]
-    : QUALITY_META.common;
-const fallback =
-  'data:image/svg+xml;charset=utf-8,' +
-  encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>');
+const getQualityMeta = (quality: unknown) => typeof quality === 'string' && quality in QUALITY_META ? QUALITY_META[quality as Quality] : QUALITY_META.common;
+const fallback = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/></svg>');
 const pendingText = '游戏未出，敬请期待';
 const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-glow:${QUALITY_META.common.glow}`;
 ---
 
-<BaseLayout title={building.name} description={`${building.name}的等级、用途、组装材料与图纸来源`}>
+<BaseLayout title={building.name} description={`${building.name}的等级、用途、组装材料与图纸来源`} detailVersion>
   <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '可升级建筑', href: '/upgradable-buildings' }, { label: building.name }]} />
 
   <section class="upgradable-building-detail-hero panel">
@@ -55,7 +52,7 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
 
   {building.notes.length > 0 && (
     <section class="upgradable-building-notes panel">
-      <h2 class="detail-panel-title">备注</h2>
+      <SectionTitle>备注</SectionTitle>
       <ul class="recipe-list compact upgradable-building-notes-list">
         {building.notes.map((note) => {
           const material = materialByName.get(note.name);
@@ -65,29 +62,11 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
             <li>
               {material ? (
                 <a href={getMaterialHref(material)}>
-                  <span class="upgradable-building-note-icon">
-                    <img
-                      class="item-icon quality-icon"
-                      src={getItemIconSrc('materials', material)}
-                      alt={material.name}
-                      loading="lazy"
-                      style={qualityStyle}
-                      data-fallback={fallback}
-                      onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
-                    />
-                  </span>
-                  <span class="upgradable-building-note-content">
-                    <span class="upgradable-building-note-name" style={`color:${quality.text}`}>{material.name}</span>
-                    <span class="upgradable-building-note-description">：{note.description}</span>
-                  </span>
+                  <span class="upgradable-building-note-icon"><img class="item-icon quality-icon" src={getItemIconSrc('materials', material)} alt={material.name} loading="lazy" style={qualityStyle} data-fallback={fallback} onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')" /></span>
+                  <span class="upgradable-building-note-content"><span class="upgradable-building-note-name" style={`color:${quality.text}`}>{material.name}</span><span class="upgradable-building-note-description">：{note.description}</span></span>
                 </a>
               ) : (
-                <span>
-                  <span class="upgradable-building-note-content">
-                    <strong class="upgradable-building-note-name" style={`color:${quality.text}`}>{note.name}</strong>
-                    <span class="upgradable-building-note-description">：{note.description}</span>
-                  </span>
-                </span>
+                <span><span class="upgradable-building-note-content"><strong class="upgradable-building-note-name" style={`color:${quality.text}`}>{note.name}</strong><span class="upgradable-building-note-description">：{note.description}</span></span></span>
               )}
             </li>
           );
@@ -97,104 +76,77 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
   )}
 
   <section class="upgradable-building-levels">
-    <h2 class="detail-panel-title">等级信息</h2>
+    <SectionTitle>等级信息</SectionTitle>
+    <div class="upgradable-building-level-tabs" role="tablist" aria-label="建筑等级">
+      {levels.map((level, index) => {
+        const levelId = level.level.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        return <button class="upgradable-building-level-tab" type="button" role="tab" id={`level-tab-${levelId}`} aria-controls={`level-panel-${levelId}`} aria-selected={index === 0 ? 'true' : 'false'} data-level-tab={levelId}>{level.level}</button>;
+      })}
+    </div>
+
     <div class="upgradable-building-level-grid">
-      {levels.map((level) => (
-        <article class="upgradable-building-level panel">
-          {(() => {
-            const levelPending = level.purposePending || level.costPending || level.blueprintPending;
-            return (
-          <div class="upgradable-building-level-heading">
-            <h3>{level.level}</h3>
-            {building.iconMode === 'per-level' && (levelPending || level.iconId) && (
-              levelPending ? (
-                <div
-                  class="upgradable-building-level-icon upgradable-building-level-placeholder quality-icon"
-                  style={`${commonQualityStyle};width:180px;height:180px;box-sizing:border-box;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--accent)`}
-                  aria-label={`${building.name} ${level.level} 敬请期待`}
-                >
-                  敬请期待
+      {levels.map((level) => {
+        const levelId = level.level.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        const levelPending = level.purposePending || level.costPending || level.blueprintPending;
+        const showLevelIcon = building.iconMode === 'per-level' && (levelPending || level.iconId);
+        return (
+          <article class="upgradable-building-level panel" id={`level-panel-${levelId}`} role="tabpanel" aria-labelledby={`level-tab-${levelId}`} data-level-panel={levelId}>
+            <div class:list={['upgradable-building-level-layout', !showLevelIcon && 'without-icon']}>
+              {showLevelIcon && <div class="upgradable-building-level-icon-column">
+                {levelPending ? (
+                  <div class="upgradable-building-level-icon upgradable-building-level-placeholder quality-icon" style={`${commonQualityStyle};width:180px;height:180px;box-sizing:border-box;border-radius:6px`} aria-label={`${building.name} ${level.level} 敬请期待`}>敬请期待</div>
+                ) : (
+                  <ImageZoom src={`/images/upgradable-buildings/${level.iconId}.webp`} alt={`${building.name} ${level.level}`} class="upgradable-building-level-icon quality-icon" style={`${commonQualityStyle};width:180px;height:180px;max-width:180px;max-height:180px;box-sizing:border-box;border-radius:6px`} />
+                )}
+              </div>}
+              <div class="upgradable-building-level-content">
+                <StatTiles items={[{ label: '城堡点数', value: level.castlePoints }]} />
+                <div class="upgradable-building-level-info">
+                  <p><strong>用途</strong><span>{level.purposePending ? pendingText : (level.purpose ?? '无')}</span></p>
+                  <p><strong>图纸掉落地点</strong><span>{level.blueprintPending ? pendingText : (level.blueprintSource ?? '无')}</span></p>
                 </div>
-              ) : (
-                <ImageZoom
-                  src={`/images/upgradable-buildings/${level.iconId}.webp`}
-                  alt={`${building.name} ${level.level}`}
-                  class="upgradable-building-level-icon quality-icon"
-                  style={`${commonQualityStyle};width:180px;height:180px;max-width:180px;max-height:180px;box-sizing:border-box;border-radius:6px`}
-                />
-              )
-            )}
-          </div>
-            );
-          })()}
-          <table class="attr-table upgradable-building-level-summary">
-            <tbody>
-              {hasValue(level.castlePoints) && <tr><th>城堡点数</th><td>{level.castlePoints}</td></tr>}
-              <tr><th>用途</th><td>{level.purposePending ? pendingText : (level.purpose ?? '无')}</td></tr>
-              <tr><th>图纸掉落地点</th><td>{level.blueprintPending ? pendingText : (level.blueprintSource ?? '无')}</td></tr>
-            </tbody>
-          </table>
-          <section class="upgradable-building-level-cost">
-            <h4>组装材料</h4>
-            {level.costPending ? <p class="muted">{pendingText}</p> : level.cost.length > 0 ? <MaterialCostList cost={level.cost} compact /> : <p>无</p>}
-          </section>
-        </article>
-      ))}
+                <section class="upgradable-building-level-cost">
+                  <h3>组装材料</h3>
+                  {level.costPending ? <p class="muted">{pendingText}</p> : level.cost.length > 0 ? <MaterialCostList cost={level.cost} compact /> : <p>无</p>}
+                </section>
+              </div>
+            </div>
+          </article>
+        );
+      })}
     </div>
   </section>
-  {buildingConcepts.length > 0 && (
-    <section class="enemy-concepts section panel">
-      <h2 class="detail-panel-title">建筑原画</h2>
-      <div class="enemy-concepts-list">
-        {buildingConcepts.map((concept) => (
-          <figure class="enemy-concept">
-            <ImageZoom
-              src={`/images/concepts/${concept.file}`}
-              alt={concept.caption}
-              class="enemy-concept-image"
-            />
-            <figcaption class="enemy-concept-caption">
-              <span>{concept.caption}</span>
-              {concept.creditUrl ? (
-                <a
-                  class="enemy-concept-credit"
-                  href={concept.creditUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {concept.credit}
-                </a>
-              ) : (
-                <span class="enemy-concept-credit">{concept.credit}</span>
-              )}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-  )}
 
-  {buildingPreviews.length > 0 && (
-    <section class="enemy-concepts section panel">
-      <h2 class="detail-panel-title">建筑示意图</h2>
-      <div class="enemy-concepts-list">
-        {buildingPreviews.map((preview) => (
-          <figure class="enemy-concept">
-            <ImageZoom
-              src={preview.src}
-              alt={preview.alt}
-              class="enemy-concept-image building-preview-image"
-              style="display:block;width:100%;max-width:640px;height:auto;max-height:none;margin:0 auto;border-radius:8px"
-            />
-            <figcaption class="enemy-concept-caption">
-              <span>{preview.caption}</span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-  )}
+  {buildingConcepts.length > 0 && <section class="enemy-concepts section panel"><SectionTitle>建筑原画</SectionTitle><div class="enemy-concepts-list">{buildingConcepts.map((concept) => <figure class="enemy-concept"><ImageZoom src={`/images/concepts/${concept.file}`} alt={concept.caption} class="enemy-concept-image" /><figcaption class="enemy-concept-caption"><span>{concept.caption}</span>{concept.creditUrl ? <a class="enemy-concept-credit" href={concept.creditUrl} target="_blank" rel="noopener noreferrer">{concept.credit}</a> : <span class="enemy-concept-credit">{concept.credit}</span>}</figcaption></figure>)}</div></section>}
+  {buildingPreviews.length > 0 && <section class="enemy-concepts section panel"><SectionTitle>建筑示意图</SectionTitle><div class="enemy-concepts-list">{buildingPreviews.map((preview) => <figure class="enemy-concept"><ImageZoom src={preview.src} alt={preview.alt} class="enemy-concept-image building-preview-image" style="display:block;width:100%;max-width:640px;height:auto;max-height:none;margin:0 auto;border-radius:8px" /><figcaption class="enemy-concept-caption"><span>{preview.caption}</span></figcaption></figure>)}</div></section>}
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const tabs = [...document.querySelectorAll('[data-level-tab]')];
+    const panels = [...document.querySelectorAll('[data-level-panel]')];
+    if (!tabs.length || !panels.length) return;
+    const selectLevel = (levelId, updateHash = true) => {
+      const activeTab = tabs.find((tab) => tab.dataset.levelTab === levelId) ?? tabs[0];
+      const activeLevel = activeTab.dataset.levelTab;
+      tabs.forEach((tab) => tab.setAttribute('aria-selected', String(tab === activeTab)));
+      panels.forEach((panel) => { panel.hidden = panel.dataset.levelPanel !== activeLevel; });
+      if (updateHash && activeLevel) window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}#${activeLevel}`);
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectLevel(tab.dataset.levelTab));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        const nextIndex = (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        selectLevel(tabs[nextIndex].dataset.levelTab);
+      });
+    });
+    const hashLevel = window.location.hash.slice(1).toLowerCase();
+    selectLevel(tabs.some((tab) => tab.dataset.levelTab === hashLevel) ? hashLevel : tabs[0].dataset.levelTab, false);
+  })();
+</script>
 
 <style>
   .upgradable-building-detail-hero {
@@ -228,162 +180,39 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     color: var(--accent);
   }
 
-  .upgradable-building-notes,
-  .upgradable-building-levels {
-    margin-top: 18px;
-  }
-
-  .upgradable-building-notes h2,
-  .upgradable-building-levels > h2 {
-    margin-top: 0;
-  }
-
-  .upgradable-building-notes .upgradable-building-notes-list {
-    margin: 0;
-  }
-
-  .upgradable-building-notes-list a {
-    display: flex;
-    align-items: center;
-  }
-
-  .upgradable-building-notes-list .item-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .upgradable-building-note-icon {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    align-self: center;
-  }
-
-  .upgradable-building-note-content {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .upgradable-building-note-name {
-    min-width: 0;
-    white-space: nowrap;
-  }
-
-  .upgradable-building-note-description {
-    min-width: 0;
-    color: var(--text);
-    white-space: pre-line;
-    overflow-wrap: anywhere;
-  }
-
-  .upgradable-building-level-grid {
-    display: grid;
-    gap: 18px;
-  }
-
-  .upgradable-building-level {
-    min-width: 0;
-  }
-
-  .upgradable-building-level h3 {
-    margin: 0;
-    color: var(--accent);
-  }
-
-  .upgradable-building-level-heading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .upgradable-building-level-icon {
-    flex: 0 0 auto;
-    object-fit: contain;
-  }
-
-  .upgradable-building-level-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    color: var(--accent);
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .upgradable-building-level-summary {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0;
-  }
-
-  .upgradable-building-level-summary th {
-    width: auto;
-    padding-right: 24px;
-    white-space: nowrap;
-  }
-
-  .upgradable-building-level-summary td {
-    max-width: 44em;
-    white-space: pre-line;
-    overflow-wrap: anywhere;
-  }
-
-  .upgradable-building-level-cost {
-    margin-top: 18px;
-  }
-
-  .upgradable-building-level-cost h4 {
-    margin: 0 0 10px;
-    color: var(--accent);
-  }
-
-  .upgradable-building-level-cost > p {
-    margin: 0;
-  }
-
-  .upgradable-building-level-cost :global(.recipe-list.compact) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .upgradable-building-level-cost :global(.recipe-list.compact > li) {
-    min-width: 0;
-  }
-
-  .upgradable-building-level-cost :global(.recipe-list.compact > li > a) {
-    min-height: 62px;
-    align-items: center;
-  }
-
-  .upgradable-building-level-cost :global(.recipe-list.compact > li > a > span:first-of-type) {
-    min-width: 0;
-    line-height: 1.3;
-  }
-
-  .upgradable-building-level-cost :global(.recipe-list.compact .qty) {
-    white-space: nowrap;
-    margin-left: auto;
-  }
-
-  @media (max-width: 1199px) {
-    .upgradable-building-level-cost :global(.recipe-list.compact) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 1023px) {
-    .upgradable-building-level-cost :global(.recipe-list.compact) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
+  .upgradable-building-notes, .upgradable-building-levels { margin-top: 18px; }
+  .upgradable-building-notes-list { margin: 0; }
+  .upgradable-building-notes-list a { display: flex; align-items: center; }
+  .upgradable-building-notes-list .item-icon { width: 100%; height: 100%; object-fit: cover; }
+  .upgradable-building-note-icon { flex: 0 0 48px; width: 48px; height: 48px; align-self: center; }
+  .upgradable-building-note-content { flex: 1 1 auto; min-width: 0; }
+  .upgradable-building-note-name { min-width: 0; white-space: nowrap; }
+  .upgradable-building-note-description { min-width: 0; color: var(--text); white-space: pre-line; overflow-wrap: anywhere; }
+  .upgradable-building-level-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .upgradable-building-level-tab { min-height: 36px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; color: var(--text-dim); background: transparent; cursor: pointer; }
+  .upgradable-building-level-tab[aria-selected='true'] { border-color: var(--accent-dim); color: var(--accent); background: var(--surface-active); }
+  .upgradable-building-level-tab:hover, .upgradable-building-level-tab:focus-visible { border-color: var(--line-hover); color: var(--accent); }
+  .upgradable-building-level[hidden] { display: none !important; }
+  .upgradable-building-level-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 20px; align-items: start; }
+  .upgradable-building-level-layout.without-icon { grid-template-columns: minmax(0, 1fr); }
+  .upgradable-building-level-icon-column { width: 180px; }
+  .upgradable-building-level-icon { display: block; object-fit: contain; }
+  .upgradable-building-level-placeholder { display: flex; align-items: center; justify-content: center; color: var(--accent); text-align: center; }
+  .upgradable-building-level-content .stat-tiles { margin-top: 0; }
+  .upgradable-building-level-info { margin-top: 16px; }
+  .upgradable-building-level-info p { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 12px; margin: 0; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .upgradable-building-level-info span { white-space: pre-line; overflow-wrap: anywhere; }
+  .upgradable-building-level-cost { margin-top: 18px; }
+  .upgradable-building-level-cost h3 { margin: 0 0 10px; color: var(--accent); font-size: 1rem; }
+  .upgradable-building-level-cost > p { margin: 0; }
+  .upgradable-building-level-cost :global(.recipe-list.compact) { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  @media (max-width: 1199px) { .upgradable-building-level-cost :global(.recipe-list.compact) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 1023px) { .upgradable-building-level-cost :global(.recipe-list.compact) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 639px) {
-    .upgradable-building-level-cost :global(.recipe-list.compact) {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+    .upgradable-building-level-layout, .upgradable-building-level-layout.without-icon { grid-template-columns: 1fr; }
+    .upgradable-building-level-icon-column { width: 100%; text-align: center; }
+    .upgradable-building-level-icon { margin: 0 auto; }
+    .upgradable-building-level-cost :global(.recipe-list.compact) { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {

@@ -1,0 +1,24 @@
+---
+interface StatItem {
+  label: string;
+  value: string | number | null | undefined;
+}
+
+interface Props {
+  items: StatItem[];
+}
+
+const { items } = Astro.props;
+const visibleItems = items.filter((item) => item.value !== null && item.value !== undefined && item.value !== '');
+---
+
+{visibleItems.length > 0 && (
+  <div class="stat-tiles">
+    {visibleItems.map((item) => (
+      <div class="stat-tile">
+        <span class="stat-tile-label">{item.label}</span>
+        <strong class="stat-tile-value">{item.value}</strong>
+      </div>
+    ))}
+  </div>
+)}

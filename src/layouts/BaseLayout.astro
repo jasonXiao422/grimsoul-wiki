@@ -2,14 +2,43 @@
 import '../styles/global.css';
 import SearchBox from '../components/SearchBox.astro';
 import ImageDialog from '../components/ImageDialog.astro';
+import { DATA_VERSION } from '../lib/site';
 
 interface Props {
   title: string;
   description?: string;
+  detailVersion?: boolean;
 }
 
-const { title, description = 'Grim Soul 中文攻略资料站' } = Astro.props;
+const { title, description = 'Grim Soul 中文攻略资料站', detailVersion = false } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const pathParts = currentPath.split('/').filter(Boolean);
+const detailRoots = new Set([
+  'weapons',
+  'armor',
+  'shields',
+  'backpacks',
+  'amulets',
+  'scrolls',
+  'runes',
+  'consumables',
+  'enemies',
+  'armor-pieces',
+  'materials',
+  'cabinets',
+  'fixed-buildings',
+  'surface-chests',
+  'sharpen',
+  'orders',
+  'upgradable-buildings',
+  'guides',
+  'tips',
+]);
+const isDetailPath =
+  (pathParts.length === 2 && detailRoots.has(pathParts[0])) ||
+  (pathParts.length === 2 && pathParts[0] === 'lore' && !['side-stories', 'scrolls'].includes(pathParts[1])) ||
+  (pathParts.length === 3 && ['fixed-buildings', 'skills', 'lore'].includes(pathParts[0]));
+const showDataVersion = detailVersion || isDetailPath;
 const equipmentNavItems = [
   { label: '武器', href: '/weapons' },
   { label: '磨尖武器', href: '/sharpen' },
@@ -220,6 +249,9 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
 
       <main class="main-content">
         <slot />
+        {showDataVersion && (
+          <p class="data-version-note">基于 {DATA_VERSION} 游戏资料整理，实战数值以游戏为准</p>
+        )}
       </main>
 
       <footer class="site-footer">
