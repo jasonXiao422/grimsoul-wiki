@@ -14,6 +14,8 @@
 </div>
 
 <script>
+  import { randomLoadingLine } from '../lib/loading-lines';
+
   const root = document.querySelector('[data-site-search]');
   const input = root?.querySelector('[data-global-search]');
   const results = root?.querySelector('[data-global-results]');
@@ -34,7 +36,7 @@
   const loadSearchIndex = () => {
     if (searchIndex) return Promise.resolve(searchIndex);
     if (!searchIndexPromise) {
-      showMessage('正在加载搜索数据……');
+      showMessage(randomLoadingLine());
       searchIndexPromise = fetch('/search-index.json')
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);

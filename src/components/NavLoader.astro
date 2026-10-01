@@ -1,3 +1,11 @@
+---
+import { LOADING_LINES } from '../lib/loading-lines';
+---
+
+<script define:vars={{ loadingLines: LOADING_LINES }}>
+  window.__GRIMSOUL_LOADING_LINES__ = loadingLines;
+</script>
+
 <div class="nav-loader" data-nav-loader hidden>
   <div
     class="nav-loader-dialog"
@@ -26,13 +34,10 @@
     const message = loader?.querySelector('[data-nav-loader-message]');
     if (!loader || !closeButton || !message) return;
 
-    const messages = [
-      '红天使档案员正在翻查卷宗……',
-      '史官塔德乌什正在誊抄笔记……',
-      '流亡者正在点燃火把……',
-      '正在穿过卢比尼亚的迷雾……',
-      '正在向修博尔询问答案……',
-    ];
+    const randomLoadingLine = () => {
+      const lines = window.__GRIMSOUL_LOADING_LINES__ ?? [];
+      return lines[Math.floor(Math.random() * lines.length)] ?? '';
+    };
     let showTimer;
     let hideTimer;
 
@@ -50,7 +55,7 @@
 
     const showLoader = () => {
       showTimer = undefined;
-      message.textContent = messages[Math.floor(Math.random() * messages.length)];
+      message.textContent = randomLoadingLine();
       loader.hidden = false;
       closeButton.focus({ preventScroll: true });
       hideTimer = window.setTimeout(hideLoader, 10000);
