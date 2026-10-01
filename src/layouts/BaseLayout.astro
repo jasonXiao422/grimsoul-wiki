@@ -247,6 +247,8 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         </div>
       </header>
 
+      <slot name="hero" />
+
       <main class="main-content">
         <slot />
         {showDataVersion && (

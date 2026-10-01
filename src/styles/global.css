@@ -79,6 +79,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .card-pager-pages {
@@ -159,12 +160,21 @@
   }
 
   .card-pager-button {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .card-pager-controls {
+    gap: 6px;
+  }
+
+  .card-pager-pages {
+    gap: 4px;
   }
 
   .card-pager-ellipsis {
-    height: 36px;
+    width: 16px;
+    height: 32px;
   }
 }
 
@@ -379,7 +389,7 @@ img {
   z-index: 35;
   display: none;
   min-width: 160px;
-  max-width: calc(100vw - 24px);
+  max-width: calc(100% - 24px);
   padding: 6px;
   border: 1px solid var(--glass-border);
   border-radius: 8px;
@@ -743,11 +753,12 @@ p {
   overflow: hidden;
   isolation: isolate;
   min-height: clamp(420px, 68vh, 725px);
+  width: 100%;
   display: grid;
   align-content: center;
   border-bottom: 1px solid var(--border);
-  margin: -32px calc(50% - 50vw) 34px;
-  padding: 56px max(32px, calc((100vw - 1180px) / 2)) 42px;
+  margin: 0 0 2px;
+  padding: 56px max(16px, calc((100% - 1180px) / 2)) 42px;
   background: var(--bg-deep);
 }
 
@@ -818,13 +829,6 @@ p {
 
   .hero-image:not(:first-child) {
     display: none;
-  }
-}
-
-@media (max-width: 720px) {
-  .hero {
-    padding-right: 20px;
-    padding-left: 20px;
   }
 }
 
@@ -2564,8 +2568,18 @@ p {
   }
 
   .site-search {
-    flex: 0 1 320px;
-    min-width: 180px;
+    flex: 0 1 clamp(180px, 24vw, 320px);
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1100px) {
+  .main-nav {
+    gap: 2px;
+  }
+
+  .main-nav a,
+  .nav-dropdown-toggle {
+    padding-inline: 6px;
   }
 }
 
