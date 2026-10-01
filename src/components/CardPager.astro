@@ -1,0 +1,160 @@
+---
+interface Props {
+  grid: string;
+  card: string;
+  perPage?: number;
+}
+
+const { grid, card, perPage = 24 } = Astro.props;
+---
+
+<nav
+  class="card-pager"
+  data-card-pager
+  data-card-pager-grid={grid}
+  data-card-pager-card={card}
+  data-card-pager-per-page={perPage}
+  aria-label="卡片分页"
+  hidden
+>
+  <div class="card-pager-controls">
+    <button type="button" class="card-pager-button card-pager-previous" data-card-pager-previous aria-label="上一页">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m10 3-5 5 5 5" /></svg>
+    </button>
+    <span class="card-pager-pages" data-card-pager-pages></span>
+    <button type="button" class="card-pager-button card-pager-next" data-card-pager-next aria-label="下一页">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="m6 3 5 5-5 5" /></svg>
+    </button>
+  </div>
+  <p class="card-pager-summary" data-card-pager-summary></p>
+</nav>
+
+<script is:inline>
+  (() => {
+    const initialize = (pager) => {
+      if (pager.dataset.cardPagerInitialized === 'true') return;
+      pager.dataset.cardPagerInitialized = 'true';
+
+      const gridSelector = pager.dataset.cardPagerGrid;
+      const cardSelector = pager.dataset.cardPagerCard;
+      const perPage = Math.max(1, Number.parseInt(pager.dataset.cardPagerPerPage ?? '24', 10) || 24);
+      const grid = gridSelector ? document.querySelector(gridSelector) : null;
+      const previous = pager.querySelector('[data-card-pager-previous]');
+      const next = pager.querySelector('[data-card-pager-next]');
+      const pages = pager.querySelector('[data-card-pager-pages]');
+      const summary = pager.querySelector('[data-card-pager-summary]');
+
+      if (!grid || !cardSelector || !previous || !next || !pages || !summary) return;
+
+      let currentPage = Math.max(1, Number.parseInt(new URLSearchParams(window.location.search).get('page') ?? '1', 10) || 1);
+
+      const updateUrl = (page) => {
+        const url = new URL(window.location.href);
+        if (page === 1) url.searchParams.delete('page');
+        else url.searchParams.set('page', String(page));
+        window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`);
+      };
+
+      const scrollToGrid = () => {
+        const headerHeight = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 0;
+        const top = grid.getBoundingClientRect().top + window.scrollY - headerHeight;
+        const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+        window.scrollTo({ top: Math.max(0, top), behavior });
+      };
+
+      const createPageButton = (page) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'card-pager-button card-pager-page';
+        button.textContent = String(page);
+        button.setAttribute('aria-label', `第 ${page} 页`);
+        if (page === currentPage) {
+          button.classList.add('is-current');
+          button.setAttribute('aria-current', 'page');
+        }
+        button.addEventListener('click', () => {
+          currentPage = page;
+          render(true);
+        });
+        return button;
+      };
+
+      const renderPageButtons = (totalPages) => {
+        pages.replaceChildren();
+        const pageNumbers = [];
+        if (totalPages <= 7) {
+          for (let page = 1; page <= totalPages; page += 1) pageNumbers.push(page);
+        } else {
+          pageNumbers.push(1);
+          const start = Math.max(2, currentPage - 1);
+          const end = Math.min(totalPages - 1, currentPage + 1);
+          if (start > 2) pageNumbers.push('ellipsis');
+          for (let page = start; page <= end; page += 1) pageNumbers.push(page);
+          if (end < totalPages - 1) pageNumbers.push('ellipsis');
+          pageNumbers.push(totalPages);
+        }
+        pageNumbers.forEach((page) => {
+          if (page === 'ellipsis') {
+            const ellipsis = document.createElement('span');
+            ellipsis.className = 'card-pager-ellipsis';
+            ellipsis.textContent = '…';
+            ellipsis.setAttribute('aria-hidden', 'true');
+            pages.append(ellipsis);
+          } else {
+            pages.append(createPageButton(page));
+          }
+        });
+      };
+
+      const render = (shouldScroll) => {
+        const cards = [...grid.querySelectorAll(cardSelector)];
+        const visibleCards = cards.filter((card) => card.hidden === false);
+        const totalPages = Math.max(1, Math.ceil(visibleCards.length / perPage));
+        currentPage = Math.min(Math.max(1, currentPage), totalPages);
+        updateUrl(currentPage);
+
+        cards.forEach((card) => card.removeAttribute('data-page-hidden'));
+        visibleCards.forEach((card, index) => {
+          if (index < (currentPage - 1) * perPage || index >= currentPage * perPage) {
+            card.setAttribute('data-page-hidden', '');
+          }
+        });
+
+        if (visibleCards.length <= perPage) {
+          pager.hidden = true;
+          return;
+        }
+
+        pager.hidden = false;
+        previous.disabled = currentPage === 1;
+        next.disabled = currentPage === totalPages;
+        previous.setAttribute('aria-label', `上一页（第 ${Math.max(1, currentPage - 1)} 页）`);
+        next.setAttribute('aria-label', `下一页（第 ${Math.min(totalPages, currentPage + 1)} 页）`);
+        renderPageButtons(totalPages);
+        summary.textContent = `第 ${currentPage} / ${totalPages} 页 · 共 ${visibleCards.length} 个`;
+        if (shouldScroll) scrollToGrid();
+      };
+
+      previous.addEventListener('click', () => {
+        if (!previous.disabled) {
+          currentPage -= 1;
+          render(true);
+        }
+      });
+      next.addEventListener('click', () => {
+        if (!next.disabled) {
+          currentPage += 1;
+          render(true);
+        }
+      });
+      document.addEventListener('cards:filtered', () => {
+        currentPage = 1;
+        render(false);
+      });
+
+      render(false);
+    };
+
+    document.querySelectorAll('[data-card-pager]').forEach(initialize);
+  })();
+</script>
