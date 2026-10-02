@@ -2573,6 +2573,10 @@ p {
 }
 
 @media (min-width: 991px) and (max-width: 1100px) {
+  .header-inner {
+    gap: 10px;
+  }
+
   .main-nav {
     gap: 2px;
   }
@@ -2580,6 +2584,10 @@ p {
   .main-nav a,
   .nav-dropdown-toggle {
     padding-inline: 6px;
+  }
+
+  .site-search {
+    flex-basis: clamp(160px, 22vw, 240px);
   }
 }
 
@@ -4479,7 +4487,7 @@ p {
 
 @media (max-width: 990px) {
   .header-inner {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
   }
 
   .brand {
@@ -4494,7 +4502,7 @@ p {
 
   .nav-menu-toggle {
     display: grid;
-    grid-column: 3;
+    grid-column: 4;
     grid-row: 1;
   }
 
@@ -4637,7 +4645,7 @@ p {
   }
 
   .header-inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     padding: 10px 0 12px;
     row-gap: 10px;
     align-items: center;
@@ -4652,7 +4660,7 @@ p {
   }
 
   .nav-menu-toggle {
-    grid-column: auto;
+    grid-column: 3;
     grid-row: auto;
   }
 
