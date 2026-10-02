@@ -191,19 +191,20 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse 1200px 600px at 50% -10%, color-mix(in srgb, var(--accent-dim) 12%, transparent), transparent 70%),
-    radial-gradient(ellipse 900px 700px at 0% 100%, color-mix(in srgb, var(--tint-green) 70%, transparent), transparent 70%),
-    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.35) 100%),
-    var(--bg);
-  background-attachment: fixed;
+  background: var(--bg);
   color: var(--text);
 }
 
-@media (max-width: 820px) {
-  body {
-    background-attachment: scroll;
-  }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 1200px 600px at 50% -10%, color-mix(in srgb, var(--accent-dim) 12%, transparent), transparent 70%),
+    radial-gradient(ellipse 900px 700px at 0% 100%, color-mix(in srgb, var(--tint-green) 70%, transparent), transparent 70%),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
 }
 
 a {
