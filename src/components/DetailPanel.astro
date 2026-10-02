@@ -242,6 +242,7 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
               alt={`${item.name}（${mode.label}）`}
               class="detail-image quality-icon"
               style={`--quality-border:${mode.meta.border};--quality-glow:${mode.meta.glow}`}
+              priority
             />
             <figcaption style={`color:${mode.meta.text}`}>{mode.label}</figcaption>
           </figure>
@@ -253,6 +254,7 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
         alt={item.name}
         class={`detail-image${qualityMeta ? ' quality-icon' : ''}`}
         style={qualityStyle}
+        priority
       />
     )}
   </aside>
@@ -354,7 +356,6 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                             class:list={['item-icon', refQualityMeta && 'quality-icon']}
                             src={getItemIconSrc(ref.cat, ref)}
                             alt={recipeItem.name}
-                            loading="lazy"
                             style={refQualityStyle}
                             data-fallback={materialFallback}
                             onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
@@ -413,7 +414,6 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                     class:list={['item-icon', pieceQualityMeta && 'quality-icon']}
                     src={getItemIconSrc('armor-pieces', piece)}
                     alt={piece.name}
-                    loading="lazy"
                     style={pieceQualityStyle}
                     data-fallback={materialFallback}
                     onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"

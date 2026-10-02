@@ -212,7 +212,6 @@ for (const item of items) {
                           class:list={['item-icon', qualityMeta && 'quality-icon']}
                           src={getItemIconSrc(category.slug, item)}
                           alt={item.name}
-                          loading="lazy"
                           style={qualityStyle}
                           data-fallback={fallback}
                           onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('is-missing')"
