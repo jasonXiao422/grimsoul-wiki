@@ -83,7 +83,10 @@ const isArmor = category.slug === 'armor';
 
 {isArmor && (
   <script>
+    const initArmorTypeFilter = () => {
     const typeFilter = document.querySelector<HTMLSelectElement>('[data-armor-type]');
+    if (!typeFilter || typeFilter.dataset.initialized) return;
+    typeFilter.dataset.initialized = 'true';
     const sections = [...document.querySelectorAll<HTMLElement>('[data-armor-section]')];
 
     typeFilter?.addEventListener('change', () => {
@@ -92,5 +95,8 @@ const isArmor = category.slug === 'armor';
         section.hidden = value !== 'all' && section.dataset.armorSection !== value;
       });
     });
+    };
+    if (window.__onPageReady) window.__onPageReady(initArmorTypeFilter, 'armor-type-filter');
+    else initArmorTypeFilter();
   </script>
 )}

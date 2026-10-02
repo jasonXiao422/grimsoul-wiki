@@ -163,9 +163,11 @@ const heroImages = Object.keys(heroImageModules)
   </section>
 
   <script>
+    const initHeroSlideshow = () => {
     const hero = document.querySelector('[data-hero-slideshow]');
 
-    if (hero) {
+    if (hero && !hero.dataset.initialized) {
+      hero.dataset.initialized = 'true';
       const images = Array.from(hero.querySelectorAll<HTMLImageElement>('[data-hero-image]'));
       const hold = Number(hero.getAttribute('data-hero-hold') || '6000');
       const fade = Number(hero.getAttribute('data-hero-fade') || '1500');
@@ -248,7 +250,14 @@ const heroImages = Object.keys(heroImageModules)
 
       start();
       reduceMotionQuery.addEventListener('change', start);
+      window.addEventListener('astro:before-swap', () => {
+        reduceMotionQuery.removeEventListener('change', start);
+        stop();
+      }, { once: true });
     }
+    };
+    if (window.__onPageReady) window.__onPageReady(initHeroSlideshow, 'hero-slideshow');
+    else initHeroSlideshow();
   </script>
 </BaseLayout>
 

@@ -59,6 +59,10 @@ const qualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-g
   </div>
 
   <script>
+    const initUpgradableBuildingFilters = () => {
+    const filterRoot = document.querySelector<HTMLElement>('.upgradable-buildings-filter');
+    if (!filterRoot || filterRoot.dataset.initialized) return;
+    filterRoot.dataset.initialized = 'true';
     const cards = [...document.querySelectorAll('.upgradable-building-card')];
     const search = document.querySelector('[data-upgradable-building-search]');
     const tagSelect = document.querySelector('[data-upgradable-building-tag]');
@@ -84,6 +88,9 @@ const qualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-g
       search?.focus();
       applyFilters();
     });
+    };
+    if (window.__onPageReady) window.__onPageReady(initUpgradableBuildingFilters, 'upgradable-building-filters');
+    else initUpgradableBuildingFilters();
   </script>
 </BaseLayout>
 

@@ -47,7 +47,9 @@ const fallback =
     return dialog;
   };
 
-  document.addEventListener('click', (event) => {
+  if (!window.__grimsoulImageZoomInitialized) {
+    window.__grimsoulImageZoomInitialized = true;
+    document.addEventListener('click', (event) => {
     const target = event.target;
     const dialog = document.querySelector<HTMLDialogElement>('[data-image-dialog]');
     if (dialog && (target === dialog || target instanceof HTMLButtonElement && target.closest('[data-image-dialog]') === dialog)) {
@@ -69,5 +71,6 @@ const fallback =
     dialogImage.alt = image.dataset.zoomAlt ?? image.alt;
     imageDialog.showModal();
     imageDialog.focus({ preventScroll: true });
-  });
+    });
+  }
 </script>

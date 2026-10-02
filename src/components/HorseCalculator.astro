@@ -53,9 +53,13 @@
 </section>
 
 <script>
+  import { onPageReady } from '../lib/lifecycle';
+
+  const initHorseCalculator = () => {
   const calculator = document.querySelector<HTMLElement>('[data-horse-calculator]');
 
-  if (calculator) {
+  if (calculator && !calculator.dataset.initialized) {
+    calculator.dataset.initialized = 'true';
     const content = calculator.closest('.lore-content');
     const headings = [...(content?.querySelectorAll('h2') ?? [])];
     const formulaHeading = headings.find((heading) => heading.textContent?.trim() === '升级消耗');
@@ -192,4 +196,7 @@
     staminaInput?.addEventListener('keydown', handleKeydown);
     calculate();
   }
+  };
+
+  onPageReady(initHorseCalculator);
 </script>

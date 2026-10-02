@@ -76,14 +76,20 @@ const parentHref = items
 )}
 
 <script is:inline>
-  document.addEventListener('click', (event) => {
-    const backLink = event.target?.closest?.('[data-breadcrumb-back]');
-    if (!backLink || !document.referrer || history.length <= 1) return;
+  const initBreadcrumbBack = () => {
+    if (window.__grimsoulBreadcrumbInitialized) return;
+    window.__grimsoulBreadcrumbInitialized = true;
+    document.addEventListener('click', (event) => {
+      const backLink = event.target?.closest?.('[data-breadcrumb-back]');
+      if (!backLink || !document.referrer || history.length <= 1) return;
 
-    const referrer = new URL(document.referrer);
-    if (referrer.origin !== window.location.origin || referrer.pathname === window.location.pathname) return;
+      const referrer = new URL(document.referrer);
+      if (referrer.origin !== window.location.origin || referrer.pathname === window.location.pathname) return;
 
-    event.preventDefault();
-    history.back();
-  });
+      event.preventDefault();
+      history.back();
+    });
+  };
+  if (window.__onPageReady) window.__onPageReady(initBreadcrumbBack, 'breadcrumb-back');
+  else initBreadcrumbBack();
 </script>

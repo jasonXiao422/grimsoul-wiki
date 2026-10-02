@@ -123,9 +123,12 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
 
 <script is:inline>
   (() => {
+    const initLevelTabs = () => {
     const tabs = [...document.querySelectorAll('[data-level-tab]')];
     const panels = [...document.querySelectorAll('[data-level-panel]')];
     if (!tabs.length || !panels.length) return;
+    if (tabs[0].dataset.initialized) return;
+    tabs[0].dataset.initialized = 'true';
     const selectLevel = (levelId, updateHash = true) => {
       const activeTab = tabs.find((tab) => tab.dataset.levelTab === levelId) ?? tabs[0];
       const activeLevel = activeTab.dataset.levelTab;
@@ -145,6 +148,9 @@ const commonQualityStyle = `--quality-border:${QUALITY_META.common.border};--qua
     });
     const hashLevel = window.location.hash.slice(1).toLowerCase();
     selectLevel(tabs.some((tab) => tab.dataset.levelTab === hashLevel) ? hashLevel : tabs[0].dataset.levelTab, false);
+    };
+    if (window.__onPageReady) window.__onPageReady(initLevelTabs, 'level-tabs');
+    else initLevelTabs();
   })();
 </script>
 

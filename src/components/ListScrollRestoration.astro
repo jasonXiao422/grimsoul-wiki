@@ -1,5 +1,8 @@
 <script is:inline>
   (() => {
+    if (window.__grimsoulScrollRestorationInitialized) return;
+    window.__grimsoulScrollRestorationInitialized = true;
+
     const normalizePath = (path) => {
       if (path.length > 1 && path.endsWith('/')) return path.slice(0, -1);
       return path;

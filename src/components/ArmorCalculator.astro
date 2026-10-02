@@ -42,9 +42,13 @@
 </section>
 
 <script>
+  import { onPageReady } from '../lib/lifecycle';
+
+  const initArmorCalculator = () => {
   const armorCalculator = document.querySelector<HTMLElement>('[data-armor-calculator]');
 
-  if (armorCalculator) {
+  if (armorCalculator && !armorCalculator.dataset.initialized) {
+    armorCalculator.dataset.initialized = 'true';
     const content = armorCalculator.closest('.lore-content');
     const formulaHeading = [...(content?.querySelectorAll('h2') ?? [])].find((heading) => heading.textContent?.trim() === '公式与反推');
     if (formulaHeading) formulaHeading.insertAdjacentElement('afterend', armorCalculator);
@@ -238,4 +242,7 @@
     drawCurve();
     syncFromArmor();
   }
+  };
+
+  onPageReady(initArmorCalculator);
 </script>

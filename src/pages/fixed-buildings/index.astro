@@ -69,6 +69,10 @@ const hasValue = (value: unknown): value is string | number => value !== null &&
   </div>
 
   <script>
+    const initFixedBuildingFilters = () => {
+    const filterRoot = document.querySelector<HTMLElement>('.fixed-buildings-filter');
+    if (!filterRoot || filterRoot.dataset.initialized) return;
+    filterRoot.dataset.initialized = 'true';
     const cards = [...document.querySelectorAll('.fixed-building-card')];
     const search = document.querySelector('[data-building-search]');
     const tagSelect = document.querySelector('[data-building-tag]');
@@ -94,5 +98,8 @@ const hasValue = (value: unknown): value is string | number => value !== null &&
       search?.focus();
       applyFilters();
     });
+    };
+    if (window.__onPageReady) window.__onPageReady(initFixedBuildingFilters, 'fixed-building-filters');
+    else initFixedBuildingFilters();
   </script>
 </BaseLayout>

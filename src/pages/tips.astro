@@ -87,7 +87,10 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 </BaseLayout>
 
 <script>
+  const initTipsFilters = () => {
   const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-tip-filter]'));
+  if (filterButtons[0]?.dataset.initialized) return;
+  if (filterButtons[0]) filterButtons[0].dataset.initialized = 'true';
   const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-tip-card]'));
   const emptyState = document.querySelector<HTMLElement>('[data-tip-filter-empty]');
   const searchInput = document.querySelector<HTMLInputElement>('[data-tip-search-input]');
@@ -130,4 +133,7 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
       applyFilters();
     });
   });
+  };
+  if (window.__onPageReady) window.__onPageReady(initTipsFilters, 'tips-filters');
+  else initTipsFilters();
 </script>

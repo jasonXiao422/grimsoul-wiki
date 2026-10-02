@@ -133,7 +133,10 @@ const fallback =
 </BaseLayout>
 
 <script>
+  const initSkillsFilters = () => {
   const root = document.querySelector<HTMLElement>('[data-skills-table]');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
   const input = root?.querySelector<HTMLInputElement>('[data-skills-query]');
   const locationFilter = root?.querySelector<HTMLSelectElement>('[data-skills-location-filter]');
   const clear = root?.querySelector<HTMLButtonElement>('[data-skills-clear]');
@@ -195,4 +198,7 @@ const fallback =
     applyLocationHighlights();
   });
   applyFilters();
+  };
+  if (window.__onPageReady) window.__onPageReady(initSkillsFilters, 'skills-filters');
+  else initSkillsFilters();
 </script>

@@ -142,6 +142,35 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <slot name="head" />
+    <script is:inline>
+      (() => {
+        if (window.__onPageReady) return;
+        const callbacks = new Set();
+        const keyedCallbacks = new Map();
+        let domReady = document.readyState !== 'loading';
+        const runCallbacks = () => {
+          domReady = true;
+          callbacks.forEach((callback) => callback());
+        };
+        document.addEventListener('astro:page-load', runCallbacks);
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', runCallbacks, { once: true });
+        } else {
+          queueMicrotask(runCallbacks);
+        }
+        window.__onPageReady = (callback, key) => {
+          if (key) {
+            const previousCallback = keyedCallbacks.get(key);
+            if (previousCallback) callbacks.delete(previousCallback);
+            keyedCallbacks.set(key, callback);
+          } else if (callbacks.has(callback)) {
+            return;
+          }
+          callbacks.add(callback);
+          if (domReady) queueMicrotask(callback);
+        };
+      })();
+    </script>
     <meta name="description" content={description} />
     <title>{title} | Grim Soul 中文攻略站</title>
   </head>
@@ -298,9 +327,14 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
     <ImageDialog />
     <NavLoader />
     <script>
+      import { onPageReady } from '../lib/lifecycle';
+
+      onPageReady(() => {
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
       const headerInner = siteHeader?.querySelector<HTMLElement>('.header-inner');
+      if (headerInner?.dataset.initialized) return;
+      if (headerInner) headerInner.dataset.initialized = 'true';
       const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
       const dropdowns = [...document.querySelectorAll<HTMLElement>('[data-nav-dropdown]')];
 
@@ -328,12 +362,17 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       };
 
       updateHeaderHeight();
-      window.addEventListener('resize', updateHeaderHeight);
+      if (!window.__grimsoulHeaderResizeListener) {
+        window.__grimsoulHeaderResizeListener = true;
+        window.addEventListener('resize', updateHeaderHeight);
+      }
       if ('ResizeObserver' in window && siteHeader) {
         new ResizeObserver(updateHeaderHeight).observe(siteHeader);
       }
 
       document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((gallery) => {
+        if (gallery.dataset.initialized) return;
+        gallery.dataset.initialized = 'true';
         const slides = [...gallery.querySelectorAll<HTMLElement>(':scope > .lore-gallery-slide')];
         if (slides.length === 0) return;
 
@@ -372,6 +411,8 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         let isProgrammaticScroll = false;
         let scrollEndFallbackTimer: number | undefined;
+        let galleryResizeObserver: ResizeObserver | undefined;
+        let galleryIntersectionObserver: IntersectionObserver | undefined;
         const finishProgrammaticScroll = () => {
           isProgrammaticScroll = false;
           if (scrollEndFallbackTimer !== undefined) {
@@ -429,14 +470,14 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
 
         setActive(0);
         if ('ResizeObserver' in window) {
-          const galleryResizeObserver = new ResizeObserver(positionArrows);
+          galleryResizeObserver = new ResizeObserver(positionArrows);
           galleryResizeObserver.observe(gallery);
         }
         const updateActive = () => {
           if (!isProgrammaticScroll) setActive(getClosestIndex());
         };
-        const observer = new IntersectionObserver(updateActive, { root: track, threshold: [0.25, 0.5, 0.75] });
-        slides.forEach((slide) => observer.observe(slide));
+        galleryIntersectionObserver = new IntersectionObserver(updateActive, { root: track, threshold: [0.25, 0.5, 0.75] });
+        slides.forEach((slide) => galleryIntersectionObserver?.observe(slide));
         track.addEventListener('scroll', () => {
           if (isProgrammaticScroll) {
             if (scrollEndFallbackTimer !== undefined) window.clearTimeout(scrollEndFallbackTimer);
@@ -462,6 +503,12 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
           event.stopPropagation();
           scrollToSlide(slides.indexOf(slide));
         });
+
+        window.addEventListener('astro:before-swap', () => {
+          if (scrollEndFallbackTimer !== undefined) window.clearTimeout(scrollEndFallbackTimer);
+          galleryResizeObserver?.disconnect();
+          galleryIntersectionObserver?.disconnect();
+        }, { once: true });
       });
 
       menuToggle?.addEventListener('click', () => {
@@ -496,18 +543,24 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         });
       });
 
+      if (!window.__grimsoulLayoutClickListener) {
+        window.__grimsoulLayoutClickListener = true;
       document.addEventListener('click', (event) => {
         const target = event.target;
         if (target instanceof Node && !dropdowns.some((dropdown) => dropdown.contains(target))) {
           dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
         }
       });
+      }
 
+      if (!window.__grimsoulLayoutKeydownListener) {
+        window.__grimsoulLayoutKeydownListener = true;
       document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
         dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
         setMenuOpen(false);
       });
+      }
 
       const backToTop = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
       const progressCircle = backToTop?.querySelector<SVGCircleElement>('.to-top-progress');
@@ -548,8 +601,12 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
         window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       });
       updateBackToTop();
-      window.addEventListener('scroll', scheduleBackToTopUpdate, { passive: true });
-      window.addEventListener('resize', scheduleBackToTopUpdate);
+      if (!window.__grimsoulBackToTopListeners) {
+        window.__grimsoulBackToTopListeners = true;
+        window.addEventListener('scroll', scheduleBackToTopUpdate, { passive: true });
+        window.addEventListener('resize', scheduleBackToTopUpdate);
+      }
+      });
     </script>
   </body>
 </html>

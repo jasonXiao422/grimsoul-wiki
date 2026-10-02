@@ -254,7 +254,10 @@ for (const item of items) {
 </section>
 
 <script>
-  const roots = document.querySelectorAll<HTMLElement>('[data-table-root]');
+  import { onPageReady } from '../lib/lifecycle';
+
+  const initDataTables = () => {
+  const roots = document.querySelectorAll<HTMLElement>('[data-table-root]:not([data-initialized])');
 
   roots.forEach((root) => {
     const search = root.querySelector<HTMLInputElement>('[data-table-search]')
@@ -345,6 +348,10 @@ for (const item of items) {
         filter.value = value;
       }
     });
+    root.dataset.initialized = 'true';
     applyFilters();
   });
+  };
+
+  onPageReady(initDataTables);
 </script>

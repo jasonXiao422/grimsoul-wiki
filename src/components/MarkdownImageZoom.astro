@@ -17,7 +17,8 @@ const {
 </div>
 
 <script define:vars={{ containerSelector }}>
-  document.querySelectorAll(containerSelector).forEach((content) => {
+  const initMarkdownImageZoom = () => document.querySelectorAll(containerSelector).forEach((content) => {
+    if (content.dataset.initialized === 'true') return;
     content.querySelectorAll('img').forEach((image) => {
       const src = image.getAttribute('src');
       if (!src) return;
@@ -25,5 +26,8 @@ const {
       image.dataset.zoomSrc = src;
       image.dataset.zoomAlt = image.getAttribute('alt') ?? '';
     });
+    content.dataset.initialized = 'true';
   });
+  if (window.__onPageReady) window.__onPageReady(initMarkdownImageZoom, 'markdown-image-zoom');
+  else initMarkdownImageZoom();
 </script>

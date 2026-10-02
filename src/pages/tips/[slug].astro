@@ -124,7 +124,10 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
 </BaseLayout>
 
 <script define:vars={{ enemyIcons, enemyIconFallback }}>
+  const initTipsEnemyIcons = () => {
   const content = document.querySelector('.tips-content');
+  if (!content || content.dataset.initialized) return;
+  content.dataset.initialized = 'true';
   const iconsByKey = new Map(enemyIcons.map((item) => [`${item.category}:${item.id}`, item]));
 
   content?.querySelectorAll('a[href^="/enemies/"], a[href^="/weapons/"]').forEach((link) => {
@@ -179,6 +182,9 @@ const formatDate = (date: Date) => date.toISOString().slice(0, 10);
     if (enemy.textColor) link.style.setProperty('--enemy-link-color', enemy.textColor);
     link.append(iconWrap, label);
   });
+  };
+  if (window.__onPageReady) window.__onPageReady(initTipsEnemyIcons, 'tips-enemy-icons');
+  else initTipsEnemyIcons();
 </script>
 
 <style>

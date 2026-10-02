@@ -33,9 +33,13 @@
 </section>
 
 <script>
+  import { onPageReady } from '../lib/lifecycle';
+
+  const initDamageCalculator = () => {
   const damageCalculator = document.querySelector<HTMLElement>('[data-damage-calculator]');
 
-  if (damageCalculator) {
+  if (damageCalculator && !damageCalculator.dataset.initialized) {
+    damageCalculator.dataset.initialized = 'true';
     const armorCalculator = document.querySelector<HTMLElement>('[data-armor-calculator]');
     if (armorCalculator) armorCalculator.insertAdjacentElement('afterend', damageCalculator);
 
@@ -121,4 +125,7 @@
     }
     update();
   }
+  };
+
+  onPageReady(initDamageCalculator);
 </script>

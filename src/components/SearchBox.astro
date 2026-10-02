@@ -15,8 +15,12 @@
 
 <script>
   import { randomLoadingLine } from '../lib/loading-lines';
+  import { onPageReady } from '../lib/lifecycle';
 
+  const initSearchBox = () => {
   const root = document.querySelector('[data-site-search]');
+  if (!root || root.dataset.initialized) return;
+  root.dataset.initialized = 'true';
   const input = root?.querySelector('[data-global-search]');
   const results = root?.querySelector('[data-global-results]');
   let searchIndex = null;
@@ -126,6 +130,8 @@
     loadSearchIndex().catch(() => showMessage('搜索数据加载失败，请稍后重试。'));
   });
   input?.addEventListener('input', refreshResults);
+  if (!window.__grimsoulSearchGlobalListeners) {
+    window.__grimsoulSearchGlobalListeners = true;
   document.addEventListener('keydown', (event) => {
     const target = event.target;
     const isEditable = target instanceof HTMLInputElement
@@ -135,16 +141,27 @@
 
     if (event.key === '/' && !isEditable) {
       event.preventDefault();
-      input?.focus();
+      document.querySelector<HTMLInputElement>('[data-global-search]')?.focus();
       return;
     }
 
-    if (event.key === 'Escape' && document.activeElement === input) {
-      input?.blur();
-      closeResults();
+    const currentInput = document.querySelector('[data-global-search]');
+    if (event.key === 'Escape' && document.activeElement === currentInput) {
+      (currentInput as HTMLInputElement)?.blur();
+      document.querySelector<HTMLElement>('[data-global-results]')?.classList.remove('is-open');
+      document.querySelector<HTMLElement>('[data-global-results]')?.replaceChildren();
     }
   });
   document.addEventListener('click', (event) => {
-    if (!root?.contains(event.target)) closeResults();
+    const currentRoot = document.querySelector('[data-site-search]');
+    if (!currentRoot?.contains(event.target)) {
+      const currentResults = document.querySelector<HTMLElement>('[data-global-results]');
+      currentResults?.classList.remove('is-open');
+      if (currentResults) currentResults.innerHTML = '';
+    }
   });
+  }
+  };
+
+  onPageReady(initSearchBox);
 </script>

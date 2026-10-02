@@ -88,7 +88,10 @@ const timelineEvents = [
 </section>
 
 <script>
-  const switcherRoots = document.querySelectorAll<HTMLElement>('.lore-timeline[data-lore-switcher]');
+  import { onPageReady } from '../lib/lifecycle';
+
+  const initLoreTimelines = () => {
+  const switcherRoots = document.querySelectorAll<HTMLElement>('.lore-timeline[data-lore-switcher]:not([data-initialized])');
 
   switcherRoots.forEach((root) => {
     const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-lore-choice]')];
@@ -125,5 +128,9 @@ const timelineEvents = [
         activate(nextIndex, true);
       });
     });
+    root.dataset.initialized = 'true';
   });
+  };
+
+  onPageReady(initLoreTimelines);
 </script>

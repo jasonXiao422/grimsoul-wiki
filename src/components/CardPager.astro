@@ -31,6 +31,7 @@ const { grid, card, perPage = 24 } = Astro.props;
 
 <script is:inline>
   (() => {
+    const initCardPagers = () => {
     const initialize = (pager) => {
       if (pager.dataset.cardPagerInitialized === 'true') return;
       pager.dataset.cardPagerInitialized = 'true';
@@ -153,14 +154,26 @@ const { grid, card, perPage = 24 } = Astro.props;
           render(true);
         }
       });
-      document.addEventListener('cards:filtered', () => {
+      pager.__grimsoulResetCardPager = () => {
         currentPage = 1;
         render(false);
-      });
+      };
+      if (!window.__grimsoulCardPagerFilterListener) {
+        window.__grimsoulCardPagerFilterListener = true;
+        document.addEventListener('cards:filtered', () => {
+          document.querySelectorAll('[data-card-pager]').forEach((currentPager) => {
+            currentPager.__grimsoulResetCardPager?.();
+          });
+        });
+      }
 
       render(false);
     };
 
     document.querySelectorAll('[data-card-pager]').forEach(initialize);
+    };
+
+    if (window.__onPageReady) window.__onPageReady(initCardPagers, 'card-pagers');
+    else initCardPagers();
   })();
 </script>

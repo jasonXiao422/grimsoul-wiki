@@ -3,7 +3,7 @@ import { LOADING_LINES } from '../lib/loading-lines';
 ---
 
 <script define:vars={{ loadingLines: LOADING_LINES }}>
-  window.__GRIMSOUL_LOADING_LINES__ = loadingLines;
+  if (!window.__GRIMSOUL_LOADING_LINES__) window.__GRIMSOUL_LOADING_LINES__ = loadingLines;
 </script>
 
 <div class="nav-loader" data-nav-loader hidden>
@@ -28,6 +28,8 @@ import { LOADING_LINES } from '../lib/loading-lines';
 </div>
 
 <script is:inline>
+  if (!window.__grimsoulNavLoaderInitialized) {
+    window.__grimsoulNavLoaderInitialized = true;
   (() => {
     const loader = document.querySelector('[data-nav-loader]');
     const closeButton = loader?.querySelector('[data-nav-loader-close]');
@@ -99,6 +101,7 @@ import { LOADING_LINES } from '../lib/loading-lines';
     window.addEventListener('pagehide', hideLoader);
     window.addEventListener('pageshow', hideLoader);
   })();
+  }
 </script>
 
 <style>
