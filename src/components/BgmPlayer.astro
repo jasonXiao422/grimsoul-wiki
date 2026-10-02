@@ -1,28 +1,36 @@
+---
+import { BGM_TRACKS } from '../lib/bgm-tracks';
+---
+
 <div class="bgm-audio-engine" data-bgm-audio-engine transition:persist="bgm">
-  <audio src="/audio/bgm.mp3" loop preload="none" data-bgm-audio></audio>
+  <audio preload="none" data-bgm-audio></audio>
 </div>
 
 <script>
+  import { BGM_TRACKS } from '../lib/bgm-tracks';
+
   if (!window.__grimsoulBgmInitialized) {
     window.__grimsoulBgmInitialized = true;
     const audio = document.querySelector<HTMLAudioElement>('[data-bgm-audio]');
+    const tracks = BGM_TRACKS;
 
-    if (audio) {
+    if (audio && tracks.length > 0) {
       let audioContext: AudioContext | undefined;
       let source: MediaElementAudioSourceNode | undefined;
       let gain: GainNode | undefined;
       let fadeToken = 0;
-      let enabled = false;
+      let enabled = true;
+      let isPlaying = false;
       let waitingForGesture = false;
       let loadFailed = false;
+      let trackIndex = -1;
 
-      const getButton = () => document.querySelector<HTMLButtonElement>('[data-bgm-toggle]');
+      const getControl = () => document.querySelector<HTMLElement>('[data-bgm-control]');
+      const getButton = () => getControl()?.querySelector<HTMLButtonElement>('[data-bgm-toggle]');
+      const getNextButton = () => getControl()?.querySelector<HTMLButtonElement>('[data-bgm-next], [data-bgm-track-toggle]');
+
       const saveState = () => {
-        try {
-          localStorage.setItem('bgm:enabled', enabled ? '1' : '0');
-        } catch {
-          // localStorage may be unavailable in restricted browser modes.
-        }
+        try { localStorage.setItem('bgm:enabled', enabled ? '1' : '0'); } catch { /* ignore storage errors */ }
       };
 
       const updateButton = () => {
@@ -30,8 +38,7 @@
         if (!button) return;
         button.setAttribute('aria-label', enabled ? '停止背景音乐' : '播放背景音乐');
         button.setAttribute('aria-pressed', String(enabled));
-        button.title = loadFailed ? '音乐文件加载失败' : '背景音乐：Grim Soul 原声《Trader\'s Camp》';
-        button.classList.toggle('is-playing', enabled);
+        button.title = loadFailed ? '音乐文件加载失败' : '背景音乐';
       };
 
       const ensureAudioGraph = () => {
@@ -46,34 +53,47 @@
         } catch {
           loadFailed = true;
           enabled = false;
+          isPlaying = false;
           saveState();
           updateButton();
           return false;
         }
       };
 
-      const fadeGain = (target: number, callback?: () => void) => {
-        if (!gain || !audioContext) {
-          callback?.();
-          return;
-        }
+      const fadeGain = (target: number, duration: number, callback?: () => void) => {
+        if (!gain || !audioContext) { callback?.(); return; }
         const now = audioContext.currentTime;
         gain.gain.cancelScheduledValues(now);
         gain.gain.setValueAtTime(gain.gain.value, now);
-        gain.gain.linearRampToValueAtTime(target, now + 0.6);
-        if (callback) window.setTimeout(callback, 600);
+        gain.gain.linearRampToValueAtTime(target, now + duration);
+        if (callback) window.setTimeout(callback, duration * 1000);
       };
 
-      const startPlayback = async () => {
+      const randomIndex = (exclude = -1) => {
+        if (tracks.length <= 1) return 0;
+        let next = Math.floor(Math.random() * tracks.length);
+        while (next === exclude) next = Math.floor(Math.random() * tracks.length);
+        return next;
+      };
+
+      const startPlayback = async (requestedIndex?: number) => {
         if (!enabled || !ensureAudioGraph()) return;
+        if (trackIndex < 0) {
+          trackIndex = requestedIndex ?? randomIndex();
+          audio.src = tracks[trackIndex].src;
+          audio.loop = tracks.length === 1;
+          audio.load();
+        }
         fadeToken += 1;
         const token = fadeToken;
         try {
           await audioContext?.resume();
           await audio.play();
           if (token !== fadeToken || !enabled) return;
-          fadeGain(1);
+          fadeGain(1, 0.6);
+          isPlaying = true;
           waitingForGesture = false;
+          updateButton();
         } catch {
           waitingForGesture = true;
         }
@@ -82,9 +102,45 @@
       const stopPlayback = () => {
         fadeToken += 1;
         const token = fadeToken;
-        fadeGain(0, () => {
-          if (token === fadeToken) audio.pause();
+        fadeGain(0, 0.6, () => {
+          if (token === fadeToken) { audio.pause(); isPlaying = false; }
         });
+        isPlaying = false;
+      };
+
+      const switchTrack = async (nextIndex: number) => {
+        if (tracks.length === 1) { await startPlayback(0); return; }
+        if (!ensureAudioGraph()) return;
+        const wasPlaying = isPlaying;
+        fadeToken += 1;
+        const token = fadeToken;
+        const changeSource = async () => {
+          if (token !== fadeToken) return;
+          trackIndex = nextIndex;
+          audio.src = tracks[trackIndex].src;
+          audio.loop = false;
+          audio.load();
+          if (!enabled) return;
+          try {
+            await audioContext?.resume();
+            await audio.play();
+            if (token !== fadeToken || !enabled) return;
+            fadeGain(1, 0.6);
+            isPlaying = true;
+            waitingForGesture = false;
+            updateButton();
+          } catch { waitingForGesture = true; }
+        };
+        if (wasPlaying) fadeGain(0, 0.4, () => { audio.pause(); void changeSource(); });
+        else void changeSource();
+      };
+
+      const playNext = () => {
+        enabled = true;
+        loadFailed = false;
+        saveState();
+        updateButton();
+        void switchTrack(randomIndex(trackIndex));
       };
 
       const setEnabled = (nextEnabled: boolean) => {
@@ -92,73 +148,83 @@
         loadFailed = false;
         saveState();
         updateButton();
-        if (enabled) startPlayback();
+        if (enabled) void startPlayback();
         else stopPlayback();
       };
 
-      const bindButton = () => {
+      const bindControls = () => {
         const button = getButton();
-        if (!button || button.dataset.bgmBound === 'true') {
-          updateButton();
-          return;
+        const nextButton = getNextButton();
+        if (button && button.dataset.bgmBound !== 'true') {
+          button.dataset.bgmBound = 'true';
+          button.addEventListener('click', () => {
+            if (enabled && waitingForGesture) setEnabled(false);
+            else setEnabled(!enabled);
+          });
         }
-        button.dataset.bgmBound = 'true';
-        button.addEventListener('click', () => {
-          if (enabled && waitingForGesture) setEnabled(false);
-          else setEnabled(!enabled);
-        });
+        if (nextButton && tracks.length > 1 && nextButton.dataset.bgmBound !== 'true') {
+          nextButton.dataset.bgmBound = 'true';
+          nextButton.classList.remove('bgm-track-toggle');
+          nextButton.classList.add('bgm-next-toggle');
+          nextButton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 7v10l8-5-8-5z" /><path d="M18 7v10" /></svg>';
+          nextButton.setAttribute('aria-label', '随机播放下一首');
+          nextButton.removeAttribute('aria-expanded');
+          nextButton.removeAttribute('aria-controls');
+          nextButton.addEventListener('click', playNext);
+        }
+        if (nextButton && tracks.length <= 1) nextButton.hidden = true;
         updateButton();
       };
 
-      try {
-        const storedEnabled = localStorage.getItem('bgm:enabled');
-        enabled = storedEnabled === null || storedEnabled === '1';
-      } catch {
-        enabled = true;
-      }
+      try { enabled = localStorage.getItem('bgm:enabled') !== '0'; } catch { enabled = true; }
       waitingForGesture = enabled;
-
+      audio.addEventListener('ended', () => {
+        if (tracks.length === 1) { audio.currentTime = 0; void startPlayback(0); }
+        else void switchTrack(randomIndex(trackIndex));
+      });
       audio.addEventListener('error', () => {
         loadFailed = true;
         enabled = false;
+        isPlaying = false;
         stopPlayback();
         saveState();
         updateButton();
       });
       document.addEventListener('click', (event) => {
-        if (event.target instanceof Element && event.target.closest('[data-bgm-toggle]')) return;
-        if (enabled && waitingForGesture) startPlayback();
+        const control = getControl();
+        if (event.target instanceof Node && control?.contains(event.target)) return;
+        if (enabled && waitingForGesture) void startPlayback();
       });
       document.addEventListener('keydown', (event) => {
-        if (event.target instanceof Element && event.target.closest('[data-bgm-toggle]')) return;
-        if (enabled && waitingForGesture) startPlayback();
+        if (event.target instanceof Element && event.target.closest('[data-bgm-toggle], [data-bgm-next], [data-bgm-track-toggle]')) return;
+        if (enabled && waitingForGesture) void startPlayback();
       });
       document.addEventListener('touchstart', (event) => {
-        if (event.target instanceof Element && event.target.closest('[data-bgm-toggle]')) return;
-        if (enabled && waitingForGesture) startPlayback();
+        if (event.target instanceof Element && event.target.closest('[data-bgm-control]')) return;
+        if (enabled && waitingForGesture) void startPlayback();
       }, { passive: true });
       document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'hidden') {
-          if (enabled) stopPlayback();
-        } else if (enabled && !waitingForGesture) {
-          startPlayback();
-        }
+        if (document.visibilityState === 'hidden') { if (enabled) stopPlayback(); }
+        else if (enabled && !waitingForGesture) void startPlayback();
       });
-      document.addEventListener('astro:page-load', bindButton);
-      bindButton();
+      document.addEventListener('astro:before-preparation', () => updateButton());
+      document.addEventListener('astro:page-load', bindControls);
+      bindControls();
     }
   }
 </script>
 
 <style is:global>
   .bgm-audio-engine { display: none; }
-  .bgm-control { position: relative; flex: 0 0 36px; width: 36px; height: 36px; }
-  .bgm-toggle { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--text-dim); background: var(--card-fill); box-shadow: var(--card-highlight), 0 2px 4px rgba(0, 0, 0, 0.4); cursor: pointer; transition: background 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s; }
-  .bgm-toggle:hover, .bgm-toggle:focus-visible { border-color: color-mix(in srgb, var(--line-hover) 50%, transparent); color: var(--text); }
+  .bgm-control { position: relative; display: flex; flex: 0 0 76px; width: 76px; height: 36px; gap: 4px; }
+  .bgm-toggle, .bgm-next-toggle, .bgm-track-toggle { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--text-dim); background: var(--card-fill); box-shadow: var(--card-highlight), 0 2px 4px rgba(0, 0, 0, 0.4); cursor: pointer; transition: background 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s; }
+  .bgm-next-toggle, .bgm-track-toggle { flex: 0 0 36px; }
+  .bgm-toggle:hover, .bgm-toggle:focus-visible, .bgm-next-toggle:hover, .bgm-next-toggle:focus-visible, .bgm-track-toggle:hover, .bgm-track-toggle:focus-visible { border-color: color-mix(in srgb, var(--line-hover) 50%, transparent); color: var(--text); }
   .bgm-toggle[aria-pressed='true'] { border-color: var(--line-gold); color: var(--accent); background: color-mix(in srgb, var(--bg-deep) 85%, var(--accent-dim)); box-shadow: var(--icon-inset), 0 0 10px color-mix(in srgb, var(--accent) 25%, transparent); }
   .bgm-toggle[aria-pressed='true']:hover, .bgm-toggle[aria-pressed='true']:focus-visible { border-color: color-mix(in srgb, var(--line-hover) 70%, var(--line-gold)); color: var(--accent); }
-  .bgm-toggle:focus-visible { outline: 1px solid var(--accent-dim); outline-offset: 2px; }
-  .bgm-toggle:active { transform: translateY(1px); }
+  .bgm-toggle:focus-visible, .bgm-next-toggle:focus-visible, .bgm-track-toggle:focus-visible { outline: 1px solid var(--accent-dim); outline-offset: 2px; }
+  .bgm-toggle:active, .bgm-next-toggle:active, .bgm-track-toggle:active { transform: translateY(1px); }
+  .bgm-next-toggle svg, .bgm-track-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .bgm-icon { width: 20px; height: 20px; }
   .bgm-icon-on, .bgm-toggle[aria-pressed='true'] .bgm-icon-off { display: none; }
   .bgm-toggle[aria-pressed='true'] .bgm-icon-on { display: block; }
@@ -167,5 +233,5 @@
   @keyframes bgm-wave-breathe { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
   @media (max-width: 990px) { .bgm-control { grid-column: 3; grid-row: 1; } }
   @media (max-width: 639px) { .bgm-control { grid-column: 2; grid-row: 1; } }
-  @media (prefers-reduced-motion: reduce) { .bgm-wave { animation: none; } .bgm-toggle:active { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .bgm-wave { animation: none; } .bgm-toggle:active, .bgm-next-toggle:active, .bgm-track-toggle:active { transform: none; } }
 </style>
