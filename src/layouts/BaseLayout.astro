@@ -3,6 +3,7 @@ import '../styles/global.css';
 import SearchBox from '../components/SearchBox.astro';
 import ImageDialog from '../components/ImageDialog.astro';
 import NavLoader from '../components/NavLoader.astro';
+import BgmPlayer from '../components/BgmPlayer.astro';
 import { ClientRouter } from 'astro:transitions';
 import { DATA_VERSION } from '../lib/site';
 
@@ -323,6 +324,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
     </button>
     <ImageDialog />
     <NavLoader />
+    <BgmPlayer />
     <script>
       import { onPageReady } from '../lib/lifecycle';
 

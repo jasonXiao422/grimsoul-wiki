@@ -17,6 +17,7 @@ declare global {
     __grimsoulCardPagerInit?: () => void;
     __grimsoulCardPagerSwapListener?: boolean;
     __grimsoulSwapCleanupListener?: boolean;
+    __grimsoulBgmInitialized?: boolean;
     __GRIMSOUL_LOADING_LINES__?: readonly string[];
   }
 }
