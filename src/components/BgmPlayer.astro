@@ -104,16 +104,17 @@
         }
         button.dataset.bgmBound = 'true';
         button.addEventListener('click', () => {
-          if (enabled && waitingForGesture) startPlayback();
+          if (enabled && waitingForGesture) setEnabled(false);
           else setEnabled(!enabled);
         });
         updateButton();
       };
 
       try {
-        enabled = localStorage.getItem('bgm:enabled') === '1';
+        const storedEnabled = localStorage.getItem('bgm:enabled');
+        enabled = storedEnabled === null || storedEnabled === '1';
       } catch {
-        enabled = false;
+        enabled = true;
       }
       waitingForGesture = enabled;
 
@@ -128,7 +129,8 @@
         if (event.target instanceof Element && event.target.closest('[data-bgm-toggle]')) return;
         if (enabled && waitingForGesture) startPlayback();
       });
-      document.addEventListener('keydown', () => {
+      document.addEventListener('keydown', (event) => {
+        if (event.target instanceof Element && event.target.closest('[data-bgm-toggle]')) return;
         if (enabled && waitingForGesture) startPlayback();
       });
       document.addEventListener('touchstart', (event) => {

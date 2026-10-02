@@ -1394,7 +1394,7 @@ p {
     top: var(--header-height);
     z-index: 5;
     background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    border: 0;
     box-shadow: var(--glass-highlight), inset 0 -1px 0 var(--border);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
