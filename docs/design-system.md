@@ -96,6 +96,7 @@
 | 标签 | 保留现有圆角；1px var(--line)；字号略小 |
 | 表格 | 外框 1px var(--line)；表头底部 1px var(--line-strong)；行间 1px var(--line) |
 | 导航当前项 | 底 var(--surface-active)；左侧 2px var(--accent) 竖条 |
+| 桌面导航按键与背景音乐按钮 | 采用同一套立体按键样式；默认状态凸起，当前项或开启状态按下并发光；悬停不变金色；仅桌面导航使用，990px 及以下汉堡菜单保持原样 |
 | 面包屑 | 分隔符用 / ，颜色 var(--line-strong) |
 | 分页 | 保留现有圆角；当前页边框 var(--accent-dim)、底 var(--surface-active) |
 | 数字统计 | 衬线字体，tabular-nums |

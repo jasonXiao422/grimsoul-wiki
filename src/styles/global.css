@@ -2565,6 +2565,58 @@ p {
     min-width: max-content;
     justify-content: center;
     flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .main-nav a,
+  .nav-dropdown-toggle {
+    border: 1px solid var(--line-strong);
+    background: var(--card-fill);
+    box-shadow: var(--card-highlight), 0 1px 2px rgba(0, 0, 0, 0.35);
+    color: var(--text-dim);
+    transition: background 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus-visible,
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown-toggle:focus-visible {
+    border-color: color-mix(in srgb, var(--line-hover) 50%, transparent);
+    background: var(--card-fill);
+    box-shadow: var(--card-highlight), 0 1px 2px rgba(0, 0, 0, 0.35);
+    color: var(--text);
+  }
+
+  .main-nav a[aria-current='page'],
+  .nav-dropdown-toggle[aria-current='page'],
+  .nav-dropdown.is-open .nav-dropdown-toggle {
+    border-color: var(--line-gold);
+    background: color-mix(in srgb, var(--bg-deep) 85%, var(--accent-dim));
+    box-shadow: var(--icon-inset), 0 0 8px color-mix(in srgb, var(--accent) 20%, transparent);
+    color: var(--accent);
+  }
+
+  .main-nav a[aria-current='page']:hover,
+  .main-nav a[aria-current='page']:focus-visible,
+  .nav-dropdown-toggle[aria-current='page']:hover,
+  .nav-dropdown-toggle[aria-current='page']:focus-visible,
+  .nav-dropdown.is-open .nav-dropdown-toggle:hover,
+  .nav-dropdown.is-open .nav-dropdown-toggle:focus-visible {
+    border-color: color-mix(in srgb, var(--line-hover) 70%, var(--line-gold));
+    background: color-mix(in srgb, var(--bg-deep) 85%, var(--accent-dim));
+    box-shadow: var(--icon-inset), 0 0 8px color-mix(in srgb, var(--accent) 20%, transparent);
+    color: var(--accent);
+  }
+
+  .main-nav a:focus-visible,
+  .nav-dropdown-toggle:focus-visible {
+    outline: 1px solid var(--accent-dim);
+    outline-offset: 2px;
+  }
+
+  .main-nav a:active,
+  .nav-dropdown-toggle:active {
+    transform: translateY(1px);
   }
 
   .site-search {
@@ -2578,7 +2630,7 @@ p {
   }
 
   .main-nav {
-    gap: 2px;
+    gap: 4px;
   }
 
   .main-nav a,
@@ -2588,6 +2640,13 @@ p {
 
   .site-search {
     flex-basis: clamp(160px, 22vw, 240px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-nav a:active,
+  .nav-dropdown-toggle:active {
+    transform: none;
   }
 }
 
