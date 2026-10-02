@@ -476,9 +476,8 @@ img {
 
 .site-footer {
   width: 100%;
-  border-top: 1px solid var(--border);
   color: var(--text-dim);
-  background: var(--bg-deep);
+  background: url('/images/textures/footer-bg.webp') center bottom / cover no-repeat;
 }
 
 .back-to-top {
@@ -800,10 +799,10 @@ p {
   width: 100%;
   display: grid;
   align-content: center;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0;
   margin: 0 0 2px;
   padding: 56px max(16px, calc((100% - 1180px) / 2)) 42px;
-  background: var(--bg-deep);
+  background: transparent;
 }
 
 .hero::after {
@@ -813,6 +812,8 @@ p {
   z-index: 1;
   pointer-events: none;
   background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 55%, transparent), color-mix(in srgb, var(--bg) 85%, transparent));
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
 }
 
 .hero-media,
@@ -823,6 +824,8 @@ p {
 
 .hero-media {
   z-index: 0;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
 }
 
 .hero-image {
