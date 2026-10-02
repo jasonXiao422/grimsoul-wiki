@@ -31,10 +31,9 @@ import { LOADING_LINES } from '../lib/loading-lines';
   if (!window.__grimsoulNavLoaderInitialized) {
     window.__grimsoulNavLoaderInitialized = true;
   (() => {
-    const loader = document.querySelector('[data-nav-loader]');
-    const closeButton = loader?.querySelector('[data-nav-loader-close]');
-    const message = loader?.querySelector('[data-nav-loader-message]');
-    if (!loader || !closeButton || !message) return;
+    const getLoader = () => document.querySelector('[data-nav-loader]');
+    const getCloseButton = () => getLoader()?.querySelector('[data-nav-loader-close]');
+    const getMessage = () => getLoader()?.querySelector('[data-nav-loader-message]');
 
     const randomLoadingLine = () => {
       const lines = window.__GRIMSOUL_LOADING_LINES__ ?? [];
@@ -42,6 +41,7 @@ import { LOADING_LINES } from '../lib/loading-lines';
     };
     let showTimer;
     let hideTimer;
+    let navigationInProgress = false;
 
     const clearTimers = () => {
       if (showTimer !== undefined) window.clearTimeout(showTimer);
@@ -52,11 +52,16 @@ import { LOADING_LINES } from '../lib/loading-lines';
 
     const hideLoader = () => {
       clearTimers();
-      loader.hidden = true;
+      const loader = getLoader();
+      if (loader) loader.hidden = true;
     };
 
     const showLoader = () => {
       showTimer = undefined;
+      const loader = getLoader();
+      const message = getMessage();
+      const closeButton = getCloseButton();
+      if (!loader || !message || !closeButton) return;
       message.textContent = randomLoadingLine();
       loader.hidden = false;
       closeButton.focus({ preventScroll: true });
@@ -64,41 +69,35 @@ import { LOADING_LINES } from '../lib/loading-lines';
     };
 
     const startTimer = () => {
-      if (showTimer !== undefined || !loader.hidden) return;
+      const loader = getLoader();
+      if (showTimer !== undefined || (loader && !loader.hidden)) return;
       showTimer = window.setTimeout(showLoader, 500);
     };
 
-    const isNavigableLink = (event) => {
-      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return false;
-      if (!(event.target instanceof Element)) return false;
-
-      const link = event.target.closest('a[href]');
-      if (!link || link.hasAttribute('download') || link.target === '_blank') return false;
-
-      const url = new URL(link.href, window.location.href);
-      if (url.origin !== window.location.origin || url.protocol === 'mailto:' || url.protocol === 'tel:') return false;
-      if (url.pathname === window.location.pathname && url.search === window.location.search) return false;
-
-      return true;
-    };
-
-    document.addEventListener('click', (event) => {
-      if (isNavigableLink(event)) startTimer();
+    document.addEventListener('astro:before-preparation', () => {
+      navigationInProgress = true;
+      startTimer();
     });
 
-    closeButton.addEventListener('click', () => {
-      window.stop();
+    document.addEventListener('astro:after-swap', () => {
+      navigationInProgress = false;
+      hideLoader();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element) || !event.target.closest('[data-nav-loader-close]')) return;
+      if (navigationInProgress && history.length > 1) history.back();
       hideLoader();
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !loader.hidden) {
-        window.stop();
+      const loader = getLoader();
+      if (event.key === 'Escape' && loader && !loader.hidden) {
+        if (navigationInProgress && history.length > 1) history.back();
         hideLoader();
       }
     });
 
-    window.addEventListener('pagehide', hideLoader);
     window.addEventListener('pageshow', hideLoader);
   })();
   }

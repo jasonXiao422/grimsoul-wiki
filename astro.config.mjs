@@ -4,6 +4,9 @@ import rehypeScrollLeaves from './src/lib/rehype-scroll-leaves.mjs';
 export default defineConfig({
   site: 'https://grimsoul-wiki.pages.dev',
   output: 'static',
+  prefetch: {
+    defaultStrategy: 'hover',
+  },
   markdown: {
     rehypePlugins: [rehypeScrollLeaves],
   },

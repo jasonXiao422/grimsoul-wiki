@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
-import ListScrollRestoration from '../../components/ListScrollRestoration.astro';
 import { ARMOR_PIECES_TABLE, CATEGORIES } from '../../lib/categories';
 import { EXTRA_DATA, getCategoryBlurb, getListItems, type CategorySlug } from '../../lib/data';
 
@@ -24,7 +23,6 @@ const isArmor = category.slug === 'armor';
 ---
 
 <BaseLayout title={category.label} description={`${category.label}资料列表`}>
-  <ListScrollRestoration slot="head" />
 
   <Breadcrumb items={[
     { label: '首页', href: '/' },

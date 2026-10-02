@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import CardPager from '../../components/CardPager.astro';
-import ListScrollRestoration from '../../components/ListScrollRestoration.astro';
 import fixedBuildings from '../../data/fixed-buildings.json';
 import { getItemIconSrc } from '../../lib/data';
 import { QUALITY_META, type Quality } from '../../lib/quality';
@@ -19,7 +18,6 @@ const hasValue = (value: unknown): value is string | number => value !== null &&
 ---
 
 <BaseLayout title="不可升级建筑" description={`收录 ${fixedBuildings.length} 个不可升级建筑的用途、材料与图纸来源`}>
-  <ListScrollRestoration slot="head" />
   <Breadcrumb items={[{ label: '首页', href: '/' }, { label: '不可升级建筑' }]} />
 
   <section class="page-heading">

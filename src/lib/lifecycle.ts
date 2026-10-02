@@ -1,4 +1,4 @@
-// 启用 ClientRouter 后 astro:page-load 在首次加载时也会触发，届时需移除 DOMContentLoaded 分支，避免首次加载执行两次。
+// 启用 ClientRouter 后 astro:page-load 在首次加载时也会触发，因此不再使用 DOMContentLoaded 分支，避免首次加载执行两次。
 type PageReadyCallback = () => void;
 
 declare global {
@@ -14,33 +14,24 @@ declare global {
     __grimsoulLayoutKeydownListener?: boolean;
     __grimsoulBackToTopListeners?: boolean;
     __grimsoulCardPagerFilterListener?: boolean;
+    __grimsoulCardPagerInit?: () => void;
+    __grimsoulCardPagerSwapListener?: boolean;
+    __grimsoulSwapCleanupListener?: boolean;
     __GRIMSOUL_LOADING_LINES__?: readonly string[];
   }
 }
 
 const callbacks = new Set<PageReadyCallback>();
 const keyedCallbacks = new Map<string, PageReadyCallback>();
-let initialized = false;
-let domReady = false;
+let pageReady = false;
 
 const runCallbacks = () => {
-  domReady = true;
+  pageReady = true;
   callbacks.forEach((callback) => callback());
 };
 
 if (typeof document !== 'undefined') {
   document.addEventListener('astro:page-load', runCallbacks);
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!initialized) {
-        initialized = true;
-        runCallbacks();
-      }
-    }, { once: true });
-  } else {
-    initialized = true;
-    queueMicrotask(runCallbacks);
-  }
 }
 
 export const onPageReady = (callback: PageReadyCallback, key?: string) => {
@@ -52,5 +43,5 @@ export const onPageReady = (callback: PageReadyCallback, key?: string) => {
     return;
   }
   callbacks.add(callback);
-  if (domReady) queueMicrotask(callback);
+  if (pageReady) queueMicrotask(callback);
 };

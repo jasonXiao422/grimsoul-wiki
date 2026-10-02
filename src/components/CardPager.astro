@@ -173,6 +173,14 @@ const { grid, card, perPage = 24 } = Astro.props;
     document.querySelectorAll('[data-card-pager]').forEach(initialize);
     };
 
+    window.__grimsoulCardPagerInit = initCardPagers;
+    if (!window.__grimsoulCardPagerSwapListener) {
+      window.__grimsoulCardPagerSwapListener = true;
+      document.addEventListener('astro:after-swap', () => {
+        window.__grimsoulCardPagerInit?.();
+      });
+    }
+
     if (window.__onPageReady) window.__onPageReady(initCardPagers, 'card-pagers');
     else initCardPagers();
   })();

@@ -81,10 +81,13 @@ const parentHref = items
     window.__grimsoulBreadcrumbInitialized = true;
     document.addEventListener('click', (event) => {
       const backLink = event.target?.closest?.('[data-breadcrumb-back]');
-      if (!backLink || !document.referrer || history.length <= 1) return;
-
-      const referrer = new URL(document.referrer);
-      if (referrer.origin !== window.location.origin || referrer.pathname === window.location.pathname) return;
+      let isInAppNavigation = false;
+      try {
+        isInAppNavigation = sessionStorage.getItem('nav:in-app') === '1';
+      } catch {
+        // sessionStorage may be unavailable in restricted browser modes.
+      }
+      if (!backLink || !isInAppNavigation || history.length <= 1) return;
 
       event.preventDefault();
       history.back();
