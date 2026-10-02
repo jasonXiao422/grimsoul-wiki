@@ -87,7 +87,10 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
       const startPlayback = async () => {
         if (!enabled || !ensureAudioGraph()) return;
         const isFirstPlayback = trackIndex < 0;
-        if (isFirstPlayback) setTrackSource(randomIndex());
+        if (isFirstPlayback) {
+          const firstTrackIndex = tracks.findIndex((track) => track.src === '/audio/bgm-02.mp3');
+          setTrackSource(firstTrackIndex >= 0 ? firstTrackIndex : randomIndex());
+        }
         fadeToken += 1;
         const token = fadeToken;
         try {
