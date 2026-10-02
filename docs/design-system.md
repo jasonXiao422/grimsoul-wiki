@@ -26,6 +26,7 @@
 --surface-active: color-mix(in srgb, var(--bg-panel) 80%, var(--accent-dim));
 
 --tint-green: #16241f;      /* 仅用于背景渐变 */
+--tint-mist: #34423c;       /* 背景底部雾带的灰绿色，只用于全站背景 */
 
 /* 立体感 */
 --card-fill: linear-gradient(180deg, color-mix(in srgb, var(--bg-panel) 92%, var(--accent-dim)) 0%, var(--bg-panel) 100%);
@@ -39,7 +40,7 @@
 --kicker-spacing: 0.28em;
 ```
 
-所有颜色都由现有变量调配，不写新的色值。唯一例外是背景用的 --tint-green，以及本节规定的透明白和 color-mix 调配。
+所有颜色都由现有变量调配，不写新的色值。唯一例外是背景用的 --tint-green、--tint-mist，以及本节规定的透明白和 color-mix 调配。
 
 ## 三、装饰元件
 

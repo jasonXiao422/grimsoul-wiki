@@ -23,6 +23,7 @@
   --kicker-size: 0.72rem;
   --kicker-spacing: 0.28em;
   --tint-green: #16241f;
+  --tint-mist: #34423c;
   --card-fill: linear-gradient(180deg, color-mix(in srgb, var(--bg-panel) 92%, var(--accent-dim)) 0%, var(--bg-panel) 100%);
   --card-highlight: inset 0 1px 0 color-mix(in srgb, var(--accent-dim) 25%, transparent);
   --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -191,7 +192,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
 }
 
@@ -202,9 +203,11 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 1200px 600px at 50% -10%, color-mix(in srgb, var(--accent-dim) 12%, transparent), transparent 70%),
-    radial-gradient(ellipse 900px 700px at 0% 100%, color-mix(in srgb, var(--tint-green) 70%, transparent), transparent 70%),
-    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+    url('/images/textures/noise.png') 0 0 / 128px 128px repeat,
+    radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(to top, color-mix(in srgb, var(--tint-mist) 18%, transparent), transparent 42%),
+    radial-gradient(ellipse 1000px 700px at 100% 0%, color-mix(in srgb, var(--tint-green) 45%, transparent), transparent 70%),
+    radial-gradient(ellipse 1200px 900px at 0% 100%, color-mix(in srgb, var(--tint-green) 90%, transparent), transparent 70%);
 }
 
 a {
