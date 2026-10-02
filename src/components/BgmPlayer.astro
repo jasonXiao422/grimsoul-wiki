@@ -13,6 +13,7 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
     window.__grimsoulBgmInitialized = true;
     const audio = document.querySelector<HTMLAudioElement>('[data-bgm-audio]');
     const tracks = BGM_TRACKS;
+    const BGM_VOLUME = 0.45;
 
     if (audio && tracks.length > 0) {
       let audioContext: AudioContext | undefined;
@@ -27,7 +28,7 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
 
       const getControl = () => document.querySelector<HTMLElement>('[data-bgm-control]');
       const getButton = () => getControl()?.querySelector<HTMLButtonElement>('[data-bgm-toggle]');
-      const getNextButton = () => getControl()?.querySelector<HTMLButtonElement>('[data-bgm-next], [data-bgm-track-toggle]');
+      const getNextButton = () => getControl()?.querySelector<HTMLButtonElement>('[data-bgm-next]');
 
       const saveState = () => {
         try { localStorage.setItem('bgm:enabled', enabled ? '1' : '0'); } catch { /* ignore storage errors */ }
@@ -76,27 +77,28 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
         return next;
       };
 
-      const startPlayback = async (requestedIndex?: number) => {
+      const setTrackSource = (index: number) => {
+        trackIndex = (index + tracks.length) % tracks.length;
+        audio.src = tracks[trackIndex].src;
+        audio.loop = tracks.length === 1;
+        audio.load();
+      };
+
+      const startPlayback = async () => {
         if (!enabled || !ensureAudioGraph()) return;
-        if (trackIndex < 0) {
-          trackIndex = requestedIndex ?? randomIndex();
-          audio.src = tracks[trackIndex].src;
-          audio.loop = tracks.length === 1;
-          audio.load();
-        }
+        const isFirstPlayback = trackIndex < 0;
+        if (isFirstPlayback) setTrackSource(randomIndex());
         fadeToken += 1;
         const token = fadeToken;
         try {
           await audioContext?.resume();
           await audio.play();
           if (token !== fadeToken || !enabled) return;
-          fadeGain(1, 0.6);
+          fadeGain(BGM_VOLUME, isFirstPlayback ? 2 : 0.6);
           isPlaying = true;
           waitingForGesture = false;
           updateButton();
-        } catch {
-          waitingForGesture = true;
-        }
+        } catch { waitingForGesture = true; }
       };
 
       const stopPlayback = () => {
@@ -109,23 +111,19 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
       };
 
       const switchTrack = async (nextIndex: number) => {
-        if (tracks.length === 1) { await startPlayback(0); return; }
         if (!ensureAudioGraph()) return;
         const wasPlaying = isPlaying;
         fadeToken += 1;
         const token = fadeToken;
         const changeSource = async () => {
           if (token !== fadeToken) return;
-          trackIndex = nextIndex;
-          audio.src = tracks[trackIndex].src;
-          audio.loop = false;
-          audio.load();
+          setTrackSource(nextIndex);
           if (!enabled) return;
           try {
             await audioContext?.resume();
             await audio.play();
             if (token !== fadeToken || !enabled) return;
-            fadeGain(1, 0.6);
+            fadeGain(BGM_VOLUME, 0.6);
             isPlaying = true;
             waitingForGesture = false;
             updateButton();
@@ -164,12 +162,6 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
         }
         if (nextButton && tracks.length > 1 && nextButton.dataset.bgmBound !== 'true') {
           nextButton.dataset.bgmBound = 'true';
-          nextButton.classList.remove('bgm-track-toggle');
-          nextButton.classList.add('bgm-next-toggle');
-          nextButton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 7v10l8-5-8-5z" /><path d="M18 7v10" /></svg>';
-          nextButton.setAttribute('aria-label', '随机播放下一首');
-          nextButton.removeAttribute('aria-expanded');
-          nextButton.removeAttribute('aria-controls');
           nextButton.addEventListener('click', playNext);
         }
         if (nextButton && tracks.length <= 1) nextButton.hidden = true;
@@ -177,9 +169,8 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
       };
 
       try { enabled = localStorage.getItem('bgm:enabled') !== '0'; } catch { enabled = true; }
-      waitingForGesture = enabled;
       audio.addEventListener('ended', () => {
-        if (tracks.length === 1) { audio.currentTime = 0; void startPlayback(0); }
+        if (tracks.length === 1) { audio.currentTime = 0; void startPlayback(); }
         else void switchTrack(randomIndex(trackIndex));
       });
       audio.addEventListener('error', () => {
@@ -196,7 +187,7 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
         if (enabled && waitingForGesture) void startPlayback();
       });
       document.addEventListener('keydown', (event) => {
-        if (event.target instanceof Element && event.target.closest('[data-bgm-toggle], [data-bgm-next], [data-bgm-track-toggle]')) return;
+        if (event.target instanceof Element && event.target.closest('[data-bgm-control]')) return;
         if (enabled && waitingForGesture) void startPlayback();
       });
       document.addEventListener('touchstart', (event) => {
@@ -209,6 +200,7 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
       });
       document.addEventListener('astro:before-preparation', () => updateButton());
       document.addEventListener('astro:page-load', bindControls);
+      waitingForGesture = enabled;
       bindControls();
     }
   }
@@ -217,14 +209,13 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
 <style is:global>
   .bgm-audio-engine { display: none; }
   .bgm-control { position: relative; display: flex; flex: 0 0 76px; width: 76px; height: 36px; gap: 4px; }
-  .bgm-toggle, .bgm-next-toggle, .bgm-track-toggle { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--text-dim); background: var(--card-fill); box-shadow: var(--card-highlight), 0 2px 4px rgba(0, 0, 0, 0.4); cursor: pointer; transition: background 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s; }
-  .bgm-next-toggle, .bgm-track-toggle { flex: 0 0 36px; }
-  .bgm-toggle:hover, .bgm-toggle:focus-visible, .bgm-next-toggle:hover, .bgm-next-toggle:focus-visible, .bgm-track-toggle:hover, .bgm-track-toggle:focus-visible { border-color: color-mix(in srgb, var(--line-hover) 50%, transparent); color: var(--text); }
+  .bgm-toggle, .bgm-next-toggle { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 1px solid var(--line-strong); border-radius: 6px; color: var(--text-dim); background: var(--card-fill); box-shadow: var(--card-highlight), 0 2px 4px rgba(0, 0, 0, 0.4); cursor: pointer; transition: background 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s; }
+  .bgm-toggle:hover, .bgm-toggle:focus-visible, .bgm-next-toggle:hover, .bgm-next-toggle:focus-visible { border-color: color-mix(in srgb, var(--line-hover) 50%, transparent); color: var(--text); }
   .bgm-toggle[aria-pressed='true'] { border-color: var(--line-gold); color: var(--accent); background: color-mix(in srgb, var(--bg-deep) 85%, var(--accent-dim)); box-shadow: var(--icon-inset), 0 0 10px color-mix(in srgb, var(--accent) 25%, transparent); }
   .bgm-toggle[aria-pressed='true']:hover, .bgm-toggle[aria-pressed='true']:focus-visible { border-color: color-mix(in srgb, var(--line-hover) 70%, var(--line-gold)); color: var(--accent); }
-  .bgm-toggle:focus-visible, .bgm-next-toggle:focus-visible, .bgm-track-toggle:focus-visible { outline: 1px solid var(--accent-dim); outline-offset: 2px; }
-  .bgm-toggle:active, .bgm-next-toggle:active, .bgm-track-toggle:active { transform: translateY(1px); }
-  .bgm-next-toggle svg, .bgm-track-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .bgm-toggle:focus-visible, .bgm-next-toggle:focus-visible { outline: 1px solid var(--accent-dim); outline-offset: 2px; }
+  .bgm-toggle:active, .bgm-next-toggle:active { transform: translateY(1px); }
+  .bgm-next-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .bgm-icon { width: 20px; height: 20px; }
   .bgm-icon-on, .bgm-toggle[aria-pressed='true'] .bgm-icon-off { display: none; }
   .bgm-toggle[aria-pressed='true'] .bgm-icon-on { display: block; }
@@ -233,5 +224,5 @@ import { BGM_TRACKS } from '../lib/bgm-tracks';
   @keyframes bgm-wave-breathe { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
   @media (max-width: 990px) { .bgm-control { grid-column: 3; grid-row: 1; } }
   @media (max-width: 639px) { .bgm-control { grid-column: 2; grid-row: 1; } }
-  @media (prefers-reduced-motion: reduce) { .bgm-wave { animation: none; } .bgm-toggle:active, .bgm-next-toggle:active, .bgm-track-toggle:active { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .bgm-wave { animation: none; } .bgm-toggle:active, .bgm-next-toggle:active { transform: none; } }
 </style>
