@@ -93,6 +93,7 @@ const armorFilterPlaceholder = (key: string) =>
             </select>
           </label>
         ))}
+        <button type="button" class="filter-clear" data-armor-filter-clear hidden>清除筛选</button>
       </div>
 
       <section class="armor-section" data-armor-section="sets" aria-labelledby="armor-sets-title">
@@ -133,9 +134,12 @@ const armorFilterPlaceholder = (key: string) =>
     typeFilter.dataset.initialized = 'true';
     const sections = [...document.querySelectorAll<HTMLElement>('[data-armor-section]')];
     const search = document.querySelector<HTMLInputElement>('[data-armor-search]');
+    const commonFilters = [...document.querySelectorAll<HTMLSelectElement>('[data-armor-filter]')];
+    const filterClear = document.querySelector<HTMLButtonElement>('[data-armor-filter-clear]');
 
     const updateArmorView = () => {
       const selectedType = typeFilter.value;
+      if (filterClear) filterClear.hidden = !commonFilters.some((filter) => Boolean(filter.value));
       let visibleSections = 0;
       sections.forEach((section) => {
         const typeVisible = selectedType === 'all' || section.dataset.armorSection === selectedType;
@@ -161,6 +165,11 @@ const armorFilterPlaceholder = (key: string) =>
       }
     };
     typeFilter?.addEventListener('change', safeUpdateArmorView);
+    filterClear?.addEventListener('click', () => {
+      commonFilters.forEach((filter) => { filter.value = ''; });
+      commonFilters[0]?.dispatchEvent(new Event('change', { bubbles: true }));
+      safeUpdateArmorView();
+    });
     document.addEventListener('data-table:filtered', safeUpdateArmorView);
     document.addEventListener('data-table:sorted', safeUpdateArmorView);
     window.setTimeout(safeUpdateArmorView, 0);

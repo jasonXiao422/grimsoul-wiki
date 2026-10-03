@@ -38,6 +38,7 @@ const hasValue = (value: unknown): value is string | number => value !== null &&
         {tags.map((tag) => <option value={tag}>{tag}</option>)}
       </select>
     </label>
+    <button type="button" class="filter-clear" data-fixed-buildings-filter-clear hidden>清除筛选</button>
   </div>
 
   <div class="fixed-buildings-grid">
@@ -74,10 +75,12 @@ const hasValue = (value: unknown): value is string | number => value !== null &&
     const cards = [...document.querySelectorAll('.fixed-building-card')];
     const search = document.querySelector('[data-building-search]');
     const tagSelect = document.querySelector('[data-building-tag]');
+    const filterClear = document.querySelector('[data-fixed-buildings-filter-clear]');
     const empty = document.querySelector('[data-building-empty]');
     const applyFilters = () => {
       const query = (search?.value ?? '').trim().toLocaleLowerCase();
       const activeTag = tagSelect?.value ?? '';
+      if (filterClear) filterClear.hidden = !activeTag;
       let visibleCount = 0;
       cards.forEach((card) => {
         const cardTags = (card.dataset.tags ?? '').split('|');
@@ -90,6 +93,10 @@ const hasValue = (value: unknown): value is string | number => value !== null &&
       document.dispatchEvent(new CustomEvent('cards:filtered'));
     };
     tagSelect?.addEventListener('change', applyFilters);
+    filterClear?.addEventListener('click', () => {
+      if (tagSelect) tagSelect.value = '';
+      applyFilters();
+    });
     search?.addEventListener('input', applyFilters);
     document.querySelector('[data-clear-building-search]')?.addEventListener('click', () => {
       if (search) search.value = '';

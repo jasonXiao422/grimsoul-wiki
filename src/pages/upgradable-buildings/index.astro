@@ -32,6 +32,7 @@ const qualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-g
         {tags.map((tag) => <option value={tag}>{tag}</option>)}
       </select>
     </label>
+    <button type="button" class="filter-clear" data-upgradable-buildings-filter-clear hidden>清除筛选</button>
   </div>
 
   <div class="upgradable-buildings-grid">
@@ -66,10 +67,12 @@ const qualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-g
     const cards = [...document.querySelectorAll('.upgradable-building-card')];
     const search = document.querySelector('[data-upgradable-building-search]');
     const tagSelect = document.querySelector('[data-upgradable-building-tag]');
+    const filterClear = document.querySelector('[data-upgradable-buildings-filter-clear]');
     const empty = document.querySelector('[data-upgradable-building-empty]');
     const applyFilters = () => {
       const query = (search?.value ?? '').trim().toLocaleLowerCase('zh-Hans-CN');
       const activeTag = tagSelect?.value ?? '';
+      if (filterClear) filterClear.hidden = !activeTag;
       let visibleCount = 0;
       cards.forEach((card) => {
         const cardTags = (card.dataset.tags ?? '').split('|');
@@ -81,6 +84,10 @@ const qualityStyle = `--quality-border:${QUALITY_META.common.border};--quality-g
       empty?.toggleAttribute('hidden', visibleCount > 0);
     };
     tagSelect?.addEventListener('change', applyFilters);
+    filterClear?.addEventListener('click', () => {
+      if (tagSelect) tagSelect.value = '';
+      applyFilters();
+    });
     search?.addEventListener('input', applyFilters);
     document.querySelector('[data-clear-upgradable-building-search]')?.addEventListener('click', () => {
       if (search) search.value = '';

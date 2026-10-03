@@ -51,6 +51,7 @@ const fallback =
           {dropLocations.map((location) => <option value={location}>{location}</option>)}
         </select>
       </label>
+      <button type="button" class="filter-clear" data-skills-filter-clear hidden>清除筛选</button>
     </div>
     <div class="table-scroll skills-table-scroll">
       <table class="data-table skills-table">
@@ -139,6 +140,7 @@ const fallback =
   root.dataset.initialized = 'true';
   const input = root?.querySelector<HTMLInputElement>('[data-skills-query]');
   const locationFilter = root?.querySelector<HTMLSelectElement>('[data-skills-location-filter]');
+  const filterClear = root?.querySelector<HTMLButtonElement>('[data-skills-filter-clear]');
   const clear = root?.querySelector<HTMLButtonElement>('[data-skills-clear]');
   const rows = () => [...(root?.querySelectorAll<HTMLTableRowElement>('[data-skills-row]') ?? [])];
   const empty = root?.querySelector<HTMLElement>('[data-skills-empty]');
@@ -179,6 +181,7 @@ const fallback =
     });
     if (empty) empty.hidden = visible > 0;
     if (clear) clear.hidden = !query && !selectedLocation;
+    if (filterClear) filterClear.hidden = !selectedLocation;
     let searchResultCount = 0;
     searchDropEntries().forEach((entry) => {
       const resultRow = rows().find((row) => row.dataset.skillId === entry.dataset.skillId);
@@ -191,6 +194,10 @@ const fallback =
   };
   input?.addEventListener('input', applyFilters);
   locationFilter?.addEventListener('change', applyFilters);
+  filterClear?.addEventListener('click', () => {
+    if (locationFilter) locationFilter.value = '';
+    applyFilters();
+  });
   clear?.addEventListener('click', () => {
     if (input) input.value = '';
     if (locationFilter) locationFilter.value = '';

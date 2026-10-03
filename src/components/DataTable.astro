@@ -154,6 +154,7 @@ for (const item of items) {
             </select>
           </label>
         ))}
+        <button type="button" class="filter-clear" data-filter-clear hidden>清除筛选</button>
       </div>
     )}
   </div>
@@ -352,6 +353,7 @@ for (const item of items) {
       : [...root.querySelectorAll<HTMLSelectElement>('[data-filter]')];
     const tbody = root.querySelector<HTMLTableSectionElement>('tbody');
     const empty = root.querySelector<HTMLElement>('[data-empty]');
+    const clearFilters = root.querySelector<HTMLButtonElement>('[data-filter-clear]');
     let sortState = { key: '', direction: 1 };
 
     const rows = () => [...root.querySelectorAll<HTMLTableRowElement>('[data-row]')];
@@ -379,6 +381,7 @@ for (const item of items) {
       });
 
       if (empty) empty.hidden = visibleCount !== 0;
+      if (clearFilters) clearFilters.hidden = !filters.some((filter) => Boolean(filter.value));
 
       [...root.querySelectorAll<HTMLTableRowElement>('[data-group-row]')].forEach((groupRow) => {
         let next = groupRow.nextElementSibling as HTMLTableRowElement | null;
@@ -453,6 +456,10 @@ for (const item of items) {
       search?.addEventListener('input', applyFilters);
     }
     filters.forEach((filter) => filter.addEventListener('change', applyFilters));
+    clearFilters?.addEventListener('click', () => {
+      filters.forEach((filter) => { filter.value = ''; });
+      applyFilters();
+    });
     root.querySelectorAll<HTMLButtonElement>('[data-sort-key]').forEach((button) => {
       button.addEventListener('click', () => sortRows(button.dataset.sortKey ?? ''));
     });
