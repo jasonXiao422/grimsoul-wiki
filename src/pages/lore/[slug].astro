@@ -106,6 +106,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 let isProgrammaticScroll = false;
                 let scrollEndFallbackTimer;
+                let galleryScrollFrame;
                 let galleryResizeObserver;
                 let galleryIntersectionObserver;
                 const finishProgrammaticScroll = () => {
@@ -170,16 +171,21 @@ const toc = headings.filter((heading) => heading.depth === 2);
                 const updateActive = () => {
                   if (!isProgrammaticScroll) setActive(getClosestIndex());
                 };
+                const scheduleGalleryScrollUpdate = () => {
+                  if (galleryScrollFrame !== undefined) return;
+                  galleryScrollFrame = window.requestAnimationFrame(() => {
+                    galleryScrollFrame = undefined;
+                    if (isProgrammaticScroll) {
+                      if (scrollEndFallbackTimer !== undefined) window.clearTimeout(scrollEndFallbackTimer);
+                      scrollEndFallbackTimer = window.setTimeout(finishProgrammaticScroll, 150);
+                      return;
+                    }
+                    updateActive();
+                  });
+                };
                 galleryIntersectionObserver = new IntersectionObserver(updateActive, { root: track, threshold: [0.25, 0.5, 0.75] });
                 slides.forEach((slide) => galleryIntersectionObserver.observe(slide));
-                track.addEventListener('scroll', () => {
-                  if (isProgrammaticScroll) {
-                    if (scrollEndFallbackTimer !== undefined) window.clearTimeout(scrollEndFallbackTimer);
-                    scrollEndFallbackTimer = window.setTimeout(finishProgrammaticScroll, 150);
-                    return;
-                  }
-                  updateActive();
-                }, { passive: true });
+                track.addEventListener('scroll', scheduleGalleryScrollUpdate, { passive: true });
                 track.addEventListener('scrollend', finishProgrammaticScroll);
 
                 gallery.addEventListener('keydown', (event) => {
@@ -198,6 +204,7 @@ const toc = headings.filter((heading) => heading.depth === 2);
                 });
 
                 document.addEventListener('astro:before-swap', () => {
+                  if (galleryScrollFrame !== undefined) window.cancelAnimationFrame(galleryScrollFrame);
                   if (scrollEndFallbackTimer !== undefined) window.clearTimeout(scrollEndFallbackTimer);
                   galleryResizeObserver?.disconnect();
                   galleryIntersectionObserver?.disconnect();

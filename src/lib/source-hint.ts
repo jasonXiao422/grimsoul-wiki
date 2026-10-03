@@ -62,6 +62,14 @@ export function initSourceHintListeners() {
     clearHideTimer();
     hideTimer = window.setTimeout(hide, 150);
   };
+  let viewportHideFrame: number | undefined;
+  const scheduleViewportHide = () => {
+    if (viewportHideFrame !== undefined) return;
+    viewportHideFrame = window.requestAnimationFrame(() => {
+      viewportHideFrame = undefined;
+      hide();
+    });
+  };
 
   const readSources = (value: string | undefined) => {
     try {
@@ -179,7 +187,7 @@ export function initSourceHintListeners() {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') hide();
   });
-  window.addEventListener('scroll', hide, { passive: true });
-  window.addEventListener('resize', hide);
+  window.addEventListener('scroll', scheduleViewportHide, { passive: true });
+  window.addEventListener('resize', scheduleViewportHide, { passive: true });
   document.addEventListener('astro:before-swap', hide);
 }

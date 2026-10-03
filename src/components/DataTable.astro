@@ -56,7 +56,13 @@ const getFilterOptions = (key: string) => {
       values.set(value, formatValue(key, rawValue));
     }
   }
-  return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN'));
+  return [...values.entries()].sort((a, b) => {
+    if (key === 'hasBlueprint') {
+      const order = (value: string) => value === 'true' ? 0 : value === 'false' ? 1 : 2;
+      return order(a[0]) - order(b[0]);
+    }
+    return a[1].localeCompare(b[1], 'zh-Hans-CN');
+  });
 };
 
 const getRowFilterValue = (key: string, value: unknown, item?: Record<string, any>) => {
@@ -169,8 +175,8 @@ for (const item of items) {
     <table class="data-table">
       <thead>
         <tr>
-          {category.columns.map((column) => (
-            <th class:list={[column.numeric && 'numeric']}>
+          {category.columns.map((column, index) => (
+            <th class:list={[column.numeric && 'numeric', index === 0 && 'item-name-header']}>
               {column.sortable ? (
                 <button type="button" data-sort-key={column.key}>{column.label}</button>
               ) : (
@@ -233,7 +239,7 @@ for (const item of items) {
                 const elementLabel = column.key === 'elementDamage' ? getElementLabel(rawValue) : '';
                 return (
                   <td
-                    class:list={[column.numeric && 'numeric']}
+                    class:list={[column.numeric && 'numeric', index === 0 && 'item-name-cell']}
                     data-label={index === 0 ? undefined : column.label}
                     data-sort-value={sortEmpty ? '' : sortValue}
                     data-sort-empty={sortEmpty ? 'true' : undefined}
@@ -521,6 +527,14 @@ for (const item of items) {
       clearHideTimer();
       hideTimer = window.setTimeout(hide, 150);
     };
+    let viewportHideFrame: number | undefined;
+    const scheduleViewportHide = () => {
+      if (viewportHideFrame !== undefined) return;
+      viewportHideFrame = window.requestAnimationFrame(() => {
+        viewportHideFrame = undefined;
+        hide();
+      });
+    };
 
     const readSources = (value: string | undefined) => {
       try {
@@ -618,13 +632,15 @@ for (const item of items) {
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') hide();
     });
-    window.addEventListener('scroll', hide, { passive: true });
-    window.addEventListener('resize', hide);
+    window.addEventListener('scroll', scheduleViewportHide, { passive: true });
+    window.addEventListener('resize', scheduleViewportHide, { passive: true });
     document.addEventListener('astro:before-swap', hide);
   };
 
   onPageReady(() => {
-    initDataTables();
-    initSourceHintListeners();
+    window.requestAnimationFrame(() => {
+      initDataTables();
+      initSourceHintListeners();
+    });
   });
 </script>

@@ -35,7 +35,7 @@
   --surface-bottom: #1d1e21;
   --surface-edge: rgba(0, 0, 0, 0.85);
   --surface-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.025);
-  --surface-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --surface-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
   --card-fill: linear-gradient(180deg, color-mix(in srgb, var(--bg-panel) 92%, var(--accent-dim)) 0%, var(--bg-panel) 100%);
   --card-highlight: inset 0 1px 0 color-mix(in srgb, var(--accent-dim) 25%, transparent);
   --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -199,6 +199,32 @@ html {
   background: var(--bg);
   font-family: var(--font-sans);
   line-height: 1.75;
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: grimsoul-page-fade-in 180ms ease-out both;
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(root) {
+  animation-duration: 180ms;
+}
+
+@keyframes grimsoul-page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(root) {
+    animation: none;
+  }
 }
 
 body {
@@ -1455,6 +1481,22 @@ p {
   padding: 7px 34px 7px 10px;
 }
 
+.filter-select option {
+  background-color: var(--surface-bottom);
+  color: var(--text);
+}
+
+.filter-select option:disabled {
+  color: var(--text-dim);
+}
+
+.filter-select,
+.filter-clear {
+  background: linear-gradient(to bottom, var(--surface-top), var(--surface-bottom));
+  border: 1px solid var(--surface-edge);
+  box-shadow: var(--surface-highlight), var(--surface-shadow);
+}
+
 .table-scroll {
   overflow: visible;
   border: 1px solid var(--border);
@@ -1497,11 +1539,9 @@ p {
     position: sticky;
     top: var(--header-height);
     z-index: 5;
-    background: var(--glass-bg);
+    background: var(--surface-top);
     border: 0;
     box-shadow: var(--glass-highlight), inset 0 -1px 0 var(--border);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
   }
 }
 
@@ -1542,6 +1582,14 @@ p {
   min-width: 180px;
 }
 
+.data-table th.item-name-header,
+.data-table td.item-name-cell,
+.skills-table th:first-child,
+.skills-table td.skill-name-cell {
+  min-width: 180px;
+  padding-right: 24px;
+}
+
 .item-link {
   display: inline-flex;
   width: fit-content;
@@ -1551,6 +1599,12 @@ p {
 }
 
 .item-link strong,
+.recipe-list a > span[style],
+.recipe-list a > span:not(.qty) > span[style],
+.usage-list a strong,
+.upgradable-building-note-name,
+.forge-blueprint-item-name,
+.element-forge-blueprint-card strong,
 .entry-card strong,
 .lore-card strong,
 .scroll-card strong,
@@ -1561,9 +1615,28 @@ p {
   transition: color 0.12s ease;
 }
 
+.data-table td.item-name-cell .item-link strong,
+.skills-table td.skill-name-cell .item-link strong {
+  white-space: nowrap;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .item-link:hover strong,
   .item-link:focus-visible strong,
+  .recipe-list a:hover > span[style],
+  .recipe-list a:focus-visible > span[style],
+  .recipe-list a:hover > span:not(.qty) > span[style],
+  .recipe-list a:focus-visible > span:not(.qty) > span[style],
+  .usage-list a:hover strong,
+  .usage-list a:focus-visible strong,
+  .upgradable-building-notes-list a:hover .upgradable-building-note-name,
+  .upgradable-building-notes-list a:focus-visible .upgradable-building-note-name,
+  .forge-blueprint-item-list a:hover .forge-blueprint-item-name,
+  .forge-blueprint-item-list a:focus-visible .forge-blueprint-item-name,
+  .element-forge-blueprint-card:hover strong,
+  .element-forge-blueprint-card:focus-visible strong,
+  .sharpen-summary a:hover,
+  .sharpen-summary a:focus-visible,
   .entry-card:hover strong,
   .entry-card:focus-visible strong,
   .lore-card:hover strong,
@@ -1580,12 +1653,37 @@ p {
   .order-card:focus-visible strong {
     color: var(--accent) !important;
   }
+
+  .recipe-list a:hover,
+  .recipe-list a:focus-visible,
+  .usage-list a:hover,
+  .usage-list a:focus-visible,
+  .upgradable-building-notes-list a:hover,
+  .upgradable-building-notes-list a:focus-visible,
+  .forge-blueprint-item-list a:hover,
+  .forge-blueprint-item-list a:focus-visible,
+  .element-forge-blueprint-card:hover,
+  .element-forge-blueprint-card:focus-visible,
+  .sharpen-summary a:hover,
+  .sharpen-summary a:focus-visible {
+    border-color: var(--line-hover);
+    box-shadow: var(--card-highlight), var(--card-shadow-hover);
+  }
 }
 
 .item-name-with-source {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
+}
+
+.recipe-list a,
+.usage-list a,
+.upgradable-building-notes-list a,
+.forge-blueprint-item-list a,
+.element-forge-blueprint-card,
+.sharpen-summary a {
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
 }
 
 td[data-source-cell].is-source-active .item-name-with-source strong {
@@ -2577,7 +2675,7 @@ td[data-source-cell].is-source-active .item-name-with-source strong {
 
 .skills-table th:first-child,
 .skills-table td:first-child {
-  min-width: 190px;
+  min-width: 180px;
 }
 
 .skills-table .skill-description {
@@ -3937,7 +4035,6 @@ td[data-source-cell].is-source-active .item-name-with-source strong {
   opacity: 0.45;
   filter: saturate(0.6) brightness(0.7);
   transform: scale(0.86);
-  will-change: transform, opacity;
   transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -5237,11 +5334,6 @@ td[data-source-cell].is-source-active .item-name-with-source strong {
   .table-amulets .data-table th,
   .table-amulets .data-table td {
     padding-inline: 8px;
-  }
-
-  .table-amulets .data-table th:nth-child(1),
-  .table-amulets .data-table td:nth-child(1) {
-    width: 50%;
   }
 
   .table-amulets .data-table th:nth-child(2),

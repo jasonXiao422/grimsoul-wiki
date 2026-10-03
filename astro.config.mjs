@@ -5,6 +5,7 @@ export default defineConfig({
   site: 'https://grimsoul-wiki.pages.dev',
   output: 'static',
   prefetch: {
+    prefetchAll: true,
     defaultStrategy: 'hover',
   },
   markdown: {

@@ -43,7 +43,13 @@ const armorFilterOptions = (key: string) => {
       values.set(String(rawValue), formatValue(key, rawValue));
     });
   });
-  return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN'));
+  return [...values.entries()].sort((a, b) => {
+    if (key === 'hasBlueprint') {
+      const order = (value: string) => value === 'true' ? 0 : value === 'false' ? 1 : 2;
+      return order(a[0]) - order(b[0]);
+    }
+    return a[1].localeCompare(b[1], 'zh-Hans-CN');
+  });
 };
 const armorFilterPlaceholder = (key: string) =>
   ['hasBlueprint', 'obtainSources', 'blueprintSources'].includes(key)

@@ -6,7 +6,7 @@ import { LOADING_LINES } from '../lib/loading-lines';
   if (!window.__GRIMSOUL_LOADING_LINES__) window.__GRIMSOUL_LOADING_LINES__ = loadingLines;
 </script>
 
-<div class="nav-loader" data-nav-loader hidden>
+<div class="nav-loader" data-nav-loader transition:persist hidden>
   <div
     class="nav-loader-dialog"
     role="dialog"
@@ -30,6 +30,7 @@ import { LOADING_LINES } from '../lib/loading-lines';
 <script is:inline>
   if (!window.__grimsoulNavLoaderInitialized) {
     window.__grimsoulNavLoaderInitialized = true;
+  try {
   (() => {
     const getLoader = () => document.querySelector('[data-nav-loader]');
     const getCloseButton = () => getLoader()?.querySelector('[data-nav-loader-close]');
@@ -74,32 +75,60 @@ import { LOADING_LINES } from '../lib/loading-lines';
       showTimer = window.setTimeout(showLoader, 500);
     };
 
-    document.addEventListener('astro:before-preparation', () => {
-      navigationInProgress = true;
-      startTimer();
-    });
-
-    document.addEventListener('astro:after-swap', () => {
-      navigationInProgress = false;
-      hideLoader();
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!(event.target instanceof Element) || !event.target.closest('[data-nav-loader-close]')) return;
-      if (navigationInProgress && history.length > 1) history.back();
-      hideLoader();
-    });
-
-    document.addEventListener('keydown', (event) => {
-      const loader = getLoader();
-      if (event.key === 'Escape' && loader && !loader.hidden) {
-        if (navigationInProgress && history.length > 1) history.back();
+    const finishNavigation = () => {
+      try {
+        navigationInProgress = false;
         hideLoader();
+      } catch (error) {
+        console.error('[nav-loader]', error);
+      }
+    };
+
+    document.addEventListener('astro:before-preparation', () => {
+      try {
+        navigationInProgress = true;
+        startTimer();
+      } catch (error) {
+        console.error('[nav-loader]', error);
       }
     });
 
-    window.addEventListener('pageshow', hideLoader);
+    document.addEventListener('astro:before-swap', finishNavigation);
+    document.addEventListener('astro:after-swap', finishNavigation);
+    document.addEventListener('astro:page-load', finishNavigation);
+    document.addEventListener('astro:after-preparation', () => {
+      if (!navigationInProgress) finishNavigation();
+    });
+
+    document.addEventListener('click', (event) => {
+      try {
+        if (!(event.target instanceof Element) || !event.target.closest('[data-nav-loader-close]')) return;
+        if (navigationInProgress && history.length > 1) history.back();
+        finishNavigation();
+      } catch (error) {
+        console.error('[nav-loader]', error);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      try {
+        const loader = getLoader();
+        if (event.key === 'Escape' && loader && !loader.hidden) {
+          if (navigationInProgress && history.length > 1) history.back();
+          finishNavigation();
+        }
+      } catch (error) {
+        console.error('[nav-loader]', error);
+      }
+    });
+
+    window.addEventListener('pageshow', finishNavigation);
+    window.addEventListener('unhandledrejection', finishNavigation);
+    window.addEventListener('error', finishNavigation);
   })();
+  } catch (error) {
+    console.error('[nav-loader]', error);
+  }
   }
 </script>
 
@@ -107,7 +136,7 @@ import { LOADING_LINES } from '../lib/loading-lines';
   .nav-loader {
     position: fixed;
     inset: 0;
-    z-index: 100;
+    z-index: 2000;
     display: grid;
     place-items: center;
     background: rgba(0, 0, 0, 0.55);

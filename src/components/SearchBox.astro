@@ -163,5 +163,5 @@
   }
   };
 
-  onPageReady(initSearchBox);
+  onPageReady(() => window.requestAnimationFrame(initSearchBox));
 </script>

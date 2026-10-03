@@ -174,7 +174,7 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
   </head>
   <body>
     <div class="site-shell">
-      <header class="site-header" data-site-header>
+      <header class="site-header" data-site-header transition:name="site-header">
         <div class="header-inner">
           <a class="brand" href="/">Grim Soul 中文攻略站</a>
           <button class="nav-menu-toggle" type="button" data-nav-menu-toggle aria-expanded="false" aria-controls="main-navigation">
@@ -363,171 +363,219 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
       } catch (error) {
         console.error('[source-hint] 初始化失败', error);
       }
-      const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
-      const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
-      const headerInner = siteHeader?.querySelector<HTMLElement>('.header-inner');
-      if (headerInner?.dataset.initialized) return;
-      if (headerInner) headerInner.dataset.initialized = 'true';
-      const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
-      const dropdowns = [...document.querySelectorAll<HTMLElement>('[data-nav-dropdown]')];
+      });
+    </script>
+    <script>
+      import { onPageReady } from '../lib/lifecycle';
 
-      const setMenuOpen = (open: boolean) => {
-        mainNav?.classList.toggle('is-open', open);
-        menuToggle?.setAttribute('aria-expanded', String(open));
+      const runIndependentInit = (name: string, init: () => void) => {
+        try {
+          init();
+        } catch (error) {
+          console.error(`[${name}] 初始化失败`, error);
+        }
       };
 
-      const setDropdownOpen = (dropdown: HTMLElement, open: boolean) => {
-        dropdown.classList.toggle('is-open', open);
-        dropdown.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]')?.setAttribute('aria-expanded', String(open));
+      const initHeaderMeasurement = () => {
+        const update = () => {
+          const header = document.querySelector<HTMLElement>('[data-site-header]');
+          const inner = header?.querySelector<HTMLElement>('.header-inner');
+          if (!header || !inner) return;
+          const firstRowHeight = Number.parseFloat(getComputedStyle(inner).gridTemplateRows.split(' ')[0] ?? '');
+          const height = Number.isFinite(firstRowHeight) ? firstRowHeight + 1 : header.offsetHeight;
+          document.documentElement.style.setProperty('--header-height', `${height}px`);
+          document.documentElement.style.setProperty(
+            '--header-bar-height',
+            `${Number.isFinite(firstRowHeight) ? firstRowHeight : header.offsetHeight}px`,
+          );
+        };
+        let frame: number | undefined;
+        const schedule = () => {
+          if (frame !== undefined) return;
+          frame = window.requestAnimationFrame(() => {
+            frame = undefined;
+            update();
+          });
+        };
+        update();
+        if (!window.__grimsoulHeaderResizeListener) {
+          window.__grimsoulHeaderResizeListener = true;
+          window.addEventListener('resize', schedule, { passive: true });
+        }
+        const header = document.querySelector<HTMLElement>('[data-site-header]');
+        if ('ResizeObserver' in window && header && !header.dataset.resizeObserved) {
+          header.dataset.resizeObserved = 'true';
+          new ResizeObserver(schedule).observe(header);
+        }
       };
 
-      const focusDropdownItem = (dropdown: HTMLElement, index: number) => {
-        const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
-        if (links.length === 0) return;
-        links[(index + links.length) % links.length]?.focus();
-      };
-
-      const updateHeaderHeight = () => {
-        if (!siteHeader || !headerInner) return;
-        const firstRowHeight = Number.parseFloat(getComputedStyle(headerInner).gridTemplateRows.split(' ')[0] ?? '');
-        const headerHeight = Number.isFinite(firstRowHeight) ? firstRowHeight + 1 : siteHeader.offsetHeight;
-        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-        document.documentElement.style.setProperty(
-          '--header-bar-height',
-          `${Number.isFinite(firstRowHeight) ? firstRowHeight : siteHeader.offsetHeight}px`,
-        );
-      };
-
-      updateHeaderHeight();
-      if (!window.__grimsoulHeaderResizeListener) {
-        window.__grimsoulHeaderResizeListener = true;
-        window.addEventListener('resize', updateHeaderHeight);
-      }
-      if ('ResizeObserver' in window && siteHeader) {
-        new ResizeObserver(updateHeaderHeight).observe(siteHeader);
-      }
-
-      if (!window.__grimsoulSwapCleanupListener) {
-        window.__grimsoulSwapCleanupListener = true;
-        document.addEventListener('astro:after-swap', () => {
-          try {
-            sessionStorage.setItem('nav:in-app', '1');
-          } catch {
-            // sessionStorage may be unavailable in restricted browser modes.
-          }
+      const initNavigation = () => {
+        if (window.__grimsoulNavigationDelegates) return;
+        window.__grimsoulNavigationDelegates = true;
+        const closeAll = () => {
           document.querySelector<HTMLElement>('[data-main-nav]')?.classList.remove('is-open');
           document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]')?.setAttribute('aria-expanded', 'false');
           document.querySelectorAll<HTMLElement>('[data-nav-dropdown]').forEach((dropdown) => {
             dropdown.classList.remove('is-open');
             dropdown.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]')?.setAttribute('aria-expanded', 'false');
           });
-          const results = document.querySelector<HTMLElement>('[data-global-results]');
-          results?.classList.remove('is-open');
-          results?.replaceChildren();
-          document.querySelector<HTMLDialogElement>('[data-image-dialog]')?.close();
-          const currentHeader = document.querySelector<HTMLElement>('[data-site-header]');
-          const currentInner = currentHeader?.querySelector<HTMLElement>('.header-inner');
-          if (currentHeader && currentInner) {
-            const currentFirstRowHeight = Number.parseFloat(getComputedStyle(currentInner).gridTemplateRows.split(' ')[0] ?? '');
-            const currentHeaderHeight = Number.isFinite(currentFirstRowHeight)
-              ? currentFirstRowHeight + 1
-              : currentHeader.offsetHeight;
-            document.documentElement.style.setProperty('--header-height', `${currentHeaderHeight}px`);
-            document.documentElement.style.setProperty(
-              '--header-bar-height',
-              `${Number.isFinite(currentFirstRowHeight) ? currentFirstRowHeight : currentHeader.offsetHeight}px`,
-            );
+        };
+        const focusItem = (dropdown: HTMLElement, index: number) => {
+          const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
+          if (links.length > 0) links[(index + links.length) % links.length]?.focus();
+        };
+        document.addEventListener('click', (event) => {
+          try {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const menuToggle = target.closest('[data-nav-menu-toggle]');
+            if (menuToggle) {
+              const nav = document.querySelector<HTMLElement>('[data-main-nav]');
+              const open = !nav?.classList.contains('is-open');
+              nav?.classList.toggle('is-open', open);
+              document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]')?.setAttribute('aria-expanded', String(open));
+              return;
+            }
+            const dropdownToggle = target.closest('[data-nav-dropdown-toggle]');
+            if (dropdownToggle) {
+              const dropdown = dropdownToggle.closest<HTMLElement>('[data-nav-dropdown]');
+              if (!dropdown) return;
+              const open = !dropdown.classList.contains('is-open');
+              document.querySelectorAll<HTMLElement>('[data-nav-dropdown]').forEach((item) => {
+                item.classList.toggle('is-open', item === dropdown && open);
+                item.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]')?.setAttribute('aria-expanded', String(item === dropdown && open));
+              });
+              return;
+            }
+            const nav = document.querySelector<HTMLElement>('[data-main-nav]');
+            if (!nav || !nav.contains(target)) closeAll();
+          } catch (error) {
+            console.error('[nav]', error);
           }
         });
-      }
-
-      menuToggle?.addEventListener('click', () => {
-        setMenuOpen(!mainNav?.classList.contains('is-open'));
-      });
-
-      dropdowns.forEach((dropdown) => {
-        const dropdownToggle = dropdown.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]');
-        const dropdownMenu = dropdown.querySelector<HTMLElement>('[data-nav-dropdown-menu]');
-
-        dropdownToggle?.addEventListener('click', () => {
-          const open = !dropdown.classList.contains('is-open');
-          dropdowns.forEach((other) => setDropdownOpen(other, other === dropdown && open));
-        });
-
-        dropdownToggle?.addEventListener('keydown', (event) => {
-          if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
-          event.preventDefault();
-          setDropdownOpen(dropdown, true);
-          const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
-          focusDropdownItem(dropdown, event.key === 'ArrowDown' ? 0 : links.length - 1);
-        });
-
-        dropdownMenu?.addEventListener('keydown', (event) => {
-          if (!(event.target instanceof HTMLAnchorElement)) return;
-          const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
-          const currentIndex = links.indexOf(event.target);
-          if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-            event.preventDefault();
-            focusDropdownItem(dropdown, currentIndex + (event.key === 'ArrowDown' ? 1 : -1));
+        document.addEventListener('keydown', (event) => {
+          try {
+            if (event.key === 'Escape') {
+              closeAll();
+              return;
+            }
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const dropdownToggle = target.closest('[data-nav-dropdown-toggle]');
+            if (dropdownToggle && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+              event.preventDefault();
+              const dropdown = dropdownToggle.closest<HTMLElement>('[data-nav-dropdown]');
+              if (!dropdown) return;
+              const open = !dropdown.classList.contains('is-open');
+              document.querySelectorAll<HTMLElement>('[data-nav-dropdown]').forEach((item) => {
+                item.classList.toggle('is-open', item === dropdown && (open || item === dropdown));
+                item.querySelector<HTMLButtonElement>('[data-nav-dropdown-toggle]')?.setAttribute('aria-expanded', String(item === dropdown));
+              });
+              const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
+              focusItem(dropdown, event.key === 'ArrowDown' ? 0 : links.length - 1);
+              return;
+            }
+            const link = target.closest<HTMLAnchorElement>('[data-nav-dropdown-menu] a');
+            if (link && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+              event.preventDefault();
+              const dropdown = link.closest<HTMLElement>('[data-nav-dropdown]');
+              if (!dropdown) return;
+              const links = [...dropdown.querySelectorAll<HTMLAnchorElement>('[data-nav-dropdown-menu] a')];
+              focusItem(dropdown, links.indexOf(link) + (event.key === 'ArrowDown' ? 1 : -1));
+            }
+          } catch (error) {
+            console.error('[nav]', error);
           }
         });
-      });
+        document.addEventListener('astro:after-swap', () => {
+          try {
+            closeAll();
+          } catch (error) {
+            console.error('[nav]', error);
+          }
+        });
+      };
 
-      if (!window.__grimsoulLayoutClickListener) {
-        window.__grimsoulLayoutClickListener = true;
-      document.addEventListener('click', (event) => {
-        const target = event.target;
-        if (target instanceof Node && !dropdowns.some((dropdown) => dropdown.contains(target))) {
-          dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
+      const initSwapCleanup = () => {
+        if (window.__grimsoulSwapCleanupListener) return;
+        window.__grimsoulSwapCleanupListener = true;
+        document.addEventListener('astro:after-swap', () => {
+          runIndependentInit('navigation-cleanup', () => {
+            try { sessionStorage.setItem('nav:in-app', '1'); } catch { /* 受限模式下忽略 */ }
+            document.querySelector<HTMLElement>('[data-main-nav]')?.classList.remove('is-open');
+            document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]')?.setAttribute('aria-expanded', 'false');
+          });
+          runIndependentInit('search-cleanup', () => {
+            const results = document.querySelector<HTMLElement>('[data-global-results]');
+            results?.classList.remove('is-open');
+            results?.replaceChildren();
+          });
+          runIndependentInit('image-dialog-cleanup', () => {
+            document.querySelector<HTMLDialogElement>('[data-image-dialog]')?.close();
+          });
+          runIndependentInit('header-measurement', initHeaderMeasurement);
+        });
+      };
+
+      onPageReady(() => runIndependentInit('header-measurement', initHeaderMeasurement), 'header-measurement-independent');
+      onPageReady(() => runIndependentInit('navigation', initNavigation), 'navigation-independent');
+      onPageReady(() => runIndependentInit('swap-cleanup', initSwapCleanup), 'swap-cleanup-independent');
+    </script>
+    <script is:inline>
+      (() => {
+        if (window.__grimsoulBackToTopStandalone) return;
+        window.__grimsoulBackToTopStandalone = true;
+        try {
+
+        const progressCircumference = 2 * Math.PI * 22;
+        let updateFrame;
+
+        const update = () => {
+          updateFrame = undefined;
+          const button = document.querySelector('[data-back-to-top]');
+          if (!button) return;
+          const progressCircle = button.querySelector('.to-top-progress');
+          const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+          const hasScrollableContent = maxScrollY > 0;
+          const progress = hasScrollableContent
+            ? Math.min(1, Math.max(0, window.scrollY / maxScrollY))
+            : 0;
+          button.classList.toggle('is-visible', hasScrollableContent && window.scrollY > window.innerHeight);
+          progressCircle?.style.setProperty(
+            'stroke-dashoffset',
+            String(progressCircumference * (1 - progress)),
+          );
+        };
+
+        const scheduleUpdate = () => {
+          if (updateFrame !== undefined) return;
+          updateFrame = window.requestAnimationFrame(update);
+        };
+
+        window.addEventListener('scroll', scheduleUpdate, { passive: true });
+        window.addEventListener('resize', scheduleUpdate, { passive: true });
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+          const button = target.closest('[data-back-to-top]');
+          if (!button) return;
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          });
+        });
+
+        document.addEventListener('astro:page-load', update);
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', update, { once: true });
+        } else {
+          update();
         }
-      });
-      }
-
-      if (!window.__grimsoulLayoutKeydownListener) {
-        window.__grimsoulLayoutKeydownListener = true;
-      document.addEventListener('keydown', (event) => {
-        if (event.key !== 'Escape') return;
-        dropdowns.forEach((dropdown) => setDropdownOpen(dropdown, false));
-        setMenuOpen(false);
-      });
-      }
-
-      const backToTop = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
-      const progressCircle = backToTop?.querySelector<SVGCircleElement>('.to-top-progress');
-      const progressCircumference = 2 * Math.PI * 22;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let backToTopFrame: number | undefined;
-      const updateBackToTop = () => {
-        backToTopFrame = undefined;
-        const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
-        const hasScrollableContent = maxScrollY > 0;
-        const progress = hasScrollableContent
-          ? Math.min(1, Math.max(0, window.scrollY / maxScrollY))
-          : 0;
-        backToTop?.classList.toggle(
-          'is-visible',
-          hasScrollableContent && window.scrollY > window.innerHeight,
-        );
-        progressCircle?.style.setProperty(
-          'stroke-dashoffset',
-          String(progressCircumference * (1 - progress)),
-        );
-      };
-      const scheduleBackToTopUpdate = () => {
-        if (backToTopFrame !== undefined) return;
-        backToTopFrame = window.requestAnimationFrame(updateBackToTop);
-      };
-
-      backToTop?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-      });
-      updateBackToTop();
-      if (!window.__grimsoulBackToTopListeners) {
-        window.__grimsoulBackToTopListeners = true;
-        window.addEventListener('scroll', scheduleBackToTopUpdate, { passive: true });
-        window.addEventListener('resize', scheduleBackToTopUpdate);
-      }
-      });
+        } catch (error) {
+          console.error('[back-to-top]', error);
+        }
+      })();
     </script>
   </body>
 </html>
