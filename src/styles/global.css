@@ -18,6 +18,13 @@
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   --glass-blur: blur(16px) saturate(140%);
   --glass-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --clear-glass-bg: rgba(16, 18, 20, 0.28);
+  --clear-glass-blur: blur(16px) saturate(160%);
+  --clear-glass-border: rgba(255, 255, 255, 0.14);
+  --clear-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  --clear-glass-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --clear-glass-tag-bg: rgba(255, 255, 255, 0.07);
+  --clear-glass-tag-border: rgba(255, 255, 255, 0.12);
   --surface: color-mix(in srgb, var(--bg-panel) 88%, var(--accent-dim));
   --surface-active: color-mix(in srgb, var(--bg-panel) 80%, var(--accent-dim));
   --kicker-size: 0.72rem;
@@ -1485,6 +1492,26 @@ p {
   min-width: 180px;
 }
 
+.item-name-with-source {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+td[data-source-cell] .item-name-with-source strong {
+  transition: color 0.12s ease;
+}
+
+td[data-source-cell].is-source-active .item-name-with-source strong {
+  color: var(--accent) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  td[data-source-cell] .item-name-with-source .item-cell:hover strong {
+    color: var(--accent) !important;
+  }
+}
+
 .item-icon {
   width: 42px;
   height: 42px;
@@ -1550,6 +1577,110 @@ p {
   background: var(--bg-deep);
   color: var(--text-dim);
   font-size: 0.9rem;
+}
+
+.source-hint {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  box-sizing: content-box;
+  margin: -8px 0 -8px 4px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-dim);
+  box-shadow: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.source-hint svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+.source-hint:hover,
+.source-hint:focus-visible,
+.source-hint[aria-expanded='true'] {
+  color: var(--accent);
+}
+
+.source-hint:focus-visible {
+  outline: 1px solid var(--accent-dim);
+  outline-offset: 2px;
+}
+
+.source-popover {
+  position: fixed;
+  z-index: 10;
+  max-width: min(320px, calc(100vw - 16px));
+  padding: 10px 12px;
+  border: 1px solid var(--clear-glass-border);
+  border-radius: 10px;
+  background: var(--clear-glass-bg);
+  -webkit-backdrop-filter: var(--clear-glass-blur);
+  backdrop-filter: var(--clear-glass-blur);
+  box-shadow: var(--clear-glass-highlight), var(--clear-glass-shadow);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.source-popover.is-visible {
+  opacity: 1;
+}
+
+.source-popover[hidden] {
+  display: none;
+}
+
+.source-popover > div + div {
+  margin-top: 8px;
+}
+
+.source-popover-title {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.source-popover .tag-list {
+  gap: 4px;
+}
+
+.source-popover .tag {
+  min-height: 24px;
+  padding-inline: 7px;
+  background: var(--clear-glass-tag-bg);
+  border: 1px solid var(--clear-glass-tag-border);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .source-hint {
+    display: none;
+  }
+}
+
+@media (hover: none) {
+  .source-hint {
+    display: inline-flex;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 8px;
+    margin: -8px 0 -8px 4px;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 0;
+  }
 }
 
 .detail-grid {
@@ -2687,6 +2818,54 @@ p {
 
   .site-search {
     flex-basis: clamp(160px, 22vw, 240px);
+  }
+}
+
+.table-armor tr[data-row]:has(+ .source-row) td,
+.table-armor-pieces tr[data-row]:has(+ .source-row) td {
+  border-bottom: 0;
+}
+
+.table-armor .source-row td,
+.table-armor-pieces .source-row td {
+  padding: 0 14px 12px;
+  border-top: 0;
+}
+
+.source-row-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-left: 52px;
+}
+
+.source-row-group {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.source-row-title {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+@media (max-width: 990px) {
+  .table-armor .source-row td,
+  .table-armor-pieces .source-row td {
+    position: sticky;
+    left: 0;
+    width: min(100%, calc(100vw - 32px));
+    max-width: min(100%, calc(100vw - 32px));
+    box-sizing: border-box;
+    background: var(--bg-panel);
+    z-index: 1;
+  }
+
+  .source-row-content {
+    display: grid;
+    gap: 8px;
   }
 }
 

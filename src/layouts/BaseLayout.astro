@@ -355,8 +355,14 @@ const CONTRIBUTORS: Array<{ group: string; people: Contributor[] }> = [
     <BgmPlayer />
     <script>
       import { onPageReady } from '../lib/lifecycle';
+      import { initSourceHintListeners } from '../lib/source-hint';
 
       onPageReady(() => {
+      try {
+        initSourceHintListeners();
+      } catch (error) {
+        console.error('[source-hint] 初始化失败', error);
+      }
       const menuToggle = document.querySelector<HTMLButtonElement>('[data-nav-menu-toggle]');
       const siteHeader = document.querySelector<HTMLElement>('[data-site-header]');
       const headerInner = siteHeader?.querySelector<HTMLElement>('.header-inner');

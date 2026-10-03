@@ -10,9 +10,11 @@ interface Props {
   category: CategoryDef;
   items: Array<Record<string, any>>;
   externalSearchSelector?: string;
+  externalFilterSelector?: string;
+  hideFilters?: boolean;
 }
 
-const { category, items, externalSearchSelector } = Astro.props;
+const { category, items, externalSearchSelector, externalFilterSelector, hideFilters = false } = Astro.props;
 const fallback =
   'data:image/svg+xml;charset=utf-8,' +
   encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1b1d21"/><path d="M21 69h54L61 48 49 61 39 41z" fill="#2c2f35"/><circle cx="36" cy="30" r="8" fill="#8a6f1a"/></svg>`);
@@ -69,6 +71,12 @@ const getFilterPlaceholder = (key: string) => key === 'damageType'
   ? '全部伤害类型'
   : key === 'isRanged'
     ? '远程/近战'
+    : key === 'hasBlueprint'
+      ? '有无图纸'
+      : key === 'obtainSources'
+        ? '实体获取途径'
+        : key === 'blueprintSources'
+          ? '图纸获取途径'
     : `全部${FIELD_LABELS[key] ?? '筛选项'}`;
 
 const getDisplayValue = (item: Record<string, any>, key: string, value: unknown) => {
@@ -118,7 +126,12 @@ for (const item of items) {
 }
 ---
 
-<section class:list={['data-table-block', `table-${category.slug}`]} data-table-root>
+<section
+  class:list={['data-table-block', `table-${category.slug}`]}
+  data-table-root
+  data-external-filter-selector={externalFilterSelector}
+  data-source-hint={category.sourceHint ? 'true' : undefined}
+>
   <div class="table-tools">
     {externalSearchSelector ? (
       <div aria-hidden="true"></div>
@@ -128,7 +141,7 @@ for (const item of items) {
         <input class="search-input" type="search" data-table-search placeholder={`搜索${category.label}`} />
       </label>
     )}
-    {category.filters.length > 0 && (
+    {category.filters.length > 0 && !hideFilters && (
       <div class="filter-bar">
         {category.filters.map((filterKey) => (
           <label>
@@ -181,12 +194,25 @@ for (const item of items) {
           const qualityStyle = qualityMeta
             ? `--quality-border:${qualityMeta.border};--quality-glow:${qualityMeta.glow}`
             : undefined;
+          const hasSourceData = category.sourceHint && (
+            (Array.isArray(item.obtainSources) && item.obtainSources.length > 0) ||
+            (Array.isArray(item.blueprintSources) && item.blueprintSources.length > 0)
+          );
           return (
-            <tr
-              data-row
-              data-search={category.columns.map((column) => getDisplayValue(item, column.key, getByPath(item, column.key))).join(' ')}
-              {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(filter, getByPath(item, filter), item)]))}
-            >
+            <>
+              <tr
+                data-row
+                data-source-item-id={category.sourceHint ? item.id : undefined}
+                data-search-name={category.sourceHint ? getListDisplayValue(item, 'name', getByPath(item, 'name')) : undefined}
+                data-search={[...
+                  category.columns.map((column) => getDisplayValue(item, column.key, getByPath(item, column.key))),
+                  ...(category.sourceHint ? [
+                    ...(Array.isArray(item.obtainSources) ? item.obtainSources : []),
+                    ...(Array.isArray(item.blueprintSources) ? item.blueprintSources : []),
+                  ] : []),
+                ].join(' ')}
+                {...Object.fromEntries(category.filters.map((filter) => [`data-filter-${filter}`, getRowFilterValue(filter, getByPath(item, filter), item)]))}
+              >
               {category.columns.map((column, index) => {
                 const rawValue = getByPath(item, column.key);
                 const value = getListDisplayValue(item, column.key, rawValue);
@@ -205,8 +231,17 @@ for (const item of items) {
                   : undefined;
                 const elementLabel = column.key === 'elementDamage' ? getElementLabel(rawValue) : '';
                 return (
-                  <td class:list={[column.numeric && 'numeric']} data-label={index === 0 ? undefined : column.label} data-sort-value={sortEmpty ? '' : sortValue} data-sort-empty={sortEmpty ? 'true' : undefined}>
+                  <td
+                    class:list={[column.numeric && 'numeric']}
+                    data-label={index === 0 ? undefined : column.label}
+                    data-sort-value={sortEmpty ? '' : sortValue}
+                    data-sort-empty={sortEmpty ? 'true' : undefined}
+                    data-source-cell={index === 0 && category.sourceHint && (Array.isArray(item.obtainSources) && item.obtainSources.length > 0 || Array.isArray(item.blueprintSources) && item.blueprintSources.length > 0) ? '' : undefined}
+                    data-obtain={index === 0 && category.sourceHint ? JSON.stringify(item.obtainSources ?? []) : undefined}
+                    data-blueprint={index === 0 && category.sourceHint ? JSON.stringify(item.blueprintSources ?? []) : undefined}
+                  >
                     {index === 0 ? (
+                      <span class="item-name-with-source">
                       <a class="item-cell" href={`/${category.slug}/${item.id}`}>
                         <img
                           class:list={['item-icon', qualityMeta && 'quality-icon']}
@@ -218,6 +253,20 @@ for (const item of items) {
                         />
                         <strong style={qualityMeta ? `color:${qualityMeta.text}` : undefined}>{value}</strong>
                       </a>
+                      {category.sourceHint && (Array.isArray(item.obtainSources) && item.obtainSources.length > 0 || Array.isArray(item.blueprintSources) && item.blueprintSources.length > 0) && (
+                        <button
+                          type="button"
+                          class="source-hint"
+                          aria-label="查看获取途径"
+                        >
+                          <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="8.5" />
+                            <path d="M12 10.5v5" />
+                            <circle cx="12" cy="7.5" r="0.7" fill="currentColor" stroke="none" />
+                          </svg>
+                        </button>
+                      )}
+                      </span>
                     ) : column.render === 'tier' && rawValue ? (
                       <span class="tier-badge" style={`color:${TIER_COLOR[String(rawValue)] ?? 'var(--accent)'}`}>{value}</span>
                     ) : column.render === 'element' && rawValue !== null && rawValue !== undefined && rawValue !== '' && value !== '数据待补充' ? (
@@ -240,10 +289,44 @@ for (const item of items) {
                     ) : (
                       value
                     )}
+                    {false && (
+                      <button
+                        type="button"
+                        class="source-hint"
+                        aria-label="查看获取途径"
+                      >
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                          <circle cx="12" cy="12" r="8.5" />
+                          <path d="M12 10.5v5" />
+                          <circle cx="12" cy="7.5" r="0.7" fill="currentColor" stroke="none" />
+                        </svg>
+                      </button>
+                    )}
                   </td>
                 );
               })}
-            </tr>
+              </tr>
+              {hasSourceData && (
+                <tr class="source-row" data-source-for={item.id} hidden>
+                  <td colspan={category.columns.length}>
+                    <div class="source-row-content">
+                      {Array.isArray(item.obtainSources) && item.obtainSources.length > 0 && (
+                        <div class="source-row-group">
+                          <p class="source-row-title">实体获取途径</p>
+                          <div class="tag-list">{item.obtainSources.map((value: string) => <span class="tag">{value}</span>)}</div>
+                        </div>
+                      )}
+                      {Array.isArray(item.blueprintSources) && item.blueprintSources.length > 0 && (
+                        <div class="source-row-group">
+                          <p class="source-row-title">图纸获取途径</p>
+                          <div class="tag-list">{item.blueprintSources.map((value: string) => <span class="tag">{value}</span>)}</div>
+                        </div>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </>
           );
         })}
       </tbody>
@@ -259,9 +342,14 @@ for (const item of items) {
   const roots = document.querySelectorAll<HTMLElement>('[data-table-root]:not([data-initialized])');
 
   roots.forEach((root) => {
+    try {
+    const externalFilterSelector = root.dataset.externalFilterSelector;
+    const hasSourceRows = root.dataset.sourceHint === 'true';
     const search = root.querySelector<HTMLInputElement>('[data-table-search]')
       ?? document.querySelector<HTMLInputElement>('[data-armor-search]');
-    const filters = [...root.querySelectorAll<HTMLSelectElement>('[data-filter]')];
+    const filters = externalFilterSelector
+      ? [...document.querySelectorAll<HTMLSelectElement>(externalFilterSelector)]
+      : [...root.querySelectorAll<HTMLSelectElement>('[data-filter]')];
     const tbody = root.querySelector<HTMLTableSectionElement>('tbody');
     const empty = root.querySelector<HTMLElement>('[data-empty]');
     let sortState = { key: '', direction: 1 };
@@ -273,7 +361,8 @@ for (const item of items) {
       let visibleCount = 0;
 
       rows().forEach((row) => {
-        const matchesSearch = !query || (row.dataset.search ?? '').toLocaleLowerCase('zh-Hans-CN').includes(query);
+        const searchText = hasSourceRows ? row.dataset.searchName ?? '' : row.dataset.search ?? '';
+        const matchesSearch = !query || searchText.toLocaleLowerCase('zh-Hans-CN').includes(query);
         const matchesFilters = filters.every((filter) => {
           if (!filter.value) return true;
           const key = filter.dataset.filter ?? '';
@@ -282,6 +371,10 @@ for (const item of items) {
         });
         const visible = matchesSearch && matchesFilters;
         row.hidden = !visible;
+        const sourceRow = row.nextElementSibling?.matches('.source-row')
+          ? row.nextElementSibling as HTMLTableRowElement
+          : null;
+        if (hasSourceRows && sourceRow) sourceRow.hidden = !query || !visible;
         if (visible) visibleCount += 1;
       });
 
@@ -299,6 +392,10 @@ for (const item of items) {
         }
         groupRow.hidden = !hasVisibleRow;
       });
+
+      if (externalFilterSelector) {
+        document.dispatchEvent(new CustomEvent('data-table:filtered', { detail: { root } }));
+      }
     };
 
     const sortRows = (key: string) => {
@@ -326,10 +423,35 @@ for (const item of items) {
             : aValue.localeCompare(bValue, 'zh-Hans-CN');
           return result * sortState.direction;
         })
-        .forEach((row) => tbody.append(row));
+        .forEach((row) => {
+          const sourceRow = row.nextElementSibling?.matches('.source-row')
+            ? row.nextElementSibling as HTMLTableRowElement
+            : null;
+          tbody.append(row);
+          if (hasSourceRows && sourceRow) tbody.append(sourceRow);
+        });
+
+      if (externalFilterSelector) {
+        document.dispatchEvent(new CustomEvent('data-table:sorted', { detail: { root } }));
+      }
     };
 
-    search?.addEventListener('input', applyFilters);
+    if (hasSourceRows) {
+      let isComposing = false;
+      search?.addEventListener('compositionstart', () => {
+        isComposing = true;
+      });
+      search?.addEventListener('compositionend', () => {
+        isComposing = false;
+        applyFilters();
+      });
+      search?.addEventListener('input', (event) => {
+        if (isComposing || (event as InputEvent).isComposing) return;
+        applyFilters();
+      });
+    } else {
+      search?.addEventListener('input', applyFilters);
+    }
     filters.forEach((filter) => filter.addEventListener('change', applyFilters));
     root.querySelectorAll<HTMLButtonElement>('[data-sort-key]').forEach((button) => {
       button.addEventListener('click', () => sortRows(button.dataset.sortKey ?? ''));
@@ -349,8 +471,153 @@ for (const item of items) {
     });
     root.dataset.initialized = 'true';
     applyFilters();
+    } catch (error) {
+      console.error('[data-table] 初始化失败', error);
+    }
   });
   };
 
-  onPageReady(initDataTables);
+  const initSourceHintListeners = () => {
+    const sourceWindow = window as Window & { __grimsoulSourceHintListeners?: boolean };
+    if (true) return;
+    sourceWindow.__grimsoulSourceHintListeners = true;
+
+    let popover: HTMLDivElement | null = null;
+    let activeButton: HTMLButtonElement | null = null;
+    let hideTimer = 0;
+    const pointerTypes = new WeakMap<HTMLButtonElement, string>();
+
+    const getPopover = () => {
+      if (!popover || !document.body.contains(popover)) {
+        popover = document.createElement('div');
+        popover.className = 'source-popover';
+        popover.setAttribute('role', 'tooltip');
+        popover.hidden = true;
+        document.body.append(popover);
+      }
+      return popover;
+    };
+
+    const clearHideTimer = () => {
+      window.clearTimeout(hideTimer);
+      hideTimer = 0;
+    };
+
+    const hide = () => {
+      clearHideTimer();
+      activeButton?.setAttribute('aria-expanded', 'false');
+      activeButton = null;
+      if (popover) popover.hidden = true;
+    };
+
+    const scheduleHide = () => {
+      clearHideTimer();
+      hideTimer = window.setTimeout(hide, 150);
+    };
+
+    const readSources = (value: string | undefined) => {
+      try {
+        const parsed = JSON.parse(value || '[]');
+        return Array.isArray(parsed) ? parsed.filter((entry): entry is string => typeof entry === 'string' && entry.length > 0) : [];
+      } catch {
+        return [];
+      }
+    };
+
+    const show = (button: HTMLButtonElement) => {
+      clearHideTimer();
+      const currentPopover = getPopover();
+      currentPopover.replaceChildren();
+      const groups = [
+        ['实体获取途径', readSources(button.dataset.obtain)],
+        ['图纸获取途径', readSources(button.dataset.blueprint)],
+      ] as const;
+      groups.forEach(([label, values]) => {
+        if (values.length === 0) return;
+        const group = document.createElement('div');
+        const title = document.createElement('p');
+        title.className = 'source-popover-title';
+        title.textContent = label;
+        const tags = document.createElement('div');
+        tags.className = 'tag-list';
+        values.forEach((value) => {
+          const tag = document.createElement('span');
+          tag.className = 'tag';
+          tag.textContent = value;
+          tags.append(tag);
+        });
+        group.append(title, tags);
+        currentPopover.append(group);
+      });
+      activeButton?.setAttribute('aria-expanded', 'false');
+      activeButton = button;
+      button.setAttribute('aria-expanded', 'true');
+      currentPopover.hidden = false;
+      const buttonRect = button.getBoundingClientRect();
+      const popoverWidth = currentPopover.offsetWidth;
+      const popoverHeight = currentPopover.offsetHeight;
+      const margin = 8;
+      const left = Math.min(Math.max(margin, buttonRect.left), Math.max(margin, window.innerWidth - popoverWidth - margin));
+      const below = buttonRect.bottom + margin;
+      const top = below + popoverHeight <= window.innerHeight - margin || buttonRect.top - margin - popoverHeight < margin
+        ? below
+        : buttonRect.top - margin - popoverHeight;
+      currentPopover.style.left = `${left}px`;
+      currentPopover.style.top = `${Math.max(margin, top)}px`;
+    };
+
+    document.addEventListener('pointerdown', (event) => {
+      const button = (event.target as Element | null)?.closest?.('.source-hint') as HTMLButtonElement | null;
+      if (button) pointerTypes.set(button, event.pointerType);
+    });
+    document.addEventListener('pointerover', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      const button = (event.target as Element | null)?.closest?.('.source-hint') as HTMLButtonElement | null;
+      if (button) show(button);
+      if (popover && (event.target === popover || popover.contains(event.target as Node))) clearHideTimer();
+    });
+    document.addEventListener('pointerout', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      const target = event.target as Node | null;
+      const related = event.relatedTarget as Node | null;
+      if ((target && (target as Element).closest?.('.source-hint')) || (popover && popover.contains(target))) {
+        if (!related || (activeButton && activeButton.contains(related)) || (popover && popover.contains(related))) return;
+        scheduleHide();
+      }
+    });
+    document.addEventListener('focusin', (event) => {
+      const button = (event.target as Element | null)?.closest?.('.source-hint') as HTMLButtonElement | null;
+      if (button) show(button);
+    });
+    document.addEventListener('focusout', (event) => {
+      if ((event.target as Element | null)?.closest?.('.source-hint')) hide();
+    });
+    document.addEventListener('click', (event) => {
+      const target = event.target as Element | null;
+      const button = target?.closest?.('.source-hint') as HTMLButtonElement | null;
+      if (button) {
+        event.preventDefault();
+        event.stopPropagation();
+        const pointerType = pointerTypes.get(button);
+        pointerTypes.delete(button);
+        if (pointerType === 'touch' || pointerType === 'pen') {
+          if (activeButton === button && popover && !popover.hidden) hide();
+          else show(button);
+        }
+        return;
+      }
+      if (activeButton && (!popover || !popover.contains(target as Node))) hide();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') hide();
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+    window.addEventListener('resize', hide);
+    document.addEventListener('astro:before-swap', hide);
+  };
+
+  onPageReady(() => {
+    initDataTables();
+    initSourceHintListeners();
+  });
 </script>

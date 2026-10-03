@@ -1,6 +1,7 @@
 import { pinyin } from 'pinyin-pro';
 import type { CollectionEntry } from 'astro:content';
 import { ALL_CATEGORIES, DATA_BY_CATEGORY, EXTRA_DATA, getItemHref, type CategorySlug } from './data';
+import { formatValue } from './display';
 import boxes from '../data/boxes.json';
 
 export interface SearchEntry {
@@ -28,6 +29,7 @@ const toSearchFields = (terms: string[]) => {
 
 const stripMarkdown = (text: string) => text.replace(/[`*_~]/g, '').replace(/\s+/g, ' ').trim();
 const getLoreHeadings = (body: string) => [...body.matchAll(/^#{2,6}\s+(.+)$/gm)].map((match) => stripMarkdown(match[1]));
+const joinSearchValue = (value: unknown) => Array.isArray(value) ? value.join(' ') : String(value ?? '');
 
 export function createSearchIndex(
   loreEntries: CollectionEntry<'lore'>[],
@@ -43,7 +45,16 @@ export function createSearchIndex(
       categoryTerms: toSearchFields([category.label]).terms,
       categoryPinyin: toSearchFields([category.label]).pinyin,
       categoryInitials: toSearchFields([category.label]).initials,
-      ...toSearchFields([item.name]),
+      ...toSearchFields([
+        item.name,
+        ...(slug === 'armor'
+          ? [
+              formatValue('hasBlueprint', item.hasBlueprint),
+              joinSearchValue(item.obtainSources),
+              joinSearchValue(item.blueprintSources),
+            ]
+          : []),
+      ]),
     }));
   });
   const knownNames = new Set([

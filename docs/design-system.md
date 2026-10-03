@@ -42,6 +42,12 @@
 
 所有颜色都由现有变量调配，不写新的色值。唯一例外是背景用的 --tint-green、--tint-mist，以及本节规定的透明白和 color-mix 调配。
 
+### 品阶颜色与排序
+
+品阶统一按 `T` 后的数字升序；同一数字中，不带 `+` 的品阶排在带 `+` 的品阶之前。无法解析或为空的品阶排在最后。品阶颜色按相邻品阶的色彩递进规律维护，`+` 品阶使用同档位更明亮、更饱和的颜色；新增数字品阶时沿用这一规律补充颜色。
+
+当前映射包含：`T1`、`T1+`、`T2`、`T2+`、`T3`、`T3+`、`T4`、`T4+`、`T5`、`T5+`、`T6`、`T6+`。其中 `T1+` 使用 `#848872`，取 `T1` 与 `T2` 现有配色之间的过渡色。
+
 ## 三、装饰元件
 
 ### 1. 角标
@@ -142,6 +148,22 @@
 ```
 
 规则：背景使用 `var(--glass-bg)`，`backdrop-filter` 与 `-webkit-backdrop-filter` 使用 `var(--glass-blur)`；边框为 1px `var(--glass-border)`，顶部高光使用 `var(--glass-highlight)`；浮起的层加 `var(--glass-shadow)`，页头与吸顶表头不加投影；文字较多的浮层使用 `var(--glass-bg-strong)`；使用 `@supports not (backdrop-filter: blur(1px))` 回退为实色 `var(--bg-panel)`；639px 以下模糊降为 `blur(10px)`；同一屏不叠加两层以上毛玻璃。
+
+### 透明毛玻璃
+
+透明毛玻璃用于悬停浮窗等轻量浮层，强调保留背景透出，同时保持文字与标签清晰。
+
+```css
+--clear-glass-bg: rgba(16, 18, 20, 0.28);
+--clear-glass-blur: blur(16px) saturate(160%);
+--clear-glass-border: rgba(255, 255, 255, 0.14);
+--clear-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+--clear-glass-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+--clear-glass-tag-bg: rgba(255, 255, 255, 0.07);
+--clear-glass-tag-border: rgba(255, 255, 255, 0.12);
+```
+
+透明毛玻璃只作用于轻量浮层，不改变导航下拉菜单和全站其他标签的材质。
 
 ## 八、动效
 

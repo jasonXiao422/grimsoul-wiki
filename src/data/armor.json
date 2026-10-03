@@ -4,7 +4,13 @@
     "name": "粗布套装（T1级）",
     "tier": "T1",
     "quality": "common",
-    "obtain": "无需图纸制作",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "1-2级图"
+    ],
+    "blueprintSources": [
+      "默认图纸"
+    ],
     "totalArmor": 70,
     "protection": null,
     "durability": {
@@ -43,7 +49,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chen-shan",
@@ -65,7 +74,10 @@
             "qty": 1
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "qi-gai-shou-tao",
@@ -83,7 +95,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "qi-gai-ku",
@@ -105,7 +120,10 @@
             "qty": 1
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "qi-gai-xue",
@@ -123,7 +141,10 @@
             "qty": 3
           }
         ],
-        "effect": "移动速度：4"
+        "effect": "移动速度：4",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -132,7 +153,15 @@
     "name": "皇家信使套装（T1级）",
     "tier": "T1",
     "quality": "common",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "被诅咒的天文台"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 70,
     "protection": null,
     "durability": {
@@ -171,7 +200,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "huang-jia-xin-shi-chen-shan",
@@ -193,7 +225,10 @@
             "qty": 1
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "huang-jia-xin-shi-hu-shou",
@@ -211,7 +246,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "huang-jia-xin-shi-ku",
@@ -233,7 +271,10 @@
             "qty": 1
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "huang-jia-xin-shi-xue",
@@ -251,7 +292,10 @@
             "qty": 3
           }
         ],
-        "effect": "移动速度：4"
+        "effect": "移动速度：4",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -260,7 +304,17 @@
     "name": "皮革套装（T2级）",
     "tier": "T2",
     "quality": "common",
-    "obtain": "无需图纸制作",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "小型被弃地窖",
+      "看守者棚屋",
+      "1-5级图",
+      "商人护送I",
+      "铜矿"
+    ],
+    "blueprintSources": [
+      "默认图纸"
+    ],
     "totalArmor": 150,
     "protection": null,
     "durability": {
@@ -307,7 +361,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ruan-hu-jia",
@@ -329,7 +386,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "pi-shou-tao",
@@ -351,7 +411,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "mian-ku",
@@ -373,7 +436,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "pi-xue",
@@ -395,7 +461,10 @@
             "qty": 4
           }
         ],
-        "effect": "移动速度：6"
+        "effect": "移动速度：6",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -404,7 +473,15 @@
     "name": "朝圣者套装（T2级）",
     "tier": "T2",
     "quality": "common",
-    "obtain": "火鸡魔王获取",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "火鸡魔王获取"
+    ],
+    "blueprintSources": [
+      "火鸡魔王",
+      "朝圣者的盒",
+      "图纸案例"
+    ],
     "totalArmor": 150,
     "protection": null,
     "durability": {
@@ -451,7 +528,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chao-sheng-zhe-chen-shan",
@@ -473,7 +553,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chao-sheng-zhe-shou-tao",
@@ -495,7 +578,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chao-sheng-zhe-ku-zi",
@@ -517,7 +603,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chao-sheng-zhe-xue-zi",
@@ -539,7 +628,10 @@
             "qty": 4
           }
         ],
-        "effect": "移动速度：6"
+        "effect": "移动速度：6",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -548,7 +640,14 @@
     "name": "吟游诗人套装（T2级）",
     "tier": "T2",
     "quality": "common",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 150,
     "protection": null,
     "durability": {
@@ -595,7 +694,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "yin-you-shi-ren-chen-shan",
@@ -617,7 +719,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "yin-you-shi-ren-shou-tao",
@@ -639,7 +744,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "yin-you-shi-ren-ku-zi",
@@ -661,7 +769,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "yin-you-shi-ren-xue-zi",
@@ -683,7 +794,10 @@
             "qty": 4
           }
         ],
-        "effect": "移动速度：6"
+        "effect": "移动速度：6",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -692,7 +806,17 @@
     "name": "行刑者套装（T2+级）",
     "tier": "T2+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "古墓",
+      "韦格劳废墟",
+      "商人护送I"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 200,
     "protection": null,
     "durability": {
@@ -731,7 +855,10 @@
             "qty": 15
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xing-xing-zhe-zhao-pao",
@@ -753,7 +880,10 @@
             "qty": 20
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xing-xing-zhe-shou-tao",
@@ -771,7 +901,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xing-xing-zhe-de-ku-zi",
@@ -789,7 +922,10 @@
             "qty": 20
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xing-xing-zhe-de-xue-zi",
@@ -811,7 +947,10 @@
             "qty": 15
           }
         ],
-        "effect": "移动速度：10"
+        "effect": "移动速度：10",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -820,7 +959,19 @@
     "name": "夜猎者套装（T2+级）",
     "tier": "T2+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "古墓",
+      "弗拉格纳",
+      "衰败摇篮",
+      "韦格劳废墟",
+      "商人护送I"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 150,
     "protection": null,
     "durability": {
@@ -867,7 +1018,10 @@
             "qty": 4
           }
         ],
-        "effect": "2%的几率躲避敌人的攻击"
+        "effect": "2%的几率躲避敌人的攻击",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ye-lie-zhe-wai-tao",
@@ -889,7 +1043,10 @@
             "qty": 6
           }
         ],
-        "effect": "2%的几率躲避敌人的攻击"
+        "effect": "2%的几率躲避敌人的攻击",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ye-lie-zhe-shou-tao",
@@ -911,7 +1068,10 @@
             "qty": 2
           }
         ],
-        "effect": "2%的几率躲避敌人的攻击"
+        "effect": "2%的几率躲避敌人的攻击",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ye-lie-zhe-ku-zi",
@@ -933,7 +1093,10 @@
             "qty": 6
           }
         ],
-        "effect": "2%的几率躲避敌人的攻击"
+        "effect": "2%的几率躲避敌人的攻击",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ye-lie-zhe-xue-zi",
@@ -955,7 +1118,10 @@
             "qty": 4
           }
         ],
-        "effect": "移动速度：6；2%的几率躲避敌人的攻击"
+        "effect": "移动速度：6；2%的几率躲避敌人的攻击",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -964,7 +1130,22 @@
     "name": "黄铜套装（T3级）",
     "tier": "T3",
     "quality": "common",
-    "obtain": "无需图纸制作",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "小型被弃地窖",
+      "看守者棚屋",
+      "1-3级图",
+      "墓地之夜",
+      "野蛮人营地",
+      "游商",
+      "被弃隐士小屋",
+      "堕落骑士I",
+      "堕落骑士II",
+      "商人护送II"
+    ],
+    "blueprintSources": [
+      "默认图纸"
+    ],
     "totalArmor": 260,
     "protection": null,
     "durability": {
@@ -1011,7 +1192,10 @@
             "qty": 5
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tong-suo-zi-jia",
@@ -1033,7 +1217,10 @@
             "qty": 8
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "lian-huan-jia-hu-shou",
@@ -1055,7 +1242,10 @@
             "qty": 3
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tong-tui-jia",
@@ -1077,7 +1267,10 @@
             "qty": 7
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zhang-tong-xue",
@@ -1099,7 +1292,10 @@
             "qty": 6
           }
         ],
-        "effect": "移动速度：8"
+        "effect": "移动速度：8",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1108,7 +1304,16 @@
     "name": "帝国士兵套装（T3级）",
     "tier": "T3",
     "quality": "common",
-    "obtain": "商店购买",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "商店购买",
+      "被诅咒的天文台",
+      "哈利德",
+      "暮焰修道院"
+    ],
+    "blueprintSources": [
+      "商店购买"
+    ],
     "totalArmor": 260,
     "protection": null,
     "durability": {
@@ -1155,7 +1360,10 @@
             "qty": 5
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-shi-bing-suo-zi-jia",
@@ -1177,7 +1385,10 @@
             "qty": 8
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-shi-bing-hu-shou",
@@ -1199,7 +1410,10 @@
             "qty": 3
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-shi-bing-tui-jia",
@@ -1221,7 +1435,10 @@
             "qty": 7
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-shi-bing-zhan-xue",
@@ -1243,7 +1460,10 @@
             "qty": 6
           }
         ],
-        "effect": "移动速度：8"
+        "effect": "移动速度：8",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1252,7 +1472,12 @@
     "name": "圣诞套装（T3级）",
     "tier": "T3",
     "quality": "unique",
-    "obtain": "圣诞活动",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "圣诞活动",
+      "圣诞大车"
+    ],
+    "blueprintSources": null,
     "totalArmor": 260,
     "protection": {
       "type": "冰",
@@ -1275,7 +1500,10 @@
           "value": 10
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dan-wai-tao",
@@ -1287,7 +1515,10 @@
           "value": 15
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dan-shou-tao",
@@ -1299,7 +1530,10 @@
           "value": 10
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dan-ku-zi",
@@ -1311,7 +1545,10 @@
           "value": 15
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dan-xue-zi",
@@ -1323,7 +1560,10 @@
           "value": 10
         },
         "cost": [],
-        "effect": "移动速度：8"
+        "effect": "移动速度：8",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1332,7 +1572,16 @@
     "name": "瘟疫医生套装（T3+级）",
     "tier": "T3+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "险恶城堡",
+      "衰败摇篮"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 312,
     "protection": null,
     "durability": {
@@ -1375,7 +1624,10 @@
             "qty": 5
           }
         ],
-        "effect": "减少中毒伤害（0.7倍）"
+        "effect": "减少中毒伤害（0.7倍）",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wen-yi-yi-sheng-dou-peng",
@@ -1397,7 +1649,10 @@
             "qty": 10
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wen-yi-yi-sheng-shou-tao",
@@ -1419,7 +1674,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wen-yi-yi-sheng-ku-zi",
@@ -1441,7 +1699,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wen-yi-yi-sheng-xue-zi",
@@ -1463,7 +1724,10 @@
             "qty": 5
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1472,7 +1736,18 @@
     "name": "术士套装（T3+级）",
     "tier": "T3+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "哈特",
+      "大车炮台",
+      "韦格劳废墟",
+      "死灵法师的巢穴"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 322,
     "protection": null,
     "durability": {
@@ -1527,7 +1802,10 @@
             "qty": 5
           }
         ],
-        "effect": "~3.5%概率使攻击者恐惧，持续3秒"
+        "effect": "~3.5%概率使攻击者恐惧，持续3秒",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "shu-shi-chang-pao",
@@ -1549,7 +1827,10 @@
             "qty": 10
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "shu-shi-hu-shou-tao",
@@ -1575,7 +1856,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "shu-shi-ku-zi",
@@ -1597,7 +1881,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "shu-shi-xue-zi",
@@ -1619,7 +1906,10 @@
             "qty": 5
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1628,7 +1918,17 @@
     "name": "狂战士套装（T3+级）",
     "tier": "T3+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "古墓",
+      "弗拉格纳",
+      "衰败摇篮"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 322,
     "protection": null,
     "durability": {
@@ -1675,7 +1975,10 @@
             "qty": 5
           }
         ],
-        "effect": "减少投掷武器与吹箭伤害（0.85倍）；如果附近有多个敌人，护甲增加30"
+        "effect": "减少投掷武器与吹箭伤害（0.85倍）；如果附近有多个敌人，护甲增加30",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "kuang-zhan-shi-wai-tao",
@@ -1697,7 +2000,10 @@
             "qty": 10
           }
         ],
-        "effect": "额外快捷栏；如果附近有多个敌人，护甲增加30"
+        "effect": "额外快捷栏；如果附近有多个敌人，护甲增加30",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "kuang-zhan-shi-shou-tao",
@@ -1723,7 +2029,10 @@
             "qty": 4
           }
         ],
-        "effect": "如果附近有多个敌人，护甲增加30"
+        "effect": "如果附近有多个敌人，护甲增加30",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "kuang-zhan-shi-ku-zi",
@@ -1745,7 +2054,10 @@
             "qty": 10
           }
         ],
-        "effect": "如果附近有多个敌人，护甲增加30"
+        "effect": "如果附近有多个敌人，护甲增加30",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "kuang-zhan-shi-xue-zi",
@@ -1767,7 +2079,10 @@
             "qty": 5
           }
         ],
-        "effect": "移动速度：12；如果附近有多个敌人，护甲增加30"
+        "effect": "移动速度：12；如果附近有多个敌人，护甲增加30",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1776,7 +2091,18 @@
     "name": "法尔维斯套装（T3+级）",
     "tier": "T3+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "哈特",
+      "衰败摇篮",
+      "墓地之夜",
+      "商人护送II"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 310,
     "protection": null,
     "durability": {
@@ -1823,7 +2149,10 @@
             "qty": 5
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "fa-er-wei-si-hu-jia",
@@ -1845,7 +2174,10 @@
             "qty": 8
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "fa-er-wei-si-tie-shou-tao",
@@ -1867,7 +2199,10 @@
             "qty": 3
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "fa-er-wei-si-ku-zi",
@@ -1889,7 +2224,10 @@
             "qty": 7
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "fa-er-wei-si-xue-zi",
@@ -1911,7 +2249,10 @@
             "qty": 6
           }
         ],
-        "effect": "移动速度：8"
+        "effect": "移动速度：8",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -1920,7 +2261,17 @@
     "name": "青铜套装（T4级）",
     "tier": "T4",
     "quality": "common",
-    "obtain": "无需图纸制作",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "被弃地窖",
+      "被弃地下城",
+      "地下神祠",
+      "看守者棚屋",
+      "堕落骑士III"
+    ],
+    "blueprintSources": [
+      "默认图纸"
+    ],
     "totalArmor": 400,
     "protection": null,
     "durability": {
@@ -1971,7 +2322,10 @@
             "qty": 12
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "qing-tong-suo-zi-jia",
@@ -1997,7 +2351,10 @@
             "qty": 16
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zhuang-jia-suo-zi-jia-shou-tao",
@@ -2023,7 +2380,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "qing-tong-tui-jia",
@@ -2049,7 +2409,10 @@
             "qty": 16
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "mao-xue",
@@ -2075,7 +2438,10 @@
             "qty": 5
           }
         ],
-        "effect": "移动速度：10"
+        "effect": "移动速度：10",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -2084,7 +2450,22 @@
     "name": "北方狼套装（T4+级）",
     "tier": "T4+",
     "quality": "rare",
-    "obtain": "部分副本和地下城",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "酷吏地下城一层",
+      "被弃地下城",
+      "大车炮台",
+      "叛徒地下墓穴",
+      "野蛮人营地",
+      "商人护送I",
+      "商人护送II",
+      "商人护送III",
+      "商人护送IV",
+      "堕落骑士III",
+      "堕落骑士IV",
+      "维比约恩巢穴"
+    ],
+    "blueprintSources": null,
     "totalArmor": 440,
     "protection": {
       "type": "冰",
@@ -2107,7 +2488,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bei-fang-lang-hu-jia",
@@ -2119,7 +2503,10 @@
           "value": 45
         },
         "cost": [],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bei-fang-lang-hu-shou",
@@ -2131,7 +2518,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bei-fang-lang-ku-zi",
@@ -2143,7 +2533,10 @@
           "value": 45
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bei-fang-lang-xue-zi",
@@ -2155,7 +2548,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -2164,7 +2560,15 @@
     "name": "太阳龙套装（T4+级）",
     "tier": "T4+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "大车炮台"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 440,
     "protection": null,
     "durability": {
@@ -2215,7 +2619,10 @@
             "qty": 10
           }
         ],
-        "effect": "惊吓夜游神"
+        "effect": "惊吓夜游神",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zha-jia-tai-yang-long-xiong-jia",
@@ -2241,7 +2648,10 @@
             "qty": 14
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tai-yang-long-hu-wan",
@@ -2267,7 +2677,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tai-yang-long-ku-zi",
@@ -2293,7 +2706,10 @@
             "qty": 14
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tai-yang-long-jing-jia",
@@ -2319,7 +2735,10 @@
             "qty": 6
           }
         ],
-        "effect": "移动速度：5"
+        "effect": "移动速度：5",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -2328,7 +2747,20 @@
     "name": "沙漠猎人套装（T4+级）",
     "tier": "T4+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "古墓",
+      "哈利德",
+      "大车炮台",
+      "衰败摇篮",
+      "暮焰修道院",
+      "商人护送III"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 450,
     "protection": null,
     "durability": {
@@ -2379,7 +2811,10 @@
             "qty": 12
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sha-mo-lie-ren-hu-jia",
@@ -2405,7 +2840,10 @@
             "qty": 16
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sha-mo-lie-ren-shou-tao",
@@ -2431,7 +2869,10 @@
             "qty": 6
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sha-mo-lie-ren-tui-jia",
@@ -2457,7 +2898,10 @@
             "qty": 16
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sha-mo-lie-ren-xue-zi",
@@ -2483,7 +2927,10 @@
             "qty": 5
           }
         ],
-        "effect": "移动速度：10"
+        "effect": "移动速度：10",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -2492,7 +2939,15 @@
     "name": "头狼套装（T4+级）",
     "tier": "T4+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "暮焰修道院"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 450,
     "protection": null,
     "durability": {
@@ -2567,7 +3022,10 @@
             "qty": 1
           }
         ],
-        "effect": "增加恐狼造成的伤害1点"
+        "effect": "增加恐狼造成的伤害1点",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tou-lang-xiong-jia",
@@ -2597,7 +3055,10 @@
             "qty": 1
           }
         ],
-        "effect": "额外快捷栏；增加恐狼造成的伤害1点"
+        "effect": "额外快捷栏；增加恐狼造成的伤害1点",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tou-lang-shou-tao",
@@ -2627,7 +3088,10 @@
             "qty": 10
           }
         ],
-        "effect": "增加恐狼造成的伤害1点"
+        "effect": "增加恐狼造成的伤害1点",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tou-lang-de-ku-zi",
@@ -2657,7 +3121,10 @@
             "qty": 20
           }
         ],
-        "effect": "增加恐狼造成的伤害1点"
+        "effect": "增加恐狼造成的伤害1点",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "tou-lang-de-xue-zi",
@@ -2687,7 +3154,10 @@
             "qty": 1
           }
         ],
-        "effect": "奔跑速度：10；增加恐狼造成的伤害1点"
+        "effect": "奔跑速度：10；增加恐狼造成的伤害1点",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -2696,7 +3166,16 @@
     "name": "雪原猎人套装（T4+级）",
     "tier": "T4+",
     "quality": "legendary",
-    "obtain": "红猎图纸；实物在哈特掉落",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "哈特",
+      "大车炮台"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 630,
     "protection": null,
     "durability": {
@@ -2747,7 +3226,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xue-yuan-lie-ren-hu-jia",
@@ -2773,7 +3255,10 @@
             "qty": 14
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xue-yuan-lie-ren-hu-shou",
@@ -2799,7 +3284,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xue-yuan-lie-ren-tui-jia",
@@ -2825,7 +3313,10 @@
             "qty": 14
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xue-yuan-lie-ren-xue-zi",
@@ -2851,7 +3342,10 @@
             "qty": 6
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -2860,7 +3354,16 @@
     "name": "哀悼收割者套装（T4+级）",
     "tier": "T4+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "大车炮台",
+      "银矿"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 650,
     "protection": null,
     "durability": {
@@ -2927,7 +3430,10 @@
             "qty": 12
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ai-dao-shou-ge-zhe-fa-pao",
@@ -2961,7 +3467,10 @@
             "qty": 16
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ai-dao-shou-ge-zhe-shou-tao",
@@ -2995,7 +3504,10 @@
             "qty": 4
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ai-dao-shou-ge-zhe-ku-zi",
@@ -3029,7 +3541,10 @@
             "qty": 16
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "ai-dao-shou-ge-zhe-xue-zi",
@@ -3063,7 +3578,10 @@
             "qty": 6
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -3072,7 +3590,17 @@
     "name": "风暴使者套装（T4+级）",
     "tier": "T4+",
     "quality": "legendary",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "大车炮台",
+      "瘟疫圣诞老人",
+      "寒冰宝藏"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 630,
     "protection": null,
     "durability": {
@@ -3139,7 +3667,10 @@
             "qty": 1
           }
         ],
-        "effect": "移动速度：14"
+        "effect": "移动速度：14",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "feng-bao-shi-zhe-hu-jia",
@@ -3169,7 +3700,10 @@
             "qty": 20
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "feng-bao-shi-zhe-hu-shou",
@@ -3199,7 +3733,10 @@
             "qty": 2
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "feng-bao-shi-zhe-tui-jia",
@@ -3229,7 +3766,10 @@
             "qty": 20
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "feng-bao-shi-zhe-xue-zi",
@@ -3259,7 +3799,10 @@
             "qty": 3
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -3268,7 +3811,18 @@
     "name": "黑铁套装（T5级）",
     "tier": "T5",
     "quality": "rare",
-    "obtain": "无需图纸制作",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "大型被弃地窖",
+      "地下神祠",
+      "被弃地下城",
+      "险恶城堡",
+      "韦格劳废墟",
+      "堕落骑士IV"
+    ],
+    "blueprintSources": [
+      "默认图纸"
+    ],
     "totalArmor": 580,
     "protection": null,
     "durability": {
@@ -3323,7 +3877,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "lin-jia",
@@ -3353,7 +3910,10 @@
             "qty": 18
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "lin-hu-shou-tao",
@@ -3383,7 +3943,10 @@
             "qty": 8
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "lin-tui-jia",
@@ -3413,7 +3976,10 @@
             "qty": 17
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zhan-xue",
@@ -3439,7 +4005,10 @@
             "qty": 15
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -3448,7 +4017,15 @@
     "name": "乌鸦密探套装（T5+级）",
     "tier": "T5+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "商人护送IV"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 580,
     "protection": null,
     "durability": {
@@ -3503,7 +4080,10 @@
             "qty": 10
           }
         ],
-        "effect": "潜行状态下增加移动速度"
+        "effect": "潜行状态下增加移动速度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wu-ya-mi-tan-hu-jia",
@@ -3533,7 +4113,10 @@
             "qty": 18
           }
         ],
-        "effect": "额外快捷栏；潜行状态下增加移动速度"
+        "effect": "额外快捷栏；潜行状态下增加移动速度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wu-ya-mi-tan-shou-tao",
@@ -3563,7 +4146,10 @@
             "qty": 8
           }
         ],
-        "effect": "潜行状态下增加移动速度"
+        "effect": "潜行状态下增加移动速度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wu-ya-mi-tan-tui-jia",
@@ -3593,7 +4179,10 @@
             "qty": 17
           }
         ],
-        "effect": "潜行状态下增加移动速度"
+        "effect": "潜行状态下增加移动速度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "wu-ya-mi-tan-zhan-xue",
@@ -3619,7 +4208,10 @@
             "qty": 15
           }
         ],
-        "effect": "移动速度：12；潜行状态下增加移动速度"
+        "effect": "移动速度：12；潜行状态下增加移动速度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -3628,7 +4220,22 @@
     "name": "冰霜套装（T5+级）",
     "tier": "T5+",
     "quality": "rare",
-    "obtain": "部分副本和地下城",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "被诅咒的天文台",
+      "酷吏地下城一层",
+      "被弃地下城",
+      "叛徒地下墓穴",
+      "野蛮人营地",
+      "商人护送I",
+      "商人护送II",
+      "商人护送III",
+      "商人护送IV",
+      "堕落骑士III",
+      "堕落骑士IV",
+      "维比约恩巢穴"
+    ],
+    "blueprintSources": null,
     "totalArmor": 615,
     "protection": {
       "type": "火",
@@ -3651,7 +4258,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bing-shuang-qun-jia",
@@ -3663,7 +4273,10 @@
           "value": 45
         },
         "cost": [],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bing-feng-hu-shou",
@@ -3675,7 +4288,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bing-shuang-tui-jia",
@@ -3687,7 +4303,10 @@
           "value": 45
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "bing-shuang-xue-zi",
@@ -3699,16 +4318,34 @@
           "value": 40
         },
         "cost": [],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
   {
     "id": "chun-jing-shou-hu-tao-zhuang-t5-ji",
-    "name": "纯净守护套装（T5+级）",
+    "name": "纯净守护套装 （T5+级）",
     "tier": "T5+",
     "quality": "rare",
-    "obtain": "部分副本和地下城",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "被诅咒的天文台",
+      "酷吏地下城一层",
+      "被弃地下城",
+      "叛徒地下墓穴",
+      "野蛮人营地",
+      "商人护送I",
+      "商人护送II",
+      "商人护送III",
+      "商人护送IV",
+      "堕落骑士III",
+      "堕落骑士IV",
+      "维比约恩巢穴"
+    ],
+    "blueprintSources": null,
     "totalArmor": 615,
     "protection": {
       "type": "衰败",
@@ -3731,7 +4368,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chun-jing-shou-hu-zhe-hu-jia",
@@ -3743,7 +4383,10 @@
           "value": 45
         },
         "cost": [],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chun-jing-shou-hu-zhe-shou-tao",
@@ -3755,7 +4398,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chun-jing-shou-hu-zhe-tui-jia",
@@ -3767,7 +4413,10 @@
           "value": 45
         },
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "chun-jing-shou-hu-zhe-xue-zi",
@@ -3779,7 +4428,10 @@
           "value": 40
         },
         "cost": [],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -3788,7 +4440,18 @@
     "name": "决斗者套装（T5级）",
     "tier": "T5",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "被诅咒的天文台",
+      "大车炮台",
+      "叛徒地下墓穴",
+      "商人护送IV"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 580,
     "protection": null,
     "durability": {
@@ -3843,7 +4506,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-zhe-hu-jia",
@@ -3869,7 +4535,10 @@
             "qty": 26
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-zhe-shou-tao",
@@ -3899,7 +4568,10 @@
             "qty": 8
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-zhe-tui-jia",
@@ -3929,7 +4601,10 @@
             "qty": 17
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-zhe-xue-zi",
@@ -3955,7 +4630,10 @@
             "qty": 15
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -3964,7 +4642,16 @@
     "name": "罪恶骑士套装（T5+级）",
     "tier": "T5+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "大车炮台",
+      "韦格劳废墟"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 580,
     "protection": null,
     "durability": {
@@ -4019,7 +4706,10 @@
             "qty": 16
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zui-e-qi-shi-hu-jia",
@@ -4049,7 +4739,10 @@
             "qty": 26
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zui-e-qi-shi-shou-tao",
@@ -4079,7 +4772,10 @@
             "qty": 13
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zui-e-qi-shi-ku-zi",
@@ -4109,7 +4805,10 @@
             "qty": 24
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "zui-e-qi-shi-xue-zi",
@@ -4135,7 +4834,10 @@
             "qty": 16
           }
         ],
-        "effect": "移动速度：12"
+        "effect": "移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4144,7 +4846,12 @@
     "name": "玄鳞套装（T5级）",
     "tier": "T5",
     "quality": "rare",
-    "obtain": "黑色星期五商店",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "黑色星期五商店",
+      "黑色星期五暗祭"
+    ],
+    "blueprintSources": null,
     "totalArmor": 580,
     "protection": null,
     "durability": {
@@ -4161,7 +4868,10 @@
         "armor": 100,
         "protection": null,
         "cost": [],
-        "effect": "提升耐久度"
+        "effect": "提升耐久度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xuan-lin-hu-jia",
@@ -4170,7 +4880,10 @@
         "armor": 180,
         "protection": null,
         "cost": [],
-        "effect": "额外快捷栏；提升耐久度"
+        "effect": "额外快捷栏；提升耐久度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xuan-lin-shou-tao",
@@ -4179,7 +4892,10 @@
         "armor": 80,
         "protection": null,
         "cost": [],
-        "effect": "提升耐久度"
+        "effect": "提升耐久度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xuan-lin-ku-zi",
@@ -4188,7 +4904,10 @@
         "armor": 170,
         "protection": null,
         "cost": [],
-        "effect": "提升耐久度"
+        "effect": "提升耐久度",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "xuan-lin-xue-zi",
@@ -4197,7 +4916,10 @@
         "armor": 50,
         "protection": null,
         "cost": [],
-        "effect": "提升耐久度；移动速度：12"
+        "effect": "提升耐久度；移动速度：12",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4206,7 +4928,16 @@
     "name": "帝国机甲套装（T5+级）",
     "tier": "T5+",
     "quality": "unique",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "古墓",
+      "弗拉格纳"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 580,
     "protection": null,
     "durability": {
@@ -4261,7 +4992,10 @@
             "qty": 16
           }
         ],
-        "effect": "攻击时有1%的几率造成双倍伤害"
+        "effect": "攻击时有1%的几率造成双倍伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-ji-jia-bao-xiang-hu-jia",
@@ -4291,7 +5025,10 @@
             "qty": 26
           }
         ],
-        "effect": "额外快捷栏；攻击时有1%的几率造成双倍伤害"
+        "effect": "额外快捷栏；攻击时有1%的几率造成双倍伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-lie-ren-shou-tao",
@@ -4321,7 +5058,10 @@
             "qty": 13
           }
         ],
-        "effect": "攻击时有1%的几率造成双倍伤害"
+        "effect": "攻击时有1%的几率造成双倍伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-lie-ren-tui-jia",
@@ -4351,7 +5091,10 @@
             "qty": 24
           }
         ],
-        "effect": "攻击时有1%的几率造成双倍伤害"
+        "effect": "攻击时有1%的几率造成双倍伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "di-guo-ji-jia-xue-zi",
@@ -4377,7 +5120,10 @@
             "qty": 16
           }
         ],
-        "effect": "移动速度：12；攻击时有1%的几率造成双倍伤害"
+        "effect": "移动速度：12；攻击时有1%的几率造成双倍伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4386,7 +5132,16 @@
     "name": "精钢套装（T6级）",
     "tier": "T6",
     "quality": "rare",
-    "obtain": "无需图纸制作",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "古墓",
+      "大型被弃地窖",
+      "酷吏地下城一层",
+      "叛徒地下墓穴"
+    ],
+    "blueprintSources": [
+      "默认图纸"
+    ],
     "totalArmor": 1010,
     "protection": null,
     "durability": {
@@ -4441,7 +5196,10 @@
             "qty": 12
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "suo-zi-kai",
@@ -4467,7 +5225,10 @@
             "qty": 14
           }
         ],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "suo-zi-kai-shou-tao",
@@ -4493,7 +5254,10 @@
             "qty": 10
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "suo-zi-kai-tui-jia",
@@ -4519,7 +5283,10 @@
             "qty": 14
           }
         ],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "suo-zi-kai-jing-jia",
@@ -4545,7 +5312,10 @@
             "qty": 10
           }
         ],
-        "effect": "移动速度：14"
+        "effect": "移动速度：14",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4554,7 +5324,14 @@
     "name": "圣殿骑士套装（T6+级）",
     "tier": "T6+",
     "quality": "rare",
-    "obtain": "哈利德，古墓",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "哈利德",
+      "古墓",
+      "暮焰修道院",
+      "卡牌游戏等级解锁"
+    ],
+    "blueprintSources": null,
     "totalArmor": 1325,
     "protection": null,
     "durability": {
@@ -4571,7 +5348,10 @@
         "armor": 160,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dian-qi-shi-hu-jia",
@@ -4580,7 +5360,10 @@
         "armor": 270,
         "protection": null,
         "cost": [],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dian-qi-shi-shou-tao",
@@ -4589,7 +5372,10 @@
         "armor": 140,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dian-qi-shi-hu-tui",
@@ -4598,7 +5384,10 @@
         "armor": 260,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-dian-qi-shi-jing-jia",
@@ -4607,7 +5396,10 @@
         "armor": 95,
         "protection": null,
         "cost": [],
-        "effect": "移动速度：14"
+        "effect": "移动速度：14",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4616,7 +5408,12 @@
     "name": "角斗士套装（T6级）",
     "tier": "T6",
     "quality": "unique",
-    "obtain": "酷吏二层，叛徒地下墓穴",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "酷吏地下城二层",
+      "叛徒地下墓穴"
+    ],
+    "blueprintSources": null,
     "totalArmor": 810,
     "protection": null,
     "durability": {
@@ -4633,7 +5430,10 @@
         "armor": 140,
         "protection": null,
         "cost": [],
-        "effect": "眩晕时提升护甲（100点）"
+        "effect": "眩晕时提升护甲（100点）",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-shi-hu-jia",
@@ -4642,7 +5442,10 @@
         "armor": 240,
         "protection": null,
         "cost": [],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-shi-hu-shou",
@@ -4651,7 +5454,10 @@
         "armor": 120,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-shi-jing-jia",
@@ -4660,7 +5466,10 @@
         "armor": 230,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jue-dou-shi-xue-zi",
@@ -4669,7 +5478,10 @@
         "armor": 80,
         "protection": null,
         "cost": [],
-        "effect": "移动速度：14"
+        "effect": "移动速度：14",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4678,7 +5490,12 @@
     "name": "黑色圣殿骑士套装（T6+级）",
     "tier": "T6+",
     "quality": "legendary",
-    "obtain": "商店购买",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "商店购买",
+      "卡牌游戏等级解锁"
+    ],
+    "blueprintSources": null,
     "totalArmor": 1525,
     "protection": null,
     "durability": {
@@ -4695,7 +5512,10 @@
         "armor": 160,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "hei-se-sheng-dian-qi-shi-hu-jia",
@@ -4704,7 +5524,10 @@
         "armor": 270,
         "protection": null,
         "cost": [],
-        "effect": "额外快捷栏"
+        "effect": "额外快捷栏",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "hei-se-sheng-dian-qi-shi-shou-tao",
@@ -4713,7 +5536,10 @@
         "armor": 140,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "hei-se-sheng-dian-qi-shi-tui-jia",
@@ -4722,7 +5548,10 @@
         "armor": 260,
         "protection": null,
         "cost": [],
-        "effect": null
+        "effect": null,
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "hei-se-sheng-dian-qi-shi-ma-xue",
@@ -4731,7 +5560,10 @@
         "armor": 95,
         "protection": null,
         "cost": [],
-        "effect": "移动速度：14"
+        "effect": "移动速度：14",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4740,7 +5572,14 @@
     "name": "尖刺套装（T6+级）",
     "tier": "T6+",
     "quality": "legendary",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 1110,
     "protection": null,
     "durability": {
@@ -4795,7 +5634,10 @@
             "qty": 12
           }
         ],
-        "effect": "在近战中对攻击者造成5伤害"
+        "effect": "在近战中对攻击者造成5伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jian-ci-xiong-jia",
@@ -4821,7 +5663,10 @@
             "qty": 14
           }
         ],
-        "effect": "额外快捷栏；在近战中对攻击者造成5伤害"
+        "effect": "额外快捷栏；在近战中对攻击者造成5伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jian-ci-shou-tao",
@@ -4847,7 +5692,10 @@
             "qty": 10
           }
         ],
-        "effect": "在近战中对攻击者造成5伤害"
+        "effect": "在近战中对攻击者造成5伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jian-ci-tui-jia",
@@ -4873,7 +5721,10 @@
             "qty": 14
           }
         ],
-        "effect": "在近战中对攻击者造成5伤害"
+        "effect": "在近战中对攻击者造成5伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "jian-ci-suo-jia-xue",
@@ -4899,7 +5750,10 @@
             "qty": 10
           }
         ],
-        "effect": "在近战中对攻击者造成5伤害"
+        "effect": "在近战中对攻击者造成5伤害",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   },
@@ -4908,7 +5762,15 @@
     "name": "圣骑士套装（T6+级）",
     "tier": "T6+",
     "quality": "legendary",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "暮焰修道院"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "totalArmor": 1110,
     "protection": null,
     "durability": {
@@ -4971,7 +5833,10 @@
             "qty": 1
           }
         ],
-        "effect": "增加受到的治疗效果5%"
+        "effect": "增加受到的治疗效果5%",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-qi-shi-xiong-jia",
@@ -4997,7 +5862,10 @@
             "qty": 14
           }
         ],
-        "effect": "额外快捷栏；增加受到的治疗效果5%"
+        "effect": "额外快捷栏；增加受到的治疗效果5%",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-qi-shi-hu-shou",
@@ -5023,7 +5891,10 @@
             "qty": 10
           }
         ],
-        "effect": "增加受到的治疗效果5%"
+        "effect": "增加受到的治疗效果5%",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-qi-shi-jing-jia",
@@ -5049,7 +5920,10 @@
             "qty": 14
           }
         ],
-        "effect": "增加受到的治疗效果5%"
+        "effect": "增加受到的治疗效果5%",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       },
       {
         "id": "sheng-qi-shi-zhan-xue",
@@ -5075,7 +5949,10 @@
             "qty": 10
           }
         ],
-        "effect": "移动速度：14；增加受到的治疗效果5%"
+        "effect": "移动速度：14；增加受到的治疗效果5%",
+        "hasBlueprint": null,
+        "obtainSources": null,
+        "blueprintSources": null
       }
     ]
   }

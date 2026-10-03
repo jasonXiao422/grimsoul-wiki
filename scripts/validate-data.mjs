@@ -47,6 +47,24 @@ for (const f of FILES) {
   }
 }
 
+for (const [f, items] of [['armor', all.armor ?? []], ['armor-pieces', all['armor-pieces'] ?? []]]) {
+  for (const item of items) {
+    if (item.hasBlueprint !== null && typeof item.hasBlueprint !== 'boolean') {
+      errors.push(`${f}/${item.id} 的 hasBlueprint 必须是布尔值或 null`);
+    }
+    for (const key of ['obtainSources', 'blueprintSources']) {
+      if (item[key] !== null && (!Array.isArray(item[key]) || item[key].some((value) => typeof value !== 'string'))) {
+        errors.push(`${f}/${item.id} 的 ${key} 必须是字符串数组或 null`);
+      }
+    }
+    for (const piece of item.pieces ?? []) {
+      if (piece.hasBlueprint !== null || piece.obtainSources !== null || piece.blueprintSources !== null) {
+        errors.push(`${f}/${item.id} 的套装部件不得填写护甲来源字段`);
+      }
+    }
+  }
+}
+
 // 武器的高级图纸必须指向真实武器
 const weaponIds = new Set((all.weapons ?? []).map((w) => w.id));
 for (const w of all.weapons ?? []) {

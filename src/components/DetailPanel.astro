@@ -317,6 +317,10 @@ const enemyConcepts = categorySlug === 'enemies' ? getEnemyConcepts(item.id) : [
                       : part.text)
                   ) : row.elementStyle ? (
                     <span class="element-value" style={row.elementStyle}>{row.value}</span>
+                  ) : ['armor', 'armor-pieces'].includes(categorySlug) && ['obtainSources', 'blueprintSources'].includes(row.key) && Array.isArray(row.rawValue) ? (
+                    <span class="tag-list">
+                      {row.rawValue.map((entry) => <span class="tag">{formatValue(row.key, entry)}</span>)}
+                    </span>
                   ) : (
                     row.value
                   )}

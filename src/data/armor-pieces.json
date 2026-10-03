@@ -2,9 +2,17 @@
   {
     "id": "pi-ge-jian-tou-xie",
     "name": "皮革尖头鞋",
-    "tier": null,
+    "tier": "T2+",
     "quality": "common",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "被诅咒的天文台"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 5,
     "protection": null,
     "durability": {
@@ -30,9 +38,16 @@
   {
     "id": "cao-mao",
     "name": "草帽",
-    "tier": null,
+    "tier": "T1+",
     "quality": "common",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 12,
     "protection": null,
     "durability": {
@@ -54,9 +69,13 @@
   {
     "id": "dong-mao",
     "name": "冬帽",
-    "tier": null,
+    "tier": "T2",
     "quality": "rare",
-    "obtain": "圣诞节掉落",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "圣诞节掉落"
+    ],
+    "blueprintSources": null,
     "armor": 30,
     "protection": null,
     "durability": {
@@ -69,9 +88,17 @@
   {
     "id": "da-dou-mao",
     "name": "大兜帽",
-    "tier": null,
+    "tier": "T2+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "被诅咒的天文台"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 35,
     "protection": null,
     "durability": {
@@ -97,9 +124,17 @@
   {
     "id": "ji-jian-fu",
     "name": "击剑服",
-    "tier": null,
+    "tier": "T2+",
     "quality": "common",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "被诅咒的天文台"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 58,
     "protection": null,
     "durability": {
@@ -125,9 +160,13 @@
   {
     "id": "zhong-xing-bu-bing-xue",
     "name": "重型步兵靴",
-    "tier": null,
+    "tier": "T5+",
     "quality": "unique",
-    "obtain": "英雄地下城",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "英雄地下城"
+    ],
+    "blueprintSources": null,
     "armor": 60,
     "protection": null,
     "durability": {
@@ -140,9 +179,14 @@
   {
     "id": "yi-shi-mian-ju",
     "name": "仪式面具",
-    "tier": null,
+    "tier": "T3+",
     "quality": "rare",
-    "obtain": "万圣节看守者棚屋",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "万圣节看守者棚屋",
+      "韦格劳废墟"
+    ],
+    "blueprintSources": null,
     "armor": 70,
     "protection": null,
     "durability": {
@@ -155,9 +199,14 @@
   {
     "id": "nan-gua-tou-kui",
     "name": "南瓜头盔",
-    "tier": null,
+    "tier": "T3+",
     "quality": "rare",
-    "obtain": "万圣节活动",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "万圣节活动",
+      "韦格劳废墟"
+    ],
+    "blueprintSources": null,
     "armor": 70,
     "protection": null,
     "durability": {
@@ -170,9 +219,18 @@
   {
     "id": "hu-jian-suo-zi-jia",
     "name": "护肩锁子甲",
-    "tier": null,
+    "tier": "T3+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "衰败摇篮",
+      "商人护送II"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 110,
     "protection": null,
     "durability": {
@@ -198,9 +256,17 @@
   {
     "id": "jiao-kui",
     "name": "角盔",
-    "tier": null,
+    "tier": "T6",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "衰败摇篮"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 115,
     "protection": null,
     "durability": {
@@ -230,9 +296,18 @@
   {
     "id": "hu-xin-jing-suo-zi-jia",
     "name": "护心镜锁子甲",
-    "tier": null,
+    "tier": "T4+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "衰败摇篮",
+      "商人护送III"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 150,
     "protection": null,
     "durability": {
@@ -262,9 +337,17 @@
   {
     "id": "ba-bu-ta-tou-kui",
     "name": "巴布塔头盔",
-    "tier": null,
+    "tier": "T6+",
     "quality": "rare",
-    "obtain": "红猎图纸",
+    "hasBlueprint": true,
+    "obtainSources": [
+      "红猎",
+      "商人护送IV"
+    ],
+    "blueprintSources": [
+      "红猎",
+      "图纸案例"
+    ],
     "armor": 160,
     "protection": null,
     "durability": {
@@ -290,9 +373,15 @@
   {
     "id": "tan-ma-de-kai-jia",
     "name": "探马的铠甲",
-    "tier": null,
+    "tier": "T5+",
     "quality": "unique",
-    "obtain": "英雄地下城",
+    "hasBlueprint": false,
+    "obtainSources": [
+      "英雄地下城",
+      "古墓",
+      "衰败摇篮"
+    ],
+    "blueprintSources": null,
     "armor": 200,
     "protection": null,
     "durability": {

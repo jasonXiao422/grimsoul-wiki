@@ -3,7 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import DataTable from '../../components/DataTable.astro';
 import { ARMOR_PIECES_TABLE, CATEGORIES } from '../../lib/categories';
-import { EXTRA_DATA, getCategoryBlurb, getListItems, type CategorySlug } from '../../lib/data';
+import { EXTRA_DATA, getCategoryBlurb, getListItems, getByPath, type CategorySlug } from '../../lib/data';
+import { FIELD_LABELS, formatValue } from '../../lib/display';
+import { tierRank } from '../../lib/tiers';
 
 export function getStaticPaths() {
   return CATEGORIES.filter((category) => !['orders', 'cabinets', 'surface-chests', 'fixed-buildings', 'skills'].includes(category.slug)).map((category) => ({
@@ -17,9 +19,36 @@ export function getStaticPaths() {
 
 const { category, items } = Astro.props;
 const armorPieces = category.slug === 'armor'
-  ? [...EXTRA_DATA['armor-pieces']].sort((a, b) => a.armor - b.armor || a.name.localeCompare(b.name, 'zh-Hans-CN'))
+  ? [...EXTRA_DATA['armor-pieces']].sort((a, b) => {
+      const rank = (tier: string | null | undefined) => {
+        if (!tier) return Number.POSITIVE_INFINITY;
+        const value = tierRank(tier);
+        return value < 0 ? Number.POSITIVE_INFINITY : value;
+      };
+      return rank(a.tier) - rank(b.tier)
+        || a.armor - b.armor
+        || a.name.localeCompare(b.name, 'zh-Hans-CN');
+    })
   : [];
 const isArmor = category.slug === 'armor';
+const armorFilterKeys = ['tier', 'quality', 'hasBlueprint', 'obtainSources', 'blueprintSources'];
+const armorFilterItems = [...items, ...armorPieces];
+const armorFilterOptions = (key: string) => {
+  const values = new Map<string, string>();
+  armorFilterItems.forEach((item) => {
+    const raw = getByPath(item, key);
+    const rawValues = Array.isArray(raw) ? raw : [raw];
+    rawValues.forEach((rawValue) => {
+      if (rawValue === null || rawValue === undefined || rawValue === '') return;
+      values.set(String(rawValue), formatValue(key, rawValue));
+    });
+  });
+  return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN'));
+};
+const armorFilterPlaceholder = (key: string) =>
+  ['hasBlueprint', 'obtainSources', 'blueprintSources'].includes(key)
+    ? FIELD_LABELS[key]
+    : `全部${FIELD_LABELS[key]}`;
 ---
 
 <BaseLayout title={category.label} description={`${category.label}资料列表`}>
@@ -52,15 +81,29 @@ const isArmor = category.slug === 'armor';
         </label>
       </div>
 
+      <div class="filter-bar armor-common-filters">
+        {armorFilterKeys.map((filterKey) => (
+          <label>
+            <span class="sr-only">{FIELD_LABELS[filterKey]}</span>
+            <select class="filter-select" data-armor-filter={filterKey} data-filter={filterKey}>
+              <option value="">{armorFilterPlaceholder(filterKey)}</option>
+              {armorFilterOptions(filterKey).map(([value, label]) => (
+                <option value={value}>{label}</option>
+              ))}
+            </select>
+          </label>
+        ))}
+      </div>
+
       <section class="armor-section" data-armor-section="sets" aria-labelledby="armor-sets-title">
         <div class="section-heading">
           <div>
             <p class="eyebrow">成套护甲</p>
             <h2 id="armor-sets-title">套装</h2>
           </div>
-          <span class="muted">{items.length} 套</span>
+          <span class="muted" data-armor-count>{items.length} 套</span>
         </div>
-        <DataTable category={category} items={items} externalSearchSelector="[data-armor-search]" />
+        <DataTable category={category} items={items} externalSearchSelector="[data-armor-search]" externalFilterSelector="[data-armor-filter]" hideFilters />
       </section>
 
       <section class="armor-section armor-pieces-section" data-armor-section="pieces" aria-labelledby="armor-pieces-title">
@@ -69,10 +112,12 @@ const isArmor = category.slug === 'armor';
             <p class="eyebrow">单件护甲</p>
             <h2 id="armor-pieces-title">散件</h2>
           </div>
-          <span class="muted">{armorPieces.length} 件</span>
+          <span class="muted" data-armor-count>{armorPieces.length} 件</span>
         </div>
-        <DataTable category={ARMOR_PIECES_TABLE} items={armorPieces} externalSearchSelector="[data-armor-search]" />
+        <DataTable category={ARMOR_PIECES_TABLE} items={armorPieces} externalSearchSelector="[data-armor-search]" externalFilterSelector="[data-armor-filter]" hideFilters />
       </section>
+
+      <p class="muted armor-search-empty" data-armor-empty hidden>没有找到符合条件的护甲。</p>
     </>
   ) : (
     <DataTable category={category} items={items} />
@@ -82,17 +127,46 @@ const isArmor = category.slug === 'armor';
 {isArmor && (
   <script>
     const initArmorTypeFilter = () => {
+    try {
     const typeFilter = document.querySelector<HTMLSelectElement>('[data-armor-type]');
     if (!typeFilter || typeFilter.dataset.initialized) return;
     typeFilter.dataset.initialized = 'true';
     const sections = [...document.querySelectorAll<HTMLElement>('[data-armor-section]')];
+    const search = document.querySelector<HTMLInputElement>('[data-armor-search]');
 
-    typeFilter?.addEventListener('change', () => {
-      const value = typeFilter.value;
+    const updateArmorView = () => {
+      const selectedType = typeFilter.value;
+      let visibleSections = 0;
       sections.forEach((section) => {
-        section.hidden = value !== 'all' && section.dataset.armorSection !== value;
+        const typeVisible = selectedType === 'all' || section.dataset.armorSection === selectedType;
+        const tableRoot = section.querySelector<HTMLElement>('[data-table-root]');
+        const rows = tableRoot ? [...tableRoot.querySelectorAll<HTMLTableRowElement>('[data-row]')] : [];
+        const visibleRows = rows.filter((row) => !row.hidden);
+        const count = section.querySelector<HTMLElement>('[data-armor-count]');
+        const suffix = section.dataset.armorSection === 'sets' ? '套' : '件';
+        if (count) count.textContent = `${visibleRows.length} ${suffix}`;
+        section.hidden = !typeVisible || visibleRows.length === 0;
+        if (typeVisible && visibleRows.length > 0) visibleSections += 1;
       });
-    });
+
+      const empty = document.querySelector<HTMLElement>('[data-armor-empty]');
+      if (empty) empty.hidden = visibleSections !== 0;
+    };
+
+    const safeUpdateArmorView = () => {
+      try {
+        updateArmorView();
+      } catch (error) {
+        console.error('[armor-filter] 更新失败', error);
+      }
+    };
+    typeFilter?.addEventListener('change', safeUpdateArmorView);
+    document.addEventListener('data-table:filtered', safeUpdateArmorView);
+    document.addEventListener('data-table:sorted', safeUpdateArmorView);
+    window.setTimeout(safeUpdateArmorView, 0);
+    } catch (error) {
+      console.error('[armor-filter] 初始化失败', error);
+    }
     };
     if (window.__onPageReady) window.__onPageReady(initArmorTypeFilter, 'armor-type-filter');
     else initArmorTypeFilter();

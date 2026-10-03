@@ -44,6 +44,9 @@ export const FIELD_LABELS: Record<string, string> = {
   upgradeOf: '高级图纸来源',
   tier: '品阶',
   obtain: '获取途径',
+  hasBlueprint: '有无图纸',
+  obtainSources: '实体获取途径',
+  blueprintSources: '图纸获取途径',
   quality: '品质',
   totalArmor: '总护甲',
   armor: '护甲',
@@ -92,6 +95,11 @@ function formatElement(value: Record<string, unknown>): string {
 
 export function formatValue(key: string, value: unknown): string {
   if (key === 'obtain' && (value === null || value === undefined || value === '' || value === 'N/A')) return '无需图纸制作';
+  if (key === 'hasBlueprint') {
+    if (value === true) return '有';
+    if (value === false) return '无';
+    return '/';
+  }
   if (key === 'isRanged' && typeof value === 'boolean') return value ? '远程武器' : '近战武器';
   if (value === null || value === undefined || value === '') return '无';
   if (Array.isArray(value)) return value.map((item) => formatValue(key, item)).join('、');

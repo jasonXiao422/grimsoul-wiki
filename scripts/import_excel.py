@@ -549,36 +549,80 @@ def build_weapons():
 
 
 def build_armor():
-    """套装行后面紧跟 5 件部件，靠名字里的『套装（T…级）』识别。"""
+    """按表头读取护甲表；套装行后面紧跟 5 件部件。"""
+    rows = cells_of("armor")
+    header_names = [text(cell.value) for cell in rows[0]]
+    protection_header = next(
+        (header for header in ("防护", "元素防护") if header in header_names),
+        None,
+    )
+    required_headers = [
+        "护甲", "护甲值", "耐久度", "制作", "特殊效果",
+        "有无图纸", "实体获取途径", "图纸获取途径",
+    ]
+    missing_headers = [header for header in required_headers if header not in header_names]
+    if protection_header is None:
+        missing_headers.append("防护/元素防护")
+    if missing_headers:
+        raise ValueError(f"护甲表缺少必需表头: {'、'.join(missing_headers)}")
+    column = {header: header_names.index(header) for header in required_headers}
+    column["防护"] = header_names.index(protection_header)
+
+    def split_sources(raw):
+        value = text(raw)
+        if not value or value == "无":
+            return None
+        parts = [part.strip() for part in re.split(r"[;；]", value) if part.strip()]
+        seen = set()
+        result = []
+        for part in parts:
+            if part not in seen:
+                seen.add(part)
+                result.append(part)
+        return result or None
+
+    def parse_has_blueprint(raw):
+        value = text(raw)
+        if value == "有":
+            return True
+        if value == "无":
+            return False
+        return None
+
     sets, standalone = [], []
     cur = None
-    for cells in cells_of("armor")[1:]:
+    for cells in rows[1:]:
         row = [c.value for c in cells]
-        name = text(row[1])
+        name = text(row[column["护甲"]])
         if not name:
             continue
-        is_set = "套装" in name and "级）" in name
-        entry_armor = parse_formula(row[2], f"护甲 {name}") if not isinstance(clean(row[2]), (int, float)) else clean(row[2])
-        quality = quality_from_fill(cells[1])
+        clean_name = re.sub(r"\s+", " ", name.strip())
+        set_tier_match = re.search(r"\s*（(T\d+\+?)级）$", clean_name)
+        is_set = "套装" in clean_name and bool(set_tier_match)
+        armor_value = row[column["护甲值"]]
+        entry_armor = parse_formula(armor_value, f"护甲 {name}") if not isinstance(clean(armor_value), (int, float)) else clean(armor_value)
+        quality = quality_from_fill(cells[column["护甲"]])
         common = {
-            "name": re.sub(r"\s+", "", name),
+            "name": clean_name,
             "quality": quality,
             "armor": entry_armor,
-            "protection": parse_element(row[3]),
-            "cost": parse_cost(row[5]),
-            "effect": text(row[6]),
+            "protection": parse_element(row[column["防护"]]),
+            "cost": parse_cost(row[column["制作"]]),
+            "effect": text(row[column["特殊效果"]]),
         }
         if is_set:
-            m = re.match(r"^(.+?)套装（(T[\d+]+)级）$", common["name"])
+            m = re.match(r"^(.+?)套装\s*（(T\d+\+?)级）$", common["name"])
             cur = {
                 "id": make_id(common["name"]),
                 "name": common["name"],
                 "tier": m.group(2) if m else None,
                 "quality": quality,
-                "obtain": text(row[7]) if len(row) > 7 else None,
+                "hasBlueprint": parse_has_blueprint(row[column["有无图纸"]]),
+                "obtainSources": split_sources(row[column["实体获取途径"]]),
+                "blueprintSources": split_sources(row[column["图纸获取途径"]]),
                 "totalArmor": common["armor"],
                 "protection": common["protection"],
-                "durability": parse_durability(row[4]),
+                "durability": parse_durability(row[column["耐久度"]]),
                 "cost": common["cost"],
                 "setEffect": common["effect"],
                 "pieces": [],
@@ -593,18 +637,25 @@ def build_armor():
                 "protection": common["protection"],
                 "cost": common["cost"],
                 "effect": common["effect"],
+                "hasBlueprint": None,
+                "obtainSources": None,
+                "blueprintSources": None,
             })
         else:
             cur = None
+            standalone_tier_match = re.search(r"\s*（(T\d+\+?)级）$", clean_name)
+            standalone_name = clean_name[:standalone_tier_match.start()].rstrip() if standalone_tier_match else clean_name
             standalone.append({
-                "id": make_id(common["name"]),
-                "name": common["name"],
-                "tier": None,
+                "id": make_id(standalone_name),
+                "name": standalone_name,
+                "tier": standalone_tier_match.group(1) if standalone_tier_match else None,
                 "quality": quality,
-                "obtain": text(row[7]) if len(row) > 7 else None,
+                "hasBlueprint": parse_has_blueprint(row[column["有无图纸"]]),
+                "obtainSources": split_sources(row[column["实体获取途径"]]),
+                "blueprintSources": split_sources(row[column["图纸获取途径"]]),
                 "armor": common["armor"],
                 "protection": common["protection"],
-                "durability": parse_durability(row[4]),
+                "durability": parse_durability(row[column["耐久度"]]),
                 "cost": common["cost"],
                 "effect": common["effect"],
             })

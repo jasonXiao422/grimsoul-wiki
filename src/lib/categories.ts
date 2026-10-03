@@ -33,6 +33,7 @@ export interface CategoryDef {
   /** 默认排序方向，缺省为 asc */
   defaultSortDir?: 'asc' | 'desc';
   detailPath?: (id: string, item: unknown) => string;
+  sourceHint?: boolean;
 }
 
 export const CATEGORIES: CategoryDef[] = [
@@ -64,10 +65,11 @@ export const CATEGORIES: CategoryDef[] = [
       { key: 'totalArmor', label: '总护甲', sortable: true, numeric: true },
       { key: 'protection', label: '元素防护', render: 'element' },
       { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-      { key: 'obtain', label: '获取途径', sortable: true },
+      { key: 'hasBlueprint', label: '有无图纸', sortable: true },
     ],
-    filters: ['tier', 'quality', 'obtain'],
+    filters: ['tier', 'quality', 'hasBlueprint', 'obtainSources', 'blueprintSources'],
     defaultSort: 'tier',
+    sourceHint: true,
   },
   {
     slug: 'shields',
@@ -258,12 +260,15 @@ export const ARMOR_PIECES_TABLE: CategoryDef = {
   file: 'armor-pieces',
   columns: [
     { key: 'name', label: '名称', sortable: true, render: 'quality' },
+    { key: 'tier', label: '品阶', sortable: true, render: 'tier' },
     { key: 'armor', label: '护甲', sortable: true, numeric: true },
+    { key: 'protection', label: '元素防护', render: 'element' },
     { key: 'durability', label: '耐久', sortable: true, numeric: true, render: 'durability' },
-    { key: 'obtain', label: '获取方式', sortable: true },
+    { key: 'hasBlueprint', label: '有无图纸', sortable: true },
   ],
-  filters: ['quality'],
-  defaultSort: 'armor',
+  filters: ['quality', 'hasBlueprint', 'obtainSources', 'blueprintSources'],
+  defaultSort: 'tier',
+  sourceHint: true,
 };
 
 /** 护甲散件单独存在 armor-pieces.json，不作为独立板块，只在搜索和材料反查里出现。 */
