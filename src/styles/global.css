@@ -1542,24 +1542,54 @@ p {
   min-width: 180px;
 }
 
+.item-link {
+  display: inline-flex;
+  width: fit-content;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-link strong,
+.entry-card strong,
+.lore-card strong,
+.scroll-card strong,
+.fixed-building-card-name,
+.upgradable-building-card-name,
+.cabinet-card-name,
+.order-card strong {
+  transition: color 0.12s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .item-link:hover strong,
+  .item-link:focus-visible strong,
+  .entry-card:hover strong,
+  .entry-card:focus-visible strong,
+  .lore-card:hover strong,
+  .lore-card:focus-visible strong,
+  .scroll-card:hover strong,
+  .scroll-card:focus-visible strong,
+  .fixed-building-card:hover .fixed-building-card-name,
+  .fixed-building-card:focus-visible .fixed-building-card-name,
+  .upgradable-building-card:hover .upgradable-building-card-name,
+  .upgradable-building-card:focus-visible .upgradable-building-card-name,
+  .cabinet-card:hover .cabinet-card-name,
+  .cabinet-card:focus-visible .cabinet-card-name,
+  .order-card:hover strong,
+  .order-card:focus-visible strong {
+    color: var(--accent) !important;
+  }
+}
+
 .item-name-with-source {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
 }
 
-td[data-source-cell] .item-name-with-source strong {
-  transition: color 0.12s ease;
-}
-
 td[data-source-cell].is-source-active .item-name-with-source strong {
   color: var(--accent) !important;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  td[data-source-cell] .item-name-with-source .item-cell:hover strong {
-    color: var(--accent) !important;
-  }
 }
 
 .item-icon {

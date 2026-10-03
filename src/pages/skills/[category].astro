@@ -71,7 +71,7 @@ const fallback =
               data-drop-by-level={JSON.stringify(skill.dropLocationsByLevel)}
             >
               <td>
-                  <a class="item-cell" href={getItemHref('skills', skill)}>
+                  <a class="item-cell item-link" href={getItemHref('skills', skill)}>
                   <img
                     class="item-icon quality-icon skill-icon"
                     src={`/images/skills/${skill.id}.webp`}
@@ -108,7 +108,7 @@ const fallback =
           return (
             <article class="skills-search-drop" data-skills-search-result data-skill-id={skill.id} hidden>
               <div class="skills-search-drop-heading">
-                <a class="item-cell" href={getItemHref('skills', skill)}>
+                  <a class="item-cell item-link" href={getItemHref('skills', skill)}>
                   <img
                     class="item-icon quality-icon skill-icon skill-search-drop-icon"
                     src={`/images/skills/${skill.id}.webp`}
