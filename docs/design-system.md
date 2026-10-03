@@ -28,6 +28,13 @@
 --tint-green: #16241f;      /* 仅用于背景渐变 */
 --tint-mist: #34423c;       /* 背景底部雾带的灰绿色，只用于全站背景 */
 
+/* 实体面板 */
+--surface-top: #26272b;
+--surface-bottom: #1d1e21;
+--surface-edge: rgba(0, 0, 0, 0.85);
+--surface-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+--surface-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.35);
+
 /* 立体感 */
 --card-fill: linear-gradient(180deg, color-mix(in srgb, var(--bg-panel) 92%, var(--accent-dim)) 0%, var(--bg-panel) 100%);
 --card-highlight: inset 0 1px 0 color-mix(in srgb, var(--accent-dim) 25%, transparent);
@@ -115,20 +122,22 @@
 主色调为深灰与暗金，墨绿只作为背景中的一抹渐变，不用于文字、边框和组件。
 
 - 底色保持深灰 var(--bg)
-- 叠加三层：顶部暗金光晕、一侧极淡的墨绿渐变、四周暗角
-- 墨绿通过变量 --tint-green 引入，只允许在背景渐变中使用
-- 不使用图片纹理
+- 背景随页面滚动，由三层径向渐变与 var(--bg) 底色组成
+- 墨绿通过变量 --tint-green 引入，灰绿色雾带通过 --tint-mist 引入，只允许在背景渐变中使用
+- 不使用颗粒纹理、固定背景层或背景图片
 
 ## 六、立体感
 
-入口卡片与图标框做出浮雕般的立体感，像嵌在书页上的金属铭牌。
+入口卡片、资料卡片与面板统一使用实体材质，像嵌在书页上的金属铭牌。
 
 - 填充：自上而下的轻微渐变，上方略亮、下方略暗
 - 高光：顶部 1px 内阴影，极淡的暗金
 - 投影：两层柔和投影，一层贴近、一层扩散，只用透明黑
 - 悬停：上移 2px，投影加深，边框变亮
 - 图标框：内凹效果，内阴影使图标像嵌在框里
-- 仅用于入口卡片、条目卡片和图标框，面板与正文区域不加立体效果
+- 面板填充使用 `linear-gradient(to bottom, var(--surface-top), var(--surface-bottom))`
+- 面板边框使用 1px `var(--surface-edge)`，高光与投影使用 `var(--surface-highlight)`、`var(--surface-shadow)`
+- 浮层、表格内部行与吸顶表头保持各自的毛玻璃或行背景规则
 
 ## 七、毛玻璃
 

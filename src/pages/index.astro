@@ -155,9 +155,9 @@ const heroImages = Object.keys(heroImageModules)
 
   <section>
     <h2 class="home-section-title">资料入口</h2>
-    <div class="grid">
+    <div class="grid home-entry-grid">
       {entryCards.map((category) => (
-        <EntryCard {...category} />
+        <EntryCard {...category} title={category.blurb} />
       ))}
     </div>
   </section>
